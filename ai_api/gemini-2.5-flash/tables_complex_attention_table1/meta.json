@@ -1,0 +1,27 @@
+{
+  "sample_id": "tables_complex_attention_table1",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:33:14",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 3,
+      "gen_seconds": 53.5,
+      "code_chars": 4103,
+      "compile_ok": false,
+      "error_snippet": "error: invalid floating point number: 2e\n   \u250c\u2500 ai_api/gemini/tables_complex_attention_table1/attempt_1.typ:73:10\n   \u2502\n73 \u2502       [#v(2ex)Deep-Att + PosUnk Ensemble], [], [40.4], [], [], [$8.0 dot 10^20$],\n   \u2502           ^^^\n   \u2502\n   = hint: invalid number suffix: x\n\nerror: invalid floating point number: 2.2e\n   \u250c\u2500 ai_api/gemini/tables_complex_attention_table1/attempt_1.typ:80:10\n   \u2502\n80 \u2502       [#v"
+    },
+    {
+      "n": 2,
+      "key_index": 4,
+      "gen_seconds": 19.0,
+      "code_chars": 4103,
+      "compile_ok": false,
+      "error_snippet": "downloading @preview/article:0.3.1\nerror: package not found (searched for @preview/article:0.3.1)\n  \u250c\u2500 ai_api/gemini/tables_complex_attention_table1/attempt_2.typ:1:8\n  \u2502\n1 \u2502 #import \"@preview/article:0.3.1\"\n  \u2502         ^^^^^^^^^^^^^^^^^^^^^^^^"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 72.5,
+  "finished": "2026-07-09T23:34:27"
+}

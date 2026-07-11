@@ -1,0 +1,27 @@
+{
+  "sample_id": "eq_hard_medium",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:43:49",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 4,
+      "gen_seconds": 9.4,
+      "code_chars": 208,
+      "compile_ok": false,
+      "error_snippet": "error: the character `^` is not valid in code\n  \u250c\u2500 ai_api/gemini/eq_hard_medium/attempt_1.typ:5:10\n  \u2502\n5 \u2502   (sum_k=1^n a_k b_k)^2 &<= (sum_k=1^n a_k^2) (sum_k=1^n b_k^2),\n  \u2502           ^\n\nerror: expected comma\n  \u250c\u2500 ai_api/gemini/eq_hard_medium/attempt_1.typ:5:12\n  \u2502\n5 \u2502   (sum_k=1^n a_k b_k)^2 &<= (sum_k=1^n a_k^2) (sum_k=1^n b_k^2),\n  \u2502             ^\n\nerror: expected comma\n  \u250c\u2500 ai_api/gemini/eq_"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 74.0,
+      "code_chars": 213,
+      "compile_ok": false,
+      "error_snippet": "error: unexpected argument\n  \u250c\u2500 ai_api/gemini/eq_hard_medium/attempt_2.typ:6:2\n  \u2502\n6 \u2502   $ = norm(vec(a))^2 norm(vec(b))^2 $\n  \u2502   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 83.4,
+  "finished": "2026-07-09T23:45:12"
+}

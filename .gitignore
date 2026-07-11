@@ -1,0 +1,27 @@
+# Environment / secrets
+.env
+__pycache__/
+*.pyc
+
+# Bulky generated binaries in data & results (regenerable via the pipeline)
+data/reference_pdfs/**/*.pdf
+data/reference_pdfs/**/*.aux
+data/reference_pdfs/**/*.log
+data/reference_pdfs/**/*.nav
+data/reference_pdfs/**/*.out
+data/reference_pdfs/**/*.snm
+data/reference_pdfs/**/*.toc
+results/**/*.pdf
+results/**/*.png
+ai_api/**/*.pdf
+ai_api/**/*.png
+logs/*.log
+# Keep report assets and built reports tracked:
+# assets/**  and  reports/*.pdf  are intentionally NOT ignored.
+
+# Mac
+.DS_Store
+
+# Local editor/agent settings
+.claude/
+.antigravity/ 

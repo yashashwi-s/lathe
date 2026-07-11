@@ -1,0 +1,27 @@
+{
+  "sample_id": "eq_simple_easy",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:51:12",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 4,
+      "gen_seconds": 16.3,
+      "code_chars": 306,
+      "compile_ok": false,
+      "error_snippet": "error: can only be used when context is known\n  \u250c\u2500 ai_api/gemini/eq_simple_easy/attempt_1.typ:7:13\n  \u2502\n7 \u2502     #h(1fr) #counter(page).display() #h(1fr)\n  \u2502              ^^^^^^^^^^^^^^^^^^^^^^^\n  \u2502\n  = hint: try wrapping this in a `context` expression\n  = hint: the `context` expression should wrap everything that depends on this function"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 79.3,
+      "code_chars": 314,
+      "compile_ok": false,
+      "error_snippet": "error: the character `#` is not valid in code\n  \u250c\u2500 ai_api/gemini/eq_simple_easy/attempt_2.typ:7:4\n  \u2502\n7 \u2502     #h(1fr) #counter(page).display() #h(1fr)\n  \u2502     ^\n\nerror: the character `#` is not valid in code\n  \u250c\u2500 ai_api/gemini/eq_simple_easy/attempt_2.typ:7:12\n  \u2502\n7 \u2502     #h(1fr) #counter(page).display() #h(1fr)\n  \u2502             ^\n\nerror: the character `#` is not valid in code\n  \u250c\u2500 ai_api/gemini/eq"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 95.6,
+  "finished": "2026-07-09T23:52:48"
+}

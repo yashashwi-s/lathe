@@ -1,0 +1,27 @@
+{
+  "sample_id": "paper_small_hard",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:38:58",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 1,
+      "gen_seconds": 77.2,
+      "code_chars": 429,
+      "compile_ok": false,
+      "error_snippet": "error: unknown variable: page-number\n  \u250c\u2500 ai_api/gemini/paper_small_hard/attempt_1.typ:5:13\n  \u2502\n5 \u2502     #h(1fr) #page-number() #h(1fr)\n  \u2502              ^^^^^^^^^^^\n  \u2502\n  = hint: if you meant to use subtraction, try adding spaces around the minus sign: `page - number`"
+    },
+    {
+      "n": 2,
+      "key_index": 3,
+      "gen_seconds": 6.2,
+      "code_chars": 439,
+      "compile_ok": false,
+      "error_snippet": "error: can only be used when context is known\n  \u250c\u2500 ai_api/gemini/paper_small_hard/attempt_2.typ:5:13\n  \u2502\n5 \u2502     #h(1fr) #counter(page).display() #h(1fr)\n  \u2502              ^^^^^^^^^^^^^^^^^^^^^^^\n  \u2502\n  = hint: try wrapping this in a `context` expression\n  = hint: the `context` expression should wrap everything that depends on this function"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 83.5,
+  "finished": "2026-07-09T23:40:21"
+}

@@ -1,0 +1,27 @@
+{
+  "sample_id": "cv_simple_easy",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:09:43",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 0,
+      "gen_seconds": 12.8,
+      "code_chars": 857,
+      "compile_ok": false,
+      "error_snippet": "warning: unknown font family: latin modern roman\n  \u250c\u2500 ai_api/gemini/cv_simple_easy/attempt_1.typ:1:16\n  \u2502\n1 \u2502 #set text(font: \"Latin Modern Roman\") // Matches LaTeX's default font (Computer Modern)\n  \u2502                 ^^^^^^^^^^^^^^^^^^^^\n\nerror: unknown variable: page-number\n  \u250c\u2500 ai_api/gemini/cv_simple_easy/attempt_1.typ:5:26\n  \u2502\n5 \u2502   footer: align(center, [#page-number]), // Page number at the"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 3.9,
+      "code_chars": 868,
+      "compile_ok": false,
+      "error_snippet": "warning: unknown font family: new computer modern roman\n  \u250c\u2500 ai_api/gemini/cv_simple_easy/attempt_2.typ:1:16\n  \u2502\n1 \u2502 #set text(font: \"New Computer Modern Roman\") // Corrected font name for Computer Modern in Typst\n  \u2502                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: function `page` does not contain field `number`\n  \u250c\u2500 ai_api/gemini/cv_simple_easy/attempt_2.typ:5:31\n  \u2502\n5 \u2502   footer: align(cente"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 16.8,
+  "finished": "2026-07-09T23:10:00"
+}

@@ -1,0 +1,27 @@
+{
+  "sample_id": "eq_hard_attention_eq1",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:42:08",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 1,
+      "gen_seconds": 93.1,
+      "code_chars": 1733,
+      "compile_ok": false,
+      "error_snippet": "error: the character `^` is not valid in code\n   \u250c\u2500 ai_api/gemini/eq_hard_attention_eq1/attempt_1.typ:12:52\n   \u2502\n12 \u2502   #text(\"Attention\")(Q, K, V) = #text(\"softmax\")((QK^T) / sqrt(d_k))V\n   \u2502                                                     ^\n\nerror: the character `#` is not valid in code\n   \u250c\u2500 ai_api/gemini/eq_hard_attention_eq1/attempt_1.typ:19:2\n   \u2502\n19 \u2502   #text(\"MultiHead\")(Q, K, V) &= #t"
+    },
+    {
+      "n": 2,
+      "key_index": 3,
+      "gen_seconds": 8.0,
+      "code_chars": 1734,
+      "compile_ok": false,
+      "error_snippet": "error: expected comma\n   \u250c\u2500 ai_api/gemini/eq_hard_attention_eq1/attempt_2.typ:12:51\n   \u2502\n12 \u2502   #text(\"Attention\")(Q, K, V) = #text(\"softmax\")((Q K^T) / sqrt(d_k))V\n   \u2502                                                    ^\n\nerror: the character `^` is not valid in code\n   \u250c\u2500 ai_api/gemini/eq_hard_attention_eq1/attempt_2.typ:12:53\n   \u2502\n12 \u2502   #text(\"Attention\")(Q, K, V) = #text(\"softmax\")((Q K^T) /"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 101.1,
+  "finished": "2026-07-09T23:43:49"
+}

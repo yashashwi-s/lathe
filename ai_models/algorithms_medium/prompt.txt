@@ -1,0 +1,28 @@
+You are converting a LaTeX document to Typst. Your primary goal is idiomatic, minimal, maintainable Typst code.
+Use Typst's semantic constructs wherever the original content maps onto them:
+
+table() / table.cell() for anything tabular
+grid() or stack() for multi-column or sequential layouts
+align(), heading(), figure() for structural elements
+Avoid place() with hardcoded dx/dy point values except where there is genuinely no semantic alternative. Avoid magic numbers.
+Output only valid Typst source. Add markdown backticks for easier copy paste, just the raw source code.
+
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+\begin{algorithm}
+\caption{Binary Search Validation}
+\begin{algorithmic}
+\If{$target = array[mid]$}
+    \State \textbf{return} $mid$
+\ElsIf{$target < array[mid]$}
+    \State $high \gets mid - 1$
+\Else
+    \State $low \gets mid + 1$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+\end{document}
+
+i want the exact same visual output. with good code quality. read the typs docs dont guess

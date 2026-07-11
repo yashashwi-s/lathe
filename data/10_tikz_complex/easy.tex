@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta}
+\begin{document}
+\begin{tikzpicture}[decoration={coil,aspect=0.3,segment length=2mm,amplitude=2mm}]
+\draw [decorate, -{Stealth[length=3mm]}] (0,0) -- (4,0);
+\node[above] at (2, 0.3) {Spring Force};
+\end{tikzpicture}
+\end{document}

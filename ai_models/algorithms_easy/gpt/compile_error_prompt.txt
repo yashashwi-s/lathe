@@ -1,0 +1,39 @@
+You previously generated this Typst code, but it failed to compile.
+Your objective is to fix the compilation error and return ONLY the raw, valid Typst code.
+Do not wrap it in markdown backticks. Do not add any conversational text.
+
+Here is the compilation error from the Typst compiler:
+=========================================
+error: unknown variable: total
+   ┌─ ai_models/algorithms_easy/gpt/output.typ:14:2
+   │
+14 │ [$total <- sum_(i = 1)^10 i$],
+   │   ^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `t o t a l`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"total"`
+
+
+=========================================
+
+Here is the broken Typst code you wrote:
+=========================================
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "New Computer Modern", size: 10pt)
+
+#show figure.where(kind: "algorithm"): set figure.caption(position: top)
+
+#figure(
+kind: "algorithm",
+supplement: [Algorithm],
+caption: [Simple Variable Assignment],
+block(inset: (left: 1.2em))[
+#stack(
+spacing: 0.4em,
+[$#text("counter") <- 0$],
+[$total <- sum_(i = 1)^10 i$],
+)
+],
+)
+
+=========================================

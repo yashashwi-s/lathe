@@ -1,0 +1,15 @@
+You are converting a LaTeX document to Typst. Your primary goal is idiomatic, minimal, maintainable Typst code.
+Use Typst's semantic constructs wherever the original content maps onto them:
+
+table() / table.cell() for anything tabular
+grid() or stack() for multi-column or sequential layouts
+align(), heading(), figure() for structural elements
+Avoid place() with hardcoded dx/dy point values except where there is genuinely no semantic alternative. Avoid magic numbers.
+Output only valid Typst source. Add markdown backticks for easier copy paste, just the raw source code.
+
+\documentclass{article}
+\begin{document}
+Recent advancements in large language models have demonstrated unprecedented capabilities across diverse natural language processing tasks. This rapid progress challenges traditional paradigms of linguistic analysis and demands robust evaluation frameworks to systematically assess model reasoning, factuality, and potential biases in zero-shot contexts.
+\end{document}
+
+i want the exact same visual output. with good code quality. read the typs docs dont guess

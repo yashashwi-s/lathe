@@ -1,0 +1,27 @@
+{
+  "sample_id": "tables_complex_hard",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:30:01",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 4,
+      "gen_seconds": 115.5,
+      "code_chars": 1380,
+      "compile_ok": false,
+      "error_snippet": "error: expected comma\n   \u250c\u2500 ai_api/gemini/tables_complex_hard/attempt_1.typ:22:16\n   \u2502\n22 \u2502       (column: 0..2, stroke: 0.5pt), // Corresponds to \\cmidrule(r){1-2}\n   \u2502                 ^\n\nerror: unexpected comma\n   \u250c\u2500 ai_api/gemini/tables_complex_hard/attempt_1.typ:22:35\n   \u2502\n22 \u2502       (column: 0..2, stroke: 0.5pt), // Corresponds to \\cmidrule(r){1-2}\n   \u2502                                    ^\n\ne"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 77.4,
+      "code_chars": 1361,
+      "compile_ok": false,
+      "error_snippet": "error: expected comma\n   \u250c\u2500 ai_api/gemini/tables_complex_hard/attempt_2.typ:22:17\n   \u2502\n22 \u2502       ((column: 0..2, stroke: 0.5pt), (column: 2..4, stroke: 0.5pt)) // Corresponds to \\cmidrule(r){1-2} and \\cmidrule(l){3-4}\n   \u2502                  ^\n\nerror: expected comma\n   \u250c\u2500 ai_api/gemini/tables_complex_hard/attempt_2.typ:22:48\n   \u2502\n22 \u2502       ((column: 0..2, stroke: 0.5pt), (column: 2..4, stroke: 0.5"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 192.9,
+  "finished": "2026-07-09T23:33:14"
+}

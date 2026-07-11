@@ -1,0 +1,27 @@
+{
+  "sample_id": "eq_hard_easy",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:45:13",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 3,
+      "gen_seconds": 10.4,
+      "code_chars": 428,
+      "compile_ok": false,
+      "error_snippet": "error: unexpected argument\n   \u250c\u2500 ai_api/gemini/eq_hard_easy/attempt_1.typ:11:2\n   \u2502\n11 \u2502   $2x - 2y + 4z = -2$,\n   \u2502   ^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "n": 2,
+      "key_index": 4,
+      "gen_seconds": 27.8,
+      "code_chars": 136,
+      "compile_ok": false,
+      "error_snippet": "error: module `math` does not contain `align`\n  \u250c\u2500 ai_api/gemini/eq_hard_easy/attempt_2.typ:2:6\n  \u2502\n2 \u2502 #math.align(\n  \u2502       ^^^^^"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 38.2,
+  "finished": "2026-07-09T23:45:51"
+}

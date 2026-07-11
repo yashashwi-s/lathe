@@ -1,0 +1,1 @@
+Yes, all text content from the original LaTeX document has been preserved in the Typst output.

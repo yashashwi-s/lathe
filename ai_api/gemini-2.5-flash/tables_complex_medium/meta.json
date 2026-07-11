@@ -1,0 +1,27 @@
+{
+  "sample_id": "tables_complex_medium",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:36:53",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 4,
+      "gen_seconds": 28.4,
+      "code_chars": 1654,
+      "compile_ok": false,
+      "error_snippet": "error: unknown variable: l\n   \u250c\u2500 ai_api/gemini/tables_complex_medium/attempt_1.typ:14:14\n   \u2502\n14 \u2502     columns: (l, l, r, r),\n   \u2502               ^"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 74.9,
+      "code_chars": 2381,
+      "compile_ok": false,
+      "error_snippet": "error: duplicate argument: columns\n   \u250c\u2500 ai_api/gemini/tables_complex_medium/attempt_2.typ:21:4\n   \u2502\n21 \u2502     columns: (auto, auto, auto, auto),\n   \u2502     ^^^^^^^"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 103.4,
+  "finished": "2026-07-09T23:38:37"
+}

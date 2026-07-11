@@ -1,0 +1,13 @@
+warning: unknown font family: latin modern roman
+  ┌─ ai_api/gemini/cv_simple_easy/attempt_1.typ:1:16
+  │
+1 │ #set text(font: "Latin Modern Roman") // Matches LaTeX's default font (Computer Modern)
+  │                 ^^^^^^^^^^^^^^^^^^^^
+
+error: unknown variable: page-number
+  ┌─ ai_api/gemini/cv_simple_easy/attempt_1.typ:5:26
+  │
+5 │   footer: align(center, [#page-number]), // Page number at the bottom center
+  │                           ^^^^^^^^^^^
+  │
+  = hint: if you meant to use subtraction, try adding spaces around the minus sign: `page - number`

@@ -1,0 +1,1 @@
+The relationship between mass and energy is defined as $E = mc^2$, where $c$ represents the speed of light in a vacuum.

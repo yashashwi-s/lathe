@@ -1,0 +1,27 @@
+{
+  "sample_id": "cv_complex_easy",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:08:41",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 2,
+      "gen_seconds": 12.3,
+      "code_chars": 687,
+      "compile_ok": false,
+      "error_snippet": "warning: unknown font family: latin modern roman\n  \u250c\u2500 ai_api/gemini/cv_complex_easy/attempt_1.typ:2:16\n  \u2502\n2 \u2502 #set text(font: \"Latin Modern Roman\") // Match default LaTeX font\n  \u2502                 ^^^^^^^^^^^^^^^^^^^^\n\nerror: can only be used when context is known\n   \u250c\u2500 ai_api/gemini/cv_complex_easy/attempt_1.typ:24:32\n   \u2502\n24 \u2502 #set page(footer: align(center, counter(page).display(\"1\")))\n   \u2502    "
+    },
+    {
+      "n": 2,
+      "key_index": 3,
+      "gen_seconds": 3.6,
+      "code_chars": 747,
+      "compile_ok": false,
+      "error_snippet": "warning: unknown font family: new computer modern roman\n  \u250c\u2500 ai_api/gemini/cv_complex_easy/attempt_2.typ:2:16\n  \u2502\n2 \u2502 #set text(font: \"New Computer Modern Roman\") // Changed font to one available in Typst, similar to Latin Modern Roman\n  \u2502                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: label `<enigma.gov>` does not exist in the document\n   \u250c\u2500 ai_api/gemini/cv_complex_easy/attempt_2.typ:18:13\n"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 15.8,
+  "finished": "2026-07-09T23:08:57"
+}

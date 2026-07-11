@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Evaluation Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .viewer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            flex-grow: 1;
+            min-height: 0;
+        }
+
+        .panel {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-height: calc(100vh - 150px);
+        }
+
+        .panel-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-container {
+            flex-grow: 1;
+            overflow: auto;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .engines-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .engine-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .engine-header {
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .engine-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .engine-image-container {
+            flex-grow: 1;
+            background: #fff;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .engine-image-container img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        select.rank-select {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select.rank-select:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-box {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
+            min-height: 60px;
+            margin-top: 1rem;
+            box-sizing: border-box;
+        }
+
+        .comment-box:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        button.btn-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        button.btn-danger:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        button.btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        button.btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+        
+        #loading {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading samples...</div>
+
+    <div class="container" id="app" style="display: none;">
+        <header>
+            <h1>LaTeX-to-Typst Human Eval</h1>
+            <div class="stats" id="stats">Remaining: 0 / 0</div>
+        </header>
+
+        <div class="viewer-grid">
+            <!-- Left: Reference -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Reference Image</span>
+                    <span id="current-sample-name" style="font-size: 0.8rem; color: var(--text-muted);"></span>
+                </div>
+                <div class="image-container">
+                    <img id="reference-img" src="" alt="Reference">
+                </div>
+            </div>
+
+            <!-- Right: Engines -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Generated Outputs</span>
+                    <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Select Rank (1st = Best)</span>
+                </div>
+                
+                <div class="engines-grid" id="engines-container">
+                    <!-- Engine cards injected via JS -->
+                </div>
+
+                <textarea id="comment-input" class="comment-box" placeholder="Optional comments on this sample..."></textarea>
+
+                <div class="actions">
+                    <button class="btn-danger" onclick="submitRubbish()">All are Rubbish</button>
+                    <button class="btn-primary" onclick="submitRating()">Submit & Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let samples = [];
+        let currentIndex = 0;
+        let totalCount = 0;
+
+        async function fetchSamples() {
+            const res = await fetch('/api/samples');
+            const data = await res.json();
+            samples = data.samples;
+            totalCount = data.total;
+            
+            document.getElementById('loading').style.display = 'none';
+            
+            if (samples.length === 0) {
+                document.getElementById('app').innerHTML = `
+                    <div style="text-align: center; margin-top: 20vh;">
+                        <h2 style="font-size: 2rem;">🎉 All Done!</h2>
+                        <p style="color: var(--text-muted)">You have rated all available samples.</p>
+                    </div>`;
+                document.getElementById('app').style.display = 'block';
+                return;
+            }
+            
+            document.getElementById('app').style.display = 'flex';
+            loadSample();
+        }
+
+        function loadSample() {
+            if (currentIndex >= samples.length) {
+                fetchSamples(); // reload to check if any remain
+                return;
+            }
+
+            const sample = samples[currentIndex];
+            
+            // Update stats
+            const remaining = samples.length - currentIndex;
+            document.getElementById('stats').textContent = `Remaining: ${remaining} / ${totalCount}`;
+            document.getElementById('current-sample-name').textContent = sample.id;
+
+            // Load Reference
+            document.getElementById('reference-img').src = `/results/${sample.id}/reference.png`;
+
+            // Load Engines
+            const container = document.getElementById('engines-container');
+            container.innerHTML = '';
+
+            // Clear comment
+            document.getElementById('comment-input').value = '';
+
+            const friendlyNames = {
+                'pandoc': 'Pandoc',
+                'tylax': 'Tylax',
+                'typetex_approx': 'TypeTeX',
+                'gemini': 'Gemini 2.5 Flash'
+            };
+
+            sample.engines.forEach(eng => {
+                const card = document.createElement('div');
+                card.className = 'engine-card';
+                card.innerHTML = `
+                    <div class="engine-header">
+                        <span class="engine-name">${friendlyNames[eng] || eng}</span>
+                        <select class="rank-select" data-engine="${eng}">
+                            <option value="">Rank...</option>
+                            <option value="1">1st Place</option>
+                            <option value="2">2nd Place</option>
+                            <option value="3">3rd Place</option>
+                            <option value="4">4th Place</option>
+                        </select>
+                    </div>
+                    <div class="engine-image-container">
+                        <img src="/results/${sample.id}/${eng}.png" alt="${eng}">
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function postRating(rankings, isRubbish) {
+            const sample = samples[currentIndex];
+            const comment = document.getElementById('comment-input').value;
+            
+            await fetch('/api/rate', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    sample: sample.id,
+                    rankings: rankings,
+                    is_rubbish: isRubbish,
+                    comment: comment
+                })
+            });
+
+            currentIndex++;
+            loadSample();
+        }
+
+        function submitRating() {
+            const selects = document.querySelectorAll('.rank-select');
+            const rankings = {};
+            let hasAnyRank = false;
+
+            selects.forEach(sel => {
+                if (sel.value) {
+                    rankings[sel.dataset.engine] = parseInt(sel.value);
+                    hasAnyRank = true;
+                }
+            });
+
+            if (!hasAnyRank) {
+                alert("Please rank at least one output, or mark 'All are Rubbish'.");
+                return;
+            }
+
+            postRating(rankings, false);
+        }
+
+        function submitRubbish() {
+            postRating({}, true);
+        }
+
+        // Init
+        fetchSamples();
+    </script>
+</body>
+</html>

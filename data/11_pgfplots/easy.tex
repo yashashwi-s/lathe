@@ -1,0 +1,10 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[grid=major, width=8cm, height=6cm]
+\addplot[domain=-5:5, samples=50, color=blue, thick] {sin(deg(x))};
+\end{axis}
+\end{tikzpicture}
+\end{document}

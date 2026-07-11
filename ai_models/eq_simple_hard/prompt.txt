@@ -1,0 +1,18 @@
+You are converting a LaTeX document to Typst. Your primary goal is idiomatic, minimal, maintainable Typst code.
+Use Typst's semantic constructs wherever the original content maps onto them:
+
+table() / table.cell() for anything tabular
+grid() or stack() for multi-column or sequential layouts
+align(), heading(), figure() for structural elements
+Avoid place() with hardcoded dx/dy point values except where there is genuinely no semantic alternative. Avoid magic numbers.
+Output only valid Typst source. Add markdown backticks for easier copy paste, just the raw source code.
+
+\documentclass{article}
+\begin{document}
+The Taylor series expansion of a real or complex-valued function $f(x)$ about the point $x=a$ is given by:
+\begin{equation}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n
+\end{equation}
+\end{document}
+
+i want the exact same visual output. with good code quality. read the typs docs dont guess

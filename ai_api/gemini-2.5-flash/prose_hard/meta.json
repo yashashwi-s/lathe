@@ -1,0 +1,27 @@
+{
+  "sample_id": "prose_hard",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:55:46",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 4,
+      "gen_seconds": 10.8,
+      "code_chars": 763,
+      "compile_ok": false,
+      "error_snippet": "error: unknown variable: blockquote\n   \u250c\u2500 ai_api/gemini/prose_hard/attempt_1.typ:15:1\n   \u2502\n15 \u2502 #blockquote[\n   \u2502  ^^^^^^^^^^"
+    },
+    {
+      "n": 2,
+      "key_index": 1,
+      "gen_seconds": 222.8,
+      "code_chars": 758,
+      "compile_ok": false,
+      "error_snippet": "error: cannot reference heading without numbering\n   \u250c\u2500 ai_api/gemini/prose_hard/attempt_2.typ:10:24\n   \u2502\n10 \u2502 As discussed in Section @sec:methodology, our approach leverages deep reinforcement learning#footnote[Specifically, Proximal Policy Optimization (PPO).] to align outputs with human preferences.\n   \u2502                         ^^^^^^^^^^^^^^^^\n   \u2502\n   = hint: you can enable heading numbering "
+    }
+  ],
+  "compiled": false,
+  "duration_s": 233.7,
+  "finished": "2026-07-09T23:59:40"
+}

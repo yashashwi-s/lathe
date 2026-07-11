@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={Time (s)},
+    ylabel={Voltage (V)},
+    legend pos=north west
+]
+\addplot[color=red, mark=square*] coordinates {
+    (0,0) (1,2.1) (2,3.5) (3,4.2) (4,4.8)
+};
+\addlegendentry{Experimental}
+\end{axis}
+\end{tikzpicture}
+\end{document}

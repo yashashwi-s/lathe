@@ -1,0 +1,22 @@
+You are converting a LaTeX document to Typst. Your primary goal is idiomatic, minimal, maintainable Typst code.
+Use Typst's semantic constructs wherever the original content maps onto them:
+
+table() / table.cell() for anything tabular
+grid() or stack() for multi-column or sequential layouts
+align(), heading(), figure() for structural elements
+Avoid place() with hardcoded dx/dy point values except where there is genuinely no semantic alternative. Avoid magic numbers.
+Output only valid Typst source. Add markdown backticks for easier copy paste, just the raw source code.
+
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+\section{Methodology}\label{sec:methodology}
+As discussed in Section~\ref{sec:methodology}, our approach leverages deep reinforcement learning\footnote{Specifically, Proximal Policy Optimization (PPO).} to align outputs with human preferences. 
+\subsection{Data Processing}
+The corpus is tokenized using \texttt{Byte-Pair Encoding} (BPE) with a vocabulary size of 50,257.
+\begin{quote}
+"Alignment remains one of the most critical open problems in modern artificial intelligence, bridging the gap between raw computational capability and safe, intended utility."
+\end{quote}
+\end{document}
+
+i want the exact same visual output. with good code quality. read the typs docs dont guess

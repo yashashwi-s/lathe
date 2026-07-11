@@ -1,0 +1,27 @@
+{
+  "sample_id": "posters_medium",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:19:18",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 7,
+      "gen_seconds": 19.4,
+      "code_chars": 524,
+      "compile_ok": false,
+      "error_snippet": "error: can only be used when context is known\n  \u250c\u2500 ai_api/gemini/posters_medium/attempt_1.typ:2:43\n  \u2502\n2 \u2502 #set page(footer: align(center, text(12pt, counter(page).display())))\n  \u2502                                            ^^^^^^^^^^^^^^^^^^^^^^^\n  \u2502\n  = hint: try wrapping this in a `context` expression\n  = hint: the `context` expression should wrap everything that depends on this function"
+    },
+    {
+      "n": 2,
+      "key_index": 0,
+      "gen_seconds": 11.8,
+      "code_chars": 525,
+      "compile_ok": false,
+      "error_snippet": "error: can only be used when context is known\n  \u250c\u2500 ai_api/gemini/posters_medium/attempt_2.typ:2:44\n  \u2502\n2 \u2502 #set page(footer: align(center, text(12pt)[#counter(page).display()]))\n  \u2502                                             ^^^^^^^^^^^^^^^^^^^^^^^\n  \u2502\n  = hint: try wrapping this in a `context` expression\n  = hint: the `context` expression should wrap everything that depends on this function"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 31.5,
+  "finished": "2026-07-09T23:19:49"
+}

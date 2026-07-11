@@ -1,0 +1,14 @@
+warning: unknown font family: latin modern roman
+  ┌─ ai_api/gemini/cv_complex_easy/attempt_1.typ:2:16
+  │
+2 │ #set text(font: "Latin Modern Roman") // Match default LaTeX font
+  │                 ^^^^^^^^^^^^^^^^^^^^
+
+error: can only be used when context is known
+   ┌─ ai_api/gemini/cv_complex_easy/attempt_1.typ:24:32
+   │
+24 │ #set page(footer: align(center, counter(page).display("1")))
+   │                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   │
+   = hint: try wrapping this in a `context` expression
+   = hint: the `context` expression should wrap everything that depends on this function

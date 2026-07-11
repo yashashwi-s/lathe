@@ -1,0 +1,8 @@
+error: can only be used when context is known
+  ┌─ ai_api/gemini/paper_small_hard/attempt_2.typ:5:13
+  │
+5 │     #h(1fr) #counter(page).display() #h(1fr)
+  │              ^^^^^^^^^^^^^^^^^^^^^^^
+  │
+  = hint: try wrapping this in a `context` expression
+  = hint: the `context` expression should wrap everything that depends on this function

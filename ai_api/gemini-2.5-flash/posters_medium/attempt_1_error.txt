@@ -1,0 +1,8 @@
+error: can only be used when context is known
+  ┌─ ai_api/gemini/posters_medium/attempt_1.typ:2:43
+  │
+2 │ #set page(footer: align(center, text(12pt, counter(page).display())))
+  │                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  │
+  = hint: try wrapping this in a `context` expression
+  = hint: the `context` expression should wrap everything that depends on this function

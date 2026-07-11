@@ -1,0 +1,27 @@
+{
+  "sample_id": "pgfplots_medium",
+  "model": "gemini-2.5-flash",
+  "with_image": true,
+  "started": "2026-07-09T23:21:58",
+  "attempts": [
+    {
+      "n": 1,
+      "key_index": 7,
+      "gen_seconds": 16.7,
+      "code_chars": 434,
+      "compile_ok": false,
+      "error_snippet": "downloading @preview/plot:2.0.0\nerror: package not found (searched for @preview/plot:2.0.0)\n   \u250c\u2500 ai_api/gemini/pgfplots_medium/attempt_1.typ:10:8\n   \u2502\n10 \u2502 #import \"@preview/plot:2.0.0\" as plot\n   \u2502         ^^^^^^^^^^^^^^^^^^^^^"
+    },
+    {
+      "n": 2,
+      "key_index": 0,
+      "gen_seconds": 13.8,
+      "code_chars": 519,
+      "compile_ok": false,
+      "error_snippet": "downloading @preview/plot:1.0.1\nerror: package not found (searched for @preview/plot:1.0.1)\n   \u250c\u2500 ai_api/gemini/pgfplots_medium/attempt_2.typ:10:8\n   \u2502\n10 \u2502 #import \"@preview/plot:1.0.1\" as plot // Changed package version to 1.0.1 to attempt to resolve \"package not found\" error.\n   \u2502         ^^^^^^^^^^^^^^^^^^^^^"
+    }
+  ],
+  "compiled": false,
+  "duration_s": 30.6,
+  "finished": "2026-07-09T23:22:28"
+}

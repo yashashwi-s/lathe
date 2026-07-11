@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+\begin{algorithm}
+\caption{Binary Search Validation}
+\begin{algorithmic}
+\If{$target = array[mid]$}
+    \State \textbf{return} $mid$
+\ElsIf{$target < array[mid]$}
+    \State $high \gets mid - 1$
+\Else
+    \State $low \gets mid + 1$
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+\end{document}

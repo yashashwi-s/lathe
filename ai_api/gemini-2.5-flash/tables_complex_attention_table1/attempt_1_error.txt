@@ -1,0 +1,15 @@
+error: invalid floating point number: 2e
+   ┌─ ai_api/gemini/tables_complex_attention_table1/attempt_1.typ:73:10
+   │
+73 │       [#v(2ex)Deep-Att + PosUnk Ensemble], [], [40.4], [], [], [$8.0 dot 10^20$],
+   │           ^^^
+   │
+   = hint: invalid number suffix: x
+
+error: invalid floating point number: 2.2e
+   ┌─ ai_api/gemini/tables_complex_attention_table1/attempt_1.typ:80:10
+   │
+80 │       [#v(2.2ex)Transformer (base model)], [27.3], [38.1], [], table.cell(colspan: 2, align: center, strong($3.3 dot 10^18$)),
+   │           ^^^^^
+   │
+   = hint: invalid number suffix: x
