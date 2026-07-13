@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<quiz>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Fancy Verbatim</text>
+  </category>
+</question>
+ 
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[LaTeX]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Pick up the code decorated with line numbering on both sides. </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p><PRE style="border-top: thin solid; border-bottom: thin solid"><CODE><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">2</span><mark>% !TEX TS-program = xelatex</mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">2</span><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">&nbsp;</span><mark></mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">&nbsp;</span><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">3</span><mark>\documentclass{article}</mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">3</span><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">4</span><mark>\usepackage[nostamp]{moodle}</mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">4</span><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">5</span><mark>\newif\iffvextra</mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">5</span><BR/></CODE></PRE></p>]]></text>
+    <feedback format="html"><text><![CDATA[<p>No. Here, line numbers lie on the left side.</p>]]></text></feedback>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p><PRE style="border-top: thin solid; border-bottom: thin solid"><CODE>% !TEX TS-program = xelatex<span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">6</span><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">7</span><BR/><mark>\documentclass{article}</mark><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">8</span><BR/>\usepackage[nostamp]{moodle}<span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">9</span><BR/>\newif\iffvextra<span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: left; float: right">10</span><BR/></CODE></PRE></p>]]></text>
+    <feedback format="html"><text><![CDATA[<p>No. Here, line numbers lie on the right side.</p>]]></text></feedback>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p><PRE style="border-top: thin solid; border-bottom: thin solid"><CODE><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">4</span><mark>\ifxetex % FOR XELATEX</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">5</span><mark> \usepackage{fontspec}</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">6</span>\else %% FOR PDFLATEX<BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">7</span>    \usepackage[utf8]{inputenc} % necessary<BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">8</span><mark>    \usepackage[T1]{fontenc} % necessary</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">9</span>\fi<BR/></CODE></PRE></p>]]></text>
+    <feedback format="html"><text><![CDATA[<p>yes!</p>]]></text></feedback>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[C]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><PRE style="border-top: thin solid; border-bottom: thin solid"><CODE><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">2</span><mark>#include &lt;stdio.h&gt;</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">3</span><mark>int main() {</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">4</span><mark>    char c=&apos;\0&apos;, *pc=&amp;c;</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">5</span><mark>    printf(&quot;Hello world!\n&quot;);</mark><BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">6</span>    return *pc;<BR/><span style="font-size: 80%; background-color: #f0f0f0; padding: 0 5px 0 5px; display: inline-block; width: 16pt; text-align: right">7</span>}<BR/></CODE></PRE> <BR/></p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>&ldquo;&test&quot;</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>&rsquo;toast&rsquo;</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>&lt;\(&lt;a&gt;\)&gt;</p>]]></text>
+  </answer>
+</question>
+ 
+</quiz>

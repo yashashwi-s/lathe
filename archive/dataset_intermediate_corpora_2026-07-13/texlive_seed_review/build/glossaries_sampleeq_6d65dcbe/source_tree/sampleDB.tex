@@ -1,0 +1,26 @@
+% This file is public domain
+% If you want to use arara, you need the following directives:
+% arara: pdflatex: { synctex: on }
+% arara: makeglossaries
+% arara: pdflatex: { synctex: on }
+%
+%http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.html#sampleDB
+\documentclass{article}
+
+\usepackage[colorlinks,plainpages=false]{hyperref}
+\usepackage[nonumberlist]{glossaries}
+
+\newglossary[nlg]{punc}{not}{ntn}{Punctuation Characters}
+
+\makeglossaries
+
+\loadglsentries{database1}
+\loadglsentries[punc]{database2}
+
+\begin{document}
+
+\glsaddall
+
+\printglossaries
+
+\end{document}

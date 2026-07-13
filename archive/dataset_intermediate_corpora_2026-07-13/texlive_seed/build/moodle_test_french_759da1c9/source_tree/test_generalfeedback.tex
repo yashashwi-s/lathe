@@ -1,0 +1,103 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage[french]{babel} % for french quotes
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of general feedback.
+
+\begin{quiz}[points=1]{General Feedback Test}
+\ifPDFTeX
+  \NoAutoSpacing% this option preserves pdflatex compilation
+\fi
+
+\begin{multi}[feedback={multi}]{Title}
+%\og abc\fg%\ae%\oe%
+\AA
+\item[feedback={tic}] \ae
+\item[feedback={tac}]* \oe
+\end{multi}
+
+\begin{shortanswer}[feedback={shortanswer}]{Title}
+%	%\og abc\fg%\ae%\oe
+\AA
+\item[feedback={toc}] B
+\item[feedback={\og\fg}] C
+\item[fraction=0] *
+\end{shortanswer}
+
+\begin{numerical}[feedback={numerical}]{Title}
+%	%\og abc\fg%\ae%\oe
+\AA
+\item[feedback={toc}] 1
+\item[feedback={\og\fg}] 2
+\item[fraction=0] 3
+\end{numerical}
+
+\begin{matching}[feedback={matching}]{Title}
+%\og abc\fg%\ae%\oe%
+\AA
+\item \ae \answer oui
+\item \oe \answer non
+\item \answer \AA
+\end{matching}
+
+\begin{essay}[feedback={essay}]{Title}
+%\og abc\fg%\ae%\oe%
+\AA
+\item \ae yo
+\item \oe
+\end{essay}
+
+\begin{cloze}[feedback={54}]{Cloze}
+\AA
+\begin{multi}[shuffle=false]
+\OE
+\item[]* chip
+\item[feedback={yes},fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+\fg
+\begin{shortanswer}
+\AA
+\item[feedback={toc}] B
+\item[feedback={\og\fg}] C
+\item[fraction=0] *
+\end{shortanswer}
+\og
+\begin{numerical}
+\AA
+\item[] 1
+\item[feedback={\og\fg}] 2
+\item[fraction=0] 3
+\end{numerical}
+\begin{multi}[shuffle=false,vertical]
+\OE
+\item[feedback={yes}]* chip
+\item[fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=false,horizontal]
+\OE
+\item[feedback={yes}]* chip
+\item[fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

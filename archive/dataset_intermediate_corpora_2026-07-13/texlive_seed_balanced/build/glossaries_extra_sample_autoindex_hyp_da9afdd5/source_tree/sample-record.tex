@@ -1,0 +1,51 @@
+% arara: pdflatex
+% arara: bib2gls
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage[record,% use bib2gls
+ stylemods,% load glossaries-extra-stylemods.sty
+ style=index]{glossaries-extra}
+
+\GlsXtrRecordCounter{section}
+
+% suppress the space that normally occurs before the locations:
+\renewcommand{\glsxtrprelocation}{}
+
+\GlsXtrLoadResources[
+   src={example-glossaries-brief},% entries defined in example-glossaries-brief.bib
+   sort={en-GB},% sort according to en-GB locale
+   %selection=all,% select all entries provided in the .bib file
+   loc-prefix={{, page},{, pages}},% prefix for location list
+   loc-suffix% suffix for location list
+ ]
+
+\begin{document}
+
+\section{Sample Section}
+\printunsrtglossaryunit[nonumberlist]{section}
+% or:
+%\printunsrtglossary*{\printunsrtglossaryunitsetup{section}%
+%  \renewcommand*{\glossarysection}[2][]{\subsection*{Summary}}%
+%}
+
+\gls{dolor}, \gls{amet}.
+
+Check first use flag for `amet': \ifglsused{amet}{used}{not used}.
+Check first use flag for `lorem': \ifglsused{lorem}{used}{not used}.
+`Lorem' unused or undefined? \GlsXtrIfUnusedOrUndefined{lorem}{yes}{no}.
+
+See \url{https://ctan.org/pkg/bib2gls} for converting
+\texttt{.bib} to \texttt{.glstex} files.
+
+\section{Another Section}
+\printunsrtglossaryunit[nonumberlist]{section}
+
+\glspl{lorem}, \gls{amet}.
+
+`Lorem' unused or undefined? \GlsXtrIfUnusedOrUndefined{lorem}{yes}{no}.
+
+\printunsrtglossary
+
+\end{document}

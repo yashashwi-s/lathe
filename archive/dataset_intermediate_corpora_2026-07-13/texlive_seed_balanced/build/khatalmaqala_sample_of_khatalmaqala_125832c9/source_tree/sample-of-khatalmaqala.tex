@@ -1,0 +1,56 @@
+\documentclass[12pt,a5paper]{article}
+\usepackage[a5paper,margin=1.5cm]{geometry}
+
+\usepackage{fontspec}
+\setmainfont[Script=Arabic]{khatalmaqala}
+
+\newcommand{\artxt}[1]{%
+{\fontspec[Script=Arabic]{khatalmaqala}%
+{\beginR #1}{\endR}}}
+
+\renewcommand{\baselinestretch}{1.2}
+
+
+\title{\textbf{khatalmaqala} font version 1.0.2}
+\author{Zain Ibn Abdalmatin}
+\date{Septemer 11 , 2023}
+\TeXXeTstate=1
+\newcommand{\arabicsample}{%
+لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة الظروف الأليمة، وأكرر بأنه لا يوجد من يرغب في الحب ونيل المنال ويتلذذ بالآلام، الألم هو الألم ولكن نتيجة لظروف ما قد تكمن السعاده فيما نتحمله من كد وأسي.
+\\ ٠١٢٣٤٥٦٧٨٩
+}
+
+\newcommand{\latinsample}{%
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ \\ 0123456789
+}
+
+
+\begin{document}
+\maketitle
+
+\section*{Regular}
+\artxt{\arabicsample}
+\\[10pt] 
+{\latinsample}
+\newpage
+
+\section*{Italic}
+\artxt{\itshape\arabicsample}
+\\[10pt] 
+{\itshape\latinsample}
+\newpage
+
+\section*{Bold}
+\artxt{\bfseries\arabicsample}
+\\[10pt] 
+{\bfseries\latinsample}
+\newpage
+
+\section*{Bold Italic}
+\artxt{\bfseries\itshape\arabicsample}
+\\[10pt] 
+{\bfseries\itshape\latinsample}
+\newpage
+
+\end{document}

@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02195\_table\_7}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}llll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{dat} (‘that’) & 1999 \\
+2. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 1779 \\
+3. & \textit{er} (‘there’) & 1370 \\
+4. & \textit{niet} (‘not’) & 969 \\
+5. & \textit{ik} (‘I’) & 729 \\
+6. & \textit{hebben} (‘have’) & 599 \\
+7. & \textit{blijkt} (‘turns out’) & 460 \\
+8. & \textit{om} (‘to’) & 434 \\
+9. & \textit{alle} (‘all’) & 409 \\
+10. & \textit{zijn} (‘are’, ‘be’, ‘his’) & 386 \\
+11. & \textit{vergeten} (‘forgotten’) & 385 \\
+12. & \textit{elk} (‘every’, \textsc{neut}) & 330 \\
+13. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 324 \\
+14. & \textit{ieder} (‘every’, \textsc{neut}) & 317 \\
+15. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 317 \\
+16. & \textit{door} (‘by’) & 315 \\
+17. & \textit{geen} (‘no’) & 294 \\
+18. & \textit{aan} (‘to’, \textsc{prep}) & 287 \\
+19. & \textit{veel} (‘a lot of’) & 281 \\
+20. & \textit{elke} (‘every’, \textsc{masc/fem}) & 280 \\
+21. & \textit{hier} (‘here’) & 280 \\
+22. & \textit{u} (‘you’, \textsc{form}) & 272 \\
+23. & \textit{daar} (‘there’) & 269 \\
+24. & \textit{op} (‘on’) & 268 \\
+25. & \textit{weinig} (‘a few’) & 268 \\
+26. & \textit{massa's} (‘masses’) & 262 \\
+27. & \textit{werkt} (‘works’) & 255 \\
+28. & \textit{deze} (‘this’, \textsc{masc/fem}) & 253 \\
+29. & \textit{worden} (‘become’) & 240 \\
+30. & \textit{jij} (‘you’, \textsc{inform}) & 238 \\
+31. & \textit{je} (‘you’, \textsc{inform}) & 226 \\
+32. & \textit{wordt} (‘becomes’) & 224 \\
+33. & \textit{waar} (‘where’) & 216 \\
+34. & \textit{een} (‘a’, ‘one’) & 213 \\
+35. & \textit{is} (‘is’) & 210 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02195\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}llll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{dat} (‘that’) & 1937 \\
+2. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 1829 \\
+3. & \textit{er} (‘there’) & 1353 \\
+4. & \textit{niet} (‘not’) & 929 \\
+5. & \textit{ik} (‘I’) & 714 \\
+6. & \textit{hebben} (‘have’) & 570 \\
+7. & \textit{om} (‘to’) & 448 \\
+8. & \textit{blijkt} (‘turns out’) & 422 \\
+9. & \textit{zijn} (‘are’, ‘be’, ‘his’) & 396 \\
+10. & \textit{vergeten} (‘forgotten’) & 389 \\
+11. & \textit{alle} (‘all’) & 354 \\
+12. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 330 \\
+13. & \textit{geen} (‘no’) & 330 \\
+14. & \textit{ieder} (‘every’, \textsc{neut}) & 315 \\
+15. & \textit{door} (‘by’) & 304 \\
+16. & \textit{elke} (‘every’, \textsc{masc/fem}) & 301 \\
+17. & \textit{u} (‘you’, \textsc{form}) & 294 \\
+18. & \textit{elk} (‘every’, \textsc{neut}) & 293 \\
+19. & \textit{aan} (‘to’, \textsc{prep}) & 278 \\
+20. & \textit{hier} (‘here’) & 276 \\
+21. & \textit{jij} (‘you’, \textsc{inform}) & 272 \\
+22. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 268 \\
+23. & \textit{daar} (‘there’) & 267 \\
+24. & \textit{op} (‘on’) & 259 \\
+25. & \textit{veel} (‘a lot of’) & 258 \\
+26. & \textit{weinig} (‘a few’) & 250 \\
+27. & \textit{je} (‘you’, \textsc{inform}) & 249 \\
+28. & \textit{massa's} (‘masses’) & 249 \\
+29. & \textit{deze} (‘this’, \textsc{masc/fem}) & 238 \\
+30. & \textit{een} (‘a’, ‘one’) & 236 \\
+31. & \textit{worden} (‘become’) & 233 \\
+32. & \textit{werkt} (‘works’) & 221 \\
+33. & \textit{wordt} (‘becomes’) & 209 \\
+34. & \textit{waar} (‘where’) & 207 \\
+35. & \textit{is} (‘is’) & 206 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,938 @@
+\documentclass[a4paper,10pt,frenchb]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[charter]{mathdesign}
+%\usepackage[scaled=0.875]{helvet}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{framed}
+\usepackage[svgnames]{xcolor}
+\usepackage[tikz]{bclogo}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}%style fancy
+\usepackage[margin=2.5cm,headheight=15pt]{geometry}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{pifont}
+\usepackage{lipsum}
+\usepackage{mflogo}
+\usepackage{longtable,microtype}
+\usepackage{url,lastpage}
+\definecolor{cPG}{RGB}{235, 227, 150}%
+\definecolor{link}{RGB}{150, 81, 0}%
+\definecolor{url}{rgb}{0, .3, .03}%
+\definecolor{vert}{RGB}{0,105,29}%
+\definecolor{bleu}{RGB}{78,88,169}%
+\usepackage[colorlinks, linkcolor=link,urlcolor=url]{hyperref}
+\usepackage{numprint,babel}
+%
+\pagestyle{fancyplain}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+%\lhead[\fancyplain{}{\slshape\thepage}]{\fancyplain{}{\slshape\rightmark}}
+%\rhead[\fancyplain{}{\slshape\leftmark}]{\fancyplain{}{\slshape\thepage}}
+%\lhead{\chaptername}
+\lhead{\rightmark}%
+\rhead{\textsl{bclogo v3.15}}%
+\lfoot{\footnotesize Maxime \textsc{Chupin} \& Patrick \textsc{Fradin}}%
+\cfoot{\footnotesize -- \url{https://gitlab.gutenberg-asso.fr/mchupin/bclogo} -- }%
+\rfoot{\thepage/\pageref{LastPage}}%
+
+%\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes}
+\definecolor{fbase}{gray}{0.95}%
+\newenvironment{gbar}[1]{%
+  \def\FrameCommand{{\color{#1}\vrule width 3pt}\colorbox{fbase}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}}%
+{\endMakeFramed}%
+
+\lstset{% general command to set parameter(s)
+    basicstyle=\small,          % print whole listing small
+    keywordstyle=\color{bleu}\ttfamily, %
+    breaklines        = true,
+                                % underlined bold black keywords
+%   identifierstyle=,
+    basicstyle=\ttfamily\footnotesize,          % nothing happens
+    commentstyle=\itshape\color{vert}, % white comments
+    stringstyle=\ttfamily,      % typewriter type for strings
+    showstringspaces=false,
+    language=[LaTeX]TeX,
+    defaultdialect=[LaTeX]TeX,
+    morekeywords={RequirePackage}
+}
+\lstdefinestyle{numbers}%
+    {numbers=left, stepnumber=1, numberstyle=\tiny, numbersep=10pt}%
+
+\newenvironment{enum}{%
+\begin{dingautolist}{202}}%
+{\end{dingautolist}}%
+
+\newenvironment*{Code}{%
+  \begin{bclogo}[margeG=1,logo=\bccrayon,couleurBarre=Gray,barre=wave,noborder]{Code}%
+}%
+{%
+\end{bclogo}
+}%
+
+\newenvironment*{demo}{%
+\VerbatimOut{toto.txt}%
+}%
+{%
+\endVerbatimOut%
+\begin{bclogo}[margeG=1,logo=\bccrayon,couleurBarre=Gray,barre=wave,noborder]{Code}%
+\begin{footnotesize}%
+\lstinputlisting{toto.txt}%
+\end{footnotesize}%
+\end{bclogo}%
+\noindent\textbf{Résultat}:\par\smallskip
+\input{toto.txt}%
+}%
+
+\newcommand*\cmd{\color{Maroon}}%
+
+\definecolor{cPG}{RGB}{235, 227, 150}%
+
+\title{\texttt{bclogo} version 3.15}
+\author{ Maxime \textsc{Chupin} et Patrick \textsc{Fradin}
+\footnote{Merci à tous ceux qui ont participé, entre autres, Jean-Côme \textsc{Charpentier},
+Ulrike \textsc{Fischer} et Manuel \textsc{Pégourié-Gonnard}\dots et
+plus particulièrement à François \textsc{Pétiard}}\\\url{notezik@gmail.com}}
+\date{10 janvier 2016}
+
+\begin{document}
+%% === Page de garde ===================================================
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]%
+  \node[below right, shift={(-4pt,4pt)}] at (current page.north west) {%
+    \includegraphics{fond.pdf}%
+  };
+\end{tikzpicture}%
+
+\noindent
+\includegraphics{bclogo}\\
+{\large Extension \LaTeX{} pour la réalisation de boîtes colorées
+  avec logos}\\[1cm]
+\parbox{0.6\textwidth}{
+  \includegraphics[width=5cm]{bc-crayon.mps}
+}\hfill
+\parbox{0.4\textwidth}{\Large\raggedleft
+  \textbf{Contributeurs}\\
+  Patrick \bsc{Fradin}\\
+  Maxime \textsc{Chupin}\\
+  \textbf{Email}\\
+  \url{notezik@gmail.com}
+}
+\vfill
+\begin{center}
+  Version 3.15 du 23 janvier 2024\\
+  \url{https://gitlab.gutenberg-asso.fr/mchupin/bclogo}\\
+\end{center}
+%% == Page de garde ====================================================
+\newpage
+
+\begin{abstract}
+Cette extension pour le format \LaTeX\ permet la création, via \texttt{Pstricks} ou \texttt{Tikz}, de boîtes
+colorées avec un logo, un titre et une couleur de fond. Depuis la
+version 3.0, \texttt{bclogo} se base sur l'extension \texttt{mdframed} (version 1.5 ou ultérieure) de
+Marco \bsc{Daniel} et Elke \bsc{Schubert} pour permettre aux boîtes
+de se couper lors de changement de page.
+\end{abstract}
+\vspace*{4cm}
+
+\begin{center}
+  Nous tenons à remercier Jean-Michel \bsc{Sarlat} pour la mise à
+  disposition des outils de développement sur le serveur Syracuse. C’est Jean-Michel qui m’a
+  fait découvrir \TeX{} et qui m’a permis de me lancer dans le développement de
+  mon premier package \LaTeX. 
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+\subsection{Présentation}
+
+Ce paquet a été créé pour faciliter la fabrication de boîtes colorées plus ou
+moins complexes disposant d'un titre, d'un logo et d'une couleur de fond pour une mise en relief du contenu.
+Depuis la version 2.0, \texttt{bclogo} s'appuie sur
+\texttt{Pstricks} \textbf{ou} sur \texttt{tikz}. Ce paquet utilise \texttt{xkeyval} pour la gestion des
+paramètres. Pour son bon fonctionnement, il est nécessaire d'avoir les extensions suivants
+installées sur votre machine:
+
+\begin{bclogo}[couleur=cPG, logo=\bcattention, cadreTitre=true, arrondi=0.1]{Les extensions \textit{indispensables}}%
+\begin{multicols}{2}
+\begin{enum}
+\item \verb+mdframed+ (coupure des boîtes, version 1.5 ou plus)
+\item \verb+graphicx+
+\item \verb+xkeyval+
+\item \verb+ifthen+
+\item \verb+ifpdf+
+\item \verb+etoolbox+
+\end{enum}
+\end{multicols}
+\noindent Si l'on utilise \texttt{Pstricks}
+\begin{multicols}{2}
+  \begin{enum}
+  \item \verb+Pstricks+
+  \item \verb+pst-grad+
+  \item \verb+pst-coil+
+  \item \verb+pst-blur+
+  \end{enum}
+\end{multicols}
+\noindent ou si l'on utilise \texttt{tikz}
+  \begin{enum}
+  \item \verb+tikz+ et ses librairies \texttt{shadows} et
+\texttt{decorations.pathmorphing}
+\end{enum}
+\end{bclogo}
+
+\subsection{Chargement du paquet et utilisation}
+
+Depuis la version 2.0 de \texttt{bclogo}, le chargement s'effectue avec deux
+options, soit on utilise \texttt{pstricks} (par défaut)\footnote{Sur un conseil
+d'Herbert \textsc{Voss} qui vérifie à chaque nouvelle version le code, merci à
+lui.} soit \texttt{tikz}. Ceci s'effectue dans le préambule du document
+\LaTeX{}:
+
+\medskip
+\hfil{\cmd\verb|\usepackage[tikz]{bclogo}|} ou {\cmd\verb|\usepackage[pstricks]{bclogo}|.}\hfil
+
+\medskip
+\noindent\textbf{Remarque}: La syntaxe {\cmd\verb|\usepackage{bclogo}|} est équivalente à {\cmd\verb|\usepackage[pstricks]{bclogo}|}.
+
+Quelle que soit l'option de chargement choisie, la syntaxe pour la création de boîtes est la même. Voici l'environnement pour réaliser une boîte (tous les réglages se font dans l'argument optionnel):
+\begin{Code}
+\begin{lstlisting}
+\begin{bclogo}[<options>]{Titre}
+  Corps de la boite...
+\end{bclogo}
+\end{lstlisting}
+\end{Code}
+
+Voici ce que donne les paramètres par défaut
+\begin{demo}
+\begin{bclogo}{Mon Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+
+\section{Réglages des couleurs}
+
+\subsection{Le fond et le texte}
+
+La couleur du fond (blanc par défaut) se définit avec l'option
+{\cmd\verb|couleur=<macouleur>|}, et la couleur du texte (noir par
+défaut) se définit avec l'option
+{\cmd\verb|couleurTexte=<couleur>|}. Il est préférable de ne pas fixer
+la couleur du texte dans l'environnement \emph{bclogo} car en cas de
+coupure de boîte (voir section~\ref{sec:coupure}), seule la première
+partie aura la bonne couleur.
+
+\subsection{Le bord}
+
+La couleur du cadre (noir par défaut) se définit avec l'option
+{\cmd\verb|couleurBord=<couleur>|}\footnote{Cette nouvelle option a
+  été créée sur la demande de Philippe \bsc{Fortemps}.}
+
+\subsection{La barre}
+
+La couleur de la barre (noir par défaut) se définit avec l'option
+{\cmd\verb|couleurBarre=<couleur>|}.
+
+Voici un exemple récapitulatif de la gestion des couleurs :
+\begin{demo}
+\begin{bclogo}[couleur=blue!20,couleurTexte=DarkRed,couleurBord=DarkRed,couleurBarre=DarkRed]{Mon
+    Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\section{Le bord}
+
+\subsection{\'Epaisseur du bord}
+
+On peut (depuis la version 2.24) régler l'épaisseur du trait de bord
+(\numprint[pt]{0.4} par défaut) grâce à l'option
+{\cmd\verb|epBord=<valeur>|} (attention, ne pas mettre d'unité). Par
+exemple:
+
+\begin{demo}
+\begin{bclogo}[epBord=2]{Mon titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{L'arrondi des coins}
+
+On règle la taille de l'arrondi avec l'option
+{\cmd\verb|arrondi=<valeur>|}\footnote{Avant la version 2.22, les
+  arrondis
+pstricks étaient relatifs, ils sont maintenant absolus.}. L'unité est
+le cm et ne doit pas figurer. Par défaut l'arrondi vaut $0$. Exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1]{Mon Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{Supprimer le bord}
+
+Par défaut, il y a un trait pour délimiter le bord de la boîte, on
+peut cependant choisir de ne pas en mettre avec l'option
+{\cmd\verb|noborder=true|} (par défaut elle est à \texttt{false}). Par
+exemple:
+
+\begin{demo}
+\begin{bclogo}[noborder=true,couleurBarre=DarkRed]{Mon
+    titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\section{Les marges}
+
+\subsection{Marge intérieure}
+
+On peut régler les marges entre le texte de la boîte et le bord avec
+l'option {\cmd\verb|marge=<entier>|}. Cette marge est définie en
+nombre de points, sa valeur par défaut est $3$ (ne pas mettre
+l'unité). Cette nouvelle option\footnote{Due à Patrick \textsc{Fradin}
+  sur une demande de Gaétan \textsc{Marris}} permet, entre autre, de
+prolonger le texte jusqu'à la marge droite de la page lorsque
+{\cmd\verb|noborder=true|} et que la marge extérieure droite est
+nulle. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[logo=\bccrayon,noborder=true,marge=0]{Mon titre}%
+\lipsum[2]
+\end{bclogo}
+\begin{bclogo}[logo=\bccrayon,marge=8]{Mon titre}%
+\lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\subsection{Marges extérieures}
+
+Il est possible de laisser une marge à gauche de la boîte et une marge
+à droite de la boîte. Ces marges sont nulles par défaut et peuvent
+être mofiées par les options {\cmd\verb|margeG=<valeur>|} et
+{\cmd\verb|margeD=<valeur>|}, l'unité est le centimètre et ne doit pas
+être précisée. Ces valeurs peuvent être négatives. Exemple:
+
+\begin{demo}
+\begin{bclogo}[margeG=-1,margeD=1,couleur=blue!30]{Modification marges}%
+  \lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\section{Le titre}
+
+\subsection{Styles de titre}
+
+Il y a deux styles de titre. Celui par défaut (ou avec la commande
+{\cmd\verb|cadreTitre=false|}) est celui utilisé pour les boîtes précédentes. On
+peut cependant le modifier grâce à la commande:
+
+\hfil{\cmd\verb|\renewcommand\bcStyleTitre[1]{\centering\large\textsl{#1}}|}\hfil
+
+Ce qui produit:
+\renewcommand\bcStyleTitre[1]{\centering\large\textsl{#1}}
+
+\begin{bclogo}[couleur=blue!30, arrondi=0.1]{Mon Titre}
+\lipsum[1]
+\end{bclogo}
+
+Par défaut, \verb+\bcStyleTitre+ est définie comme cela:
+
+\hfil{\cmd\verb|\renewcommand\bcStyleTitre[1]{\large\textbf{#1}}|}\hfil
+
+\renewcommand\bcStyleTitre[1]{\large\textbf{#1}}
+On peut alors s'amuser à toutes sortes de choses. En voici un exemple:
+
+\begin{demo}
+\renewcommand\bcStyleTitre[1]{\centering\tikz\node[fill=blue!20,starburst,draw=black]{#1};}%
+\begin{bclogo}[noborder]{Mon Titre}%
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\renewcommand\bcStyleTitre[1]{\large\textbf{#1}}
+
+Le second style, plus élaboré mais non modifiable, est un cadre avec un
+gradient de couleur \textit{gold}. Ceci  s'obtient avec l'option
+{\cmd\verb|cadreTitre=true|}.
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,cadreTitre]{Mon Titre}%
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{Sous-titre}
+
+Si on utilise le style de titre sans cadre (\textit{i.e.} le style par
+défaut) alors on peut définir un sous-titre grâce à la commande
+{\cmd\verb|sousTitre=<Monsous-titre>|}
+\footnote{Cette option a été mise en place sur la demande de Gaétan
+\textsc{Marris}}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,sousTitre=Sous-titre]{Mon Titre}%
+  \lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\noindent\textbf{Le style du sous-titre}: on peut redéfinir le style
+de sous-titre comme ceci:
+
+\hfil{\cmd\verb|\renewcommand\bcStyleSousTitre[1]{\hfill\textsl{#1}}|}\hfil
+
+\renewcommand\bcStyleSousTitre[1]{\hfill\textsl{#1}}
+
+On obtient alors:
+
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,sousTitre=Sous-titre]{Mon Titre}
+  \lipsum[2]
+\end{bclogo}
+
+Dans \texttt{bclogo}, \verb+\bcStyleSousTitre+ est définie comme ceci:
+
+\hfil{\cmd\verb|\newcommand\bcStyleSousTitre[1]{\normalsize\textit{#1}}|}\hfil
+
+\renewcommand\bcStyleSousTitre[1]{\normalsize\textit{#1}}
+
+Il faut juste se dire que l'on se trouve dans une case d'un tableau,
+ainsi des constructions plus complexes sont envisageables.
+
+Dans les versions antérieures à la
+version 3.0 de \texttt{bclogo}, la commande était
+\verb+\styleSousTitre+. Dans un soucis de rétrocompatibilité,
+celle-ci a le même effet.
+
+\section{Les logos}
+
+\subsection{Création de logos}
+
+C'est là que réside l'originalité de \texttt{bclogo}\dots{}  Pour la
+plupart des logos, je les ai dessinés avec \textit{Inkscape}.
+Pour d'autres, Patrick \bsc{Fradin} et Alphonse \bsc{Capriani} ont
+utilisé le
+super \TeX{}graph.
+
+Depuis la version 2.6\footnote{Dans les versions précédentes, deux
+  formats étaient utilisés, soit \texttt{eps}, soit
+  \texttt{pdf}. La conversion en masse a été réalisée grâce à
+  l'utilitaire \texttt{pstoedit}.}, on passe\footnote{Sur une
+  initiative de
+  François \bsc{Pétiard}.} par \MP{} pour générer des fichiers
+\texttt{.mps} qui sont interprétés en eps ou en pdf selon le mode dans
+lequel on se trouve (d'où la nécessité de l'extension \verb+ifpdf+).
+
+La création de logo est un travail amusant, ceux qui veulent y
+participer n'ont
+qu'à me contacter par mail (les logos sont définis avec une largeur de
+\numprint[pt]{17}, la
+hauteur est plus ou moins libre dans la mesure du raisonnable).
+Si vous souhaitez participer à l'élaboration de logos,  fournissez moi
+soit un fichier \MP{}, soit un fichier
+\texttt{eps}.
+
+Je remercie tout ceux qui participent à la création de logo et en particulier
+Alphonse \bsc{Capriani} et François \bsc{Pétiard} qui ont bien
+augmenté la collection.
+
+\subsection{Liste des logos}
+
+Le choix des drapeaux n'est pas délibéré, ce sont des contributions,
+vous pouvez bien sûr augmenter la collection !
+
+\begin{longtable}{cccc}
+  Nom & Commande & Image & Auteur \\\hline\endhead
+  \hline                         &&&\hfill suite\dots\\\endfoot
+  \hline&&&\endlastfoot
+  la fleur& \verb+\bcfleur+ & \bcfleur & Maxime \bsc{Chupin}\\
+  \og{}en chantier\fg{}&\verb+\bcpanchant+&\bcpanchant&Jean-Michel
+  \textsc{Sarlat}\\
+  la note&\verb+\bcnote+&\bcnote&Thomas \textsc{Labarussias}\\
+  l'étoile& \verb+\bcetoile+&\bcetoile& Maxime \bsc{Chupin}\\
+  l'ourson& \verb+\bcours+&\bcours&"\\
+  \og{}attention\fg{}&\verb+\bcattention+&\bcattention& "\\
+  le c\oe{}ur&\verb+\bccoeur+&\bccoeur&"\\
+  ornement&\verb+\bcorne+&\bcorne&"\\
+  danger&\verb+\bcdanger+&\bcdanger&François \textsc{Boerkmann}\\
+  smiley heureux&\verb+\bcsmbh+&\bcsmbh&"\\
+  smiley malheureux&\verb+\bcsmmh+&\bcsmmh&"\\
+  take care&\verb+\bctakecare+&\bctakecare&Patrick \textsc{Fradin}\\
+  la lampe& \verb+\bclampe+&\bclampe&"\\
+  le livre&\verb+\bcbook+&\bcbook&"\\
+  le trèfle&\verb+\bctrefle+&\bctrefle&Maxime \bsc{Chupin}\\
+  le point d'interrogation&\verb+\bcquestion+&\bcquestion&"\\
+  le crayon& \verb+\bccrayon+&\bccrayon&Anne-Sophie
+  \textsc{Philippe}\\
+  le pique de \LaTeX{}&\verb+\bcspadesuit+&\bcspadesuit&\LaTeX\\
+  logo info&\verb+\bcinfo+&\bcinfo&Thomas \textsc{Labarussias}\\
+  la plume& \verb+\bcplume+&\bcplume& Maxime \bsc{Chupin}\\
+  la bombe& \verb+\bcbombe+&\bcbombe&Alphonse \bsc{Capriani}\\
+  le cube&\verb+\bccube+&\bccube&"\\
+  le dodécaèdre&\verb+\bcdodecaedre+&\bcdodecaedre&"\\
+  l'icosaèdre&\verb+\bcicosaedre+&\bcicosaedre&"\\
+  l'octaèdre&\verb+\bcoctaedre+&\bcoctaedre&"\\
+  le tétraèdre&\verb+\bctetraedre+&\bctetraedre&"\\
+  l'Allemagne&\verb+\bcdallemagne+&\bcdallemagne&"\\
+  l'Autriche&\verb+\bcdautriche+&\bcdautriche&François \bsc{Pétiard}\\
+  la Belgique&\verb+\bcdbelgique+&\bcdbelgique&Alphonse
+  \bsc{Capriani}\\
+  la Bulgarie&\verb+\bcdbulgarie+&\bcdbulgarie&François
+  \bsc{Pétiard}\\
+  la France&\verb+\bcdfrance+&\bcdfrance&Alphonse
+  \bsc{Capriani}\\
+  l'Italie&\verb+\bcditalie+&\bcditalie&"\\
+  le Luxembourg&\verb+\bcdluxembourg+&\bcdluxembourg&François
+  \bsc{Pétiard}\\
+  les Pays-Bas&\verb+\bcdpaysbas+&\bcdpaysbas&Alphonse
+  \bsc{Capriani}\\
+  le soleil&\verb+\bcsoleil+&\bcsoleil&"\\
+  l'éclaircie&\verb+\bceclaircie+&\bceclaircie&"\\
+  la pluie&\verb+\bcpluie+&\bcpluie&"\\
+  la neige&\verb+\bcneige+&\bcneige&"\\
+  le sens interdit&\verb+\bcinterdit+&\bcinterdit&"\\
+  le poisson&\verb+\bcpoisson+&\bcpoisson&"\\
+  l'horloge&\verb+\bchorloge+&\bchorloge&"\\
+  le calendrier&\verb+\bccalendrier+&\bccalendrier&"\\
+  la rose des vents&\verb+\bcrosevents+&\bcrosevents&"\\
+  le yin et le yang&\verb+\bcyin+&\bcyin&"\\
+  danger glissant&\verb+\bcdz+&\bcdz&Vincent \bsc{Pantaloni}\\
+  le vélo&\verb+\bcvelo+&\bcvelo&François \bsc{Pétiard}\\
+  le \emph{peace and love}&\verb+\bcpeaceandlove+&\bcpeaceandlove&"\\
+  l'\oe il&\verb+\bcoeil+&\bcoeil&"\\
+  le nucléaire& \verb+\bcnucleaire+&\bcnucleaire&"\\
+  la femme&\verb+\bcfemme+&\bcfemme&"\\
+  l'homme&\verb+\bchomme+&\bchomme&"\\
+  la loupe&\verb+\bcloupe+&\bcloupe&"\\
+  le recyclage&\verb+\bcrecyclage+&\bcrecyclage&"\\
+  le valet de c\oe ur&\verb+\bcvaletcoeur+&\bcvaletcoeur&"\\
+  la clé&\verb+\bccle+&\bccle&"\\
+  la clé de fa&\verb+\bcclefa+& \bcclefa&"\\
+  la clé de sol&\verb+\bcclesol+&\bcclesol&"\\
+  le feu vert&\verb+\bcfeuvert+&\bcfeuvert&"\\
+  le feu jaune&\verb+\bcfeujaune+&\bcfeujaune&"\\
+  le feu rouge&\verb+\bcfeurouge+&\bcfeurouge&"\\
+  le feu tricolore&\verb+\bcfeutricolore+&\bcfeutricolore&"\\
+  l'outil&\verb+\bcoutil+&\bcoutil&"\\
+  le trombone&\verb+\bctrombone+&\bctrombone&"
+\end{longtable}
+
+Par exemple,
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30, arrondi=0.1, logo=\bctrefle]{Mon Titre}
+  \lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\noindent\textbf{Remarque}: on peut se définir soi-même de nouvelles
+commandes de logo sans pour autant que
+ces logos soient disponibles dans \verb+bclogo+. Par exemple, pour obtenir le
+\emph{c\oe{}ur} de \LaTeX{} $\heartsuit$, il suffit de définir dans le
+préambule de document la commande:
+
+\hfil{\cmd\verb|\newcommand\bcheartsuit{\centering \huge $\heartsuit$}|}\hfil
+
+Ceci donnera le même résultat que pour le pique \LaTeX{} (attention
+\verb+\bcheartsuit+ n'est pas définie dans \verb+bclogo+).
+
+On peut aussi faire ceci pour un code \verb+pstricks+, \verb+pgf+, une
+image\dots{} Voici trois exemples illustrant respectivement les trois cas
+mentionnés:
+
+\begin{Code}
+\begin{lstlisting}
+% mon logo code pstricks
+\newcommand\monlogopst{\begingroup \input{monlogo.pst}\endgroup}
+% mon logo code pgf
+\newcommand\monlogopgf{\begingroup \input{monlogo.pgf}\endgroup}
+% mon image
+\newcommand\monimage{\includegraphics[width=17pt]{monimage}}
+\end{lstlisting}
+\end{Code}
+
+\subsection{Taille des logos}
+
+On peut redéfinir la taille des logos en largeur. Par défaut celle-ci est de
+\numprint[pt]{17}. Cette redéfinition s'effectue de la manière
+suivante: {\cmd\verb|\setlength{\logowidth}{<valeur>pt}|}.
+
+Par exemple, une redéfinition à \numprint[pt]{10} donnera:
+
+\setlength{\logowidth}{10pt}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1]{Mon Titre}
+  \lipsum[2]
+\end{bclogo}
+\setlength{\logowidth}{17pt}
+
+\section{L'ombre}
+
+La gestion de l'ombre se règle comme les autres options. Par défaut, il n'y en
+a pas (la valeur \texttt{ombre} vaut \texttt{false}). On active l'ombre avec la
+commande {\cmd\verb|ombre=true|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,ombre=true]{Mon Titre}
+  \lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\subsection{Paramètres de l'ombre}
+
+\noindent\textbf{Épaisseur}: on règle l'épaisseur de l'ombre avec la
+commande {\cmd\verb|epOmbre=<valeur en cm>|}. La valeur par défaut est
+de \numprint[cm]{0.2}.
+
+\noindent\textbf{Couleur}: on règle la couleur avec la commande
+{\cmd\verb|couleurOmbre=<couleur>|}. La valeur par défaut est
+\texttt{black!30}.
+
+Voici un exemple illustrant les deux options:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,ombre=true,epOmbre=0.25,
+  couleurOmbre=black!30]{Mon Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+\subsection{\label{blur}Le paramètre \texttt{blur}}
+
+
+L'utilisation de cette option ne diffère pas selon \texttt{tikz} ou
+\texttt{pstricks}. On procède de la façon suivante:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,ombre=true,
+  couleurOmbre=black!30,blur]{Mon Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+\section{La barre}
+
+La syntaxe générale de commande du style de barre est {\cmd\verb|barre=<style>|}.
+
+\subsection{La barre droite}
+
+Par défaut, on a une barre verticale droite comme dans tous les exemples
+précédents (la commande est {\cmd\verb|barre=line|}).
+
+\noindent\textbf{Épaisseur}: on peut régler l'épaisseur de la barre
+grâce à la commande {\cmd\verb|epBarre=<valeur en pt>|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,epBarre=3.5]{Mon
+    Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+Par défaut cette valeur est de \numprint[pt]{1.5}.
+
+\subsection{La barre «zigzag»}
+
+Ce style de barre s'obtient avec la commande
+{\cmd\verb|barre=<zigzag>|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=zigzag]{Mon
+    Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{La barre «snake»}
+Ce style de barre s'obtient avec la commande
+{\cmd\verb|barre=<snake>|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=snake]{Mon
+    Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+\subsection{Réglages  pour «snake» et «zigzag»}
+
+Pour ces deux styles de barre, on règle la taille (ou amplitude) de
+l'ondulation avec la commande {\cmd\verb|tailleOndu=<valeur en pt>|}.
+C'est la
+taille d'\textbf{une} ondulation. Par défaut la valeur est de
+$2.5$. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=snake,
+  tailleOndu=1.5]{Mon Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+\subsection{Répétition d'un «motif»}
+
+Cette fonction permet de répéter verticalement un motif quelconque à
+la place de la barre verticale. Ceci s'obtient avec la commande
+{\cmd\verb|barre=motif|}
+et se \textbf{couple} avec la commande
+{\cmd\verb|motifBarre=<motif>|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=motif,
+  motifBarre=$\star$]{Mon Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+Si je dispose d'une image personnelle, par exemple
+\texttt{spir.mps}\footnote{Ici, j'utilise un \texttt{.mps} mais un
+  utilisateur de \texttt{latex} peut très bien utiliser un
+  \texttt{eps} et un utilisateur de \texttt{pdflatex} peut très  bien
+  utiliser un \texttt{jpg},
+  \texttt{pdf}\dots} \includegraphics{spir}, il suffit de mettre:
+
+\hfil{\cmd\verb+motifBarre=\includegraphics{spir}+}.\hfil
+
+Ceci donne:
+
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=motif,
+  motifBarre=\includegraphics{spir}]{Mon Titre}
+  \lipsum[3]
+\end{bclogo}
+
+Un autre exemple pour donner des idées\dots
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,
+  barre=motif,motifBarre={\includegraphics[width=8pt]{bc-inter}}]{Mon
+    Titre}
+  \lipsum[3]
+\end{bclogo}
+\end{demo}
+
+\subsection{Image personnelle «étendue»}
+
+Si je dispose d'une image, par exemple \texttt{brace.mps}\footnote{Comme
+précédemment, les utilisateurs de \LaTeX{} peuvent utiliser une image
+eps et ceux de pdf\LaTeX{} peuvent utiliser une image pdf.} (image
+normalement verticale): \includegraphics[angle=90]{brace}
+grâce à la commande {\cmd\verb|barre=imageExt|} couplée avec
+{\cmd\verb|imageBarre=brace|}, je l'obtiens «étirée» à la place de la
+barre verticale. Par exemple\footnote{On note l'utilisation de
+  l'option {\color{Maroon}\texttt{nobreak}} ce qui empêche la coupure
+  de la boîte et
+  par conséquence la répétition de l'image dans les différentes
+  parties. Pour plus de détails sur cette option, allez voir la
+  section~\ref{sec:coupure}}:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=imageExt,
+  imageBarre=brace,nobreak=true]{Mon Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{Image personnelle «clippée»}
+
+Si on dispose d'une image (assez longue de préférence),
+grâce à la commande {\cmd\verb|barre=imageClip|} couplée encore une
+fois avec la commande {\cmd\verb|imageBarre=<monimage>|}, on obtient à
+la place de la barre verticale, l'image «tronquée». Exemple avec
+l'image \texttt{losanges.mps} ci-dessous (image normalement
+verticale):
+
+\noindent\includegraphics[angle=90,viewport=0 0 17 \linewidth,clip]{losanges}
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=imageClip,
+  imageBarre=losanges]{Mon Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\subsection{Pour les utilisateurs de \emph{mathdesign}}
+
+Si on utilise une police \textit{mathdesign}, alors on a accès à une barre
+ondulée, faite avec un glyphe répété verticalement, grâce à la commande
+{\cmd\verb|barre=wave|}. Voici un exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=wave]{Mon
+    Titre}
+  \lipsum[2]
+\end{bclogo}
+\end{demo}
+
+\subsection{Pas de barre}
+
+Si on ne veut pas de barre verticale sur le côté, il suffit d'utiliser
+la commande {\cmd\verb|barre=none|}. Par exemple:
+
+\begin{demo}
+\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=\bcquestion,barre=none]{Mon
+    Titre}
+  \lipsum[1]
+\end{bclogo}
+\end{demo}
+
+\section{Coupure ou pas coupure?}\label{sec:coupure}
+
+Depuis la version 3.0, bclogo utilise le paquet \emph{mdframed}
+(version 1.5 ou ultérieure) qui autorise les coupures de boîtes en fin
+de page (ce qui n'était pas le cas auparavant). Le paquet
+\emph{mdframed} propose des macros permettant d'ajouter du code
+personnel pour l'affichage des boîtes, c'est ainsi que sont ajoutés le
+titre avec son logo, et la barre.
+
+\begin{demo}
+\begin{bclogo}[logo=\bcplume,couleur=PaleGoldenrod,ombre,epBord=0.8,barre=wave,%
+  couleurBarre=black]{Exemple de coupure}%
+  \lipsum[1-13]
+\end{bclogo}
+\end{demo}
+
+Depuis la version 0.9, \emph{mdframed} propose une option empêchant la
+coupure de la boîte, cette option est valable avec l'environnement
+\emph{bclogo}, c'est l'option {\cmd\verb|nobreak=true/false|}. Par
+défaut sa valeur est \texttt{false}, ce qui autorise les coupures,
+pour les empêcher, il suffit de taper {\cmd\verb|nobreak|} ou bien
+{\cmd\verb|nobreak=true|}\footnote{Cette option peut être utile
+  lorsque l'on utilise des images étendues à la place de la barre
+  verticale, en effet lors d'une coupure, celles-ci seraient alors
+  répétées.}.
+
+
+Si votre version de \emph{mdframed} est antérieure à la 1.5, il vous
+faudra la mettre à jour en téléchargeant la dernière version (archive
+Zip) sur le
+CTAN\footnote{\url{http://mirror.ctan.org/macros/latex/contrib/mdframed/}}.
+
+\section{Liste des boîtes}
+
+On peut, comme avec \verb+\tableofcontents+, lister les boîtes
+utilisées dans le document et ce grâce à la commande
+{\cmd\verb|\listofbclogo|}.
+
+Les noms affichés dans la liste sont les différents titres des boîtes
+et, si on utilise le package \verb+hyperref+, cette liste est
+«cliquable» et permet le transport dans le document\footnote{Ce
+  transport est maintenant mieux géré (version 2.21) grâce à François
+  \textsc{Pétiard}}. Par exemple dans ce document la liste donne (ici
+j'utilise un \texttt{multicols} pour l'affichage sur deux colonnes):
+
+\begin{multicols}{2}
+\listofbclogo
+\end{multicols}
+
+Le titre de la liste peut alors être modifié par la commande:
+
+\hfil{\cmd\verb|\renewcommand{\titrebclogo}{Liste des fiches}|}.\hfil
+
+\section{Avec \texttt{framed.sty}}
+
+Je présente ici une utilisation de \texttt{bclogo} \emph{couplée} avec
+un environnement écrit par Jean-Michel \textsc{Sarlat} utilisant
+\texttt{framed.sty}. Voici cet environnement:
+
+\begin{Code}
+\begin{lstlisting}
+\newenvironment{gbar}[1]{%
+  \def\FrameCommand{{\color{#1}\vrule width 3pt}\colorbox{fbase}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\end{lstlisting}
+\end{Code}
+
+En disposant cet environnement, on s'amuser à mélanger les deux:
+
+\begin{demo}
+\begin{bclogo}[logo=\bcinfo,barre=none,noborder=true]{Test avec \texttt{framed.sty}}%
+\begin{gbar}{yellow}
+  \lipsum[1]
+\end{gbar}
+\end{bclogo}
+\end{demo}
+
+\section{Réglage global des paramètres}
+
+On peut régler les paramètres pour toutes les boîtes \texttt{bclogo}. Pour cela
+on utilise la commande:
+
+\hfil{\cmd\verb|\presetkeys{bclogo}{<liste des parametres>}{}|}.\hfil
+
+Par exemple:
+
+\hfil{\cmd\verb|\presetkeys{bclogo}{ombre=true,epBord=1pt}{}|}.\hfil
+
+
+\section{Historique}
+
+\begin{itemize}
+  \item bclogo v3.15 (23 janvier 2024) : correction bug \verb+pst-blur+ 
+    qui était nécessaire même sans l'utilisation de l'option 
+    \verb+blur+. Désormais, \verb-pst-blur+ est chargé dès que pstricks est
+    utilisé (proposition de Michel Bovani).
+  \item bclogo v3.1 (janvier 2016) : rosbustification (avec
+    \verb+\robustify+) des commandes de logos
+  \item bclogo v3.0 (été 2012) : Remaniement de l'utilisation de
+    \verb+mdframed+
+  \item bclogo v3.0 (15 octobre 2011): utilisation du paquet mdframed
+    permettant les coupures de boîtes en fin de page. Ajout des
+    options \emph{couleurTexte} (couleur du texte), \emph{margeG}
+    (marge gauche, avant la boîte) et \emph{margeD} (marge droite,
+    après la boîte)
+  \item bclogo v2.26 (29 Juillet 2011) : Passage au format mps pour
+    les logos, ajouts de nouveaux logos (François \textsc{Pétiard}),
+    corrections du code pour éviter les overfull et underfull box
+  \item bclogo v2.25 (06 Juillet 2011) : correction du drapeau
+    allemand
+  \item bclogo v2.24 (09 septembre 2009) : plein de nouveauté, logos,
+    réglage de couleur de bord, d'épaisseur de bord, de marge à
+    l'intérieur, option blur pour l'ombre, nouvelle barre pour les
+    utilisateurs de mathdesign
+  \item bclogo v2.22 (18 janvier 2009) : toujours la même version,
+    j'avais oublié de documenter l'option noborder
+  \item bclogo v2.22 (15 janvier 2009) : Réglages arrondis absolu en
+    pstricks, les logos (fichiers) sont renommés bc-<logo>.<ext>
+  \item bclogo v2.21 (12 janvier 2009) : Nouveaux logos crayon et
+    pique, plus amélioration de la gestion des références,
+    amélioration de la documentation
+  \item bclogo v2.2 (11 janvier 2009) : Options sur la barre
+    verticale, nouveau logo question
+  \item bclogo v2.1 (04 janvier 2009) : Inversion de l'option par
+    défaut, maintenant c'est pstricks, nouveau logo livre
+  \item bclogo v2.0 (27 décembre 2008) : Options tikz ou pstricks
+    suivant le choix de compilation, ombre, 3 logos take care, lampe
+    et trêfle
+  \item bclogo v1.3 (20 août 2008) : Gestion des paramètres avec
+    « xkeyval » et ajout de 3 logos de François Boerkmann
+  \item bclogo v1.27 (14 juillet 2008) : Correction de l'oubli de
+    chargement du paquet « ifthen »
+  \item bclogo v1.26 (30 juin 2008) : création du logo ornement --
+    deux styles de titre -- fonction listofbclogo
+  \item bclogo v1.25 (5 avril 2008) : modification du logo attention
+    et création du coeur
+  \item bclogo v1.2 (2 avril 2008) : création des logo etoile, ours et
+    attention
+  \item bclogo v1.15 (19 mars 2008) : ajout de la fonction « arrondi »
+    en quatrième argument
+  \item bclogo v1.1 (19 mars 2008)
+\end{itemize}
+
+\section{Le code}
+
+%\begin{lstlisting}[style=numbers, breaklines=true,breakindent=30pt]
+\lstset{style=numbers, breaklines=true,breakindent=30pt}
+\lstinputlisting{../latex/bclogo.sty}%%%chemin pour Maxime
+%\lstinputlisting{../../tex/latex/bclogo/bclogo.sty}%%chemin pour Patrick
+%\end{lstlisting}
+
+\end{document}

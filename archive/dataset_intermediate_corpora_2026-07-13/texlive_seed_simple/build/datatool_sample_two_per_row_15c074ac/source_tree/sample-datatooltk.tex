@@ -1,0 +1,25 @@
+% Sample file used with datatooltk
+\documentclass{article}
+
+\usepackage{datatool}
+
+% load database that was either previously saved using
+% \DTLwrite[format=dbtex,name=mydata]{data-raw.dbtex} or
+% \DTLsaverawdb{mydata}{data-raw.dbtex}
+% or created and saved using datatooltk
+
+\DTLread[format=dbtex]{data-raw}
+
+\begin{document}
+
+\DTLdisplaydb{mydata}
+
+% Save to a new file to test I/O:
+
+\DTLwrite[format=dbtex-2,name={mydata},overwrite=allow]{data-raw-saved}
+
+% Now try the protected version:
+
+\DTLwrite[format=dbtex-2,name={mydata},overwrite=allow,expand=protected]
+ {data-raw-psaved}
+\end{document}

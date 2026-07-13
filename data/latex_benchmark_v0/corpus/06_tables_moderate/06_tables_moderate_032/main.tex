@@ -1,0 +1,176 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03214\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\textbf{Category} & \textbf{Parameter} & \textbf{Value} \\
+\toprule
+\textbf{Model Architecture} & Base model & bert-base-uncased \\
+ & Architecture & BertForTokenClassification \\
+ & Hidden size & 768 \\
+ & Intermediate size & 3072 \\
+ & Hidden layers & 12 \\
+ & Attention heads & 12 \\
+ & Activation & GELU \\
+ & Dropout & 0.1 \\
+ & Tokenizer & BertTokenizer (max length=512,\\
+ & & padding/truncation) \\
+ & Number of labels & 5 \\
+ & Label mapping & \{``O'': 0, ``B-C'': 1, ``I-C'': 2,\\
+ & & ``B-E'': 3, ``I-E'': 4\} \\
+\midrule
+\textbf{Dataset} & Name/source & CausalPalUkr\_Train\_Test\\
+ & Task type & Token Classification / NER \\
+ & Train/val/test split & 75-15\\
+ & Preprocessing & Lowercase, truncate/ \\
+ & & pad to 512, first subword labeling \\
+\midrule
+\textbf{Optimization} & Optimizer & AdamW (adamw\_torch) \\
+ & Learning rate & 7e-5 \\
+ & Scheduler & Linear decay, 36 warmup steps \\
+ & Weight decay & 0.01 \\
+ & Betas & (0.9, 0.999) \\
+ & Epsilon & 1e-8 \\
+ & Batch size / device & 16 \\
+ & Gradient accumulation & 1 \\
+ & Max grad norm & 1.0 \\
+ & Epochs & 10 \\
+ & FP16/BF16 & Disabled \\
+\midrule
+\textbf{Reproducibility} & Seed & 42 \\
+ & Data seed & None \\
+ & Dataloader drop last & False \\
+ & Dataloader workers & 0 \\
+ & FP16 full eval & False \\
+\midrule 
+\textbf{Training Environment} & Transformers & 4.50.3 \\
+ & PyTorch & 2.6.0+cu124 \\
+ & Datasets & 3.5.0 \\
+ & Tokenizers & 0.21.1 \\
+ & Hardware & 1x NVIDIA A100 40GB\\
+\midrule
+\textbf{Evaluation} & Metrics & Token-level Precision\\
+ & Validation freq & after each epoch \\
+  \midrule
+\textbf{HF model} & {pgarco/CausalPalUkr\_token}\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03059\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[b]{p{1.9cm}<{\centering}p{1.4cm}<{\centering}p{2.1cm}<{\centering}p{1.2cm}<{\centering}}
+%\multicolumn{2}{l}{\small{\textbf{Table 1}}}\\
+%\multicolumn{2}{l}{\small{Notations adopted in our paper}}\\\specialrule{0.05em}{3pt}{3pt}
+\hline
+%\textbf{Algorithms} & \multicolumn{3}{c}{\textbf{Parameters}}\\
+%\specialrule{0.05em}{3pt}{3pt}
+\textbf{Networks}&\textbf{High-level}&\textbf{Low-level}& \textbf{Learning Rate}   \\
+\specialrule{0.05em}{0pt}{0pt}
+%\hline
+%\specialrule{0em}{1pt}{1pt}
+%\multicolumn{3}{l}{\textbf{DAC-MAPPO}}&&&\\
+%\specialrule{0em}{1pt}{1pt}
+%high-level   &128,128&\textbackslash{}  &3e-4  &128 \\
+%\specialrule{0em}{1pt}{1pt}
+%Q-network size       & \textbackslash{} &\textbackslash{} & 256,300,100 \\
+%\specialrule{0em}{1pt}{1pt}
+%low-level    &64,64&128,128 & 3e-4 & 128  \\		
+%\specialrule{0em}{1pt}{1pt}
+%Q-network learning rate      & \textbackslash{} & \textbackslash{} & 1e-4\\
+%\specialrule{0em}{1pt}{1pt}
+%\hline
+
+	
+%\specialrule{0em}{1pt}{1pt}
+%\multicolumn{3}{l}{\textbf{DAC-MAPPO-E}}&&&\\
+\specialrule{0em}{1pt}{1pt}
+Actor   &128,128 &64,64  &3e-4   \\
+\specialrule{0em}{1pt}{1pt}
+Termination condition    &64,64&\textbackslash{} & 3e-4   \\		
+\specialrule{0em}{1pt}{1pt}
+%\specialrule{0em}{1pt}{1pt}
+%Q-network size       & \textbackslash{} &\textbackslash{} & 256,300,100 \\
+\hline
+\specialrule{0em}{1pt}{1pt}
+Reward critic    &\textbackslash{}&128,128 & 1e-3   \\		
+\specialrule{0em}{1pt}{1pt}
+Cost critic    &\textbackslash{}&128,128 & 1e-3   \\		
+\specialrule{0em}{1pt}{1pt}
+
+%Replay buffer size & \multicolumn{3}{c}{20000}\\
+%\specialrule{0em}{1pt}{1pt}
+%Original & &&256,100& 3e-4 & 128 \\		
+%\specialrule{0em}{1pt}{1pt}
+%High & &&256,100  &3e-4 & 128 \\		
+%\specialrule{0em}{1pt}{1pt}
+%Training episodes & \multicolumn{1}{c}{20000} & 20000 & 20000 & 24000\\		
+%Low& &&400,100 & 3e-4 & 64\\		
+%\specialrule{0em}{1pt}{1pt}
+
+%\hline
+%\specialrule{0em}{1pt}{1pt}
+%\multicolumn{3}{l}{\textbf{PPO-MILP}}&&&\\
+%\specialrule{0em}{1pt}{1pt}
+%high-level   &64,64&128,128 &\textbackslash{} &1e-3  &64 \\
+%\specialrule{0em}{1pt}{1pt}
+%Q-network size       & \textbackslash{} &\textbackslash{} & 256,300,100 \\
+%\specialrule{0em}{1pt}{1pt}
+%low-level    &64,64&128,128 & -& 3e-4 & 128  \\		
+\specialrule{0em}{1pt}{1pt}
+\hline
+\specialrule{0em}{1pt}{1pt}
+\specialrule{0.05em}{3pt}{3pt}
+\specialrule{0em}{1pt}{1pt}
+%\multicolumn{2}{c}{\textbf{Other hyperparameters}}&&\\
+\textbf{Parameters}&\textbf{Value}&\textbf{Parameters}& \textbf{Value} \\
+\specialrule{0em}{1pt}{1pt}
+\hline
+\specialrule{0em}{1pt}{1pt}
+\multicolumn{1}{l}{GAE coefficient}&0.95&Clip $ \varepsilon$&0.2 \\
+%\hline
+\specialrule{0em}{1pt}{1pt}
+Iterations&20,000&Episodes $E$  & 10 \\
+%\hline
+\specialrule{0em}{1pt}{1pt}
+ Batch size & 128 &\textcolor{black}{Learning rate $\alpha_{\lambda}$} &\textcolor{black}{0.01}\\
+ \specialrule{0em}{1pt}{1pt}
+ Tolerance $d$& 0.025 & &\\
+ \specialrule{0em}{1pt}{1pt}
+ %\multicolumn{2}{c}{Tolerance parameter $d$} &0.025&\\
+ %\specialrule{0em}{1pt}{1pt}
+\hline
+%Discretization granularity  & \textbackslash{}& \textbackslash{}&20 \\
+%    		\specialrule{0em}{1pt}{1pt}
+%    		$C_{\mathrm{S}}$  & 25 &The fixed start-up cost coefficient\\
+%\specialrule{0em}{3pt}{3pt}
+%    		\multicolumn{2}{l}{\textbf{Time}}  \\
+%    		\specialrule{0em}{1pt}{1pt}
+%    		$T$      & 24h &The terminal time step\\
+%    		\specialrule{0em}{1pt}{1pt}
+%    		$\Delta t$ & 1h &The interval for each time step\\
+%    		\specialrule{0em}{3pt}{3pt}
+%\specialrule{0.05em}{2pt}{0pt}
+\end{tabular}
+}
+\end{table}
+
+\end{document}

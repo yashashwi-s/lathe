@@ -1,0 +1,39 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_013/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_013/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+   \begin{array}{lll}\text{\rm minimize} & C \cdot U \hat{X}U^T \\ \text{\rm subject to} & A_i \cdot U \hat{X}U^T = b_i \;\; \forall i \in \{1,\ldots,m\} \\& \hat{X} \in \mathbb{S}^d_{+}\end{array} \begin{array}{lll}\text{\rm maximize} & b^Ty \\ \text{\rm subject to} & U^T (C - \sum^{m}_{i=1} y_i A_i) U \in \mathbb{S}^d_{+}, \\ \\\end{array}
+  \end{align*}, rendering as TeX:
+  {array}{lll}\text{\rm minimize} & C \cdo
+                     ^
+  unexpected "r"
+  expecting " ", "!", ",", ":", ";" or ">"
+[WARNING] Could not convert TeX math \begin{align*}
+  M = \frac{1}{\sqrt{1+{\bf \bar{w}} \cdot {\bf w} - {1\over 4}({\bf w}\times{\bf {\bar w}})^2 }}\left(\begin{array}{cc}1- {i\over 2}({\bf w} \times {\bf \bar{w}})\cdot {\bf \sigma} & -{\bf w} \cdot {\bf \sigma}\\begin{align*}2ex]{\bf \bar{w}} \cdot {\bf \sigma} & 1+ {i\over 2}({\bf w} \times {\bf\bar{w}})\cdot {\bf \sigma}\end{array}\right)
+  \end{align*}, rendering as TeX:
+  ac{1}{\sqrt{1+{\bf \bar{w}} \cdot {\bf w
+                     ^
+  unexpected control sequence \bf
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+warning: `times.circle` is deprecated, use `times.o` instead
+   ┌─ pandoc.typ:34:38
+   │
+34 │ $ U\(arrow(a)\,1\)(S \, f_alpha times.circle rho \( E^alpha \)) := & e^(- i\[hat(f)_0 dot.op hat(H)\(arrow(a)\,rho\)+ hat(f)_1 dot.op hat(P)\(arrow(a)\,rho\)\]) (S + arrow(a) \, f_alpha \( dot.op - arrow(a) \) times.circle rho \( E^alpha \))\
+   │                                       ^^^^^^
+
+warning: `times.circle` is deprecated, use `times.o` instead
+   ┌─ pandoc.typ:34:216
+   │
+34 │ $ U\(arrow(a)\,1\)(S \, f_alpha times.circle rho \( E^alpha \)) := & e^(- i\[hat(f)_0 dot.op hat(H)\(arrow(a)\,rho\)+ hat(f)_1 dot.op hat(P)\(arrow(a)\,rho\)\]) (S + arrow(a) \, f_alpha \( dot.op - arrow(a) \) times.circle rho \( E^alpha \))\
+   │                                                                                                                                                                                                                         ^^^^^^
+
+warning: `times.circle` is deprecated, use `times.o` instead
+   ┌─ pandoc.typ:35:105
+   │
+35 │ = & e^(i\[a^0 hat(H)\(rho\)- a^1 hat(P)\(rho\)\]) (S + arrow(a) \, f_alpha \( dot.op - arrow(a) \) times.circle rho \( E^alpha \)) . $
+   │                                                                                                          ^^^^^^
+

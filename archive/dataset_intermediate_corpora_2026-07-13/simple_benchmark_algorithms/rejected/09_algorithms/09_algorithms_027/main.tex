@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 27}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[h!]
+\caption{MIP-CDA.}
+Constants: $\epsilon_{OBJ}=10^{-5}$, $MAXITER=20$\\
+\begin{algorithmic}[1]
+\State $\omega^{(0)}\leftarrow~\texttt{Relax}()$, $\text{OBJ}^{(0)}\leftarrow \infty$; \hfill (See Algorithm \ref{al:relax})
+\State $(\omega^{(1)}, \gamma^{(1)}, \beta^{(1)}, \delta^{(1)})\leftarrow~\texttt{MIP}(\texttt{start}=\omega^{(0)}; \texttt{bestobjstop}=10^{-2})$;
+\State $\text{OBJ}^{(1)} \leftarrow M_n(\omega^{(1)}, \gamma^{(1)}, \beta^{(1)}, \delta^{(1)})$;
+\State $(\omega^*, \gamma^*, \beta^*, \delta^*) \leftarrow (\omega^{(1)}, \gamma^{(1)}, \beta^{(1)}, \delta^{(1)})$
+\For{$k = 2, 3,..., MAXITER$}
+\If {$|\text{OBJ}^{(k)} - \text{OBJ}^{(k-1)}| < \epsilon_{OBJ}$}
+\State EXIT;
+\EndIf
+\State $(\omega^{(k)}, \gamma^{(k)})\leftarrow~\texttt{MIP-PROFILE}(\texttt{start}=(\beta^{(k-1)}, \delta^{(k-1)}))$; \hfill (See Section \ref{asec:mip_profile})
+\State $\beta^{(k)} \leftarrow {\arg\min}_{\beta}\sum_{i=1}^n(Y_i - Z_i'\beta)^21\{X_i'\omega^{(k)} - \gamma^{(k)}\le 0\}$; \hfill (Least squares)
+\State $\delta^{(k)}\leftarrow {\arg\min}_{\delta}\sum_{i=1}^n(Y_i - Z_i'\delta)^21\{X_i'\omega^{(k)} - \gamma^{(k)} > 0\}$; \hfill (Least squares)
+\State $\text{OBJ}^{(k)} \leftarrow M_n(\omega^{(k)}, \gamma^{(k)}, \beta^{(k)}, \delta^{(k)})$;
+\State $(\omega^*, \gamma^*, \beta^*, \delta^*) \leftarrow (\omega^{(k)}, \gamma^{(k)}, \beta^{(k)}, \delta^{(k)})$
+\EndFor % end while loop
+\State $\hat \omega, \hat \gamma \leftarrow \texttt{MeanArg}(\omega^*, \gamma^*)$; \hfill (See Algorithm \ref{al:arg})
+\State $\check \omega, \check \gamma \leftarrow \texttt{ModeArg}(\omega^*, \gamma^*)$; \hfill (See Algorithm \ref{al:arg})
+\State $\hat \beta \leftarrow \check \beta \leftarrow \beta^*$;
+\State $\hat \delta \leftarrow \check\delta \leftarrow \delta^*$;
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

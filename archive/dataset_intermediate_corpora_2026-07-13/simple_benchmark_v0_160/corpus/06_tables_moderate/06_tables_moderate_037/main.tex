@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03794\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{13cm}}
+        \toprule
+        \textbf{\textit{SYSTEM PROMPT:}} \\
+        You are a helpful assistant. \\
+        \# Tools \\
+        You may call the function tool shown below to assist with the user query. \\
+        You are provided with the function signature within \texttt{<tools></tools>} XML tags: \\
+        \texttt{<tools>} \\
+        \{ \\
+        \hspace{10pt} \texttt{"}type\texttt{"}: \texttt{"}function\texttt{"},\\
+        \hspace{10pt} \texttt{"}function\texttt{"}:\{ \\
+        \hspace{20pt} \texttt{"}name\_for\_human\texttt{"}: \texttt{"}request\_local\_region\texttt{"}, \\
+        \hspace{20pt} \texttt{"}name\texttt{"}: \texttt{"}request\_local\_region\texttt{"}, \\
+        \hspace{20pt} \texttt{"}description\texttt{"}: \texttt{"}Request a high-resolution local region of the current image and zoom in\texttt{"}, \\
+        \hspace{30pt} \texttt{"}parameters\texttt{"}: \{ \\
+        \hspace{30pt} \texttt{"}properties\texttt{"}: \{ \\
+        \hspace{40pt} \texttt{"}bbox\_2d\texttt{"}: \{ \\
+        \hspace{50pt} \texttt{"}type\texttt{"}: \texttt{"}array\texttt{"}, \\
+        \hspace{50pt} \texttt{"}items\texttt{"}: \{   \\
+        \hspace{60pt} \texttt{"}type\texttt{"}: \texttt{"}integer\texttt{"} \\
+        \hspace{50pt} \} \\ 
+        \hspace{50pt} \texttt{"}minItems\texttt{"}: 4, \\
+        \hspace{50pt} \texttt{"}maxItems\texttt{"}: 4, \\
+        \hspace{50pt} \texttt{"}description\texttt{"}:The bounding box of the region to crop, as [x1, y1, x2, y2], where (x1, y1) is the top-left corner of the target region and (x2, y2) is the bottom-right corner of the target region. The bounding box should be in the absolute pixel coordinates of the current image.\texttt{"}, \\
+        \hspace{50pt} \} \\ 
+        \hspace{40pt} \} \\
+        \hspace{30pt} \texttt{"}required\texttt{"}: [\texttt{"}bbox\_2d\texttt{"}], \\
+        \hspace{30pt} \texttt{"}type\texttt{"}: \texttt{"}object\texttt{"}, \\
+        \hspace{20pt} \}, \\
+        \hspace{10pt} \texttt{"}args\_format\texttt{"}: \texttt{"}Format the arguments as a JSON object.\texttt{"} \\
+        \hspace{10pt} \} \\
+        \} \\
+        \texttt{</tools>} \\
+        For each function call, return a json object with the function name and the corresponding argument within \texttt{<tool\_call></tool\_call>} XML tags: \\
+        \texttt{<tool\_call>} \\
+        \{\texttt{"}name\texttt{":<}function-name\texttt{>}, \texttt{"}arguments\texttt{"}:\texttt{<}args-json-object\texttt{>}\} \\
+        \texttt{</tool\_call>} \\
+        \midrule
+        \textbf{\textit{USER PROMPT:}} \\
+        Answer the question based on the image provided. You must conduct reasoning within \textcolor{orange}{\texttt{<think>}} and \textcolor{orange}{\texttt{</think>}} first in each of your reasoning steps. You may call ONE function tool per step to help you better solve the problem. Place the function tool within \textcolor{purple}{\texttt{<tool\_call>}} and \textcolor{purple}{\texttt{</tool\_call>}} at the end of each step to perform a function call. You should continue your reasoning process within \textcolor{orange}{\texttt{<think>}} and \textcolor{orange}{\texttt{</think>}} based on the content returned by the function tool. Once you confirm your final answer, place the final answer inside \textcolor{red}{\texttt{<answer>}} and \textcolor{red}{\texttt{</answer>}}.\ For mathematical or multiple-choice problem, wrap the answer value or choice with \textcolor{green}{\texttt{\textbackslash boxed\{\}}}. Here is the image and question: \textcolor{red}{Question}.\\
+        \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04254\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l}
+\toprule
+% 1, SMD, reasoning, temperature, sampling
+\textbf{ID} & \textbf{Task} & \textbf{Reasoning} & \textbf{Sampling} & \textbf{Factuality} & \textbf{Coherence} & \textbf{Validity} & \textbf{Utility} & \textbf{CoT Score} & \textbf{Correctness} & \textbf{Justification} & \textbf{Answer Score} \\ \midrule
+Mean & General & - & - & 0.955 & 0.984 & 08.39 & 0.863 & 0.910 & 0.685 & 0.759 & 0.703 \\
+\midrule
+1-4 & SMD & Low & Yes & 1.000 & 1.000 & 0.775 & 1.000 & 0.944 & 1.000 & 1.000 & 1.000 \\
+5 & SMD & Low & No & 1.000 & 1.000 & 0.800 & 1.000 & 0.950 & 1.000 & 1.000 & 1.000 \\
+6-9 & SMD & Medium & Yes & 1.000 & 1.000 & 0.934 & 0.920 & 0.964 & 1.000 & 1.000 & 1.000 \\
+10 & SMD & Medium & No & 1.000 & 1.000 & 0.944 & 1.000 & 0.986 & 1.000 & 1.000 & 1.000 \\
+11-14 & SMD & High & Yes & 1.000 & 1.000 & 0.936 & 0.454 & 0.847 & 1.000 & 1.000 & 1.000 \\
+15 & SMD & High & No & 1.000 & 1.000 & 0.957 & 0.617 & 0.894 & 1.000 & 1.000 & 1.000 \\
+\midrule
+Mean & SMD & - & - & 1.000 & 1.000 & 0.886 & 0.807 & 0.923 & 1.000 & 1.000 & 1.000 \\
+\midrule
+16–19 & BHA & Low & Yes & 1.000 & 1.000 & 0.482 & 1.000 & 0.871 & 1.000 & 1.000 & 1.000 \\
+20 & BHA & Low & No & 1.000 & 1.000 & 0.600 & 1.000 & 0.900 & 1.000 & 1.000 & 1.000 \\
+21–24 & BHA & Medium & Yes & 0.991 & 0.929 & 0.773 & 0.929 & 0.906 & 1.000 & 1.000 & 1.000 \\
+25 & BHA & Medium & No & 1.000 & 0.931 & 0.793 & 1.000 & 0.931 & 1.000 & 1.000 & 1.000 \\
+26–29 & BHA & High & Yes & 0.985 & 0.967 & 0.908 & 0.853 & 0.928 & 1.000 & 1.000 & 1.000 \\
+30 & BHA & High & No & - & - & - & - & - & - & - & - \\
+\midrule
+Mean & BHA & - & - & 0.993 & 0.965 & 0.718 & 0.938 & 0.903 & 1.000 & 1.000 & 1.000 \\
+\midrule
+31–34 & MG & Low & Yes & 0.789 & 1.000 & 0.520 & 1.000 & 0.827 & 0.250 & 0.75 & 0.375 \\
+35 & MG & Low & No & 0.667 & 1.000 & 0.667 & 1.000 & 0.833 & 0.000 & 0.000 & 0.000 \\
+36–39 & MG & Medium & Yes & 0.837 & 0.982 & 0.935 & 0.704 & 0.865 & 0.219 & 0.750 & 0.352 \\
+40 & MG & Medium & No & 0.913 & 1.000 & 0.913 & 0.957 & 0.946 & 0.000 & 1.000 & 0.250 \\
+41–44 & MG & High & Yes & 0.899 & 0.976 & 0.867 & 0.736 & 0.869 & 0.063 & 1.000 & 0.297 \\
+45 & MG & High & No & 0.893 & 0.987 & 0.927 & 0.645 & 0.863 & 0.250 & 1.000 & 0.438 \\
+\midrule
+Mean & MG & - & - & 0.838 & 0.988 & 0.786 & 0.824 & 0.859 & 0.158 & 0.800 & 0.319 \\
+\midrule
+46–49 & TA & Low & Yes & 0.985 & 0.972 & 0.944 & 0.881 & 0.946 & 0.583 & 0.000 & 0.438 \\
+50 & TA & Low & No & 1.000 & 1.000 & 0.875 & 1.000 & 0.969 & 0.667 & 0.000 & 0.500 \\
+51–54 & TA & Medium & Yes & 1.000 & 0.972 & 0.994 & 0.914 & 0.970 & 0.583 & 0.500 & 0.563 \\
+55 & TA & Medium & No & 1.000 & 0.988 & 0.996 & 0.852 & 0.959 & 0.333 & 1.000 & 0.500 \\
+56–59 & TA & High & Yes & - & - & - & - & - & - & - & - \\
+60 & TA & High & No & 0.999 & 0.986 & 0.985 & 0.854 & 0.956 & 0.667 & 0.000 & 0.500 \\
+\midrule
+Mean & TA & - & - & 0.996 & 0.979 & 0.969 & 0.889 & 0.958 & 0.595 & 0.214 & 0.500 \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

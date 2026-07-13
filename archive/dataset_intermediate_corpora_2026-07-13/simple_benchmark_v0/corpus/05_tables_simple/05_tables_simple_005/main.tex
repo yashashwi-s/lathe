@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00046\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|p{2cm}|c|c|c|c|c|c|c|c|c|c|}
+\hline
+
+\textbf{Sentence}                                                                                                 & \textbf{Length} & \textbf{Difficulty} & \textbf{Difficulty} & \textbf{Flesch Reading} & \textbf{Coleman-} & \textbf{Automated} & \textbf{Difficult} & \textbf{Syllable}  \\ 
+                                                                                                                  &                 & \textbf{assumed}    & \textbf{avg}        & \textbf{Ease}           & \textbf{Liau}    & \textbf{Index}     & \textbf{Words}     & \textbf{count}  \\ \hline
+
+Quote1                                                                & 51.00           & 1.00                       & \cellcolor[HTML]{D9EAD3}1.50                & 46.44                     & 10.80                     & 8.50                      & 1.00                         & 14.00                                       \\ \hline
+Quote2                                                             & 55.00           & 1.00                       & \cellcolor[HTML]{D9EAD3}1.50                & 85.69                     & 4.74                      & 3.30                      & 1.00                         & 14.00                                      \\ \hline
+Quote3                                          & 75.00           & 1.00                       & \cellcolor[HTML]{D9EAD3}1.00                & 42.38                     & 12.28                     & 9.70                      & 4.00                         & 21.00                                      \\ \hline
+Quote4              & 101.00          & 2.00                       & \cellcolor[HTML]{D9EAD3}1.50                & 103.12                    & 3.05                      & 2.20                      & 2.00                         & 23.00                                       \\ \hline
+
+Quote5          & 105.00          & 1.00                       & \cellcolor[HTML]{D9EAD3}1.50                & 87.72                     & 8.03                      & 6.30                      & 3.00                         & 24.00                                 \\ \hline
+
+Quote6 & 155.00          & 1.00                       & \cellcolor[HTML]{D9EAD3}1.50                & 67.42                     & 7.50                      & 13.70                     & 3.00                         & 39.00                                                \\ \hline
+Quote7 & 179.00          & 3.00                       & \cellcolor[HTML]{FFF2CC}2.25                & 88.74                     & 4.83                      & 4.00                      & 4.00                         & 42.00                                         \\ \hline
+Quote8 & 194.00          & 2.00                       & \cellcolor[HTML]{FFF2CC}1.75                & 40.01                     & 13.41                     & 19.00                     & 6.00                         & 51.00                                                \\ \hline
+Quote9 & 289.00          & 2.00                       & \cellcolor[HTML]{FFF2CC}2.00                & 91.82                     & 5.79                      & 6.10                      & 8.00                         & 65.00                                      \\ \hline
+Quote10 & 291.00          & 2.00                       & \cellcolor[HTML]{FFF2CC}1.75                & 85.89                     & 4.39                      & 4.60                      & 5.00                         & 70.00                                     \\ \hline
+Quote11 & 309.00          & 3.00                       & \cellcolor[HTML]{FFF2CC}2.25                & 80.17                     & 4.54                      & 3.50                      & 7.00                         & 77.00                                          \\ \hline
+Quote12 & 350.00          & 3.00                       & \cellcolor[HTML]{FCE5CD}2.75                & 67.79                     & 9.05                      & 11.10                     & 9.00                         & 86.00                                     \\ \hline
+Quote13 & 379.00          & 2.00                       & \cellcolor[HTML]{FCE5CD}2.75                & 72.19                     & 6.22                      & 10.60                     & 6.00                         & 96.00                                              \\ \hline
+Quote14 & 889.00          & 3.00                       & \cellcolor[HTML]{FCE5CD}2.75                & 75.20                     & 7.53                      & 7.20                      & 21.00                        & 218.00                                       \\ \hline
+Quote15 & 1117.00          & 3.00                       & \cellcolor[HTML]{FCE5CD}2.75                & 54.09                     & 8.43                      & 16.70                     & 22.00                        & 282.00                                           \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00600\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|>{\columncolor[gray]{.9}}c|c c c c|c c c c|c c c c|c c c c|}
+			\hline\rowcolor[gray]{.9}$\cdot$&$1$&$e_1$&$e_2$&$e_3$&$e_4$&$e_5$&$e_6$&$e_7$&$e_8$&$e_9$&$e_{10}$&$e_{11}$&$e_{12}$&$e_{13}$&$e_{14}$&$e_{15}$\\
+			\hline$1$&$1$&$e_1$&$e_2$&$e_3$&$e_4$&$e_5$&$e_6$&$e_7$&$e_8$&$e_9$&$e_{10}$&$e_{11}$&$e_{12}$&$e_{13}$&$e_{14}$&$e_{15}$\\
+			$e_1$&$e_1$&$-1$&$e_3$&$-e_2$&$e_5$&$-e_4$&$-e_7$&$e_6$&$e_9$&$-e_8$&$-e_{11}$&$e_{10}$&$-e_{13}$&$e_{12}$&$e_{15}$&$-e_{14}$\\
+			$e_2$&$e_2$&$-e_3$&$-1$&$e_1$&$e_6$&$e_7$&$-e_4$&$-e_5$&$e_{10}$&$e_{11}$&$-e_8$&$-e_9$&$-e_{14}$&$-e_{15}$&$e_{12}$&$e_{13}$\\
+			$e_3$&$e_3$&$e_2$&$-e_1$&$-1$&$e_7$&$-e_6$&$e_5$&$-e_4$&$e_{11}$&$-e_{10}$&$e_9$&$-e_8$&$-e_{15}$&$e_{14}$&$-e_{13}$&$e_{12}$\\
+			\hline$e_4$&$e_4$&$-e_5$&$-e_6$&$-e_7$&$-1$&$e_1$&$e_2$&$e_3$&$e_{12}$&$e_{13}$&$e_{14}$&$e_{15}$&$-e_8$&$-e_9$&$-e_{10}$&$-e_{11}$\\
+			$e_5$&$e_5$&$e_4$&$-e_7$&$e_6$&$-e_1$&$-1$&$-e_3$&$e_2$&$e_{13}$&$-e_{12}$&$e_{15}$&$-e_{14}$&$e_9$&$-e_8$&$e_{11}$&$-e_{10}$\\
+			$e_6$&$e_6$&$e_7$&$e_4$&$-e_5$&$-e_2$&$e_3$&$-1$&$-e_1$&$e_{14}$&$-e_{15}$&$-e_{12}$&$e_{13}$&$e_{10}$&$-e_{11}$&$-e_8$&$e_9$\\
+			$e_7$&$e_7$&$-e_6$&$e_5$&$e_4$&$-e_3$&$-e_2$&$e_1$&$-1$&$e_{15}$&$e_{14}$&$-e_{13}$&$-e_{12}$&$e_{11}$&$e_{10}$&$-e_9$&$-e_8$\\
+			\hline$e_8$&$e_8$&$-e_9$&$-e_{10}$&$-e_{11}$&$-e_{12}$&$-e_{13}$&$-e_{14}$&$-e_{15}$&$-1$&$e_1$&$e_2$&$e_3$&$e_4$&$e_5$&$e_6$&$e_7$\\
+			$e_9$&$e_9$&$e_8$&$-e_{11}$&$e_{10}$&$-e_{13}$&$e_{12}$&$e_{15}$&$-e_{14}$&$-e_1$&$-1$&$-e_3$&$e_2$&$-e_5$&$e_4$&$e_7$&$-e_6$\\
+			$e_{10}$&$e_{10}$&$e_{11}$&$e_8$&$-e_9$&$-e_{14}$&$-e_{15}$&$e_{12}$&$e_{13}$&$-e_2$&$e_3$&$-1$&$-e_1$&$-e_6$&$-e_7$&$e_4$&$e_5$\\
+			$e_{11}$&$e_{11}$&$-e_{10}$&$e_9$&$e_8$&$-e_{15}$&$e_{14}$&$-e_{13}$&$e_{12}$&$-e_3$&$-e_2$&$e_1$&$-1$&$-e_7$&$e_6$&$-e_5$&$e_4$\\
+			\hline$e_{12}$&$e_{12}$&$e_{13}$&$e_{14}$&$e_{15}$&$e_8$&$-e_9$&$-e_{10}$&$-e_{11}$&$-e_4$&$e_5$&$e_6$&$e_7$&$-1$&$-e_1$&$-e_2$&$-e_3$\\
+			$e_{13}$&$e_{13}$&$-e_{12}$&$e_{15}$&$-e_{14}$&$e_9$&$e_8$&$e_{11}$&$-e_{10}$&$-e_5$&$-e_4$&$e_7$&$-e_6$&$e_1$&$-1$&$e_3$&$-e_2$\\
+			$e_{14}$&$e_{14}$&$-e_{15}$&$-e_{12}$&$e_{13}$&$e_{10}$&$-e_{11}$&$e_8$&$e_9$&$-e_6$&$-e_7$&$-e_4$&$e_5$&$e_2$&$-e_3$&$-1$&$e_1$\\
+			$e_{15}$&$e_{15}$&$e_{14}$&$-e_{13}$&$-e_{12}$&$e_{11}$&$e_{10}$&$-e_9$&$e_8$&$-e_7$&$e_6$&$-e_5$&$-e_4$&$e_3$&$e_2$&$-e_1$&$-1$\\\hline
+	\end{tabular}
+}
+\end{table}
+
+\end{document}

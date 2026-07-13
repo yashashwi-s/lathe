@@ -1,0 +1,11 @@
+
+\subsection[Own Environments]{Own Environments\phantom{g}}
+\begin{tabular}{@{}ll@{}}
+Define:  & \lstinline+\newenvironment{+\textit{envname}\lstinline+}{+\textit{cmds begin}\lstinline+}{+\textit{cmds end}\lstinline+}+\\
+Params:  & \lstinline+#1+ \dots{} \lstinline+#9+ \\
+Define:	& \lstinline+\newenvironment{+\textit{envname}\lstinline+}[+\textit{paramsquantity}\lstinline+]{+\textit{cmds begin} \lstinline+#1+\\
+         & \dots{}\lstinline+}{+\textit{cmds end}  \lstinline+#2+ \dots{}\lstinline+}+\\
+Exmp:    & \lstinline+\newenvironment{colorpar}[1]{\color{#1}}{\normalcolor}+\\
+Use:     & \lstinline+\begin{colorpar}{violet}+ \textit{text} \lstinline+\end{colorpar}+
+\end{tabular}%
+^^E^^L 

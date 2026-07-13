@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02435\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|ccc|cc|cc}
+    \toprule
+    \textbf{Dataset} & IQL & BOSA & DARA & IGDF & DVDF-IGDF & OTDF & DVDF-OTDF\\
+    \midrule
+    half-r & 4.9 & 2.2 & 4.7 & \textbf{5.4$\pm$0.4} & 4.6$\pm$0.1 & \textbf{2.2$\pm$0.2} & 1.7$\pm$0.1 \\
+    half-m & \textbf{45.2} & 39.6 & 44.1 & \textbf{45.2$\pm$0.1} & 45.1$\pm$0.2 & 42.2$\pm$0.1 & \textbf{45.4$\pm$0.6} \\
+    half-mr & 22.1 & \textbf{26.3} & 21.6 & 22.9$\pm$1.4 & \textbf{26.6$\pm$2.3} & 15.6$\pm$3.1 & \textbf{26.8$\pm$4.4} \\
+    half-me & 43.7 & 42.2 & 52.7 & 57.1$\pm$8.9 & \textbf{66.7$\pm$6.3} & \textbf{46.7$\pm$4.4} & 45.9$\pm$3.0 \\
+    half-e & 49.7 & \textbf{84.3} & 47.4 & 47.6$\pm$2.1 &\textbf{58.8$\pm$4.7} & 79.6$\pm$3.0 & \textbf{88.9$\pm$5.6} \\
+    hopp-r & 4.5 & \textbf{40.7} & 3.8 & \textbf{13.0$\pm$1.9} & 3.3$\pm$0.1 & 2.9$\pm$0.4 & \textbf{12.6$\pm$0.1} \\
+    hopp-m & 48.8 & \textbf{71.4} & 48.8 & 54.3$\pm$6.6 & \textbf{59.1$\pm$3.4} & 46.3$\pm$3.7 & \textbf{67.8$\pm$4.1} \\
+    hopp-mr & 40.2 & 29.5 & 41.6 & 30.0$\pm$5.2 & \textbf{32.1$\pm$0.8} & 26.2$\pm$4.4 & \textbf{44.7$\pm$2.2} \\
+    hopp-me & 12.5 & 49.6 & 17.0 & 11.6$\pm$0.6 & \textbf{60.2$\pm$5.9} & 58.1$\pm$4.9 & \textbf{70.2$\pm$7.7} \\
+    hopp-e & 62.6 & 94.8 & 59.1 & 70.1$\pm$3.2 & \textbf{83.9$\pm$5.0} & 97.0$\pm$3.3 & \textbf{111.8$\pm$4.5} \\
+    walk-r & 4.0 & 2.2 & 5.1 & 5.2$\pm$0.3 & \textbf{9.8$\pm$1.7} & 0.0$\pm$0.0 & 0.0$\pm$0.0 \\
+    walk-m & 48.7 &44.5 & 43.4 & 51.8$\pm$2.4 & \textbf{69.7$\pm$4.4} & 43.0$\pm$2.1 & \textbf{71.6$\pm$5.9} \\
+    walk-mr & 12.6 & 4.8 & 15.6 & 11.2$\pm$1.1 & \textbf{22.6$\pm$1.8} & 10.7$\pm$1.9 & \textbf{25.6$\pm$2.4} \\
+    walk-me & 95.4 & 35.1 & 85.3 & 90.6$\pm$3.4 & \textbf{104.6$\pm$5.1} & 63.1$\pm$6.6 & \textbf{91.6$\pm$8.2} \\
+    walk-e & 90.1 & 41.9 & 85.5 & 93.7$\pm$5.8 & \textbf{108.0$\pm$4.3} & 98.9$\pm$2.1 & \textbf{106.0$\pm$1.2} \\
+    ant-r & 11.5 & \textbf{31.5} & 10.9 & 13.7$\pm$1.9 & \textbf{15.6$\pm$2.2} & 11.6$\pm$1.0 & \textbf{25.7$\pm$3.4} \\
+    ant-m & 89.9 & 28.4 & \textbf{98.9} & 88.0$\pm$4.6 & \textbf{98.1$\pm$5.0} & 86.1$\pm$3.7 & \textbf{97.1$\pm$5.0} \\
+    ant-mr & 46.8 & 22.0 & 42.1 & \textbf{58.2$\pm$9.7} & 44.1$\pm$7.6 & \textbf{39.6$\pm$8.1} & 36.8$\pm$3.9 \\
+    ant-me & 106.1 & 102.5 & 104.8 & 112.8$\pm$4.0 & \textbf{126.6$\pm$7.4} & 105.1$\pm$3.9 & \textbf{117.2$\pm$6.1} \\
+    ant-e & 111.0 & 57.6 & 115.1 & 119.2$\pm$5.6 & \textbf{125.2$\pm$3.9} & \textbf{111.6$\pm$2.9} & 107.9$\pm$4.0 \\ 
+    \midrule
+    \textbf{Total} & 950.3 & 851.1 & 947.5 & 1001.6 & \textbf{1164.7} & 986.5 & \textbf{1172.3} \\ 
+    % half-m & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0$\pm$11.0 & 100.0$\pm$11.0 \\
+    % half-mr & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0$\pm$11.0 & 100.0$\pm$11.0 \\
+    % half-me & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0$\pm$11.0 & 100.0$\pm$11.0 \\
+    % half-e & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0$\pm$11.0 & 100.0$\pm$11.0 \\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02867\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccc}
+        \toprule
+        % --- 修改 2: 删除了 \textbf{Scheduler} 列 ---
+        \textbf{Team} & \makecell[c]{\textbf{Model}\\\textbf{Architecture}} & \textbf{Backbone} & \textbf{Optimizer} & \makecell[c]{\textbf{Loss}\\\textbf{Function}} & \textbf{Device} & \textbf{Epochs} & \makecell[c]{\textbf{Batch}\\\textbf{Size}} \\
+        \midrule
+        % --- 修改 3: 删除了每行中对应的列数据 ---
+        ChohoTech & YOLOv8 & \makecell[c]{YOLOv8} & Adam & \makecell[c]{CIoU, DFL,\\VFL} & RTX 3090 & 100 & 32 \\ \midrule
+        Camerart2024 & \makecell[c]{Self-Training\\Pipeline} & DeepLabV3+ & Adam & BCE, Dice & RTX 4090 & 200 & 4 \\ \midrule
+        Jichangkai & \makecell[c]{Two-Stage\\Semi-Supervised\\nnU-Net} & nnU-Net & AdamW & Dice, CE & RTX 4090 & 150 & 4 \\ \midrule
+        Dew123 & DICL Network & UNet & SGD & \makecell[c]{Dice, MSE,\\CE} & RTX 3060 & 100 & 8 \\ \midrule
+        Junqiangmler & Semi-TeethSeg2024 & VNet2d & AdamW & \makecell[c]{Dice,\\Cross-Entropy} & RTX 4090 & 300 & 4 \\  \midrule 
+        Isjinghao & SemiT-SAM & SAM & AdamW & \makecell[c]{Multi-\\component} & RTX 3060 & 300 & 4 \\ \midrule 
+        Lazyman & \makecell[c]{Cross Teaching\\Network} & \makecell[c]{CNN +\\Transformer} & SGD & Dice, MSE & RTX 4090 & 43 & 16 \\ \midrule 
+        Caiyichen & YOLOv9 & \makecell[c]{YOLOv9} & Adam & \makecell[c]{CIoU, DFL,\\VFL} & RTX 3060 & 100 & 16 \\ \midrule 
+        Guo7777 & \makecell[c]{ResUnet50\\+ SAM} & \makecell[c]{ResNet50,\\SAM} & Adam & \makecell[c]{BCEWithLogitsLoss,\\MSELoss} & \makecell[c]{Tesla V100\\-SXM2} & 300 & 4 \\ \midrule 
+        Ccc2024 & DAE-Net & \makecell[c]{Dual Attention\\Mechanism} & Adam & Dice, IoU & RTX 4060 Ti & 40 & 32 \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

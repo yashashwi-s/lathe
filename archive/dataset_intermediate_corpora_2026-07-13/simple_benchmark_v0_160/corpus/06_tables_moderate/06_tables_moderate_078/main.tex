@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01149\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c c c c c c c c c c c c c c}
+      \hline
+      \makecell{\textbf{UDI}} & \makecell{\textbf{Product}\\\textbf{ID}} & \makecell{\textbf{Type}} & \makecell{\textbf{Air}\\\textbf{temp}\\\textbf{[K]}} & \makecell{\textbf{Process}\\\textbf{temp}\\\textbf{[K]}} & \makecell{\textbf{Rot.}\\\textbf{speed}\\\textbf{[rpm]}} & \makecell{\textbf{Torque}\\\textbf{[Nm]}} & \makecell{\textbf{Tool}\\\textbf{wear}\\\textbf{[min]}} & \makecell{\textbf{Machine}\\\textbf{failure}} & \makecell{\textbf{TWF}} & \makecell{\textbf{HDF}} & \makecell{\textbf{PWF}} & \makecell{\textbf{OSF}} & \makecell{\textbf{RNF}} \\
+      \hline
+      1                       & M14860                                   & M                        & 298.1                                                & 308.6                                                    & 1551                                                     & 42.8                                      & 0                                                       & 0                                             & 0                       & 0                       & 0                       & 0                       & 0                       \\
+      2                       & L47181                                   & L                        & 298.2                                                & 308.7                                                    & 1408                                                     & 46.3                                      & 3                                                       & 0                                             & 0                       & 0                       & 0                       & 0                       & 0                       \\
+      3                       & L47182                                   & L                        & 298.1                                                & 308.5                                                    & 1498                                                     & 49.4                                      & 5                                                       & 0                                             & 0                       & 0                       & 0                       & 0                       & 0                       \\
+      4                       & L47183                                   & L                        & 298.2                                                & 308.6                                                    & 1433                                                     & 39.5                                      & 7                                                       & 0                                             & 0                       & 0                       & 0                       & 0                       & 0                       \\
+      5                       & L47184                                   & L                        & 298.2                                                & 308.7                                                    & 1408                                                     & 40.0                                      & 9                                                       & 0                                             & 0                       & 0                       & 0                       & 0                       & 0                       \\
+      \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01775\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\toprule
+Expression & Pattern & Expression & Pattern \\ \hline
+$((A+B)/C)+D$ & $(A+B)/C+D$ & $((A-B)/C)+D$ & $(A-B)/C+D$  \\ \hline
+$((A \times B)/C)+D$ & $A \times B/C+D$ & $((A/B)/C)+D$ & $A/B/C+D$  \\ \hline
+$((A+B)+C)-D$ & $A+B+C-D$ & $((A-B)+C)-D$ & $A+B-C-D$  \\ \hline
+$((A \times B)+C)-D$ & $A \times B+C-D$ & $((A/B)+C)-D$ & $A/B+C-D$  \\ \hline
+$((A+B)-C)-D$ & $A+B-C-D$ & $((A-B)-C)-D$ & $A-B-C-D$  \\ \hline
+$((A \times B)-C)-D$ & $A \times B-C-D$ & $((A/B)-C)-D$ & $A/B-C-D$  \\ \hline
+$((A+B) \times C)-D$ & $(A+B) \times C-D$ & $((A-B) \times C)-D$ & $(A-B) \times C-D$  \\ \hline
+$((A \times B) \times C)-D$ & $A \times B \times C-D$ & $((A/B) \times C)-D$ & $A \times B/C-D$  \\ \hline
+$((A+B)/C)-D$ & $(A+B)/C-D$ & $((A-B)/C)-D$ & $(A-B)/C-D$  \\ \hline
+$((A \times B)/C)-D$ & $A \times B/C-D$ & $((A/B)/C)-D$ & $A/B/C-D$  \\ \hline
+$((A+B)+C) \times D$ & $(A+B+C) \times D$ & $((A-B)+C) \times D$ & $(A+B-C) \times D$  \\ \hline
+$((A \times B)+C) \times D$ & $(A \times B+C) \times D$ & $((A/B)+C) \times D$ & $(A/B+C) \times D$  \\ \hline
+$((A+B)-C) \times D$ & $(A+B-C) \times D$ & $((A-B)-C) \times D$ & $(A-B-C) \times D$  \\ \hline
+$((A \times B)-C) \times D$ & $(A \times B-C) \times D$ & $((A/B)-C) \times D$ & $(A/B-C) \times D$  \\ \hline
+$((A+B) \times C) \times D$ & $(A+B) \times C \times D$ & $((A-B) \times C) \times D$ & $(A-B) \times C \times D$  \\ \hline
+$((A \times B) \times C) \times D$ & $A \times B \times C \times D$ & $((A/B) \times C) \times D$ & $A \times B \times C/D$  \\ \hline
+$((A+B)/C) \times D$ & $(A+B) \times C/D$ & $((A-B)/C) \times D$ & $(A-B) \times C/D$  \\ \hline
+$((A \times B)/C) \times D$ & $A \times B \times C/D$ & $((A/B)/C) \times D$ & $A \times B/C/D$  \\ \hline
+$((A+B)+C)/D$ & $(A+B+C)/D$ & $((A-B)+C)/D$ & $(A+B-C)/D$  \\ \hline
+$((A \times B)+C)/D$ & $(A \times B+C)/D$ & $((A/B)+C)/D$ & $(A/B+C)/D$  \\ \hline
+$((A+B)-C)/D$ & $(A+B-C)/D$ & $((A-B)-C)/D$ & $(A-B-C)/D$  \\ \hline
+$((A \times B)-C)/D$ & $(A \times B-C)/D$ & $((A/B)-C)/D$ & $(A/B-C)/D$  \\ \hline
+$((A+B) \times C)/D$ & $(A+B) \times C/D$ & $((A-B) \times C)/D$ & $(A-B) \times C/D$  \\ \hline
+$((A \times B) \times C)/D$ & $A \times B \times C/D$ & $((A/B) \times C)/D$ & $A \times B/C/D$  \\ \hline
+$((A+B)/C)/D$ & $(A+B)/C/D$ & $((A-B)/C)/D$ & $(A-B)/C/D$  \\ \hline
+$((A \times B)/C)/D$ & $A \times B/C/D$ & $((A/B)/C)/D$ & $A/B/C/D$  \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

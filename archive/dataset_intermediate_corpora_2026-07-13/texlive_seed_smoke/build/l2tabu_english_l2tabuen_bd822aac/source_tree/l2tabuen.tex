@@ -1,0 +1,1819 @@
+%%%------------------------------------------------------------------
+%%% Filename:    l2tabuen.tex
+%%% Author:      Mark Trettin, Jürgen Fenn <juergen.fenn@gmx.de>
+%%% Created:     16 Juni 2007
+%%% Time-stamp:  none
+%%% Version:    $Id: l2tabuen.tex,v 1.8.5.7 $
+%%%
+%%% Copyright (C) 2004--2007 by Mark Trettin and Jürgen Fenn
+%%%------------------------------------------------------------------
+%%% TODO:
+%%% - \input{../asdf/} instead of \input ../asdf/
+
+\documentclass[11pt,a4paper,pagesize,tablecaptionabove,abstracton,pointlessnumbers]{scrartcl}
+%--------------- Basic Configuration (German, 8bit) ----------------
+%\usepackage[ngerman]{babel}     % Switch to German
+\usepackage[latin1]{inputenc}   % Direct input of German umlauts etc.
+\usepackage[T1]{fontenc}        % T1 Fonts
+%%% Times/Helvetica/Courier *only* for minimizing the size of this file
+%% as these fonts do not have to be inserted into the output document.
+\usepackage{mathptmx}           % Times/Maths \rmdefault
+\usepackage[scaled=.90]{helvet} % Scaling Helvetica \sfdefault
+\usepackage{courier}            % Courier \ttdefault
+\usepackage{multicol}
+
+\typearea[current]{current}     % Calculate typearea anew
+%------------ additional packages (graphics, tables) ---------------
+\usepackage{xspace}             % automatic blanks after macros
+\usepackage{booktabs,array}     % nicer tables
+\usepackage[english]{varioref}  % modifyed for the version publicised
+                                % as current versionf of fancy, and
+                                % varioref do not work together
+                                % (still not?!)
+\usepackage{textcomp}           % additional characters
+\usepackage[nofancy]{rcsinfo}   % RCS Informationen in title
+\usepackage{enumerate}
+\usepackage{calc}               % we must calculate
+\usepackage{eurosans}           % the Euro
+%--------------------------- Formatting ---------------------------
+%%% Captions
+\setkomafont{caption}{\normalcolor\small\sffamily\slshape}
+\setkomafont{captionlabel}{\normalcolor\upshape\small\sffamily\bfseries}
+%--------------------------- PDF Options ---------------------------
+\ifpdfoutput{%                 % needs KOMA-Script class
+  \usepackage{hyperref}        % hyperref settings for pdf
+  \hypersetup{%
+    pdfauthor={(c) 2007 Mark Trettin and Juergen Fenn},%
+    pdftitle={l2tabuen -- An essential guide to \LaTeXe\ usage},%
+    pdfsubject={Some hints on LaTeX2e},%
+    bookmarksopen=true,% Temp
+    backref=true,%
+    pdffitwindow=true,%
+    pdfpagelayout=OneColumn,%
+    colorlinks=true,%
+    linkcolor=red,%
+    linktocpage=true,%
+    backref=true,%
+    pdfstartview=FitH,%
+    bookmarksopen=true,%
+    bookmarksopenlevel=2,%
+    bookmarksnumbered=false,%
+    urlcolor=blue%
+  }%
+  \usepackage[activate=normal]{pdfcprot} % character protruding using pdftex
+  \newcommand{\EMail}[1]{\href{mailto:#1?Subject=[l2tabu.pdf]}{email: \texttt{#1}}}
+  \newcommand{\News}[1]{\href{news:#1}{\texttt{#1}}}
+  \newcommand{\MID}[2]{\href{http://groups.google.com/groups?as_umsgid=#1}%
+    {Message-ID: \texttt{<#2>}}}
+  % \usepackage{color}           % For preview-latex (in pdf tree)
+  }%
+%--------------------------- PS Options ----------------------------
+  {%
+    \usepackage{hyperref}
+    \newcommand{\EMail}[1]{\href{mailto:#1}{Email: \texttt{#1}}}
+    \newcommand{\News}[1]{\href{news:#1}{\texttt{#1}}}
+    \newcommand{\MID}[2]{\href{M-ID: <#1>}{Message-ID: \texttt{<#2>}}}
+  }
+\usepackage{color} % comment out for preview-latex
+%-------------------------- new commands --------------------------
+%%% documentation: SansSerif
+\newcommand{\TB}{\textbackslash}
+\newcommand{\Doku}[1]{\textsf{#1}\xspace}
+%%% Paket ,Klasse, Bibstil (packages, classes, bib style): SansSerif, Slanted
+%\newcommand{\Paket}[2][sty]{\textsf{\textsl{#2.#1}}\xspace}
+\newcommand{\Paket}[1]{\textsf{\textsl{#1.sty}}\xspace}
+\newcommand{\Klasse}[1]{\textsf{\textsl{#1.cls}}\xspace}
+\newcommand{\Bst}[1]{\textsf{\textsl{#1.bst}}\xspace}
+%%% Options: SansSerif
+\newcommand{\Option}[1]{\textsf{#1}\xspace}
+%%% \Use{graphicx}         --> \usepackage{graphicx}
+%%% \UseO{dvips}{graphicx} --> \usepackage[dvips]{graphicx}
+\newcommand{\Use}[1]{\texttt{\textbackslash usepackage\{#1\}}}
+\newcommand{\UseO}[2]{\texttt{\TB usepackage[#1]\{#2\}}}
+\newcommand{\UseV}[2]{\texttt{\TB usepackage\{#1\}[#2]}}
+\newcommand{\UseOV}[3]{\texttt{\TB usepackage[#1]\{#2\}[#3]}}
+%%% Footnotes
+\deffootnote{2.5em}{1em}{\thefootnotemark\ \ \ }%
+\setlength{\footnotesep}{12pt}
+%%% Nonfrenchspacing
+\nonfrenchspacing
+%%% Bibliography
+\newcommand{\Bib}[1]{\texttt{\textbackslash bibliographystyle\{#1\}}}
+%%% environment TODO: redefine, for this looks rather bad
+\newcommand{\Env}[2]{\raggedright\texttt{\textbackslash begin\{#1\}\\
+    #2\\ \textbackslash end\{#1\}}}
+%%% \newcommand
+\newcommand{\NewCom}[3][]{\texttt{\textbackslash newcommand{#1}\{\textbackslash#2\}\{#3\}}}
+\newcommand{\ReNewCom}[3][]{\texttt{\textbackslash renewcommand{#1}\{\textbackslash#2\}\{#3\}}}
+%%% Stolen from  scrguide ;-)
+\DeclareRobustCommand*{\Macro}[1]{\mbox{\texttt{\char`\\#1}}}
+\DeclareRobustCommand*{\LMacro}[2]{\mbox{\texttt{\char`\\#1\{#2\}}}}
+\DeclareRobustCommand*{\GMacro}[2]{\mbox{\texttt{\{\char`\\#1\ #2\}}}}
+% DANTE
+\providecommand{\CTANserver}{ftp.dante.de}
+% Make CTAN:// be an alias of ftp://\CTANserver/tex-archive/
+\makeatletter
+\def\url@#1{\expandafter\url@@#1\@nil}
+\def\url@@#1://#2\@nil{%
+  \def\@tempa{#1}\def\@tempb{CTAN}\ifx\@tempa\@tempb
+    \hyper@linkurl{\Hurl{#1:#2}}{ftp://\CTANserver/tex-archive/#2}%
+  \else
+    \hyper@linkurl{\Hurl{#1://#2}}{#1://#2}%
+  \fi
+}
+\makeatother
+%%% Farben
+\definecolor{gruen}{rgb}{0,0.55,0}
+\definecolor{rot}{rgb}{1,0,0}
+\newcommand{\FIXME}[1]{\marginline{FIXME: #1!}}
+\newsavebox{\Quelle}
+
+\newenvironment{bspcode}[1]{%
+  \sbox{\Quelle}{\footnotesize From: #1}
+  \center
+  \rule{\linewidth}{1.5pt}
+}{%
+  \rule{\linewidth}{1.5pt}
+  \usebox{\Quelle}
+  \endcenter%
+}
+
+%%% Macros for replacing FIXME:
+\newcommand{\Ersetze}[2]{\par\noindent Replace: \textcolor{red}{#1}
+  by \textcolor{gruen}{#2}}
+\newcommand{\Ersetzx}[3][.5\textwidth]{%
+  \par\noindent%
+  \begin{minipage}[t]{#1}
+    \raggedright
+    Replace:\\
+    \textcolor{rot}{#2}
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{(\linewidth - #1)-.02\linewidth}
+    \raggedright
+    by\\
+    \textcolor{gruen}{#3}
+  \end{minipage}%
+}
+% Width for  "Ersetze" macros :-(
+\newsavebox{\Breite}
+%%% A hack by Heiko Oberdiek for acroread under Linux
+\pdfstringdefDisableCommands{%
+  \edef\quotedblbase{\string"}%
+  \edef\textquotedblleft{\string"}%
+}
+%%% a very, very crude Hack for typesetting a URL in one line
+%%% *without* any additional spacing. :-(
+\newcommand{\biburl}[1]{\hfill\\URL:~\url{#1}}
+%------------------- defining columns in tables --------------------
+% needs array
+\newcolumntype{v}[1]{>{\raggedright\hspace{0pt}}p{#1}} % v column, like
+                                                       % p column, but
+                                                       % raggedright
+\newcolumntype{V}[1]{>{\footnotesize\raggedright\hspace{0pt}}p{#1}}
+\newcolumntype{N}{>{\footnotesize}l}
+\newcolumntype{C}{>{\footnotesize}c}
+%----------------------------- title ------------------------------
+\title{An essential guide to \LaTeXe{} usage\\[1em]
+  \LARGE\mdseries\rmfamily Obsolete commands and packages}
+
+\author{Original German version\thanks{Based on the German version
+    1.8 of \Doku{l2tabu}.}\\
+  by Mark Trettin\thanks{\EMail{Mark.Trettin@gmx.de}}%
+  \and%
+  English translation\\
+  by Jürgen Fenn\thanks{\EMail{juergen.fenn@gmx.de}}}
+
+\date{\today}
+
+% \rcsInfoRevision\ \\
+%   \rcsInfoLongDate}
+%----------------------- begin of document -----------------------
+\begin{document}
+%\begin{Form}\end{Form}
+\pagestyle{headings}
+%%% RCS Info for version control
+\rcsInfo $Id: l2tabuen.tex,v 1.8.5.7 2007/06/17 00:00:00 juergen Exp $
+\maketitle
+\begin{abstract}
+  \noindent
+  This is the English version \rcsInfoRevision{} of \Doku{l2tabu},
+  focusing on obsolete commands and packages, and demonstrating the
+  most severe mistakes most \LaTeX{} users are prone to make.  You
+  should read this guide if you want to improve on your \LaTeX{} code.
+\end{abstract}
+
+\subsection*{Legal notice}
+\label{sec:legalnotice}
+
+Copyright \copyright{} 2007 by Mark Trettin and Jürgen Fenn. 
+\medskip
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation.
+\emph{There are no invariant sections in this document.} Please
+contact the translator of this version before distributing a modified
+version of the following text. A copy of the licence is included in
+appendix \ref{sec:fdl}.
+
+\subsection*{Acknowledgements}%\addcontentsline{toc}{section}{Acknowledgements}%
+
+Reading the German-language \TeX{} newsgroup \News{de.comp.text.tex}
+one of us (Mark Trettin) found that most discussions were about
+obsolete or, say, `bad' packages, and commands. So he decided to write
+a brief summary to supply a practical guide to \LaTeX.  His paper was
+called \Doku{altepakete.pdf} in the first place and soon it was
+praised by senior developers writing to the group.  It is recommended
+for reading ever since.  Later it was renamed by vote of participants
+in \News{de.comp.text.tex} to \Doku{l2tabu}, corresponding to
+\Doku{l2kurz}, the German title of \Doku{lshort}\cite{l2kurz:99}, and
+the German translation of `taboo'.  This was about two years
+ago.\footnote{\Doku{altepakete} was first announced on 18 February
+  2003 on \News{de.comp.text.tex}.} I (Jürgen Fenn) joined Mark later
+for translating his paper into English in order to help it spread to
+those users who do not speak German.
+
+In this article we give a demonstration of the most common mistakes in
+using \LaTeX.  We also explain how to avoid them. This overview is
+neither meant to replace introductions such as
+\Doku{lshort}~\cite{l2kurz:99} nor the \Doku{De-TeX-FAQ}~\cite[version
+72]{faq:02} nor the \Doku{UK FAQ}~\cite[version 3.16]{ukfaq:99}. Our
+goal is just to give a small overview of how to write `good' \LaTeXe{}
+code.
+
+\subsection*{More translations of this paper}
+
+Please note that besides the German original `Das
+\LaTeXe-Sündenregister oder Veraltete Befehle, Pakete und andere
+Fehler. Tipps zu \LaTeXe' and this English version, there are more
+translations of this paper.  They all can be found in the respective
+subdirectories at
+\begin{quote}
+\url{CTAN://info/l2tabu/}
+\end{quote}
+So far \Doku{l2tabu} has been translated into English, French, and
+Italian.
+
+\subsection*{How to get in touch with the authors}
+
+We are grateful for any suggestions, improvements, or comments.
+Please address your emails directly to the translator of the
+English\footnote{\EMail{juergen.fenn@gmx.de}. -- Download of
+  \Doku{l2tabuen} from: \url{CTAN://info/l2tabu/english/}}, the
+French\footnote{See the French translation \Doku{l2tabufr} by Yvon
+  Henel at \url{CTAN://info/l2tabu/french/}}, or the
+Italian\footnote{See the Italian translation \Doku{l2tabuit} by
+  Emanuele Zannarini at \url{CTAN://info/l2tabu/italian/}} version
+respectively.
+
+Please tell us whether you have found \Doku{l2tabu} useful. We rely on
+your feedback for improving our guide.
+
+\subsection*{Thanks to\dots}
+
+\dots{}
+Ralf Angeli,
+Christoph Bier,
+Christian Faulhammer,
+Jürgen Fenn,
+Ulrike Fischer,
+Yvon Henel, 
+Yvonne Hoffmüller,
+David Kastrup,
+Markus Kohm,
+Thomas Lotze,
+Frank Mittelbach,
+Heiko Oberdiek,
+Walter Schmidt,
+Stefan Stoll,
+Knut Wenzig,
+Emanuele Zannarini, 
+and
+Reinhard Zierke
+for tips, remarks, and corrections of the German original version.
+
+\subsection*{Contributors to the English translation}
+
+Barbara Beeton,
+Karl Berry,
+Christoph Bier, 
+Stephen Eglen,
+Klas Elmgren, 
+Gernot Hassenpflug,
+Yvon Henel,
+Hendrik Maryns,
+Walter Schmidt,
+Maarten Sneep,
+Stefan Ulrich,
+Jos\'{e} Carlos Santos,
+Knut Wenzig, 
+Bruno Wöhrer, and
+Federico Zenith
+have contributed to the English version, making suggestions, or
+encouraging development.\\ 
+
+\noindent If we have forgotten anyone please
+send an email to the maintainer of the respective language version.
+
+%\newpage
+
+
+\clearpage
+\tableofcontents 
+%\clearpage
+
+\section{`Deadly sins'\,---\,The most severe mistakes in using \LaTeXe}
+\label{sec:todsunden}
+In this section we probably have gathered together the most severe
+mistakes that appear again and again in \News{de.comp.text.tex},
+leaving regulars either with a flush of anger or weeping with tears
+in their eyes.  \texttt{;-)}
+
+\subsection{\Paket{a4}, \Paket{a4wide}}
+\label{sec:paketa4-paketa4wide}
+
+Do not use these `two' packages any longer. You should delete them
+without replacement from your \LaTeX{} source. Use the class option
+\Option{a4paper} instead. Speaking in terms of typography these
+packages, or others similar to these do not provide good layout. What
+is even worse, there is more than one version of these packages
+around, and different versions of those packages are incompatible with
+one another, providing deviating settings for page margins.  So you
+may not trust that your document will look the same\,---\,or just as bad?
+-- when being compiled on someone else's system when exchanging
+\LaTeX{} source.
+
+\Ersetze{\Paket{a4}, \normalcolor or \color{red} \Paket{a4wide}}{class option \Option{a4paper}}
+
+\subsection{Modifying page layout}
+\label{sec:layoutanderungen}
+Page margins produced by the standard classes (\Klasse{article},
+\Klasse{report}, \Klasse{book}) are often deemed too wide by European
+users printing on A4 paper. They should use the corresponding classes
+from the \KOMAScript{} bundle instead (\Klasse{scrartcl},
+\Klasse{scrreprt}, \Klasse{scrbook}). These classes have been made
+with a European point of view on typography in mind. You can also use
+\Paket{typearea} which is part of \KOMAScript{} with any other
+document class. The documentation included in the bundle provides some
+more information.  Indeed, this very paper was typeset using
+\Klasse{scrartcl}.
+
+If you really need to use page margins altogether different from the
+ones produced by \Paket{typearea} use \Paket{geometry}, or
+\Paket{vmargin} because these packages provide reasonable proportions
+in setting page margins. Do not use \Macro{oddsidemargin} or similar
+commands for modifying page layout.
+
+Under no circumstances change \Macro{hoffset}, or \Macro{voffset},
+unless you really understand what \TeX{} is doing here.
+
+\subsection{Changing packages and document classes}
+\label{sec:ander-von-paket}
+Never modify \LaTeX{} class files (\emph{e.g.}, \Klasse{article},
+\Klasse{scrbook}) or packages (style files, \emph{e.g.},
+\Paket{varioref}, \Paket{color}) directly! If you do not want to make
+yourself a `container class', or a \texttt{.sty} file of your own you
+should \emph{copy} the class, or style files, edit \emph{the copy},
+and save it as a \emph{different} file using a \emph{different} file
+name.
+
+On how to create container classes see the
+\Doku{De-TeX-FAQ}~\cite[question 5.1.5]{faq:02}.
+
+\paragraph{Note:}
+\label{sec:hinweis}
+
+Install any additional files, or packages in the local texmf tree in
+your \texttt{\$HOME} directory.  Otherwise these changes will be
+overwritten when upgrading your \TeX{} distribution. Styles or
+packages you only need in one particular project or which you may want
+to hand on to someone you wish to share your project with may as well
+be saved in the current working directory. See the
+\Doku{De-TeX-FAQ}~\cite[question 5.1.4]{faq:02}, or the \Doku{UK
+  FAQ}\cite[`Installing \LaTeX{} files', section K, `Where to put new
+files', question 90]{ukfaq:99}.
+
+\subsection{Changing inter-line space using \texttt{\textbackslash
+    baselinestretch}} 
+\label{sec:ander-des-zeil}
+
+As a rule of thumb, parameters should be set on the highest possible
+level within a user interface. So if you want to reset inter-line
+space you can do so on three levels:
+\begin{enumerate}
+\item Either by using the \Paket{setspace} package;
+\item or by using the \LaTeX{} command \LMacro{linespread}{<factor>};
+\item or by redefining \Macro{baselinestretch}.
+\end{enumerate}
+Redefining parameters such as \Macro{baselinestretch} works on the
+lowest \LaTeX{} level available\,---\,which should better be left to
+packages. The \Macro{linespread} command is provided for this, so it
+is a better way to get more inter-line space than fiddling with
+\Macro{baselinestretch}. It is even better, though, to use
+\Paket{setspace} which also takes care of space in footnotes and list
+environments that you usually don't want to change when modifying
+inter-line space.
+
+So if you just need some more spacing between lines, say, you would
+like to set spacing to one half or to double spacing, \Paket{setspace}
+provides the easiest way to achieve this. However, if you only want to
+use fonts other than Computer Modern you may use
+\LMacro{linespread}{<factor>}. For example, when using Palatino
+\LMacro{linespread}{1.05} would be appropriate.
+
+\subsection[Parindent and the spread between paragraphs
+(\texttt{\textbackslash{}parindent},
+\texttt{\textbackslash{}parskip})]{Paragraph indent and the spread
+  between paragraphs (\texttt{\textbackslash{}parindent},
+  \texttt{\textbackslash{}parskip})}
+\label{sec:absatz-und-abst}
+
+It may make sense to change the indent of the first line in paragraphs
+(\Macro{parindent}). However, if you do so, please note the following:
+\begin{itemize}
+\item Never use absolute sizes (\emph{e.g.}, `mm') to modify paragraph
+  indent.  Use sizes that depend on font size, such as `em', for
+  example.  The latter does \emph{not} mean that indent adapts
+  automatically when changing the font size. Rather, the value that
+  goes with the font currently activated is used.
+\item Always use \LaTeX{} commands. For example, this may make it
+  easier to parse\footnote{That is to say, analyse syntactically, or
+    split up.}  a \LaTeX{} file through an external program, or
+  script. Your code will be easier to maintain, too. So problems
+  concerning compatibility with other packages can be avoided as well
+  (\Paket{calc}, for example).
+  \Ersetze{\Macro{parindent}\texttt{=1em}}{\LMacro{setlength}{\Macro{parindent}}\{1em\}}
+\end{itemize}
+%
+In case you prefer some additional space between paragraphs to
+paragraph indent for marking the start of a new paragraph (`zero
+paragraph indent') do \emph{not} use 
+\color{red}
+\begin{verbatim}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+\end{verbatim}
+\normalcolor
+%
+\Macro{parskip} should not be used as it will also modify settings for
+list environments, table of contents, etc., and headings.
+
+The \Paket{parskip} package, however, as well as the \KOMAScript\
+classes go to some lengths to avoid these side effects. On how to use
+these \KOMAScript{} class options (\Option{parskip},
+\Option{halfparskip}, etc.)\  see \Doku{scrguien}~\cite{kohm:03}. When
+using one of the \KOMAScript{} classes you do \emph{not} need to load
+\Paket{parskip}.
+
+\subsection{Separating maths formulae from continuous text using \texttt{\$\$\dots\$\$}}
+\label{sec:abges-form-mit}
+
+Please don't do this! \texttt{\$\$\dots\$\$} is a Plain \TeX{}
+command.  It will modify vertical spacing within formulae, rendering
+them inconsistent. This is why it should be avoided in \LaTeX{} (see
+section~\vref{sec:mathematiksatz}; note the warning concerning
+\texttt{displaymath} along with the \Paket{amsmath} package). What's
+more, class option \Option{fleqn} won't work any more.
+
+\Ersetze{\texttt{\$\$\dots\$\$}}{%
+\parbox[t]{.3\textwidth}{%
+\Macro{[}\texttt{\dots}\Macro{]}\\
+\textcolor{black}{or}\\
+\Env{displaymath}{\dots}}}
+
+\subsection{\texttt{\textbackslash def} vs. \texttt{\textbackslash newcommand}}
+\label{sec:def-vs.-newcommand}
+
+\emph{Always} use \NewCom{<name>}{\dots} for defining
+macros.\footnote{See \cite[section 2.7.2]{clsguide}, \cite[section
+  3.4]{usrguide}.} 
+
+\emph{Never} use \Macro{def}\LMacro{<name>}{\dots}. The main problem
+with \Macro{def} is that no check is done on whether there already
+exists another macro of the same name. So a macro defined earlier may
+be overwritten without any error warning.
+
+Macros may be re-defined using \ReNewCom{<name>}{\dots}.
+
+If you know \emph{why} you need to use \Macro{def} you will probably
+know about the pros and cons of this command. Then, you may as well
+ignore this subsection.
+
+\subsection{Should I use \texttt{\textbackslash sloppy}?}
+\label{sec:verw-von-textttt}
+
+Frankly speaking, the \Macro{sloppy} switch should not be used at all.
+Most notably you shouldn't use it in the preamble of a document. If
+line breaks appear in single paragraphs you should
+
+\begin{enumerate}
+\item check whether the right hyphenation patterns, \emph{e.g.},
+  \Paket{(n)german}, and T1 fonts have been loaded (see
+  \Doku{De-TeX-FAQ}\cite[section 5.3]{faq:02}), or the \Doku{UK
+    FAQ}\cite[`Hyphenation', section Q.7]{ukfaq:99};
+\item put your text in other words. You do not necessarily need to
+  change the sentence the line break problem appears in. It may
+  suffice to change the preceding, or the next sentence;
+\item slightly change some parameters \TeX{} uses for line-breaking,
+  and page-breaking. Axel Reichert suggested the following
+  solution\footnote{Of course you may change these values according to
+    taste, but beware of fiddling with \TB\texttt{emergencystretch}.
+    Otherwise you'll get quite sloppy justified text as you would get
+    with a rather well-known text processor.} on
+  \News{de.comp.text.tex}:\footnote{The posting may be found as
+    \MID{a84us0$plqcm$7@ID-30533.news.dfncis.de}{a84us0\$plqcm\$7@ID-30533.news.dfncis.de}}:
+
+  \begin{minipage}[t]{\linewidth}
+\begin{verbatim}
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+\end{verbatim}
+    % \hspace{\baselineskip} % Yup, I know this isn't correct! ;-)
+  \end{minipage}
+  \par
+
+  Note that warnings appearing with the above settings \emph{really}
+  should be taken seriously. You \emph{should} consider putting your
+  text in other words, then.
+\end{enumerate}
+%
+Only if this fails you may try to typeset the following paragraph more
+`loosely' using the \texttt{sloppypar} environment.
+\begin{figure}[htp]
+  % If someone should wonder about the additional \fussy or the
+  % missing \sloppy :  Use the Source Luke!  \parbox by default typesets
+  % \sloppy, so for the original linebreak \fussy is required.
+  \begin{minipage}[t]{.45\textwidth}
+    \centering {\fontsize{10pt}{12pt}\fontencoding{OT1}\selectfont
+      \fbox{\parbox{16.27em}{\fussy%
+          tatata tatata tatata tatata tatata tatata tata\-tata tatata tatata
+          tatata tatata tatata tatata tata\-tata tatata tatata tatata tatata
+          ta\-tatatatt\-ta tatata tatata tatata tatata tatata tatata
+          ta\-ta\-ta\-ta}}}
+    \caption{\LaTeX' s default settings}%
+    \label{fig:beispiel-mit-latex}%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{.45\textwidth}
+    \centering    
+    {\fontsize{10pt}{12pt}\fontencoding{OT1}\selectfont
+      \fbox{\parbox{16.27em}{%
+          tatata tatata tatata tatata tatata tatata tata\-tata tatata tatata
+          tatata tatata tatata tatata tata\-tata tatata tatata tatata tatata
+          ta\-tatatatt\-ta tatata tatata tatata tatata tatata tatata
+          ta\-ta\-ta\-ta}}}
+    \caption{This demonstrates the effect of \texttt{\string\sloppy}}
+    \label{fig:beisp-mit-textttstr}
+  \end{minipage}
+\end{figure}
+
+In figures~\ref{fig:beispiel-mit-latex}
+and~\vref{fig:beisp-mit-textttstr} I have tried to show the effect of
+\Macro{sloppy}. This also depends on the font employed. When using
+Times the negative effects of \Macro{sloppy} do not show as extremely
+as with, say, Computer Modern.  The effect in principle, however,
+should become clear.
+
+In \News{comp.text.tex} Markus Kohm has posted an example that shows
+this effect even better. With his kind permission I quote his code
+appendix~\vref{sec:beispiel-zu-sloppy}.
+
+%----------------------- section "Obsolete" ------------------------
+\section{Some obsolete commands and packages}
+\label{sec:obsoletes}
+
+Markus Kohm has written a Perl script you can test your files online
+with for the most common mistakes. See
+\url{http://kohm.de.tf/markus/texidate.html}.  Please note, however,
+that this script is not a complete \TeX{} parser. This is why it will
+only check for the most common mistakes. Please test your file first,
+then post for help to a newsgroup, or to a mailing list.
+
+\subsection{Commands}
+\label{sec:befehle}
+
+\subsubsection{Changing font style}
+\label{sec:ander-des-schr}
+Table~\vref{tab:befehle-zur-anderung} shows obsolete and `proper'
+commands in \LaTeXe{} side by side for changing font style. Macros
+called `local' only apply to their own argument whereas those called
+`global/switch' will apply to all following text till the end of the
+document. 
+
+\paragraph{Why not use obsolete commands?}
+\label{sec:warum-sollte-man}
+
+Obsolete commands do not support \LaTeXe's new font selection scheme,
+or NFSS. \GMacro{bf}{foo}, for example, resets all font attributes
+which had been set earlier before it prints \emph{foo} in bold face.
+This is why you cannot simply define a bold-italics style by
+\GMacro{it}{\Macro{bf Test}} only. (This definition will produce:
+{\it\bf Test}.) On the other hand, the new commands
+\LMacro{textbf}{\LMacro{textit}{Test}} will behave as expected
+producing: \textbf{\textit{Test}}. Apart from that, with the former
+commands there is no `italic correction', cf. for instance {\it
+  half}hearted (\GMacro{it}{half}\texttt{hearted}) to
+\textit{half}hearted (\LMacro{textit}{half}\texttt{hearted}).
+
+For an overview of NFSS see \cite{fntguide}.
+
+\begin{table}
+  \begin{minipage}{\textwidth}
+    \renewcommand{\footnoterule}{}
+    \centering
+    \caption{Commands for changing font style}
+    \label{tab:befehle-zur-anderung}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \multicolumn{1}{@{}N}{obsolete}&
+    \multicolumn{2}{C@{}}{Replacement in \LaTeXe}\\
+    \cmidrule(l){2-3}
+    &
+    \multicolumn{1}{N}{local} &
+    \multicolumn{1}{N@{}}{global/switch}\\
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
+    \GMacro{bf}{\dots} & \LMacro{textbf}{\dots} & \Macro{bfseries}\\
+    ---  & \LMacro{emph}{\dots}   & \Macro{em}\footnote{May be useful
+      when defining macros. In continuous text \LMacro{emph}{\dots}
+      should be preferred to \Macro{em}.}\\ 
+    \GMacro{it}{\dots} & \LMacro{textit}{\dots} & \Macro{itshape}\\
+    ---  & \LMacro{textmd}{\dots} & \Macro{mdseries}\\
+    \GMacro{rm}{\dots} & \LMacro{textrm}{\dots} & \Macro{rmfamily}\\
+    \GMacro{sc}{\dots} & \LMacro{textsc}{\dots} & \Macro{scshape}\\
+    \GMacro{sf}{\dots} & \LMacro{textsf}{\dots} & \Macro{sffamily}\\
+    \GMacro{sl}{\dots} & \LMacro{textsl}{\dots} & \Macro{slshape}\\
+    \GMacro{tt}{\dots} & \LMacro{texttt}{\dots} & \Macro{ttfamily}\\
+    --- & \LMacro{textup}{\dots} & \Macro{upshape}\\
+    \bottomrule
+  \end{tabular}
+\end{minipage}
+\end{table}
+
+\subsubsection{Mathematical fractions (\texttt{\textbackslash over} vs. \texttt{\textbackslash frac})}
+\label{sec:textb-over-vs}
+
+Avoid the \Macro{over} command. \Macro{over} is a \TeX{} command which
+due to the syntax differing from \LaTeX's is even more complicated to
+parse or which cannot be parsed at all. The \Paket{amsmath} package
+redefines \verb+\frac{}{}+ which will result in error messages when
+using \Macro{over}. Another point in favour of using \verb+\frac{}{}+
+is that it is easier to fill in both the fraction's numerator and
+denominator, especially with more complex fractions.
+
+\Ersetze{\texttt{\$a \textbackslash over b\$}}%
+{\texttt{\$\textbackslash frac\{a\}\{b\}\$}}
+
+\subsubsection{Centering text using \texttt{\textbackslash centerline}}
+\label{sec:centerline}
+
+The \Macro{centerline} command is another \TeX{} command you should
+not use. On the one hand \Macro{centerline} is incompatible with some
+\LaTeX{} packages, such as \Paket{color}. On the other hand the
+package may yield unexpected results.  
+\emph{E.g.}:
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+\begin{verbatim}
+\begin{enumerate}
+\item \centerline{An item}
+\end{enumerate}
+\end{verbatim}
+  \end{minipage}%
+  \hfill%
+%  \hspace{.05\textwidth}%
+ \fbox{ \begin{minipage}[t]{.45\textwidth}
+    \begin{enumerate}
+    \item \centerline{An item}
+    \end{enumerate}
+  \end{minipage}}
+\end{center}
+\Ersetze{\LMacro{centerline}{\dots}}%
+{\parbox[t]{.3\textwidth}{%
+  \GMacro{centering}{\dots}\\
+\textcolor{black}{or}\\
+\Env{center}{\dots}
+}}
+
+\paragraph{Note:}
+\label{sec:anmerkung-5}
+
+On how to center graphics and tables see
+section~\vref{sec:gleit-figure-table}.
+
+\subsection{Class files and packages}
+\label{sec:pakete}
+
+\subsubsection{\Klasse{scrlettr} vs. \Klasse{scrlttr2}}
+\label{sec:paketscrl-vs.-pakets}
+
+\Klasse{scrlettr} class from the \KOMAScript\ bundle is obsolete. It
+was replaced by \Klasse{scrlttr2}. In order to produce a
+layout \emph{similar} to the former \KOMAScript\ letter class use 
+class option \Option{KOMAold} which provides a compatibility mode.
+
+\sbox{\Breite}{\texttt{\textbackslash documentclass\{scrltter\}}}
+\Ersetzx[\wd\Breite]{\texttt{\textbackslash documentclass\{scrlettr\}}}%
+{\texttt{\textbackslash documentclass[KOMAold]\{scrlttr2\}}}
+
+\paragraph{Note:}
+\label{sec:anmerkung-3}
+
+For new templates and letters use the new interface. It is definitely
+more flexible.
+
+It is not possible to elaborate on the differences between the two
+user interfaces in this overview. See \Doku{scrguien}~\cite{kohm:03}
+for details.
+
+\subsubsection{\Paket{epsf}, \Paket{psfig}, \Paket{epsfig} vs.
+  \Paket{graphics}, \Paket{graphicx}}
+\label{sec:grafikeinbindung}
+
+The \Paket{epsf} and the \Paket{psfig} packages have been replaced by
+\Paket{graphics} and \Paket{graphicx}.  \Paket{epsfig} is just a
+wrapper\footnote{A `wrapper' here denotes a style file which itself
+  loads another one or more style files, hence modelling functions.}
+for processing old documents which had been done using \Paket{psfig}
+with the \Paket{graphicx} package.
+
+As \Paket{epsfig} uses \Paket{graphicx} internally \Paket{epsfig}
+still \emph{may} be used. You should not use it, though, for new
+documents.  \Paket{graphics} or \Paket{graphicx} should be preferred,
+then.  \Paket{epsfig} is mainly provided for reasons of compatibility,
+as mentioned above.
+
+For the differences between \Paket{graphics}, and \Paket{graphicx} see
+\Doku{grfguide}~\cite{graphicx:99}. For hints on centering graphics see
+section~\vref{sec:gleit-figure-table}.
+
+\sbox{\Breite}{\LMacro{psfig}{file=Bild,\dots}}
+\Ersetze{\parbox[t]{\wd\Breite}{\Use{psfig}\\%
+    \LMacro{psfig}{file=image,\dots}}}%
+{\parbox[t]{.45\textwidth}{%
+    \Use{graphicx}\\%
+    \texttt{\textbackslash includegraphics[\dots]\{image\}}}}
+
+\subsubsection{\Paket{doublespace} vs. \Paket{setspace}}
+\label{sec:zeilenabstande}
+
+For changing inter-line space use the \Paket{setspace} package.
+\Paket{doublespace} is obsolete. It was replaced by \Paket{setspace}.
+Cf. section~\vref{sec:ander-des-zeil}.
+
+\Ersetze{\Use{doublespace}}{\Use{setspace}}
+
+\subsubsection{\Paket{fancyheadings}, \Paket{scrpage} vs. \Paket{fancyhdr}, \Paket{scrpage2}}
+\label{sec:lebende-kolumn}
+
+The \Paket{fancyheadings} package was replaced by \Paket{fancyhdr}.
+Another way to modify headings is provided by the \Paket{scrpage2}
+package from the \KOMAScript\ bundle. Do not use \Paket{scrpage} for
+it is obsolete. For documentation on \Paket{scrpage2} see
+\Doku{scrguien}~\cite{kohm:03}.
+
+\Ersetze{\Use{fancyheadings}}{\Use{fancyhdr}}
+\Ersetze{\Use{scrpage}}{\Use{scrpage2}}
+
+\subsubsection{The \Paket{caption} family of packages}
+\label{sec:die-caption-famile}
+
+The \Paket{caption2} package should no longer be used because there is
+a new version (v3.x) of \Paket{caption}.  Please make sure to use the
+latest version of this package by loading \Paket{caption} like this:
+\Ersetze{\Use{caption}}{\UseV{caption}{2004/07/16}}
+
+In case you used \Paket{caption2} before, please have a look into the
+package documentation \Doku{anleitung}~\cite[section~8]{caption:04}.
+
+\subsubsection{\Paket{isolatin}, \Paket{umlaut} vs. \Paket{inputenc}}
+\label{sec:eingabe-von-umlauten}
+
+\paragraph{Some general notes: }
+\label{sec:generelles}
+
+Basically there are four ways to input German \emph{umlauts} and
+other non-ASCII characters:
+
+\begin{enumerate}
+\item \verb+H{\"u}lle+: This will work on any given system anytime.
+  
+  The main disadvantages, however, are that
+  kerning\footnote{`Kerning' means including positive or negative
+    space between characters depending on which characters are to be
+    typeset.} between letters is disturbed badly; it is extremely
+  complicated to input at least in a German-language text; and it is
+  rather hard to read in source code.
+  
+  So this variant should \emph{always} be avoided due to the problems
+  as far as kerning is concerned.
+  
+\item With \verb+H\"ulle+ or \verb+H\"{u}lle+ the aforementioned
+  problems as far as kerning is concerned do not appear. It can be
+  used on every system, too.
+  
+  However it is just as tricky to input and to read the text as with
+  the above variant.
+  
+  This variant does make sense, however, when defining macros or style
+  files for it does not require a particular text file encoding nor
+  any additional packages.\label{item:die-eingabe-der}
+  
+\item With \Paket{(n)german} or the \Option{(n)german} option in
+  \Paket{babel} German \emph{umlauts} can be input more easily
+  (\verb+H"ulle+). Again this will work on all systems. As both
+  \Paket{babel} and \Paket{(n)german} are available on all \TeX\
+  systems there should be no problems as far as compatibility is
+  concerned.
+  
+  However, this again is tricky to input, and the source is
+  comparatively hard to read.
+
+  This variant is best for use in continuous text. But it should be
+  avoided in macro definitions and in preambles.
+  
+\item Direct input (\verb+Hülle+). The advantage of this variant is
+  obvious. You can input and read the continuous source text just as
+  any other `normal' text.
+  
+  On the other hand you have to tell \LaTeX{} which input encoding is
+  used. There may also be problems when exchanging files between
+  different systems. This is \emph{not} a problem for \TeX, or \LaTeX{} 
+  itself, but it may cause \emph{problems in displaying text in
+    editors} on different systems. For example, a Euro currency
+  symbol encoded in iso-8859-15 (latin9) may be \emph{displayed} in an
+  editor on a windows box (CP1252) as \textcurrency\ .
+
+  This variant is quite good for continuous text. It should, however,
+  be avoided in macro definitions and in preambles.
+\end{enumerate}
+%
+To sum it up, in macros, in preambles, and in style files
+\verb+H\"ulle+, or \verb+H\"{u}lle+ should be used, while in the rest
+of the text you should either use \verb+H"ulle+, or \verb+Hülle+.
+
+\paragraph{Input Encoding}
+\label{sec:eingabekodierung-1}
+
+Do \emph{not} use the packages \Paket{isolatin1}, \Paket{isolatin}, or
+\Paket{umlaut} for setting input encoding! Those packages are either
+obsolete, or they are not available on any given system.
+
+Use \Paket{inputenc}. There are four options available:
+\begin{description}
+\item[latin1/latin9] for Unix-like systems (latin1 also works on MS
+  Windows and Mac OS\,X)
+\item[ansinew] for MS Windows
+\item[applemac] for the Macintosh\footnote{latin1 encoding is
+    recommended for OS\,X users, too, as it is better fit for
+    exchanging files cross-platform than applemac. If you do so you
+    should, however, check the encoding settings of your editor first.
+    In the long run you might like to switch to unicode, but please
+    note that unicode support in \Paket{inputenc} still is a work in
+    progress at this point of time. Some users say they are content
+    with \Paket{ucs} from the \textsf{unicode} package.}
+\item[cp850] for OS/2
+\end{description}
+
+\Ersetze{\Use{isolatin1}}{\UseO{latin1}{inputenc}}
+\Ersetze{\Use{umlaut}}{\UseO{latin1}{inputenc}}
+
+\subsubsection{\Paket{t1enc} vs. \Paket{fontenc}}
+\label{sec:schriftkodierung}
+
+Generally speaking, the topic has been dealt with sufficiently in both
+the \Doku{De-TeX-FAQ}~\cite[questions 5.3.2, 5.3.3, 10.1.10]{faq:02},
+and the \Doku{UK FAQ}~\cite[`Why use \emph{fontenc} rather than
+\emph{t1enc}', question 358]{ukfaq:99}. So all that remains to be said
+is that \Paket{t1enc} is obsolete and hence should be replaced by
+\Paket{fontenc}.  
+
+\Ersetze{\Use{t1enc}}{\UseO{T1}{fontenc}}
+
+\subsubsection{\Bst{natdin} vs. \Bst{dinat}}
+\label{sec:liter-nach-din}
+
+Style file \Bst{natdin} was replaced by \Bst{dinat}.
+\Ersetze{\Bib{natdin}}{\Bib{dinat}}
+
+\subsection{Fonts}
+\label{sec:schriften}
+
+`Fonts and \LaTeX' is a troublesome topic. Most discussions in
+\News{de.comp.text.tex} start with the question why fonts display so
+`fuzzy' in Adobe Acrobat\textsuperscript{\textregistered} Reader. Most
+answers point to the \Paket{times} or \Paket{pslatex} packages.
+However, those packages use completely different sets of fonts.
+
+For an overview of \LaTeXe's New Font Selection Scheme, or NFSS see
+\cite{fntguide}.
+
+For making Computer Modern fonts display just fine in \emph{acroread}
+see \Doku{De-TeX-FAQ}~\cite[question 9.2.3]{faq:02}, or \Doku{UK
+  FAQ}~\cite[`The wrong type of fonts in PDF', question 114]{ukfaq:99}.
+
+\subsubsection{\Paket{times}}
+\label{sec:pakettimes}
+
+\Paket{times} is obsolete (see \Doku{psnfss2e} \cite{psnfss:02}). It
+does set \Macro{rmdefault} to Times, \Macro{sfdefault} to Helvetica,
+and \Macro{ttdefault} to Courier. But it does \emph{not} use the
+corresponding mathematical fonts. What's more, Helvetica is not scaled
+correctly which makes it appear too big in comparison. So if you want
+to use the combination Times/\/Helvetica/\/Courier you should use:
+
+\sbox{\Breite}{\UseO{scaled=.95}{helvet}} 
+\Ersetze{\Use{times}}%
+{\parbox[t]{\wd\Breite}{%
+    \Use{mathptmx}\\
+    \UseO{scaled=.90}{helvet}\\
+    \Use{courier}}}
+
+\paragraph{Note.}
+\label{sec:anmerkung-1}
+
+The scaling factor for \Paket{helvet} together with Times should be
+somewhere between $0.90$ and $0.92$.
+
+\subsubsection{\Paket{mathptm}}
+\label{sec:mathptm}
+
+\Paket{mathptm} is the predecessor to \Paket{mathptmx}. So please use
+the latter for typesetting mathematical formulae in Times.
+
+\Ersetze{\Use{mathptm}}{\Use{mathptmx}}
+
+\subsubsection{\Paket{pslatex}}
+\label{sec:paketpslatex}
+
+\Paket{pslatex} internally works like \Paket{mathptm}$+$
+\Paket{helvet} (scaled). However, it uses a Courier font scaled too
+narrowly. The main disadvantage in using \Paket{pslatex} is that it
+does \emph{not} work with T1 and TS1 encodings.
+
+\Ersetze{\Use{pslatex}}{\parbox[t]{\wd\Breite}{\Use{mathptmx}\\\UseO{scaled=.90}{helvet}\\\Use{courier}}}
+
+\paragraph{Note on Courier for all combinations of Times/Helvetica}
+\label{sec:anmerkung-zu-allen}
+
+You do not have to load \Paket{courier} at all. You may use the usual
+\texttt{cmtt} font for typewriter faces.
+
+\subsubsection{\Paket{palatino}}
+\label{sec:paketpalatino}
+
+\Paket{palatino} behaves like \Paket{times}\,---\,apart from setting
+\Macro{rmdefault} to Palatino, of course. \Paket{palatino} is
+obsolete, too. This is why it should not be used any more.
+
+\Ersetze{\Use{palatino}}{\parbox[t]{\wd\Breite}{\Use{mathpazo}\\\UseO{scaled=.95}{helvet}\\\Use{courier}}}
+
+\paragraph{Note:}
+\label{sec:anmerkung-2}
+
+Scaling factor for \Paket{helvet} in combination with Palatino should
+be set to $0.95$.
+
+Helvetica is \emph{not} the `best' sans-serif font at all for use with
+Palatino. It rather is the best \emph{freely-available} one.  He that
+possesses a CorelDraw\textsuperscript{\textregistered}-CD (this may
+well be an older version) can use Palatino quite well along with
+Frutiger\footnote{Bitstream Humanist 777, bfr}, or
+Optima\footnote{Bitstream Zapf Humanist, bop}. Walter Schmidt supplies
+adaptations for using some PostScript fonts with \TeX{} on his
+homepage.\footnote{Fonts for \TeX:
+  \url{http://home.vr-web.de/was/fonts}} 
+
+\subsubsection{\Paket{mathpple}}
+\label{sec:paketmathpple}
+
+This package was a predecessor to \Paket{mathpazo}. It lacks some
+symbol fonts. So those fonts are taken from the Euler fonts instead.
+Some other symbols are not fit for use with Palatino as the font
+metrics are not correct. For details cf.
+\Doku{psnfss2e}~\cite{psnfss:02}.
+
+\subsubsection{Typesetting upright greek letters}
+\label{sec:aufr-griech-buchst}
+
+The passages I have marked as red in the following are not obsolete in
+the sense of `you should not use this any more', but now editing text
+is made much easier by \Paket{upgreek}. For some more hints on usage
+please see the documentation \Doku{upgreek}~\cite{upgreek:01}.
+
+\minisec{The \Paket{pifont} tricks}\nopagebreak[4]
+\sbox{\Breite}{\NewCom{uppi}{\LMacro{Pisymbol}{psy}\{112\}}}
+\Ersetzx[\wd\Breite]{%
+  \Use{pifont}\\
+  \NewCom{uppi}{\LMacro{Pisymbol}{psy}\{112\}}\\
+  \Macro{uppi}\\
+  \textcolor{black}{or}\\
+  \NewCom[{[1]}]{upgreek}{\%\\
+    ~\Macro{usefont}\{U\}\{psy\}\{m\}\{n\}\#1}\\
+  \LMacro{upgreek}{p}
+}%
+{%
+  \Use{upgreek}\\
+  \$\Macro{uppi}\$
+}
+
+\minisec{The \Paket{babel} trick}
+
+\Ersetzx[\wd\Breite]{%
+  \UseO{greek,\dots}{babel}\\
+  \NewCom[{[1]}]{upgreek}{\%\\
+    ~\LMacro{foreignlanguage}{greek}\{\#1\}}\\
+  \LMacro{upgreek}{p}
+  }
+  {%
+  \Use{upgreek}\\
+  \$\Macro{uppi}\$
+}
+
+\subsubsection{\Paket{euler} vs. \Paket{eulervm}}
+\label{sec:euler-eulervm}
+
+Use \Paket{eulervm} instead of \Paket{euler} for mathematical
+typesetting.  \Paket{eulervm} is a \LaTeX{} package for using the
+eulervm fonts. These are virtual math fonts based on both the Euler
+and the CM fonts. consuming less of \TeX's resources and supplying
+some improved math symbols. Improved \texttt{$\backslash$hslash} and
+\texttt{$\backslash$hbar} are also supplied. Please see the package
+documentation \Doku{eulervm}~\cite{eulervm:04} for details.
+
+\Ersetze{\Use{euler}}{\parbox[t]{\wd\Breite}{\Use{eulervm}}}
+
+%-------------------- section "Miscellanous" ---------------------
+\section{Miscellaneous}
+\label{sec:verschiedenes}
+
+This section\,---\,apart from~\vref{sec:der-anhang}\,---\,gives some more
+general advice than the `deadly sins' section, pp.\,\pageref{sec:todsunden}\,ff.
+
+\subsection{Floats\,---\,`figure', `table'}
+\label{sec:gleit-figure-table}
+
+For centering a float environment we recommend you use
+\Macro{centering} instead of \newline\LMacro{begin}{center} \dots{}
+\LMacro{end}{center} because the latter will include an additional
+vertical skip you can do without in most cases.
+\sbox{\Breite}{\LMacro{includegraphics}{bild}}
+\Ersetze{\parbox[t]{\wd\Breite}{%
+    \Env{figure}{\Env{center}{\LMacro{includegraphics}{bild}}} }}%
+{\parbox[t]{\wd\Breite}{%
+    \Env{figure}{\Macro{centering}\\%
+      \LMacro{includegraphics}{bild}} }}
+
+\paragraph{Note:}
+\label{sec:anmerkung-4}
+
+However, when centering a region within continuous text or within a
+\verb+titlepage+ environment this additional space may be welcome!
+
+\subsection{The appendix}
+\label{sec:der-anhang}
+
+The appendix is introduced by the \Macro{appendix} \emph{command}.
+Note that this is \emph{not an environment}.
+
+\sbox{\Breite}{\LMacro{begin}{appendix}}
+\Ersetze{\parbox[t]{\wd\Breite}{%
+    \Env{appendix}%
+    {\LMacro{section}{Blub}}}}%
+{\parbox[t]{.33\textwidth}{%
+    \Macro{appendix}\\
+    \LMacro{section}{Blub} }}
+
+\subsection{Mathematical typesetting}
+\label{sec:mathematiksatz}
+
+Generally speaking, you should use \Paket{amsmath} for advanced
+mathematical typesetting, providing a number of new environments replacing
+\texttt{eqnarray} in the first place. The main advantages of the
+package are these:
+
+\begin{itemize}
+\item Spacing within and around environments is more consistent.
+\item Equation numbering will be placed in a way so that they will not
+  be printed over any more.
+\item Some new environments, \emph{e.g.}, \texttt{split}, provide a
+  solution to split up long equations easily.
+\item It is easy to define new operators (similar to \Macro{sin},
+  etc.)\ with proper spacing.
+\end{itemize}
+
+\paragraph{Warning:}
+\label{sec:warnung}
+
+When using \Paket{amsmath} you should \emph{never} use the
+\texttt{displaymath}, \texttt{eqnarray}, or \texttt{eqnarray*}
+environments because those are not supported by \Paket{amsmath}.
+Otherwise this would lead to inconsistent spacing.
+
+\texttt{\textbackslash [\dots\textbackslash]} is adapted correctly by
+\Paket{amsmath}. So it may be used instead of \texttt{displaymath}.
+\texttt{eqnarray}, and \texttt{eqnarray*} may be replaced by
+\texttt{align}, or \texttt{align*}. For a complete overview of
+\Paket{amsmath} see \Doku{amsldoc}~\cite{amsldoc:99}.
+
+\sbox{\Breite}{\LMacro{includegraphics}{bild}}
+\Ersetze{%
+  \parbox[t]{\wd\Breite}{%
+    \Env{eqnarray}{%
+       a \&=\& b \textbackslash\textbackslash\\
+       b \&=\& c \textbackslash\textbackslash\\
+       a \&=\& c 
+    }
+  }}%
+  {\parbox[t]{\wd\Breite}{%
+      \Env{align}{%
+        a \&= b \textbackslash\textbackslash\\
+        b \&= c \textbackslash\textbackslash\\
+        a \&= c
+      }
+    }}
+
+
+\subsection{How to use \texttt{\TB graphicspath}}
+\label{sec:die-verwendung-von}
+
+There are several reasons why you should avoid the
+\Macro{graphicspath} macro. Replace it by setting environment variable
+\texttt{TEXINPUTS}:\footnote{Cf. David Carlisle's answer on Markus
+  Kohm's `Bug-Report' at\newline
+  \url{http://www.latex-project.org/cgi-bin/ltxbugs2html?pr=latex/2618}}
+\begin{enumerate}
+\item There are \emph{different} separators in path names on different
+  platforms. While MS Windows and Unices both use a slash `/', a colon
+  `:' was used on Macintosh systems before Mac OS~X.
+\item \TeX{} search takes longer than with using the kpathsea library
+  (with today's fast chips this is not as important an argument as it
+  used to be).
+\item \TeX's memory is limited, and every picture uses part of this
+  memory. What's more, memory is not cleared during the compiling
+  process.
+\end{enumerate}
+%
+In a Bourne shell use 
+\begin{verbatim}
+$ TEXINPUTS=PictureDir:$TEXINPUTS latex datei.tex
+\end{verbatim}
+or add to \verb+~/.profile+ 
+\begin{verbatim}
+export TEXINPUTS=./PictureDir:$TEXINPUTS
+\end{verbatim}%$
+In the latter case the files in  \texttt{PictureDir} will be found
+within the current working directory.
+
+\noindent
+Up to MS~Windows~98 the environment variable is set by adding
+\begin{verbatim}
+set TEXINPUTS=.\PictureDir;%TEXINPUTS%
+\end{verbatim}
+to your \texttt{autoexec.bat}.  On MS Windows~NT-based systems
+according to the `Microsoft Knowledge Base' the variable can be set by
+rightclicking at \textsf{My Computer $\rightarrow$ System Properties
+  $\rightarrow$ Advanced $\rightarrow$ Environment
+  variables}.\footnote{On Windows~2000 you may use:
+  \textsf{Start} $\rightarrow$ Settings $\rightarrow$ Control Panel
+  $\rightarrow$ System.}
+
+The above are only some suggestions on how to proceed. I am well aware
+that \texttt{TEXINPUTS} may be set in different ways. Please see the
+documentation of your operating system, or of your \TeX{} distribution
+for more.
+
+\subsection{Language-specific macros\,---\,\texttt{\textbackslash*name}}
+\label{sec:die-macroname-makros}
+
+From time to time the question comes up in \News{de.comp.text.tex} how
+to modify, \emph{e.g.}, the `References' heading to `Literaturliste'
+or to something else. So I have compiled those macros in
+table~\vref{tab:von-paketng-btw}. They have been taken from the
+\Paket{german} package. Users who want to adapt macro output to other
+languages may as well refer to this table as an example.
+
+So if you want to change the heading `List of Figures' to, say,
+`Pictures' you may use the following command:
+\begin{verbatim}
+\renewcommand*{\listfigurename}{Pictures}
+\end{verbatim}
+The other macros are changed in the same way respectively. With
+\Paket{babel} use the \Macro{addto} macro. For more details see the
+\Doku{De-TeX-FAQ}~\cite{faq:02}.
+
+\begin{table}
+  \begin{minipage}{\textwidth}
+    \centering
+    \caption{Macros defined by \Paket{(n)german} or by \Paket{babel}
+      with the \Option{(n)german} option}
+    \label{tab:von-paketng-btw}
+    \begin{tabular}{@{}lll@{}}
+      \toprule
+      \multicolumn{1}{@{}N}{Name of macro}        & 
+      \multicolumn{1}{N}{Original definition} & 
+      \multicolumn{1}{N@{}}{Usual output in German}                                           \\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
+      \Macro{prefacename}                     & Preface         & Vorwort               \\
+      \Macro{refname}\footnote{In \texttt{article} class only.}
+                                              & References      & Literatur             \\
+      \Macro{abstractname}                    & Abstract        & Zusammenfassung       \\
+      \Macro{bibname}\footnote{In \texttt{report} and
+      \texttt{book} classes only.}
+                                              & Bibliography    & Literaturverzeichnis  \\
+      \Macro{chaptername}                     & Chapter         & Kapitel               \\
+      \Macro{appendixname}                    & Appendix        & Anhang                \\
+      \Macro{contentsname}                    & Contents        & Inhaltsverzeichnis    \\
+      \Macro{listfigurename}                  & List of Figures & Abbildungsverzeichnis \\
+      \Macro{listtablename}                   & List of Tables  & Tabellenverzeichnis   \\
+      \Macro{indexname}                       & Index           & Index                 \\
+      \Macro{figurename}                      & Figure          & Abbildung             \\
+      \Macro{tablename}                       & Table           & Tabelle               \\
+      \Macro{partname}                        & Part            & Teil                  \\
+      \Macro{enclname}                        & encl            & Anlage(n)             \\
+      \Macro{ccname}                          & cc              & Verteiler             \\
+      \Macro{headtoname}                      & To              & An                    \\
+      \Macro{pagename}                        & Page            & Seite                 \\
+      \Macro{seename}                         & see             & siehe                 \\
+      \Macro{alsoname}                        & see also        & siehe auch            \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+\end{table}
+\clearpage
+\appendix
+
+\begin{thebibliography}{99}\addcontentsline{toc}{section}{References}%
+
+\bibitem{amsldoc:99} \textsc{American Mathematical Society}:
+  \emph{User's Guide for the {\texttt{amsmath}} Package}. December 1999,
+  Version~2.0. \biburl{CTAN://macros/latex/required/amslatex/}.
+  
+\bibitem{graphicx:99} \textsc{David~P. Carlisle}: \emph{Packages in the
+    `graphics' bundle}. January 1999.
+  \biburl{CTAN://macros/latex/required/graphics/}.
+
+\bibitem{ukfaq:99}\textsc{Robin Fairbairns}: \emph{The UK \TeX\ FAQ.
+    Your 407 Questions Answered.}  WWW, Version~3.16, 30 June 2006,
+  \biburl{http://www.tex.ac.uk/faq}.
+ 
+\bibitem{kohm:03} \textsc{Markus Kohm}, \textsc{Frank Neukam} und
+  \textsc{Axel Kielhorn}: \emph{The KOMA-Script Bundle}.
+  \Doku{scrguien}.
+  \biburl{CTAN://macros/latex/supported/koma-script/}.
+
+\bibitem{clsguide} \textsc{The \LaTeX3 Project}: \LaTeXe{} for
+  class and package writers. 1999.
+  \biburl{CTAN://macros/latex/doc/clsguide.pdf}
+
+\bibitem{fntguide} \textsc{The \LaTeX3 Project}: \LaTeXe{} font
+  selection. 2000.
+  \biburl{CTAN://macros/latex/doc/fntguide.pdf}
+
+\bibitem{usrguide} \textsc{The \LaTeX3 Project}: \LaTeXe{} for
+  authors. 2001.
+  \biburl{CTAN://macros/latex/doc/usrguide.pdf}
+
+\bibitem{faq:02} \textsc{Bernd Raichle}, \textsc{Rolf Niepraschk} und
+  \textsc{Thomas Hafner}: \emph{Fragen und Antworten (FAQ) über das
+    Textsatzsystem {\TeX\ }und DANTE, Deutschsprachige
+    Anwendervereinigung {\TeX\ }e.V.} WWW, Version~72. September 2003,
+  \biburl{http://www.dante.de/faq/de-tex-faq/}.
+  
+\bibitem{upgreek:01} \textsc{Walter Schmidt}: \emph{The
+    {\textsf{upgreek}} package for {\LaTeXe}}.  May 2001, Version~1.0.
+  \biburl{CTAN://macros/latex/contrib/supported/was/}.
+  
+\bibitem{psnfss:02} \textsc{Walter Schmidt}: \emph{Using common
+    PostScript fonts with {\LaTeX}}.  April 2002, PSNFSS version 9.0.
+  \biburl{CTAN://macros/latex/required/psnfss/psnfss2e.pdf}
+
+\bibitem{eulervm:04} \textsc{Walter Schmidt}: \emph{The Euler Virtual Math
+    Fonts for use with {\LaTeX}}. Januar 2004, Version~3.0a.
+  \biburl{CTAN://fonts/eulervm/}  
+
+\bibitem{l2kurz:99} \textsc{Walter Schmidt}, \textsc{Jörg Knappen},
+  \textsc{Hubert Partl} und \textsc{Irene Hyna}:
+  \emph{{\LaTeXe}-Kurzbeschreibung}. April 1999, Version~2.1.
+  \biburl{CTAN://info/lshort/german/}. English Translation available
+  at \biburl{CTAN://info/lshort/english/}
+
+\bibitem{caption:04} \textsc{Axel Sommerfeld}:
+  \emph{Setzen von Abbildungs- und Tabellenbeschriftungen mit dem
+    caption-Paket}. Juli 2004, Version~3.0c.
+  \biburl{CTAN://macros/latex/contrib/caption/}.
+\end{thebibliography}
+\begin{center}$\ast$\ $\ast$\ $\ast$\end{center}
+\bigskip
+%---------------------------------------------------------------------
+\section{An example illustrating the effect of the \texttt{\TB sloppy}
+  command}
+\label{sec:beispiel-zu-sloppy}
+This is the example Markus Kohm published earlier:
+\begin{bspcode}{\MID{8557097.gEimXdBtjU@ID-107054.user.dfncis.de}{8557097.gEimXdBtjU@ID-107054.user.dfncis.de}}%
+\footnotesize
+\begin{verbatim}
+\documentclass{article}
+
+\setlength{\textwidth}{20em}
+\setlength{\parindent}{0pt}
+\begin{document}
+\typeout{First without \string\sloppy\space and underfull \string\hbox}
+
+tatata tatata tatata tatata tatata tatata ta\-ta\-tata
+tatata tatata tatata tatata tatata tatata tata\-tata
+tatata tatata tatata tatata ta\-tatatatt\-ta
+tatata tatata tatata tatata tatata tatata ta\-ta\-ta\-ta
+
+\typeout{done.}
+
+\sloppy
+\typeout{Second with \string\sloppy\space and underfull \string\hbox}
+
+tatata tatata tatata tatata tatata tatata ta\-ta\-tata
+tatata tatata tatata tatata tatata tatata tata\-tata
+tatata tatata tatata tatata ta\-tatatatt\-ta
+tatata tatata tatata tatata tatata tatata ta\-ta\-ta\-ta
+
+\typeout{done.}
+\end{document}
+\end{verbatim}
+\end{bspcode}
+
+\clearpage
+%---------------------------------------------------------------------
+\setlength{\columnsep}{2em}
+\setlength{\columnseprule}{.5pt}
+\begin{multicols}{2}
+\section{GNU Free Documentation Licence}
+\label{sec:fdl}
+
+\tiny
+
+\begin{center}
+
+       Version 1.2, November 2002
+
+
+ Copyright \copyright 2000,2001,2002  Free Software Foundation, Inc.
+ 
+ \bigskip
+ 
+     59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  
+ \bigskip
+ 
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+\end{center}
+
+\subsubsection*{Preamble}
+
+The purpose of this License is to make a manual, textbook, or other
+functional and useful document "free" in the sense of freedom: to
+assure everyone the effective freedom to copy and redistribute it,
+with or without modifying it, either commercially or noncommercially.
+Secondarily, this License preserves for the author and publisher a way
+to get credit for their work, while not being considered responsible
+for modifications made by others.
+
+This License is a kind of "copyleft", which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+
+We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+
+\subsubsection*{1. APPLICABILITY AND DEFINITIONS}
+
+This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License.  Such a notice grants a
+world-wide, royalty-free license, unlimited in duration, to use that
+work under the conditions stated herein.  The \textbf{"Document"}, below,
+refers to any such manual or work.  Any member of the public is a
+licensee, and is addressed as \textbf{"you"}.  You accept the license if you
+copy, modify or distribute the work in a way requiring permission
+under copyright law.
+
+A \textbf{"Modified Version"} of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+
+A \textbf{"Secondary Section"} is a named appendix or a front-matter section of
+the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document's overall subject
+(or to related matters) and contains nothing that could fall directly
+within that overall subject.  (Thus, if the Document is in part a
+textbook of mathematics, a Secondary Section may not explain any
+mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+
+The \textbf{"Invariant Sections"} are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.  If a
+section does not fit the above definition of Secondary then it is not
+allowed to be designated as Invariant.  The Document may contain zero
+Invariant Sections.  If the Document does not identify any Invariant
+Sections then there are none.
+
+The \textbf{"Cover Texts"} are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.  A Front-Cover Text may
+be at most 5 words, and a Back-Cover Text may be at most 25 words.
+
+A \textbf{"Transparent"} copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, that is suitable for revising the document
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup, or absence of markup, has been arranged to thwart
+or discourage subsequent modification by readers is not Transparent.
+An image format is not Transparent if used for any substantial amount
+of text.  A copy that is not "Transparent" is called \textbf{"Opaque"}.
+
+Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, \LaTeX{} input format, SGML
+or XML using a publicly available DTD, and standard-conforming simple
+HTML, PostScript or PDF designed for human modification.  Examples of
+transparent image formats include PNG, XCF and JPG.  Opaque formats
+include proprietary formats that can be read and edited only by
+proprietary word processors, SGML or XML for which the DTD and/or
+processing tools are not generally available, and the
+machine-generated HTML, PostScript or PDF produced by some word
+processors for output purposes only.
+
+The \textbf{"Title Page"} means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, "Title Page" means
+the text near the most prominent appearance of the work's title,
+preceding the beginning of the body of the text.
+
+A section \textbf{"Entitled XYZ"} means a named subunit of the Document whose
+title either is precisely XYZ or contains XYZ in parentheses following
+text that translates XYZ in another language.  (Here XYZ stands for a
+specific section name mentioned below, such as \textbf{"Acknowledgements"},
+\textbf{"Dedications"}, \textbf{"Endorsements"}, or \textbf{"History"}.)  
+To \textbf{"Preserve the Title"}
+of such a section when you modify the Document means that it remains a
+section "Entitled XYZ" according to this definition.
+
+The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document.  These Warranty
+Disclaimers are considered to be included by reference in this
+License, but only as regards disclaiming warranties: any other
+implication that these Warranty Disclaimers may have is void and has
+no effect on the meaning of this License.
+
+\subsubsection*{2. VERBATIM COPYING}
+
+You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+
+You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+
+\subsubsection*{3. COPYING IN QUANTITY}
+
+If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document's license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+
+If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+
+If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute an
+Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+
+It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+
+\subsubsection*{4. MODIFICATIONS}
+
+You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+
+\begin{itemize}
+\item[A.] 
+   Use in the Title Page (and on the covers, if any) a title distinct
+   from that of the Document, and from those of previous versions
+   (which should, if there were any, be listed in the History section
+   of the Document).  You may use the same title as a previous version
+   if the original publisher of that version gives permission.
+   
+\item[B.]
+   List on the Title Page, as authors, one or more persons or entities
+   responsible for authorship of the modifications in the Modified
+   Version, together with at least five of the principal authors of the
+   Document (all of its principal authors, if it has fewer than five),
+   unless they release you from this requirement.
+   
+\item[C.]
+   State on the Title page the name of the publisher of the
+   Modified Version, as the publisher.
+   
+\item[D.]
+   Preserve all the copyright notices of the Document.
+   
+\item[E.]
+   Add an appropriate copyright notice for your modifications
+   adjacent to the other copyright notices.
+   
+\item[F.]
+   Include, immediately after the copyright notices, a license notice
+   giving the public permission to use the Modified Version under the
+   terms of this License, in the form shown in the Addendum below.
+   
+\item[G.]
+   Preserve in that license notice the full lists of Invariant Sections
+   and required Cover Texts given in the Document's license notice.
+   
+\item[H.]
+   Include an unaltered copy of this License.
+   
+\item[I.]
+   Preserve the section Entitled "History", Preserve its Title, and add
+   to it an item stating at least the title, year, new authors, and
+   publisher of the Modified Version as given on the Title Page.  If
+   there is no section Entitled "History" in the Document, create one
+   stating the title, year, authors, and publisher of the Document as
+   given on its Title Page, then add an item describing the Modified
+   Version as stated in the previous sentence.
+   
+\item[J.]
+   Preserve the network location, if any, given in the Document for
+   public access to a Transparent copy of the Document, and likewise
+   the network locations given in the Document for previous versions
+   it was based on.  These may be placed in the "History" section.
+   You may omit a network location for a work that was published at
+   least four years before the Document itself, or if the original
+   publisher of the version it refers to gives permission.
+   
+\item[K.]
+   For any section Entitled "Acknowledgements" or "Dedications",
+   Preserve the Title of the section, and preserve in the section all
+   the substance and tone of each of the contributor acknowledgements
+   and/or dedications given therein.
+   
+\item[L.]
+   Preserve all the Invariant Sections of the Document,
+   unaltered in their text and in their titles.  Section numbers
+   or the equivalent are not considered part of the section titles.
+   
+\item[M.]
+   Delete any section Entitled "Endorsements".  Such a section
+   may not be included in the Modified Version.
+   
+\item[N.]
+   Do not retitle any existing section to be Entitled "Endorsements"
+   or to conflict in title with any Invariant Section.
+   
+\item[O.]
+   Preserve any Warranty Disclaimers.
+\end{itemize}
+
+If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version's license notice.
+These titles must be distinct from any other section titles.
+
+You may add a section Entitled "Endorsements", provided it contains
+nothing but endorsements of your Modified Version by various
+parties\,---\,for example, statements of peer review or that the text
+has been approved by an organization as the authoritative definition
+of a standard.
+
+You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+
+The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+
+\subsubsection*{5. COMBINING DOCUMENTS}
+
+You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice, and that you preserve all their Warranty Disclaimers.
+
+The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+
+In the combination, you must combine any sections Entitled "History"
+in the various original documents, forming one section Entitled
+"History"; likewise combine any sections Entitled "Acknowledgements",
+and any sections Entitled "Dedications".  You must delete all sections
+Entitled "Endorsements".
+
+\subsubsection*{6. COLLECTIONS OF DOCUMENTS}
+
+You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+
+You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+
+\subsubsection*{7. AGGREGATION WITH INDEPENDENT WORKS}
+
+A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, is called an "aggregate" if the copyright
+resulting from the compilation is not used to limit the legal rights
+of the compilation's users beyond what the individual works permit.
+When the Document is included in an aggregate, this License does not
+apply to the other works in the aggregate which are not themselves
+derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half of
+the entire aggregate, the Document's Cover Texts may be placed on
+covers that bracket the Document within the aggregate, or the
+electronic equivalent of covers if the Document is in electronic form.
+Otherwise they must appear on printed covers that bracket the whole
+aggregate.
+
+\subsubsection*{8. TRANSLATION}
+
+Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License, and all the license notices in the
+Document, and any Warranty Disclaimers, provided that you also include
+the original English version of this License and the original versions
+of those notices and disclaimers.  In case of a disagreement between
+the translation and the original version of this License or a notice
+or disclaimer, the original version will prevail.
+
+If a section in the Document is Entitled "Acknowledgements",
+"Dedications", or "History", the requirement (section 4) to Preserve
+its Title (section 1) will typically require changing the actual
+title.
+
+\subsubsection*{9. TERMINATION}
+
+You may not copy, modify, sublicense, or distribute the Document except
+as expressly provided for under this License.  Any other attempt to
+copy, modify, sublicense or distribute the Document is void, and will
+automatically terminate your rights under this License.  However,
+parties who have received copies, or rights, from you under this
+License will not have their licenses terminated so long as such
+parties remain in full compliance.
+
+\subsubsection*{10. FUTURE REVISIONS OF THIS LICENSE}
+
+The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+http://www.gnu.org/copyleft/.
+
+Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License "or any later version" applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.
+
+\subsubsection*{ADDENDUM: How to use this License for your documents}
+
+To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+
+\begin{quote}
+    Copyright \copyright  YEAR  YOUR NAME.
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.2
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled "GNU
+    Free Documentation License".
+\end{quote}
+    
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the "with...Texts." line with this:
+
+\begin{quote}
+    with the Invariant Sections being LIST THEIR TITLES, with the
+    Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
+\end{quote}
+    
+If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+
+If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+
+\end{multicols}
+%--------------------------------------------------------------------
+\section{\Doku{l2tabuen} revision history}
+
+\begin{description}
+\item[v1.8.5.7] Some minor changes by \emph{Gernot Hassenpflug} to
+  English typography and style.
+\item[v1.8.5.6] Adapted to the UK \TeX{} FAQ v3.16.
+\item[v1.8.5.5] Minor fix in the section on \Macro{graphicspath} as to
+  the correct notation regarding Mac OS~X. Thanks to \emph{Stephen
+    Eglen}. Adapted to the UK \TeX{} FAQ v3.15a.
+\item[v1.8.5.4] Minor additions and changes in source code applied.
+  Additions to the section on \texttt{\textbackslash baselinestretch}.
+  Thanks to \emph{Karl Berry}.
+\item[v1.8.5.3] Adapted to the UK \TeX{} FAQ v3.13b. \emph{Legal
+    Notice} modified again, hopefully for the benefit of Debian users
+  and maintainers (\emph{'There are no invariant sections in this
+    document.'}).
+\item[v1.8.5.2] Legal notice modified.
+\item[v1.8.5.1] Some typos fixed in the section on
+  `graphicspath'. Thanks to \emph{Jos\'{e} Carlos Santos}.
+\item[v1.8.5] Adapted to the UK \TeX{} FAQ v3.13.
+\item[v1.8.4] GNU FDL made applicable to \Doku{l2tabuen}. `Revision
+  history' added.
+\end{description}
+\begin{center}$\ast$\ $\ast$\ $\ast$\end{center}
+\end{document}
+%%% Local variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% coding: iso-8859-1
+%%% End:

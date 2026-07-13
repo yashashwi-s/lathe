@@ -1,0 +1,19 @@
+% bare MusiXTeX example
+
+\input musixtex
+\nopagenumbers
+
+\setstaffs1{1}         % a single stave
+\setclef1{\treble}     % with a treble clef
+\generalmeter{\meterC} % common time
+\nobarnumbers          % what it says
+\startextract          % a short music piece
+  % \qu = quarter note, stem up;
+  % \ql = quarter note, stem down;
+  % \Notes, \en = start and end of note line
+  \Notes \qu c \qu d \qu e \qu f \en
+  \bar
+  \Notes \qu g \qu{'a} \ql b \ql c \en
+\endextract
+
+\end

@@ -1,0 +1,33 @@
+
+\subsection{Math with \texttt{amsmath} (replacing standard Environments)}
+\begin{tabular}{@{}lll@{}}\toprule
+\lstinline+equation+ & \lstinline+equation*+ & One line, one equation\\
+\lstinline+multline+ & \lstinline+multline*+ & One unaligned multiple-line equation, one number \\
+\lstinline+gather+   & \lstinline+gather*+   & Several equations without alignment \\
+\lstinline+align+    & \lstinline+align*+    & Several equations with multiple alignments \\
+\lstinline+alignat+  & \lstinline+alignat*+  & Multiple alignments, choose spacing between cols\\
+\lstinline+flalign+  & \lstinline+flalign*+  & Several equations: horizontally spread form of align \\
+\multicolumn{2}{@{}l}{\lstinline+cases+}   & Alignment for cases  \\
+\multicolumn{2}{@{}l}{\lstinline+split+}   & A simple alignment within a multiple-line equation \\
+\multicolumn{2}{@{}l}{\lstinline+aligned+} & A ``mini-page'' with multiple alignments \\
+\multicolumn{2}{@{}l}{\lstinline+gathered+}& A ``mini-page'' with unaligned equations \\
+\bottomrule\end{tabular}
+\begin{itemize}
+\item
+The content is automatically placed in math mode.
+\item
+Use \lstinline+\intertext{+\textit{text}\lstinline+}+ to set text within an \texttt{amsmath} environment
+\item
+Length parameter to influence vertical spacing within any \texttt{amsmath} environment: \lstinline+\jot+ (e.g. \lstinline+\addtolength{\jot}{1ex}+)
+\item
+Add singular vertical space for a line via \lstinline+\\[<amount>]+ (see~\ref{sec:units})
+\item
+Use the \lstinline+spreadlines+ environment from the \texttt{mathtools} package
+\item
+Length parameters (with standard values) to influence vertical white space around displayed math formulas:
+\lstinline+\abovedisplayskip=12pt+,
+\lstinline+\belowdisplayskip=12pt+,
+\lstinline+\abovedisplayshortskip=0pt+,
+\lstinline+\belowdisplayshortskip=7pt+
+\end{itemize}
+^^E^^L 

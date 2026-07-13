@@ -1,0 +1,146 @@
+  
+\author{{\Huge Jean Pierre Casteleyn } \\ {\Huge IUT Génie Thermique et \'Energie } \\ {\Huge Dunkerque, France }}
+
+\DeclareFixedFont{\RM}{T1}{ptm}{b}{n}{2cm}
+
+\DeclareFixedFont{\RMM}{T1}{ptm}{b}{n}{1cm}
+
+\title{ {\RM Visual TikZ} \\ \vspace{1cm} {\RMM Version 0.66} }
+
+
+
+\date{
+\begin{center}
+\begin{animateinline}[loop,autoplay]{12}%
+ \multiframe{24}{iAngle=0+15,icol=0+5}{\begin{tikzpicture}[rotate=90]
+    \draw  (0,0) node[fill=white,circle] {\includegraphics[width=4cm]{LogoIUT}}  (0,0) circle (1);
+  \end{tikzpicture}} 
+\end{animateinline}% 
+\end{center}
+{\LARGE \TFRGB{mis à jour le \today}{Updated on \today} 
+}
+}
+
+
+\maketitle
+
+
+
+ \begin{animateinline}[autoplay,loop]{12}%
+ \multiframe{24}{iAngle=0+15,icol=0+5}{\begin{tikzpicture}
+ [scale=1.8] %
+   \draw[line width=0pt] (-2,-2) rectangle(6,2); %
+   \draw  (0,0) node[fill=white,circle,rotate=\iAngle] {\includegraphics[width=2cm]{LogoIUT}}  (0,0) circle (1);
+    \draw (0,0) circle (1);
+    \coordinate (abc) at (${sqrt(9-sin(\iAngle)*sin(\iAngle))+cos(\iAngle)}*(1,0)$) ;
+    \coordinate (xyz) at (\iAngle:1);
+    \draw[ultra thick] (0,0) --(xyz); 
+    \draw[ultra thick] (xyz) -- (abc) ;
+    \fill[color=blue!\icol] (abc)++(0.5,-1) rectangle (5,1) ;
+    \draw[ultra thick] (abc) ++(0,-1) rectangle ++(.5,2) ;
+    \draw[ultra thick]  (1.5,1) -- (5,1) -- (5,-1) -- (1.5,-1);
+    \fill[red] (xyz) circle (4pt);
+    \fill[red] (abc) circle (4pt); 
+  \end{tikzpicture}}
+ \end{animateinline} 
+
+
+ 
+\newpage
+ 
+ 
+\TFRGB{
+\textbf{Objectifs }: 
+
+\begin{itemize}
+\item Avoir une image par  commande ou par paramètre.
+\item Avoir un texte réduit au strict minimum.
+\item Etre le plus complet possible au fil de mises à jour régulières.
+\item Garder la même structure que visuel pstricks
+\end{itemize} 
+}
+{\textbf{Objectives }: 
+
+\begin{itemize}
+\item One image per command or parameter.
+\item the minimum amount of text possible.
+\item the most complete possible update after update.
+\item keep the same structure as VisualPSTricks
+\end{itemize}}
+
+
+\vspace{1cm}
+
+\TFRGB{
+\textbf{Remarques }: Le code donné est minimal et ne sert qu'à montrer les commandes concernées. Les effets sont parfois exagérés pour bien les mettre en évidence. Pour en savoir plus, vous pouvez voir la documentation. Pour se faire j'ai indiqué le numéro de \tikz[baseline=-1mm]  \draw node[draw,fill=red!20] {Section de pgfmanual} ;
+}
+{\textbf{Remarks }:
+Minimal code is given to show the effect of a command or a parameter. The effects are sometime exaggerated for clarity   .To consult the documentation, I have given the number of the  \tikz[baseline=-1mm]  \draw node[draw,fill=red!20] {Section in pgfmanual} ;
+}
+\vspace{1cm}
+
+
+\TFRGB{
+\textbf{Vous pouvez me contacter à}
+ \href{mailto:jpcdk@yahoo.fr}{mon e-mail personnel} pour
+
+\begin{itemize}
+\item me signaler les erreurs que vous avez constatés (merci d'indiquer la page où vous l'avez constaté)
+\item me faire part de vos commentaires, suggestions \dots
+\end{itemize}}
+{
+\textbf{You can contact me at }
+ \href{mailto:jpcdk@yahoo.fr}{my personal email} to
+
+\begin{itemize}
+\item let me know the mistakes found (please indicate the page)
+\item give me your commentaries, your suggestions \dots
+\end{itemize}}
+
+\vspace{1cm}
+\TFRGB{
+\textbf{Quoi de neuf ! } :
+
+\begin{itemize}
+\item Ajout de la library  chains \pageref{lib-chains}
+\item Ajout de la library  through \pageref{lib-through}
+\item Ajout de la library  turtle \pageref{lib-turtle}
+\item Ajout de la library positioning \pageref{lib-pos}
+\item Ajout du module tikzsymbols \pageref{symbol}
+\item mise à jour du module tikzducks \pageref{ducks}
+\item mise à jour des modules shape \pageref{formes}
+\end{itemize}
+
+}
+{
+\textbf{What's new } :
+\begin{itemize}
+\item chains library added \pageref{lib-chains}
+\item through library added \pageref{lib-through}
+\item turtle library added \pageref{lib-turtle}
+\item positioning library added \pageref{lib-pos}
+\item Tikzsymbols package added \pageref{symbol}
+\item Tikzducks package updated \pageref{ducks}
+\item shapes packages updated \pageref{formes}
+\end{itemize}
+}
+
+
+
+\vspace{1cm}
+\textbf{Licence } :
+
+
+This work may be distributed and/or modified under the conditions of the LaTeX Project Public License, either version 1.3 of this license or (at your option) any later version.
+
+ The latest version of this license is in  http://www.latex-project.org/lppl.txt and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status `maintained'.
+
+The Current Maintainer of this work is M. Jean Pierre Casteleyn.
+
+\vspace{2cm}
+\input{tkzmerci}
+ 
+\newpage

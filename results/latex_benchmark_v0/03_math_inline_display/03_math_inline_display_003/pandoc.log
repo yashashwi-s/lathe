@@ -1,0 +1,14 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_003/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_003/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  e^{i \hat{\Gamma} [\vec{\varphi}_1, \vec{\varphi}_2]} = \langle T_C \text{exp} \left[ \frac{i}{\delta} \int d^{\, 4} x \sum_{j = 1}^2 \left\{ (-)^{j - 1} {\cal L}' (\vec{\phi}_j (x) + \vec{\varphi}_j (x)) - \frac{\delta \hat{\Gamma} [\vec{\varphi}_1, \vec{\varphi}_2]}{\delta \vec{\varphi}_j (x)} \cdot \vec{\phi}_j (x) \right\} \right] \rangle ,
+  \end{align*}, rendering as TeX:
+   (-)^{j - 1} {\cal L}' (\vec{\phi}_j (x)
+                     ^
+  unexpected control sequence \cal
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

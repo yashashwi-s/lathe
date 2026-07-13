@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01635\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccc@{\hspace{15pt}}ccc}
+			\hline \hline
+			\makecell{Prototypical sliding \\ ferroelectrics} & \makecell{Symmetry \\ operation} & \makecell{Independent SHG \\ coefficients ($+P$)} & \makecell{Independent SHG \\ coefficients ($-P$)} & \makecell{SHG \\ intensity} & \makecell{Orientation \\ distinguishable$?$}  \\
+			\hline
+			\makecell{1T'-WTe$_2$ \\ Td-MoTe$_2$ in $C_{2v}$} 
+			& \makecell{$C_2^{[010]}$ \\ 
+				$\begin{pmatrix}
+					-1 & 0 & 0 \\
+					0 & 1 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$ \\  \\} 
+			& \makecell{$\chi_{xzx}$($\chi_{xxz}$) \\ $\chi_{yyz}$($\chi_{yzy}$) \\ $\chi_{zxx}$ \\ $\chi_{zyy}$ \\ $\chi_{zzz}$ \\  \\} 
+			& \makecell{$-\chi_{xzx}$($-\chi_{xxz}$) \\ $-\chi_{yyz}$($-\chi_{yzy}$) \\ $-\chi_{zxx}$ \\ $-\chi_{zyy}$ \\ $-\chi_{zzz}$ \\  \\} 
+			& \makecell{\\ \textbf{$E_x = 0$, $E_{y,z} \neq$ 0}\\ [0.5em] 
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[\chi_{zzz} \sin^3\theta \\
+					&\quad + (\chi_{zyy} + 2\chi_{yyz}) \cos^2\theta \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[\chi_{zyy} \cos^3\theta \\
+					&\quad + (\chi_{zzz} - 2\chi_{yyz}) \sin^2\theta \cos\theta \bigr]^2
+				\end{aligned}$} 
+			& \makecell{\\ No} \\
+			\hline
+			\makecell{ \\ 3R-MoS$_2$ \\ 3R-BN \\ $\gamma$-InSe in $C_{3v}$} 
+			& \makecell{ \\ $C_2^{[\overline110]}$ \\ 
+				$\begin{pmatrix}
+					0 & -1 & 0 \\
+					-1 & 0 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$} 
+			& \makecell{ \\ $\chi_{xzx}$($\chi_{xxz}$) \\ $\chi_{yyy}$ \\ $\chi_{zxx}$ \\ $\chi_{zzz}$} 
+			& \makecell{ \\ $-\chi_{xzx}$($-\chi_{xxz}$) \\ $\chi_{yyy}$ \\ $-\chi_{zxx}$ \\ $-\chi_{zzz}$} 
+			& \makecell{ \\ \textbf{$E_z = 0$, $E_{x,y} \neq$ 0} \\[0.5em]
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[\chi_{yyy} \sin^3\theta \\
+					&\quad - 3\chi_{yyy} \cos^2\theta \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[-\chi_{yyy} \cos^3\theta \\
+					&\quad + 3\chi_{yyy} \sin^2\theta \cos\theta \bigr]^2
+				\end{aligned}$ \\  \\} 
+			& \makecell{\\ \\ No} \\
+			\hline
+			\makecell{ SnP$_2$S$_6$ \\ SnP$_2$Se$_6$ in $C_{3}$} 
+			& \makecell{$C_2^{[\overline110]}$ \\ 
+				$\begin{pmatrix}
+					0 & -1 & 0 \\
+					-1 & 0 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$} 
+			& \makecell{ $\chi_{xxx}$ \\ $\chi_{xxz}$($\chi_{xzx}$) \\ $\chi_{xyz}$($\chi_{xzy}$) \\ $\chi_{yyy}$ \\ $\chi_{zxx}$ \\ $\chi_{zzz}$ \\  \\} 
+			& \makecell{ $-\chi_{xxx}$ \\ $-\chi_{xxz}$($-\chi_{xzx}$) \\ $\chi_{xyz}$($\chi_{xzy}$) \\ $\chi_{yyy}$ \\ $-\chi_{zxx}$ \\ $-\chi_{zzz}$ \\  \\} 
+			& \makecell{\textbf{$E_z = 0$, $E_{x,y} \neq$ 0} \\[0.5em] 
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[4\chi_{xxx} \cos^3\theta - 3\chi_{xxx} \cos\theta \\
+					&\quad + 4\chi_{yyy} \sin^3\theta - 3\chi_{yyy} \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[-4\chi_{xxx} \sin^3\theta + 3\chi_{xxx} \sin\theta \\
+					&\quad + 4\chi_{yyy} \cos^3\theta - 3\chi_{yyy} \cos\theta  \bigr]^2
+				\end{aligned}$} 
+			& \makecell{\\ \\ Yes} \\
+			\hline\hline
+		\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01992\_table\_14}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+API Name and Settings & Cleaned Model Name\\
+\midrule
+gpt-4-0613 & GPT-4 \\
+qwen2.5-7b-instruct-1m & Qwen2.5-7B-Instruct \\
+internlm3-8b-instruct & InternLM3-8B-Instruct \\
+qwen-max-2025-01-25 & Qwen2.5-Max \\
+qwen2.5-14b-instruct@q8\_0 & Qwen2.5-14B-Instruct (Q8) \\
+qwq-32b & QWQ-32B \\
+o3-2025-04-16-low & o3 (low) \\
+gpt-4o-2024-08-06 & GPT-4o (2024-08-06) \\
+mistral-nemo-12b-instruct-2407 & Mistral-Nemo-Instruct-2407 \\
+gpt-35-turbo-1106 & GPT-3.5 Turbo (11/06) \\
+o1-preview-2024-09-12 & o1-preview \\
+grok-3-mini-beta-high & Grok 3 Mini (high) \\
+claude-v3-5-sonnet-v1 & Claude 3.5 Sonnet \\
+amazon.nova-lite-v1 & Amazon Nova Lite \\
+gemini-2.0-flash-exp & Gemini 2.0 Flash (exp) \\
+o4-mini-2025-04-16-low & o4-mini (low) \\
+llama-3-70b-instruct-awq & Llama-3-70B-Instruct \\
+gpt-4.5-preview-2025-02-27 & GPT-4.5 \\
+deepseek-chat-v3 & DeepSeek-V3 \\
+gemma-2-27b-it@q6\_k\_l & Gemma 2 27B \\
+llama3.1-8b & Llama-3.1-8B \\
+claude-v3-5-haiku & Claude 3.5 Haiku \\
+qwen2.5-72b-instruct & Qwen2.5-72B-Instruct \\
+gpt-4.1-nano-2025-04-14 & GPT-4.1 Nano \\
+granite-3.1-8b-instruct & Granite-3.1-8B-Instruct \\
+llama3-8b-8192 & Llama-3-8B \\
+gemma2-9b-it-groq & Gemma 2 9B \\
+qwen-turbo-2024-11-01 & Qwen Turbo \\
+gpt-4o-2024-11-20 & GPT-4o (2024-11-20) \\
+amazon.nova-pro-v1 & Amazon Nova Pro \\
+o1-2024-12-17-low & o1 (low) \\
+qwen-plus-2025-01-25 & Qwen Plus \\
+gpt-35-turbo-0301 & GPT-3.5 Turbo (03/01) \\
+mercury-coder-small & Mercury Coder Small \\
+deephermes-3-llama-3-8b-preview@q8 & DeepHermes-3-Llama-3-8B-Preview \\
+o4-mini-2025-04-16-high & o4-mini (high) \\
+gpt-4o-mini-2024-07-18 & GPT-4o Mini \\
+gpt-4-turbo-2024-04-09 & GPT-4 Turbo \\
+o4-mini-2025-04-16-medium & o4-mini (medium) \\
+gemini-2.5-pro-preview-03-25 & Gemini 2.5 Pro Preview \\
+gpt-4-32k-0613 & GPT-4 32K \\
+phi-4 & Phi-4 \\
+gemini-2.0-flash-thinking-exp-1219 & Gemini 2.0 Flash Thinking \\
+mistral-small-instruct-2409 & Mistral-Small-Instruct-2409 \\
+mistral-small-24b-instruct-2501@q4\_k\_m & Mistral-Small-24B-Instruct-2501 \\
+llama-2-7b-chat & Llama-2-7B-Chat \\
+gemma-3-12b-it@iq4\_xs & Gemma 3 12B (iq4) \\
+claude-v3-7-sonnet-thinking\_10000 & Claude 3.7 Sonnet Thinking \\
+gemini-1.5-flash-001 & Gemini 1.5 Flash \\
+deepseek-chat-v3-0324 & DeepSeek-V3 (0324) \\
+deepseek-reasoner-r1 & Deepseek-R1 \\
+llama-4-scout-cerebras & Llama 4 Scout \\
+chat-bison-32k@002 & Chat-Bison-32K \\
+qwen2.5-14b-instruct-1m & Qwen2.5-14B-Instruct \\
+o1-2024-12-17-medium & o1 (medium) \\
+claude-v3-haiku & Claude 3 Haiku \\
+grok-3-mini-beta-low & Grok-3 Mini (low) \\
+o3-mini-2025-01-31-low & o3-mini (low) \\
+llama-3.1-tulu-3-8b@q8\_0 & Llama-3.1-Tulu-3-8B \\
+gpt-4o-2024-05-13 & GPT-4o (2024-05-13) \\
+gpt-35-turbo-0125 & GPT-3.5 Turbo (01/25) \\
+claude-v3-7-sonnet & Claude 3.7 Sonnet \\
+gemma-2-9b-it-8bit & Gemma 2 9B (8bit) \\
+gpt-35-turbo-0613 & GPT-3.5 Turbo (06/13) \\
+gemini-2.0-flash-lite-preview-02-05 & Gemini 2.0 Flash Lite (preview) \\
+o3-mini-2025-01-31-medium & o3-mini (medium) \\
+gpt-4.1-2025-04-14 & GPT-4.1 \\
+gemini-2.0-flash-lite-001 & Gemini 2.0 Flash Lite \\
+o3-2025-04-16-medium & o3 (medium) \\
+gemini-2.0-flash-001 & Gemini 2.0 Flash \\
+deepseek-r1-distill-qwen-14b@q8\_0 & DeepSeek-R1-Distill-Qwen-14B \\
+ministral-8b-instruct-2410 & Mistral 8B Instruct \\
+deepseek-r1-distill-qwen-32b@q4\_k\_m & DeepSeek-R1-Distill-Qwen-32B \\
+llama-3.3-70b & Llama-3.3-70B \\
+grok-2-1212 & Grok-2 \\
+gemma-3-12b-it@q8\_0 & Gemma 3 12B (q8) \\
+gemma-3-27b-it@iq4\_xs & Gemma 3 27B \\
+claude-v3-5-sonnet-v2 & Claude 3.5 Sonnet v2 \\
+gpt-4.1-mini-2025-04-14 & GPT-4.1 Mini \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

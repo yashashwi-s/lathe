@@ -1,0 +1,24 @@
+% bare MusiXTeX example
+
+\input musixtex
+\nopagenumbers
+
+This is a MusiXTeX tablature example:
+
+\setlines16               % six lines
+\setstaffs1{1}
+\setclefsymbol1{\tabclef} % and a TAB clef
+\nobarnumbers
+\let\extractline\leftline % left aligned
+
+\startextract
+  \Notes \tab{5}{3} \tab{4}{0} \tab{4}{2} \en
+  \bar
+  \Notes \tab{4}{3} \tab{3}{0} \tab{3}{2} \en
+  \bar
+  \Notes \tab{2}{0} \tab{3}{2} \tab{2}{0} \en
+  \bar 
+  \Notes \tab{2}{1} \qp \qp \en
+\endextract
+
+\end

@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03214\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+Category & Parameter & Value \\
+\toprule
+ \textbf{Model Architecture}& Base model & bert-base-uncased\\
+ & Architecture & BertForSequenceClassification \\
+ & Number of labels & 2 \\
+ & Hidden size & 768 \\
+ & Intermediate size & 3072 \\
+ & Hidden layers & 12 \\
+ & Attention heads & 12 \\
+ & Activation & GELU \\
+ & Dropout & 0.1 \\
+ & Tokenizer & BertTokenizer (max length=512,\\
+  & & padding/truncation) \\
+\midrule
+ \textbf{Dataset}& Source & CausalPalUkr\_Train\_Test \\
+ & Task type & Single-label classification \\
+ & Train/test split & 75-15 \\
+ & Preprocessing & Lowercase, truncate/pad to 512,\\
+ & & [CLS]/[SEP] tokens \\
+\midrule
+\textbf{Optimization} & Optimizer & AdamW (adamw\_torch) \\
+ & Learning rate & 3e-5 \\
+ & Scheduler & Linear decay, 0 warmup steps \\
+ & Weight decay & 0.0 \\
+ & Betas & (0.9, 0.999) \\
+ & Epsilon & 1e-8 \\
+ & Batch size / device & 16 \\
+ & Gradient accumulation & 1 \\
+ & Max grad norm & 1.0 \\
+ & Epochs & 3 \\
+ & FP16/BF16 & Disabled \\
+\midrule
+\textbf{Reproducibility} & Seed & 42 \\
+ & Data seed & None \\
+ & Dataloader drop last & False \\
+ & Dataloader workers & 0 \\
+ & FP16 full eval & False \\
+\midrule 
+\textbf{Training Environment} & Transformers & 4.50.3 \\
+ & PyTorch & 2.6.0+cu124 \\
+ & Datasets & 3.5.0 \\
+ & Tokenizers & 0.21.1 \\
+ & Hardware & 1x NVIDIA A100 40GB\\
+\midrule
+\textbf{Evaluation} & Metrics & Accuracy \\
+ & Validation freq & after each epoch\\
+ \midrule
+\textbf{HF model} & {pgarco/CausalPalUkr\_seq}\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01692\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\hline
+\textbf{City}  & \textbf{Break Date} & \textbf{CI lower} & \textbf{CI upper}  \\ \toprule
+Bydgoszcz   & \textbf{2022-02-24} & 2022-02-14 & 2022-03-10\\
+            & 2022-08-31 & 2022-08-16 & 2022-09-06\\ \hline
+Częstochowa & \textbf{2022-03-01} & 2022-02-07 & 2022-03-08\\
+            & 2022-08-28 & 2022-08-22 & 2022-09-16\\ \hline
+Gdańsk      & \textbf{2022-03-01} & 2022-02-11 & 2022-03-06\\
+            & 2022-08-23 & 2022-08-15 & 2022-09-03\\\hline
+Gdynia      & \textbf{2022-03-01} & 2022-02-20 & 2022-03-07\\
+            & 2022-09-04 & 2022-08-22 & 2022-09-08\\ \hline
+Gliwice     & \textbf{2022-02-16} & 2022-02-07 & 2022-03-05\\
+            & 2022-08-31 & 2022-08-18 & 2022-09-12\\ \hline
+Katowice    & \textbf{2022-02-27} & 2022-02-22 & 2022-03-12\\
+            & 2022-09-04 & 2022-08-07 & 2022-09-15\\ \hline
+Kielce      & \textbf{2022-02-26} & 2022-02-20 & 2022-03-17\\
+            & 2022-09-05 & 2022-08-17 & 2022-09-17\\ \hline
+Kraków      & \textbf{2022-02-25} & 2022-02-20 & 2022-03-02\\
+            & 2022-09-04 & 2022-08-10 & 2022-09-17\\ \hline
+Łódź        & 2022-06-11 & 2022-06-01 & 2022-07-12\\ 
+            & 2022-11-22 & 2022-11-02 & 2023-01-21\\ \hline
+Lublin      & 2022-06-03 & 2022-04-26 & 2022-06-04\\
+            & 2022-11-19 & 2022-11-18 & 2023-01-15\\ \hline
+Poznań      & \textbf{2022-02-27} & 2022-02-16 & 2022-03-29\\
+            & 2022-09-04 & 2022-07-09 & 2022-10-31\\ \hline
+Radom       & \textbf{2022-02-25} & 2022-02-21 & 2022-02-28\\
+            & 2022-08-31 & 2022-08-18 & 2022-09-11\\ \hline
+Kraków      & \textbf{2022-02-25} & 2022-02-20 & 2022-03-02\\
+            & 2022-09-04 & 2022-08-10 & 2022-09-17\\ \hline
+Rzeszów     & \textbf{2022-03-14} & NA & NA\\
+            & 2022-09-04 & 2022-08-22 & 2022-10-29\\ \hline
+Sosnowiec   & \textbf{2022-03-02} & 2022-02-22 & 2022-03-09\\
+            & 2022-09-18 & 2022-09-06 & 2022-10-02\\ \hline
+Szczecin   & \textbf{2022-02-25} & 2022-02-12 & 2022-03-12\\
+            & 2022-09-04 & 2022-08-21 & 2022-09-12\\ \hline
+Toruń       & \textbf{2022-03-01} & 2022-02-21 & 2022-03-06\\
+            & 2022-08-31 & 2022-08-20 & 2022-09-11\\ \hline
+Warsaw      & \textbf{2022-02-28} & 2022-02-23 & 2022-03-03\\
+            & 2022-09-04 & 2022-08-12 & 2022-10-01\\ \hline
+Wrocław     & \textbf{2022-02-27} & 2022-02-09 & 2022-05-17\\ \hline
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

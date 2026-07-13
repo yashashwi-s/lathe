@@ -1,0 +1,92 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage[main=french,german]{babel}
+\usepackage{eurosym}
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of some \LaTeX\ commands for 
+punctuation and other symbols.
+
+Note that Xe\LaTeX\ and Lua\LaTeX\ will typeset \verb|"| and \verb|\dq| as the 
+right double quote, while \verb|"| is what pdf\LaTeX\ typesets and is rendered 
+by Moodle.
+
+The typesetting of \verb|\og| and \verb|\fg| depends on 
+\textsf{babel}'s current language (French or other). Regardless, 
+\textsf{moodle} passes the French \og \emph{guillemets}\fg\ to the XML.
+
+\begin{quiz}[points=1,shuffle=false]{Punctuation and Other Symbols}
+\ifPDFTeX
+  \NoAutoSpacing% this option preserves pdflatex compilation
+\fi
+\begin{multi}{Symbols}
+Find the symbol standing for ``paragraph''.
+\item \%
+\item \#
+\item \_
+\item \textbackslash
+\item \$
+\item \&
+\item* \S
+\item \{
+\item \}
+\item \texteuro
+\item \dots
+\item \ldots
+\item \textexclamdown
+\item \textquestiondown
+\item --
+\item \euro
+\item =
+\end{multi}
+
+\begin{multi}[multiple]{Quotation Marks}
+Find the French quotes
+\item `and'
+\item \textquoteleft and\textquoteright
+\item ``and''
+\item \textquotedblleft and\textquotedblright
+\item \textquotesingle
+\item "
+\item \textquotedbl
+\item[feedback={le fameux chevron!}]* \guilsinglleft\,and\,\guilsinglright
+\item[feedback={le fameux double chevron!}]* 
+\guillemotleft\,and\,\guillemotright
+\item[feedback={these quotes are German!}] \quotesinglbase
+\item[feedback={these are German!}] \quotedblbase 
+\item[feedback={le fameux chevron!}]* \flq\,and\,\frq
+\item[feedback={le fameux double chevron!}]* \flqq\,and\,\frqq
+\item[feedback={le fameux double chevron!}]* \og and\fg
+\item[feedback={these quotes are German!}] \glq and\grq
+\item[feedback={these quotes are German!}] \dq
+\item[feedback={these quotes are German!}] \glqq and\grqq
+\end{multi}
+
+\begin{cloze}{The question}
+Find the symbol ``equal''.
+\begin{multi}
+\item <
+\item >
+\item* =
+\end{multi}
+\begin{multi}[vertical]
+\item $<$
+\item $>$
+\item* $=$
+\end{multi}
+\end{cloze}
+
+\end{quiz}
+\end{document}

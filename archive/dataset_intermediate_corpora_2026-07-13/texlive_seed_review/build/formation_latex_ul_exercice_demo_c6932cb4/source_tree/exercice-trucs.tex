@@ -1,0 +1,109 @@
+\documentclass[11pt,french]{article}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+  \usepackage[autolanguage]{numprint}
+  \usepackage{fontawesome5}     % icônes de la commande \doc
+  \usepackage{metalogo}         % logo \XeLaTeX
+  \usepackage{hyperref}         % hyperliens; chargé en dernier!
+
+  \newcommand{\class}[1]{\textsf{#1}}
+  \newcommand{\fichier}[1]{\texttt{#1}}
+
+  \newcommand{\link}[2]{\href{#1}{#2~\raisebox{-0.2ex}{\faExternalLink*}}}
+  \newcommand{\doc}[3][documentation]{\link{#3}{#1}%
+    \marginpar[\hfill\faBookmark~\fichier{#2}]{\faBookmark~\fichier{#2}}}
+
+  \title{\class{ulthese}: la classe pour les thèses et mémoires de
+    l'Université Laval}
+  \author{Faculté des études supérieures et postdoctorales\thanks{%
+      Cette classe et sa documentation ont été rédigées par Vincent
+      Goulet~(Faculté des sciences et de génie) avec la collaboration de
+      Koassi D'Almeida~(Faculté des études supérieures et postdoctorales) et
+      Pierre Lasou~(Bibliothèque).}}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+La classe \class{ulthese} permet de composer avec {\LaTeX} ou
+{\XeLaTeX} des thèses et mémoires immédiatement conformes aux règles
+générales de présentation matérielle de la Faculté des études
+supérieures et postdoctorales (FESP) de l'Université Laval. Ces
+règles définissent principalement la présentation des pages de titre
+des thèses et mémoires ainsi que la disposition du texte sur la
+page. La classe en elle-même est donc relativement simple.
+
+La classe \class{ulthese} est basée sur la classe \class{memoir},
+une extension de la classe standard \class{book} facilitant à
+plusieurs égards la préparation de documents d'allure
+professionnelle dans {\LaTeX}. La classe \class{memoir} est très
+configurable et incorpore d'office plus de 30 des paquetages
+(\emph{packages}) les plus populaires\footnote{%
+Consulter la section~18.24 de la documentation de \class{memoir}
+pour la liste ou encore le fichier journal (\emph{log}) de la
+compilation d'un document utilisant la classe \class{ulthese}.}. %
+L'intégralité des fonctionnalités de \class{memoir} se retrouve donc
+disponible dans \class{ulthese}.
+
+La classe \class{memoir} fait partie des distributions
+{\LaTeX} modernes; elle devrait donc être installée et disponible
+sur votre système. La classe est livrée avec une %
+\doc{memman.pdf}{https://texdoc.net/pkg/memoir}\footnote{%
+Première occurence d'une convention de ce document quand il s'agit
+de documentation d'un paquetage: un hyperlien mène vers une version
+en ligne dans le site \href{https://texdoc.net}{TeXdoc Online} et on
+trouve dans la marge le nom du fichier correspondant sur un système
+doté d'une installation de {\TeX}~Live.} %
+exhaustive: le manuel d'instructions fait près de 600~pages! Il peut
+être utile de s'y référer de temps à autre pour réaliser une mise en
+page particulière.
+
+\section{Installation}
+
+La classe est livrée avec la distribution {\TeX}~Live. Si vous
+utilisez cette distribution et qu'elle est à jour, vous devriez
+pouvoir utiliser \class{ulthese} sans autre intervention. Dans ce
+cas, passez directement à la section suivante.
+
+Le reste de cette section explique comment installer la classe si
+elle n'est pas disponible sur votre système ou si la version n'est
+pas à jour.
+
+La classe est distribuée sous forme d'une archive
+\fichier{ulthese.zip} via le réseau de sites \emph{Comprehensive R
+  Archive Network} (CTAN):
+\begin{quote}
+  \url{https://www.ctan.org/pkg/ulthese}
+\end{quote}
+
+L'installation de la classe consiste à créer le fichier
+\fichier{ulthese.cls} et plusieurs gabarits \fichier{.tex} à partir du
+code source documenté se trouvant dans le fichier
+\fichier{ulthese.dtx}. Il est recommandé de simplement créer ces
+fichiers dans le dossier de travail de la thèse ou du mémoire.
+
+Pour procéder à l'installation, décompresser l'archive
+\fichier{ulthese.zip} dans le dossier de travail, puis compiler avec
+{\LaTeX} le fichier \fichier{ulthese.ins} en exécutant
+\begin{verbatim}
+latex ulthese.ins
+\end{verbatim}
+depuis une invite de commande. Si l'on est peu familier avec l'invite
+de commande, on peut aussi procéder comme avec tout document {\LaTeX},
+soit ouvrir le fichier \fichier{ulthese.ins} dans son éditeur de texte
+favori et lancer depuis celui-ci la compilation avec {\LaTeX},
+pdf{\LaTeX}, {\XeLaTeX} ou un autre moteur {\TeX}.
+
+\end{document}

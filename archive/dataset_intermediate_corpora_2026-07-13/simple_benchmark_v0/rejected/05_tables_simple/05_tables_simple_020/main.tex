@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00291\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cl@{\hspace{3em}}cl}
+$\aleph$   & \verb"\aleph"   & $\prime$       & \verb"\prime"       \\
+$\hbar$    & \verb"\hbar"    & $\emptyset$    & \verb"\emptyset"    \\
+$\imath$   & \verb"\imath"   & $\nabla$       & \verb"\nabla"       \\
+$\jmath$   & \verb"\jmath"   & $\surd$        & \verb"\surd"        \\
+$\ell$     & \verb"\ell"     & $\top$         & \verb"\top"         \\
+$\wp$      & \verb"\wp"      & $\bot$         & \verb"\bot"         \\
+$\Re$      & \verb"\Re"      & $\|$           & \verb"\|"           \\
+$\Im$      & \verb"\Im"      & $\angle$       & \verb"\angle"       \\
+$\partial$ & \verb"\partial" & $\triangle$    & \verb"\triangle"    \\
+$\infty$   & \verb"\infty"   & $\backslash$   & \verb"\backslash"   \\
+$\Box$     & \verb"\Box"     & $\Diamond$     & \verb"\Diamond"     \\
+$\forall$  & \verb"\forall"  & $\sharp$       & \verb"\sharp"       \\
+$\exists$  & \verb"\exists"  & $\clubsuit$    & \verb"\clubsuit"    \\
+$\neg$     & \verb"\neg"     & $\diamondsuit$ & \verb"\diamondsuit" \\
+$\flat$    & \verb"\flat"    & $\heartsuit$   & \verb"\heartsuit"   \\
+$\natural$ & \verb"\natural" & $\spadesuit$   & \verb"\spadesuit"   \\
+$\mho$     & \verb"\mho"     &                &
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00096\_table\_15}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+Academic Research & Industrial & Educational and Training  \\
+\hline
+Ramulator-PIM & uPIMulator & 3 \\
+NDPmulator & PIMSimulator & 3 \\
+MPU-Sim & 2 & 3 \\
+PIMSim & UPMEM SDK Functional & UPMEM SDK Functional \\
+MultiPIM & UPMEM PIM-AI & 3 \\
+PIMeval & 2 & 3 \\
+NVMain & 2 & 3 \\
+SMCSim & 2 & 3 \\
+AiMsimulator & AiMsimulator & 3 \\
+M$^2$NDP & M$^2$NDP & 3 \\
+PimSimNN & 2 & PimSimNN(Potential) \\
+NeuroSim & NeuroSim & 3 \\
+1 & 3D CiM LLM Sim & 3 \\
+MemTorch & 2 & 3 \\
+NVSim & NVSim & 3 \\
+PiMulator & PiMulator & 3 \\
+MNSIM 2.0 & MNSIM 2.0 & 3 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

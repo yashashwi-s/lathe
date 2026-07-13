@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 44}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\State Initialize the weights of an RL agent and a Self-Explainer (SE-Net)
+\State Initialize buffers $\mathcal{D}_{success}$ and $\mathcal{D}_{failure}$ for training the Self-Explainer and $D_{RL}$ for RL from Demonstrations as in the RLfD works \cite{hester2017deep,vecerik2017leveraging}
+\State Store expert experiences into $\mathcal{D}_{success}$ and $\mathcal{D}_{RL}$. Pretrain the RL agent with experiences sampled from $\mathcal{D}_{RL}$
+\State Sample $K$ trajectories with a random policy and add them to $D_{RL}$. Also add successful and unsuccessful trajectories to $\mathcal{D}_{success}$ and $\mathcal{D}_{failure}$ respectively.
+\For{\texttt{$episode=1; episode \leq N; episode++$}}
+\State Sample experiences (including grounded predicate values) from $\mathcal{D}_{success}$ and $\mathcal{D}_{failure}$ \Comment{\textbf{Train Self-Explainer}}
+\State Compute utility weights $u$ and shaped reward prediction $\hat{r}_\theta(s_t,u_t,a_t,s_{t+1},u_{t+1})$ by using SE-Net, Eqs. \ref{eq:dot-prod} and \ref{eq:serl_rwd}
+\State Update the SE-Net via binary cross entropy loss $L_{SE}$ (Eq. \ref{eq:l_se}) to distinguish successful experiences from unsuccessful experiences
+\State Sample experiences with grounded predicate values from $\mathcal{D}_{RL}$ \Comment{\textbf{Train RL agent}}
+\State Run SE-Net on sampled states to obtain utility weights $u$
+\State Augment input states with grounded predicate values and utility weight values
+\State Augment rewards with predicted shaped reward by using Eq. \ref{eq:serl_rwd}
+\State Update RL agent with the augmented experiences
+\State Use RL agent to sample a new trajectory and add it to $D_{RL}$. If the trajectory is successful, it would also be added to $\mathcal{D}_{success}$. Otherwise, it would also be added to $\mathcal{D}_{failure}$ \Comment{\textbf{Sample a new trajectory}}
+\EndFor \\
+\Return a trained RL agent and SE-Net
+\end{algorithmic}
+\end{algorithm}
+\end{document}

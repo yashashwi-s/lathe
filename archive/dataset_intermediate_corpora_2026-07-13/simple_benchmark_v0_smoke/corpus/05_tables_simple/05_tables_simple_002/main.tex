@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.04801\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccc}
+qubit & Frequency (GHz) & T1 ($\mu$s) & T2 ($\mu$s) & Readout Error (\%) & $\sqrt(X)$ (\%) & ECR $\uparrow$ (\%) & ECR $\downarrow$ (\%) & ECR $\leftarrow$ (\%) & ECR $\rightarrow (\%)$  \\    $q_{101}$ & 5.07 & 181.4 & 224.5 & 2.55 & 0.02 &   &   & 1.07 & 0.63 \\  $q_{102}$ & 4.81 & 213.7 & 160.3 & 4.16 & 0.02 &   &   &   & 0.87 \\  $q_{103}$ & 4.93 & 144.8 & 86.4 & 0.72 & 0.03 &   &   &   &   \\  $q_{104}$ & 4.77 & 196.3 & 176.0 & 1.29 & 0.02 &   &   & 0.71 &   \\  $q_{105}$ & 4.98 & 172.6 & 98.8 & 0.76 & 0.03 &   &   & 0.56 & 0.69 \\  $q_{106}$ & 4.88 & 219.4 & 186.2 & 1.68 & 0.03 &   &   &   &   \\  $q_{107}$ & 4.92 & 181.6 & 119.6 & 2.12 & 0.02 &   &   & 0.62 &   \\  $q_{108}$ & 5.06 & 163.6 & 160.9 & 2.15 & 0.03 &   & 0.73 & 0.68 &   \\  $q_{109}$ & 4.98 & 184.1 & 227.2 & 2.53 & 0.03 & 0.81 &   &   &   \\  $q_{110}$ & 4.83 & 202.2 & 276.2 & 1.19 & 0.03 &   & 0.86 &   &   \\  $q_{111}$ & 4.85 & 259.1 & 294.9 & 1.22 & 0.02 & 0.52 &   &   &   \\  $q_{112}$ & 5.0 & 176.1 & 67.2 & 0.47 & 0.02 &   & 0.79 &   &   \\  $q_{113}$ & 5.03 & 206.6 & 209.3 & 0.83 & 0.02 &   &   &   & 1.09 \\  $q_{114}$ & 4.82 & 185.2 & 61.0 & 13.86 & 0.02 & 0.61 &   &   & 0.98 \\  $q_{115}$ & 5.03 & 176.0 & 92.6 & 0.84 & 0.02 &   &   &   &   \\  $q_{116}$ & 4.91 & 205.8 & 191.0 & 0.77 & 0.01 &   &   & 0.57 & 0.56 \\  $q_{117}$ & 4.83 & 247.6 & 213.9 & 1.56 & 0.03 &   &   &   & 0.58 \\  $q_{118}$ & 4.73 & 241.4 & 116.4 & 0.76 & 0.02 &   &   &   & 0.99 \\  $q_{119}$ & 4.8 & 196.0 & 122.4 & 32.95 & 0.07 &   &   &   &   \\  $q_{120}$ & 4.84 & 184.5 & 154.6 & 17.81 & 0.03 &   &   & 1.58 &   \\  $q_{121}$ & 4.97 & 234.4 & 143.5 & 1.84 & 0.05 &   &   & 2.23 &   \\  $q_{122}$ & 4.94 & 224.1 & 130.2 & 2.21 & 0.05 & 0.75 &   & 1.36 & 0.84 \\  $q_{123}$ & 5.03 & 145.8 & 126.9 & 1.64 & 0.02 &   &   &   &   \\  $q_{124}$ & 4.95 & 214.2 & 194.8 & 0.82 & 0.03 &   &   & 0.59 &   \\  $q_{125}$ & 4.86 & 258.3 & 223.5 & 1.05 & 0.01 &   &   & 0.59 & 0.58
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02677\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+
+\textbf{Components} & \textbf{Boolean} & \textbf{Propositional} & \textbf{Arithmetic} \\
+\hline
+
+\makecell{constants\\$\mathcal{C}$} & \makecell{\\$1$\\\\$0$} & \makecell{\\$0000$\\\\$0001$\\\\$0010$\\\\...\\\\$1111$\\\\} & \makecell{\\$000$\\\\$001$\\\\$002$\\\\...\\\\$999$\\\\} \\
+\hline
+
+\makecell{functions\\$\mathcal{F}$} & \makecell{\\$+^2$\\\\$*^2$\\\\$-^1$\\\\}
+& \makecell{\\$+^2$\\\\$*^2$\\\\$-^1$\\\\$>^2$\\\\} & \makecell{\\$+^2$\\\\$-^2$\\\\$*^2$\\\\} \\
+\hline
+
+\makecell{base-cases\\$\mathcal{B}$} & \makecell{\\$11+$\\\\$10*$\\\\$0-$\\\\...\\\\}
+& \makecell{\\$11000101>$\\\\$10100011+$\\\\$10001110*$\\\\...\\\\} 
+& \makecell{\\$453857+$\\\\$053007*$\\\\$403857-$\\\\...\\\\}  \\
+\hline
+
+
+\makecell{recursion depth\\$\delta$} & 
+\makecell{\\$\delta(11+10**)=2$\\\\$\delta(110**)=2$\\\\$\delta(10*)=1$\\\\...\\\\} & 
+\makecell{\\$\delta(110011001000+*)=2$\\\\$\delta(11001011>)=1$\\\\...\\\\} & 
+\makecell{\\$\delta(222111+003*)=2$\\\\$\delta(333003*)=1$\\\\...\\\\} \\
+\hline
+
+\makecell{expr. length\\$\ell$} & 
+\makecell{\\$\ell(11+10**)=3$\\\\$\ell(110**)=2$\\\\$\ell(10*)=1$\\\\...\\\\} & 
+\makecell{\\$\ell(110011001000+*)=2$\\\\$\ell(11001011>)=1$\\\\...\\\\} & 
+\makecell{\\$\ell(222111+003*)=2$\\\\$\ell(333003*)=1$\\\\...\\\\} \\
+\hline
+
+\makecell{\\expression\\example\\\\} & $10+0-*1*$ & \texttt{01+11-01>} & \texttt{034051+003*} \\
+\hline
+
+\end{tabular}
+}
+\end{table}
+
+\end{document}

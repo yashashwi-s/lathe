@@ -1,0 +1,235 @@
+ \tikzset{background rectangle/.style={fill=cyan!20,draw=blue,line width=2pt}}
+
+\SbSSCT{Encadrement}{Framing}
+\label{lib-bkgd}
+ 
+ \begin{tabular}{|c|l|} \hline  
+ \begin{tikzpicture}[baseline=0pt,show background rectangle]
+ \filldraw[fill=yellow] (0,0) ellipse (1 and .5);
+ \end{tikzpicture}
+&
+\parbox{10cm}{
+ \footnotemark \\
+\BS{begin}\AC{tikzpicture}[\RDD{show background rectangle}]\\
+\BS{filldraw}[fill=yellow] (0,0) ellipse (1 and .5 );\\
+\BS{end}\AC{tikzpicture}\\
+\\
+\emph{\TFRGB{Autre syntaxe}{Other syntax}} : \\
+\BS{begin}\AC{tikzpicture}[\RDD{framed}]\\
+}
+\\ \hline 
+\end{tabular}
+
+ \footnotetext[1]{ \BS{tikzset}\AC{background rectangle/.style=\AC{fill=cyan!20,draw=blue,line width=2pt}}}
+  
+\bigskip
+
+\subsubsection{Options}
+
+\begin{tabular}{|c|c|c|} \hline  
+\multicolumn{3}{|c|}{  [show background rectangle,\RDD{inner frame xsep}=1cm]  }
+\\ \hline
+\begin{tikzpicture}[show background rectangle,inner frame xsep=1cm]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[show background rectangle,inner frame ysep=1cm]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[show background rectangle,inner frame sep=1cm]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+\\ \hline  
+\RDD{inner frame xsep}=1cm & \RDD{inner frame ysep}=1cm & \RDD{inner frame sep}=1cm
+\\ \hline 
+\multicolumn{3}{|c|}{\dft : inner frame xsep=1ex
+,  inner frame ysep=1ex
+}  
+
+\\ \hline 
+\begin{tikzpicture}[show background rectangle,tight background]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[show background rectangle,loose background]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[show background rectangle,rounded corners]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+\\ \hline 
+\RDD{tight background} & \RDD{loose background} & \RDD{rounded corners} \\ \hline 
+(inner frame sep = 0pt) & (inner frame sep = 2ex) & 
+ \\ \hline
+ \end{tabular}
+   
+  
+\subsubsection{Style}
+ 
+ \begin{tabular}{|c|c|c|c|c|} \hline  
+ \multicolumn{5}{|c|}{  [\RDD{background rectangle/.style}=\AC{double,draw=blue},framed]  }
+ \\ \hline 
+ \begin{tikzpicture}[framed,background rectangle/.style={double,draw=blue}]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[show background rectangle,background rectangle/.style={fill=green,draw=blue}]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+  &
+  \begin{tikzpicture}[show background rectangle,background rectangle/.style={top color=green,draw=blue}]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+  \end{tikzpicture}
+ &
+ \begin{tikzpicture}[show background rectangle,background rectangle/.style={line width=4pt,draw=blue}]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+  &
+  \begin{tikzpicture}[show background rectangle,background rectangle/.style={rounded corners=.5cm,draw=blue}]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+  \end{tikzpicture}
+ \\ \hline 
+ \RDD{double} & \RDD{fill}=green & \RDD{top color}=green & \RDD{line width}=4pt & \RDD{rounded corners}=0.5cm
+  \\ \hline 
+
+\end{tabular} 
+
+\SbSSCT{Encadrement partiel}{Partial framing}
+
+ \tikzset{background top/.style={fill=green!20,draw=blue,line width=2pt}}
+  \tikzset{background bottom/.style={fill=green!20,draw=blue,line width=2pt}}
+   \tikzset{background left/.style={fill=green!20,draw=blue,line width=2pt}}
+    \tikzset{background right/.style={fill=green!20,draw=blue,line width=2pt}}
+ 
+ \begin{tabular}{|c|c|c|c|c|} \hline  
+\begin{tikzpicture}[show background top]
+ \filldraw[fill=yellow] (0,0) ellipse (10mm and 5mm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[show background bottom]
+ \filldraw[fill=yellow](0,0) ellipse (10mm and 5mm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[show background left]
+ \filldraw[fill=yellow] (0,0) ellipse (10mm and 5mm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[show background right]
+ \filldraw[fill=yellow] (0,0) ellipse (10mm and 5mm);
+\end{tikzpicture}
+\\ \hline
+\RDD{show background top} & \RDD{show background bottom} & \RDD{show background left} & \RDD{show background right}
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+ \begin{tabular}{|c|c|c|} \hline 
+ \multicolumn{3}{|c|}{ [framed,show background top,\RDD{outer frame xsep}=1cm]  }
+ \\ \hline  
+  
+\begin{tikzpicture}[framed,show background top,outer frame xsep=1cm]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[framed,show background left,outer frame ysep=1cm]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[framed,show background left,show background left,show background top,outer frame sep=1cm]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+\end{tikzpicture}
+\\ \hline 
+\RDD{outer frame xsep}=1cm & \RDD{outer frame ysep}=1cm
+& \RDD{outer frame sep}=1cm
+\\ \hline 
+\end{tabular} 
+
+\subsubsection{Style}
+
+ \begin{tabular}{|c|c|c|c|c|} \hline  
+ \multicolumn{4}{|l|}{  \BS{begin}\AC{tikzpicture}[show background left,  }\\
+ \multicolumn{4}{|l|}{ \hspace{0.5cm}  [\RDD{background left/.style}=\AC{double,ultra thick,draw=blue}]  }
+ \\ \hline
+  
+ \begin{tikzpicture}[show background left,background left/.style={double,ultra thick,draw=blue}]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[show background left,background left/.style={<->,ultra thick,draw=blue}]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[show background left,background left/.style={line width=10pt,draw=blue}]
+ \filldraw[fill=yellow](0,0) ellipse (1cm and .5cm);
+ \end{tikzpicture}
+  &
+  \begin{tikzpicture}[show background left,background left/.style={dashed,ultra thick,draw=blue}]
+ \filldraw[fill=yellow] (0,0) ellipse (1cm and .5cm);
+  \end{tikzpicture}
+ \\ \hline 
+ \RDD{double} & \RDD{<->} &  \RDD{line width}=10pt & \RDD{dashed}
+  \\ \hline 
+
+\end{tabular}
+
+\SbSbSSCT{Quadrillage}{Gridding}
+
+ \begin{tabular}{|c|l|} \hline  
+ \begin{tikzpicture}[baseline=0pt,show background grid]
+ \filldraw [fill=yellow](0,0) ellipse (2 and 1);
+ \end{tikzpicture}
+&
+\parbox{8cm}{
+\BS{begin}\AC{tikzpicture}[\RDD{show background grid}]\\
+\BS{filldraw}[fill=yellow] (0,0) ellipse (2 and 1);\\
+\BS{end}\AC{tikzpicture}\\
+\\
+\emph{\TFRGB{Autre syntaxe}{Other syntax}}   : \\
+\BS{begin}\AC{tikzpicture}[\RDD{gridded}]\\
+}
+\\ \hline 
+\end{tabular}
+
+\subsubsection{Style}
+
+ 
+ \begin{tabular}{|c|c|c|} \hline  
+ \multicolumn{3}{|l|}{  [\RDD{background  grid/.style}=\AC{ultra thick,draw=blue},show background grid]  }
+ \\ \hline
+\begin{tikzpicture}[background grid/.style={ultra thick,draw=blue},show background grid]
+ \filldraw [fill=yellow](0,0) ellipse (2 and 1);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[background grid/.style={draw=red},show background grid]
+ \filldraw [fill=yellow](0,0) ellipse (2 and 1);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[background grid/.style={step=.5cm,draw=blue},show background grid]
+ \filldraw [fill=yellow](0,0) ellipse (2 and 1);
+\end{tikzpicture}
+\\ \hline
+\RDD{ultra thick} ,draw=blue,\RDD{draw}=blue & draw=red & \RDD{step}=.5cm,draw=blue
+\\ \hline
+\end{tabular}
+
+\SbSbSSCT{Encadrement et quadrillage}{Framing and gridding}
+ 
+ \begin{tabular}{|c|l|} \hline  
+ \begin{tikzpicture}[baseline=0pt,framed,gridded]
+ \filldraw [fill=yellow](0,0) ellipse (2 and 1);
+ \end{tikzpicture}
+&
+\parbox{8cm}{
+\BS{begin}\AC{tikzpicture}[\RDD{framed , gridded }]\\
+\BS{filldraw}[fill=yellow] (0,0) ellipse (2 and 1);\\
+\BS{end}\AC{tikzpicture}\\
+\\
+
+}
+\\ \hline 
+\end{tabular}
+
+

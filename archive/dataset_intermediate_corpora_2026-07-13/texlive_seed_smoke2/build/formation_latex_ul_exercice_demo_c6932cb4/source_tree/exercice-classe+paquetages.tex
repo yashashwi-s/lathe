@@ -1,0 +1,36 @@
+\documentclass[10pt,french]{article}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+  % \usepackage{icomma}           % charger vers la fin
+
+\begin{document}
+
+La longueur des lignes en {\LaTeX} est ajustée automatiquement en
+fonction de la taille de la police de manière à ce que le nombre de
+caractères par ligne demeure à peu près constant. Cela a pour but
+d'améliorer la lisibilité: lorsqu'une ligne de texte est trop longue,
+notre œil a plus de difficulté à suivre celle-ci de gauche à droite.
+
+En passant à une classe de document recto verso, vous remarquerez que
+les marges gauche et droite ne sont pas identiques. C'est afin de
+tenir compte de la marge de reliure.
+
+Le paquetage \textbf{babel} fournit les commandes \verb=\ier=,
+\verb=\iere=, \verb=\ieme= pour écrire «premier», «première»,
+«deuxième» en chiffres: 1{\ier}, 1{\iere}, 36{\ieme}.
+
+En typographie française, on doit utiliser la virgule comme séparateur
+décimal et l'espace fine comme séparateur des milliers.
+\begin{displaymath}
+  y = 1,2x + 5, \quad x = 0, 1, \dots, 10 000.
+\end{displaymath}
+
+\end{document}

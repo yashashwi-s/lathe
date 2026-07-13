@@ -1,0 +1,332 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: TeX and LaTeX and AMS symbols for Maths
+% $Id: lssym.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Danh sách các kí hiệu toán học}\label{symbols}
+
+Các bảng sau đây trình bày tất cả các kí hiệu thông thường có thể sử dụng trong \emph{chế độ soạn thảo toán học}.
+
+Để sử dụng các kí hiệu được liệt kê ở bảng~\ref{AMSD}--\ref{AMSNBR}\footnote{các bảng sau được trích từ \texttt{symbols.tex} được soạn bởi David~Carlisle và sau đó được thay đổi nhiều theo sự gợi ý của Josef~Tkadlec.}, thì bạn cần phải đưa gói \pai{amssymb} vào tài liệu ở phần tựa đề của tài liệu và các font chữ AMS dành cho toán học phải được cài sẵn trên máy. Nếu gói AMS và các font chữ chưa được cài đặt thì bạn có thể tải về ở địa chỉ \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}. Bạn cũng có thể tải về một danh sách chi tiết hơn về các kí hiệu tại địa chỉ \texttt{CTAN:info/symbols/comprehensive}.
+
+\begin{table}[!htb]
+\caption{Các dấu trọng âm trong chế độ soạn thảo toán học.}
+\label{mathacc}
+\begin{symbols}{*4{cl}}
+\W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} & \W{\acute}{a} \\
+\W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}    & \W{\breve}{a} \\
+\W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}&\W{\widetilde}{A}\\
+\end{symbols}
+\end{table}
+
+\begin{table}[!htb]
+\caption{Các chữ cái Hy Lạp viết thường.}
+\begin{symbols}{*4{cl}}
+ \X{\alpha}     & \X{\theta}     & \X{o}          & \X{\upsilon}  \\
+ \X{\beta}      & \X{\vartheta}  & \X{\pi}        & \X{\phi}      \\
+ \X{\gamma}     & \X{\iota}      & \X{\varpi}     & \X{\varphi}   \\
+ \X{\delta}     & \X{\kappa}     & \X{\rho}       & \X{\chi}      \\
+ \X{\epsilon}   & \X{\lambda}    & \X{\varrho}    & \X{\psi}      \\
+ \X{\varepsilon}& \X{\mu}        & \X{\sigma}     & \X{\omega}    \\
+ \X{\zeta}      & \X{\nu}        & \X{\varsigma}  & &             \\
+ \X{\eta}       & \X{\xi}        & \X{\tau}
+\end{symbols}
+\end{table}
+
+\begin{table}[!tb]
+\caption{Các chữ cái Hy Lạp viết hoa.}
+\begin{symbols}{*4{cl}}
+ \X{\Gamma}     & \X{\Lambda}    & \X{\Sigma}     & \X{\Psi}      \\
+ \X{\Delta}     & \X{\Xi}        & \X{\Upsilon}   & \X{\Omega}    \\
+ \X{\Theta}     & \X{\Pi}        & \X{\Phi}
+\end{symbols}
+\end{table}
+\clearpage
+
+\begin{table}[!htb]
+\caption{Quan hệ hai ngôi.}
+\bigskip
+Bạn có thể có được các kí hiệu ngược lại tương ứng với các kí hiệu
+ở đây bằng cách thêm vào tiền tố \ci{not} trước lệnh tương ứng.
+\begin{symbols}{*3{cl}}
+ \X{<}           & \X{>}           & \X{=}          \\
+ \X{\leq}or \verb|\le|   & \X{\geq}or \verb|\ge|   & \X{\equiv}     \\
+ \X{\ll}         & \X{\gg}         & \X{\doteq}     \\
+ \X{\prec}       & \X{\succ}       & \X{\sim}       \\
+ \X{\preceq}     & \X{\succeq}     & \X{\simeq}     \\
+ \X{\subset}     & \X{\supset}     & \X{\approx}    \\
+ \X{\subseteq}   & \X{\supseteq}   & \X{\cong}      \\
+ \X{\sqsubset}$^a$ & \X{\sqsupset}$^a$ & \X{\Join}$^a$    \\
+ \X{\sqsubseteq} & \X{\sqsupseteq} & \X{\bowtie}    \\
+ \X{\in}         & \X{\ni}, \verb|\owns|  & \X{\propto}    \\
+ \X{\vdash}      & \X{\dashv}      & \X{\models}    \\
+ \X{\mid}        & \X{\parallel}   & \X{\perp}      \\
+ \X{\smile}      & \X{\frown}      & \X{\asymp}     \\
+ \X{:}           & \X{\notin}      & \X{\neq}or \verb|\ne|
+\end{symbols}
+\centerline{\footnotesize $^a$Sử dụng gói \textsf{latexsym} để sử
+dụng các kí hiệu này}
+\end{table}
+
+\begin{table}[!htb]
+\caption{Các toán tử hai ngôi.}
+\begin{symbols}{*3{cl}}
+ \X{+}              & \X{-}              & &                 \\
+ \X{\pm}            & \X{\mp}            & \X{\triangleleft} \\
+ \X{\cdot}          & \X{\div}           & \X{\triangleright}\\
+ \X{\times}         & \X{\setminus}      & \X{\star}         \\
+ \X{\cup}           & \X{\cap}           & \X{\ast}          \\
+ \X{\sqcup}         & \X{\sqcap}         & \X{\circ}         \\
+ \X{\vee}, \verb|\lor|     & \X{\wedge}, \verb|\land|  & \X{\bullet}       \\
+ \X{\oplus}         & \X{\ominus}        & \X{\diamond}      \\
+ \X{\odot}          & \X{\oslash}        & \X{\uplus}        \\
+ \X{\otimes}        & \X{\bigcirc}       & \X{\amalg}        \\
+ \X{\bigtriangleup} &\X{\bigtriangledown}& \X{\dagger}       \\
+ \X{\lhd}$^a$         & \X{\rhd}$^a$         & \X{\ddagger}      \\
+ \X{\unlhd}$^a$       & \X{\unrhd}$^a$       & \X{\wr}
+\end{symbols}
+
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các toán tử lớn.}
+\begin{symbols}{*4{cl}}
+ \X{\sum}      & \X{\bigcup}   & \X{\bigvee}   & \X{\bigoplus}\\
+ \X{\prod}     & \X{\bigcap}   & \X{\bigwedge} &\X{\bigotimes}\\
+ \X{\coprod}   & \X{\bigsqcup} & &             & \X{\bigodot} \\
+ \X{\int}      & \X{\oint}     & &             & \X{\biguplus}
+\end{symbols}
+
+\end{table}
+
+
+\begin{table}[!tbp]
+\caption{Các dấu mũi tên.}
+\begin{symbols}{*3{cl}}
+ \X{\leftarrow}or \verb|\gets|& \X{\longleftarrow} & \X{\uparrow}          \\
+ \X{\rightarrow}or \verb|\to|& \X{\longrightarrow} & \X{\downarrow}        \\
+ \X{\leftrightarrow}    & \X{\longleftrightarrow}& \X{\updownarrow}      \\
+ \X{\Leftarrow}         & \X{\Longleftarrow}     & \X{\Uparrow}          \\
+ \X{\Rightarrow}        & \X{\Longrightarrow}    & \X{\Downarrow}        \\
+ \X{\Leftrightarrow}    & \X{\Longleftrightarrow}& \X{\Updownarrow}      \\
+ \X{\mapsto}            & \X{\longmapsto}        & \X{\nearrow}          \\
+ \X{\hookleftarrow}     & \X{\hookrightarrow}    & \X{\searrow}          \\
+ \X{\leftharpoonup}     & \X{\rightharpoonup}    & \X{\swarrow}          \\
+ \X{\leftharpoondown}   & \X{\rightharpoondown}  & \X{\nwarrow}          \\
+ \X{\rightleftharpoons} & \X{\iff}(bigger spaces)& \X{\leadsto}$^a$
+
+\end{symbols}
+\centerline{\footnotesize $^a$Sử dụng gói \textsf{latexsym} để sử
+dụng các kí hiệu này}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các dấu ngoặc.}\label{tab:delimiters}
+\begin{symbols}{*4{cl}}
+ \X{(}            & \X{)}            & \X{\uparrow} & \X{\Uparrow}    \\
+ \X{[}or \verb|\lbrack|   & \X{]}or \verb|\rbrack|  & \X{\downarrow}   & \X{\Downarrow}  \\
+ \X{\{}or \verb|\lbrace|  & \X{\}}or \verb|\rbrace|  & \X{\updownarrow} & \X{\Updownarrow}\\
+ \X{\langle}      & \X{\rangle}  & \X{|}or \verb|\vert| &\X{\|}or \verb|\Vert|\\
+ \X{\lfloor}      & \X{\rfloor}      & \X{\lceil}       & \X{\rceil}      \\
+ \X{/}            & \X{\backslash}   & &. (cả hai đều trống)
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các dấu ngoặc lớn.}
+\begin{symbols}{*4{cl}}
+ \Y{\lgroup}      & \Y{\rgroup}      & \Y{\lmoustache}  & \Y{\rmoustache} \\
+ \Y{\arrowvert}   & \Y{\Arrowvert}   & \Y{\bracevert}
+\end{symbols}
+\end{table}
+
+
+\begin{table}[!tbp]
+\caption{Các kí hiệu khác.}
+\begin{symbols}{*4{cl}}
+ \X{\dots}       & \X{\cdots}      & \X{\vdots}      & \X{\ddots}     \\
+ \X{\hbar}       & \X{\imath}      & \X{\jmath}      & \X{\ell}       \\
+ \X{\Re}         & \X{\Im}         & \X{\aleph}      & \X{\wp}        \\
+ \X{\forall}     & \X{\exists}     & \X{\mho}$^a$      & \X{\partial}   \\
+ \X{'}           & \X{\prime}      & \X{\emptyset}   & \X{\infty}     \\
+ \X{\nabla}      & \X{\triangle}   & \X{\Box}$^a$     & \X{\Diamond}$^a$ \\
+ \X{\bot}        & \X{\top}        & \X{\angle}      & \X{\surd}      \\
+\X{\diamondsuit} & \X{\heartsuit}  & \X{\clubsuit}   & \X{\spadesuit} \\
+ \X{\neg}or \verb|\lnot| & \X{\flat}       & \X{\natural}    & \X{\sharp}
+
+\end{symbols}
+\centerline{\footnotesize $^a$Sử dụng gói \textsf{latexsym} để sử
+dụng các kí hiệu này.}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các kí hiệu thông thường.}
+\bigskip
+These symbols can also be used in text mode.
+\begin{symbols}{*4{cl}}
+ \SC{\dag}  &  \SC{\S}  &  \SC{\copyright} &  \SC{\textregistered}  \\
+ \SC{\ddag} &  \SC{\P}  &  \SC{\pounds}    &  \SC{\%}               \\
+\end{symbols}
+\end{table}
+
+%
+%
+% If the AMS Stuff is not available, we drop out right here :-)
+%
+
+\begin{table}[!tbp]
+\caption{Các dấu ngoặc theo AMS.}\label{AMSD}
+\bigskip
+\begin{symbols}{*4{cl}}
+\X{\ulcorner}&\X{\urcorner}&\X{\llcorner}&\X{\lrcorner}\\
+\X{\lvert}&\X{\rvert}&\X{\lVert}&\X{\rVert}
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Chữ cái Hy Lạp và Do Thái theo AMS.}
+\begin{symbols}{*5{cl}}
+\X{\digamma}     &\X{\varkappa} & \X{\beth}& \X{\daleth}     &\X{\gimel}
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Quan hệ hai ngôi theo AMS.}
+\begin{symbols}{*3{cl}}
+ \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot}or \verb|\Doteq| \\
+ \X{\leqslant}          & \X{\geqslant}          & \X{\risingdotseq}     \\
+ \X{\eqslantless}       & \X{\eqslantgtr}        & \X{\fallingdotseq}    \\
+ \X{\leqq}              & \X{\geqq}              & \X{\eqcirc}           \\
+ \X{\lll}or \verb|\llless|      & \X{\ggg}or \verb|\gggtr| & \X{\circeq}  \\
+ \X{\lesssim}           & \X{\gtrsim}            & \X{\triangleq}        \\
+ \X{\lessapprox}        & \X{\gtrapprox}         & \X{\bumpeq}           \\
+ \X{\lessgtr}           & \X{\gtrless}           & \X{\Bumpeq}           \\
+ \X{\lesseqgtr}         & \X{\gtreqless}         & \X{\thicksim}         \\
+ \X{\lesseqqgtr}        & \X{\gtreqqless}        & \X{\thickapprox}      \\
+ \X{\preccurlyeq}       & \X{\succcurlyeq}       & \X{\approxeq}         \\
+ \X{\curlyeqprec}       & \X{\curlyeqsucc}       & \X{\backsim}          \\
+ \X{\precsim}           & \X{\succsim}           & \X{\backsimeq}        \\
+ \X{\precapprox}        & \X{\succapprox}        & \X{\vDash}            \\
+ \X{\subseteqq}         & \X{\supseteqq}         & \X{\Vdash}            \\
+ \X{\Subset}            & \X{\Supset}            & \X{\Vvdash}           \\
+ \X{\sqsubset}          & \X{\sqsupset}          & \X{\backepsilon}      \\
+ \X{\therefore}         & \X{\because}           & \X{\varpropto}        \\
+ \X{\shortmid}          & \X{\shortparallel}     & \X{\between}          \\
+ \X{\smallsmile}        & \X{\smallfrown}        & \X{\pitchfork}        \\
+ \X{\vartriangleleft}   & \X{\vartriangleright}  & \X{\blacktriangleleft}\\
+ \X{\trianglelefteq}    & \X{\trianglerighteq}   &\X{\blacktriangleright}
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các dấu mũi tên theo AMS.}
+\begin{symbols}{*3{cl}}
+ \X{\dashleftarrow}      & \X{\dashrightarrow}     & \X{\multimap}          \\
+ \X{\leftleftarrows}     & \X{\rightrightarrows}   & \X{\upuparrows}        \\
+ \X{\leftrightarrows}    & \X{\rightleftarrows}    & \X{\downdownarrows}    \\
+ \X{\Lleftarrow}         & \X{\Rrightarrow}        & \X{\upharpoonleft}     \\
+ \X{\twoheadleftarrow}   & \X{\twoheadrightarrow}  & \X{\upharpoonright}    \\
+ \X{\leftarrowtail}      & \X{\rightarrowtail}     & \X{\downharpoonleft}   \\
+ \X{\leftrightharpoons}  & \X{\rightleftharpoons}  & \X{\downharpoonright}  \\
+ \X{\Lsh}                & \X{\Rsh}                & \X{\rightsquigarrow}   \\
+ \X{\looparrowleft}      & \X{\looparrowright}     &\X{\leftrightsquigarrow}\\
+ \X{\curvearrowleft}     & \X{\curvearrowright}    & &                      \\
+ \X{\circlearrowleft}    & \X{\circlearrowright}   & &
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Quan hệ phủ định hai ngôi và các dấu mũi tên theo
+AMS.}\label{AMSNBR}
+\begin{symbols}{*3{cl}}
+ \X{\nless}           & \X{\ngtr}            & \X{\varsubsetneqq}  \\
+ \X{\lneq}            & \X{\gneq}            & \X{\varsupsetneqq}  \\
+ \X{\nleq}            & \X{\ngeq}            & \X{\nsubseteqq}     \\
+ \X{\nleqslant}       & \X{\ngeqslant}       & \X{\nsupseteqq}     \\
+ \X{\lneqq}           & \X{\gneqq}           & \X{\nmid}           \\
+ \X{\lvertneqq}       & \X{\gvertneqq}       & \X{\nparallel}      \\
+ \X{\nleqq}           & \X{\ngeqq}           & \X{\nshortmid}      \\
+ \X{\lnsim}           & \X{\gnsim}           & \X{\nshortparallel} \\
+ \X{\lnapprox}        & \X{\gnapprox}        & \X{\nsim}           \\
+ \X{\nprec}           & \X{\nsucc}           & \X{\ncong}          \\
+ \X{\npreceq}         & \X{\nsucceq}         & \X{\nvdash}         \\
+ \X{\precneqq}        & \X{\succneqq}        & \X{\nvDash}         \\
+ \X{\precnsim}        & \X{\succnsim}        & \X{\nVdash}         \\
+ \X{\precnapprox}     & \X{\succnapprox}     & \X{\nVDash}         \\
+ \X{\subsetneq}       & \X{\supsetneq}       & \X{\ntriangleleft}  \\
+ \X{\varsubsetneq}    & \X{\varsupsetneq}    & \X{\ntriangleright} \\
+ \X{\nsubseteq}       & \X{\nsupseteq}       & \X{\ntrianglelefteq}\\
+ \X{\subsetneqq}      & \X{\supsetneqq}      &\X{\ntrianglerighteq}\\[0.5ex]
+ \X{\nleftarrow}      & \X{\nrightarrow}     & \X{\nleftrightarrow}\\
+ \X{\nLeftarrow}      & \X{\nRightarrow}     & \X{\nLeftrightarrow}
+
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các toán tử nhị phận theo AMS.}
+\begin{symbols}{*3{cl}}
+ \X{\dotplus}        & \X{\centerdot}      & \X{\intercal}      \\
+ \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
+ \X{\Cup}or \verb|\doublecup|& \X{\Cap}or \verb|\doublecap|& \X{\smallsetminus} \\
+ \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
+ \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
+ \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
+ \X{\leftthreetimes} & \X{\rightthreetimes}& \X{\circledast}    \\
+ \X{\curlyvee}       & \X{\curlywedge}		 &
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Các kí hiệu khác theo AMS.}
+\begin{symbols}{*3{cl}}
+ \X{\hbar}             & \X{\hslash}           & \X{\Bbbk}            \\
+ \X{\square}           & \X{\blacksquare}      & \X{\circledS}        \\
+ \X{\vartriangle}      & \X{\blacktriangle}    & \X{\complement}      \\
+ \X{\triangledown}     &\X{\blacktriangledown} & \X{\Game}            \\
+ \X{\lozenge}          & \X{\blacklozenge}     & \X{\bigstar}         \\
+ \X{\angle}            & \X{\measuredangle}    & \X{\sphericalangle}  \\
+ \X{\diagup}           & \X{\diagdown}         & \X{\backprime}       \\
+ \X{\nexists}          & \X{\Finv}             & \X{\varnothing}      \\
+ \X{\eth}              & \X{\mho}							 &
+\end{symbols}
+\end{table}
+
+
+
+\begin{table}[!tbp]
+\caption{Các kiểu chữ cái trong toán.}
+\begin{symbols}{@{}*3l@{}}
+Ví dụ& Lệnh &Gói lệnh cần dùng\\
+\hline
+\rule{0pt}{1.05em}$\mathrm{ABCdef}$
+        & \verb|\mathrm{ABCdef}|
+        &       \\
+$\mathit{ABCdef}$
+        & \verb|\mathit{ABCdef}|
+        &       \\
+$\mathnormal{ABCdef}$
+        & \verb|\mathnormal{ABCdef}|
+        &       \\
+$\mathcal{ABC}$
+        & \verb|\mathcal{ABC}|
+        & \pai{euscript} với tuỳ chọn \texttt{mathcal} \\
+$\mathscr{ABC}$
+        &\verb|\mathscr{ABC}|
+        &\pai{mathrsfs}\\
+$\mathfrak{ABCdef}$
+        & \verb|\mathfrak{ABCdef}|
+        &\pai{eufrak}                \\
+$\mathbb{ABC}$
+        & \verb|\mathbb{ABC}|
+        &\pai{amsfonts} hay \textsf{amssymb}        \\
+\end{symbols}
+\end{table}
+
+\endinput
+
+%
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

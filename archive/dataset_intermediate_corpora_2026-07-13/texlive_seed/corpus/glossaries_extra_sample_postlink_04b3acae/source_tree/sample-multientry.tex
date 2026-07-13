@@ -1,0 +1,95 @@
+% arara: pdflatex
+% arara: makeglossaries
+% arara: pdflatex
+\documentclass[12pt]{article}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=tree]{glossaries-extra}
+
+\makeglossaries
+
+\newcommand{\latinname}[1]{\emph{#1}}
+\glssetcategoriesattributes{genus,species}{textformat,glossnamefont}{latinname}
+
+\setabbreviationstyle[genus]{long-only-short-only-desc}
+\newabbreviation[category=genus,description={}]{clostridium}{C.}{Clostridium}
+
+\newglossaryentry{botulinum}{name=botulinum,category=species,
+  description={},parent=clostridium}
+\newglossaryentry{perfringens}{name=perfringens,category=species,
+  description={},parent=clostridium}
+\newglossaryentry{tetani}{name=tetani,category=species,
+  description={},parent=clostridium}
+
+\multiglossaryentrysetup{indexothers=false,hyper=mainonly}
+
+\multiglossaryentry
+ [firstsuffix=botulism]% suffix on first use of multi-entry set
+ {cbot}{clostridium,botulinum}
+\multiglossaryentry
+ [firstsuffix={gas gangrene}]
+ {cperf}{clostridium,perfringens}
+\multiglossaryentry
+ [% default options for this multi-entry set
+  firstsuffix=tetanus,% suffix on first use of multi-entry set
+  textformat=textbf% default formatting in \mgls-like commands
+ ]
+ {ctet}{clostridium,tetani}
+
+% custom separator that checks the pre-separator element's category
+\renewcommand*{\glscombinedsep}[2]{%
+ \glsifcategory{#1}{genus}%
+ {\ifglshasshort{#1}{\ifglshasshort{#2}{\space}{~}}{\space}}%
+ {\space}%
+}
+
+\begin{document}
+\section{Regular Use}
+First use: \mgls{cbot}.
+
+Next use: \mgls{cbot}.
+
+First use: \mgls{ctet}.
+
+\section{Unset/Reset}
+
+Unset all elements (not multi-entry) initially: \mgls[unsetall]{cperf}.
+
+Reset all elements (not multi-entry) initially: \mgls[resetall]{cperf}.
+
+Next use: \mgls{cperf}.
+
+Reset multi-entry (not individual elements): \mglsreset{cperf}\mgls{cperf}.
+
+\section{Formatting}
+Change default text format to \texttt{underline}.
+
+\subsection{One hyperlink over all}
+
+Reset multi-entry and override entire textformat:
+\mglsreset{ctet}\mgls[setup={hyper=allmain,textformat=underline}]{ctet}.
+
+Override entire textformat: \mgls[setup={hyper=allmain,textformat=underline}]{ctet}.
+
+Override main textformat: \mgls[setup={hyper=allmain},main={textformat=underline}]{ctet}.
+
+Override other textformat: \mgls[setup={hyper=allmain},others={textformat=underline}]{ctet}.
+
+\subsection{Individual hyperlinks}
+
+Override entire textformat: \mgls[setup={hyper=individual,textformat=underline}]{ctet}.
+
+Override main textformat: \mgls[setup={hyper=individual},main={textformat=underline}]{ctet}.
+
+Override other textformat: \mgls[setup={hyper=individual},others={textformat=underline}]{ctet}.
+
+\subsection{Only hyperlink main}
+
+Override entire textformat: \mgls[setup={hyper=mainonly,textformat=underline}]{ctet}.
+
+Override main textformat: \mgls[setup={hyper=mainonly},main={textformat=underline}]{ctet}.
+
+Override other textformat: \mgls[setup={hyper=mainonly},others={textformat=underline}]{ctet}.
+
+\printglossaries
+\end{document}

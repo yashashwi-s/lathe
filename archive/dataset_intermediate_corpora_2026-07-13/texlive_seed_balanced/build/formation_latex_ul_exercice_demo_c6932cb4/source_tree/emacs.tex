@@ -1,0 +1,49 @@
+\chapter{GNU Emacs}
+\label{chap:emacs}
+
+Emacs est l'Éditeur de texte des éditeurs de texte. À l'origine un
+éditeur pour les programmeurs (avec des modes spéciaux pour une
+multitude de langages différents), Emacs est devenu au fil du temps un
+environnement logiciel en soi dans lequel on peut réaliser une foule
+de tâches différentes: rédiger des documents {\LaTeX}, interagir avec R,
+SAS ou un logiciel de base de données, consulter son courrier
+électronique, gérer son calendrier ou même jouer à Tetris!
+
+Cette annexe passe en revue les quelques commandes essentielles à
+connaître pour commencer à travailler avec GNU Emacs et le mode ESS.
+
+\section{Mise en contexte}
+\label{sec:emacs:contexte}
+
+Emacs est le logiciel étendard du projet GNU («\emph{GNU is not
+  Unix}»), dont le principal commanditaire est la \emph{Free Software
+  Foundation} (FSF) à l'origine de tout le mouvement du logiciel
+libre.
+\begin{itemize}
+\item Richard M.\ Stallman, président de la FSF et grand apôtre du
+  libre, a écrit la première version de Emacs et il continue à ce jour
+  à contribuer au projet.
+\item Les origines de Emacs remontent au début des années 1980, une
+  époque où les interfaces graphiques n'existaient pas, le parc
+  informatique était beaucoup plus hétérogène qu'aujourd'hui (les
+  claviers n'étaient pas les mêmes d'une marque d'ordinateur à une
+  autre) et les modes de communication entre les ordinateurs
+  demeuraient rudimentaires.
+\item L'âge vénérable de Emacs transparaît à plusieurs endroits,
+  notamment dans la terminologie inhabituelle, les raccourcis clavier
+  non conformes aux standards d'aujourd'hui ou la manipulation des
+  fenêtres qui ne se fait pas avec une souris.
+\end{itemize}
+
+Emacs s'adapte à différentes tâches par l'entremise de \emph{modes}
+qui modifient son comportement ou lui ajoutent des fonctionnalités.
+L'un de ces modes est ESS (\emph{Emacs Speaks Statistics}).
+\begin{itemize}
+\item ESS permet d'interagir avec des logiciels statistiques (en
+  particulier R, S+ et SAS) directement depuis Emacs.
+\item Quelques-uns des développeurs de ESS sont aussi des développeurs
+  de R, d'où la grande compatibilité entre les deux logiciels.
+\item Lorsque ESS est installé, le mode est activé automatiquement en
+  ouvrant dans Emacs un fichier dont le nom se termine par l'extension
+  \texttt{.R}.
+\end{itemize}

@@ -1,0 +1,117 @@
+% This file is public domain.
+
+% arara: pdflatex
+% arara: pdflatex
+\documentclass{book}
+
+\usepackage[demo]{graphicx}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage[
+  draft,
+%  verbose,
+  pages=absolute
+ ]{flowfram}
+\usepackage[hidelinks]{hyperref}
+
+\onecolumn
+
+\setflowframe{1}{label=single}
+
+\twocolumnDtop[none]{2in}
+
+\setdynamicframe{1}{label=title}
+\setflowframe{2}{label=shortleft}
+\setflowframe{3}{label=shortright}
+
+\twocolumn[none]
+
+\setflowframe{4}{label=left}
+\setflowframe{5}{label=right}
+
+\newdynamicframe[none]{\typeblockwidth}{\typeblockheight}{0pt}{0pt}[image]
+
+\setdynamicframe*{image}{valign=c}
+
+\makethumbtabs{1in}
+\flowframsetup{thumbtab-links=all}
+\enablethumbtabs
+
+\title{Sample Document}
+\author{A.N. Other}
+
+\begin{document}\raggedright
+\pagenumbering{alph}
+\maketitle
+
+\frontmatter
+\tableofcontents
+\chapter{Acknowledgements}
+
+\lipsum[1]
+
+\flowswitchoffnextodd*{single}%
+\flowswitchonnextoddonly*{shortleft,shortright}%
+\dynamicswitchonnextoddonly*{title}%
+\dfchaphead*{title}
+
+\mainmatter
+\chapter{Sample}
+
+\flowswitchonnext*{left,right}%
+% From this point onwards, automate the switch at the start of
+% each chapter
+\renewcommand{\ffprechapterhook}{%
+  \flowswitchoffnextoddonly*{left,right}%
+  \flowswitchonnextoddonly*{shortleft,shortright}%
+  \dynamicswitchonnextoddonly*{title}%
+}
+
+\lipsum
+
+\lipsum
+
+\chapter[][Another]{Another Sample Chapter}
+
+\lipsum[1-20]
+
+% Switch to single column just for the next page
+
+\flowswitchoffnextonly*{left,right}
+\flowswitchonnextonly*{single}
+
+\clearpage
+
+\begin{figure}[p]
+\centering
+ \includegraphics{image1}
+\caption{A Sample Figure}
+\label{fig:sample}
+\end{figure}
+
+\clearpage
+
+\lipsum[21-30]
+
+\chapter[][Surprise!]{Here's Another Chapter}
+
+\lipsum[1-20]
+
+% Switch off columns for next page only and switch on dynamic frame
+% called "image":
+
+\flowswitchoffnextonly*{left,right}
+\dynamicswitchonnextonly*{image}
+
+\setdynamiccontents*{image}{%
+  \begin{staticfigure}
+    \centering
+    \includegraphics{image2}
+    \caption{Another Sample Figure}
+    \label{fig:sample2}
+  \end{staticfigure}
+}
+
+\lipsum[21-40]
+
+\end{document}

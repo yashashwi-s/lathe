@@ -1,0 +1,78 @@
+\documentclass[t]{beamer}
+% \documentclass[handout]{beamer}
+
+
+% preamble
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[sets,operations,nn,colors,tikz]{../cora-macs}
+
+\title{The \texttt{\CORAMACSname} Package}
+\author{Tobias Ladner, Lukas Koller\\
+        TUM - Cyber-Physical Systems Group\\
+        \texttt{\small tobias.ladner@tum.de, lukas.koller@tum.de}}
+\date{Version: \CORAMACSversion} % Should match the version on CTAN.
+
+
+% begin document ---
+\begin{document}
+
+% cover page ---
+
+\begin{frame}
+    \titlepage
+    \vspace{-1cm}
+    \begin{center}
+        \includegraphics[width=0.5\columnwidth]{../figures/coraLogo}
+    \end{center}
+\end{frame}
+
+\begin{frame}<1-4>{Introduction to \CORA}
+    \CORA\ provides you with a wide range of plotting capabilities:
+    \bigskip
+    \begin{figure}
+        \includetikz[animate]{./figures/mymatlabfigure_animated}
+    \end{figure}
+    \pause
+
+    We can plot intervals, \pause
+    ellipsoids, \pause
+    and zonotopes!
+\end{frame}
+
+\begin{frame}<1-5>{Figures with Multiple Subplots}
+    These animations also work for figures with multiple subplots and one can even get more advanced using the \texttt{alt} option:
+    \bigskip
+    \begin{figure}
+        \includetikz[animate]{./figures/mymatlabgroupfigure_animated}
+    \end{figure}
+    \pause
+
+    We can plot intervals, \pause
+    ellipsoids, \pause
+    and zonotopes!
+\end{frame}
+
+\begin{frame}<1-4>{Show Information on Specific Overlays}
+    Use \texttt{\textbackslash only} to show text on specific overlays.
+    \bigskip
+
+    \emph{Example:}\\
+    An input is propagated layer by layer through a neural network to compute its output.
+    \vfill
+    \begin{figure}
+        \includetikz[animate]{./figures/neural-network_animated}
+    \end{figure}
+    \vfill
+\end{frame}
+
+\begin{frame}{Conclusion}
+    We hope this short presentation gave a good overview about the capabilities of the \texttt{\CORAMACSname} package to visualize and animate your TikZ figures.
+    \bigskip
+
+    If you have any questions, don't hesitate to contact us.
+\end{frame}
+    
+\end{document}
+

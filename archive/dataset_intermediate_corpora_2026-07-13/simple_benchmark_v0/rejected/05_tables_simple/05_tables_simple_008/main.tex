@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00291\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cl@{\hspace{3em}}cl}
+$\alpha$   & \verb"\alpha"   & $\nu$      & \verb"\nu"      \\
+$\beta$    & \verb"\beta"    & $\xi$      & \verb"\xi"      \\
+$\gamma$   & \verb"\gamma"   & $o$        & \verb"o"        \\
+$\delta$   & \verb"\delta"   & $\pi$      & \verb"\pi"      \\
+$\epsilon$ & \verb"\epsilon" & $\rho$     & \verb"\rho"     \\
+$\zeta$    & \verb"\zeta"    & $\sigma$   & \verb"\sigma"   \\
+$\eta$     & \verb"\eta"     & $\tau$     & \verb"\tau"     \\
+$\theta$   & \verb"\theta"   & $\upsilon$ & \verb"\upsilon" \\
+$\iota$    & \verb"\iota"    & $\phi$     & \verb"\phi"     \\
+$\kappa$   & \verb"\kappa"   & $\chi$     & \verb"\chi"     \\
+$\lambda$  & \verb"\lambda"  & $\psi$     & \verb"\psi"     \\
+$\mu$      & \verb"\mu"      & $\omega$   & \verb"\omega"   \\
+
+$\digamma$ & \verb"\digamma" &
+$\varkappa$ & \verb"\varkappa" \\
+$\varepsilon$ & \verb"\varepsilon" & $\varsigma$ & \verb"\varsigma" \\
+$\vartheta$   & \verb"\vartheta"   & $\varphi$   & \verb"\varphi"   \\
+$\varrho$     & \verb"\varrho"     & & \\
+
+$\Gamma$  & \verb"\Gamma"  & $\Sigma$   & \verb"\Sigma"   \\
+$\Delta$  & \verb"\Delta"  & $\Upsilon$ & \verb"\Upsilon" \\
+$\Theta$  & \verb"\Theta"  & $\Phi$     & \verb"\Phi"     \\
+$\Lambda$ & \verb"\Lambda" & $\Psi$     & \verb"\Psi"     \\
+$\Xi$     & \verb"\Xi"     & $\Omega$   & \verb"\Omega"   \\
+$\Pi$     & \verb"\Pi"     & & \\
+
+$\aleph$ & \verb"\aleph" &
+$\beth$ & \verb"\beth" \\
+$\gimel$ & \verb"\gimel" &
+$\daleth$ & \verb"\daleth" \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00096\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Application level & System/Algorithm level & Architecture level & Circuit level & Device level \\
+\hline
+AiMSimulator & AiMSimulator & AiMSimulator & AiMSimulator &  \\
+MNSIM 2.0 & MNSIM 2.0 & MNSIM 2.0 & MNSIM 2.0 & MNSIM 2.0 \\
+ & MultiPIM & MultiPIM &  &  \\
+NeuroSim & NeuroSim & NeuroSim & NeuroSim & NeuroSim \\
+ &  & NVMain & NVMain & NVMain \\
+ & PiMulator & PiMulator & PiMulator &  \\
+Ramulator PIM & Ramulator PIM &  &  &  \\
+MemTorch & MemTorch &  & MemTorch & MemTorch \\
+MPU-SIM & MPU-SIM & MPU-SIM & MPU-SIM &  \\
+M$^2$NDP & M$^2$NDP & M$^2$NDP & M$^2$NDP &  \\
+MultiPIM & MultiPIM & MultiPIM &  &  \\
+NDPmulator & NDPmulator & NDPmulator &  &  \\
+PIMeval & PIMeval & PIMeval &  &  \\
+PIMSim & PIMSim & PIMSim &  &  \\
+SMC-Sim & SMC-Sim & SMC-Sim &  &  \\
+uPIMulator & uPIMulator & uPIMulator &  &  \\
+UPMEM SDK- & UPMEM SDK- & UPMEM SDK- &  &  \\
+functional Sim & functional Sim & functional Sim &  & \\
+ & PIMSimulator & PIMSimulator & & \\
+  & PiMulator & PiMulator & & \\
+UPMEM LLM- & UPMEM LLM- & & & \\
+framework & framework & & & \\
+3D CiM LLM Sim & 3D CiM LLM Sim & 3D CiM LLM Sim & & \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

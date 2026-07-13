@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 54}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}[!ht]
+\caption{Dynamic KDE, query part}\begin{algorithmic}[1]
+\State {\bf data structure} \textsc{DynamicKDE} \Comment{Theorem~\ref{thm:main_result}}
+\State
+\Procedure{\textsc{Query}}{$q\in \mathbb{R}^d, \epsilon \in (0,1),f_{\mathsf{KDE}} \in [0,1]$}
+\For{$a=1,2,\cdots,K_1$} \For{$r=1,2,\cdots,R$} \State $\mathcal{H}_{a,r}.\textsc{Recover}(q)$ \State $\mathcal{S} \leftarrow \mathcal{S} \cup (\mathcal{H}_{a,r}.\mathcal{R}\cap L_r) $ \EndFor \State $\mathcal{R}_{R+1}\leftarrow$ recover points in $L_{R+1}\cap\tilde{P}_{a}$\Comment{Recover by calculating $w$ directly.}
+\State $\mathcal{S} \leftarrow \mathcal{S}\cup\mathcal{R}_{R+1}$ \For{$x_{i}\in \mathcal{S}$} \State $w_{i}\leftarrow f(x_{i},q)$
+\If{$x_{i}\in L_{r}$ for some $r\in[R]$}
+\State $p_{i}\leftarrow\min\{ \frac{1}{2^{r} n f_{\mathsf{KDE}} },1\}$
+\ElsIf{$x_{i} \in X \setminus \bigcup_{ r \in [R] } L_{r}$}
+\State $p_{i}\leftarrow\frac{1}{n}$
+\EndIf
+\EndFor \State $T_{a}\leftarrow\sum_{x_{i}\in\mathcal{S}}\frac{w_i}{p_i}$ \EndFor
+\State \Return $\mathrm{Median}\{T_{a}\}$
+\EndProcedure
+\State {\bf end data structure}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

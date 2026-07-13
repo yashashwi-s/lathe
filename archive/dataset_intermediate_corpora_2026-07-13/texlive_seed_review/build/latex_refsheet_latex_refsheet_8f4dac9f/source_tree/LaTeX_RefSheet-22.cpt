@@ -1,0 +1,21 @@
+
+\subsection{Font Size}
+Font size is relative to the base font size, specified in the document class.\\
+\renewcommand{\arraystretch}{0.9}
+\begin{tabular}{@{}ll@{}}
+\lstinline+\tiny+                  &  \tiny{tiny} \\
+\lstinline+\scriptsize+            &  \scriptsize{scriptsize} \\
+\lstinline+\footnotesize+          &  \footnotesize{footnotesize} \\
+\lstinline+\small+                 &  \small{small} \\
+\lstinline+\normalsize+            &  \normalsize{normalsize} \\
+\lstinline+\large+                 &  \large{large}
+\end{tabular} \qquad~~~	
+\begin{tabular}{@{}ll@{}}	
+\lstinline+\Large+                 &  \large{Large} \\[2pt]
+\lstinline+\LARGE+                 &  \Large{LARGE} \\[2pt]
+\lstinline+\huge+                  &  \LARGE{huge} \\[2pt]
+\lstinline+\Huge+                  &  \huge{Huge}	\\[2pt]	
+\end{tabular}\\
+Use: \lstinline+{\small+ \textit{text}\lstinline+}+ or \lstinline+{\huge+ \textit{text}\lstinline+\par}+ to limit the size change.\\
+Example: \lstinline+\setkomafont{pageheadfoot}{\small}+
+^^E^^L 

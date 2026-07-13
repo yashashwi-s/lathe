@@ -1,0 +1,17 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_007/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_007/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_007/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unknown variable: scriptstyle
+   ┌─ tylax.typ:26:211
+   │
+26 │ $ mat(delim: #none,, Delta_((n - 1 l + 1))^((1))(x_(1),...,x_(m)| z_(1),...,z_(n - 1)| z_(n),...,z_(N)) ;=, display q^(l - n + 1)sum_(k = n)^(N) z_(k)frac(product_(j = 1)^(n - 1)(z_(k)- z_(j) q^(- 2)), product_(scriptstyle(atop(i = n, scriptstyle(i != k))))^(N)(z_(i)- z_(k))q^(- 1))Delta^((n l))(x_(1),...,x_(m)| z_(1),..., z_(n - 1),z_(k)| z_(n),class("large", hat(...))^(k),z_(N)),)  $
+   │                                                                                                                                                                                                                    ^^^^^^^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `s c r i p t s t y l e`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"scriptstyle"`
+

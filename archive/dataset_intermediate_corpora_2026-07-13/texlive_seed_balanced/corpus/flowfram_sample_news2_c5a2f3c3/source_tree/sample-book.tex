@@ -1,0 +1,121 @@
+% This file is public domain.
+
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[twoside]{book}
+%\documentclass[twoside]{memoir}
+%\documentclass[twoside,headings=optiontoheadandtoc]{scrbook}
+
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+
+\usepackage[outer=3in,marginparwidth=2cm]{geometry}
+\usepackage[draft]{flowfram}
+\usepackage[hidelinks]{hyperref}
+
+\onecolumn[all][main]
+
+\setflowframe*{main}{margin=inner}
+
+\newdynamicframe{2in}{\typeblockheight}{\typeblockwidth+\columnsep}{0pt}[sidepanel]
+\setdynamicframe*{sidepanel}{evenx=-2in-\columnsep}
+
+\flowframsetup{
+ %dynamic-page-style=noadjust,
+ %sections-extra-option = as-original, % memoir
+ %sections-option-keyval , % needed with KOMA's headings setting
+ toc-thumbtabs,
+ matter-thumbtabs=main-only,
+ thumbtab-links=all,
+ %thumbtab-text=rotate-right
+}
+
+\makethumbtabs{1in}
+\setthumbtab{all}{style=textsf,textcolor=white,backcolor=[gray]{0.4}}
+
+\enableminitoc
+\appenddfminitoc*{sidepanel}
+
+% Put headers and footers in dynamic frames
+\makedfheaderfooter
+
+\newlength{\xoffset}
+\computerightedgeodd{\xoffset}
+\addtolength{\xoffset}{-2cm}
+\newlength{\yoffset}
+\computebottomedge{\yoffset}
+
+\newcommand{\footstyle}[1]{\bfseries\LARGE #1}
+
+\setdynamicframe*{footer}{oddx=\xoffset,y=\yoffset,width=2cm,height=2cm,
+backcolor=[gray]{0.5},textcolor=white,style=footstyle}
+
+\computetopedge{\yoffset}
+\addtolength{\yoffset}{-2cm}
+\setdynamicframe*{header}{oddx={\xoffset-8cm},y=\yoffset,width=10cm,height=2cm,
+backcolor=[gray]{0.8},textcolor=white,style=footstyle}
+
+% now work out the x offset for the even pages
+
+\computeleftedgeeven{\xoffset}
+\setdynamicframe*{footer,header}{evenx=\xoffset}
+
+\title{Sample}
+\author{Me}
+
+\begin{document}
+\pagenumbering{alph}% ensure unique page anchors
+\maketitle
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+\enablethumbtabs
+
+\chapter[Samp Chap]{Sample Chapter}
+
+Some margin text.\marginpar[\hfill $\rightarrow$]{$\leftarrow$}
+\lipsum[1]
+
+\section[Samp Sec]{Sample Section}
+
+\lipsum[2-3]
+
+\section[Another Sec]{Another Sample Section}
+
+Some margin text.\marginpar[\hfill $\rightarrow$]{$\leftarrow$}
+\lipsum[4-50]
+
+\section[Yet Another Sec]{Yet Another Sample Section}
+
+\lipsum[1-20]
+
+\section*[Star Sec][Sec*]{Starred Section}
+
+\lipsum[21-30]
+
+\chapter*
+ [Star Cha]
+ [Cha*]
+ {Starred Chapter}
+\chaptermark{Starred Chapter}
+
+\lipsum[31-50]
+
+\chapter[Another Chap (TOC)][Another Chap (Thumb)]{Another Sample Chapter}
+% KOMA headings=optiontotoc etc:
+%\chapter[tocentry={Another Chap (TOC)},head={Another Chap (Thumb)}]{Another Sample Chapter}
+
+\lipsum[1-20]
+
+\backmatter
+\chapter{Back Matter Chapter}
+
+\lipsum
+
+\section{Back Matter Section}
+
+\lipsum[11-20]
+
+\end{document}

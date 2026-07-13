@@ -1,0 +1,16 @@
+
+\subsection{Lists}
+\begin{tabular}{@{}ll}
+\lstinline+\begin{itemize}+ with bullets        & \lstinline+\item+ or \lstinline+\item[+\textit{symbol}\lstinline+]+\\
+\lstinline+\begin{enumerate}+ with numbers      & \lstinline+\item+\\
+\lstinline+\begin{description}+ with bold words & \lstinline+\item[+\textit{word}\lstinline+]+\\
+\lstinline+\begin{labeling}[+\textit{separator}\lstinline+]{+\textit{labelinglabel}\lstinline+}+ &
+\lstinline+\item[+\textit{word}\lstinline+]+
+\end{tabular}
+\begin{mylatex}
+\begin{enumerate}
+  \item First item
+  \item Second item\label{it:second} % see References
+\end{enumerate}
+\end{mylatex}
+^^E^^L 

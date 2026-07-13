@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{fontspec}
+\thispagestyle{empty}
+
+\newfontfamily\brtxt{BravuraText.otf}[Path=/usr/share/fonts/]
+\newfontfamily\brv{Bravura.otf}[Path=/usr/share/fonts/]
+
+\newcommand{\clefGi}      {{\brtxt \char"E050}}
+\newcommand{\clefCi}      {{\brtxt \char"E05C}}
+\newcommand{\clefFi}      {{\brtxt \char"E062}}
+
+\newcommand{\clefG}       {{\brv \char"E050}}
+\newcommand{\clefC}       {{\brv \char"E05C}}
+\newcommand{\clefF}       {{\brv \char"E062}}
+\newcommand{\timeC}       {{\brv \char"E08A}}
+\newcommand{\timeCHalf}   {{\brv \char"E08B}}
+\renewcommand{\flat}      {{\brv \char"E260}}
+\renewcommand{\natural}   {{\brv \char"E261}}
+\renewcommand{\sharp}     {{\brv \char"E262}}
+\newcommand{\wholeNote}   {{\brv \char"E1D2}}
+\newcommand{\halfNote}    {{\brv \char"E1D3}}
+\newcommand{\halfNoteDown}{{\brv \char"E1D4}}
+\newcommand{\quarterNote} {{\brv \char"E1D5}}
+
+\begin{document}
+
+The Bravura and BravuraText Music fonts provide thousands of music
+symbols. BravuraText glyphs are specifically \clefGi\ designed
+\clefFi\ to be used \clefCi\ inline:
+
+clefs:~ \clefG\ \clefC\ \clefF\ ~time signatures:~
+\timeC\ \timeCHalf\ ~accidentals:~ \sharp\ \flat\ \natural\
+~notes:~ \wholeNote\  \halfNote\ \halfNoteDown\ \quarterNote\
+~and much, much more.
+
+\end{document}

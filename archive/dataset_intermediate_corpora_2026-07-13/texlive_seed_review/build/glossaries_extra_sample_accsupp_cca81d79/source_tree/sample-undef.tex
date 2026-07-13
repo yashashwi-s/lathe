@@ -1,0 +1,22 @@
+% arara: pdflatex
+% arara: makeglossaries
+% arara: pdflatex
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage[undefaction=warn]{glossaries-extra}
+
+\makeglossaries
+
+\newglossaryentry{sample}{name=sample,description={an example}}
+
+\begin{document}
+
+Defined entry: \gls{sample}, \glslink{sample}{text}.
+
+This paragraph will trigger a warning.
+Undefined entry: \gls{undefined}, \glslink{undefined}{text}.
+
+\printglossaries
+\end{document}

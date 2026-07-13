@@ -1,0 +1,67 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Präsentation}
+\author{Johannes Pieper}
+
+\begin{document}
+    Ein Präsentation ist der Typ \verbcode|beamer| anzugeben. Die Präsentation besteht aus einer Startfolie, wie in \autoref{fig:vortrag_startfolie} zu sehen, und beliebig vielen Unterseiten.  Die Angaben im Fuß jeder Folie sind individuell einstellbar.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.7\linewidth]{Beispiele/dlrg_muster_vortrag}
+        \caption{Startfolie des Mustervortrags}
+        \label{fig:vortrag_startfolie}
+    \end{figure}
+
+    \subsubsection{Titelfolie}
+        Die Titelfolie im passenden Design wird einfach über den Befehl \verbcode{\titlepage} gesetzt. Titel und Untertitel der Präsentation lassen sich über die Standardbefehle vom Paket \pkg{beamer} einstellen.
+
+        \begin{options}
+            \keyval{titelbild}{Dateiname}\Default Das Hintergrundbild lässt sich darüber angeben. Wird diese Option nicht genutzt, erscheint der angeschnittene Adler auf der Startfolie.
+            \keychoice{titelschriftfarbe}{black,white}\Default{black}
+        \end{options}
+
+        \begin{commands}
+            \command{title}[\marg{Titel}] Standardbefehl von \pkg{beamer} für den Titel der Präsentation.
+            \command{subtitle}[\marg{Untertitel}] Standardbefehl von \pkg{beamer} für den Untertitel der Präsentation.
+        \end{commands}
+
+        \begin{sourcecode}[gobble=12]
+            \begin{frame}
+                \titlepage
+            \end{frame}
+        \end{sourcecode}
+
+    \subsubsection[Folienfuß]{Angaben im Folienfuß}
+        Im Fuß aller Folien werden verschiedene Angaben aufgeführt. Dieses lassen sich teilweise über Befehle von \pkg{beamer} angeben und teilweise sind eigene hinzugekommen. Wird der Link nicht explizit angegeben, so erscheint \code{dlrg.de}.
+
+        \begin{commands}
+            \command{author}[\marg{Name}] Der Name des Autors oder der Autoren.
+            \command{institute}[\marg{Gliederung}] Hier lässt sich z.\,B. die Gliederung angeben.
+            \command{date}[\marg{Datum}] Das Datum für die Präsentation.
+            \command{footerLink}[\marg{Link}] Der Link z.\,B. zur Gliederung. Es ist dabei zu beachten, dass \textbf{kein} www. vorangestellt werden darf.
+        \end{commands}
+
+    \subsubsection{Format der Folien}
+        Standardmäßig werden die Folien der Präsentation im 4:3-Format gesetzt. Das 16:9 Format lässt sich nur direkt als Option für den Dokumententyp \pkg{beamer} einstellen. Die Entsprechende Option lautet \keyis{aspectratio}{169}.
+
+        \begin{sourcecode}[gobble=12]
+            \documentclass[aspectratio=169]{beamer}
+        \end{sourcecode}
+
+\end{document}

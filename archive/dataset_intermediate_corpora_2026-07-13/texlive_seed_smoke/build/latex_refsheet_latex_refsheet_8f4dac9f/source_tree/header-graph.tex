@@ -1,0 +1,120 @@
+% !TeX spellcheck = en_US
+% header-graph.tex
+% graphic is from \KOMAScript{} documentation scrguien, file scrlayer-scrpage.tex
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}   
+\usepackage{picture}
+\usepackage[x11names]{xcolor}
+\usepackage{cmbright}
+\usepackage[scaled=.90]{beramono}
+\setlength{\textwidth}{200mm}
+\begin{document}
+\begin{picture}(\textwidth,30mm)(0,-10mm)
+	\thinlines
+	\small\ttfamily
+	% left part
+	\put(0,20mm){\line(1,0){.49\textwidth}}%
+	\put(0,0){\line(0,1){20mm}}%
+	\multiput(0,0)(0,-1mm){10}{\line(0,-1){.5mm}}%
+	\put(.49\textwidth,5mm){\line(0,1){15mm}}%
+	\put(.05\textwidth,12mm){%
+		\color{violet}
+		\put(-.5em,0){\line(1,0){4em}}%
+		\multiput(3.5em,0)(.25em,0){5}{\line(1,0){.125em}}%
+		\put(-.5em,0){\line(0,1){\baselineskip}}%
+		\put(-.5em,\baselineskip){\line(1,0){4em}}%
+		\multiput(3.5em,\baselineskip)(.25em,0){5}{\line(1,0){.125em}}%
+		\makebox(4em,3.8mm)[l]{\texttt{$\backslash$lehead}}%
+	}%
+	\put(.465\textwidth,12mm){%
+		\color{SlateBlue2}
+		\put(-4em,0){\line(1,0){4em}}%
+		\multiput(-4em,0)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(0,0){\line(0,1){\baselineskip}}%
+		\put(-4em,\baselineskip){\line(1,0){4em}}%
+		\multiput(-4em,\baselineskip)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-4.5em,0){\makebox(4em,3.8mm)[r]{\texttt{$\backslash$rehead}}}%
+	}%
+	\put(.2525\textwidth,12mm){%
+		\color{DarkOrchid1}
+		\put(-2em,0){\line(1,0){4em}}%
+		\multiput(2em,0)(.25em,0){5}{\line(1,0){.125em}}%
+		\multiput(-2em,0)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-2em,\baselineskip){\line(1,0){4em}}%
+		\multiput(2em,\baselineskip)(.25em,0){5}{\line(1,0){.125em}}%
+		\multiput(-2em,\baselineskip)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-2em,0){\makebox(4em,3.8mm)[c]{\texttt{$\backslash$cehead}}}%
+	}%
+	% right part
+	\put(.51\textwidth,20mm){\line(1,0){.49\textwidth}}%
+	\put(.51\textwidth,5mm){\line(0,1){15mm}}%
+	\put(\textwidth,0){\line(0,1){20mm}}%
+	\multiput(\textwidth,0)(0,-1mm){10}{\line(0,-1){.5mm}}%
+	\put(.5325\textwidth,12mm){%
+		\color{SlateBlue2}
+		\put(0,0){\line(1,0){4em}}%
+		\multiput(4em,0)(.25em,0){5}{\line(1,0){.125em}}%
+		\put(0,0){\line(0,1){\baselineskip}}%
+		\put(0em,\baselineskip){\line(1,0){4em}}%
+		\multiput(4em,\baselineskip)(.25em,0){5}{\line(1,0){.125em}}%
+		\put(.5em,0){\makebox(4em,3.8mm)[l]{\texttt{$\backslash$lohead}}}%
+	}%
+	\put(.965\textwidth,12mm){%
+		\color{violet}
+		\put(-4em,0){\line(1,0){4em}}%
+		\multiput(-4em,0)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(0,0){\line(0,1){\baselineskip}}%
+		\put(-4em,\baselineskip){\line(1,0){4em}}%
+		\multiput(-4em,\baselineskip)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-4.5em,0){\makebox(4em,3.8mm)[r]{\texttt{$\backslash$rohead}}}%
+	}%
+	\put(.75\textwidth,12mm){%
+		\color{DarkOrchid1}
+		\put(-2em,0){\line(1,0){4em}}%
+		\multiput(2em,0)(.25em,0){5}{\line(1,0){.125em}}%
+		\multiput(-2em,0)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-2em,\baselineskip){\line(1,0){4em}}%
+		\multiput(2em,\baselineskip)(.25em,0){5}{\line(1,0){.125em}}%
+		\multiput(-2em,\baselineskip)(-.25em,0){5}{\line(1,0){.125em}}%
+		\put(-2em,0){\makebox(4em,3.8mm)[c]{\texttt{$\backslash$cohead}}}%
+	}%
+	% both page parts
+	\color{SlateBlue2}
+	\put(.5\textwidth,0){\makebox(0,\baselineskip)[c]{\texttt{$\backslash$ihead}}}%
+	\color{DarkOrchid1}
+	\put(.5\textwidth,-5mm){\makebox(0,\baselineskip)[c]{\texttt{$\backslash$chead}}}
+	\color{violet}
+	\put(.5\textwidth,-10mm){\makebox(0,\baselineskip)[c]{\texttt{$\backslash$ohead}}}
+	\put(\dimexpr.5\textwidth-2em,.5\baselineskip){%
+		\color{SlateBlue2}
+		\put(0,0){\line(-1,0){1.5em}}%
+		\put(-1.5em,0){\vector(0,1){5mm}}%
+		\color{DarkOrchid1}
+		\put(0,-1.25\baselineskip){\line(-1,0){\dimexpr .25\textwidth-2em\relax}}%
+		\put(-\dimexpr
+		.25\textwidth-2em\relax,-1.25\baselineskip){\vector(0,1){\dimexpr
+				5mm+1.25\baselineskip\relax}}
+		\color{violet}
+		\put(0,-2.5\baselineskip){\line(-1,0){\dimexpr .45\textwidth-4em\relax}}%
+		\put(-\dimexpr
+		.45\textwidth-4em\relax,-2.5\baselineskip){\vector(0,1){\dimexpr
+				5mm+2.5\baselineskip\relax}}
+	}%
+	\put(\dimexpr.5\textwidth+2em,.5\baselineskip){%
+		\color{SlateBlue2}
+		\put(0,0){\line(1,0){1.5em}}%
+		\put(1.5em,0){\vector(0,1){5mm}}%
+		\color{DarkOrchid1}
+		\put(0,-1.25\baselineskip){\line(1,0){\dimexpr .25\textwidth-2em\relax}}
+		\put(\dimexpr
+		.25\textwidth-2em\relax,-1.25\baselineskip){\vector(0,1){\dimexpr
+				5mm+1.25\baselineskip\relax}}
+		\color{violet}
+		\put(0,-2.5\baselineskip){\line(1,0){\dimexpr .45\textwidth-4em\relax}}
+		\put(\dimexpr
+		.45\textwidth-4em\relax,-2.5\baselineskip){\vector(0,1){\dimexpr
+				5mm+2.5\baselineskip\relax}}
+	}%
+\end{picture}
+\end{document}

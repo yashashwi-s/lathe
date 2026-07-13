@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05521\_table\_12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Trans & Cov & Coef & HR & 95\% CI & Std Err & p-value \\
+\hline \hline
+0 → 1 & Boarded & 0.0925 & 1.0969 & [1.0280, 1.1705] & 0.0331 & 0.0052 \\
+ & Alighted & 0.1326 & 1.1418 & [1.0831, 1.2036] & 0.0269 & 8.28\(\cdot10^{-7}\)\\
+ & Train Freq & 0.0369 & 1.0375 & [1.0254, 1.0498] & 0.0060 & 8.21\(\cdot10^{-10}\)\\
+ & Weather & 0.0459 & 1.0470 & [0.9465, 1.1582] & 0.0515 & 0.3726\\
+ & Zone 1 & -0.4228 & 0.6552 & [0.5040, 0.8518] & 0.1339 & 0.0016\\
+ & Zone 2 & 1.1260 & 3.0833 & [2.6545, 3.5813] & 0.0764 &  < 2\(\cdot10^{-16}\)\\
+ & Zone 3 & 2.1026 & 8.1877 & [6.7749, 9.8951] & 0.0966 & < 2\(\cdot10^{-16}\)\\
+ \hline
+ %.3
+ 1 → 2 & Boarded & 0.0096 & 1.0097 & [0.9168, 1.1119] & 0.0492 & 0.8452 \\
+ & Alighted & 0.0449 & 1.0459 & [0.9890, 1.1061] & 0.0285 & 0.1156\\
+ & Train Freq & 0.0294 & 1.0298 & [1.0118, 1.0482] & 0.0090 & 0.0011\\
+ & Weather & -0.0008 & 0.9992 & [0.8411, 1.1870] & 0.0879 & 0.9929\\
+ & Zone 1 & 0.1061 & 1.1119 & [0.5170, 2.3916] & 0.3908 & 0.7860\\
+ & Zone 2 & 0.6964 & 2.0065 & [1.5321, 2.6279] & 0.1376 & 4.21\(\cdot10^{-7}\)\\
+ & Zone 3 & 1.2663 & 3.5477 & [2.6692, 4.7154] & 0.1452 & < 2\(\cdot10^{-16}\)\\
+ \hline
+ %.4
+ 2 → 1 & Boarded & -0.0425 & 0.9584 & [0.8274, 1.1100] & 0.0749 & 0.5703 \\
+ & Alighted & -0.3141 & 0.7304 & [0.6261, 0.8522] & 0.0787 & 6.55\(\cdot10^{-5}\)\\
+ & Train Freq & -0.1083 & 0.8973 & [0.8650, 0.9309] & 0.0187 & 7.14\(\cdot10^{-9}\)\\
+ & Weather & -0.1868 & 0.8296 & [0.6961, 0.9888] & 0.0896 & 0.0372\\
+ & Zone 1 & -0.3669 & 0.6929 & [0.4705, 1.0203] & 0.1975 & 0.0632\\
+ & Zone 2 & -1.2422 & 0.2887 & [0.2049, 0.4070] & 0.1751 & 1.30\(\cdot10^{-12}\)\\
+ & Zone 3 & 0.2183 & 1.2440 & [0.6909, 1.6105] & 0.1317 & 0.0975\\
+ \hline
+ %.2
+ 1 → 0 & Boarded & -0.2404 & 0.7863 & [0.7028, 0.8797] & 0.0573 & 2.68\(\cdot10^{-5}\) \\
+ & Alighted & -0.4813 & 0.6180 & [0.5455, 0.7000] & 0.0636 & 3.79\(\cdot10^{-14}\)\\
+ & Train Freq & -0.0675 & 0.9347 & [0.9165, 0.9533] & 0.0100 & 1.72\(\cdot10^{-11}\)\\
+ & Weather & -0.0223 & 0.9779 & [0.8817, 1.0846] & 0.0528 & 0.6725\\
+ & Zone 1 & 0.1272 & 1.1357 & [0.9268, 1.3916] & 0.1037 & 0.2199\\
+ & Zone 2 & -1.3739 & 0.2531 & [0.2087, 0.3070] & 0.0984 & < 2\(\cdot10^{-16}\)\\
+ & Zone 3 & 0.2195 & 1.2455 & [1.0638, 1.4583] & 0.0805 & 0.0064\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05414\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{
+    |>{\raggedright\arraybackslash}p{2.25cm}
+    |>{\raggedright\arraybackslash}p{1.3cm}
+    |>{\raggedright\arraybackslash}p{3.3cm}|
+  }
+    \hline
+    \textbf{Paper} & \textbf{Language} & \textbf{Models Used} \\
+    \hline
+    % 2020  
+     & Chinese (5) & BERT \\    
+     & Chinese (5) & BERT \\
+     & English (5) & GloVe, fastText, ELMo, GPT, GPT-2, BERT, RoBERTa, XLM-RoBERTa, BART, T5, XLNet \\
+     & English (5) & BERT \\
+     & Sinhala (2)  & BERT \\
+    % 2022
+     & English (5) & BERT \\ 
+     & Vietnamese (4) & BERT \\
+     & Bengali (3) & BERT \\    
+     & Croatian (3) & mBERT, DistilBERT, XLM-RoBERTa \\
+     & Sinhala (2) & mT5, mBART \\
+    % 2023    
+     & Chinese (5) & BERT \\
+     & Chinese (5) & BERT \\
+     & Chinese (5) & BERT \\
+     & Chinese (5) & GPT-3.5-Turbo \\
+     & Chinese (5) & BERT, BART, BAICHUAN-13B-Chat. Text-Davinci-GPT-3.5 \\ 
+     & Russian (4), English (5) & BERT, T5, GPT-3.5, GPT-4.0, M2M-100 \\
+     & Thai (3) & WangchanBERTa \\
+     & Kannada (2) & mT5 \\
+    % 2024
+     & Chinese (5) & BERT, BART \\
+     & Chinese (5) & BERT \\
+     & Chinese (5) & BERT, BAICHUAN, GPT2 \\  
+     & Chinese (5) & BERT, ChineseBERT \\
+     & Chinese (5) & BERT, GPT-3.5, BAICHUAN \\
+     & Chinese (5) & BERT \\
+     & Chinese (5) & C-LLM, GPT-4, BERT \\
+     & English (5) & BART, T5 \\
+     & English (5) & BERT \\
+     & English (5) & BERT, Mistral-7B, Claude-3-sonnet \\
+     & Persian (4) & BERT \\
+     & Turkish (4) & TURNA \\    
+     & Bengali (3) & BERT \\    
+    % 2025
+     & Chinese (5) & BERT, GPT-3.5, GLM4 \\
+   \hline
+  \end{tabular}
+}
+\end{table}
+
+\end{document}

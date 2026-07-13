@@ -1,0 +1,86 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Hausarbeit}
+\author{Johannes Pieper}
+
+\begin{document}
+Das Modul \module{Hausarbeit} wurde für die Erstellung einer solchen im Rahmen der Lehrscheinprüfung erstellt. Es bindet Elemente für die spezifischen Anforderungen ein, die für eine normale Publikation nicht gegeben sind.
+
+\subsubsection{Moduloptionen}
+Über die Moduloptionen lässt sich bei der Hausarbeit einstellen, ob die Hinweistexte, die in \autoref{sec:HausarbeitHinweise} näher beschrieben sind, angezeigt werden sollen oder nicht.
+
+\begin{options}
+    \keybool{hinweise}\Default{false}
+        Gibt an, ob die Hinweise angezeigt werden.
+        \label{option:hinweise}
+\end{options}
+
+\subsubsection{Titelseite}
+Bei der Hausarbeit wird die Titelseite mit einem weiteren Störer versehen, der die weiteren nötigen Angaben enthält.
+
+\begin{commands}
+    \command{date}[\marg{Datum}]
+    Der Standardbefehl für das Datum wird mit diesem Modul neu definiert.
+
+    \command{author}[\marg{Autor}]
+    Der Standardbefehl für den Autor des Dokuments wird mit diesem Modul neu definiert.
+
+    \command{menor}[\marg{Mentor}]
+    Mit diesem Befehl lässt sich der Mentor angeben, der auf der Startseite angegeben wird.
+
+    \command{ort}[\marg{Ort}]
+    Angabe für den Ort, der auf der Startseite mit angegeben wird.
+
+    \command{thema}[\oarg{Kurzform des Themas}\marg{Thema}]
+    Anstatt des Titels wird mit der Hausarbeit das Thema auf der Titelseite angegeben. Dieses lässt auch optional eine Kurzform zu, die alternativ zum Thema in der Kopfzeile jeder Seite aufgeführt wird.
+\end{commands}
+
+\subsubsection{Stichwortverzeichnis}
+Alle Dokumente, die dieses Modul laden werden um Elemente des Stichwortverzeichnisses aus dem Paket \verbcode|glossaries| erweitert. Die Einbindung des Stichwortverzeichnis erfolgt dann an entsprechender Stelle durch folgenden Befehl:
+
+\begin{sourcecode}
+    \printglossary[type=\acronymtype,title=Abkürzungsverzeichnis,style=long]
+\end{sourcecode}
+
+Nach der ersten Übersetzung des Dokumentes müssen dann die folgende Befehle abgesetzt werden, damit das Stichwortverzeichnis auch mit Inhalt gefüllt wird. Dabei muss der Dokumentenname entsprechend angepasst werden.
+
+\begin{sourcecode}
+    makeindex -s Dokumentenname.ist -t Dokumentenname.alg -o Dokumentenname.acr Dokumentenname.acn
+\end{sourcecode}
+
+\subsubsection{Hinweise}\label{sec:HausarbeitHinweise}
+Die Vorlage des Landesverbands Westfalen enthält einige Hinweise, zur Gliederung und Aufbau der Hausarbeit. Da es bei diesen sinnvoll sein kann, sie während der Erstellungsphase sichbar zu halten, können sie durch die Moduloption \verbcode|hinweise| \ref{option:hinweise} geschaltet werden.
+
+\begin{commands}
+    \command{HinweisZurVorlage}[\marg{Text}]
+        Ein Hinweistext kann angegeben werden, der in einem extra Kasten genau an dieser Stelle dargestellt wird. Dieser wird nur dann dargestellt, wenn die Moduloption \verbcode|hinweise| angewählt ist.
+\begin{sourcecode}
+    \HinweisZurVorlage{
+        Hier ist eine Hinweis, wie etwas umgesetzt werden soll.
+    }
+\end{sourcecode}
+    \begin{tcolorbox}[
+            colback=white,
+            colframe=dlrgRot,
+            fonttitle=\bfseries,
+            title=Hinweis -- bei einer Nutzung als Vorlage bitte löschen oder deaktivieren
+        ]
+        Hier ist eine Hinweis, wie etwas umgesetzt werden soll.
+    \end{tcolorbox}
+\end{commands}
+\end{document}

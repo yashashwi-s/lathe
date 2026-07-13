@@ -1,0 +1,23 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_015/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_015/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+   {\rm P}_{j,j+i} =&\sum^{M-j}_{m=i+1} {M-j \choose m} \mathbb{P}_{\rm TX}^m \left(1- \mathbb{P}_{\rm TX}\right) ^{M-j-m} \\ &\times \frac{M-j-i}{M-j}m \cdots (m-i+1)\mathbb{P}_K^{m} \gamma_i \gamma_{m,i} \\ &+{M-j \choose i} \mathbb{P}_{\rm TX}^i \left(1- \mathbb{P}_{\rm TX}\right) ^{M-j-i} \frac{M-j-i}{M-j}i! \mathbb{P}_K^{i}\gamma_i ,
+  \end{align*}, rendering as TeX:
+   {\rm P}_{j,j+i} =&\sum^{M-j}_{m=i+1} {M
+        ^
+  unexpected control sequence \rm
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+error: unknown variable: sd
+   ┌─ pandoc.typ:41:129
+   │
+41 │ $ frac(1, omega\(B\)) parallel\(b - b_B\)f_1 parallel_(L_omega^s)^s & = frac(1, omega\(B\)) integral_(5 B)\|b\(y\)- b_B\|^s\|f\|^sd omega\(y\)\
+   │                                                                                                                                  ^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `s d`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"sd"`
+

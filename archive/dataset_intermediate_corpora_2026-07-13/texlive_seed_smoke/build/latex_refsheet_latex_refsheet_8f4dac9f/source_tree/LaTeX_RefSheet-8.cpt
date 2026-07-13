@@ -1,0 +1,18 @@
+
+\subsection{Changing Page Layout with \texttt{geometry}}
+\begin{itemize}
+\item
+Let \KOMAScript{} know of \texttt{geometry} by option \lstinline+usegeometry=true+.
+\begin{mylatex}
+\usepackage[left=2cm, right=2, top=3cm, bottom=4cm,
+  bindingoffset=1cm, inlcudeheadfoot]{geometry}
+\end{mylatex}
+\item
+Auto-completion determines unspecified dimensions (under or over specified as well), here \lstinline+width+ and \lstinline+height+ of text (see~\ref{sec:pagelayout}).
+\item
+Other options: \lstinline+paper=a4paper+, \lstinline+landscape|portrait+, \lstinline+includehead+,
+\lstinline+includefoot+, \lstinline+includeheadfoot+, \lstinline+twocolumn+
+\item
+Changing page layout mid document: \lstinline+\newgeometry{+ \textit{opt, opt, ...} \lstinline+}+
+\end{itemize}
+^^E^^L 

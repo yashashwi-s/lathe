@@ -1,0 +1,199 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01992\_table\_14}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+API Name and Settings & Cleaned Model Name\\
+\midrule
+gpt-4-0613 & GPT-4 \\
+qwen2.5-7b-instruct-1m & Qwen2.5-7B-Instruct \\
+internlm3-8b-instruct & InternLM3-8B-Instruct \\
+qwen-max-2025-01-25 & Qwen2.5-Max \\
+qwen2.5-14b-instruct@q8\_0 & Qwen2.5-14B-Instruct (Q8) \\
+qwq-32b & QWQ-32B \\
+o3-2025-04-16-low & o3 (low) \\
+gpt-4o-2024-08-06 & GPT-4o (2024-08-06) \\
+mistral-nemo-12b-instruct-2407 & Mistral-Nemo-Instruct-2407 \\
+gpt-35-turbo-1106 & GPT-3.5 Turbo (11/06) \\
+o1-preview-2024-09-12 & o1-preview \\
+grok-3-mini-beta-high & Grok 3 Mini (high) \\
+claude-v3-5-sonnet-v1 & Claude 3.5 Sonnet \\
+amazon.nova-lite-v1 & Amazon Nova Lite \\
+gemini-2.0-flash-exp & Gemini 2.0 Flash (exp) \\
+o4-mini-2025-04-16-low & o4-mini (low) \\
+llama-3-70b-instruct-awq & Llama-3-70B-Instruct \\
+gpt-4.5-preview-2025-02-27 & GPT-4.5 \\
+deepseek-chat-v3 & DeepSeek-V3 \\
+gemma-2-27b-it@q6\_k\_l & Gemma 2 27B \\
+llama3.1-8b & Llama-3.1-8B \\
+claude-v3-5-haiku & Claude 3.5 Haiku \\
+qwen2.5-72b-instruct & Qwen2.5-72B-Instruct \\
+gpt-4.1-nano-2025-04-14 & GPT-4.1 Nano \\
+granite-3.1-8b-instruct & Granite-3.1-8B-Instruct \\
+llama3-8b-8192 & Llama-3-8B \\
+gemma2-9b-it-groq & Gemma 2 9B \\
+qwen-turbo-2024-11-01 & Qwen Turbo \\
+gpt-4o-2024-11-20 & GPT-4o (2024-11-20) \\
+amazon.nova-pro-v1 & Amazon Nova Pro \\
+o1-2024-12-17-low & o1 (low) \\
+qwen-plus-2025-01-25 & Qwen Plus \\
+gpt-35-turbo-0301 & GPT-3.5 Turbo (03/01) \\
+mercury-coder-small & Mercury Coder Small \\
+deephermes-3-llama-3-8b-preview@q8 & DeepHermes-3-Llama-3-8B-Preview \\
+o4-mini-2025-04-16-high & o4-mini (high) \\
+gpt-4o-mini-2024-07-18 & GPT-4o Mini \\
+gpt-4-turbo-2024-04-09 & GPT-4 Turbo \\
+o4-mini-2025-04-16-medium & o4-mini (medium) \\
+gemini-2.5-pro-preview-03-25 & Gemini 2.5 Pro Preview \\
+gpt-4-32k-0613 & GPT-4 32K \\
+phi-4 & Phi-4 \\
+gemini-2.0-flash-thinking-exp-1219 & Gemini 2.0 Flash Thinking \\
+mistral-small-instruct-2409 & Mistral-Small-Instruct-2409 \\
+mistral-small-24b-instruct-2501@q4\_k\_m & Mistral-Small-24B-Instruct-2501 \\
+llama-2-7b-chat & Llama-2-7B-Chat \\
+gemma-3-12b-it@iq4\_xs & Gemma 3 12B (iq4) \\
+claude-v3-7-sonnet-thinking\_10000 & Claude 3.7 Sonnet Thinking \\
+gemini-1.5-flash-001 & Gemini 1.5 Flash \\
+deepseek-chat-v3-0324 & DeepSeek-V3 (0324) \\
+deepseek-reasoner-r1 & Deepseek-R1 \\
+llama-4-scout-cerebras & Llama 4 Scout \\
+chat-bison-32k@002 & Chat-Bison-32K \\
+qwen2.5-14b-instruct-1m & Qwen2.5-14B-Instruct \\
+o1-2024-12-17-medium & o1 (medium) \\
+claude-v3-haiku & Claude 3 Haiku \\
+grok-3-mini-beta-low & Grok-3 Mini (low) \\
+o3-mini-2025-01-31-low & o3-mini (low) \\
+llama-3.1-tulu-3-8b@q8\_0 & Llama-3.1-Tulu-3-8B \\
+gpt-4o-2024-05-13 & GPT-4o (2024-05-13) \\
+gpt-35-turbo-0125 & GPT-3.5 Turbo (01/25) \\
+claude-v3-7-sonnet & Claude 3.7 Sonnet \\
+gemma-2-9b-it-8bit & Gemma 2 9B (8bit) \\
+gpt-35-turbo-0613 & GPT-3.5 Turbo (06/13) \\
+gemini-2.0-flash-lite-preview-02-05 & Gemini 2.0 Flash Lite (preview) \\
+o3-mini-2025-01-31-medium & o3-mini (medium) \\
+gpt-4.1-2025-04-14 & GPT-4.1 \\
+gemini-2.0-flash-lite-001 & Gemini 2.0 Flash Lite \\
+o3-2025-04-16-medium & o3 (medium) \\
+gemini-2.0-flash-001 & Gemini 2.0 Flash \\
+deepseek-r1-distill-qwen-14b@q8\_0 & DeepSeek-R1-Distill-Qwen-14B \\
+ministral-8b-instruct-2410 & Mistral 8B Instruct \\
+deepseek-r1-distill-qwen-32b@q4\_k\_m & DeepSeek-R1-Distill-Qwen-32B \\
+llama-3.3-70b & Llama-3.3-70B \\
+grok-2-1212 & Grok-2 \\
+gemma-3-12b-it@q8\_0 & Gemma 3 12B (q8) \\
+gemma-3-27b-it@iq4\_xs & Gemma 3 27B \\
+claude-v3-5-sonnet-v2 & Claude 3.5 Sonnet v2 \\
+gpt-4.1-mini-2025-04-14 & GPT-4.1 Mini \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01992\_table\_15}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrr}
+\toprule
+Model & Avg. Tokens/Move & Avg. Cost/Game \\
+\midrule
+o3 (low) & 1927.5 & \$8.1653 \\
+o4-mini (high) & 5695.2 & \$2.7146 \\
+% Grok 3 Mini (high) & 0 & \$0.0000 \\
+o3 (medium) & 5040.3 & \$7.3626 \\
+o1 (medium) & 3309.1 & \$19.5655 \\
+o4-mini (medium) & 2155.6 & \$1.1091 \\
+o1 (low) & 1638.9 & \$13.4843 \\
+o4-mini (low) & 680.23 & \$0.5273 \\
+o3-mini (medium) & 2337.8 & \$1.6058 \\
+o1-preview & 2660.1 & \$22.5618 \\
+Claude 3.7 Sonnet Thinking & 671.33 & \$2.0754 \\
+% Grok-3 Mini (low) & 0 & \$0.0000 \\
+Claude 3.7 Sonnet & 262.81 & \$0.8993 \\
+GPT-4 32K & 6.66 & \$2.2266 \\
+Claude 3.5 Sonnet v2 & 91.15 & \$0.5590 \\
+Qwen2.5-Max & 6.06 & \$0.1336 \\
+GPT-4 Turbo & 6.06 & \$0.8482 \\
+GPT-4o (2024-11-20) & 51.59 & \$0.3165 \\
+GPT-4.1 & 18.94 & \$0.1976 \\
+GPT-4.5 & 8.03 & \$6.4834 \\
+GPT-4 & 8.21 & \$1.8986 \\
+Claude 3.5 Haiku & 67.72 & \$0.0465 \\
+GPT-4o (2024-08-06) & 7.7 & \$0.2081 \\
+Claude 3.5 Sonnet & 88.13 & \$0.5658 \\
+Gemini 2.5 Pro Preview & 434.93 & \$0.5570 \\
+GPT-4o (2024-05-13) & 31.34 & \$0.2669 \\
+o3-mini (low) & 669.8 & \$0.4827 \\
+Deepseek-R1 & 4585 & \$0.9375 \\
+GPT-4.1 Mini & 8.2 & \$0.0172 \\
+GPT-4o Mini & 104.64 & \$0.0215 \\
+Llama-3-70B-Instruct & 41.61 & \$0.0205 \\
+Gemini 2.0 Flash & 93.77 & \$0.0147 \\
+Grok-2 & 66.23 & \$0.1904 \\
+Gemini 1.5 Flash & 19.91 & \$0.0034 \\
+Gemma 2 27B & 55.04 & \$0.0199 \\
+Gemma 2 9B (8bit) & 58.12 & \$0.0014 \\
+DeepSeek-V3 (0324) & 410.71 & \$0.0470 \\
+Llama-3.3-70B & 102.98 & \$0.0140 \\
+Qwen Plus & 440.41 & \$0.0728 \\
+Qwen2.5-72B-Instruct & 219.47 & \$0.0110 \\
+Gemini 2.0 Flash (exp) & 168.15 & \$0.0115 \\
+Llama-3.1-8B & 162.1 & \$0.0009 \\
+Gemini 2.0 Flash Lite & 150.15 & \$0.0075 \\
+DeepSeek-V3 & 246.93 & \$0.0258 \\
+Amazon Nova Lite & 534.38 & \$0.0000 \\
+Amazon Nova Pro & 177.19 & \$0.0000 \\
+Chat-Bison-32K & 31.64 & \$0.0000 \\
+Claude 3 Haiku & 210.64 & \$0.0000 \\
+DeepHermes-3-Llama-3-8B-Preview & 101.36 & \$0.0014 \\
+DeepSeek-R1-Distill-Qwen-14B & 3073.1 & \$0.0019 \\
+DeepSeek-R1-Distill-Qwen-32B & 2173.8 & \$0.0020 \\
+Gemini 2.0 Flash Lite (preview) & 144 & \$0.0044 \\
+Gemini 2.0 Flash Thinking & 724.54 & \$0.0010 \\
+Gemma 2 9B & 20.22 & \$0.0020 \\
+Gemma 3 12B (iq4) & 111.14 & \$0.0000 \\
+Gemma 3 12B (q8) & 151.11 & \$0.0000 \\
+Gemma 3 27B & 115.84 & \$0.0000 \\
+GPT-3.5 Turbo (01/25) & 77.01 & \$0.0020 \\
+GPT-3.5 Turbo (03/01) & 67.06 & \$0.0012 \\
+GPT-3.5 Turbo (06/13) & 93.63 & \$0.0027 \\
+GPT-3.5 Turbo (11/06) & 48.32 & \$0.0011 \\
+GPT-4.1 Nano & 31.51 & \$0.0010 \\
+Granite-3.1-8B-Instruct & 469.13 & \$0.0029 \\
+InternLM3-8B-Instruct & 1543.9 & \$0.0125 \\
+Llama-2-7B-Chat & 116.31 & \$0.0001 \\
+Llama-3.1-Tulu-3-8B & 1996.3 & \$0.0013 \\
+Llama-3-8B & 57.02 & \$0.0004 \\
+Mercury Coder Small & 837.84 & \$0.0327 \\
+Mistral 8B Instruct & 72.11 & \$0.0000 \\
+Mistral-Nemo-Instruct-2407 & 47.7 & \$0.0000 \\
+Mistral-Small-24B-Instruct-2501 & 110.95 & \$0.0000 \\
+Mistral-Small-Instruct-2409 & 88.24 & \$0.0003 \\
+Phi-4 & 333.54 & \$0.0006 \\
+Qwen Turbo & 192.37 & \$0.0016 \\
+Qwen2.5-14B-Instruct & 235.27 & \$0.0085 \\
+Qwen2.5-14B-Instruct (Q8) & 150.63 & \$0.0096 \\
+Qwen2.5-7B-Instruct & 140.79 & \$0.0001 \\
+QWQ-32B & 8158 & \$0.0433 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

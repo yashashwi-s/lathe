@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00251\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\hline
+\textbf{Symbol} & \textbf{Description} \\
+\hline
+$ x $ & Real input sample \\
+$ z $ & Latent noise vector from Gaussian prior \\
+$ c,\ y $ & Conditional label or class vector \\
+$ G(z, c),\ G(z \mid y) $ & Generator output conditioned on class \\
+$ D(x, c),\ D(x \mid y) $ & Discriminator output conditioned on class \\
+$ \mathcal{L}_D $ & Discriminator loss \\
+$ \mathcal{L}_G $ & Generator loss \\
+$ \mathbb{E}_{x \sim p_{\text{data}}} $ & Expectation over real data distribution \\
+$ \mathbb{E}_{z \sim p(z)} $ & Expectation over noise distribution \\
+$ \mathbb{E}_{c \sim p(c)} $ & Expectation over conditional labels \\
+$ \mathbb{E}_{x, y \sim P_{\text{data}}} $ & Joint expectation over input-label pairs \\
+$ \mathbb{E}_{z \sim P_z,\, y \sim P_y} $ & Expectation over latent and condition \\
+$ \mathcal{L}_{\text{Sink}} $ & Sinkhorn divergence loss \\
+$ OT_\epsilon(\mu, \nu) $ & Entropy-regularized optimal transport cost \\
+$ S_\epsilon(\mu, \nu) $ & Debiased Sinkhorn divergence \\
+$ \mu,\ \nu $ & Real and generated data distributions \\
+$ A(x) $ & Anomaly score for input $ x $ \\
+$ G(z^*) $ & Generator output approximating input sample \\
+$ f(\cdot) $ & Mapping function into learned feature space \\
+$ \| f(x) - f(y) \|^2 $ & Cost metric in feature space \\
+$ \rho_{XY} $ & Pearson correlation coefficient \\
+$ I(f_i) $ & Feature importance score \\
+$ \alpha_{i,j},\ \beta_{i,j} $ & Mode-specific normalized input representations \\
+$ p_{2i} $ & Euclidean norm to cluster $ i $ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00373\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccc}
+    \hline
+        \textbf{Element} & \textbf{Major Gas(es)} & \textbf{Mineral} & \textbf{Mineral Name} & \textbf{$T$ [K]} & \textbf{$f^{i,T}_c$} \\ \hline
+        \textbf{Al} & Al $>$ AlOH $>$ Al$_2$O & Al$_2$O$_3$ & Corundum & 1663 & 0.29  \\ 
+        \textbf{Ti} & TiO $>>$ Ti & CaTiO$_3$ & Perovskite & 1593 & 0.54  \\ 
+        \textbf{Ca} & Ca $>>$ CaOH & CaAl$_{12}$O$_{19}$ & Hibonite & 1603 & 0.11  \\ 
+        \textbf{Ca} & Ca $>>$ CaOH & CaAl$_4$O$_7$ & Grossite & 1563 & 0.38  \\ 
+        \textbf{Ca} & Ca $>>$ CaOH & Ca$_2$Al$_2$SiO$_7$ & Melilite & 1493 & 0.63  \\ 
+        \textbf{Ni} & Ni $>>$ NiH, NiS & Fe alloy & Fe alloy & 1353 & 0.40  \\ 
+        \textbf{Mg} & Mg & Mg$_2$SiO$_4$ & Olivine & 1343 & 0.24  \\      
+        \textbf{Fe} & Fe & Fe alloy & Fe alloy & 1340 & 0.35  \\ 
+        \textbf{Cr} & Cr $>>$ Cr(OH)$_2$ & Fe alloy & Fe alloy & 1353 & 0.08  \\ 
+        \textbf{Cr} & Cr $>>$ Cr(OH)$_2$ & MgCr$_2$O$_4$ & Spinel & 1318 & 0.37  \\ 
+        \textbf{Si} & SiO $>$ SiS & CaAl$_2$Si$_2$O$_8$ & Feldspar & 1373 & 0.09  \\ 
+        \textbf{Si} & SiO $>$ SiS & Mg$_2$SiO$_4$ & Olivine & 1343 & 0.31  \\ 
+        \textbf{Si} & SiO $>$ SiS & MgSiO$_3$ & Orthopyroxene & 1273 & 0.76  \\ 
+        \textbf{O} & CO $\sim$ H$_2$O $>>$ SiO & Mg$_2$SiO$_4$ & Olivine & 1343 & 0.08  \\ 
+        \textbf{O} & CO $\sim$ H$_2$O $>>$ SiO & MgSiO$_3$ & Orthopyroxene & 1273 & 0.17  \\ 
+        \textbf{Mn} & Mn & Mg$_2$SiO$_4$ & Olivine & 1143 & 0.48  \\ 
+        \textbf{Na} & Na $>$ NaCl & CaAl$_2$Si$_2$O$_8$ & Feldspar & 1048 & 0.49  \\ 
+        \textbf{K} & K $>$ KCl & CaAl$_2$Si$_2$O$_8$ & Feldspar & 1083 & 0.40  \\ 
+        \textbf{S} & H$_2$S & FeS & Troilite & 693 & 0.20  \\ \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,41 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_013/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_013/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_013/tylax.typ
+
+
+TYPST COMPILE LOG:
+warning: `planck.reduce` is deprecated, use `planck` instead
+   ┌─ tylax.typ:33:55
+   │
+33 │ $ K[H_(n),1 ] =(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t))(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t))  $
+   │                                                        ^^^^^^
+
+warning: `planck.reduce` is deprecated, use `planck` instead
+   ┌─ tylax.typ:33:117
+   │
+33 │ $ K[H_(n),1 ] =(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t))(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t))  $
+   │                                                                                                                      ^^^^^^
+
+warning: `planck.reduce` is deprecated, use `planck` instead
+   ┌─ tylax.typ:33:183
+   │
+33 │ $ K[H_(n),1 ] =(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t))(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t))  $
+   │                                                                                                                                                                                        ^^^^^^
+
+warning: `planck.reduce` is deprecated, use `planck` instead
+   ┌─ tylax.typ:33:251
+   │
+33 │ $ K[H_(n),1 ] =(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t))(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(xi xi_(0)), i planck.reduce sin omega t)) J_(n)(frac(m omega sqrt(eta eta_(0)), i planck.reduce sin omega t))  $
+   │                                                                                                                                                                                                                                                            ^^^^^^
+
+error: unknown variable: rsum
+   ┌─ tylax.typ:40:115
+   │
+40 │ $ E(beta) = E_(0)+ tilde(E)(beta) = frac(1, 2 r)sum_(ell = 1)^(infinity)ell^(2)(ell^(2)+ mu_(e f f)^(2))^(1 /2)+ 1/rsum_(ell = 1)^(infinity)frac(ell^(2)(ell^(2)+ mu_(e f f)^(2))^(1 /2), e^(beta(ell^(2)+ mu_(e f f)^(2))^(1 /2)/r)- 1), $
+   │                                                                                                                    ^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `r s u m`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"rsum"`
+

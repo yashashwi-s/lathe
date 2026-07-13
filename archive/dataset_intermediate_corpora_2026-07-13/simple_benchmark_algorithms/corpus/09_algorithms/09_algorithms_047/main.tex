@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 47}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[H]
+\caption{Square system method}
+\begin{algorithmic}[1]
+\State Input:\begin{itemize}
+\item Algebraic system of difference equations named $\Sigma'$
+\item Time measured data allowing prolongation of the system.
+\item For $\bar{\mu}=\mu_1,\ldots,\mu_n$ the finite set of parameters, the data $R_{\mu_i}$ of permissible intervals for each parameter value.
+\end{itemize}
+\State Output: Parameter values of $\Sigma'$.
+\Procedure{Detect solvability}{}
+\State Define $\Sigma prolong$ as an indefinite time prolongation of $\Sigma'$.
+\State Redefine $\Sigma':=[]$, an `empty system' of no equations.
+\State Denote $e_1,\ldots$ the equations of $\Sigma prolong$.
+\State Define $J(t)=\left[\dfrac{\partial e_i}{\partial\mu_j}\right]$ where $e_i\in \Sigma',i=1,\ldots,r$, or 0 if $\Sigma'$ is empty.
+\State $i:=1$
+\For{$rank(J(t)):=s<n$ i.e. is not of full rank, }
+\Procedure{Move equation}{}
+\State $\Sigma':=\Sigma'\cup\{e_i\}$
+\State $\Sigma prolong:=\Sigma prolong\backslash\{e_i\}$
+\State Compute $rank(J(t))$ (note $\Sigma'$ has updated)
+\If{$rank(J(t))<s+1$} $\Sigma':=\Sigma'\backslash\{e_i\}$
+\EndIf
+\State $i=i+1$
+\If{$rank(J(t)<n$} repeat procedure Move Equation.
+\EndIf
+\EndProcedure
+\EndFor
+\Procedure{Blackbox solver and filter}{} Note Detect Solvability runs until $J(t)$ \phantom{---------}has full rank and outputs a polynomial system $\Sigma'$ that has solutions. Run any \phantom{---------}algebraic solver.
+\State Filter solutions by intersecting solution set with $R_{\mu_i}$.
+\EndProcedure
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

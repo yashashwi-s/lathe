@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02178\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l | c c c c c} 
+%\hline
+%\hline
+%\multicolumn{7}{l}{true DGP: Laplace(loc=0, scale=2) ($F(4.605170)=0.95$)} \\
+ Method &  & n=10 & n=30 & n=50 & n=100 & n=1000 \\
+ \hline
+Normal (noninformative) 
+ & undercoverage  & 0.1126 & 0.1106 & 0.1096 & 0.1080 & 0.0774 \\
+ & mean coverage  & 0.9786 & 0.9718 & 0.9687 & 0.9648 & 0.9561 \\
+ & mean upper limit & 7.7998 & 6.1594 & 5.7686 & 5.4132 & 4.8792 \\
+% normal,conj1 
+%  & undercoverage rate & 0.4843 & 0.301 & 0.2426 & 0.1908 & 0.0947 \\
+%  & mean coverage  & 0.945594 & 0.958115 & 0.959977 & 0.96018 & 0.955705 \\
+%  & mean upper limit & 4.901167 & 5.224193 & 5.225002 & 5.154964 & 4.856806 \\
+Frequentist Nonparametric
+ & undercoverage  & -- & -- & -- & 0.0372 & 0.0464 \\
+ & mean coverage  & -- & -- & -- & 0.9802 & 0.9609 \\
+ & mean upper limit & -- & -- & -- & 6.9899 & 5.1210 \\
+% DP, $0.01N(0,2^2)$
+%  & undercoverage rate & 0.5918 & 0.2086 & 0.0759 & 0.1161 & 0.0607 \\
+%  & mean coverage  & 0.909715 & 0.968001 & 0.980557 & 0.970350 & 0.959983 \\
+%  & mean upper limit & 4.502949 & 6.639230 & 7.631294 & 5.994371 & 5.074899 \\
+DP$(a=10, F_0=N(0, 2^2))$
+ & undercoverage   & 0.5918 & 0.2086 & 0.0759 & 0.1161 & 0.0607 \\
+ & mean coverage  & 0.9539 & 0.9694 & 0.9731 & 0.9704 & 0.9600 \\
+ & mean upper limit & 5.2728 & 6.6613 & 6.1622 & 5.9949 & 5.0749 \\
+DP$(a=10,F_0=\text{Laplace}(0, 2))$
+ & undercoverage  & 0 & 0.2086 & 0.0759 & 0.1161 & 0.0607 \\
+ & mean coverage  & 0.9827 & 0.9739 & 0.9806 & 0.9714 & 0.9600 \\
+ & mean upper limit & 6.9120 & 6.7911 & 7.4867 & 6.0277 & 5.0749 \\
+DP$(a=100,F_0=\text{Laplace}(0,2))$
+ & undercoverage  & 0 & 0 & 0 & 0.006 & 0.0454 \\
+ & mean coverage  & 0.9769 & 0.9748 & 0.9732 & 0.9704 & 0.9597 \\
+ & mean upper limit & 6.1835 & 6.0490 & 5.9387 & 5.7399 & 5.0584 \\
+MDP($a\sim\text{Gamma(1,1)},F_0 = N(\mu,\sigma^2))$ & undercoverage  & 0.1470 & 0.1380 & 0.0850 & 0.0780 & 0.0580\\
+ $\mu\sim N(0,10^2)$& mean coverage  & 0.9761 & 0.97354 & 0.9749 & 0.9708 & 0.9583 \\
+ $\sigma^2\sim\text{Inv-Gamma(1,1)}$& mean upper limit & 10.1999 & 6.8710 & 6.4114 & 5.8816 & 4.9854 \\
+ \hline
+ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05137\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccccc}
+\toprule
+\textbf{} 
+& \textbf{Silhouette} 
+& \textbf{Math} 
+& \textbf{Recognition} 
+& \textbf{Occlusion} 
+& \textbf{Rotation} 
+& \textbf{Count} 
+& \textbf{Enumeration} 
+& \textbf{Spot\newline Difference} 
+& \textbf{Size\newline Comparison} 
+& \textbf{Size\newline Sort} 
+& \textbf{Overall} \\
+\midrule
+Humans (average) & 100\% & 84.6\% & 89.7\% & 82.1\% & 81.6\% & 97.4\% & 87.1\% & 87.5\% & 100\% & 85.4\% & 88.4\% \\
+\midrule
+GPT-4o               & 77.4\% & \textbf{13.1\%} & \textbf{19.0\%} & 11.4\% & \textbf{11.6\%} & 19.2\% & \textbf{3.3\%} & \textbf{36.1\%} & 53.9\% & \textbf{16.3\%} & \textbf{20.4\%} \\
+GPT-4o Mini          & 52.2\% & 11.9\% & 17.7\% & \textbf{11.7\%} & 11.5\% & 28.5\% & 2.2\% & 32.0\% & 17.8\% & 1.2\% & 14.9\% \\
+Claude Sonnet 4         & \textbf{86.7\%} & 0.3\% & 1.7\% & 1.5\% & 0.9\% & \textbf{52.8\%} & 0.2\% & 31.3\% & \textbf{59.3\%} & 12.1\% & 18.1\% \\
+Claude Haiku 3.5        & 72.0\% & 0.5\% & 1.5\% & 3.0\% & 1.7\% & 42.1\% & 0.1\% & 1.1\% & 28.4\% & 2.5\% & 9.2\% \\
+\midrule
+GLM4.1v-Thinking -9B              & 27.5\% & 1.0\% & \textbf{8.0\%} & \textbf{4.9\%} & \textbf{5.5\%} & 0.0\% & 0.6\% & 43.0\% & 35.1\% & 0.0\% & 10.9\% \\
+InternVL-2.5-8B        & 56.8\% & \textbf{2.3\%} & 6.9\% & 4.3\% & 3.8\% & \textbf{25.8\%} & 1.7\% & \textbf{44.3\%} & \textbf{68.7\%}      & \textbf{9.4\%} & \textbf{18.6\%} \\
+LLaVA-1.6-7B            & 33.1\% & 0.7\% & 4.8\% & 3.3\% & 2.9\% & 14.5\% & 0.2\% & 30.1\% & 16.2\% & 0.0\% & 8.1\% \\
+Llama4-Scout               & 49.2\% & 0.2\% & 3.3\% & 2.4\% & 2.8\% & 1.1\% & \textbf{3.2\%} & 33.6\% & 32.8\% & 0.8\% & 8.9\% \\
+Llama3.2-Vision-11B                & 42.3\% & 0.5\% & 0.6\% & 0.5\% & 0.4\% & 4.6\% & 0.3\% & 25.0\% & 26.8\% & 0.7\% & 6.6\% \\
+Phi3-Vision-4.2B                & 35.6\% & 0.3\% & 2.9\% & 2.5\% & 1.7\% & 6.9\% & 0.1\% & 25.7\% & 27.2\% & 0.0\% & 7.5\% \\
+Phi4-Multimodal-5.6B           & 12.0\% & 0.4\% & 0.3\% & 0.2\% & 0.2\% & 8.3\% & 0.0\% & 22.5\% & 4.9\% & 0.6\% & 4.2\% \\
+Qwen2.5-Omni-7B          & 57.6\% & 0.9\% & 0.7\% & 0.5\% & 0.7\% & 2.4\% & 0.2\% & 20.6\% & 12.5\% & 0.1\% & 4.3\% \\
+Qwen2.5-VL-3B         & 49.9\% & 1.2\% & 0.3\% & 0.3\% & 0.2\% & 0.0\% & 0.1\% & 24.3\% & 25.4\% & 2.0\% & 6.0\% \\
+Qwen2.5-VL-7B         & \textbf{60.4\%} & 1.1\% & 0.1\% & 0.2\% & 0.2\% & 0.8\% & 0.1\% & 27.5\% & 26.3\% & 6.0\% & 6.9\% \\
+Qwen2.5-VL-32B        & 39.2\% & 1.2\% & 0.7\% & 0.8\% & 0.5\% & 2.9\% & 2.5\% & 5.1\% & 4.9\% & 0.3\% & 2.1\% \\
+\midrule
+Contra-InternVL         & 68.5\% & 52.1\% & 44.3\% & 29.5\% & 27.8\% & \textbf{88.2\%} & 27.0\% & \textbf{89.7\%} & \textbf{92.5\%} & \textbf{94.3\%} & 60.6\% \\
+Contra-LLaVA            & 65.2\% & 46.8\% & 40.1\% & \textbf{31.7\%} & 26.9\% & 84.5\% & 25.3\% & 85.4\% & 83.1\% & 86.0\% & 56.6\% \\
+Contra-Qwen            & \textbf{71.9\%} & \textbf{59.6\%} & \textbf{47.7\%} & 30.0\% & \textbf{28.0\%} & 87.9\% & \textbf{28.7\%} & 84.9\% & 89.8\% & 92.7\% & \textbf{61.0\%} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

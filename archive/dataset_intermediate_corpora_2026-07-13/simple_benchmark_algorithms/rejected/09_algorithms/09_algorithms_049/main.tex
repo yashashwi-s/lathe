@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 49}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Require $\{\mathcal{D}^\gamma_i\}$, $\mathrm{tolerance}$
+\Ensure $\{\mathbf{\Psi}_\ell\}$
+\For $1 \leq \ell \leq K$
+\State $\mathbf{S}_\ell \gets \sum_{\gamma | \ell \in \gamma}\frac{1}{n^\gamma}\sum_i^{n^\gamma}\mathrm{mat}_\ell\left[\mathcal{D}^\gamma_i\right]\mathrm{mat}_\ell\left[\mathcal{D}^\gamma_i\right]^T$
+\State $\mathbf{V}_\ell \gets \mathrm{eigenvectors}[\mathbf{S}_\ell ]$
+\State $\mathbf{e}_\ell \gets \mathrm{eigenvalues}[\mathbf{S}_\ell ]$
+\EndFor
+\State $\mathbf{\Lambda} \gets \begin{bmatrix}
+1 & ... & 1
+\end{bmatrix}
+^T$
+\State $\mu \gets 1$
+\While \text{not converged}
+\For $1 \leq \ell \leq K$
+\State $\mathbf{G}^\gamma_\ell \gets \mathrm{proj}_{KS}\left[\left(\bigoplus_{\ell'\in\gamma}\mathbf{\Lambda}_\ell\right)^{-1}\right]$
+\State $\mathbf{\Lambda}'_\ell \gets \mathbf{\Lambda}_\ell - \mu\left[\mathbf{e}_\ell - \sum_{\gamma | \ell\in\gamma}\mathbf{G}^\gamma_\ell\right]$
+\EndFor
+\For $1 \leq \ell \leq K$
+\State $\mathbf{\Lambda}_\ell \gets \mathbf{\Lambda}'_\ell$
+\EndFor
+\For $\gamma \in \mathrm{modalities}$
+\If {$\sum_{\ell\in\gamma}\mathrm{min}\mathbf{\Lambda}_\ell < \mathrm{tolerance}$}
+\State \text{decrease $\mu$ to make sum far from zero}
+\EndIf
+\EndFor
+\EndWhile
+\For $1 \leq \ell \leq K$
+\State $\mathbf{\Psi}_\ell \gets \mathbf{V}_\ell \mathbf{\Lambda}_\ell \mathbf{V}_\ell^T$
+\EndFor
+\end{algorithmic}
+\caption*{\textbf{The GmGM algorithm}}
+\end{algorithm}
+\end{algorithm}
+\end{document}

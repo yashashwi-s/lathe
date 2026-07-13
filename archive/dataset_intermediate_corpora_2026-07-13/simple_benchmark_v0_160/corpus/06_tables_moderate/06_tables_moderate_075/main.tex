@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00976\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+  \toprule
+White & 62.79\% (2669) \\
+Black - African American & 15.53\% (660) \\
+White - Russian & 3.58\% (152) \\
+White - Other European & 3.53\% (150) \\
+Other & 2.80\% (119) \\
+Black - Cape Verdean & 1.62\% (69) \\
+Hispanic/Latino - Puerto Rican & 1.60\% (68) \\
+Asian - Chinese & 1.55\% (66) \\
+Unknown & 0.94\% (40) \\
+Hispanic/Latino & 0.92\% (39) \\
+Hispanic/Latino - Dominican & 0.75\% (32) \\
+Asian & 0.71\% (30) \\
+White - Eastern European & 0.66\% (28) \\
+Black - Caribbean Island & 0.42\% (18) \\
+Patient Declined to Answer & 0.40\% (17) \\
+Black - African & 0.35\% (15) \\
+Asian - South East Asian & 0.24\% (10) \\
+Hispanic/Latino - Salvadoran & 0.21\% (9) \\
+White - Portuguese & 0.21\% (9) \\
+Asian - Asian Indian & 0.19\% (8) \\
+Hispanic/Latino - Guatemalan & 0.19\% (8) \\
+Hispanic/Latino - South American & 0.16\% (7) \\
+Hispanic/Latino - Cuban & 0.14\% (6) \\
+Hispanic/Latino - Columbian & 0.14\% (6) \\
+White - Brazilian & 0.09\% (4) \\
+American Indian/Alaska Native & 0.09\% (4) \\
+Hispanic/Latino - Central American & 0.05\% (2) \\
+Unable to Obtain & 0.05\% (2) \\
+Hispanic/Latino - Mexican & 0.02\% (1) \\
+Asian - Korean & 0.02\% (1) \\
+Multiple Race/Ethnicity & 0.02\% (1) \\
+Hispanic/Latino - Honduran & 0.02\% (1) \\
+  \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01391\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llcc}
+        \toprule
+        \textbf{\#} & \textbf{Feature Name} & \textbf{Feature Type} & \textbf{Source} \\
+        \midrule
+            1. & \textit{email\_syntactically\_validated} & Boolean & Manual \\
+            2. & \textit{phone\_syntactically\_validated} & Boolean & Manual \\
+            3. & \textit{address\_syntactically\_validated} & Boolean & Manual \\
+            4. & \textit{email\_operational\_validated} & Boolean & Manual \\
+            5. & \textit{phone\_operational\_validated } & Boolean & Manual \\
+            6. & \textit{random\_warning} & Boolean & Manual \\
+            7. & \textit{random\_prevention} & Boolean & Manual \\
+            8. & \textit{office365\_warning} & Boolean & Manual \\
+            9. & \textit{office365\_prevention} & Boolean & Manual \\
+            10. & \textit{facebook\_warning} & Boolean & Manual \\
+            11. & \textit{facebook\_prevention} & Boolean & Manual \\
+            12. & \textit{restriction\_not\_available} & Boolean & Manual \\
+            13. & \textit{restriction\_local\_presence} & Boolean & Manual \\
+            14. & \textit{restriction\_community\_ties} & Boolean & Manual \\
+            15. & \textit{restriction\_age\_restriction} & Boolean & Manual \\
+            16. & \textit{restriction\_infrastructure} & Boolean & Manual \\
+            17. & \textit{restriction\_group\_ties} & Boolean & Manual \\
+            18. & \textit{restriction\_commitment\_required} & Boolean & Manual \\
+            19. & \textit{restriction\_id\_required} & Boolean & Manual \\
+            20. & \textit{restriction\_region\_ties} & Boolean & Manual \\
+            21. & \textit{restriction\_professionals\_only} & Boolean & Manual \\
+            22. & \textit{restriction\_certain\_nationals\_prohibited} & Boolean & Manual \\
+            23. & \textit{restriction\_org\_or\_affiliates\_only} & Boolean & Manual \\
+            24. & \textit{restriction\_exclusive\_registrar} & Boolean & Manual \\
+            25. & \textit{restriction\_content\_restrictions} & Boolean & Manual \\
+        \midrule
+            26. & \textit{uptime\_notified} & Numerical & Automated \\
+            27. & \textit{uptime\_not\_notified} & Numerical & Automated \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

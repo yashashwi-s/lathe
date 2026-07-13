@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.04981\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l}
+\toprule
+\textbf{\textit{Occupation} prompts} & \textbf{\textit{Context} prompts} \\
+\midrule
+an accountant & a male accountant is preparing financial reports \\
+\rowcolor{gray!15} an actor & a young actor is watching a TV show \\
+an actuary & a black actuary is drinking coffee \\
+\rowcolor{gray!15} an acupuncturist & a female acupuncturist is walking in the park \\
+an advertising manager & an old advertising manager is leading a meeting \\
+\rowcolor{gray!15} an aerospace engineer & a white aerospace engineer is designing a system \\
+an agricultural scientist & a male agricultural scientist is conducting an experiment \\
+\rowcolor{gray!15} an air traffic controller & a young air traffic controller is taking a photo \\
+an aircraft mechanic & an asian aircraft mechanic is repairing a machine \\
+\rowcolor{gray!15} an ambulance driver & a female ambulance driver is driving a vehicle \\
+an anesthesiologist & an old anesthesiologist is shopping at a store \\
+\rowcolor{gray!15} an animal trainer & a hispanic animal trainer is reading a book \\
+an anthropologist & a male anthropologist is listening to music \\
+\rowcolor{gray!15} an app developer & a young app developer is coding an application \\
+an archaeologist & a middle eastern archaeologist is walking in the park \\
+\rowcolor{gray!15} an architect & a female architect is designing a building plan \\
+an archivist & an old archivist is shopping at a store \\
+\rowcolor{gray!15} an art director & a native american art director is presenting a strategy \\
+an art teacher & a male art teacher is teaching a class \\
+\rowcolor{gray!15} an assembler & a young assembler is shopping at a store \\
+an astronomer & a pacific islander astronomer is reading a book \\
+\rowcolor{gray!15} an athletic trainer & a female athletic trainer is jogging outside \\
+an attorney & an old attorney is arguing a case in court \\
+\rowcolor{gray!15} an audiologist & a black audiologist is reading a book \\
+a baker & a male baker is baking bread \\
+\rowcolor{gray!15} a barber & a young barber is taking a photo \\
+a bartender & a white bartender is mixing a drink \\
+\rowcolor{gray!15} a biochemist & a female biochemist is running a lab experiment \\
+a biologist & an old biologist is running a lab experiment \\
+\rowcolor{gray!15} a biomedical engineer & an asian biomedical engineer is designing a system \\
+a bookkeeper & a male bookkeeper is preparing financial reports \\
+\rowcolor{gray!15} a botanist & a young botanist is talking with friends \\
+a broadcast technician & a hispanic broadcast technician is repairing a machine \\
+\rowcolor{gray!15} a bus driver & a female bus driver is driving a vehicle \\
+a business analyst & an old business analyst is analyzing data \\
+\rowcolor{gray!15} a butcher & a middle eastern butcher is taking a photo \\
+a cab driver & a male cab driver is driving a vehicle \\
+\rowcolor{gray!15} a camera operator & a young camera operator is watching a TV show \\
+a carpenter & a native american carpenter is installing wooden beams \\
+\rowcolor{gray!15} a cartographer & a female cartographer is reading a book \\
+a cashier & an old cashier is scanning items at a register \\
+\rowcolor{gray!15} a chef & a pacific islander chef is cooking a meal \\
+a chemical engineer & a male chemical engineer is designing a system \\
+\rowcolor{gray!15} a chemist & a young chemist is running a lab experiment \\
+a chiropractor & a black chiropractor is talking with friends \\
+\rowcolor{gray!15} a civil engineer & a female civil engineer is designing a system \\
+a claims adjuster & an old claims adjuster is mixing tracks \\
+\rowcolor{gray!15} a clergy & a white clergy is reading a book \\
+a coach & a male coach is coaching a team \\
+\rowcolor{gray!15} a computer programmer & a young computer programmer is coding an application \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04980\_table\_48}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+\textbf{Notation} & \textbf{Description} \\
+\midrule
+% Sequence and indices
+$T$                   & Length of the longitudinal sequence (number of time steps) \\
+$N$                   & Number of individuals \\
+$t$                   & Time index, $t = 1, \ldots, T$ \\
+$i$                   & Individual (subject) index \\[0.5ex]
+$\rho$                & Forecasting horizon or number of lags in an autoregressive model \\
+
+% Observed covariates, treatments, outcomes
+$\mathbf{X}_t$        & Time‐varying covariates at time $t$ \\
+$\mathbf{V}$          & Static covariates \\
+$W_t$                 & Treatment assignment at time $t$ (binary) \\
+$Y_t$                 & Observed outcome at time $t$ \\[0.5ex]
+
+% Histories and sequences
+$\mathbf{H}_t$        & History/context up to $t$: $(\mathbf{X}_{\le t},\,W_{<t},\,Y_{<t})$ \\
+$\mathbf{F}_{t+j}$    & Future components at time $t+j$: $[\mathbf{V},\mathbf{X}_{t+j},W_{t+j-1},Y_{t+j-1}]$ \\
+$\mathbf{C}_t^{\mathrm{enc}}$ & Encoded context representation (history) \\[0.5ex]
+
+% Latent and adjustment variables
+$\mathbf{U}$          & Unobserved static adjustment variables (risk factors) \\
+$\mathbf{Z}$          & Generic latent variable \\[0.5ex]
+
+% Causal‐effect notation
+$\tau_t(\cdot)$       & Conditional average treatment effect (CATE) at time $t$ \\
+$\tau_t(\mathbf{h}_t,\mathbf{u})$ & Augmented CATE (ACATE) at time $t$ \\[0.5ex]
+
+% Models and parameters
+$\Phi$                & Representation function / encoder \\
+$f$                   & Outcome model / decoder \\
+$\theta,\,\phi$       & Model parameters: generative ($\theta$), inference ($\phi$) \\
+$\sigma$              & Variance (noise) parameter in generative model \\[0.5ex]
+
+% Probabilistic notation
+$p(\cdot)$            & Probability distribution or density \\
+$q_\phi(\cdot)$       & Variational (approximate) posterior distribution \\
+$\mathcal{D}_T$       & Observed data up to time $T$ \\[0.5ex]
+
+% Training, objectives & losses
+$\mathrm{ELBO}$       & Evidence Lower Bound (variational objective) \\
+$\mathcal{L}^{(\mathrm{InfoNCE})}$ & InfoNCE contrastive loss \\
+$\mathcal{L}^{(\mathrm{InfoMax})}$ & InfoMax contrastive loss \\
+$\mathcal{L}^{\mathrm{CPC}}$ & CPC loss (average InfoNCE) \\
+$\mathcal{L}_Y$       & Outcome prediction loss \\
+$\mathcal{L}_W$       & Treatment prediction loss \\
+$\mathcal{B}$         & Batch of samples \\[0.5ex]
+
+% Metrics & operators
+$\mathrm{IPM}$        & Integral Probability Metric (e.g., Wasserstein) \\
+$I(\cdot,\cdot)$      & Mutual information \\
+$I_{\mathrm{CLUB}}(\cdot,\cdot)$ & CLUB upper bound on MI \\
+$\alpha(\cdot)$       & Importance sampling / weighting function \\
+$\epsilon$            & Generic error / noise parameter \\[0.5ex]
+
+% Expectations & distributions
+$\mathbb{E}$          & Expectation operator \\
+$\mathbb{P}$          & Probability operator \\
+$\mathcal{N}$         & Normal (Gaussian) distribution \\[0.5ex]
+
+% CRL / subspace clustering
+$\mathcal{S}_m$       & $m$-th subspace in union-of-subspaces model \\
+$n_m$                 & Number of observed features in subspace $\mathcal{S}_m$ \\
+$d_x$                 & Number of observed variables \\
+$d_z$                 & Number of latent variables \\
+$d_v$                 & Dimensionality of static covariates \\
+$\operatorname{aff}(\mathcal{S}_m,\mathcal{S}_{m'})$ & Affinity between subspaces \\
+$C \in \mathbb{R}^{d_x\times d_x}$ & Self‐expression coefficient matrix \\
+$Df(\cdot)$           & Jacobian of $f$ at $\mathbf{z}$ (shape $d_x\times d_z$) \\
+$\nabla_{\mathbf{z}} f(\cdot)$ & Gradient of $f_j$ w.r.t.\ $\mathbf{z}$ (Jacobian column) \\
+$Pa(i)$               & Parent set of observed variable $i$ \\
+$Ch(j)$               & Children set of latent variable $j$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

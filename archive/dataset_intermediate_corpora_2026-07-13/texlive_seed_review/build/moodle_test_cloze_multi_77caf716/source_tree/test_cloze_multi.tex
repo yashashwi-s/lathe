@@ -1,0 +1,117 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[LMS=3.11,nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of multi answers questions 
+embedded in cloze questions. The following options are tested
+\begin{itemize}
+	\item Single or multiple correct answer
+	\item Regular mode, Horizontal mode, Vertical mode
+	\item Shuffling or no shuffling
+\end{itemize}
+
+\begin{quiz}{Cloze Multi}
+
+\begin{cloze}{Cloze}
+%% SINGLE
+\begin{multi}[shuffle=false]
+Regular, single, no shuffle
+\item[feedback={yes}]* chip 
+\item[fraction=10.4999] \textit{chop} 
+\item[feedback={no.},fraction=-30.4999] \textbf{chap}
+\end{multi}
+
+\begin{multi}[shuffle=false,vertical]
+Vertical, single, no shuffle
+\item[feedback={yes}]* chip
+\item[fraction=10.5001] chop
+\item[feedback={no.},fraction=-30.5001] chap
+\end{multi}
+
+\begin{multi}[shuffle=false,horizontal]
+Horizontal, single, no shuffle
+\item[feedback={yes}]* chip
+\item[fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true]
+	Regular, single, shuffle
+	\item[]* chip
+	\item[feedback={yes}] chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true,vertical]
+	Vertical, single, shuffle
+	\item[feedback={yes}]* chip
+	\item[fraction=10] chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true,horizontal]
+	Horizontal, single, shuffle
+	\item[feedback={yes}]* chip
+	\item chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+%% MULTIPLE
+\begin{multi}[multiple,shuffle=false]
+	Regular, multiple, no shuffle
+	\item* chip
+	\item[feedback={yes}]* chop
+	\item[feedback={no.},fraction=-103.000] chap
+\end{multi}
+
+%\begin{multi}[multiple,shuffle=false,vertical]
+%	Vertical, multiple, no shuffle
+%	\item[feedback={yes}]* chip
+%	\item* chop
+%	\item[feedback={no.}] chap
+%\end{multi}
+
+\begin{multi}[multiple,shuffle=false,horizontal]
+	Horizontal, multiple, no shuffle
+	\item[feedback={yes}]* chip
+	\item* chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[multiple,shuffle=true]
+	Regular, multiple, shuffle
+	\item[]* chip
+	\item[feedback={yes}]* chop
+	\item[feedback={no.}] chap
+\end{multi}
+%
+%\begin{multi}[multiple,shuffle=true,vertical]
+%	Vertical, multiple, shuffle
+%	\item[feedback={yes}]* chip
+%	\item* chop
+%	\item[feedback={no.}] chap
+%\end{multi}
+%
+\begin{multi}[multiple,shuffle=true,horizontal]
+	Horizontal, multiple, shuffle
+	\item[feedback={yes}]* chip
+	\item* chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

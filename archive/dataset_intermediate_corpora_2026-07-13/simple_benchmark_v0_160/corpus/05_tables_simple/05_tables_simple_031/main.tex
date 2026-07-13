@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05265\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll}
+  \textbf{aMSE} & \textbf{a}veraged \textbf{M}ean \textbf{S}quared \textbf{E}rror \\
+  \textbf{BCRB} & \textbf{B}ayesian \textbf{C}ram\'{e}r-\textbf{R}ao \textbf{B}ound \\
+  \textbf{BI} & \textbf{B}ayesian \textbf{I}nformation \\
+  \textbf{CoG} & \textbf{Co}-moving \textbf{G}aussian approximation \\
+  \textbf{CRB} & \textbf{C}ram\'er-\textbf{R}ao \textbf{B}ound \\
+  \textbf{CPTP} &  \textbf{C}ompletely \textbf{P}ositive and \textbf{T}race-\textbf{P}reserving map \\
+  \textbf{CS} & \textbf{C}lassically-\textbf{S}imulated limit \\
+  \textbf{CSS} & \textbf{C}oherent \textbf{S}pin \textbf{S}tate \\
+  \textbf{DP} & \textbf{D}ynamical \textbf{P}rogramming \\
+  \textbf{EKF} & \textbf{E}xtended \textbf{K}alman \textbf{F}ilter \\
+  \textbf{EM} & \textbf{E}uler-\textbf{M}aruyama method \\
+  \textbf{FI} & classical \textbf{F}isher \textbf{I}nformation \\
+  \textbf{GKSL} & \textbf{G}orini-\textbf{K}osakowski-\textbf{S}udarshan-\textbf{L}indblad form \\
+  \textbf{HJB} & \textbf{H}amilton-\textbf{J}acobi-\textbf{B}ellman equation \\
+  \textbf{KF} & \textbf{K}alman \textbf{F}ilter \\
+  \textbf{LG} & \textbf{L}inear and \textbf{G}aussian \\
+  \textbf{LQG} & \textbf{L}inear-\textbf{Q}uadratic-\textbf{G}aussian control \\
+  \textbf{LQR} & \textbf{L}inear-\textbf{Q}uadratic \textbf{R}egulator \\
+  \textbf{MAP} & \textbf{M}aximum \textbf{A}-\textbf{P}osteriori estimator \\
+  \textbf{MCG} & \textbf{M}agneto\textbf{C}ardio\textbf{G}ram \\
+  \textbf{ML} & \textbf{M}aximum \textbf{L}ikelihood estimator \\
+  \textbf{MMSE} & \textbf{M}inimum \textbf{M}ean \textbf{S}quared \textbf{E}rror estimator \\
+  \textbf{MSE} & \textbf{M}ean \textbf{S}quared \textbf{E}rror \\
+  \textbf{OU} & \textbf{O}rnstein-\textbf{U}hlenbeck process \\
+  \textbf{PDF} & \textbf{P}robability \textbf{D}ensity \textbf{F}unction \\
+  \textbf{PMF} & \textbf{P}robability \textbf{M}ass \textbf{F}unction \\
+  \textbf{POVM} & \textbf{P}ositive \textbf{O}perator-\textbf{V}alued \textbf{M}easure \\
+  \textbf{RWA} & \textbf{R}otating-\textbf{W}ave \textbf{A}pproximation \\
+  \textbf{SDE} & \textbf{S}tochastic \textbf{D}ifferential \textbf{E}quation \\
+  \textbf{SME} & \textbf{S}tochastic \textbf{M}aster \textbf{E}quation \\
+  \textbf{SQL} & \textbf{S}tandard \textbf{Q}uantum \textbf{L}imit \\
+  \textbf{SS} & \textbf{S}teady-\textbf{S}tate \\
+  \textbf{VdP} & \textbf{V}an \textbf{d}er \textbf{P}ol oscillator \\
+    \textbf{w.r.t.} & \textbf{w}ith \textbf{r}espect \textbf{t}o
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02391\_table\_28}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+
+    \hline
+
+     & This work  &  & \ \ \ \ \ \ \ \  SH0ES & & \ \ \ \ \
+    \  CCHP &   \\
+ 
+    SN & $\mu$ & $H_{0}$ & $\mu$  & $H_{0}$ & $\mu$ & $H_{0}$ \\
+
+    \hline
+    &&&&&& \\
+    2012 bo & 35.163$\pm$0.0928 & 75.233$\pm$4.287 & $\dots$ & $\dots$ &
+    35.446$\pm$
+    0.217 & 66.040$\pm$6.599 \\
+    &&&&&& \\
+    2008bq  & 35.826$\pm$0.0898 & 72.452$\pm$3.661 & 35.728$\pm$0.178 &
+    75.796$\pm$5.964 & 35.879$\pm$0.205 & 70.705$\pm$6.893   \\
+    &&&&&& \\
+    2008bz & 37.215$\pm$0.0777 & 69.390$\pm$2.728 & 37.168$\pm$0.288 &
+    71.072$\pm$3.945 & 37.155$\pm$0.280 & 71.334$\pm$9.198  \\
+    &&&&&& \\
+    LSQ12fxd & 35.551$\pm$0.0908 & 74.666$\pm$3.928& --- & --- &
+-    35.615$\pm$0.207 & 72.497$\pm$6.911  \\
+    &&&&&& \\
+    2008bf & 35.071$\pm$0.0879 & 74.115$\pm$4.211& 35.052$\pm$0.231 &
+    74.716$\pm$7.494 & 35.011$\pm$0.222 & 76.192$\pm$7.789   \\
+    &&&&&& \\
+    2007A & 34.265$\pm$0.0995 & 70.267$\pm$5.435 & 34.534$\pm$0.342 &
+    62.043$\pm$9.041 & 34.317$\pm$0.312 & 68.604$\pm$9.857    \\
+    &&&&&& \\
+    ASASSN-15db & 33.531$\pm$0.0848 & 68.091$\pm$6.513& --- & --- &
+    33.532$\pm$0.330  & 67.757$\pm$10.297  \\
+    &&&&&& \\
+    LSQ14gov & 37.915$\pm$0.085 & 74.586 $\pm$3.037  & --- & --- &
+    37.940$\pm$0.185  & 73.732$\pm$6.336   \\
+    &&&&&& \\
+    SN 2007ca &   33.942  $\pm$  0.087 & 74.371 $\pm$ 5.765 & 34.178 $\pm$ 0.396
+    &  66.709 $\pm$ 13.378  &
+    34.344 $\pm$  0.278    &   61.802 $\pm$ 7.912  \\
+    &&&&&& \\
+    \hline
+
+     & This work &  & \ \ \ \ \ \ \ \  Cepheids & & \ \ \ \ \
+    \  CCHP &   \\
+
+    SN & $\mu$ & $H_{0}$ & $\mu$  & $H_{0}$ & $\mu$ & $H_{0}$ \\
+
+    \hline 
+    &&&&&& \\
+    2001cn &  33.948 $\pm$ 0.0661  & 74.294$\pm$5.421 & 33.887$\pm$0.2949 &
+    76.421 $\pm$ 11.119 &  ---    &  ---  \\
+    &&&&&& \\
+    2008go & 37.086$\pm$0.0.067 & 73.561 $\pm$ 2.568 &  36.96 $\pm$ 0.19 
+    &  77.955 $\pm$  7.128      &  37.004 $\pm$ 0.193  &  76.392 $\pm$
+     6.790   \\
+    &&&&&& \\
+    1999ek & 34.331$\pm$  0.069 & 72.977 $\pm$ 4.743 & --- & ---
+     & --- & --- \\
+    &&&&&&  \\
+    \hline 
+
+   \end{tabular}
+}
+\end{table}
+
+\end{document}

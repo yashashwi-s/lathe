@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Aligned Mathematical Structures}
+\author{Source-backed grouped formula sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Expressions}
+\paragraph{Expression 1.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\langle\lambda_s(b)\xi,\eta\rangle&=\sum_{t\in G}\lambda_s(b)\xi(t)^*\eta(t)=\sum_{t\in G}(b\xi(s^{-1}t))^*\eta(t)=\sum_{t\in G}\xi(s^{-1}t)^*b^*\eta(t)\\&\stackrel{r=s^{-1}t}{=}\sum_{r\in G}\xi(r)^*b^*\eta(sr)=\sum_{r\in G}\xi(r)^*\lambda_{s^{-1}}(b^*)\eta(r)=\langle\xi, \lambda_{s^{-1}}(b^*)\eta\rangle.\end{align*}
+
+\paragraph{Expression 2.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}& \sum_{i=0}^{m-1} \{\sum_{i'=0}^{l_2 (\sigma_B^i(h(x)))-1} f(\sigma_C^{i'}(g(\sigma_B^i(h(x)))))-\sum_{j'=0}^{k_2 (\sigma_B^i(h(x)))-1} f(\sigma_C^{j'}(g(\sigma_B^{i}(h(x))))) \}\\=&\sum_{i'=0}^{l_2^m (h(x))-1} f(\sigma_C^{i'}(gh(x)))-\sum_{j'=0}^{k_2^m (h(x))-1} f(\sigma_C^{j'}(g(\sigma_B^{m}(h(x))))).\end{align*}
+
+\paragraph{Expression 3.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}P\psi =P\left( \begin{array}{c}\psi _{0} \\ \psi _{1} \\ \psi _{2} \\ \psi _{3} \\ \psi _{4}\end{array}\right) =\left( \begin{array}{c}0 \\ 0 \\ 0 \\ 0 \\ \psi _{4}\end{array}\right) ;\ P_{\mu }\psi =\left( \begin{array}{c}0 \\ 0 \\ 0 \\ 0 \\ \psi _{\mu }\end{array}\right) \ \left( \mu =0,...,3\right) . \end{align*}
+
+\paragraph{Expression 4.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\lim_{r\to 0^+} \frac{A(r)^2}{A'(r)} \cdot \left[\mathcal W(r)^{p-1-\alpha}\right]'&= \lim_{r\to 0^+} A(r) \cdot \left[ Q_1(\mathcal V(r), v_0(r)) - \mathcal W(r)^{p-1-\alpha} \right] \\&= \lim_{r\to 0^+} \left[ r^\delta u_0'(r)^{p-1-\alpha} Q_1(\mathcal V(r), v_0(r)) -r^\delta u'(r)^{p-1-\alpha} \right]\end{align*}
+
+\paragraph{Expression 5.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\bar{\rm P}_{j,j+i} =&\sum^{M-j}_{m=i+1} {M-j \choose m} \mathbb{P}_{\rm TX}^m \left(1- \mathbb{P}_{\rm TX}\right) ^{M-j-m} \\ &\times m \cdots (m-i+1)\mathbb{P}_K^{m} \gamma_i\gamma_{m,i} \\ &+{M-j \choose i} \mathbb{P}_{\rm TX}^i \left(1- \mathbb{P}_{\rm TX}\right) ^{M-j-i} i!\mathbb{P}_K^{i} \gamma_i \end{align*}
+\end{document}

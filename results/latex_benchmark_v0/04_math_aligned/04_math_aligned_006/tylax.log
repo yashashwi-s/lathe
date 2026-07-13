@@ -1,0 +1,17 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_006/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_006/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_006/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unknown variable: rfrac
+   ┌─ tylax.typ:40:346
+   │
+40 │ $ mat(delim: #none, upright(bold(E))(upright(bold(x)),t) = display frac(1, 4 pi)integral rho_(e)(upright(bold(x)) ',t - r)frac(upright(bold(r)), r^(3))thin d^(3)x ';space.nobreak ;+ display frac(1, 4 pi)integral upright(bold(J))_(m)(upright(bold(x)) ',t - r)thin **thin frac(upright(bold(r)), r^(3))thin d^(3)x '- display frac(1, 4 pi)integral 1/rfrac(partial upright(bold(J))_(m)(upright(bold(x)) ',t - r), partial t)thin d^(3)x ',)  $
+   │                                                                                                                                                                                                                                                                                                                                                           ^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `r f r a c`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"rfrac"`
+

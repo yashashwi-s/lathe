@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00231\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Model & Top-5 $\uparrow$ & Top-10 $\uparrow$ & Recall@20\% $\uparrow$ & Effort@20\% $\downarrow$ & IFA $\downarrow$\\
+\hline
+\makecell{JIT-Smart\\\textsubscript{ATTN}} & \makecell{\textbf{0.691} \\ ($\sigma \pm 0.03$)}& \makecell{\textbf{0.811} \\ ($\sigma \pm 0.03$)}& \makecell{\textbf{0.337} \\ ($\sigma \pm 0.05$)}& \makecell{0.248 \\ ($\sigma \pm 0.02$)}& \makecell{\textbf{5.360} \\ ($\sigma \pm 3.00$)}\\\hline
+GPT-5 & \makecell{0.616 \\ ($\sigma \pm 0.01$)} & \makecell{0.759 \\ ($\sigma \pm 0.02$)} & \makecell{0.318 \\ ($\sigma \pm 0.01$)} & \makecell{\textbf{0.234} \\ ($\sigma \pm 0.01$)} & \makecell{10.711 \\ ($\sigma \pm 0.92$)} \\\hline
+\makecell{Gemini\\2.5 Pro} & 0.543 & 0.683 & 0.291 & 0.251 & 12.317 \\\hline
+UniXCoder & \makecell{0.522 \\ ($\sigma \pm 0.01$)} & \makecell{0.657 \\ ($\sigma \pm 0.01$)} & \makecell{0.278 \\ ($\sigma \pm 0.01$)} & \makecell{0.271 \\ ($\sigma \approx 0$)} & \makecell{13.280\\ ($\sigma \pm 0.36$)} \\\hline
+\makecell{Claude\\Sonnet\\4.5} & 0.529 & 0.701 & 0.273 & 0.265 & 12.520 \\\hline
+%UniXCoder & 0.176 & 0.171 & 0.231 & 0.298 & 14.457 \\\hline
+%JIT-CF & 0.229 & 0.239 & 0.213 & 0.318 & 10.300 \\\hline
+%CodeT5+ & 0.168 & 0.175 & 0.163 & 0.392 & 16.407 \\\hline
+JITFine & \makecell{0.511\\ ($\sigma \pm 0.03$)} & \makecell{0.683\\ ($\sigma \pm 0.02$)} & \makecell{0.217\\ ($\sigma \pm 0.02$)} & \makecell{0.322\\ ($\sigma \pm 0.02$)} & \makecell{12.185\\ ($\sigma \pm 1.21$)} \\\hline
+CodeT5+ & \makecell{0.465\\ ($\sigma \pm 0.04$)} & \makecell{0.631\\ ($\sigma \pm 0.04$)} & \makecell{0.150\\ ($\sigma \pm 0.04$)} & \makecell{0.388\\ ($\sigma \pm 0.05$)} & \makecell{15.048\\ ($\sigma \pm 2.43$)} \\\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00193\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{} l c c c c @{}}
+        \toprule
+        \textbf{Benchmark} & \textbf{Release Date} & \textbf{Metric} & \textbf{Source} \\
+        \midrule
+        Adversarial NLI & 2019/10/31 & \% correct &  \\
+        Aider polyglot & 2024/12/21 & \% correct &  \\
+        ARC-AGI & 2019/11/05 & \% correct &  \\
+        ARC Challenge & 2018/03/14 & \% correct &  \\
+        Balrog & 2024/11/20 & Average progress &  \\
+        BIG-Bench Hard & 2022/10/17 & \% correct &  \\
+        % BoolQ & 2019/05/24 & Accuracy & \cite{clark2019boolqexploringsurprisingdifficulty} \\ % comment out because boolq is part of superglue
+        CadEval & 2025/04/22 & Pass rate &  \\
+        CommonSenseQA 2 & 2022/01/14 & Accuracy &  \\
+        Cybench & 2024/08/15 & Unguided \% Solved &  \\
+        DeepResearch Bench & 2025/06/13 & Overall citation accuracy &  \\
+        Factorio learning environment & 2025/03/06 & Lab success \% &  \\
+        Fiction.LiveBench & 2025/02/21 & 16k token score &  \\
+        GeoBench & 2025/03/01 & ACW Country \% &  \\
+        GSM8K & 2021/10/27 & \% correct &  \\
+        GSO-Bench & 2025/05/29 & Success rate &  \\
+        HellaSwag & 2019/05/19 & Accuracy &  \\
+        LAMBADA & 2016/06/20 & Accuracy &  \\
+        Lech Mazur Writing & 2025/01/31 & Mean rubric score &  \\
+        LiveBench & 2024/06/27 & Global average &  \\
+        % MCBench & 2024/10/16 & & \cite{xu2024mcbenchbenchmarkmulticontextvisual} \\ % comment out because arena winrate metric doesn't fit well with benchmark stitching approach
+        MMLU & 2020/09/07 & Accuracy &  \\
+        OpenBookQA & 2018/09/08 & \% correct &  \\
+        OSUniverse & 2025/05/06 & Weighted score &  \\
+        OSWorld & 2024/04/11 & Score &  \\
+        PIQA & 2019/11/26 & Accuracy &  \\
+        ScienceQA & 2022/09/20 & \% correct &  \\
+        SimpleBench & 2024/10/31 & \% correct &  \\
+        SuperGLUE & 2019/05/02 & Mean accuracy &  \\
+        Terminal Bench & 2025/05/19 & Mean accuracy &  \\
+        The Agent Company & 2024/12/18 & \% resolved &  \\
+        TriviaQA & 2017/05/09 & Exact match &  \\
+        VideoMME & 2024/05/31 & \% overall (no subtitles) &  \\
+        Visual Physics Comprehension Test & 2025/01/30 & \% correct &  \\
+        WeirdML & 2025/01/16 & Mean accuracy &  \\
+        WinoGrande & 2019/07/24 & Accuracy &  \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

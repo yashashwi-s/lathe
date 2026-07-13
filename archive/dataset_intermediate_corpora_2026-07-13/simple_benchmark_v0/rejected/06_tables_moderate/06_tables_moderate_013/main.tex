@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00231\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+Project & \makecell{No. of Defect Inducing\\Commits} & \makecell{No. of Clean\\Commits} & \makecell{\% Ratio\\ (Bugs/ALL)}\\ 
+\hline
+ant-ivy & 332 & 1,439 & 18.75\% \\\hline
+commons-bcel & 60 & 765 & 7.27\% \\\hline
+commons-beanutils & 37 & 574 & 6.06\% \\\hline
+commons-codec & 36 & 725 & 4.73\% \\ \hline
+commons-collections & 50 & 1,773 & 2.74\% \\\hline 
+commons-compress & 178 & 1,452 & 10.92\% \\\hline
+commons-configuration & 155 & 1,683 & 8.43\% \\ \hline
+commons-dbcp & 58 & 979 & 5.59\% \\ \hline
+commons-digester & 19 & 1,060 & 1.76\% \\ \hline
+commons-io & 73 & 1,069&  6.39\% \\ \hline
+commons-jcs & 88 & 743 & 10.59\% \\ \hline
+commons-lang & 146& 2,823& 4.92\% \\ \hline
+commons-math & 335 & 3,691 & 8.32\% \\ \hline
+commons-net & 117 & 1,004& 10.44\% \\ \hline
+commons-scxml & 47 & 497 & 8.64\% \\ \hline
+commons-validator & 36 & 562 & 6.02\% \\ \hline
+commons-vfs & 114 & 996 & 10.27\% \\ \hline
+giraph & 163 &  681&  19.31\% \\ \hline
+gora &39 &  514 & 7.05\% \\ \hline
+opennlp & 91 & 995& 8.38\% \\ \hline
+parquet-mr & 158& 962 & 14.11\% \\ \hline
+\textbf{ALL} & \textbf{2,332}& \textbf{24,987} & \textbf{8.54\% }\\\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00052\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccc}
+		\toprule
+		\textbf{Method} & \textbf{${\bar{e}}$(px)} & \textbf{${{R}_{{ov}}}$} & \textbf{$SSIM$} & \textbf{$MI$} & \textbf{$RMSE$} & \textbf{${{R}_{\text{fold}}}$} & \textbf{${{\sigma }_{\text{disp}}}$} \\
+        \midrule
+		\textbf{TPS-10} & & & & & & & \\
+ No Preprocessing  & 9.37  & 39.09\% & 0.62 & 0.74 & 16.17 & 35.73\% & 125.93 \\
+ Patch Only        & 8.90  & 39.16\% & 0.62 & 0.74 & 16.16 & 35.65\% & 125.97 \\
+ Global Only       & 8.35  & 52.23\% & 0.68 & 0.75 & 14.96 & 34.91\% & 126.08 \\
+ Global + Patch    & 8.30  & 52.25\% & 0.68 & 0.75 & 14.95 & \textbf{34.66\%} & 126.11 \\
+        \midrule
+        \textbf{TPS-20} & & & & & & & \\
+ No Preprocessing  & 8.50  & 39.65\% & 0.63 & 0.74 & 16.09 & 37.87\% & 125.94 \\
+ Patch Only        & 8.23  & 39.80\% & 0.63 & 0.74 & 16.03 & 37.74\% & 125.94 \\
+ Global Only       & 7.64  & 52.79\% & 0.69 & 0.75 & 14.88 & 37.34\% & 126.20 \\
+ Global + Patch    & 6.87  & 52.92\% & 0.69 & 0.75 & \textbf{14.86} & 36.95\% & 126.23 \\
+        \midrule
+        \textbf{TPS-30} & & & & & & & \\
+ No Preprocessing  & 7.73  & 39.54\% & 0.63 & 0.75 & 16.07 & 38.79\% & 125.97 \\
+ Patch Only        & 7.17  & 39.74\% & 0.63 & 0.75 & 16.00 & 38.70\% & 125.96 \\
+ Global Only       & 6.15  & 53.28\% & 0.69 & 0.75 & 14.89 & 37.79\% & 126.17 \\
+ Global + Patch    & \textbf{5.12}  & \textbf{53.41\%} & 0.69 & 0.75 & 14.87 & 37.64\% & 126.20 \\
+        \midrule
+        \textbf{TPS-40} & & & & & & & \\
+ No Preprocessing  & 7.88  & 39.37\% & 0.63 & 0.74 & 16.14 & 37.69\% & 125.94 \\
+ Patch Only        & 6.35  & 39.72\% & 0.63 & 0.74 & 16.06 & 37.45\% & 125.96 \\
+ Global Only       & 6.30  & 52.93\% & 0.69 & 0.75 & 14.88 & 37.29\% & 126.19 \\
+ Global + Patch    & 6.19  & 52.95\% & 0.69 & 0.75 & 14.85 & 37.10\% & 126.23 \\
+        \bottomrule
+	\end{tabular}
+}
+\end{table}
+
+\end{document}

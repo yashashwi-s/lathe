@@ -1,0 +1,552 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Math typesetting with LaTeX
+% $Id: math.tex,v 1.2 2003/03/19 20:57:46 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Soạn thảo các công thức toán học}
+\begin{intro}
+Bây giờ bạn đã sẵn sàng! Trong chương này bạn sẽ bị ``hút hồn'' với tính năng ``siêu việt'' của \TeX{}: soạn thảo tài liệu Toán học. Tuy nhiên, chương này chỉ cung cấp cho bạn những kiến thức cơ bản nhất. Đối với một số người dùng thì những kiến thức ở đây sẽ không đủ để soạn thảo các công thức toán phức tạp nhưng đừng nản chí bởi vì bạn có thể tham khảo thêm trong \AmS-\LaTeX{}%
+  \footnote{The \emph{American Mathematical Society} đã đưa ra những gói mở rộng rất mạnh cho \LaTeX{}. Rất nhiều ví dụ trong phần này sử dụng đến các phần mở rộng đó. Tất cả các phần mở rộng này đều được cung cấp kèm với các phiên bản \TeX{}. Ngoài ra bạn có thể tải về ở địa chỉ \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}.
+\end{intro}
+
+\section{Tổng quan}
+\LaTeX{} định nghĩa một chế độ đặc biệt để soạn thảo các \wi{công thức toán học}. Các công thức toán này có thể được đưa vào ngay trong môi trường văn bản hay ta có thể tách rời chúng khỏi các đoạn văn. Phần nội dung \emph{toán học}  \emph{trong} đoạn văn có thể được soạn thảo ở giữa dấu \ci{(} và \ci{)} hay \texttt{\$} và \texttt{\$}, hay \verb|\begin{|\ei{math}\verb|}| và \verb|\end{math}|.\index{formulae}
+\begin{example}
+Cộng $a$ bình phương
+với $b$ bình phương
+được $c$ bình phương. Ta
+có thể viết dưới dạng
+công thức là: $c^{2} = a^{2}+b^{2}$
+\end{example}
+
+\begin{example}
+\TeX{} được phát âm là
+\(\tau\epsilon\chi\).\\[6pt]
+100~m$^{3}$ nước.\\[6pt]
+Tình yêu xuất phát từ
+\begin{math}
+\heartsuit
+\end{math}.
+\end{example}
+
+Nếu muốn biên soạn các công thức, phương trình lớn tách rời khỏi đoạn văn bản, bạn có thể biên soạn chúng trong cặp ngoặc \ci{[} và \ci{]} hay giữa \verb|\begin{|\ei{displaymath}\verb|}| và \verb|\end{displaymath}| mà không phải ngắt đoạn văn đang soạn thảo ra làm nhiều phần.
+
+\begin{example}
+Cộng $a$ bình phương với
+$b$ bình phương được $c$
+bình phương. Ta
+có thể viết lại dưới dạng
+công thức là:
+\begin{displaymath}
+c^{2}=a^{2}+b^{2}
+\end{displaymath}
+Hay ta có thể viết: \[c=a+b\]
+\end{example}
+Môi trường \ei{equation} sẽ giúp bạn đánh số các phương trình. Bên cạnh đó bạn có thể đánh dấu phương trình với lệnh \ci{label} và tham chiếu đến nó bằng lệnh \ci{ref} hay \ci{eqref} trong gói \pai{amslatex}.
+
+\begin{example}
+\begin{equation} \label{eq:eps}
+\epsilon > 0
+\end{equation}
+Từ bất phương trình (\ref{eq:eps}),
+chúng ta có thể suy ra rằng
+\ldots Đồng thời từ
+\eqref{eq:eps}
+chúng ta suy ra \ldots
+\end{example}
+
+Bạn cần chú ý đến sự khác nhau về kết quả biên soạn của công thức trong chế độ soạn thảo toán học và trong chế độ hiển thị toán học (\ei{displaymath}) .
+
+\begin{example}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+\end{example}
+\begin{example}
+\begin{displaymath}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+\end{example}
+Bạn sẽ thấy rằng có nhiều sự khác biệt giữa \emph{chế độ soạn thảo toán học} và \emph{chế độ soạn thảo văn bản}. Dưới đây là một số thuộc tính cơ bản của \emph{môi trường toán học}:
+
+\begin{enumerate}
+\item Các khoảng trắng và ký tự xuống hàng không có ý nghĩa quan trọng: hầu hết các khoảng trắng đều bắt nguồn từ logic của biểu thức toán học hay được xác định thông qua các lệnh như: \ci{,} , \ci{quad}
+hay \ci{qquad}.
+
+\item Không được phép có các hàng trắng. Mỗi công thức sẽ nằm trên một đoạn văn.
+
+\item Mỗi kí tự đều được xem là tên của biến. Nếu bạn muốn soạn thảo văn bản thông thường bên trong một công thức, bạn phải sử dụng lệnh \verb|\textrm{...}| (xem thêm phần \ref{sec:fontsz} ở trang \pageref{sec:fontsz}).
+\end{enumerate}
+
+\begin{example}
+\begin{equation}
+\forall x \in \mathbf{R}:
+\qquad x^{2} \geq 0
+\end{equation}
+\end{example}
+\begin{example}
+\begin{equation}
+x^{2} \geq 0\qquad
+\textrm{với mọi }x\in\mathbf{R}
+\end{equation}
+\end{example}
+
+Các nhà toán học thường đòi hỏi nghiêm ngặt về việc dùng đúng các kí hiệu. Do đó, việc sử dụng quy ước về việc `\wi{in
+đậm}',\index{in đậm} thông qua việc sử dụng \ci{mathbb} từ gói \pai{amsfonts} hay \pai{amssymb} là rất hữu ích.
+
+\begin{example}
+\begin{displaymath}
+x^{2} \geq 0\qquad \textrm{với mọi }
+x\in\mathbb{R}
+\end{displaymath}
+\end{example}
+% \fi
+
+\section{Gộp nhóm các công thức}
+Hầu hết các lệnh trong chế độ soạn thảo công thức toán học chỉ có tác dụng đối với kí tự kế tiếp do đó trong trường hợp bạn muốn nó có tác dụng đối với nhiều kí tự, bạn có thể nhóm chúng trong dấu ngoặc: \verb|{...}|.
+
+\begin{example}
+\begin{equation}
+a^x+y \neq a^{x+y}
+\end{equation}
+\end{example}
+
+\section{Xây dựng khối các công thức toán học}
+Mục này sẽ giới thiệu các công thức quan trọng được sử dụng để soạn thảo các công thức toán. Hãy tham khảo thêm mục~\ref{symbols} ở trang~\pageref{symbols} để biết thêm chi tiết về danh mục các lệnh hỗ trợ soạn thảo công thức toán học.
+
+\textbf{\wi{Các chữ cái Hy lạp}} viết thường được nhập vào như sau:
+\verb|\alpha|, \verb|\beta|, \verb|\gamma|, \ldots, còn các chữ cái viết hoa thì được nhập như sau: \verb|\Gamma|, \verb|\Delta|, \ldots \footnote{Không có kí hiệu Alpha viết hoa trong \LaTeXe{} bởi vì nó trông giống như chữ A ở dạng font roman. Khi việc định nghĩa các kí kiệu mới hoàn tất thì mọi việc sẽ thay đổi.}
+
+\begin{example}
+$\lambda,\xi,\pi,\mu,\Phi,\Omega$
+\end{example}
+\textbf{Số mũ} và \textbf{chỉ số} được nhập vào bằng cách sử dụng các kí tự: \verb|^|\index{^@\verb"|^"|} và \verb|_|\index{_@\verb"|_"|}.
+\begin{example}
+$a_{1}$ \qquad $x^{2}$ \qquad
+$e^{-\alpha t}$ \qquad
+$a^{3}_{ij}$\\
+$e^{x^2} \neq {e^x}^2$
+\end{example}
+
+Dấu \textbf{\wi{căn bậc hai}} được nhập vào thông qua lệnh \ci{sqrt}. Đối với dấu căn bậc $n$ thì ta có thể nhập
+vào như sau: \verb|\sqrt[|$n$\verb|]|. Kích thước của dấu căn sẽ được xác định bởi \LaTeX{}. Trong trường hợp bạn chỉ muốn hiển thị kí hiệu khai căn (không có đường kẻ trên đầu), bạn có thể sử dụng lệnh: \verb|\surd|.
+\begin{example}
+$\sqrt{x}$ \qquad
+$\sqrt{ x^{2}+\sqrt{y} }$
+\qquad $\sqrt[3]{2}$\\[3pt]
+$\surd[x^2 + y^2]$
+\end{example}
+Lệnh \ci{overline} và \ci{underline} sẽ trực tiếp tạo ra các \textbf{hàng ngang} phía trên hay phía dưới công thức.\index{nằm ngang!ngoặc}
+\begin{example}
+$\overline{a+b}$
+\end{example}
+Lệnh \ci{overbrace} và \ci{underbrace} sẽ tạo ra những \textbf{dấu ngoặc} dài nằm dưới hay nằm trên biểu thức toán học.\index{nằm ngang!ngoặc}
+\begin{example}
+$\underbrace{ a+b+\cdots+z }_{26}$
+\end{example}
+
+\index{toán học!dấu mũ} Để thêm các dấu mũ vào trong công thức toán như dấu mũi tên nhỏ hay \wi{dấu ngã}, bạn cần sử dụng các lệnh trong bảng~\ref{mathacc} ở trang \pageref{mathacc}. Để thực hiện việc đưa vào các dấu mũ trên nhiều kí tự, bạn có thể sử dụng lệnh sau: \ci{widetilde} và \ci{widehat}. Dấu \verb|'|\index{'@\verb"|'"|} sẽ xuất ra dấu phẩy phía trên.
+% a dash is --
+\begin{example}
+\begin{displaymath}
+y=x^{2}\qquad y'=2x\qquad y''=2
+\end{displaymath}
+\end{example}
+
+Các \textbf{vectors}\index{vectors} có thể được soạn thảo bằng cách đặt thêm một \wi{dấu mũi tên} nhỏ ở phía trên của biến. Lệnh \ci{vec} sẽ đảm nhiệm việc này. Ngoài ra, lệnh \ci{overrightarrow} và \ci{overleftarrow} sẽ hỗ trợ bạn soạn thảo các vector từ một điểm $A$ đến điểm $B$.
+\begin{example}
+\begin{displaymath}
+\vec a\quad\overrightarrow{AB}
+\end{displaymath}
+\end{example}
+Thông thường thì bạn sẽ không soạn thảo một cách trực tiếp dấu chấm thay cho dấu nhân. Tuy nhiên, đôi khi ta cũng nên viết vào để tránh làm rối mắt người đọc. Khi này, bạn nên sử dụng lệnh \ci{cdot}.
+
+\begin{example}
+\begin{displaymath}
+v = {\sigma}_1 \cdot {\sigma}_2
+    {\tau}_1 \cdot {\tau}_2
+\end{displaymath}
+\end{example}
+Tên của các hàm như hàm log thường được soạn thảo ở dạng font thẳng đứng chứ không phải dạng in nghiêng như định dạng của các biến. \LaTeX{} cung cấp một số lệnh để soạn thảo các hàm  phổ biến như:\index{toán học!hàm}
+
+\begin{tabular}{lllllll}
+\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} & \ci{min} \\
+\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     & \ci{Pr}  \\
+\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    & \ci{sec} \\
+\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    & \ci{sin} \\
+\ci{sinh} & \ci{sup} & \ci{tan} & \ci{tanh}\\
+\end{tabular}
+
+\begin{example}
+\[\lim_{x \rightarrow 0}
+\frac{\sin x}{x}=1\]
+\end{example}
+Để soạn thảo \wi{hàm đồng dư}, ta có thể sử dụng hai lệnh \ci{bmod} để soạn thảo toán tử nhị phân ``$a \bmod b$'' và
+\ci{pmod} đối với các biểu thức như ``$x\equiv a \pmod{b}$''.
+
+\begin{example}
+$a\bmod b$\\
+$x\equiv a \pmod{b}$
+\end{example}
+Để soạn thảo \textbf{\wi{phân số}}, ta sử dụng lệnh sau: \ci{frac}\verb|{...}{...}|.
+
+Thông thường thì người ta thích nhập vào dạng $1/2$ bởi vì nó sẽ trông đẹp hơn đối với tài liệu chỉ có một vài phân số.
+\begin{example}
+$1\frac{1}{2}$~tiếng
+\begin{displaymath}
+\frac{ x^{2} }{ k+1 }\qquad
+x^{ \frac{2}{k+1} }\qquad
+x^{ 1/2 }
+\end{displaymath}
+\end{example}
+
+Để soạn thảo các hệ số của nhị thức hay các cấu trúc tương tự, bạn có thể sử dụng lệnh \ci{binom} trong gói \pai{amsmath}.
+
+\begin{example}
+\begin{displaymath}
+\binom{n}{k}\qquad\mathrm{C}_n^k
+\end{displaymath}
+\end{example}
+
+Đối với các quan hệ nhị phân thì việc sử dụng các kí hiệu chồng lên nhau tỏ ra rất hiệu quả. Lệnh \ci{stackrel} đặt tham số thứ nhất lên trên tham số thứ hai.
+\begin{example}
+\begin{displaymath}
+\int f_N(x) \stackrel{!}{=} 1
+\end{displaymath}
+\end{example}
+
+Bạn có thể dùng lệnh \ci{int} soạn thảo \textbf{toán tử tích phân}, lệnh \ci{sum} để soạn thảo \textbf{\wi{toán tử tính tổng}} và lệnh \ci{prod} để soạn thảo \textbf{\wi{toán tử tính tích}}. Cận trên và cận dưới sẽ được soạn thông qua lệnh~\verb|^| và~\verb|_| tương tự như việc soạn chỉ số trên/dưới.\index{superscript}\footnote{\Ams-\LaTeX{} mở rộng việc soạn chỉ số trên nhiều hàng.}
+\begin{example}
+\begin{displaymath}
+\sum_{i=1}^{n} \qquad
+\int_{0}^{\frac{\pi}{2}} \qquad
+\prod_\epsilon
+\end{displaymath}
+\end{example}
+
+%\begin{center}
+%\begin{tabular}[!htb]{|c|c|}
+%\hline
+%Kí hiệu & Lệnh \\
+%\hline
+%\wi{Tích phân} & \ci{int} \\
+%\wi{Tổng} & \ci{sum} \\
+%\wi{Tích} & \ci{prod}\\
+%\hline
+%\end{tabular}
+%\end{center}
+
+\begin{example}
+\begin{displaymath}
+\sum_{i=1}^{n} \qquad
+\int_{0}^{\frac{\pi}{2}} \qquad
+\prod_\epsilon
+\end{displaymath}
+\end{example}
+
+Gói \pai{amsmath} cũng cung cấp hai công cụ để tăng khả năng điều khiển việc nhập các biểu thức có hệ thống chỉ số phức tạp là \ci{substack} và môi trường \ei{subarray}.
+\begin{example}
+\begin{displaymath}
+\sum_{\substack{0<i<n \\ 1<j<m}}
+   P(i,j) =
+\sum_{\begin{subarray}{l} i\in I\\
+         1<j<m
+      \end{subarray}} Q(i,j)
+\end{displaymath}
+\end{example}
+
+\medskip
+
+Ngoài ra, \TeX{} còn cung cấp các dạng kí hiệu khác cho \textbf{\wi{dấu ngoặc}} và các \wi{kí hiệu giới hạn} khác như
+là: $[\;\langle\;\|\;\updownarrow$). Dấu ngoặc tròn hay ngoặc vuông có thể được nhập vào với các phím thích hợp. Đối với dấu ngoặc móc (\{), ta sử dụng lệnh \verb|\{|. Còn các kí hiệu giới hạn khác đều phải sử dụng lệnh (như là ~\verb|\updownarrow|). Hãy tham khảo thêm bảng~\ref{tab:delimiters} ở trang \pageref{tab:delimiters} để biết thêm về danh sách các kí hiệu giới hạn có sẵn.
+\begin{example}
+\begin{displaymath}
+{a,b,c}\neq\{a,b,c\}
+\end{displaymath}
+\end{example}
+
+Lệnh \ci{left} và \ci{right} sẽ tự động xác định kích thước của dấu ngoặc sao cho phù hợp với kích thước của biểu thức. Lưu ý rằng các lệnh \ci{left} và \ci{right} phải đi thành từng cặp (có nghĩa là sau khi mở ngoặc thì bạn phải đóng ngoặc cho phù hợp). Trong tình huống bạn không muốn dấu đóng ngoặc phía bên phải thì bạn có thể dùng lệnh \ci{right.} để đóng ngoặc nhưng không hiển thị kí hiệu đóng ngoặc.
+\begin{example}
+\begin{displaymath}
+1 + \left( \frac{1}{ 1-x^{2} }
+    \right) ^3
+\end{displaymath}
+\end{example}
+
+Tuy nhiên, trong một số tình huống soạn thảo, bạn sẽ cần phải tự xác định kích thước của các dấu ngoặc\index{toán học!dấu ngoặc}. Điều này được thực hiện bởi các lệnh \ci{big}, \ci{Big}, \ci{bigg} và \ci{Bigg} như là một tiền tố của các lệnh soạn thảo dấu ngoặc.\footnote{Các lệnh này có thể hoạt động không như dự đinh khi mà các lệnh thay đổi kích thước khác như \texttt{11pt} hay \texttt{12pt} đã được gọi. Trong tình huống này, bạn có thể sử dụng gói lệnh \pai{exscale} hay \pai{amsmath} để khắc phục.}
+
+\begin{example}
+$\Big( (x+1) (x-1) \Big) ^{2}$\\
+$\big(\Big(\bigg(\Bigg($\quad
+$\big\}\Big\}\bigg\}\Bigg\}$\quad
+$\big\|\Big\|\bigg\|\Bigg\|$
+\end{example}
+
+Để thêm \textbf{\wi{dấu ba chấm}} vào một công thức, bạn có thể sử dụng nhiều lệnh khác nhau. Trong đó, lệnh \ci{ldots} sẽ xuất ra các dấu chấm nằm sát phía dưới của hàng; lệnh \ci{cdots} sẽ xuất chúng ra ở giữa hàng; lệnh \ci{vdots} sẽ xuất chúng theo chiều dọc và lệnh \ci{ddots} sẽ xuất chúng theo hướng đường chéo.\index{ba chấm chéo}\index{hàng ngang!ba chấm}. Hãy tham khảo thêm các ví dụ trong mục~\ref{sec:vert} để biết thêm chi tiết.
+\begin{example}
+\begin{displaymath}
+x_{1},\ldots,x_{n} \qquad
+x_{1}+\cdots+x_{n}
+\end{displaymath}
+\end{example}
+
+\section{Các khoảng trắng trong công thức toán}
+
+\index{toán học!khoảng trắng} Nếu việc tự động sắp xếp các khoảng trắng trong công thức của \TeX{} không đáp ứng đúng yêu cầu định dạng của bạn, bạn có thể thay đổi chúng bằng cách thêm vào các lệnh xử lý khoảng trắng đặc biệt. Bảng dưới đây liệt kê thông tin về các lệnh qui định khoảng trắng trong công thức toán.
+
+\begin{center}
+\begin{tabular}[!htbp]{|p{4.5cm}|p{6cm}|}
+\hline
+Lệnh & Kích thước\\
+\hline
+\ci{,} & $\rightarrow\demowidth{0.166em}\leftarrow$\\
+\ci{:} & $\rightarrow\demowidth{0.222em}\leftarrow$\\
+\ci{;} & $\rightarrow\demowidth{0.277em}\leftarrow$\\
+\verb*.\ . & $\rightarrow\demowidth{1em}\leftarrow$\\
+\ci{qquad} & $\rightarrow\demowidth{2em}\leftarrow$\\
+\ci{quad} & Kích thước sẽ tương ứng với chữ M trong
+font chữ hiện tại\\
+\hline
+\end{tabular}
+\end{center}
+
+Lệnh \ci{!} sẽ tạo ra khoảng trắng rất phù hợp trước dấu `-' đối
+với các số âm.
+
+\begin{example}
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+\int\!\!\!\int_{D} g(x,y)
+  \, \ud x\, \ud y
+\end{displaymath}
+thay vì
+\begin{displaymath}
+\int\int_{D} g(x,y)\ud x \ud y
+\end{displaymath}
+\end{example}
+Lưu ý rằng kí tự `d' trong công  thức liên quan đến đạo hàm thì được định dạng ở kiểu roman.
+
+\AmS-\LaTeX{} còn cung cấp thêm một phương pháp khác để tinh chỉnh các khoảng cách giữa các kí hiệu tích phân là \ci{iint}, \ci{iiint} và \ci{idotsint}. Khi bạn sử dụng gói \pai{amsmath} thì bạn có thể soạn thảo như sau:
+\begin{example}
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+\iint_{D} \, \ud x \, \ud y
+\end{displaymath}
+\end{example}
+
+Bạn có thể tham khảo thêm tài liệu testmath.tex (được cung cấp chúng với gói \pai{amsmath} do \AmS-\LaTeX{} cung cấp) hay chương 8 trong~\companion để biết thêm chi tiết.
+
+\section{Gióng theo cột}\label{sec:vert}
+Môi trường \ei{array} sẽ cung cấp cho bạn khả năng soạn thảo \textbf{các mảng}. Môi trường này làm việc tương tự như môi trường \texttt{bảng}. Lệnh \verb|\\| được dùng để ngắt hàng.
+
+\begin{example}
+\begin{displaymath}
+\mathbf{X} =
+\left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ddots
+\end{array} \right)
+\end{displaymath}
+\end{example}
+
+Môi trường này cũng có thể được dùng để soạn thảo các biểu thức chỉ gồm một dấu ngoặc lớn bên trái, không có dấu đóng ngoặc bên phải nhờ vào lệnh \verb|\right.| .
+
+\begin{example}
+\begin{displaymath}
+y = \left\{ \begin{array}{ll}
+ a & \textrm{nếu $d>c$}\\
+ b+x & \textrm{nếu đi chơi vào
+  buổi sáng}\\
+ l & \textrm{cả ngày}
+  \end{array} \right.
+\end{displaymath}
+\end{example}
+
+Các lệnh vẽ hàng ngang, hàng dọc trong môi trường \pai{tabular} cũng được sử dụng trong môi trường này.
+\begin{example}
+\begin{displaymath}
+\left(\begin{array}{c|c}
+ 1 & 2 \\
+\hline
+3 & 4
+\end{array}\right)
+\end{displaymath}
+\end{example}
+
+Đối với các công thức nhiều hàng (như là \wi{hệ phương trình}), bạn có thể sử dụng môi trường \ei{eqarray} và \verb|eqnarray*| thay cho môi trường \ei{equation}. Trong môi trường \texttt{eqarray} thì mỗi hàng (tương ứng là một phương trình) đều được đánh số. Tuy nhiên, môi trường \ei{eqarray*} sẽ không đánh số các phương trình.
+
+Môi trường \ei{eqnarray} và \ei{eqnarray*} hoạt động tương tự như một bảng gồm 3 cột với định dạng là \verb|{rcl}|, trong đó, cột ở giữa có thể được dùng để xuất dấu bằng ``=''. Lệnh \verb|\\| có tác dụng xuống hàng.
+\begin{example}
+\begin{eqnarray}
+f(x) & = & \cos x     \\
+f'(x) & = & -\sin x   \\
+\int_{0}^{x} f(y)dy &
+ = & \sin x
+\end{eqnarray}
+\end{example}
+Nếu chú ý bạn sẽ thấy rằng khoảng cách của hai vế với dấu ``='' là khá lớn. Ta có thể giảm khoảng cách này xuống với lệnh
+\verb|\setlength\arraycolsep{2pt}|.
+
+\index{các phương trình dài}\textbf{Các phương trình dài} sẽ không được tự động chia ra làm các đoạn nhỏ. Người soạn thảo phải xác định vị trí xuống hàng và chúng phải được thụt vào bao nhiêu. Dưới đây là hai phương pháp để thực hiện điều này:
+\begin{example}
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\sin x & = & x -\frac{x^{3}}{3!}
+     + \frac{x^{5}}{5!}-{}
+                    \nonumber \\
+ & & {}-\frac{x^{7}}{7!}+{}\cdots
+\end{eqnarray}}
+\end{example}
+
+\begin{example}
+\begin{eqnarray}
+\lefteqn{ \cos x = 1
+     -\frac{x^{2}}{2!} +{} }
+                    \nonumber\\
+ & & {}+\frac{x^{4}}{4!}
+     -\frac{x^{6}}{6!}+{}\cdots
+\end{eqnarray}
+\end{example}
+
+\noindent Lệnh \ci{nonumber} yêu cầu \LaTeX{} không đánh số phương trình.
+
+Với các phương pháp này, ta có thể soạn thảo các phương trình được gióng theo cột. Ngoài ra, gói \pai{amsmath} cũng cung cấp một tập các lệnh hiệu quả để thực hiện việc này\footnote{Hãy xem thêm thông tin chi tiết về các môi trường \textrm{align,  flalign, gather, multiline và split}}.
+
+\section{Các khoảng trống thay cho phần văn bản}
+Chúng ta không thể thấy phần nội dung là tham số của lệnh \textbf{phantom} tuy nhiên phần nội dung này vẫn được sắp chữ trong tài liệu. Chúng ta có thể dựa vào đây để có được một số thủ thuật soạn thảo rất thú vị.
+
+Khi chúng ta soạn thảo các chỉ số trên và dưới với các lệnh như \verb|^| và \verb|_|, chúng ta có đã được kết quả rất đẹp mắt nhưng đôi khi chúng ta muốn bổ sung thêm một ít để có được kết quả tốt nhất. Lệnh \ci{phantom} là một lệnh rất hiệu quả trong việc cải thiện kết quả trình bày của các công thức. Lệnh này có chức năng là dành ra một số khoảng trắng theo yêu cầu.
+
+\begin{example}
+\begin{displaymath}
+{}^{12}_{\phantom{1}6}\textrm{C}
+\qquad \textrm{so với} \qquad
+{}^{12}_{6}\textrm{C}
+\end{displaymath}
+\end{example}
+
+\begin{example}
+\begin{displaymath}
+\Gamma_{ij}^{\phantom{ij}k} \qquad
+\textrm{so với} \qquad
+\Gamma_{ij}^{k}
+\end{displaymath}
+\end{example}
+
+\section[Kích thước của các font chữ]{Kích thước của các font chữ hỗ trợ soạn thảo tài liệu Toán học}\label{sec:fontsz}
+\index{kích thước font chữ} Trong chế độ soạn thảo công thức toán học, \TeX{} sẽ tự động chọn kích thước của font chữ tuỳ thuộc vào ngữ cảnh. Ví dụ như đối với các chỉ số trên hay chỉ số dưới thì \LaTeX{} sẽ tự động soạn thảo với kiểu chữ nhỏ hơn. Khi bạn muốn soạn thảo một phương trình ở kiểu chữ roman thì bạn không nên dùng lệnh \verb|\textrm| bởi vì lệnh này sẽ làm cho cơ chế thay đổi kích thước font chữ một cách tự động cho phù hợp với ngữ cảnh của \LaTeX{} không làm việc bởi vì lênh \verb|textrm| sẽ tạm thời chuyển môi trường toán học hiện tại sang môi trường soạn thảo văn bản. Bạn cần lưu ý rằng lệnh \ci{mathrm} sẽ \emph{chỉ} làm việc tốt với những phần văn bản ngắn. Lệnh \ci{mathrm} sẽ không có tác dụng đối với các khoảng trắng và các kí tự có dấu.\footnote{Gói \pai{amsmath} của \AmS-\LaTeX{} cho phép lệnh \ci{textrm} làm việc với văn bản đã được thay đổi kích thước.}
+
+\begin{example}
+\begin{equation} 2^{\textrm{nd}}
+\quad 2^{\mathrm{nd}}
+\end{equation}
+\end{example}
+Đôi khi bạn cần yêu cầu \LaTeX{} thay đổi kích thước font chữ cho phù hợp. Trong chế độ soạn thảo tài liệu Toán học, bạn có thể sử dụng 4 lệnh sau:
+\begin{flushleft}
+\ci{displaystyle}~($\displaystyle 123$),
+ \ci{textstyle}~($\textstyle 123$),
+\ci{scriptstyle}~($\scriptstyle 123$) and
+\ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
+\end{flushleft}
+
+Việc thay đổi kiểu định dạng cũng sẽ ảnh hưởng đến cách hiển thị các kí hiệu giới hạn.
+\begin{example}
+\begin{displaymath}
+\mathop{\mathrm{corr}}(X,Y)=
+ \frac{\displaystyle
+   \sum_{i=1}^n(x_i-\overline x)
+   (y_i-\overline y)}
+  {\displaystyle\biggl[
+ \sum_{i=1}^n(x_i-\overline x)^2
+\sum_{i=1}^n(y_i-\overline y)^2
+\biggr]^{1/2}}
+\end{displaymath}
+\end{example}
+\noindent đây là một trong các ví dụ cần phải sử dụng các dấu ngoặc lớn thay cho các dấu ngoặc bình thường với lệnh
+\verb|\left[\right]|.
+
+\section{Định lý, định luật, \ldots}
+Khi soạn thảo các tài liệu Toán học, bạn sẽ cần phải soạn thảo các ``bổ đề'', ``định nghĩa'', ``tiên đề'' và các cấu trúc tương tự. \LaTeX{} sẽ hỗ trợ bạn với lệnh sau:
+\begin{lscommand}
+\ci{newtheorem}\verb|{|\emph{name}\verb|}[|\emph{counter}\verb|]{|%
+         \emph{text}\verb|}[|\emph{section}\verb|]|
+\end{lscommand}
+Tham số \emph{name} là một từ khoá ngắn để xác định ``định lý''. Tham số \emph{text} sẽ cho phép ta xác định tên gọi của ``định lý'' (đây là tên của định lý trong bản in).
+
+Các tham số trong dấu ngoặc vuông là tuỳ chọn. Chúng được sử dụng để xác định việc đánh số cho ``định lý''. Tham số  \emph{counter} sẽ giúp xác định tham số \emph{name} của ``định lý'' đã được khai báo. Khi này ``định lý'' mới sẽ được đánh số theo cùng một chuỗi. Tham số \emph{section} cho phép bạn xác định cách đánh số ``định lý''.
+
+Sau khi gọi lệnh \ci{newtheorem} trong phần tựa đề của tài liệu, bạn có thể gọi tiếp các lệnh sau ở trong phần thân của tài liệu:
+\begin{code}
+\verb|\begin{|\emph{name}\verb|}[|\emph{text}\verb|]|\\
+Đây là một định lý rất thú vị\\
+\verb|\end{|\emph{name}\verb|}|
+\end{code}
+Phần này chính là phần chi tiết của định lý. Dưới đây là một ví dụ
+cụ thể, nó sẽ giúp bạn hiểu được rõ hơn về môi trường định lý này.
+\begin{example}
+% definitions for the document
+% preamble
+\newtheorem{law}{Law}
+\newtheorem{jury}[law]{Jury}
+%in the document
+\begin{law} \label{law:box}
+Xin chào các bạn!!!
+\end{law}
+\begin{jury}[Thứ 12]
+Có lẽ tôi đã gặp bạn. Hãy tham
+khảo thêm
+phần~\ref{law:box}\end{jury}
+\begin{law}
+Đúng, đúng, đúng
+\end{law}
+\end{example}
+Định lý ``Jury'' sử dụng chung bộ đếm như định lý ``Law''. Do đó,
+định lý này sẽ được đánh số theo như chuỗi đánh số của định lý
+trong hệ thống các định lý như ``Law''.
+\begin{example}
+\flushleft
+\newtheorem{mur}{Murphy}[section]
+\begin{mur}
+Nếu có hai hay nhiều
+cách hơn để làm một
+điều gì đó và hơn nữa một
+trong các cách này có
+thể gây ra các thảm hoạ
+thì sẽ có một người
+nào đó sẵn lòng làm nó.
+\end{mur}
+\end{example}
+Trong ví dụ trên, định lý ``Murphy'' sẽ được đánh số theo mục hiện
+tại. Ngoài cách chọn tham số là \emph{section} như trên, ta có thể
+chọn các tham số khác như \emph{chapter} hay \emph{subsection}.
+
+\section{Các ký hiệu in đậm}
+\index{kí hiệu in đậm} Trong \LaTeX{}, việc soạn thảo các kí hiệu in đậm là tương đối khó khăn; có lẽ đây là chủ ý của \LaTeX{} bởi vì những người soạn thảo nghiệp dư rất dễ lạm dụng chức năng này. Lệnh thay đổi font chữ như \verb|\mathbf| sẽ xuất ra các kí tự đậm; tuy nhiên lệnh này sẽ đổi kiểu font chữ sang dạng roman trong khi các kí hiệu toán học thường được viết nghiêng. Ngoài ra, ta còn có lệnh \ci{boldmath} nhưng lệnh này chỉ có tác dụng \emph{bên ngoài} môi
+trường toán học. Nó cũng có tác dụng với các kí hiệu.
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad \mathbf{M} \qquad
+\mbox{\boldmath $\mu, M$}
+\end{displaymath}
+\end{example}
+
+\noindent Nếu chú ý bạn sẽ thấy rằng dấu phẩy lại trở nên quá đậm và điều này là không cần thiết.
+
+Gói \pai{amsbsy} (có trong bộ \pai{amsmath}) cũng như gói \pai{bm} trong bộ công cụ sẽ hỗ trợ việc định dạng này với lệnh \ci{boldsymbol}.
+
+\ifx\boldsymbol\undefined\else
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad
+\boldsymbol{\mu}, \boldsymbol{M}
+\end{displaymath}
+\end{example}
+\fi
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

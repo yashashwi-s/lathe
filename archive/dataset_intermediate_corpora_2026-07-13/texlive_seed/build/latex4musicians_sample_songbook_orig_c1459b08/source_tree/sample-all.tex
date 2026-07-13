@@ -1,0 +1,36 @@
+\documentclass{article}
+\thispagestyle{empty}
+\usepackage[generate,ps2eps]{abc}
+
+% --- M-Tx support
+\newenvironment{mtx}[1][]
+{\renewcommand{\normalabcoutputfile}{out-mtx}%
+\abc[program=musixtex,options={-g},extension=mtx,#1]}
+{\endabc}
+\newcommand{\mtxinput}[2][]{%
+\abcinput[program=musixtex,options={-g},extension=mtx,#1]{#2}}
+
+% --- PMW support
+\newenvironment{pmw}[1][]
+{\renewcommand{\normalabcoutputfile}{out-pmw}%
+\abc[program=pmw,options={-includefont},extension=pmw,#1]}
+{\endabc}
+\newcommand{\pmwinput}[2][]{%
+\abcinput[program=pmw,options={-includefont},extension=pmw,#1]{#2}}
+
+\begin{document}
+
+This document includes music excerpts written in different formats. It
+uses \texttt{abc.sty} and defines new environments.
+
+This is a short piece, typeset by M-Tx:
+
+\mtxinput{sample-mtx}
+
+The same piece, typeset by PMW:
+
+\pmwinput{sample-pmw}
+
+End of document.
+
+\end{document}

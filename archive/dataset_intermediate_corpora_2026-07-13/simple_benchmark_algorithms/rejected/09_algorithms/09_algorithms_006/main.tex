@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 6}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\caption{List Viterbi Algorithm \cite{seshadri1994list}}\hspace*{\algorithmicindent} \textbf{Input: $L, \tau, \left\{\mathbf{\pi}_i\right\}_{i=1}^N, \{\mathbf{\Phi}_i \}_{i=1}^N$} \\
+\hspace*{\algorithmicindent} \textbf{Output: ${\mathbf{Z}}$}
+\begin{algorithmic}[1]
+\Statex \textbf{\underline{Initialization}}:
+\For{$s \gets 1$ to $2^{\tau}$}
+\State $\Psi(1,s,1) \gets \left\{\mathbf{\pi}_i\right\}_{i=1}^N\left(s\right)$ \Comment{initial probability for each \newline \hspace*{12em} state} \State $\xi\left(n,s,l\right) \gets s$ \Comment{previous state of each state} \For{$l \gets 2$ to $L$}
+\State $\Psi(1,s,l) \gets 0$
+\State $\xi\left(n,s,l\right) \gets s$
+\EndFor
+\EndFor
+\Statex \textbf{\underline{Recursion}}:
+\For{$n \gets 2$ to $N$}
+\For{$s_2 \gets 1$ to $2^{\tau}$}
+\For{$l\gets 1$ to $L$}
+\State \Comment{find the probability of the $l$-most likely \newline \hspace*{6em} previous state and its rank}
+\State $\Psi(n,s_2,l) = \max^{(l)}_{{\substack{s_1\in\{1,...,2^{\tau}\} \\ k\in\{1,..,L\}}}}
+\newline \hspace*{11.5em}
+\left\{ \Psi(n-1,s_1,k) \Phi_n \left( s_1,s_2\right)\right\}$ \State $\left({s_1}^*, k^*\right) = \arg\max^{(l)}_{{\substack{s_1\in\{1,...,2^{\tau}\} \\ k\in\{1,..,L\}}}} \newline \hspace*{11.5em}
+\left\{ \Psi(n-1, s_1,k) \Phi_n \left( s_1,s_2\right)\right\}$
+\State $\xi\left(n,s_2,l\right) \gets {s_1}^*$ \State $\chi\left(n,l\right) \gets k^*$ \EndFor
+\EndFor
+\EndFor
+\Statex \textbf{\underline{Backtracking}}:
+\For{$l \gets 1$ to $L$}
+\State $\mathbf{Z}_{l,N} \gets \arg\max_{s\in\{1,...,2^{\tau}\}}\left\{ \Psi(N,s,l)\right\}$ \State $l_N \gets \chi\left(n,l\right)$
+\For{$n \gets N-1$ to $1$}
+\State $\mathbf{Z}_{l,n} \gets \xi\left(n+1,\mathbf{Z}_{l_{n+1},n+1},l_{n+1}\right)$ \State $l_{n} \gets \chi\left(n+1,l_{n+1}\right) $
+\EndFor
+\EndFor
+\State \Return $\mathbf{Z}$
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

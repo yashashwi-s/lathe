@@ -1,0 +1,1025 @@
+%\section{Circuit électrique}
+\label{lib-ee}
+%Insérer dans le préambule :
+
+ \maboite{\BS{usepackage}\AC{circuits.ee.IEC}}
+ 
+ 
+%\subsection{Symboles}
+\SbSSCT{Symboles}{Symbols}
+
+\begin{center}
+\RRR{47-4}
+\end{center}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+\TFRGB{sur un noeud}{On a node} & \TFRGB{sur un chemin}{On a path}
+\\   \hline
+\begin{tikzpicture}[blue,line width=2pt]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\draw [help lines] (0,0) grid (2,1);
+\node[circuit ee IEC] at (1,.5) [resistor] {} ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue,line width=2pt]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\draw [help lines] (0,0) grid (2,1);
+\draw [circuit ee IEC] (0,.5) to [resistor] (2,.5) ; 
+\end{tikzpicture} 
+\\   \hline
+\BS{node}  \rouge{[circuit ee IEC]}  at (1,0.5) \rouge{ to [resistor] } \AC{} ;
+&
+\BS{draw}   \rouge{[circuit ee IEC]}(0,0.5) \rouge{ to [resistor] } (2,.5) ;
+\\   \hline   
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline
+\multicolumn{4}{|c|}{\textbf{\TFRGB{Composants de base}{Basic Elements}}  }\\ 
+\hline  
+\multicolumn{4}{|c|}{\BS{draw}  [circuit ee IEC] (0,.5) to [\RDD{resistor}] (2,.5) ;  }\\ 
+\hline
+\multicolumn{4}{|c|}{\RRR{47-4-3} }
+\\ \hline   
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,0.5) to [resistor] (2,0.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [inductor] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [capacitor] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [battery] (2,.5) ; 
+\end{tikzpicture} 
+\\   \hline 
+[\RDD{resistor}] &[\RDD{inductor}] & [\RDD{capacitor}] &[\RDD{battery}]
+\\   \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [bulb] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [current source] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox(-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [voltage source] (2,.5) ; 
+\end{tikzpicture}; 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [ground] (2,.5) ; 
+\end{tikzpicture} 
+\\   \hline
+[\RDD{bulb}] &[\RDD{current source}] & [\RDD{voltage source}] &[\RDD{ground}]
+\\   \hline 
+\multicolumn{4}{|c|}{\RRR{47-4-4} }
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode] (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [Zener diode]  (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [Schottky diode]  (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox(-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [tunnel diode]  (2,.5) ; 
+\end{tikzpicture} 
+\\   \hline 
+[\RDD{diode}] &[\RDD{Zener diode}] & [\RDD{Schottky diode}] &[\RDD{tunnel diode}]
+\\   \hline
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [backward diode]  (2,.5) ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [breakdown diode]  (2,.5) ; 
+\end{tikzpicture} 
+&
+& 
+\\   \hline 
+[\RDD{backward diode}] &[\RDD{breakdown diode}] &  &
+\\   \hline 
+\multicolumn{4}{|c|}{\RRR{47-4-5} }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [contact] (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [make contact]  (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [break contact] (2,.5) ; 
+\end{tikzpicture}
+&
+
+\\   \hline 
+[\RDD{contact}] &[\RDD{make contact}] & [\RDD{break contact}] & 
+\\   \hline 
+\end{tabular}
+
+\bigskip
+
+
+%\subsection{Alternate appearance}
+
+\begin{tabular}{|c|c|c|} \hline
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Autre apparence}{Alternate appearance }}  }
+\\ \hline   
+\multicolumn{3}{|l|}{\BS{draw} [circuit ee IEC,\rouge{set resistor graphic=var resistor IEC graphic} ]  }\\
+\multicolumn{3}{|l|}{(0,0.5) to [resistor] (2,0.5) ;  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC,set resistor graphic=var resistor IEC graphic ] (0,.5) to [resistor] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC,set inductor graphic=var inductor IEC graphic ] (0,.5) to [inductor] (2,.5) ; 
+\end{tikzpicture} 
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC,set diode graphic=var diode IEC graphic ] (0,.5) to [diode] (2,.5) ; 
+\end{tikzpicture}
+\\   \hline 
+resistor & inductor &  diode 
+\\   \hline
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC,set Zener diode graphic=var Zener diode IEC graphic ] (0,.5) to [Zener diode] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC,set Schottky diode graphic=var Schottky diode IEC graphic ] (0,.5) to [Schottky diode] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC,set tunnel diode graphic=var tunnel diode IEC graphic ] (0,.5) to [tunnel diode] (2,.5) ; 
+\end{tikzpicture}
+
+\\   \hline 
+Zener diode & Schottky diode & tunnel diode 
+\\   \hline
+ 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC,set backward diode graphic=var backward diode IEC graphic ] (0,.5) to [backward diode] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC,set breakdown diode graphic=var breakdown diode IEC graphic ] (0,.5) to [breakdown diode] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC,set make contact graphic=var make contact IEC graphic ] (0,.5) to [make contact] (2,.5) ; 
+\end{tikzpicture}
+\\   \hline 
+backward diode & breakdown diode & make contact 
+\\   \hline 
+\end{tabular}
+
+
+\bigskip
+
+%\subsection{Symbol Size}
+%\begin{center}
+%\RRR{47-2-1}
+%\end{center}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline
+\multicolumn{5}{|c|}{ \textbf{\TFRGB{Taille des symboles}{Symbol Size}}}\\
+\multicolumn{5}{|c|}{\RRR{47-2-1}}
+\\ \hline 
+\multicolumn{5}{|c|}{\BS{draw}  [circuit ee IEC]  (0,0.5) to [diode,\RDD{large circuit symbols}] (2,0.5) ;  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC] (0,.5) to [diode,huge circuit symbols] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC](0,.5) to [diode,large circuit symbols] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC](0,.5) to [diode,medium circuit symbols] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC] (0,.5) to [diode,small circuit symbols] (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC] (0,.5) to [diode,tiny circuit symbols] (2,.5) ; 
+\end{tikzpicture}
+\\   \hline
+\RDD{huge circuit symbols} & \RDD{large circuit symbols} & \RDD{medium circuit symbols} & \RDD{small circuit symbols} & \RDD{tiny circuit symbols}
+\\   \hline
+(10pt) & (8pt) & (7pt)& (6pt)& (5pt)
+\\   \hline
+\end{tabular}
+
+
+\bigskip\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|c|}{\BS{draw}  [circuit ee IEC,\RDD{circuit symbol unit}=14pt] (0,0.5) to [diode] (2,0.5) ;  }\\ 
+\hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC,circuit symbol unit=14pt] (0,.5) to [diode] (2,.5) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\draw [circuit ee IEC,{circuit symbol size=width 3 height 1}] (0,.5) to [diode] (2,.5) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox  (0,0) rectangle (2,1); 
+\node[circuit ee IEC,circuit symbol size=width 1 height 5]at (1,.5) [diode] {} ; 
+\end{tikzpicture}
+\\ \hline  
+\RDD{circuit symbol unit}=14pt & \RDD{circuit symbol size}=width 3 height 1  & \RDD{circuit symbol size}=width 1 height 5 \\
+&
+\multicolumn{2}{|c|}{ \DW{} }
+\\ \hline 
+\end{tabular} 
+
+%\subsection{Declaring New Symbols}
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{\textbf{\TFRGB{Création de nouveaux symboles}{Declaring New Symbols }}  }
+\\ % \hline
+\multicolumn{4}{|c|}{\RRR{47-2-2}  }
+\\ \hline  
+\begin{tikzpicture}
+[baseline=0pt,circuit declare symbol=xxx,
+set xxx graphic={draw,shape=rectangle,minimum size=5mm}]
+\useasboundingbox (0,0) rectangle (3.2,1);
+\node [xxx] at (0.5,0.5) {};
+\draw[circuit ee IEC]  (1,0.5) to [xxx] (3,0.5) ;
+\end{tikzpicture}
+& 
+\multicolumn{3}{|c|}{ 
+\parbox[B]{10cm}{
+\BS{begin}\AC{tikzpicture}
+[\RDD{circuit declare symbol}={\color{blue} xxx},  \\
+\rouge{set xxx graphic}=\AC{draw,\rouge{shape}=rectangle,minimum size=5mm}]  \\
+\BS{node} [{\color{blue} xxx}] at (.5,.5) {}; \\
+\BS{draw}[circuit ee IEC]  (1,.5) to [{\color{blue} xxx}] (3,.5) ; \\
+\BS{end}\AC{tikzpicture}} } 
+\\ \hline  
+  
+\begin{tikzpicture}
+[circuit declare symbol=xxx,
+set xxx graphic={draw,shape=circle,minimum size=5mm}] 
+\useasboundingbox (0,0) rectangle (3.2,1);
+\node [xxx] at (.5,.5) {};
+\draw[circuit ee IEC]  (1,.5) to [xxx] (3,.5) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[circuit declare symbol=xxx,
+set xxx graphic={draw,shape=dart,minimum size=5mm}] 
+\useasboundingbox (0,0) rectangle (3.2,1);
+\node [xxx] at (.5,.5) {};
+\draw[circuit ee IEC]  (1,.5) to [xxx] (3,.5) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[circuit declare symbol=xxx,
+set xxx graphic={draw,shape=star,minimum size=5mm}] 
+\useasboundingbox (0,0) rectangle (3.2,1);
+\node [xxx] at (.5,.5) {};
+\draw[circuit ee IEC]  (1,.5) to [xxx] (3,.5) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[circuit declare symbol=xxx,
+set xxx graphic={draw,shape=forbidden sign,minimum size=5mm}] 
+\useasboundingbox (0,0) rectangle (3.2,1);
+\node [xxx] at (.5,.5) {};
+\draw[circuit ee IEC]  (1,.5) to [xxx] (3,.5) ;
+\end{tikzpicture}
+\\ \hline 
+\RDD{shape}=circle & \RDD{shape}=dart & \RDD{shape}=star &  \RDD{shape}=forbidden sign \\ 
+\hline 
+\multicolumn{4}{|c|}{ \textbf{voir les \og different shape libraries \fg }{see the different shape libraries } }
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+%\subsection{placement}
+
+
+\begin{tabular}{|c|} \hline 
+\textbf{\TFRGB{Placement des symboles sur un chemin}{Placement of symbol on a path }} 
+\\ \hline  
+\BS{draw} [circuit ee IEC] (0,0.5) to  [contact=\AC{\RDD{at start}},make contact=\AC{\RDD{very near start}},voltage source=\AC{\RDD{near start}},\\ resistor,
+bulb=\AC{\RDD{near end}},
+bulb=\AC{\RDD{very near end}},contact=\AC{\RDD{at end}}] (12,0.5) ;
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (12.5,1);
+\draw [circuit ee IEC] (0,.5) to  [contact={at start},make contact={very near start},voltage source={near start},resistor,
+bulb={near end},bulb={very near end},contact={at end}] (12,.5) ; 
+\end{tikzpicture}
+\\ \hline 
+%\end{tabular}
+%
+%\bigskip
+%\begin{tabular}{|c|} \hline  
+\BS{draw} [circuit ee IEC] (0,0.5) to  [contact=\{ \rouge{pos=0}{} \},make contact=\{\rouge{pos=0.2}{}\},voltage source=\{\rouge{pos=0.3}{} \},    \\ 
+resistor=\{ \rouge{pos=0.5}{} \},
+bulb=\{\rouge{pos=0.75} {} \},contact=\{\RDD{pos} \rouge{=1}{} \}] (12,0.5) ;
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (12.5,1);
+\draw [circuit ee IEC] (0,.5) to  [contact={pos=0},make contact={pos=0.2},voltage source={pos=0.3},resistor={pos=0.5},
+bulb={pos=0.75},contact={pos=1}] (12,.5) ; 
+\end{tikzpicture}
+\\ \hline 
+\end{tabular}
+
+%===================
+%\subsection{Orientation}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline
+\multicolumn{4}{|c|}{\textbf{\TFRGB{Orientation des symboles}{Symbol orientation }}  } \\
+\multicolumn{4}{|c|}{ \RRR{47-2-3} }
+\\ \hline   
+\multicolumn{4}{|c|}{\BS{node}  [circuit ee IEC] at (1,.5) [diode,\RDD{point up}] \AC{} ;  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\node[circuit ee IEC] at (1,.5) [diode,point up] {} ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\node[circuit ee IEC] at (1,.5) [diode,point down] {} ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\node[circuit ee IEC] at (1,.5) [diode,point left] {} ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\node[circuit ee IEC] at (1,.5) [diode,point right] {} ; 
+\end{tikzpicture}
+\\   \hline 
+[diode,\RDD{point up}] & 
+[diode,\RDD{point down}] & [diode,\RDD{point left}] & [diode,\RDD{point right}]
+\\   \hline
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{\textbf{\TFRGB{Orientation automatique}{Automatic orientation }}  } 
+
+\\ \hline    
+\begin{tikzpicture}[baseline=0pt,blue]
+\useasboundingbox (-.5,-1.5) rectangle (2.5,1.5);
+\draw [circuit ee IEC] (0,0) to  [voltage source] (1,1) to [resistor] (2,0) to 
+[bulb] (1,-1) to [diode]  (0,0) ; 
+\end{tikzpicture} 
+ &  
+\parbox[c]{10cm}{\BS{draw} [circuit ee IEC] (0,0) \\ to  [voltage source] (1,1) \\ to [resistor] (2,0) \\to 
+[bulb] (1,-1) \\to [diode]  (0,0) ;} 
+ \\ \hline 
+\end{tabular} 
+
+\bigskip
+
+%===================
+%\subsection{Current Directions}
+\subsection{Annotations}
+%\begin{center}
+%\RRR{47-4-2}
+%\end{center}
+
+\noindent
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{ \textbf{\TFRGB{Sens du courant}{Indicating Current Directions}}  } \\
+\multicolumn{2}{|c|}{\RRR{47-4-2} }
+\\ \hline 
+\multicolumn{2}{|c|}{\BS{draw}  [circuit ee IEC] (0,0.5) to [\RDD{current direction}]  (2,0.5) ;  }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-1,0) rectangle (3,1); 
+\draw [circuit ee IEC] (0,.5) to[current direction] (2,.5); 
+\end{tikzpicture}
+& 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-1,0) rectangle (3,1);
+\draw [circuit ee IEC] (0,.5) to[current direction'] (2,.5); 
+\end{tikzpicture} 
+\\   \hline
+[\RDD{current direction}]  & [\RDD{current direction' } ]
+
+\\   \hline
+
+\end{tabular}
+
+\bigskip
+
+%\subsection{units}
+%\begin{center}
+%\RRR{47-4-6}
+%\end{center}
+
+ 
+\begin{tabular}{|c|c|c|c|c|} \hline
+\multicolumn{5}{|c|}{\textbf{ \TFRGB{Unités disponibles}{Units available}}  } \\
+\multicolumn{5}{|c|}{\RRR{47-4-6}   }
+\\ \hline   
+\multicolumn{5}{|c|}{\BS{node}  [draw,circuit ee IEC] at(1,.5) [\RDD{ampere}=5] \AC{}  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,0.5) [ampere=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,0.5) [volt=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,0.5) [ohm=5] {} ;  
+\end{tikzpicture}
+
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [siemens=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1); 
+\node [draw,circuit ee IEC] at(1,.5) [henry=5] {} ;  
+\end{tikzpicture}
+\\   \hline
+[\RDD{ampere}=5] & [\RDD{volt}=5] & [\RDD{ohm}=5]  \DW{} & [\RDD{siemens}=5] & [\RDD{henry}=5]
+\\   \hline
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [farad=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1); 
+\node [draw,circuit ee IEC] at(1,.5) [coulomb=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [voltampere=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1); 
+\node [draw,circuit ee IEC] at(1,.5) [watt=5] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [hertz=5] {} ;  
+\end{tikzpicture}
+\\   \hline
+[\RDD{farad}=5] & [\RDD{coulomb}=5] &  [\RDD{voltampere}=5] & [\RDD{watt}=5] & [\RDD{hertz}=5] 
+\\   \hline
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1); 
+\node [draw,circuit ee IEC] at(1,.5)[ampere=5k]{} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [ampere=5m] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [ampere=5\mu] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1); 
+\node [draw,circuit ee IEC] at(1,.5) [watt=5k] {} ;  
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\node [draw,circuit ee IEC] at(1,.5) [watt=5M] {} ;  
+\end{tikzpicture}
+\\   \hline
+[ampere=\rouge{5k}] & [ampere=\rouge{5m}] &  [ampere=\rouge{5\BS{mu}}] & [watt=\rouge{5k}] & [watt=\rouge{5M}] 
+\\   \hline
+\end{tabular}
+
+\bigskip
+
+%\subsection{créer sa propre unité }
+
+\begin{tabular}{|c|} \hline 
+\textbf{ \TFRGB{créer sa propre unité}{Declare unit}} \\  
+\RRR{47-2-4}
+\\ \hline   
+\BS{tikz}[circuit ee IEC,\RDD{circuit declare unit}=\AC{{\color{blue} xxx}}\AC{ Unit}] \\
+\BS{draw} (0,0) to[resistor=\AC{{\color{blue} xxx}' sloped=3}] (3,2) to [resistor=\AC{{\color{blue} xxx}= 10\BS{mu}}] (5,2) to [resistor=\AC{{\color{blue} xxx}= 10M}] (7,0);
+\\ \hline  
+%\begin{tikzpicture}[circuit ee IEC,circuit declare unit={XXX}{ Unit}]
+\tikz[circuit ee IEC,circuit declare unit={XXX}{ Unit}]
+\draw (0,0) to[resistor={XXX' sloped=3}] (3,2) to [resistor={XXX= 10\mu}] (5,2) to [resistor={XXX= 10M}] (7,0);
+%\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+%\subsection{Annotations}
+
+%\begin{center}
+%\RRR{47-4-7}
+%\end{center}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{ \textbf{\TFRGB{Annotations}{Annotations}}  } \\
+\multicolumn{4}{|c|}{\RRR{47-4-7}}
+\\ \hline 
+\multicolumn{4}{|c|}{\BS{draw}  [circuit ee IEC] (0,0.5) to [resistor=\RDD{light emitting}] (2,0.5) ;  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [resistor=light emitting] (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [resistor=light dependent]  (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [resistor=direction info]  (2,.5) ;  
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [resistor=adjustable]  (2,.5) ;  
+\end{tikzpicture} 
+\\   \hline 
+[resistor=\RDD{light emitting}] & [resistor=\RDD{light dependent}]  & [resistor=\RDD{direction info}]  & [resistor=\RDD{adjustable}]
+\\   \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [diode=light emitting] (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=light dependent]  (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=direction info]  (2,.5) ;  
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=adjustable]  (2,.5) ;  
+\end{tikzpicture} 
+\\   \hline 
+[diode=\RDD{light emitting}] & [diode=\RDD{light dependent}]  & [diode=\RDD{direction info}]  & [diode=\RDD{adjustable}]
+\\   \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=light emitting'] (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1); 
+\draw [circuit ee IEC] (0,.5) to [diode=light dependent']  (2,.5) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox  (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=direction info']  (2,.5) ;  
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\draw[help lines,white] (-.5,0) rectangle (2.5,1);
+\draw [circuit ee IEC] (0,.5) to [diode=adjustable']  (2,.5) ;  
+\end{tikzpicture} 
+\\   \hline 
+[diode=\RDD{light emitting'}] & [diode=\RDD{light dependent'}]  & [diode=\RDD{direction info'}]  & [diode=\RDD{adjustable'}]
+\\   \hline 
+\end{tabular}
+
+
+
+\bigskip
+
+%\subsection{Position}
+%
+%\begin{center}
+%\RRR{47-2-4}
+%\end{center}
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{ \textbf{\TFRGB{Position des unités}{Units position}}  } \\
+\multicolumn{2}{|c|}{  \RRR{47-2-4}}
+\\ \hline 
+\multicolumn{2}{|c|}{\BS{draw} [circuit ee IEC] (0,0) to [capacitor=\AC{farad=5\BS{mu}}]  (2,2)  ;  }\\ 
+\hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-.5) rectangle (2,2.5); 
+\draw [circuit ee IEC] (0,0) to [capacitor={farad=5\mu}]  (2,2) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-.5) rectangle (2,2.5);  
+\draw [circuit ee IEC] (0,0) to [capacitor={farad'=5\mu}]  (2,2) ; 
+\end{tikzpicture}
+\\ \hline
+[capacitor=\rouge{\AC{farad=5\BS{mu}}}] & [capacitor=\rouge{\AC{farad'=5\BS{mu}}}]
+\\ \hline
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-.5) rectangle (2,2.5); 
+\draw [circuit ee IEC] (0,0) to [capacitor={farad sloped=5\mu}]  (2,2) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-.5) rectangle (2,2.5); 
+\draw [circuit ee IEC] (0,0) to [capacitor={farad' sloped=5\mu}]  (2,2) ; 
+\end{tikzpicture}
+\\   \hline
+[capacitor=\rouge{\AC{farad sloped=5\BS{mu}}}] & [capacitor=\rouge{\AC{farad' sloped=5\BS{mu}}}]
+\\   \hline
+\end{tabular}
+
+\bigskip
+%\subsection{Info Labels}
+
+\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|c|}{ \textbf{ \TFRGB{Informations}{Info Labels}}  }\\ 
+\multicolumn{3}{|c|}{ \RRR{47-2-4}  }\\ 
+\hline 
+
+\multicolumn{3}{|c|}{\BS{draw} [circuit ee IEC] (0,0.5) to [diode=\AC{light emitting=\AC{\RDD{info}=D1}}] (2,0.5) ;  }\\ 
+\hline 
+
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-1) rectangle (2,2); 
+\draw [circuit ee IEC] (0,.5) to [diode={light emitting={info=D1}} ]  (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-1) rectangle (2,2); 
+\draw [circuit ee IEC] (0,.5) to [diode={light emitting={info'=D2}}]  (2,.5) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox   (0,-1) rectangle (2,2);
+\draw [circuit ee IEC] (0,.5) to [diode={light emitting,info'=D3}] (2,.5) ; 
+\end{tikzpicture}
+\\   \hline 
+[diode=\AC{light emitting=\AC{\RDD{info}=D1}} ] & 
+[diode=\AC{light emitting=\AC{\RDD{info'}=D2}} ] &
+[diode=\AC{light emitting,\RDD{info'}=D3}]
+\\   \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline  
+\TFRGB{sur un noeud}{On a node} & \TFRGB{sur un chemin}{On a path}
+
+\\ \hline  
+\begin{tikzpicture}[blue]
+\node[circuit ee IEC] at (1,.5) [resistor,info=$3\Omega$,info'=R1] {} ; 
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\draw [circuit ee IEC] (0,.5) to [resistor={info=$3\Omega$,info'=R1}] (2,.5) ; 
+\end{tikzpicture}
+\\ \hline 
+[resistor,\RDD{info}=\$3\BS{Omega}\$,\RDD{info'}=R1] &[resistor=\AC{\RDD{info}=\$3\BS{Omega}\$,\RDD{info'}=R1}] 
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\node [resistor,info=center:$3\Omega$] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\node [resistor,point up,info=center:$3\Omega$] {};
+%\node [resistor,point up,info=center:$R_1$] ;
+\end{tikzpicture}
+\\ \hline [resistor,point up,info=\RDD{center}:\$3\BS{Omega}\$] & 
+[resistor,point up,info=\RDD{center}:\$3\BS{Omega}\$] \\ 
+\hline 
+\end{tabular} 
+
+
+\bigskip
+
+
+
+\begin{tabular}{|c|c||c|c|}  \hline 
+\multicolumn{2}{|c||}{ \BS{node}  [voltage source,\RDD{direction info}=\AC{volt=10}] \AC{}  } & \multicolumn{2}{|c|}{ \BS{node}  [voltage source,\RDD{direction info'}=\AC{volt=10}] \AC{}}
+\\ \hline 
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node  [voltage source,direction info={volt=10}] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node  [voltage source,direction info={->,volt'=10}] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node [voltage source,direction info'={volt=10}] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node [voltage source,direction info'={volt'=10}] {};
+\end{tikzpicture}
+\\ \hline 
+\AC{volt=10} &   \AC{volt'=10} & \AC{volt=10}& \AC{volt'=10}  \\
+\TFRGB{ou}{or} \AC{->,volt=10} &  \TFRGB{ou}{or}  \AC{->,volt'=10} &\TFRGB{ou}{or} \AC{->,volt=10} & \TFRGB{ou}{or}  \AC{->,volt'=10} 
+\\ \hline 
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node [voltage source,direction info={<-,volt=10}] {};
+\end{tikzpicture} 
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node   [voltage source,direction info'={<-,volt=10}] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node   [voltage source,direction info'={<-,volt=10}] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox (-2,-1.2) grid (2,1.2);
+\node   [voltage source,direction info'={<-,volt'=10}] {};
+\end{tikzpicture}
+\\ \hline 
+\AC{<-,volt=10} & \AC{<-,volt=10} & \AC{<-,volt=10} & \AC{<-,volt'=10}\\ 
+\hline 
+\end{tabular} 
+
+
+%===================
+\bigskip
+
+\begin{tabular}{|c|c|}\hline 
+\multicolumn{2}{|c|}{  \textbf{\TFRGB{Créer sa propre annotation}{Declare annotation}} } \\
+\multicolumn{2}{|c|}{ \RRR{47-2-5} }
+\\ \hline  
+\tikzset{circuit declare annotation={XXX}{9pt}
+{ (-0.5cm,0.5cm) edge[to path={- -(0pt,2pt) - - (8pt,8pt)}] ()} }
+
+\tikz[blue,circuit ee IEC]
+\draw (0,0) to [resistor={XXX}] (3,0);
+&  
+\parbox[b]{12cm}{
+\BS{tikzset}\AC{circuit \RDD{declare annotation}=\AC{\blll{XXX}}\AC{9pt} \\
+\hspace{1cm}  \AC{ (-0.5cm,0.5cm) edge[to path=\AC{- -(0pt,2pt) - - (8pt,8pt)}] ()} }  \\
+\BS{tikz}[blue,circuit ee IEC]
+\BS{draw} (0,0) to [resistor={\blll{XXX}}] (3,0);
+}
+\\ \hline  
+\tikzset{circuit declare annotation={xxx}{9pt}
+{ (-.5cm,.5cm) edge[to path={--(0pt,2pt) -- (8pt,8pt)}] ()} }
+
+\tikz[circuit ee IEC]
+\draw (0,0) to [resistor={xxx={info=abc}}] (3,0);
+&  
+\parbox[b]{12cm}{
+\BS{tikzset}\AC{circuit declare annotation=\AC{xxx}\{ \rouge{9pt} \} \}\\
+\hspace{1cm}  \AC{ (-0.5cm,0.5cm) edge[to path=\AC{- -(0pt,2pt) - - (8pt,8pt)}] ()} }  \\
+\BS{tikz}[blue,circuit ee IEC]
+\BS{draw} (0,0) to [resistor=\AC{xxx\blll{=\AC{info=abc}}}] (3,0);
+}
+\\ \hline 
+\tikzset{circuit declare annotation={xxx}{1cm}
+{ (-.5,.5) edge[to path={--(0pt,2pt) -- (8pt,8pt)}] ()} }
+
+
+\tikz[circuit ee IEC]
+\draw (0,0) to [resistor={xxx={info=abc}}] (3,0);
+&  
+\parbox[b]{12cm}{
+\BS{tikzset}\{circuit declare annotation=\AC{xxx}\{\rouge{1cm} \} \} \\
+\hspace{1cm}  \AC{ (-0.5,0.5) edge[to path=\AC{- -(0pt,2pt) - - (8pt,8pt)}] ()} \}  \\
+\BS{tikz}[blue,circuit ee IEC]
+\BS{draw} (0,0) to [resistor=\AC{xxx\blll{=\AC{info=abc}}}] (3,0);
+}
+\\ \hline 
+\end{tabular}
+
+
+\bigskip
+%47.2.6 Theming Symbols
+
+\begin{tabular}{|c|}\hline 
+\textbf{ \TFRGB{Style des symboles}{Theming Symbols
+}}\\
+ \RRR{47-2-6} 
+ 
+\\  \hline 
+\BS{draw}[\RDD{circuit symbol lines/.style}=\AC{draw,red,very thick}] (0,0) \\to [capacitor=\AC{near start},resistor,
+make contact=\AC{near end}] (5,0);
+\\ \hline  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox  (-1,-1) rectangle (6,1);
+\draw[circuit symbol lines/.style={draw,red,very thick}] (0,0) to [capacitor={near start},resistor,
+make contact={near end}] (5,0);
+\end{tikzpicture}
+ \\ \hline 
+
+\hline  
+\BS{draw}[\RDD{circuit symbol wires/.style}=\AC{draw,red,very thick}] (0,0) \\to [capacitor=\AC{near start},resistor,
+make contact=\AC{near end}] (5,0);
+\\ \hline  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox  (-1,-1) rectangle (6,1);
+\draw[circuit symbol wires/.style={draw,red,very thick}] (0,0) to [capacitor={near start},resistor,
+make contact={near end}] (5,0);
+\end{tikzpicture}
+ \\ \hline 
+
+\hline  
+\BS{draw}[\RDD{circuit symbol open/.style}=\AC{thick,draw,red,fill=yellow}] (0,0) \\to [capacitor=\AC{near start},resistor,
+make contact=\AC{near end}] (5,0);
+\\ \hline  
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox  (-1,-1) rectangle (6,1);
+\draw[circuit symbol open/.style={thick,draw,red,fill=yellow}] (0,0) to [capacitor={near start},resistor,
+make contact={near end}] (5,0);
+\end{tikzpicture}
+ \\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|l|}{\BS{tikz}[blue,circuit ee IEC,\RDD{every info/.style}=red] }\\
+\multicolumn{2}{|l|}{\BS{draw} (0,0) to[resistor=\AC{info=\AC{\$3\BS{Omega}\$},info'=\AC{\$R\_1\$}}] (3,0) }\\
+\multicolumn{2}{|l|}{to[resistor=\AC{info=\{\$4\BS{Omega}\$\},info'=\AC{\$R\_2\$}}] (3,2); }\\ 
+\hline  
+ 
+\tikz[blue,circuit ee IEC,every info/.style=red]
+\draw (0,0) to[resistor={info={$3\Omega$},info'={$R_1$}}] (3,0)
+to[resistor={info={$4\Omega$},info'={$R_2$}}] (3,2);
+
+&  
+\tikz[blue,circuit ee IEC,every info/.style={font=\tiny}]
+\draw (0,0) to[resistor={info={$3\Omega$},info'={$R_1$}}] (3,0)
+to[resistor={info={$4\Omega$},info'={$R_2$}}] (3,2);
+\\ \hline  
+\RDD{every info/.style}=red
+&  
+\RDD{every info/.style}=\AC{font=\BS{tiny}}
+\\ \hline 
+\end{tabular} 
+
+
+
+
+
+\bigskip
+%\subsection{Example}
+
+\SbSSCT{Exemple}{Example}
+
+\begin{tabular}{|c|c|} \hline
+\multicolumn{2}{|c|}{ \textbf{\TFRGB{3 méthodes pour le même schéma}{3 methods for the same circuit}}  }
+\\ \hline 
+\begin{tikzpicture}[blue,circuit ee IEC,baseline=0pt]
+\useasboundingbox (-1,-1) rectangle (3,3); 
+\draw (0,0) to [voltage source={direction info={->,volt=10}}]  (0,2)   to [resistor={info=center:$3 k\Omega$}] (2,2)   to [diode=light emitting]  ( 2,0)  to [make contact]  (0,0);
+\end{tikzpicture}
+&
+\parbox[b]{10cm}{
+\BS{begin}\AC{tikzpicture}[blue,circuit ee IEC] \\ 
+\BS{draw} (0,0) \\
+to [voltage source=\AC{direction info=\AC{->,volt=10}}]  (0,2) \\ 
+to [resistor=\AC{info=center:\$3 k\BS{Omega}\$}] (2,2) \\ 
+to [diode=light emitting]  ( 2,0) \\ 
+to [make contact]  (0,0); \\
+\BS{end}\AC{tikzpicture}
+
+}
+\\   \hline
+\begin{tikzpicture}[blue,circuit ee IEC,baseline=0pt]
+\useasboundingbox  (-1,-1) rectangle (3,3); 
+\draw (0,0) to [voltage source={direction info={->,volt=10}}]  ++(up:2)   
+to [resistor={info=center:$ 3 k\Omega$}] ++(right:2)  
+ to [diode=light emitting]  ++(down:2)  
+ to [make contact]  ++(left:2) ;
+%\node at (0,1) [volt=10,point up] {};
+%\node at (1,2) [ohm=10k] {}; 
+\end{tikzpicture}
+&
+\parbox[b]{10cm}{
+\BS{begin}\AC{tikzpicture}[blue,circuit ee IEC] \\ 
+\BS{draw} (0,0) to [voltage source=\AC{direction info=\AC{->,volt=10}}] ++(up:2) \\ 
+to [resistor=\AC{info=center:\$ 3 k\BS{Omega}\$}] ++(right:2) \\ 
+to [diode=light emitting]  ++(down:2) \\ 
+to [make contact]  ++(left:2) ; \\
+%\BS{node} at (0,1) [volt=10,point up] \AC{}; \\
+%\BS{node} at (1,2) [ohm=10k] \AC{}; \\
+\BS{end}\AC{tikzpicture}
+
+}
+\\   \hline
+\begin{tikzpicture}[blue,circuit ee IEC]
+\useasboundingbox  (-1,-1) rectangle (3,3); 
+\node (A) at (0,1) [voltage source,point up,volt=10]{} ;
+\node  (B) at (1,2) [resistor,ohm=10k] {};
+\node(C) at (2,1)  [diode=light emitting,point down] {} ;
+\node (D) at  ( 1,0)   [make contact]  {}; 
+\draw (A) |- (B) -| (C) |- (D) -|  (A); 
+\end{tikzpicture}
+&
+\parbox[b]{10cm}{
+\BS{begin}\AC{tikzpicture}[blue,circuit ee IEC] \\
+\BS{node} (A) at (0,1) [voltage source,point up,volt=10]\AC{}; \\
+\BS{node} (B) at (1,2) [resistor,ohm=10k] \AC{}; \\
+\BS{node} (C) at (2,1)  [diode=light emitting,point down] \AC{} ; \\
+\BS{node} (D) at  ( 1,0)   [make contact]  \AC{}; \\
+\BS{draw} (A) |- (B) -| (C) |- (D) -|  (A); \\
+\BS{end}\AC{tikzpicture}
+}
+\\   \hline
+\end{tabular}
+ 
+
+
+
+
+
+
+
+
+

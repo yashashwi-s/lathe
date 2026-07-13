@@ -1,0 +1,239 @@
+\documentclass[a4paper]{article}
+
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{parskip}[=v1]
+\usepackage{titlesec}
+\usepackage{imakeidx}
+\makeindex[title=Author Index,intoc,options=-q]
+\usepackage{hyperref}
+\usepackage[style=sbl,indexing=cite,ibidtracker=constrict,idemtracker=citation]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\setromanfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}[
+  BoldItalicFont={* Bold},
+  BoldItalicFeatures={FakeSlant=0.2}
+]
+
+\titleformat{\paragraph}
+{\normalfont\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+{\normalfont\sffamily\small\scshape}{\thesubparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{2ex plus 1ex minus 0.2ex}{0.5ex}
+\titlespacing*{\subparagraph}{0pt}{1ex plus 0.2ex}{0em}
+
+\titleclass{\subsubparagraph}{straight}[\subparagraph]
+\titleformat{\subsubparagraph}{\normalfont\ttfamily\small}{}{1em}{}
+\titlespacing*{\subsubparagraph}{0pt}{0pt}{0pt}
+
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.25ex}
+
+\definecolor{biblatex-colour}{rgb}{0.25,0.25,0.65}
+\definecolor{reference-colour}{rgb}{0,0.6,0.15}
+
+\ExplSyntaxOn
+\NewDocumentCommand \samplemacro { m }
+  {
+    \subsubparagraph*{#1}
+  }
+\NewDocumentCommand \sblrefsamplecite { s m m m o o m }
+  {
+    \IfNoValueTF { #5 }
+      {
+        \IfNoValueT { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}{#7}
+          }
+      }
+      {
+        \IfNoValueTF { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5]\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}[#5]{#7}
+          }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5][#6]\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}[#5][#6]{#7}
+          }
+      }
+  }
+\NewDocumentCommand \samplecite { s m o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      {
+        \sblrefsamplecite{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \sampleparencite { s o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      {
+        \sblrefsamplecite{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \samplebib { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbibliography}
+      }
+    \color{biblatex-colour}
+    \rmfamily\hangindent\bibindent\bibentrycite{#2}.\par
+    \color{black}
+  }
+\NewDocumentCommand \samplebiblist { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbiblist\{abbreviations\}}
+      }
+    \color{biblatex-colour}
+    \biblistcite{#2}
+    \color{black}
+  }
+\NewDocumentCommand \refbiblist { m m }
+  {
+    \color{reference-colour}
+    \strut\rmfamily\hangindent 6em\rlap{#1}\hskip 6em #2\par
+    \color{black}
+  }
+\ExplSyntaxOff
+
+\newenvironment{biboutput}{%
+  \subparagraph{Biblatex Output}
+}{\color{black}}
+
+\newenvironment{refimp}{%
+  \subparagraph{Reference Implementation}
+  \color{reference-colour}
+  \rm
+}{\par\color{black}}
+
+\title{Biblatex-SBL \emph{ibidem} and \emph{idem} Test File}
+\author{David Purton}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+This file tests the behaviour of the various options related to using
+\emph{ibidem} and \emph{idem} in Biblatex-SBL. By default neither
+\emph{ibidem} nor \emph{idem} are used.\footnote{See
+\url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.} When referencing
+multiple works by the same author within a footnote, subsequent references use
+only the family name of the author.\footnote{See
+\url{https://sblhs2.com/2016/10/11/placement-citations-traditional/}.} This
+corresponds to the \verb|biblatex| option \verb|idemtracker=sbl|.
+
+\section*{Using \emph{ibidem}}
+
+By default ibid.\@ is not used across page breaks and \emph{ibidem} is taken
+to mean ‘same author + same title + same page’.\footnote{See
+\url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}.} See
+\texttt{biblatex-sbl.pdf} for a description of the options
+\texttt{ibidtracker} can take. It is recommended to use
+\verb|ibidtracker=constrict| for SBL compliance.
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict]\{biblatex\}}
+  \samplecite{1}[127]{talbert:1992}
+  \samplecite{2}[22]{talbert:1992}
+  \samplecite{3}[22]{talbert:1992}
+  \samplecite{4}[237]{robinson+koester:1971}
+  \samplecite{5}[22]{talbert:1992}
+  \samplemacro{\textbackslash clearpage}
+  \clearpage
+  \samplecite{6}[22]{talbert:1992}
+\end{biboutput}
+
+\section*{Using \emph{ibidem} across pages}
+
+Set the \texttt{pagetracker} option to \texttt{false} to allow the first
+citation on a page to be ibid. 
+
+\boolfalse{pagetracker}
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,pagetracker=false]\{biblatex\}}
+  \samplecite{7}[53]{scott+etal:1993}
+  \samplecite{8}[42]{scott+etal:1993}
+  \samplemacro{\textbackslash clearpage}
+  \clearpage
+  \samplecite{9}[42]{scott+etal:1993}
+\end{biboutput}
+
+\section*{\emph{Ibidem} meaning ‘same author + same title’}
+
+Turn off the \texttt{ibidpage} option to indicate that \emph{ibidem} should
+mean ‘same author + same title’.
+
+\makeatletter
+\blx@opt@loccittracker@false
+\makeatother
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,ibidpage=false]\{biblatex\}}
+  \samplecite{10}[28]{egger:1996}
+  \samplecite{11}[28]{egger:1996}
+  \samplecite{12}[291]{egger:1996}
+\end{biboutput}
+
+\section*{Using \emph{idem}}
+
+By default \emph{idem} is not used. Rather only the family name of the author
+is given for subsequent references when works by the same author are cited
+within a single footnote. \emph{Idem} tracking is controlled using
+the \texttt{idemtracker} option. See \texttt{biblatex-sbl.pdf} for a
+description of the options \texttt{idemtracker} can take. To comply with SBL
+style, \verb|idemtracker=citation| should be used.\footnote{See
+\url{https://sblhs2.com/2017/01/10/idem/}.}
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,idemtracker=citation]\{biblatex\}}
+  \samplemacro{\textbackslash autocites[35]\{vanseters:1997\}\{vanseters:1995\}}
+  \color{biblatex-colour}
+  \hspace*{\bibindent}13.~\cites[35]{vanseters:1997}{vanseters:1995}.
+  \color{black}
+  \samplemacro{\textbackslash
+  autocites[35]\{vanseters:1997\}[222]\{vanseters:1995\}}
+  \color{biblatex-colour}
+  \hspace*{\bibindent}14.~\cites[35]{vanseters:1997}[222]{vanseters:1995}.
+  \color{black}
+  \samplecite{15}[35]{vanseters:1997}
+\end{biboutput}
+
+\printbibliography
+
+\printindex
+
+\end{document}

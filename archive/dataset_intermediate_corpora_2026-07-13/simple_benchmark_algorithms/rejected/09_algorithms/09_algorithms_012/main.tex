@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 12}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[!ht]
+\caption{Integer Linear Programming for 3d Subroutine of 4d Sieve}
+\begin{algorithmic}
+\Require
+\State \hspace{5mm}Boundary $[-B,B[\times[-B,B[\times[-B,B[\times[-B,B[$,
+\State Plane $P$ defined by $u=(u_1,u_2,u_3,u_4),v=(v_1,v_2,v_3,v_4),R=(x,y,z,t)$
+\State \hspace{5mm} such that $R \in P$, but $R$ not necessarily in boundary.
+\Ensure
+\State \hspace{5mm}$(a,b)$ such that $p_0 = R + a\cdot u + b\cdot v$ contained in
+both $P$ and boundary.
+\Procedure{}{}
+\vspace{1mm}
+\State $U \gets \{ u_1,u_2,u_3,u_4,-u_1,-u_2,-u_3,-u_4 \}^T$
+\State $V \gets \{ v_1,v_2,v_3,v_4,-v_1,-v_2,-v_3,-v_3 \}^T$
+\State $C \gets \{ B-x-1,B-y-1,B-z-1,B-t-1,B+x,B+y,B+z,B_t \}^T$
+\State $L \gets \lvert \text{LCM}\left(u_1,u_2,u_3,u_4\right) \rvert$
+\State Normalize system - multiply all entries by $L$, divide $U_i,V_i,C_i$ by original $\lvert U_i \rvert$
+\State $a \gets B, b \gets B$
+\For {all pairs of rows $(i,j)$}
+\If {$U_i = 0$ and $V_i > 0$}
+\State $b_{_{TRIAL}} = \left\lfloor C_i / V_i \right\rfloor$
+\State if $b_{_{TRIAL}} < b$ then $b \gets b_{_{TRIAL}}$
+\Else
+\If {$U_i < 0$ and $U_j > 0$ and $\lvert i - j \rvert \neq 4$ }
+\State $D \gets V_i + V_j$
+\If {$D > 0$}
+\State $b_{_{TRIAL}} = \left\lfloor \left(C_i + C_j\right)/D \right\rfloor$
+\State if $b_{_{TRIAL}} < b$ then $b \gets b_{_{TRIAL}}$
+\EndIf
+\EndIf
+\EndIf
+\EndFor
+\State for the best value of $b$, compute $a$ by back substitution.
+\State Return $(a,b)$
+\State\EndProcedure
+\end{algorithmic}\end{algorithm}
+\end{algorithm}
+\end{document}

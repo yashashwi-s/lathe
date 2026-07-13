@@ -1,0 +1,84 @@
+%
+% File:         allbasic.tex
+% Date:         Wed May 14 23:45:39 1997
+% Author:       Norbert Preining (norbert)      
+%
+\documentclass{article}
+\usepackage{otibet}
+\usepackage{multicol,a4}
+\def\mm#1{#1:\texttb{#1a.}:\texttb{#1e.}:\texttb{#1i.}:%
+  \texttb{#1o.}:\texttb{#1u.}\\}
+\def\mmm#1{\mam #1,|,}
+\def\mam#1,{%
+  \ifx#1|
+    \let\next\relax
+  \else
+    \mm{#1}
+    \let\next\mam
+  \fi
+  \next}  
+\begin{document}
+\begin{center} {\Large All basic glyphs of classical tibetan}
+\end{center}
+
+\baselineskip=16pt
+\begin{multicols}{2}
+main:\\
+\mmm{k,kh,g,ng,c,ch,j,ny,t,th,d,n,p,ph,b,m}
+\mmm{ts,tsh,dz,w,zh,zh,z,',y,r,l,sh,s,h,}
+
+sub wa:\\
+\mmm{kw,khw,gw,cw,nyw,tw,dw,tsw,tshw,zhw,zw}
+\mmm{rw,lw,shw,sw,hw,grw}
+
+sub ya:\\
+\mmm{ky,khy,gy,py,phy,by,my}
+
+sub ra:\\
+\mmm{kr,khr,gr,tr,thr,dr,pr,phr,br,mr,shr,sr,hr}
+
+sub la:\\
+\mmm{kl,gl,bl,zl,rl,sl}
+
+super ra:\\
+\mmm{rk,rg,rng,rj,rny,rt,rd,rn,rb,rm,rts,rdz}
+
+super la:\\
+\mmm{lk,lg,lng,lc,lj,lt,ld,lp,lb,lh}
+
+super sa:\\
+\mmm{sk,sg,sng,sny,st,sd,sn,sp,sb,sm,sts}
+
+super ra + lig:\\
+\mmm{rky,rgy,rmy}
+
+super sa + lig:\\
+\mmm{sky,sgy,spy,sby,smy,skr,sgr,spr,sbr,smr,snr}
+
+prä ga:\\
+\mmm{gc,gny,gt,gd,gn,gzh,gz,{g}y,gsh,gs,gts}
+
+prä da:\\
+\mmm{dk,dg,dng,dp,db,dm,dky,dgy,dpy,dby,dmy,dkr,dgr,dpr,dbr}
+
+prä ba:\\
+\mmm{bk,bg,bc,bt,bd,bzh,bz,bsh,bs,bky,bgy,bkr,bgr}
+\mmm{bkl,bzl,brl,bsl,brk,brg,brng,brj,brny,brt,brd}
+\mmm{brn,brts,brdz,blt,bsk,bsg,bsng,bsny,bst,bsd,bsn,bsts}
+\mmm{brky,brgy,bsky,bsgr,bskr,bsgr}
+
+prä ma:\\
+\mmm{mkh,mg,mng,mch,mj,mny,mth,md,mn,mtsh,mdz}
+\mmm{mkhy,mgy,mkhr,mgr}
+
+prä 'a:\\
+\mmm{'kh,'g,'ch,'j,'th,'d,'ph,'b,'tsh,'dz}
+\mmm{'khy,'gy,'phy,'by,'khr,'gr,'thr,'dr,'phr,'br}
+\end{multicols}
+\end{document}
+
+
+% Local Variables: 
+% mode: latex
+% TeX-master: t
+% End: 

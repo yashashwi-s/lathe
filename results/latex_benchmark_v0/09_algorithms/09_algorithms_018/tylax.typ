@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "Algorithmic Pseudocode Sample 18",
+  author: "Source-backed Image2Struct algorithm sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Algorithmic Pseudocode Sample 18]
+
+  #text(size: 1.2em)[Source-backed Image2Struct algorithm sample]
+
+]
+
+           /* \maketitle */
+== Algorithm
+ This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+ #block(width: 100%, stroke: 1pt, inset: 10pt)[
+  #text(weight: "bold")[Algorithm]
+
+```
+[htbp] \caption{Source-backed algorithmic procedure} algorithmic[1] \Statex \textbf{Inputs:} $s,i,d,a,r,e,v,h$, daily vaccinations \Statex \textbf{Output:} {$\vec{\beta}_{uu}, \vec{\beta}_{vu}, \vec{\beta}_{vv}$, $\vec{\beta}_{uv}$} \Statex \textbf{Initialization:} $n=7$ or $n= 14$ \For{each time step $j$} \State Select window $z_{j}=\{j-n+1,...,j\}$ \State Initialize parameters $\beta_{uu}$, $\beta_{vu}$, $\beta_{vv}$, $\beta_{uv}$ \State Calculate the initial cost $C_{j}(n,i,d,\hat{i}_{j},\hat{d}_{j})$ \State$flag=0$ \While{$flag=0$} \State Create the trial parameters set $P_{k}$ \State Calculate a cost using every parameter from $P_{k}$ set \State Find the minimum of all costs $C_{j}'(n,i,d,\hat{i}_{j},\hat{d}_{j})$ \If{$C_{j}'(n,i,d,\hat{i}_{j},\hat{d}_{j}) < C_{j}(n,i,d,\hat{i}_{j},\hat{d}_{j})$} \State$C_{j}(n,i,d,\hat{i}_{j},\hat{d}_{j}) = C_{j}'(n,i,d,\hat{i}_{j},\hat{d}_{j})$ \State Keep the modified infection rate and create new set of trial parameters $P_{k}'$ \Else \State$flag=1$ \State{$\vec{\beta}_{uu}(j)=\beta_{uu}$} \State{$\vec{\beta}_{vu}(j) =\beta_{vu}$} \State{$\vec{\beta}_{vv}(j)=\beta_{vv}$} \State{$\vec{\beta}_{uv}(j)=\beta_{uv}$} \EndIf \EndWhile \EndFor algorithmic 
+```
+]
+

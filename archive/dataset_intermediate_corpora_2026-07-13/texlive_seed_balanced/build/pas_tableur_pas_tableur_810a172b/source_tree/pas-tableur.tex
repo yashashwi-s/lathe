@@ -1,0 +1,470 @@
+\documentclass[a4paper,french]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel} 
+\usepackage{etex}
+\usepackage{fourier}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{cellspace}
+	\setlength{\cellspacetoplimit}{4pt}
+	\setlength{\cellspacebottomlimit}{4pt}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{pas-tableur}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+	\tcbuselibrary{skins}
+	\tcbuselibrary{theorems}
+	\tcbuselibrary{breakable}	
+\usepackage{listings}
+% ----------------------
+
+\usetikzlibrary{arrows}
+
+\setlength{\parindent}{0pt}
+
+\input{doc.codes.tex}
+\input{doc.styles.tex}
+
+\begin{document}
+
+\begin{center}
+\begin{tcolorbox}[head]
+{\bfseries\LARGE Documentation \texttt{pas-tableur} }\\[3mm]
+{\large Version 2.06 -- \today}
+\end{tcolorbox}
+
+{\large 
+\href{http://www.mathweb.fr/contact.html}{St\'ephane Pasquet}}
+
+{\small\emph{Thanks to \textbf{Susumu Tanimura} for his contribution to the improvement of this package}}
+
+{\small\emph{Thanks to \textbf{Emiel van Miltenburg}  for his contribution to the improvement of this package with the \textbackslash multimultiSelect macro.}}
+\end{center}
+
+\begin{tcolorbox}[toc]
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\end{tcolorbox}
+
+\section{Introduction et installation}
+
+L'extension \texttt{pas-tableur.sty} a pour but d'imiter l'apparence des tableurs.
+
+Il ne permet en aucun cas d'effectuer des calculs type tableur.
+
+\medskip
+
+Pour cette version 2 de l'extension, j'ai souhait\'e utiliser une syntaxe dans le fichier sty plus intuitive et plus pratique pour effectuer d'autres op\'erations par rapport \`a la version 1.
+
+\medskip
+
+Cette extension charge automatiquement les extensions suivantes :
+
+\medskip
+
+\begin{quote}
+tikz (avec la librairie : calc) \\
+xkeyval\\
+xstring
+\end{quote}
+
+\newpage
+
+On pourra d\'ecompresser \texttt{pas-tableur.zip} 
+de sorte \`a avoir :
+
+\begin{itemize}
+\item Sous Ubuntu :
+
+\begin{verbatim}
+./texlive/texmf-local/tex/latex/pas-tableur/pas-tableur.sty
+./texlive/texmf-local/doc/latex/pas-tableur/pas-tableur.tex
+./texlive/texmf-local/doc/latex/pas-tableur/pas-tableur.pdf
+./texlive/texmf-local/doc/latex/pas-tableur/doc.codes.tex
+./texlive/texmf-local/doc/latex/pas-tableur/doc.styles.tex
+\end{verbatim}
+
+\item Sous Windows :
+
+\begin{verbatim}
+C:\texmf\latex\pas-tableur\pas-tableur.sty
+C:\texmf\doc\pas-tableur\pas-tableur.tex
+C:\texmf\doc\pas-tableur\pas-tableur.pdf
+C:\texmf\doc\pas-tableur\doc.codes.tex
+C:\texmf\doc\pas-tableur\doc.styles.tex
+\end{verbatim}
+\end{itemize}
+
+\medskip
+
+Apr\`es installation, n'oubliez pas de taper la commande \texttt{texhash} dans le terminal pour mettre \`a jour la base de donn\'ees des extensions.
+
+\bigskip 
+
+Sous Mac OS, j'imagine que l'arborescence ressemble \`a ce qui est \'ecrit pr\'ec\'edemment.
+
+
+\section{\textbackslash tableur et \textbackslash tableur* : construire un tableur}
+
+Pour cr\'eer un tableur, il faudra se mettre dans un environnement \texttt{tikzpicture} et utiliser la commande \textbackslash tableur ou sa version \'etoil\'ee.
+
+\subsection{\textbackslash tableur}
+
+\begin{tcblisting}{codeTEX}
+\begin{tikzpicture}
+\tableur[<nombre de lignes>]{<colonnes>}
+\end{tikzpicture}
+\end{tcblisting}
+
+\bigskip
+
+L'argument \og colonnes \fg{} peut se pr\'esenter de deux fa\c cons diff\'erentes :
+
+\bigskip
+
+\begin{tcblisting}{listing,title=Exemple 1}
+\begin{tikzpicture}
+\tableur[2]{A,B,C}
+\end{tikzpicture}
+\end{tcblisting}
+
+\bigskip
+
+\begin{tcblisting}{listing,title=Exemple 2}
+\begin{tikzpicture}
+\tableur[2]{A-D}
+\end{tikzpicture}
+\end{tcblisting}
+
+\bigskip
+
+Pour cette macro, les valeurs par d\'efaut sont :
+
+\medskip
+
+\begin{itemize}
+\item la hauteur de chaque ligne : 1.57em ;
+\item la largeur de chaque colonne : 7em ;
+\item la largeur de la 1\iere{} colonne (contenant le num\'eros des lignes) : 3em ;
+\item le nombre de lignes : si l'option entre crochets n'est pas inform\'ee, il y aura 1 ligne.
+\end{itemize}
+
+\medskip
+
+Pour changer ces valeurs par d\'efaut, on utilisera les commandes :
+
+\medskip
+
+\begin{tcblisting}{codeTEX}
+\tabcolwidth{2cm} % pour que chaque colonne ait une largeur de 2 cm
+\tabnumlinewidth{1cm} % pour que la 1\`ere colonne fasse 1 cm de large
+\tablineheight{15mm} % pour que chaque ligne ait une hauteur de 15 mm
+\end{tcblisting}
+
+\paragraph*{Attention :} il faut imp\'erativement mettre l'unit\'e (cm, mm, em, ex ou pt).
+
+\subsection{\textbackslash tableur*}
+
+La version \'etoil\'ee de \textbackslash\texttt{tableur} permet de construire un tableur dont les colonnes n'ont pas les m\^emes dimensions.
+
+
+\begin{tcblisting}{listing}
+\begin{tikzpicture}
+\tableur*[2]{A/2cm,B/4cm,C/1cm,D/3cm}
+\end{tikzpicture}
+\end{tcblisting}
+
+\newpage
+
+\subsection{Les noms de colonnes}
+
+Les colonnes peuvent porter n'importe quelle lettre majuscule de l'alphabet latin :
+
+ABCDEFGHIJKLMNOPKRSTUVWXYZ.
+
+On ne peut pas nommer les colonnes par \og AA \fg{} par exemple.
+
+\medskip
+
+Quant aux lignes, elles commencent toujours par \og 1 \fg.
+
+
+\subsection{Les couleurs par d\'efaut}
+
+Deux couleurs sont utilis\'ees pour les cases \og en-t-\^etes \fg{} :
+
+\medskip
+
+\begin{tcblisting}{codeTEX}
+\definecolor{grayTopCell}{cmyk}{0.08,0.05,0.06,0}
+\definecolor{grayBottomCell}{cmyk}{0.1,0.07,0.08,0}
+\end{tcblisting}
+
+\medskip
+
+Pour les changer, vous pouvez les red\'efinir apr\`es avoir appel\'e \texttt{pas-tableur}.
+
+\medskip
+
+Le gris de s\'eparation des cellules est, quant \`a lui, d\'efini par :
+
+\medskip
+
+\begin{tcblisting}{codeTEX}
+\definecolor{graySepCell}{cmyk}{0.29,0.21,0.21,0}
+\end{tcblisting}
+
+\subsection{La police de caract\`ere des en-t\^ete}
+
+\begin{tcblisting}{codeTEX}
+\newcommand{\helvbx}{\usefont{T1}{phv}{m}{n}}
+\end{tcblisting}
+
+\medskip
+
+Ainsi, si vous souhaitez ins\'erer le nom d'une cellule dans votre document, vous pouvez utiliser la syntaxe suivante :
+
+\medskip
+
+\begin{tcblisting}{listing}
+Dans la cellule {\helvbx A3}, nous 
+avons ins\'er\'e la formule...
+\end{tcblisting}
+
+
+\subsection{Nomination des cellules}
+
+Toujours dans un logique de simplifier la r\'edaction des documents, j'ai souhait\'e nommer chaque cellule de fa\c con intuitive.
+
+Ainsi, la cellule {\helvbx A1} est nomm\'ee : cellA-1.
+
+Cette pr\'ecision est utile lorsque l'on souhaite ajouter des fl\`eches vers certaines cellules comme dans l'exemple suivant :
+
+\medskip
+
+\begin{tcblisting}{listing}
+\begin{tikzpicture}
+\tableur[3]{A-D}
+\draw[<-,>=latex'] (cellB-2.center) to[bend right=30] ($(cellB-2)+(2,-1.7)$) 
+node[right] {C'est la cellule {\helvbx B2}};
+\end{tikzpicture}
+\end{tcblisting}
+
+\section{\textbackslash celtxt et \textbackslash celtxt* : ins\'erer du texte dans une cellule}
+
+
+\begin{tcblisting}{codeTEX}
+% Ins\'erer une formule ou un texte
+\celtxt[<options>}{<colonne>}{<ligne>}{<texte>}
+% Ins\'erer un texte en mode math\'ematiques ou non
+\celtxt*[<options>}{<colonne>}{<ligne>}{<texte>}
+\end{tcblisting}
+
+\medskip
+
+\begin{tabularx}{\linewidth}{|>{\ttfamily\arraybackslash}Sc|X|}
+\hline\rowcolor{gray!25}
+\multicolumn{2}{|Sl|}{Les options}\\
+\hline
+align=center & pour centrer le texte\\
+\hline
+align=left & pour positionner le texte \`a gauche (par d\'efaut)\\
+\hline
+align=right & pour positionner le texte \`a droite\\
+\hline
+ajust & si l'on souhaite ajuster le texte correctement sur plusieurs lignes \\
+\hline
+width= & pour sp\'ecifier la largeur de la colonne dans le cas o\`u nous avons utilis\'e la commande \texttt{\textbackslash tableur*}. Par d\'efaut,la largeur est 7em (largeur par d\'efaut de chaque colonne)\\
+\hline
+color= & couleur du texte. Par d\'efaut, la couleur est noire\\
+\hline
+font= & formate le texte\\
+\hline
+\end{tabularx}
+
+\medskip
+
+Le texte peut \^etre format\'e de deux fa\c cons diff\'erentes selon qu'il d\'esigne une formule ou un texte normal, comme le montre l'exemple suivant :
+
+\bigskip
+
+\begin{tcblisting}{listing,title=Exemple 1}
+\begin{tikzpicture}
+\tableur[2]{M-O}
+\celtxt[align=right,font=\scriptsize]{N}{2}{Du texte ici}
+\celtxt{M}{1}{=B1^2}
+\end{tikzpicture}
+\end{tcblisting}
+
+\medskip
+
+\begin{tcblisting}{listing,title=Exemple 2}
+\begin{tikzpicture}
+\tableur*[2]{M/13mm,N/3cm}
+\celtxt[width=13mm]{M}{1}{=B1^2}
+\celtxt[align=right,width=3cm]{N}{2}
+{Du texte ici}
+\end{tikzpicture}
+\end{tcblisting}
+
+\paragraph*{Nouveaut\'e du 18/06/2016 :} on peut d\'esormais \'ecrire un texte sur plusieurs lignes dans une cellule.
+
+Le texte tient sur plusieurs lignes automatiquement s'il d\'eborde de la cellule. En revanche, si vous souhaitez aller \`a la ligne manuellement (avec les \textbackslash\textbackslash), il faudra ajouter \`a la commande l'option \emph{ajust} :
+\begin{center}
+\texttt{\textbackslash celtxt[ajust]\{Un texte ici\textbackslash\textbackslash et ici\}}
+\end{center}
+
+\subsection{Mode math\'ematique dans une cellule}
+
+G\'en\'eration des premiers termes de la suite d\'efinie par $\left\{\begin{array}{l}
+u_0=5\\
+u_{n+1}=au_n+0,1
+\end{array}
+\right.$ o\`u $a$ est une valeur mise dans la cellule {\helvbx{
+C1}}.
+
+\begin{tcblisting}{listing,title=\'Ecrire en mode math\'ematique}
+\begin{tikzpicture}
+\tableur*[3]{A/2cm,B/3cm,C/2cm}
+\celtxt*[align=center]{A}{1}{$n$}
+\celtxt*[align=center]{B}{1}{$u_n$}
+\celtxt[align=center]{C}{1}{0.85}
+\celtxt[align=center]{A}{2}{0}
+\celtxt[align=center]{B}{2}{5}
+\celtxt{A}{3}{=A2+1}
+\celtxt{B}{3}{=$C$1*B2+0.1}
+\end{tikzpicture}
+\end{tcblisting}
+
+\section{S\'election de cellules}
+
+\subsection{\textbackslash selecCell : s\'election d'une cellule}
+
+\begin{tcblisting}{codeTEX}
+\selecCell{<colonne>}{<ligne>}
+\end{tcblisting}
+
+\medskip
+
+Permet de simuler le cas o\`u une cellule est s\'electionn\'ee, comme le montre l'exemple suivant :
+
+\medskip
+
+\begin{tcblisting}{listing}
+\begin{tikzpicture}
+\tableur[2]{M-O}
+\selecCell{N}{2}
+\end{tikzpicture}
+\end{tcblisting}
+
+\newpage
+
+\subsection{\textbackslash multiSelec : s\'election de plusieurs colonnes}
+
+Voyons un exemple pour comprendre la syntaxe :
+
+\medskip
+
+\begin{tcblisting}{listing}
+\begin{tikzpicture}
+\tableur[3]{M-O}
+\multiSelec{N-2}{O-3}
+\end{tikzpicture}
+\end{tcblisting}
+
+\subsection{\textbackslash multimultiSelec : pour visualiser l'\'etirement}
+
+\begin{tcblisting}{listing}
+\sffamily
+\begin{tikzpicture}
+\begin{scope}[shift={(0,0)}]
+\tableur*[7]{A/1cm, B/1cm}
+\celtxt[width=1cm,align=right]{A}{1}{1}
+\celtxt[width=1cm,align=right]{A}{2}{2}
+\celtxt[width=1cm,align=right]{A}{3}{3}
+\multimultiSelec{A-1}{A-3}{A-6}
+\end{scope}
+
+\node at (2,-2) {\Large $\Rightarrow$};
+ 
+\begin{scope}[shift={(4,0)}]
+\tableur*[7]{A/1cm, B/1cm}
+\celtxt[width=1cm,align=right]{A}{1}{1}
+\celtxt[width=1cm,align=right]{A}{2}{2}
+\celtxt[width=1cm,align=right]{A}{3}{3}
+\celtxt[width=1cm,align=right]{A}{4}{4}
+\celtxt[width=1cm,align=right]{A}{5}{5}
+\celtxt[width=1cm,align=right]{A}{6}{6}
+\end{scope}
+\end{tikzpicture}
+\end{tcblisting}
+
+
+\subsection{Les couleurs par d\'efaut}
+
+\begin{tcblisting}{codeTEX}
+% Pour les en-tetes
+\definecolor{blueSelecCellTop}{cmyk}{0.52,0.17,0,0}
+\definecolor{blueSelecCellBottom}{cmyk}{0.75,0.34,0,0}
+
+% Pour les cellules s\'electionn\'ees
+\definecolor{blueSelec}{cmyk}{0.23,0.06,0,0}
+\end{tcblisting}
+
+\medskip
+
+\`A noter qu'une opacit\'e de 50\,\% est appliqu\'ee pour les cellules s\'electionn\'ees (afin de voir les traits de s\'eparation des cellules).
+
+\section{R\'esum\'e des commandes \`a travers des exemples}
+
+\begin{tabularx}{\linewidth}{|Sl|X|}
+\hline
+\texttt{\textbackslash tableur[3]\{A-F\}} & Trace un tableur sur 3 lignes, avec les colonnes A, B, C, D, E, F.
+\\
+\hline
+\texttt{\textbackslash tableur[2]\{A,B,C\}} & Trace un tableur sur 2 lignes, avec les colonnes A, B, C.\\
+\hline
+\texttt{\textbackslash tableur*[3]\{A/2cm,B/5cm\}} & Trace un tableur sur 3 lignes, avec des colonnes A et B de largeur diff\'erente.\\
+\hline
+\texttt{\textbackslash celtxt[align=center]\{A\}\{1\}\{=B2*2\}} & Affiche la formule \og =B2*2 \fg{} dans la cellule A1 centr\'ee horizontalement.\\
+\hline
+\texttt{\textbackslash celtxt[color=red]\{A\}\{1\}\{=B2*2\}} & Affiche en rouge la formule \og =B2*2 \fg{} dans la cellule A1.\\
+\hline
+\texttt{\textbackslash celtxt[width=5cm]\{A\}\{1\}\{=B2*2\}} & Affiche la formule \og =B2*2 \fg{} dans la cellule A1, de largeur 5 cm.\\
+\hline
+\texttt{\textbackslash celtxt*[align=right]\{A\}\{1\}\{\verb+$+u\verb+_+n\verb+$+\}} & Affiche \og $u_n$ \fg{} dans la cellule A1, align\'e \`a droite.\\
+\hline
+\texttt{\textbackslash selecCell\{A\}\{1\}} & Dessine un cadre autour de la cellule A1.\\
+\hline
+\texttt{\textbackslash multiSelec\{A-1\}\{C-2\}} & Simule la s\'election des cellules allant de A1 \`a C2.\\
+\hline
+\texttt{\textbackslash multimultiSelec\{A-1\}\{A-3\}\{A-6\}} & Simule l'étirement des cellules allant de A1 \`a A3 jusqu'à A6.\\
+\hline
+\texttt{\{\textbackslash helvbx A1\}} & Affiche : \helvbx{A1}.\\
+\hline
+\end{tabularx}
+
+\newpage
+\section{Implantation}
+
+\lstset{%
+numbers=left,
+numberstyle=\tiny,
+tabsize=2,
+stepnumber=5,
+numbersep=5pt,
+language=TeX,
+breaklines=true,
+basicstyle=\small,%
+keywordstyle=\color{red!50!black},%
+identifierstyle=, %
+commentstyle=\color{gray},%
+stringstyle=\ttfamily,%
+showstringspaces=true,
+morekeywords={newcommand,definecolor,RequirePackage, usetikzlibrary,fill,node,draw,tikzstyle,StrChar,StrBetween, foreach,IfSubStr,StrBefore,StrBehind,StrLen,IfBeginWith,makebox, dimexpr,StrGobbleLeft,setlength}}
+
+\lstinputlisting{pas-tableur.sty}
+
+\end{document}

@@ -1,0 +1,70 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage[ngerman]{babel}
+
+\ifPDFTeX
+  \def\myquestiontext{ \underline{Pangramm} :}
+  \def\pangramme{\glqq Fix, Schwyz!\grqq, qu\"akt J\"urgen bl\"od vom Pa\ss.}
+  \def\pangrammeother{Wie schon Carl-Friedrich Gau\ss\ %
+  sagte: \glqq Nicht alles \"Uble in \"Osterreich ist 
+  \"osterreichischer Herkunft -- aber manches, was als \glq 
+  \"ubel\grq\ empfunden wird, k\"onnte durch entsprechende 
+  \"Anderungen zum Guten ver\"andert werden\grqq.}
+  \def\myfeedback{}
+\else % assuming XELATEX or LUALATEX
+  \def\myquestiontext{ \underline{Pangramm} :}
+  \def\pangramme{„Fix, Schwyz!“, quäkt Jürgen blöd vom Paß.}
+  \def\pangrammeother{Wie schon Carl-Friedrich Gauß sagte: 
+  „Nicht alles Üble in Österreich ist österreichischer 
+  Herkunft – aber manches, was als ‚übel‘ empfunden wird, 
+  könnte durch entsprechende Änderungen zum Guten verändert 
+  werden“.}
+  \def\myfeedback{Wie schon Carl-Friedrich Gau\ss\ %
+  sagte: \glqq Nicht alles \"Uble in \"Osterreich ist 
+  \"osterreichischer Herkunft -- aber manches, was als \glq 
+  \"ubel\grq\ empfunden wird, k\"onnte durch entsprechende 
+  \"Anderungen zum Guten ver\"andert werden\grqq.}
+\fi
+\htmlregister{\myquestiontext}
+\htmlregister{\pangramme}
+\htmlregister{\pangrammeother}
+\htmlregister{\myfeedback}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the \texttt{babel} package 
+with option \texttt{ngerman} that might cause problems during compilation, due 
+to the special meaning given to \verb|"|.
+
+\begin{quiz}[points=1]{German Issues}
+\shorthandoff{"}%preserves pdftex compilation and fixes the use of \" for 
+%other engines
+\begin{multi}[feedback={}]{Test German}
+\myquestiontext
+\item[feedback={\myfeedback}]* \pangramme
+\item \pangrammeother
+\end{multi}
+
+\ifTUTeX
+  \shorthandon{"} % This time we use " as an active character for Umlauts
+  \begin{description}{Additionnal test}
+    Wie schon Carl-Friedrich Gau\ss\ %
+    sagte: \glqq Nicht alles "Uble in "Osterreich ist 
+    "osterreichischer Herkunft -- aber manches, was als \glq 
+    "ubel\grq\ empfunden wird, k"onnte durch entsprechende 
+    "Anderungen zum Guten ver"andert werden\grqq.
+  \end{description}
+\fi
+
+\end{quiz}
+\end{document}

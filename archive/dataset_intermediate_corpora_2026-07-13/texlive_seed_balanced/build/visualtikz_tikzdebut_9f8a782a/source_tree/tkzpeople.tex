@@ -1,0 +1,533 @@
+\SbSSCT{Le peuple TikZ}{Tikzpeople}
+
+\label{people}
+
+ \maboite{\BS{usepackage}\AC{tikzpeople} \cite {tikzpeople} \footnote{ conflit \BS{usetikzlibrary}\AC{patterns} page \pageref{lib-patterns} : placer cette commande en premier} }
+
+\bigskip
+\begin{tabular}{|c|c|}\hline  
+\BS{tikz} \BS{node}[\RDD{alice}] at (0,0) {};  &  \tikz \node[alice] at (0,0) {};\\ 
+\hline 
+\end{tabular} 
+ 
+\SbSbSSCT{Personages disponibles}{available characters}
+
+\noindent
+
+
+
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline 
+\multicolumn{7}{|c|}{ \BS{tikz} \BS{node}[\RDD{alice},minimum size=1.5cm] at (0,0) {};  }
+\\ \hline  
+\tikz \node[alice,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bob,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bride,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[builder,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[charlie,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[chef,minimum size=1.5cm] at (0,0) {}; 
+\\  \hline  
+\RDD{alice} & \RDD{bob} & \RDD{bride} & \RDD{builder} & \RDD{businessman} & \RDD{charlie}  & \RDD{chef} 
+\\  \hline  
+\tikz \node[conductor,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[criminal,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[dave,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[graduate,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[groom,minimum size=1.5cm] at (0,0) {}; & 
+\tikz \node[guard,minimum size=1.5cm] at (0,0) {}; 
+\\ \hline  
+\RDD{conductor} & \RDD{cowboy} & \RDD{criminal} & \RDD{dave} & \RDD{graduate} & \RDD{groom} & \RDD{guard} 
+\\ \hline  
+\tikz \node[jester,minimum size=1.5cm] at (0,0) {}; &  
+%\tikz \node[judge,minimum size=1.5cm] at (0,0) {}; 
+&  
+\tikz \node[mexican,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nun,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nurse,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[physician,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[pilot,minimum size=1.5cm] at (0,0) {};\\ \hline  
+\RDD{jester} &  \RDD{judge} &  \RDD{mexican}  & \RDD{nun} &  \RDD{nurse} & \RDD{physician} 
+&  \RDD{pilot}
+\\ \hline  
+
+\tikz \node[police,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[priest,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[sailor,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[santa,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[surgeon,minimum size=1.5cm] at (0,0) {};&  &  \\ 
+\hline \RDD{police} & \RDD{priest}  & \RDD{sailor} & \RDD{santa} & \RDD{surgeon} &  &  \\ 
+\hline 
+\end{tabular} 
+
+\subsubsection{Options}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[businessman,\RDD{evil},minimum size=1.5cm] at (0,0) {};  }
+\\ \hline  
+\tikz \node[businessman,evil,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,female,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,good,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,mirrored,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,monitor,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{evil} & \RDD{female} & \RDD{good} & \RDD{mirrored} & \RDD{monitor}
+
+\\  \hline 
+\end{tabular}
+
+\SbSbSSCT{Point d'ancrage spécifique}{Anchor specific}
+
+\noindent
+
+\begin{tabular}{|c|c|} \hline  
+\begin{tikzpicture}[baseline=0pt,blue]
+ \node[name=a,shape=bob,minimum
+size=1.5cm] {};
+ \node at (1.25,.5) [ellipse callout, draw,
+callout absolute pointer={(a.mouth)},
+font=\tiny] {Hey!};
+\end{tikzpicture}
+&  
+\parbox{12cm}{
+\BS{begin}\AC{tikzpicture}[blue] \\
+\BS{node}[name=a,shape=bob,minimum size=1.5cm] \AC{};\\
+\BS{node} at (1.25,.5) [ellipse callout, draw,
+callout absolute pointer\AC{(a.\RDD{mouth})},
+font=\BS{tiny}] {Hey!};\\
+\BS{end}\AC{tikzpicture} \\
+}
+\\ \hline 
+\end{tabular} 
+
+
+\SbSbSSCT{Couleurs }{Colors}
+
+\noindent
+
+
+\begin{tabular}{|c|c|c|c|}\hline
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{alice},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline    
+\tikz \node[alice,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[alice,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[alice,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[alice,undershirt=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{details}=red 
+
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|}\hline 
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{bob},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline   
+\tikz \node[bob,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bob,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bob,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bob,details=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{details}=red 
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline 
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{bride},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline    
+\tikz \node[bride,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bride,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bride,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[bride,pearls=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[bride,veil=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{pearls}=red & \RDD{veil}=red 
+
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{builder},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline    
+\tikz \node[builder,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[builder,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[builder,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[builder,trousers=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[builder,hat=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{trousers}=red & \RDD{hat}=red   
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{businessman},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline    
+\tikz \node[businessman,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[businessman,tie=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[businessman,undershirt=red,minimum size=1.5cm] at (0,0) {};  &
+\tikz \node[businessman,monogram=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{tie}=red & \RDD{undershirt}=red & \RDD{monogram}=red 
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|}\hline
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{charlie},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline    
+\tikz \node[charlie,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[charlie,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[charlie,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[charlie,buttons=red,minimum size=1.5cm] at (0,0) {}; 
+
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{buttons}=red 
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{chef},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[chef,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[chef,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[chef,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[chef,hat=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[chef,details=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red & \RDD{details}=red 
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{conductor},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[conductor,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[conductor,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[conductor,shirt=red,minimum size=1.5cm] at (0,0) {}; &  \tikz \node[conductor,hat=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[conductor,hatshield=red,minimum size=1.5cm] at (0,0) {};  
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red & \RDD{hatshield}=red  
+\\  \hline 
+\tikz \node[conductor,undershirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[conductor,tie=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[conductor,hatbadge=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[conductor,badge=red,minimum size=1.5cm] at (0,0) {}; &
+\\  \hline 
+\RDD{undershirt}=red &  \RDD{shirt}=red & \RDD{hatbadge}=red & \RDD{badge}=red &
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|}\hline
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{cowboy},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[cowboy,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,shirt=green,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,hat=red,minimum size=1.5cm] at (0,0) {};   
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=green & \RDD{hat}=red 
+\\  \hline 
+\tikz \node[cowboy,patches=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,tie=green ,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[cowboy,stitching=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[cowboy,vest=red,minimum size=1.5cm] at (0,0) {}; 
+\\  \hline 
+\RDD{patches}=red &  \RDD{tie}=green & \RDD{stitching}=red & \RDD{vest}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|}\hline 
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{criminal},\RDD{hat}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[criminal,hat=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[criminal,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[criminal,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[criminal,details=red,minimum size=1.5cm] at (0,0) {}; 
+\\  \hline
+\RDD{hat}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{details}=red 
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{dave},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[dave,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[dave,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[dave,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[dave,undershirt=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[dave,tie=green,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{undershirt}=green & \RDD{tie}=green
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{graduate},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[graduate,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[graduate,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[graduate,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[graduate,undershirt=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[graduate,stripes=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[graduate,hat=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{undershirt}=red & \RDD{stripes}=red & \RDD{hat}=red
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{groom},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[groom,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[groom,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[groom,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[groom,undershirt=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[groom,tie=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[groom,hat=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{undershirt}=green & \RDD{tie}=green & \RDD{hat}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline 
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{guard},\RDD{hat}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz\node[guard,hat=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[guard,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[guard,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[guard,collar=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[guard,lining=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[guard,details=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hat}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{collar}=red & \RDD{lining}=red & \RDD{details}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{jester},\RDD{hat}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[jester,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[jester,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[jester,shirt=yellow,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[jester,hat=red,minimum size=1.5cm] at (0,0) {}; &
+%\tikz \node[jester,pattern=yellow,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[jester,details=blue,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=yellow & \RDD{hat}=red & \RDD{pattern}=yellow \footnote{voir confit} & \RDD{details}=blue
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{judge},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+%\tikz \node[judge,hair=red,minimum size=1.5cm] at (0,0) {}; 
+&  
+%\tikz \node[judge,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+%\tikz \node[judge,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+%\tikz \node[judge,undershirt=red,minimum size=1.5cm] at (0,0) {}; &
+%\tikz \node[judge,hairshadow=red,minimum size=1.5cm] at (0,0) {};
+
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{undershirt}=red & \RDD{hairshadow}=red 
+\\  \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+\multicolumn{7}{|c|}{ \BS{tikz} \BS{node}[\blll{mexican},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[mexican,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[mexican,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[mexican,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[mexican,hat=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[mexican,ringtop=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[mexican,ringmid=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[mexican,ringbot=yellow,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=green & \RDD{ringtop}=red &\RDD{ringmid}=red & \RDD{ringbot}=yellow
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{ \BS{tikz} \BS{node}[\blll{nun},\RDD{plaid}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[nun,plaid=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nun,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nun,shirt=red,minimum size=1.5cm] at (0,0) {}; 
+\\  \hline
+\RDD{plaid}=red & \RDD{skin}=red & \RDD{shirt}=red 
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline 
+\multicolumn{7}{|c|}{ \BS{tikz} \BS{node}[\blll{nurse},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[nurse,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nurse,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nurse,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[nurse,badgeclip=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[nurse,redcross=green,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[nurse,badge=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[nurse,badgename=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{badgeclip}=green & \RDD{redcross}=green & \RDD{badge}=red &  \RDD{badgename}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{physician},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[physician,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[physician,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[physician,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[physician,hat=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[physician,stethoscope=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[physician,tube=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red & \RDD{stethoscope}=red &   \RDD{tube}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+\multicolumn{7}{|c|}{ \BS{tikz} \BS{node}[\blll{pilot},\RDD{hat}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[pilot,hat=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[pilot,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[pilot,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[pilot,undershirt=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[pilot,visor=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[pilot,straps=red,minimum size=1.5cm] at (0,0) {}; &
+%\tikz \node[pilot,decoration=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hat}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{undershirt}=red & \RDD{visor}=red & \RDD{straps}=red & \RDD{decoration}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|}\hline
+\multicolumn{4}{|c|}{ \BS{tikz} \BS{node}[\blll{police},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline 
+\tikz \node[police,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[police,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[police,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[police,hat=red,minimum size=1.5cm] at (0,0) {};   
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red
+\\  \hline
+\tikz \node[police,badge=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[police,hatbadge=red ,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[police,hatshield=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[police,undershirt=red,minimum size=1.5cm] at (0,0) {}; 
+\\  \hline 
+\RDD{badge}=red &  \RDD{hatbadge}=red & \RDD{hatshield}=red & \RDD{undershirt}=red
+\\  \hline 
+\end{tabular}
+
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+\multicolumn{6}{|c|}{ \BS{tikz} \BS{node}[\blll{priest},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[priest,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[priest,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[priest,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[priest,hat=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[priest,collar=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[priest,cross=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red & \RDD{collar}=red &   \RDD{cross}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline 
+\multicolumn{7}{|c|}{ \BS{tikz} \BS{node}[\blll{sailor},\RDD{hair}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[sailor,hair=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[sailor,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[sailor,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[sailor,hat=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[sailor,undershirt=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[sailor,stripes=red,minimum size=1.5cm] at (0,0) {};
+&
+\tikz \node[sailor,details=red,minimum size=1.5cm] at (0,0) {};
+\\  \hline
+\RDD{hair}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hat}=red & \RDD{undershirt}=red & \RDD{stripes}=red &  \RDD{details}=red
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline 
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{santa},\RDD{hat}=green,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[santa,hat=green,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[santa,skin=green,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[santa,shirt=green,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[santa,beard=green,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[santa,details=green,minimum size=1.5cm] at (0,0) {};
+
+\\  \hline
+\RDD{hat}=green & \RDD{skin}=green& \RDD{shirt}=green & \RDD{beard}=green & \RDD{details}=green 
+\\  \hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|}\hline 
+\multicolumn{5}{|c|}{ \BS{tikz} \BS{node}[\blll{surgeon},\RDD{hat}=red,minimum size=1.5cm] at (0,0) {};  }
+\\ \hline
+\tikz \node[surgeon,hat=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[surgeon,skin=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[surgeon,shirt=red,minimum size=1.5cm] at (0,0) {}; &  
+\tikz \node[surgeon,hair=red,minimum size=1.5cm] at (0,0) {}; &
+\tikz \node[surgeon,mask=red,minimum size=1.5cm] at (0,0) {};
+
+\\  \hline
+\RDD{hat}=red & \RDD{skin}=red & \RDD{shirt}=red & \RDD{hair}=red & \RDD{mask}=red 
+\\  \hline 
+\end{tabular}
+

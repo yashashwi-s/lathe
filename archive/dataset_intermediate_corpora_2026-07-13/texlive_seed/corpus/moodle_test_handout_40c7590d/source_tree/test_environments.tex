@@ -1,0 +1,58 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\renewcommand\theenumiii{\arabic{enumiii}}% third level
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of some \LaTeX\ environments for 
+conversion to HTML.
+
+\begin{quiz}[points=1]{LaTeX Environments}
+\begin{multi}{LaTeX Environments}
+\begin{center}
+\textsc{This is a question}
+\end{center}
+\begin{quote}
+and this is a quote
+\end{quote}
+
+Select the numbered list
+\item[feedback={yes}]* \begin{enumerate}
+         \item C
+         \item D
+         \begin{itemize}
+           \item S
+           \item T
+           \item U
+          \end{itemize}  
+       \end{enumerate}
+\item[feedback={Example of numbered list:\\\begin{enumerate}
+\item first item
+\item second item
+\end{enumerate}
+}] \begin{itemize}
+         \item E
+         \begin{enumerate}
+         \item X
+         \item Y
+         \item Z
+         \end{enumerate}
+         \item F
+      \end{itemize}
+\item \begin{quotation}
+this is a quotation.
+\end{quotation}
+\end{multi}
+\end{quiz}
+\end{document}

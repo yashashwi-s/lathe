@@ -1,0 +1,21 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_010/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_010/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{rl}{\cal L} =& \frac{1}{g^2}\int \left( -\frac{1}{4} F_{mn} F^{mn} + \frac{1}{2}D_m\Phi^{ab} D^m \Phi_{ab} +\frac{1}{4} \{\Phi^{ab},\Phi^{cd}\}_* \{\Phi_{ab},\Phi_{cd}\}_*\right.+\\&\left. + i \lambda_a \sigma^m D_m\bar{\lambda}^a +i\{\lambda_a,\lambda_b\}_* \Phi^{ab}+i\{\bar\lambda^a,\bar\lambda^b\}_* \Phi_{ab}\right)\,.\end{array}
+  \end{align*}, rendering as TeX:
+  in{array}{rl}{\cal L} =& \frac{1}{g^2}\i
+                     ^
+  unexpected control sequence \cal
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  &\Big\|\sum_{|j|>\ell} \sum_{Q\in Q^j}w(Q) \psi_{j}(x,x_{Q})q_{j}h(x_{Q})\Big\|_{\dot{\mathcal F}^{\alpha,q}_{p,{\rm D}}} \\&=C\Big\|\Big\{\sum_{k\in \mathbb Z}\sum_{Q\in Q^k} \Big({\mathfrak R}^{k\alpha}\Big|q_k\Big(\sum_{|j|>\ell} \sum_{Q\in Q^j}w(Q) \psi_{j}(\cdot,x_{Q})q_{j}h(x_{Q})\Big)(x_Q)\Big|\Big)^q\chi_Q\Big\}^{1/q}\Big\|_{L^p_\omega},
+  \end{align*}, rendering as TeX:
+  q_{j}h(x_{Q})\Big\|_{\dot{\mathcal F}^{\
+                     ^
+  unexpected "_"
+  expecting "&", "\\\\", white space or "\\end"
+
+
+TYPST COMPILE LOG:

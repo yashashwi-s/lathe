@@ -1,0 +1,1380 @@
+% Manual of the schulmathematik bundle
+% Version 1.7.1
+% 28. Juni 2025
+\documentclass{scrartcl}
+\usepackage[babelshorthands]{polyglossia}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage[ohne-icomma]{schulma}
+\usepackage{schulma-physik}
+\usepackage{chemmacros}
+\usepackage{tasks}
+\usepackage{beamerarticle}
+\usepackage{unicode-math}
+\usepackage{icomma}
+\usepackage{hvextern}
+
+\makeatletter
+\let\example\@undefined
+\let\endexample\@undefined
+\makeatother
+
+\usepackage{cnltx-example}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,
+  linkcolor=black,
+  bookmarksnumbered=true,
+  pdfencoding=auto,
+  pdftitle={Das Paket SCHULMATHEMATIK},
+  pdfsubject={Anleitung zum Paket SCHULMATHEMATIK},
+  pdfkeywords={latex schulmathematik schulma},
+  pdfauthor={K. Wehr}]{hyperref}
+
+\setmainlanguage{german}
+
+\addbibresource{dtk-bibliography.bib}
+\renewcommand\labelnamepunct{\addcolon\space}
+
+\setkeys{hv}{force=true}
+
+\makeatletter
+% tasks: j überspringen
+\newcommand*\@schulmaalph[1]{\ifnum #1>9 \@alph{\numexpr #1+1}\else \@alph{#1}\fi}
+\newcommand*\schulmaalph[1]{\@schulmaalph{\value{#1}}}
+
+\settasks{label-align=right,
+  item-indent=2.2em,
+  label-offset=0.5em,
+  label-width=1.3em,
+  label=\schulmaalph*),
+  after-skip=4.5pt plus2pt minus1pt}
+\makeatother
+
+\ExplSyntaxOn
+
+\cs_new_protected:Npn \schulma_ab_kreis:n #1
+  {
+    \tikz [ baseline = (Zahl.base) ]
+      {
+        \node [ shape=circle, fill=black!60, minimum~width=5.5mm, inner~sep=0pt ]
+          (Zahl) { \textcolor {white} { \small \sffamily #1 } } ;
+      }
+  }
+
+\NewDocumentEnvironment {Kreisliste} { }
+  {
+    \begin {enumerate} [ label=\schulma_ab_kreis:n {\arabic*},
+      labelsep=0.8em, leftmargin=1.2cm ]
+  }
+  {
+    \end {enumerate}
+  }
+
+\tl_new:N \l_schulma_ab_aufgabentitel_tl
+\tl_set:Nn \l_schulma_ab_aufgabentitel_tl {Aufgabe}
+
+\NewDocumentCommand \Aufgabentitel {m}
+  {
+    \tl_set:Nn \l_schulma_ab_aufgabentitel_tl {#1}
+  }
+
+\newcounter {Aufgabe}
+
+\newlength \Aufgabenabstand
+\setlength \Aufgabenabstand {24pt plus12pt minus8pt}
+
+\NewDocumentEnvironment {Aufgaben} { }
+  {
+    \begin {list} { }
+      {
+        \setlength \leftmargin {0pt}
+        \setlength \partopsep {0pt}
+        \setlength \topsep {0.75\Aufgabenabstand}
+        \setlength \itemsep {\Aufgabenabstand}
+      }
+    % innerhalb der Liste Originalwert verwenden
+    \setlength \topsep {9pt plus3pt minus5pt}
+  }
+  {
+    \end {list}
+  }
+
+% #1 (Stern): ohne Punkt
+\NewDocumentCommand \Aufgabe {s}
+  {
+    \item
+    \stepcounter {Aufgabe}
+    \group_begin:
+    \sffamily \bfseries
+    \l_schulma_ab_aufgabentitel_tl
+    \c_space_tl
+    \arabic {Aufgabe}
+    \IfBooleanF {#1} {.~}
+    \group_end:
+  }
+
+% #1 (Stern): ohne Punkt
+\NewDocumentCommand \Uebung {s}
+  {
+    \group_begin:
+    \tl_set:Nn \l_schulma_ab_aufgabentitel_tl {\"Ubung}
+    \IfBooleanTF {#1} { \Aufgabe* } { \Aufgabe }
+    \group_end:
+  }
+
+\newcounter {Teilaufgabe} [Aufgabe]
+
+\newlength \Teilaufgabenabstand
+\setlength \Teilaufgabenabstand {4.5pt plus2pt minus1pt}
+
+\NewDocumentEnvironment {Teilaufgaben} { }
+  {
+    \renewcommand \labelenumi { ( \roman {enumi} ) }
+
+    \begin {list} { \stepcounter {Teilaufgabe} \alph {Teilaufgabe} ) }
+      {
+        \setlength \topsep {\Teilaufgabenabstand}
+        \setlength \itemsep {\Teilaufgabenabstand}
+      }
+  }
+  {
+    \end {list}
+  }
+
+\NewDocumentCommand \Luecke {m}
+  {
+    \raisebox {-1,5mm} { \rule {#1} {0,4pt} }
+  }
+
+\newcommand <> \Unterklammer [2]
+  {
+    \onslide #3
+    \underbrace { \onslide <1-> #1 \onslide #3 } \sb {#2}
+    \onslide <1->
+  }
+
+\int_new:N \l_schulma_praes_folie_int
+
+\NewDocumentCommand \Produktregel {m m m m m}
+  {
+    \int_set:Nn \l_schulma_praes_folie_int {#1}
+    \colorlet {l_schulma_praes_hauptfarbe} {.}
+    \onslide < \l_schulma_praes_folie_int - >
+      {
+        \int_incr:N \l_schulma_praes_folie_int
+        \color {red}
+        \underbrace { \onslide < \l_schulma_praes_folie_int - > { \color {l_schulma_praes_hauptfarbe} #2 } }
+        \sb {u'}
+        \color {l_schulma_praes_hauptfarbe} \cdot
+        \int_incr:N \l_schulma_praes_folie_int
+        \color {red}
+        \underbrace { \onslide < \l_schulma_praes_folie_int - > { \color {l_schulma_praes_hauptfarbe} #3 } }
+        \sb { v \mathstrut }
+        \color {l_schulma_praes_hauptfarbe} +
+        \int_incr:N \l_schulma_praes_folie_int
+        \color {red}
+        \underbrace { \onslide < \l_schulma_praes_folie_int - > { \color {l_schulma_praes_hauptfarbe} #4 } }
+        \sb {u \mathstrut }
+        \color {l_schulma_praes_hauptfarbe} \cdot
+        \int_incr:N \l_schulma_praes_folie_int
+        \color {red}
+        \underbrace { \onslide < \l_schulma_praes_folie_int - > { \color {l_schulma_praes_hauptfarbe} #5 } }
+        \sb {v'}
+        \color {l_schulma_praes_hauptfarbe}
+      }
+  }
+
+\ExplSyntaxOff
+
+\definecolor{drot}{rgb}{0.7,0,0}
+\definecolor{braun}{rgb}{0.5,0.1,0.1}
+\definecolor{dorange}{rgb}{0.9,0.35,0}
+\definecolor{dgruen}{rgb}{0,0.4,0}
+\definecolor{dblau}{rgb}{0,0,0.6}
+\definecolor{violett}{rgb}{0.4,0,0.9}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand \AutorVorname { }
+  {
+    Keno
+  }
+
+\NewDocumentCommand \AutorNachname {s}
+  {
+    \IfBooleanTF{#1}{w}{W}
+    ehr
+  }
+
+\NewDocumentCommand \AutorEMailDomain { }
+  {
+    abgol
+  }
+
+\NewDocumentCommand \Paket {m}
+  {
+    \textcolor {dgruen} { \textsf {#1} }
+  }
+
+\NewDocumentCommand \Klasse {m}
+  {
+    \textcolor {dblau} { \textsf {#1} }
+  }
+
+\NewDocumentCommand \Option {m}
+  {
+    \textcolor {braun} { \texttt {#1} }
+  }
+
+\NewDocumentCommand \Befehl {m}
+  {
+    \textcolor {dorange} { \texttt { \textbackslash #1 } }
+  }
+
+\NewDocumentCommand \Umgebung {m}
+  {
+    \textcolor {dorange} { \texttt {#1} }
+  }
+
+\NewDocumentCommand \Knotentyp {m}
+  {
+    \textcolor {dorange} { \texttt {#1} }
+  }
+
+\NewDocumentCommand \Zaehler {m}
+  {
+    \textcolor {violett} { \texttt {#1} }
+  }
+
+\NewDocumentCommand \Laenge {m}
+  {
+    \textcolor {drot} { \texttt { \textbackslash #1 } }
+  }
+
+\NewDocumentEnvironment {Liste} { }
+  {
+    \begin{list}{ }
+      {
+        \setlength{\leftmargin}{1em}
+        \setlength{\itemindent}{-1em}
+        \setlength{\parsep}{0pt}
+        \setlength{\listparindent}{\parindent}
+        \setlength{\itemsep}{\topsep}
+      }
+  }
+  {
+    \end{list}
+  }
+
+\NewDocumentCommand \Optionsbeschreibung {m}
+  {
+    \item
+    \Option {#1}
+    \newline
+  }
+
+\NewDocumentCommand \Paketbeschreibung {mo}
+  {
+    \item
+    \Paket {#1}
+    \IfValueT {#2} { \c_space_tl #2 }
+    \newline
+  }
+
+\NewDocumentCommand \Umgebungsbeschreibung {mo}
+  {
+    \item
+    \group_begin:
+    \color {dorange}
+    \texttt { \textbackslash begin \{ #1 \} }
+    \group_end:
+    \IfValueT {#2} {#2}
+    \c_space_tl
+    \ldots
+    \c_space_tl
+    \group_begin:
+    \color {dorange}
+    \texttt { \textbackslash end \{ #1 \} }
+    \group_end:
+    \newline
+  }
+
+\NewDocumentCommand \Befehlsbeschreibung {mo}
+  {
+    \item
+    \group_begin:
+    \color {dorange}
+    \Befehl {#1}
+    \IfValueT {#2} {#2}
+    \group_end:
+    \newline
+  }
+
+\NewDocumentCommand \Knotentypbeschreibung {m}
+  {
+    \item
+    \Knotentyp {#1}
+    \newline
+  }
+
+\NewDocumentCommand \Zaehlerbeschreibung {m}
+  {
+    \item
+    \Zaehler {#1}
+    \newline
+  }
+
+\NewDocumentCommand \Laengenbeschreibung {m}
+  {
+    \item
+    \Laenge {#1}
+    \newline
+  }
+
+\NewDocumentCommand \Schaltbeispiel {m}
+  {
+    \begin {tikzpicture} [circuit~ee~IEC]
+    \draw (0,0) to [#1] (3,0);
+    \end {tikzpicture}
+  }
+
+\ExplSyntaxOff
+
+\newcommand\PaketbeschreibungSchulma{\Paketbeschreibung{schulma}
+Stellt Mathematikbefehle zur Verfügung wie in Abschnitt \ref{schulma} beschrieben.}
+
+\newcommand\PaketbeschreibungSchulmaPhysik{\Paketbeschreibung{schulma-physik}
+Stellt Physikbefehle zur Verfügung wie in Abschnitt \ref{schulma-physik} beschrieben.}
+
+\NewDocumentCommand\LsgBeschreibungA{O{}}{Innerhalb dieser Umgebung kann die
+  Lösung einer Aufgabe oder Teilaufgabe eingegeben werden. Sie erscheint nur in
+  der Musterlösung (d.\,h. bei Verwendung der Klassenoption
+  \Option{Musterloesung}#1).
+  \par
+  Die Befehle \Befehl{begin\{Lsg\}} und \Befehl{end\{Lsg\}} müssen jeweils in
+  einer eigenen Zeile stehen und dürfen nicht eingerückt werden. Dies ist eine
+  Restriktion des Pakets \Paket{comment}.}
+
+\newcommand\LsgBeschreibungB{Falls die Lösung mit einer eingerückten Formel
+  beginnt, sollte die Sternvariante benutzt werden, um einen zu großen vertikalen
+  Abstand zwischen Aufgabe und Lösung zu vermeiden.}
+
+\begin{document}
+
+\begin{center}
+\Huge
+\bgroup
+\usefont{T1}{wela}{eb}{sl}
+Schulmathematik
+\egroup
+
+\smallskip
+\Large
+\LaTeX-Befehle und Dokumentenklassen\\ für die Schulmathematik und -physik
+
+\medskip
+\large
+Version 1.7.1
+
+\medskip
+\normalsize
+\today
+
+\vspace{2\bigskipamount}
+\large
+\textit{Paketautor}
+
+\smallskip
+\AutorVorname\ \AutorNachname\\
+\normalsize
+\texttt{\AutorNachname*@\AutorEMailDomain.de}
+
+\bigskip
+\large
+\textit{Fehlermeldungen}
+
+\smallskip
+\normalsize
+\url{https://codeberg.org/wehr/schulmathematik/issues}
+\end{center}
+
+\medskip
+\begin{abstract}
+The \emph{schulmathematik} bundle is intended for German-speaking teachers of mathematics and physics. The manual is only available in German.
+
+Das Bündelpaket \emph{Schulmathematik} stellt zwei \LaTeX-Pakete und sechs Dokumentenklassen für deutschsprachige Mathematik- und Physiklehrer zur Verfügung. Sie dienen der Erstellung von Arbeitsblättern, Bildschirmpräsentationen, Klausuren, Kompetenzlisten, Abiturgutachten und mündlichen Abiturprüfungsaufgaben.
+\end{abstract}
+
+\medskip
+\tableofcontents
+
+\newpage
+
+\section{Pakete}
+\subsection{Mathematikbefehle mit dem Paket \Paket{schulma}}
+\label{schulma}
+Das Paket \Paket{schulma} wird von den Dokumentenklassen \Klasse{schulma-ab}, \Klasse{schulma-klausur}, \Klasse{schulma-praes} und \Klasse{schulma-mdlprf} geladen. Bei Verwendung einer anderen Dokumentenklasse kann es manuell mit \verb:\usepackage{schulma}: geladen werden.
+
+\subsubsection*{Paketoptionen}
+\begin{Liste}
+\Optionsbeschreibung{ohne-icomma}
+Wenn diese Option gewählt wird, wird das Paket \Paket{icomma} nicht von \Paket{schulma} geladen. Dies ist nötig, falls das Paket \Paket{unicode-math} verwendet wird. Bei Bedarf kann \Paket{icomma} dann manuell \emph{nach} \Paket{unicode-math} geladen werden; in diesem Fall tritt keine Inkompatibilität auf.
+\end{Liste}
+
+\subsubsection*{Geladene Pakete und Bibliotheken}
+\begin{Liste}
+\Paketbeschreibung{mathtools}[mit der Option \Option{intlimits}]
+Das Paket stellt eine Reihe mathematischer Befehle bereit, insbesondere die Umgebungen für Gleichungen und Matrizen aus dem \Paket{amsmath}-Paket. Die Option \Option{intlimits} sorgt dafür, dass in eingerückten Formeln auch ohne den \verb:\limits:-Befehl Integralgrenzen unter und über das Integralzeichen statt daneben gesetzt werden.
+\Paketbeschreibung{autoaligne}
+Dieses Paket ermöglicht das Setzen von Gleichungssystemen.
+\Paketbeschreibung{icomma}
+Das Paket sorgt dafür, dass in mathematischen Formeln nach einem Komma kein Leerraum eingefügt wird. Dies ist nützlich für Dezimalbrüche. Wird das Komma innerhalb einer Formel als Aufzählungszeichen verwendet -- etwa in Funktionen mehrerer Variablen --, ist nach dem Komma ein Leerzeichen einzugeben.
+\begin{sidebyside}
+  $6,28$\\
+  $s(x, t)$
+\end{sidebyside}
+\Paketbeschreibung{pgfplots}
+Dies ist ein Paket zur Darstellung von Funktionsgraphen. Indirekt wird hierdurch auch das Paket \Paket{tikz} geladen, mit dem eine Vielfalt graphischer Darstellungen angefertigt werden kann.
+
+Für \Paket{pgfplots} werden einige Voreinstellungen vorgenommen:
+\begin{itemize}
+\item \verb:compat=newest:, um unter Verzicht auf Abwärtskompatibilität die neueste Variante des Pakets zu verwenden
+\item \verb:axis lines=middle:, um durch den Ursprung verlaufende Koordinatenachsen anstelle eines Kastens um das ganze Koordinatensystem zu verwenden
+\item \verb:/pgf/number format/use comma:, um alle Dezimalzahlen mit Dezimalkomma statt -punkt auszugeben,
+\item \verb:every axis/.append style={font=\small}:, um alle Beschriftungen, insbesondere die Beschriftung der Koordinatenachsen, in leicht verkleinerter Schrift anzuzeigen
+\item \verb:ticklabel style={font=\footnotesize,/pgf/number format/fixed,:\\\verb:/pgf/number format/set thousands separator={\,}}:, um die Skalen der Koordinatenachsen mit Zahlen in kleiner Schrift, möglichst ohne wissenschaftliche Zahlschreibweise und mit einem kleinen Leerzeichen als Tausendertrennzeichen zu beschriften
+\item \verb:tick style={thick}:, um deutlich sichtbare Skalenstriche zu erhalten
+\item \verb:scaled ticks=false:, um alle Skalenstriche -- ohne eine Zehnerpotenz auszulagern -- mit der vollständigen Zahl zu beschriften
+\item \verb:every axis plot/.append style={semithick}:, um Funktionsgraphen etwas dicker darzustellen
+\end{itemize}
+\Paketbeschreibung{shapes.misc}
+Diese TikZ-Bibliothek wird zur Definition des Knotentyps \Knotentyp{Kreuz} (s.\,u.) benötigt.
+\end{Liste}
+
+\subsubsection*{Befehle und Umgebungen}
+\begin{Liste}
+\Umgebungsbeschreibung{Kosy}[\oarg{Optionen}]
+Die Umgebung dient zur Darstellung von Funktionsgraphen in einem Koordinatensystem. Sie basiert auf der \texttt{axis}-Umgebung des Pakets \Paket{pgfplots}, an die die \meta{Optionen} weitergegeben werden. Details zu den verfügbaren Optionen und Zeichenbefehlen sind der \Paket{pgfplots}-Anleitung zu entnehmen.
+
+Folgende Optionen sind voreingestellt und können bei Bedarf überschrieben werden:
+\verb:xlabel={$x$}:,
+\verb:ylabel={$y$}:,
+\verb:minor tick num=1:,
+\verb:minor tick length=0pt:,
+\verb:grid=both:
+\begin{example}
+  \begin{Kosy}[xmin=-3.3,xmax=3.3,ymin=0,ymax=9.3,x=1cm,y=5mm,
+    ylabel={$f(x)$},hide obscured x ticks=false]
+  \addplot[smooth] {x^2};
+  \end{Kosy}
+\end{example}
+
+\Befehlsbeschreibung{LGS}[\marg{Gleichungen}]
+Mit diesem Befehl können Gleichungssysteme gesetzt werden. Er basiert auf dem Befehl \verb:\autoaligne: des gleichnamigen Pakets und kann sowohl innerhalb als auch außerhalb mathematischer Formeln verwendet werden. Die Gleichungssysteme werden in senkrechte Striche eingefasst. Details zur Syntax sind der \Paket{autoaligne}-Anleitung zu entnehmen.
+\begin{example}
+  \LGS{3\,x+2\,y=7\\{-4}\,x+10\,y=16}
+\end{example}
+\Befehlsbeschreibung{ehoch}[\marg{Exponent}]
+Mit diesem Befehl, der nur innerhalb mathematischer Formeln verwendet werden kann, werden e-Terme gesetzt. Er stellt sicher, dass das e als mathematische Konstante (eulersche Zahl) aufrecht und nicht kursiv dargestellt wird.
+\begin{sidebyside}
+  $3\cdot\ehoch{4x+2}$
+\end{sidebyside}
+\Befehlsbeschreibung{diff}[\marg{Variable}]
+Dient zur Darstellung von Differentialen. Der Buchstabe d wird dabei als Operator aufrecht und nicht kursiv gesetzt.
+\begin{sidebyside}
+  \[\int_0^2 x^2\,\diff{x}\]
+  \[\frac{\diff{f}}{\diff{x}}\]
+\end{sidebyside}
+\Befehlsbeschreibung{Pkt}[\oarg{Name}\marg{x}\marg{y}]
+Bezeichnet einen Punkt in der Zeichenebene. Der Befehl kann innerhalb und außerhalb mathematischer Formeln verwendet werden.
+\begin{sidebyside}
+  \Pkt[P]{3}{-4}\\
+  \Pkt{x}{f(x)}
+\end{sidebyside}
+\Befehlsbeschreibung{PktR}[\oarg{Name}\marg{x}\marg{y}\marg{z}]
+Bezeichnet einen Punkt im Raum. Der Befehl kann innerhalb und außerhalb mathematischer Formeln verwendet werden.
+\begin{sidebyside}
+  \PktR{2}{-1}{5}\\
+  \PktR[S_{xy}]{x}{y}{0}
+\end{sidebyside}
+\Befehlsbeschreibung{Vek}[\marg{x}\marg{y}\marg{z}]
+Dieser Befehl gibt einen Vektor im Raum mit seinen drei Komponenten an. Er kann innerhalb und außerhalb mathematischer Formeln verwendet werden.
+\begin{sidebyside}
+  \Vek{-8}{10}{7}
+\end{sidebyside}
+\Befehlsbeschreibung{VekBr}[\marg{x}\marg{y}\marg{z}]
+Für einen Vektor mit gemeinen Brüchen als Komponenten. Der Zeilenabstand wird hier vergrößert. Der Befehl kann innerhalb und außerhalb mathematischer Formeln verwendet werden.
+\begin{example}
+  \VekBr{\frac{3}{4}}{\frac{1}{2}}{\frac{11}{3}}
+\end{example}
+\Befehlsbeschreibung{GTRY}[\marg{Index}\oarg{Term}]
+Befehl zur Darstellung einer Funktionstermvariable eines grafikfähigen Taschenrechners.
+\begin{sidebyside}
+  \GTRY{1}[x^2-4]
+\end{sidebyside}
+\Befehlsbeschreibung{Rechenkaestchen}[\oarg{Kästchengröße}\marg{Breite}\marg{Höhe}]
+Gibt ein Raster mit Rechenkästchen aus. Die Standardgröße der Kästchen ist \qty{5}{\mm}.
+\begin{example}[pre-output={\raggedright}]
+  \Rechenkaestchen{12cm}{4cm}\\[1ex]
+  \Rechenkaestchen[7mm]{11.9cm}{3.5cm}
+\end{example}
+\Knotentypbeschreibung{Kreuz}
+Hierbei handelt es sich um einen TikZ-Knotentyp, der der Markierung von Punkten im Koordinatensystem dient. Voreingestellt ist eine Größe von \texttt{5pt} ($\approx\qty{1,8}{mm}$). Eine andere Größe kann mit Hilfe der TikZ-Option \texttt{minimum size} eingestellt werden.
+\begin{example}
+  \begin{Kosy}[xmin=0,xmax=5.3,ymin=0,ymax=4.3,x=1cm,y=1cm]
+  \node[Kreuz,label=above right:$A$] at (2,1) {};
+  \node[Kreuz,label=above right:\Pkt{3}{3,5}] at (3,3.5) {};
+  \node[Kreuz,minimum size=5mm] at (1.25,2.75) {};
+  \end{Kosy}
+\end{example}
+\end{Liste}
+
+\subsection{Physikbefehle mit dem Paket \Paket{schulma-physik}}
+\label{schulma-physik}
+Das Paket \Paket{schulma-physik} wird von den Dokumentenklassen \Klasse{schulma-ab}, \Klasse{schulma-klausur}, \Klasse{schulma-praes} und \Klasse{schulma-mdlprf} geladen. Bei Verwendung einer anderen Dokumentenklasse kann es manuell mit \verb:\usepackage{schulma-physik}: geladen werden.
+
+\subsubsection*{Paketoptionen}
+\begin{Liste}
+\Optionsbeschreibung{circuitikz}
+Wenn diese Option gewählt wird, wird das Paket \Paket{circuitikz} anstelle der hierzu inkompatiblen TikZ-Bibliothek \Paket{circuits.ee.IEC} geladen.
+\end{Liste}
+
+\subsubsection*{Geladene Pakete und Bibliotheken}
+\begin{Liste}
+\Paketbeschreibung{siunitx}[mit den Optionen \Option{locale=DE} und \Option{uncertainty-mode=separate}]\label{siunitx}%
+Das Paket erlaubt eine typographisch korrekte Darstellung physikalischer Größen und Einheiten. Die Option \Option{locale=DE} stellt sicher, dass ein Dezimalkomma anstelle eines Dezimalpunkts und in der wissenschaftlichen Schreibweise ein Multiplikationspunkt anstelle eines Kreuzes verwendet wird. Die Option \Option{uncertainty-mode=separate} sorgt für eine Ausgabe von Messungenauigkeiten in Plus-Minus-Schreibweise.
+
+Details zur Syntax und weitere Einstellungsmöglichkeiten sind der \Paket{siunitx}-Anleitung zu entnehmen.
+\begin{sidebyside}
+  \qty{37,5}{\N}\\
+  \qty{7,25e6}{\m\per\s}\\
+  \qty{6,34(53)e-34}{\J\s}
+\end{sidebyside}
+\Paketbeschreibung{tikz}
+Mit Hilfe dieses Pakets kann eine Vielfalt graphischer Darstellungen angefertigt werden.
+\Paketbeschreibung{circuits.ee.IEC}
+Diese TikZ-Bibliothek ermöglicht die Darstellung von Schaltbildern. Wenn die Paketoption \Option{circuitikz} gewählt wird, wird sie nicht geladen.
+\Paketbeschreibung{circuitikz}[mit den Optionen \Option{resistor=european} und \Option{inductor=american}]
+Das Paket stellt eine Alternative zur vorgenannten TikZ-Bibliothek dar und wird nur geladen, wenn die Paketoption \Option{circuitikz} gewählt wird.
+\end{Liste}
+
+\subsubsection*{Befehle}
+\begin{Liste}
+\Befehlsbeschreibung{Messschieber}[\Oarg{\choices{cm|inch|cm+inch}}\marg{Messwert}]
+Gibt die Skala eines Messschiebers (auch Schieblehre genannt) mit dem angegebenen \meta{Messwert} aus. Der Messwert ist mit Dezimalpunkt in Zentimetern ohne die Einheit anzugeben. Das optionale Argument legt die verwendete Skala fest; wenn keines angegeben ist, wird eine Zentimeterskala ausgegeben.
+\begin{example}[pre-output={\setlength\parindent{0pt}}]
+  \Messschieber{4.73}
+  \Messschieber[inch]{4.73}
+  \Messschieber[cm+inch]{4.73}
+\end{example}
+\Befehlsbeschreibung{Messschraube}[\marg{Messwert}]
+Gibt die Skala einer Messschraube (auch Mikrometerschraube genannt) mit dem angegebenen \meta{Messwert} aus. Der Messwert ist mit Dezimalpunkt in Millimetern ohne die Einheit anzugeben.
+\begin{sidebyside}
+  \Messschraube{6.18}
+\end{sidebyside}
+\Befehlsbeschreibung{Kraftmesser}[\marg{Messwert}\marg{Maximalausschlag}]
+Gibt einen Federkraftmesser mit dem angegebenen \meta{Messwert} (einzugeben mit Dezimalpunkt) und \meta{Maximalausschlag} (jeweils in Newton) aus. Der Maximalausschlag wird in 10 große und 100 kleine Skalenteile unterteilt. Er kann durch den Messwert auch moderat überschritten werden.
+\begin{sidebyside}
+  \Kraftmesser{3.4}{10}
+  \Kraftmesser{2.4}{5}
+\end{sidebyside}
+\Befehlsbeschreibung{Multimeter}[\marg{Messwert}\marg{Maximalausschlag}\marg{Maßeinheit}]
+Gibt die Skala eines Drehspulinstruments zur Spannungs- und Stromstärkemessung aus. Der \meta{Messwert} und der \meta{Maximalausschlag} sind mit Dezimalpunkt einzugeben. Für die \meta{Maßeinheit} gilt die \Paket{siunitx}-Syntax.
+\begin{sidebyside}
+  \Multimeter{3.75}{10}{V}
+  \Multimeter{243}{300}{\uA}
+\end{sidebyside}
+\Befehlsbeschreibung{Massstab}[\marg{Zahl 1}\marg{Einheit 1}\marg{Zahl 2}\marg{Einheit 2}]
+Dient zur Definition eines Maßstabs. Für Zahlenwerte und Einheiten gilt die Syntax des \Paket{siunitx}-Pakets.
+\begin{sidebyside}
+  \Massstab{1}{cm}{5}{N}
+\end{sidebyside}
+\Befehlsbeschreibung{tqty}[\marg{Zahl}\marg{Einheit}]
+Einheiten in Bruchschreibweise werden in eingerückten Formeln (\emph{displaystyle}) mit dem \verb:\qty:-Befehl aus dem Paket \Paket{siunitx} zu groß dargestellt. Der \Befehl{tqty}-Befehl stellt Einheiten immer als kleinen Bruch wie in nicht eingerückten Formeln (\emph{textstyle}) dar.
+\begin{example}
+  \[v=\frac{s}{t}=\qty[per-mode=fraction]{25}{\m\per\s}\]
+  \[v=\frac{s}{t}=\tqty{25}{\m\per\s}\]
+\end{example}
+\Befehlsbeschreibung{tunit}[\marg{Einheit}]
+Stellt eine Einheit in Bruchschreibweise als kleinen Bruch dar. Basiert auf dem \verb:\unit:-Befehl aus dem Paket \Paket{siunitx}.
+\begin{sidebyside}
+  \tunit{\N\per\cm}
+\end{sidebyside}
+\Befehlsbeschreibung{Beschl}[\marg{Zahl}]
+Gibt eine Beschleunigung mit der Einheit \unit[per-mode=symbol]{\m\per\square\s} in Bruchschreibweise aus.
+\begin{sidebyside}
+  \Beschl{4,2}
+\end{sidebyside}
+\Befehlsbeschreibung{Erdb}
+Gibt die auf drei gültige Stellen gerundete Erdbeschleunigung mit Einheit in Bruchschreibweise aus.
+\begin{sidebyside}
+  \Erdb
+\end{sidebyside}
+\Befehlsbeschreibung{Ortsf}
+Gibt den auf drei gültige Stellen gerundeten Ortsfaktor für Mitteleuropa mit Einheit in Bruchschreibweise aus.
+\begin{sidebyside}
+  \Ortsf
+\end{sidebyside}
+\Befehlsbeschreibung{Elem}
+Gibt die auf drei gültige Stellen gerundete Elementarladung aus.
+\begin{sidebyside}
+  \Elem
+\end{sidebyside}
+\Befehlsbeschreibung{Elekm}
+Gibt die auf drei gültige Stellen gerundete Elektronenmasse aus.
+\begin{sidebyside}
+  \Elekm
+\end{sidebyside}
+\Befehlsbeschreibung{EFK}
+Gibt die auf drei gültige Stellen gerundete elektrische Feldkonstante aus.
+\begin{sidebyside}
+  \EFK
+\end{sidebyside}
+\Befehlsbeschreibung{MFK}[\sarg]
+Gibt den (fast) exakten Wert\footnote{Nach der Neudefinition der SI-Basiseinheiten von 2019 ist der Wert der magnetischen Feldkonstanten experimentell zu bestimmen und $\mu_0=\MFK$ gilt nicht mehr exakt.} der magnetischen Feldkonstante aus. Die Sternvariante gibt den auf drei gültige Stellen gerundeten Wert aus.
+\begin{sidebyside}
+  \MFK\\
+  \MFK*
+\end{sidebyside}
+\Befehlsbeschreibung{Lichtg}
+Gibt die auf drei gültige Stellen gerundete Vakuumlichtgeschwindigkeit aus.
+\begin{sidebyside}
+  \Lichtg
+\end{sidebyside}
+\Befehlsbeschreibung{Planck}
+Gibt das auf drei gültige Stellen gerundete plancksche Wirkungsquantum aus.
+\begin{sidebyside}
+  \Planck
+\end{sidebyside}
+\end{Liste}
+
+\subsubsection*{Schaltbilder}
+Schaltzeichen werden durch die TikZ-Bibliothek \Paket{circuits.ee.IEC} in Form von TikZ"=Knotentypen zur Verfügung gestellt. Für die Zwecke der Schulphysik ändert das Paket \Paket{schulma-physik} das Aussehen einiger Symbole leicht ab und fügt weitere hinzu.
+
+Für die Schulphysik wichtige Schaltsymbole zeigt die folgende Übersicht. Weitere sind der \Paket{tikz}-Anleitung zu entnehmen.
+Mit \dag{} markierte Knotentypen wurden gegenüber der TikZ-Bibliothek \Paket{circuits.ee.IEC} modifiziert, mit \ddag{} markierte neu hinzugefügt.
+\begin{longtable}{l>{\begin{minipage}[c][8mm][c]{3cm}}l<{\end{minipage}}l}
+\emph{Bauteil} & \emph{Symbol} & \emph{Knotentyp} \\
+Glühlampe & \Schaltbeispiel{bulb} & \texttt{bulb}\textsuperscript{\dag} \\
+Widerstand & \Schaltbeispiel{resistor} & \texttt{resistor} \\
+Kondensator & \Schaltbeispiel{capacitor} & \texttt{capacitor}\textsuperscript{\dag} \\
+Spule & \Schaltbeispiel{inductor} & \texttt{inductor} \\
+Halbleiterdiode & \Schaltbeispiel{diode} & \texttt{diode} \\
+Leuchtdiode & \Schaltbeispiel{diode=light emitting} & \texttt{diode=light emitting} \\
+Spannungsquelle & \Schaltbeispiel{spannungsquelle} & \texttt{spannungsquelle}\textsuperscript{\ddag} \\
+Gleichspannungsquelle & \Schaltbeispiel{battery} & \texttt{battery} \\
+regelbare Gleichspannungsquelle & \Schaltbeispiel{battery=adjustable} & \texttt{battery=adjustable} \\
+Verzweigungspunkt & \Schaltbeispiel{contact} & \texttt{contact} \\
+Amperemeter & \Schaltbeispiel{amperemeter} & \texttt{amperemeter}\textsuperscript{\dag} \\
+Voltmeter & \Schaltbeispiel{voltmeter} & \texttt{voltmeter}\textsuperscript{\dag} \\
+Messgerät & \Schaltbeispiel{messgeraet} & \texttt{messgeraet}\textsuperscript{\ddag} \\
+\end{longtable}
+\begin{example}
+  \begin{tikzpicture}[circuit ee IEC]
+  \node[spannungsquelle,info=$\sim$] (SQ) at (0,0) {};
+  \node[bulb,info'={L$_1$}] (L1) at (-1.5,2) {};
+  \node[bulb,info'={L$_2$}] (L2) at (1.5,2) {};
+  \node[contact] (K1) at (-2.3,2) {};
+  \node[contact] (K2) at (-0.7,2) {};
+  \node[contact] (K3) at (0.7,2) {};
+  \node[contact] (K4) at (2.3,2) {};
+  \node[amperemeter] (A1) at (-3,1) {};
+  \node[messgeraet,info=-45:{\scriptsize $I$}] (A2) at (3,1) {};
+  \node[voltmeter] (V1) at (-1.5,3) {};
+  \node[messgeraet,info=-45:{\scriptsize $U$}] (V2) at (1.5,3) {};
+  \draw (SQ) -| (A1) |- (L1) -- (L2) -| (A2) |- (SQ);
+  \draw (K1) |- (V1) -| (K2);
+  \draw (K3) |- (V2) -| (K4);
+  \end{tikzpicture}
+\end{example}
+
+Falls auf den umfangreicheren Schaltzeichenbestand des Pakets \Paket{circuitikz} zurückgegriffen werden soll, ist die Paketoption \Option{circuitikz} zu wählen. Die oben genannten Ergänzungen stehen dann nicht zur Verfügung.
+
+\subsubsection*{Nuklide}
+Zur Darstellung von Nukliden empfiehlt es sich, das Paket \Paket{chemmacros} zu laden.
+Da die Nuklidschreibweise eher selten benötigt wird, wird dieses Paket nicht automatisch geladen.
+\begin{example}[code-only]
+  \usepackage{chemmacros}
+\end{example}
+\begin{sidebyside}
+  \isotope{Ra}
+  \isotope{222,Rn}
+\end{sidebyside}
+
+\subsubsection*{Literatur}
+In der \href{https://www.dante.de/dtk/bisher-erschienen/}{Vereinszeitschrift von Dante e.\,V.} ist eine Artikelreihe zum Einsatz von \LaTeX\ in der Schulphysik erschienen.
+\nocite{dtk23.1:wehr:schulphysik}
+\nocite{dtk23.2:wehr:schulphysik}
+\nocite{dtk23.3:wehr:schulphysik}
+\nocite{dtk23.4:wehr:schulphysik}
+\nocite{dtk24.1:wehr:schulphysik}
+\nocite{dtk24.2:wehr:schulphysik}
+\nocite{dtk24.3:wehr:schulphysik}
+\nocite{dtk24.4:wehr:schulphysik}
+\printbibliography[heading=none]
+
+\section{Dokumentenklassen}
+\subsection{Arbeitsblätter mit der Klasse \Klasse{schulma-ab}}
+Die Dokumentenklasse für Arbeitsblätter basiert auf der KOMA-Script-Klasse \Klasse{\mbox{scrartcl}}. Diese wird mit der Option \Option{DIV=14} geladen, d.\,h. der linke und rechte Rand sind im Hochformat A\,4 je \qty{2,25}{cm} breit.
+
+Zudem ruft die Dokumentenklasse den Befehl \verb:\reversemarginpar: auf, damit Randbemerkungen am \emph{linken} Rand erscheinen.
+
+\begin{externalDocument}[frame,framesep=0pt,grfOptions={width=0.5\textwidth}]{schulma}
+\documentclass{schulma-ab}
+\usepackage{multicol}
+\Kurs{Mathematik\\Klasse 8\,a}
+\Datum{2023-6-21}
+\Thema{Ausklammern}
+\begin{document}
+\emph{Klammere aus.}
+
+\medskip
+Beispiele: $\begin{aligned}[t]
+& 3\,a+6 = 3\cdot a+3\cdot 2=3\cdot(a+2) \\
+&a\,x+4\,x = (a+4)\cdot x
+\end{aligned}$
+
+\begin{multicols}{2}
+\begin{Kreisliste}
+\item $12\,x-8$
+\item $35\,u-20\,v$
+\item $4\,r+2\,k$
+\item $7\,a+7\,x$
+\item $5\,x+5$
+\item $4\,x+4\,y+4\,z$
+\item $2\,p+6\,b-12\,c$
+\item $9\,t^2+6\,a\,t-12\,t\,g$
+\item $8\,s\,a\,g-12\,k\,a^2g$
+\item $5\,c\,u+10\,u-5\,u\,g$
+\item $4\,t^2d+8\,b\,d\,t-6\,d\,t\,s$
+\item $3\,x^2+6\,x+9$
+\item $24\,a^2+32\,a-60$
+\item $a^2+a\,b+a\,c$
+\item $68\,x^2+34\,x+102$
+\item $x^3y+x^2y+x\,y$
+\item $a^3b^2+a^2b+a\,b^3$
+\item $4\,x^3-6\,x^2+8\,x$
+\item $36\,a^2b-45\,a\,b^2-9\,a\,b$
+\item $x^2y\,z-x\,y^2z+x\,y\,z^2$
+\item $3\,a\,c^2+9\,a^2c^3-3\,a\,c^4$
+\item $25\,a^2b^3c^3+75\,a^4b^2c^2$
+\item $(a+b)\cdot x+(a+b)\cdot y$
+\item $(u+3)\cdot(2\,a+4)+(u+3)\cdot 7$
+\end{Kreisliste}
+\end{multicols}
+\end{document}
+\end{externalDocument}
+
+\subsubsection*{Klassenoptionen}
+\begin{Liste}
+\Optionsbeschreibung{A4quer}
+Stellt das Querformat für die Seite ein. Die horizontalen Seitenränder sind in diesem Fall ca. \qty{3,2}{cm} groß.
+\Optionsbeschreibung{A5}
+Stellt die Papiergröße A\,5 im Hochformat ein. In diesem Fall wird die KOMA-Option \Option{DIV=11} gewählt, was horizontalen Rändern von ca. \qty{2,0}{cm} entspricht.
+\Optionsbeschreibung{A5quer}
+Stellt die Papiergröße A\,5 im Querformat ein. In diesem Fall wird die KOMA-Option \Option{DIV=11} gewählt, was horizontalen Rändern von ca. \qty{2,9}{cm} entspricht.
+\Optionsbeschreibung{Musterloesung}
+Gibt die Musterlösung der Aufgabe aus, die innerhalb der Umgebung \Umgebung{Lsg} (s.\,u.) eingegeben wurde.
+\end{Liste}
+
+\subsubsection*{Geladene Pakete}
+\begin{Liste}
+\PaketbeschreibungSchulma
+\PaketbeschreibungSchulmaPhysik
+\Paketbeschreibung{adjustbox}\label{adjustbox}%
+Dieses Paket erlaubt es, die vertikale Ausrichtung von Abbildungen zu beeinflussen. Indirekt wird hierdurch das Paket \Paket{graphicx} geladen, dass die Einbindung externer Bilddateien ermöglicht.
+\begin{example}
+  \begin{enumerate}
+  \item \includegraphics[width=3cm]{example-image-a}
+  \item \adjustimage{valign=t,width=3cm}{example-image-b}
+  \item \begin{adjustbox}{valign=t}
+    \begin{tikzpicture}
+    \draw (0,0) rectangle (3,2);
+    \end{tikzpicture}
+    \end{adjustbox}
+  \end{enumerate}
+\end{example}
+\Paketbeschreibung{tasks}\label{tasks}
+Ermöglicht die Anzeige von Päckchenaufgaben.
+Die folgenden Voreinstellungen werden vorgenommen:
+\begin{itemize}
+\item \verb:before-skip=9pt plus4pt minus2pt:
+\item \verb:after-skip=4.5pt plus2pt minus1pt:
+\item \verb:after-item-skip=9pt plus4pt minus2pt:
+\item \verb:label-align=right:
+\item \verb:item-indent=2.2em:
+\item \verb:label-offset=0.5em:
+\item \verb:label-width=1.3em:
+\end{itemize}
+Außerdem sorgt die Klasse \Klasse{schulma-ab} dafür, dass der Buchstabe \emph{j} wie traditionell üblich in der Aufzählung übersprungen wird.
+\begin{sidebyside}
+  \begin{tasks}(2)
+  \task $2\,a+3\,a$
+  \task $3\,a\cdot 2\,a$
+  \task $4\,(a+2\,b)$
+  \task $-3\,(5-4\,a)$
+  \task $a\,(4\,a-3\,b)$
+  \task $b^2\,(9\,a-2\,b)$
+  \task $(a+b)^2$
+  \task $(2\,a+3\,b)^2$
+  \task $(a-b)^2$
+  \task $(4\,a-b)^2$
+  \end{tasks}
+\end{sidebyside}
+\Paketbeschreibung{babel}[mit der Option \Option{ngerman}]\label{babel}%
+Hierbei handelt es sich um ein Sprachpaket, mit dem in unserem Fall die deutsche Sprache gewählt wird. Dies ist wichtig für die automatische Silbentrennung und die Darstellung des Datums.
+\Paketbeschreibung{isodate}[mit der Option \Option{ngerman}]\label{isodate}%
+Dieses Paket nimmt die Datumsformatierung vor. Die Option \Option{ngerman} sorgt zusammen mit den Voreinstellungen \verb:\numdate[arabic]:, \verb:\isotwodigitdayfalse: und \verb:\monthyearsepgerman{\,}{\,}: dafür, dass das Datum in der Form »1.\,3.\,2021« angezeigt wird.
+\Paketbeschreibung{enumitem}
+Das Paket erlaubt die Modifizierung von Aufzählungsumgebungen. Es wird für die Definition der Umgebung \Umgebung{Kreisliste} benötigt.
+\Paketbeschreibung{scrlayer-scrpage}
+Dieses Paket wird für die Voreinstellung des Seitenfußes benötigt. Es kann auch zur freien Gestaltung von Kopf- und Fußzeilen genutzt werden. Details sind der KOMA-Script-Anleitung \texttt{scrguide} zu entnehmen.
+\end{Liste}
+
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Kurs}[\marg{Kursbezeichnung}]
+Legt die Bezeichnung der Klasse oder des Kurses fest, die in der linken oberen Ecke des Arbeitsblatts erscheint. In mehrzeiligen Bezeichnungen sind Zeilenumbrüche mit \verb:\\: einzufügen.
+\Befehlsbeschreibung{Datum}[\marg{Datum}]
+Legt das Datum fest, das in der rechten oberen Ecke erscheint. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\Befehlsbeschreibung{Thema}[\oarg{Nummer}\marg{Thema}]
+Legt das Thema des Arbeitsblatts fest, das als Überschrift angezeigt wird. Gegebenenfalls geht eine Gliederungsnummer voraus.
+\Befehlsbeschreibung{Bearbeiter}[\marg{Name}]
+Legt den Bearbeiter fest, der -- falls vorhanden -- gemeinsam mit dem Erstelldatum der Datei in der linken unteren Ecke des Arbeitsblatts angezeigt wird.
+\end{Liste}
+
+\subsubsection*{Befehle und Umgebungen im Dokumentenkörper}
+\begin{Liste}
+\Umgebungsbeschreibung{Kreisliste}
+Dies ist eine Aufzählungsumgebung, bei der die Zahlen mit einem grauen Kreis hinterlegt sind. Die einzelnen Aufzählungspunkte sind durch \verb:\item: einzuleiten.
+\begin{sidebyside}
+  \begin{Kreisliste}
+  \item erster Punkt
+  \item zweiter Punkt
+  \item dritter Punkt
+  \end{Kreisliste}
+\end{sidebyside}
+\Umgebungsbeschreibung{Aufgaben}
+Listenumgebung, innerhalb derer nummerierte Aufgaben gesetzt werden können. Jede Aufgabe wird mit dem Befehl \Befehl{Aufgabe} eingeleitet. Der Abstand der Aufgaben wird durch die Länge \Laenge{Aufgabenabstand} festgelegt. Die Nummerierung erfolgt mit Hilfe des Zählers \Zaehler{Aufgabe}.
+\Befehlsbeschreibung{Aufgabe}[\sarg]
+Der Befehl leitet eine Aufgabe innerhalb der Umgebung \Umgebung{Aufgaben} ein. Die Sternvariante setzt keinen Punkt nach der Aufgabennummer.
+\begin{example}
+  \setlength\Aufgabenabstand{2ex}
+  \begin{Aufgaben}
+  \Aufgabe Bestimmen Sie die Gleichung der Tangente an den Graphen der Funktion $f$ mit $f(x)=x^2$ im Punkt \Pkt{3}{f(3)}.
+  \Aufgabe Bestimmen Sie den Punkt des Graphen der Funktion $f$ mit $f(x)=x^2$, in dem die Steigung der Tangente den Wert 5 hat.
+  \end{Aufgaben}
+\end{example}
+\Befehlsbeschreibung{Aufgabentitel}[\marg{Bezeichnung}]
+Legt die Bezeichnung für die Aufgaben innerhalb der Umgebung \Umgebung{Aufgaben} fest. Voreingestellt ist »Aufgabe«.
+\Befehlsbeschreibung{Uebung}[\sarg]
+Wirkt wie der Befehl \Befehl{Aufgabe}, wobei als Aufgabentitel »Übung« verwendet wird.
+\setcounter{Aufgabe}{0}
+\begin{example}
+  \setlength\Aufgabenabstand{2ex}
+  \begin{Aufgaben}
+  \Uebung Leiten Sie die erste binomische Formel her.
+  \Uebung Leiten Sie die zweite binomische Formel her.
+  \end{Aufgaben}
+\end{example}
+\Umgebungsbeschreibung{Teilaufgaben}
+Umgebung, mit der mit Kleinbuchstaben nummerierte Teilaufgaben innerhalb einer Aufgabe gesetzt werden können. Jede Teilaufgabe wird mit dem Befehl \verb:\item: eingeleitet. Der Abstand der Aufgaben wird durch die Länge \Laenge{Teilaufgabenabstand} festgelegt. Die Nummerierung erfolgt mit Hilfe des Zählers \Zaehler{Teilaufgabe}.
+\setcounter{Aufgabe}{0}
+\begin{sidebyside}
+  \begin{Aufgaben}
+  \Aufgabe*
+  \begin{Teilaufgaben}
+  \item Teilaufgabe a
+  \item Teilaufgabe b
+  \end{Teilaufgaben}
+  \end{Aufgaben}
+\end{sidebyside}
+\Befehlsbeschreibung{rechnerfrei}
+Setzt einen durchgestrichenen Taschenrechner in die linke Randspalte.
+\begin{sourcecode}
+  \begin{Aufgaben}
+  \Uebung \rechnerfrei Geben Sie die Nullstellen der Funktion an.
+  \begin{Teilaufgaben}
+  \item $f(x)=2\,(x-3)\,(x-5)\,(x+1)$
+  \item $f(x)=\frac{1}{4}\,\bigl(x-\tfrac{3}{2}\bigr)\,\bigl(x+\tfrac{2}{3}\bigr)\,\bigl(x+\frac{10}{3}\bigr)$
+  \item $f(x)=4\,x\,(x-5)^2\,(x+1)$
+  \item $f(x)=-x^2\,(x+2)^3$
+  \item $f(x)=-3\,(x-4)\,(x^2+1)$
+  \item $f(x)=\frac{1}{3}\,(x+1)\,(x^2-4)$
+  \end{Aufgaben}
+  \end{Teilaufgaben}
+\end{sourcecode}
+\begin{externalDocument}[frame,framesep=0pt,grfOptions={width=0.7\textwidth}]{schulma}
+\documentclass[A5quer]{schulma-ab}
+\usepackage{multicol}
+\Kurs{Mathematik\\Klasse 11\,b}
+\Datum{2025-3-10}
+\Thema{Ganzrationale Funktionen}
+\begin{document}
+\begin{Aufgaben}
+\Uebung \rechnerfrei Geben Sie die Nullstellen der Funktion an.
+\hfill
+\begin{minipage}[c][\baselineskip][t]{5cm}
+\raggedleft
+\begin{Kosy}[xmin=-4,xmax=3,ymin=-3,ymax=3,xtick=\empty,ytick=\empty,x=6mm,y=6mm]
+\addplot[samples=150,blue] {0.2*(x+3)*(x+1)*(x-1.5)};
+\addplot[only marks,red] coordinates {(-3,0)(-1,0)(1.5,0)};
+\end{Kosy}
+\end{minipage}
+
+\begin{Teilaufgaben}
+\item $f(x)=2\,(x-3)\,(x-5)\,(x+1)$
+\item $f(x)=\frac{1}{4}\,\bigl(x-\tfrac{3}{2}\bigr)\,\bigl(x+\tfrac{2}{3}\bigr)\,\bigl(x+\frac{10}{3}\bigr)$
+\item $f(x)=4\,x\,(x-5)^2\,(x+1)$
+\item $f(x)=-x^2\,(x+2)^3$
+\item $f(x)=-3\,(x-4)\,(x^2+1)$
+\item $f(x)=\frac{1}{3}\,(x+1)\,(x^2-4)$
+\end{Teilaufgaben}
+\end{Aufgaben}
+\end{document}
+\end{externalDocument}
+
+\Befehlsbeschreibung{Luecke}[\marg{Breite}]
+Setzt eine Lücke mit der angegeben Breite innerhalb eines Lückentexts. Für Lückentexte empfiehlt es sich, den Zeilenabstand mit Hilfe des Pakets \Paket{setspace} -- das nicht automatisch geladen wird -- zu vergrößern.
+\begin{example}
+  Der Atomkern besteht aus \Luecke{3,5cm} und \Luecke{3,5cm}.
+\end{example}
+\Umgebungsbeschreibung{Lsg}[\sarg]
+\LsgBeschreibungA
+
+\LsgBeschreibungB
+\Befehlsbeschreibung{NurAufgabe}[\marg{Teil der Aufgabe}]
+Der \meta{Teil der Aufgabe}, der Argument dieses Befehls ist, erscheint nicht in der Musterlösung. Dies ist nützlich für ergänzende Bearbeitungshinweise, die in der Musterlösung nicht benötigt werden, sowie für Abbildungen, die in der Musterlösung anders dargestellt werden sollen. Außerdem kann bei Bedarf der gesamte Aufgabentext mit Hilfe dieses Befehls für die Musterlösung ausgeblendet werden.
+\Befehlsbeschreibung{NurLoesung}[\marg{Teil der Aufgabe}]
+Der \meta{Teil der Aufgabe}, der Argument dieses Befehls ist, erscheint nur in der Musterlösung. Im Gegensatz zur Umgebung \Umgebung{Lsg} beginnt dieser Befehl keinen neuen Absatz.
+\end{Liste}
+
+\subsubsection*{Zähler}
+\begin{Liste}
+\Zaehlerbeschreibung{Aufgabe}
+Zur Nummerierung der Aufgaben innerhalb der Umgebung \Umgebung{Aufgaben}.
+\Zaehlerbeschreibung{Teilaufgabe}
+Zur Nummerierung der Teilaufgaben innerhalb der Umgebung \Umgebung{Teilaufgaben}. Wird bei Inkrementierung des Zählers \Zaehler{Aufgabe} zurückgesetzt.
+\end{Liste}
+
+\subsubsection*{Längen}
+\begin{Liste}
+\Laengenbeschreibung{parindent}
+\LaTeX-Länge für die Absatzeinrückung. In der Klasse \Klasse{schulma-ab} sind \texttt{0pt} voreingestellt.
+\Laengenbeschreibung{Aufgabenabstand}
+Abstand zwischen Aufgaben innerhalb der Umgebung \Umgebung{Aufgaben}. Voreingestellt sind \texttt{24pt plus12pt minus8pt}.
+\Laengenbeschreibung{Teilaufgabenabstand}
+Abstand zwischen Teilaufgaben innerhalb der Umgebung \Umgebung{Teilaufgaben}. Voreingestellt sind \texttt{4.5pt plus2pt minus1pt}.
+\end{Liste}
+
+\subsection{Präsentationen mit der Klasse \Klasse{schulma-praes}}
+Die Dokumentenklasse für Bildschirmpräsentationen basiert auf der Klasse \Klasse{beamer}. Diese wird mit der Option \Option{aspectratio=169} geladen. Hierdurch wird für die Projektionsfolien ein Bildseitenverhältnis von $16:9$ eingestellt, das bei modernen Projektionsgeräten üblich ist.
+
+Zusätzlich wird auch die Option \Option{noamsthm} verwendet, um Konflikte mit dem durch das Paket \Paket{schulma} geladenen Paket \Paket{mathtools} zu vermeiden.
+
+\subsubsection*{Klassenoptionen}
+\begin{Liste}
+\Optionsbeschreibung{Seitenzahlen}
+Zeigt auf jeder Folie eine Seitenzahl in der rechten unteren Ecke an.
+\Optionsbeschreibung{Druck}
+Zeigt die Präsentation im Druckmodus mit vier Folien pro Seite an. Die Option \Option{Seitenzahlen} wird automatisch gewählt.
+\Optionsbeschreibung{Druck2}
+Zeigt die Präsentation im Druckmodus mit zwei Folien pro Seite an. Die Option \Option{Seitenzahlen} wird automatisch gewählt.
+\end{Liste}
+Andere Optionen werden an die Klasse \Klasse{beamer} weitergegeben.
+
+\subsubsection*{Geladene Pakete}
+\begin{Liste}
+\Paketbeschreibung{schulma}
+Stellt Mathematikbefehle zur Verfügung wie in Abschnitt \ref{schulma} beschrieben.
+\Paketbeschreibung{schulma-physik}
+Stellt Physikbefehle zur Verfügung wie in Abschnitt \ref{schulma-physik} beschrieben.
+\Paketbeschreibung{adjustbox}
+\emph{Siehe S. \pageref{adjustbox}.}
+\Paketbeschreibung{babel}[mit der Option \Option{ngerman}]
+\emph{Siehe S. \pageref{babel}.}
+\Paketbeschreibung{isodate}[mit der Option \Option{ngerman}]
+\emph{Siehe S. \pageref{isodate}.}
+\Paketbeschreibung{tasks}
+Ermöglicht die Anzeige von Päckchenaufgaben.
+Die folgenden Voreinstellungen werden vorgenommen:
+\begin{itemize}
+\item \verb:after-skip=4.5pt plus2pt minus1pt:
+\item \verb:label-align=right:
+\item \verb:item-indent=2.2em:
+\item \verb:label-offset=0.5em:
+\item \verb:label-width=1.3em:
+\end{itemize}
+Außerdem sorgt die Klasse \Klasse{schulma-ab} dafür, dass der Buchstabe \emph{j} wie traditionell üblich in der Aufzählung übersprungen wird.
+\end{Liste}
+
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Kurs}[\marg{Kursbezeichnung}]
+Legt die Bezeichnung der Klasse oder des Kurses fest, die auf der Titelseite der Präsentation erscheint. In mehrzeiligen Bezeichnungen sind Zeilenumbrüche mit \verb:\\: einzufügen.
+\Befehlsbeschreibung{Datum}[\marg{Datum}]
+Legt das Datum fest, das ebenfalls auf der Titelseite erscheint. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\Befehlsbeschreibung{Thema}[\oarg{Nummer}\marg{Thema}]
+Legt das Thema der Präsentation fest, das auf der Titelseite angezeigt wird. Gegebenenfalls geht eine Gliederungsnummer voraus.
+\end{Liste}
+
+\subsubsection*{Befehle im Dokumentenkörper}
+\begin{Liste}
+\Befehlsbeschreibung{Unterklammer}[\textcolor{black}{\texttt{<}\meta{Folienspezifikaton}\texttt{>}}\marg{Formelteil}\marg{Kommentar}]
+Setzt unter einen \meta{Formelteil} eine geschweifte Klammer mit einem \meta{Kommentar}, jedoch nur auf den in der \meta{Folienspezifikation} angegenen Folien.
+
+Im folgenden Beispiel wird die Unterklammer ab der zweiten Folie angezeigt.
+\begin{example}
+  \[(x-3)\cdot\Unterklammer<2->{\ehoch{2x+4}}{\neq 0}=0\]
+\end{example}
+\Befehlsbeschreibung{Produktregel}[\marg{Foliennummer}\marg{$u'$}\marg{$v$}\marg{$u$}\marg{$v'$}]
+Demonstriert auf fünf aufeinanderfolgenden Folien die Anwendung der Produktregel, beginnend mit der Folie \meta{Foliennummer}. Auf der ersten Folie erscheinen die Rechenzeichen und erklärende Unterklammern, auf den folgenden schrittweise die Einzelterme der Ableitung.
+\begin{example}
+  \begin{align*}
+  f(x) &= x^2\cdot\sin x \\[1ex]
+  \onslide<2->{f'(x) &=}
+  \Produktregel{3}{2\,x}{\sin x}{x^2}{\cos x}
+  \end{align*}
+\end{example}
+\end{Liste}
+
+\subsubsection*{Farben}
+Zur farblichen Hervorhebung innerhalb von Texten oder Zeichnungen eignen sich unter anderem die standardmäßig definierten Farben \texttt{red} und \texttt{blue}. Die Standardfarbe \texttt{green} wirkt hingegen auf weißen Projektionsflächen zu hell. Als Alternative stellt die Klasse \Klasse{schulma-praes} mit der Farbe \texttt{dgruen} ein etwas dunkleres Grün zur Verfügung.
+
+Weitere vordefinierte Farben sind der Anleitung des Pakets \Paket{xcolor} zu entnehmen, das von der zugrundeliegenden Dokumentenklasse \Klasse{beamer} geladen wird.
+
+\subsection{Klausuren mit der Klasse \Klasse{schulma-klausur}}
+Mit der Dokumentenklasse für Klausuren kann sowohl eine Klausur als auch ihre Musterlösung aus dem gleichen Dokument erzeugt werden. Sie basiert auf der Klasse \Klasse{scrartcl}. Wird die Musterlösung der Klausur mit der Klassenoption \Option{Musterloesung} erzeugt, wird hingegen auf die Klasse \Klasse{schulma-praes} zurückgegriffen.
+
+Mit dem Befehl \verb:\begin{document}: wird automatisch eine Listenumgebung für Aufgaben eröffnet und mit \verb:\end{document}: automatisch geschlossen. Dies bedeutet, dass der erste Befehl innerhalb des Dokumentenkörpers entweder \Befehl{Aufgabe} oder -- falls am Anfang der Klausur keine Aufgabe steht -- \Befehl{item} lauten muss.
+\subsubsection*{Klassenoptionen}
+\begin{Liste}
+\Optionsbeschreibung{SLK}
+Option für schriftliche Lernkontrollen. Sorgt dafür, dass als Überschrift »Schriftliche Lernkontrolle« statt »Klausur« verwendet wird.
+\Optionsbeschreibung{AT}
+Option für österreichische Benutzer, die dafür sorgt, dass \Paket{babel} mit der Option \Option{naustrian} statt \Option{ngerman} geladen wird. Der einzige Unterschied liegt darin, dass im Klausurdatum »Jänner« statt »Januar« verwendet wird.
+\Optionsbeschreibung{p-q-Formel}
+Zeigt als Hilfestellung die $p$-$q$-Formel am Ende der Klausur an.
+\Optionsbeschreibung{Differenzenquotient}
+Zeigt als Hilfestellung den Differenzenquotienten $\displaystyle m=\frac{f(x_2)-f(x_1)}{x_2-x_1}$ am Ende der Klausur an.
+\Optionsbeschreibung{Differentialquotient}
+Zeigt als Hilfestellung den Differentialquotienten $\displaystyle f'(x_0)=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}$ am Ende der Klausur an.
+\Optionsbeschreibung{A5quer}
+Verwendet als Papierformat DIN A\,5 im Querformat. Dies ist für kleinere schriftliche Lernkontrollen nützlich.
+\Optionsbeschreibung{GruppeA}
+Erzeugt bei Verwendung unterschiedlicher Aufgaben für zwei Gruppen mit Hilfe des Befehls \Befehl{Gruppen} (s.\,u.) die Aufgaben für die Gruppe A.
+\Optionsbeschreibung{GruppeB}
+Erzeugt bei Verwendung unterschiedlicher Aufgaben für zwei Gruppen mit Hilfe des Befehls \Befehl{Gruppen} (s.\,u.) die Aufgaben für die Gruppe B.
+\Optionsbeschreibung{Musterloesung}
+Erzeugt eine Bildschirmpräsentation mit der Musterlösung der Klausur, die innerhalb der Umgebung \Umgebung{Lsg} (s.\,u.) eingegeben wurde. Zur Erzeugung einer Druckfassung der Musterlösung kann zusätzlich eine der von der Klasse \Klasse{schulma-praes} ererbten Optionen \Option{Druck} und \Option{Druck2} gesetzt werden.
+\Optionsbeschreibung{MusterloesungD}
+Gibt eine Druckfassung der Klausur mit den Musterlösungen aus, die innerhalb der Umgebung \Umgebung{Lsg} (s.\,u.) eingegeben wurden. Im Gegensatz zur vorgenannten Option wird mit dieser Option nicht zu einer Bildschirmpräsentation gewechselt.
+\end{Liste}
+\subsubsection*{Geladene Pakete}
+\begin{Liste}
+\PaketbeschreibungSchulma
+\PaketbeschreibungSchulmaPhysik
+\Paketbeschreibung{adjustbox}
+\emph{Siehe S. \pageref{adjustbox}.}
+\Paketbeschreibung{tasks}
+\emph{Siehe S. \pageref{tasks}.}
+\Paketbeschreibung{geometry}[mit den Optionen \Option{hmargin=2.5cm} und \Option{top=2.7cm}]
+Paket zur Einstellung der Seitenränder. Der linke und rechte Rand werden auf \qty{2,5}{cm} festgelegt. Der obere Rand wird auf \qty{2,7}{cm} vergrößert, damit er Platz für das Namensfeld bietet.
+
+Bei Verwendung der Klassenoption \Option{A5quer} wird zusätzlich die Option \Option{bottom=3cm} gesetzt, um genügend Platz für die Seitenzahl zu schaffen.
+\Paketbeschreibung{scrlayer-scrpage}
+Dieses Paket wird für die Voreinstellung des Seitenkopfes und -fußes benötigt. Es kann auch zur freien Gestaltung von Kopf- und Fußzeilen genutzt werden. Details sind der KOMA-Script-Anleitung \texttt{scrguide} zu entnehmen.
+\Paketbeschreibung{pdfpages}
+Das Paket ermöglicht die Einbindung externer PDF-Dateien. Es wird für den Befehl \Befehl{Formeldokument} (siehe S. \pageref{formeldokument}) benötigt.
+\Paketbeschreibung{comment}
+Mit Hilfe dieses Pakets werden die Lösungen der Aufgaben, die innerhalb der Umgebung \Umgebung{Lsg} (s.\,u.) eingegeben wurden, in der Klausur ausgeblendet.
+\Paketbeschreibung{beamerarticle}
+Dieses Paket sorgt dafür, das spezifische Befehle für Bildschirmpräsentationen wie Folienspezifikationen oder die \Umgebung{frame}-Umgebung, die in den Klausuraufgaben zwecks Aufbereitung für die Musterlösung verwendet werden können, bei der Erstellung der Klausur ignoriert werden.
+\Paketbeschreibung{babel}[mit der Option \Option{ngerman}]
+\emph{Siehe S. \pageref{babel}.}
+\Paketbeschreibung{datetime2}[mit der Option \Option{useregional=text}]
+Gibt das Datum der Klausur in der Langform »1. März 2021« aus. Österreichische Benutzer verwenden die Klassenoption \Option{AT}, um »Jänner« statt »Januar« zu erhalten.
+\end{Liste}
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Kurs}[\marg{Kursbezeichnung}]
+Legt die Bezeichnung der Klasse oder des Kurses fest, die in der linken oberen Ecke der Klausur erscheint. In mehrzeiligen Bezeichnungen sind Zeilenumbrüche mit \verb:\\: einzufügen.
+\Befehlsbeschreibung{Datum}[\marg{Datum}]
+Legt das Datum fest, das in der rechten oberen Ecke erscheint. Das Eingabeformat ist \texttt{JJJJ-MM-TT}. Das Datum wird anders als bei Arbeitsblättern in der Langform »1.~März 2021« ausgegeben.
+\Befehlsbeschreibung{Nr}[\marg{Nummer}]
+Gibt die laufende Nummer der Klausur an.
+\Befehlsbeschreibung{Klausurtitel}[\marg{Titel}]
+Legt den Titel der Klausur fest. Voreingestellt ist »Klausur« bzw. bei Verwendung der Klassenoption \Option{SLK} »Schriftliche Lernkontrolle«.
+\Befehlsbeschreibung{Klausuruntertitel}[\marg{Untertitel}]
+Legt einen eventuellen Untertitel der Klausur fest.
+\Befehlsbeschreibung{Klausurteiltitel}[\marg{Teiltitel}]
+Legt bei mehrteiligen Klausuren (z.\,B. mit taschenrechnerfreien Teilen) den Titel des Klausurteils fest. Für jeden Klausurteil ist ein eigenes Dokument erforderlich.
+\Befehlsbeschreibung{Bearbeitungszeit}[\marg{Zeit in Minuten}]
+Legt die Bearbeitungszeit der Klausur oder des Klausurteils in Minuten fest.
+\Befehlsbeschreibung{Hilfsmittel}[\marg{Hilfsmittel}]
+Legt die in der Klausur oder im Klausurteil erlaubten Hilfsmittel (z.\,B. Taschenrechner, Formelsammlung) fest.
+\Befehlsbeschreibung{Loesungsdatum}[\marg{Datum}]
+Legt das Datum der Musterlösung fest. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\Befehlsbeschreibung{Formeldokument}[\marg{Seitenzahlen}]\label{formeldokument}%
+Bindet die gewählten Seiten aus dem »Dokument mit mathematischen Formeln« des IQB mit Hilfe des Pakets \Paket{pdfpages} am Ende der Klausur ein. Das Dokument muss sich unter dem Namen \texttt{M\_Dokument\_mit\_mathematischen\_Formeln.pdf} im Suchbaum befinden.\footnote{Die PDF-Datei mit dem Formeldokument ist erhältlich unter \url{https://www.iqb.hu-berlin.de/abitur/abitur/dokumente/mathematik/}.}
+\end{Liste}
+\subsubsection*{Befehle und Umgebungen im Dokumentenkörper}
+\begin{Liste}
+\Befehlsbeschreibung{Aufgabe}[\sarg\oarg{Thema}\oarg{Bearbeitungszeit}\darg{Punktzahl}]
+Mit diesem Befehl wird eine neue Aufgabe der Klausur eröffnet. Er sollte der erste Befehl nach \verb:\begin{document}: sein. Die Sternvariante setzt keinen Punkt nach der Aufgabennummer.
+
+Das erste optionale Argument (in eckigen Klammern) gibt das Thema der Aufgabe an und erscheint nur auf dem Terminal und in der Bildschirmpräsentation mit der Musterlösung. Das zweite optionale Argument (in eckigen Klammern) gibt die avisierte Bearbeitungszeit an und erscheint nur auf dem Terminal. Das dritte optionale Argument (in runden Klammern) gibt die in der Aufgabe erreichbare Punktzahl an; diese erscheint nur auf dem Terminal, in der Klausur und in der mit der Klassenoption \Option{MusterloesungD} erzeugten Musterlösung.
+
+Am Ende der Klausur werden die Anzahl der Aufgaben, die Summe der Bearbeitungszeiten und die Summe der erreichbaren Punkte auf das Terminal geschrieben.
+
+Für den Satz von Unteraufgaben empfiehlt sich die Umgebung \Umgebung{Teilaufgaben}.
+\Umgebungsbeschreibung{Teilaufgaben}
+Umgebung, mit der mit Kleinbuchstaben nummerierte Teilaufgaben innerhalb einer Aufgabe gesetzt werden können. Jede Teilaufgabe wird mit dem Befehl \verb:\item: eingeleitet. Der Abstand der Aufgaben wird durch die Länge \Laenge{Teilaufgabenabstand} festgelegt. Die Nummerierung erfolgt mit Hilfe des Zählers \Zaehler{Teilaufgabe}.
+\Umgebungsbeschreibung{Lsg}[\sarg]
+\LsgBeschreibungA[ oder \Option{MusterloesungD}]
+
+Mit der Klassenoption \Option{Musterloesung} wird die Lösung in einer anderen Farbe angezeigt als die Aufgabe. Die verwendeten Farben hängen vom gewählten \Klasse{beamer}-Thema ab, das mit dem Befehl \Befehl{usetheme} eingestellt werden kann (siehe \Klasse{beamer}-Anleitung). In der Voreinstellung wird der Aufgabentext blau und der Lösungstext schwarz ausgegeben.
+
+\LsgBeschreibungB
+\Befehlsbeschreibung{FarbeAufgabe}
+Dient zur manuellen Umschaltung auf die Textfarbe der Aufgabe.
+\Befehlsbeschreibung{FarbeLoesung}
+Dient zur manuellen Umschaltung auf die Textfarbe der Lösung.
+\Befehlsbeschreibung{NurAufgabe}[\marg{Teil der Aufgabe}]
+Der \meta{Teil der Aufgabe}, der Argument dieses Befehls ist, erscheint nur in der Klausur, aber nicht in der Musterlösung. Dies ist nützlich für ergänzende Bearbeitungshinweise, die in der Musterlösung nicht benötigt werden, sowie für Abbildungen, die in der Musterlösung anders dargestellt werden sollen.
+\Befehlsbeschreibung{NurLoesung}[\marg{Teil der Aufgabe}]
+Der \meta{Teil der Aufgabe}, der Argument dieses Befehls ist, erscheint nur in der Musterlösung, aber nicht in der Klausur. Dies ist beispielsweise nützlich, wenn für die Musterlösung Abbildungen anders skaliert werden müssen. Im Gegensatz zur Umgebung \Umgebung{Lsg} beginnt dieser Befehl keinen neuen Absatz und schaltet auch nicht die Farbe um.
+\Befehlsbeschreibung{Gruppen}[\sarg\marg{Text für Gruppe A}\marg{Text für Gruppe B}]
+Mit diesem Befehl können unterschiedliche Aufgabentexte für zwei Klausurgruppen A und B eingegeben werden. Welcher davon in der Klausur erscheint, hängt davon ab, ob die Klassenoption \Option{GruppeA} oder die Klassenoption \Option{GruppeB} verwendet wird. Wird keine dieser Optionen gesetzt, wird der Text für Gruppe A ausgegeben, in der Bildschirmpräsentation mit der Musterlösung (Klassenoption \Option{Musterloesung}) jedoch der Text für beide Gruppen, getrennt durch einen Absatz. Mit der Sternversion des Befehls wird in der Bildschirmpräsentation zwischen den Texten beider Gruppen kein neuer Absatz begonnen.
+\Befehlsbeschreibung{Notenspiegel}[\marg{kommaseparierte Notenliste}]
+Erstellt in der Musterlösung den Notenspiegel mit Schulnoten von 1 bis 6; bei Verwendung der Klassenoption \Option{Musterloesung} wird hierfür eine eigene Folie verwendet. Die \meta{kommaseparierte Notenliste} kann gänzlich unsortiert sein, z.\,B. \texttt{3,2,5,2,2,1,4,6,""4,3}.
+\Befehlsbeschreibung{Notenpunktspiegel}[\marg{kommaseparierte Notenliste}]
+Erstellt in der Musterlösung den Notenspiegel mit Oberstufenpunkten von 0 bis 15; bei Verwendung der Klassenoption \Option{Musterloesung} wird hierfür eine eigene Folie verwendet. Die \meta{kommaseparierte Notenliste} kann gänzlich unsortiert sein, z.\,B. \texttt{13,2,5,12,""8,10,8,7,4,0}.
+\end{Liste}
+
+\subsubsection*{Zähler}
+\begin{Liste}
+\Zaehlerbeschreibung{Aufgabe}
+Zur Nummerierung der mit dem Befehl \Befehl{Aufgabe} eröffneten Aufgaben.
+\Zaehlerbeschreibung{Teilaufgabe}
+Zur Nummerierung der Teilaufgaben innerhalb der Umgebung \Umgebung{Teilaufgaben}. Wird bei Inkrementierung des Zählers \Zaehler{Aufgabe} zurückgesetzt.
+\end{Liste}
+
+\subsubsection*{Längen}
+\begin{Liste}
+\Laengenbeschreibung{Aufgabenabstand}
+Abstand zwischen den Aufgaben. Voreingestellt sind \texttt{24pt plus12pt minus8pt}.
+\Laengenbeschreibung{Teilaufgabenabstand}
+Abstand zwischen Teilaufgaben innerhalb der Umgebung \Umgebung{Teilaufgaben}. Voreingestellt sind \texttt{4.5pt plus2pt minus1pt}.
+\end{Liste}
+\subsection{Kompetenzlisten mit der Klasse \Klasse{schulma-komp}}
+Mit dieser Klasse können gegliederte Listen erstellt werden, die die Schüler über die erwarteten Kompetenzen in schriftlichen Klausuren und anderen Prüfungen informieren. Sie basiert auf der Klasse \Klasse{schulma-ab}.
+
+Falls der Befehl \Befehl{Thema} aus der Klasse \Klasse{schulma-ab} nicht verwendet wird, wird eine automatische Überschrift erzeugt, die die Nummer und das Datum der Klausur enthält.
+
+Für die Aufzählungsumgebung \Umgebung{enumerate} ist die Verwendung runder Klammern um die Aufzählungsnummern voreingestellt.
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Nr}[\marg{Nummer}]
+Gibt die laufende Nummer der Klausur an, die in der automatisch erzeugten Überschrift erscheint.
+\Befehlsbeschreibung{Klausurdatum}[\marg{Datum}]
+Legt das Datum der Klausur fest, das in der automatisch erzeugten Überschrift erscheint. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\end{Liste}
+\subsubsection*{Befehle im Dokumentenkörper}
+\begin{Liste}
+\Befehlsbeschreibung{Abschnitt}[\oarg{Nummer}\marg{Thema}]
+Gibt die Gliederungsnummer und den Titel eines Abschnitts des Unterrichts aus. Für die Gliederungsnummer wird der \LaTeX-Zähler \Zaehler{section} verwendet. Sofern kein anderer Wert angegeben wird, beginnt die Gliederungsnummer bei 1 und wird dann automatisch erhöht.
+\Befehlsbeschreibung{Unterabschnitt}[\oarg{Nummer}\marg{Thema}\oarg{Kompetenzen}]
+Gibt die Gliederungsnummer und den Titel eines Unterabschnitts des Unterrichts aus. Für die Gliederungsnummer werden die \LaTeX-Zähler \Zaehler{section} und \Zaehler{subsection} verwendet. Der erste Teil der Gliederungsnummer entspricht der Nummer des Abschnitts; sofern kein anderer Wert angegeben wird, beginnt der folgende Teil bei 1 und wird dann automatisch erhöht.
+
+Falls keine dritte Gliederungsebene verwendet wird, sind die auf diesen Unterabschnitt bezogenen Kompetenzen als optionales Argument anzugeben.
+\Befehlsbeschreibung{Unterunterabschnitt}[\oarg{Nummer}\marg{Thema}\marg{Kompetenzen}]
+Gibt die Gliederungsnummer und den Titel eines Unterunterabschnitts des Unterrichts nebst den erwarteten Kompetenzen aus. Für die Gliederungsnummer werden die \LaTeX-Zähler \Zaehler{section}, \Zaehler{subsection} und \Zaehler{subsubsection} verwendet. Der erste Teil der Gliederungsnummer entspricht der Nummer des Abschnitts, gefolgt von der des Unterabschnitts; sofern kein anderer Wert angegeben wird, beginnt der letzte Teil der Nummer bei 1 und wird dann automatisch erhöht.
+
+Zur Angabe der Kompetenzen bieten sich die Listenumgebungen \Umgebung{itemize} und \Umgebung{enumerate} an.
+\end{Liste}
+Die mit den vorgenannten drei Befehlen erzeugten Kompetenzlisten werden bei Verwendung der von der Dokumentenklasse \Klasse{schulma-ab} ererbten Klassenoption \Option{Musterloesung} ausgeblendet. Dies ist nützlich, falls der Kompetenzliste Übungsaufgaben beigegeben werden.
+\subsection{Abiturgutachten mit der Klasse \Klasse{schulma-gutachten}}
+Die Klasse \Klasse{schulma-gutachten} dient zur Erstellung von Gutachten über schriftliche Abiturklausuren in Fächern, in denen die Note auf der Grundlage der erreichten Punktzahl vergeben wird. Außerdem können Gutachten über eine \emph{besondere Lernleistung} gemäß niedersächsischem Schulrecht (AVO-GOBAK §\,2\,(2)) erstellt werden. Grundlage ist die Dokumentenklasse \Klasse{scrartcl}, die mit den Optionen \Option{DIV=13} und \Option{fontsize=12} geladen wird.
+\subsubsection*{Klassenoptionen}
+\begin{Liste}
+\Optionsbeschreibung{BELL}
+Hiermit wird ein Gutachten für eine \emph{besondere Lernleistung}, die an die Stelle einer schriftlichen Abiturprüfung tritt, erstellt.
+\Optionsbeschreibung{AT}
+Option für österreichische Benutzer, die dafür sorgt, dass \Paket{babel} mit der Option \Option{naustrian} statt \Option{ngerman} geladen wird. Der einzige Unterschied liegt darin, dass im Datum des Gutachtens »Jänner« statt »Januar« verwendet wird.
+\Optionsbeschreibung{Referentin}
+Diese Option ist anzugeben, falls der Referent (Fachlehrer) weiblich ist. Dies wirkt sich auf das Unterschriftsfeld aus.
+\Optionsbeschreibung{Korreferentin}
+Diese Option ist anzugeben, falls der Korreferent weiblich ist. Dies wirkt sich auf das Unterschriftsfeld aus.
+\end{Liste}
+\subsubsection*{Geladene Pakete}
+\begin{Liste}
+\Paketbeschreibung{babel}[mit der Option \Option{ngerman}]
+\emph{Siehe S. \pageref{babel}.}
+\Paketbeschreibung{datetime2}[mit der Option \Option{useregional=text}]
+Gibt das Datum des Gutachtens in der Langform »1. März 2021« aus. Österreichische Benutzer verwenden die Klassenoption \Option{AT}, um »Jänner« statt »Januar« zu erhalten.
+\Paketbeschreibung{siunitx}[mit den Optionen \Option{locale=DE} und \Option{mode=match}]
+\emph{Siehe S. \pageref{siunitx}.} Das Paket wird hier zur Formatierung von Punktzahlen und Prozentsätzen benötigt.
+\end{Liste}
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Schule}[\marg{Schulname}]
+Gibt den Namen der Schule an. Dieser erscheint in der linken oberen Ecke des Gutachtens. Zeilenumbrüche mit \verb:\\: sind möglich.
+\Befehlsbeschreibung{Ort}[\marg{Schulort}]
+Gibt den Ort der Schule an. Dieser erscheint mit dem Datum vor dem Unterschriftsfeld.
+\Befehlsbeschreibung{Datum}[\marg{Datum}]
+Gibt das Datum des Gutachtens an. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\Befehlsbeschreibung{Fach}[\marg{Unterrichtsfach}]
+Gibt das geprüfte Unterrichtsfach an.
+\Befehlsbeschreibung{Gesamtpunktzahl}[\marg{Punktzahl}]
+Gibt die erreichbare Punktzahl in der Klausur an. Diese Angabe erübrigt sich bei Verwendung der Klassenoption \Option{BELL}.
+\end{Liste}
+\subsubsection*{Befehle und Umgebungen im Dokumentenkörper}
+\begin{Liste}
+\Umgebungsbeschreibung{Gutachten}[\marg{Vorname}\marg{Nachname}\marg{Geschlecht}\marg{Punktzahl}\oarg{Abwertung}]
+Diese Umgebung enthält das Gutachten für einen einzelnen Prüf"|ling. Das \meta{Geschlecht} ist entweder \texttt{m} oder \texttt{w}.
+
+Aus der vom Prüf"|ling erreichten \meta{Punktzahl} und der Gesamtpunktzahl wird der Prozentsatz der erreichten Bewertungseinheiten und daraus die Note gemäß der folgenden Tabelle berechnet.
+\begin{center}
+\begin{tabular}{*{5}{ccc|}c}
+15 & 14 & 13 & 12 & 11 & 10 & 09 & 08 & 07 & 06 & 05 & 04 & 03 & 02 & 01 & 00 \\
+\hline
+95 & 90 & 85 & 80 & 75 & 70 & 65 & 60 & 55 & 50 & 45 & 40 & 33 & 27 & 20 & 0
+\end{tabular}
+\end{center}
+Sofern die erreichte Punktzahl nicht ganzzahlig ist, ist für die Eingabe ein Dezimalpunkt zu verwenden, beispielsweise \texttt{28.5}. Die Ausgabe erfolgt mit Dezimalkomma.
+Bei Verwendung der Klassenoption \Option{BELL} kann das vierte Argument leer bleiben.
+
+Eine aufgrund sprachlicher oder formaler Verstöße erfolgte optionale \meta{Abwertung} ist in Notenpunkten anzugeben.
+\Befehlsbeschreibung{Name}
+Dient zur Verwendung des Namens des Prüf"|lings innerhalb des Gutachtentextes. Dieser wird in der Form »Herr Mustermann« bzw. »Frau Mustermann« ausgegegeben.
+\Befehlsbeschreibung{NameDativ}
+Dient zur Verwendung des Namens des Prüf"|lings im Dativ innerhalb des Gutachtentextes. Dieser wird in der Form »Herrn Mustermann« bzw. »Frau Mustermann« ausgegegeben.
+\end{Liste}
+\subsection{Mündliche Abiturprüfungen mit der Klasse \Klasse{schulma-mdlprf}}
+Die Klasse für mündliche Abiturprüfungen ermöglicht die Erstellung von Aufgabenblättern mit Erwartungshorizonten für mündliche Abiturprüfungen. Prüfungen für mehrere Prüf"|linge können aus demselben Dokument erzeugt werden.
+
+Die Klasse \Klasse{schulma-mdlprf} basiert auf der Dokumentenklasse \Klasse{scrartcl}. Diese wird mit der Option \Option{DIV=14} geladen, d.\,h. der linke und rechte Rand sind je \qty{2,25}{cm} breit.
+\subsubsection*{Klassenoptionen}
+\begin{Liste}
+\Optionsbeschreibung{AT}
+Option für österreichische Benutzer, die dafür sorgt, dass \Paket{babel} mit der Option \Option{naustrian} statt \Option{ngerman} geladen wird. Der einzige Unterschied liegt darin, dass im Datum der Prüfung »Jänner« statt »Januar« verwendet wird.
+\Optionsbeschreibung{Prueferin}
+Diese Option ist anzugeben, falls der Prüfer weiblich ist. Dies wirkt sich auf den Kopf des Aufgabenblatts aus.
+\end{Liste}
+\subsubsection*{Geladene Pakete}
+\begin{Liste}
+\Paketbeschreibung{babel}[mit der Option \Option{ngerman}]
+\emph{Siehe S. \pageref{babel}.}
+\Paketbeschreibung{datetime2}[mit den Optionen \Option{useregional=text} und \Option{showseconds=false}]
+Dieses Paket dient zur Formatierung des Datums und der Uhrzeit. Das Datum wird in der Langform »1. März 2021« ausgegeben, die Uhrzeit in der Form »15:30 Uhr«.
+\PaketbeschreibungSchulma
+\PaketbeschreibungSchulmaPhysik
+\end{Liste}
+\subsubsection*{Befehle in der Präambel}
+\begin{Liste}
+\Befehlsbeschreibung{Schule}[\marg{Schulname}]
+Gibt den Namen der Schule an.
+\Befehlsbeschreibung{Datum}[\marg{Datum}]
+Gibt das Datum der Prüfung an. Das Eingabeformat ist \texttt{JJJJ-MM-TT}.
+\Befehlsbeschreibung{Fach}[\marg{Unterrichtsfach}]
+Gibt das geprüfte Unterrichtsfach an.
+\Befehlsbeschreibung{Vorbereitungsraum}[\marg{Raum}]
+Gibt den Vorbereitungsraum für die Prüfung an.
+\Befehlsbeschreibung{Vorbereitungszeit}[\marg{Zeit}]
+Gibt die Vorbereitungszeit in Minuten an. Voreingestellt sind 30 Minuten.
+\Befehlsbeschreibung{Pruefungsraum}[\marg{Raum}]
+Gibt den Prüfungsraum an.
+\Befehlsbeschreibung{Pruefer}[\marg{Name}]
+Gibt den Namen des Prüfers an.
+\Befehlsbeschreibung{PNummer}[\marg{Nummer}]
+Gibt die Nummer des Prüfungsfachs an.
+\end{Liste}
+\subsubsection*{Befehle im Dokumentenkörper}
+\begin{Liste}
+\Befehlsbeschreibung{Aufgabe}[\marg{Aufgabentext}]
+Legt die Prüfungsaufgabe fest.
+\Befehlsbeschreibung{Hilfsmittel}[\marg{Hilfsmittel}]
+Legt die zulässigen Hilfsmittel bei der Bearbeitung der Prüfungsaufgabe fest.
+\Befehlsbeschreibung{Erwartungshorizont}[\marg{Lösung}]
+Legt den Erwartungshorizont der Prüfungsaufgabe fest.
+\Befehlsbeschreibung{WeitereThemen}[\marg{Themen}]
+Legt als Ergänzung des Erwartungshorizonts zur Prüfungsaufgabe die möglichen Themen des weiteren Prüfungsgesprächs fest.
+\Befehlsbeschreibung{Pruefung}[\marg{Name}\marg{Uhrzeit}]
+Gibt eine einzelne Prüfung mit Erwartungshorizont aus. Das erste Argument gibt den Namen des Prüf"|lings, das zweite die Uhrzeit des Prüfungsbeginns an. Das Eingabeformat der Uhrzeit ist \texttt{SS:MM}.
+\end{Liste}
+
+\addsec{Versionsprotokoll}
+\begin{description}
+\item[1.0] 16. Februar 2020
+\item[1.1] 13. März 2021
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} neuer Befehl \Befehl{GTRY}
+\item \textbf{\Paket{schulma-physik}:} neue Befehle \Befehl{EFK} und \Befehl{MFK}
+\item \textbf{\Klasse{schulma-ab}:} Fehlerbehebung beim Befehl \Befehl{Uebung*} und der KOMA-Option \Option{DIV}
+\item \textbf{\Klasse{schulma-praes}:} Anstelle des Bildseitenverhältnisses $14:9$ wird jetzt das Verhältnis $16:9$ eingestellt.
+\item \textbf{\Klasse{schulma-klausur}:} Die Klasse basiert im Klausurmodus nicht mehr auf \Klasse{schulma-ab}, sondern auf \Klasse{scrartcl}. Dies vermeidet einen Konflikt zwischen \Paket{enumitem} und \Paket{beamerarticle}.
+
+Der Klausurtitel und der Klausurteiltitel werden jetzt auch in der Musterlösung berücksichtigt.
+\item \textbf{\Klasse{schulma-gutachten}:} Korrektur der Fehlermeldung bei fehlendem \Befehl{Ort}-Befehl; Fehlerbehebung bei der KOMA-Option \Option{DIV}
+\item \textbf{\Klasse{schulma-mdlprf}:} Fehlerbehebung bei der KOMA-Option \Option{DIV}
+\end{itemize}
+\item[1.2] 18. Dezember 2021
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} Unterdrückung der wissenschaftlichen Zahlschreibweise bei der Skalenbeschriftung von \Paket{pgfplots}-Graphen durch die Option \texttt{ticklabel style=""\{/pgf/number format/fixed\}}; Korrektur der (bisher unwirksamen) \Paket{pgfplots}-Option \verb:scaled ticks=false:
+
+Bei Verwendung des \Paket{euler}-Pakets werden die Basis der e-Funktion mit dem Befehl \Befehl{ehoch} und das Differentialzeichen d mit dem Befehl \Befehl{diff} wie Variablen aus der Euler-Schrift gesetzt, da diese Schrift grundsätzlich aufrecht ist.
+\item \textbf{\Paket{schulma-physik}:} neue Befehle \Befehl{Messschieber} und \Befehl{Messschraube}
+
+Das Paket wurde an die Version 3 des \Paket{siunitx}-Pakets angepasst, in welchem die Befehle \verb:\SI: und \verb:\si: durch \verb:\qty: und \verb:\unit: ersetzt wurden. Dementsprechend wurden die Befehle \Befehl{tSI} und \Befehl{tsi} in \Befehl{tqty} und \Befehl{tunit} umbenannt. Die alten Befehle bleiben vorerst erhalten.
+\item \textbf{\Klasse{schulma-ab}:} neue Klassenoptionen \Option{A4quer} und \Option{A5}; Unterstützung von Musterlösungen mit Hilfe der Klassenoption \Option{Musterloesung}, der Umgebung \Umgebung{Lsg} sowie der Befehle \Befehl{NurAufgabe} und \Befehl{NurLoesung} wie in der Klasse \Klasse{schulma-klausur}
+\item \textbf{\Klasse{schulma-klausur}:} veränderte Paketladereihenfolge, um die Option \Option{intlimits} des Pakets \Paket{mathtools} wirksam zu machen
+
+Bei Verwendung der Klassenoption \Option{A5quer} wird jetzt auch tatsächlich das Querformat eingestellt.
+
+Für die Musterlösung wird bei Verwendung der Umgebung \Umgebung{Teilaufgaben} innerhalb der Umgebung \Umgebung{Lsg} nur noch die Aufgabenmarke in Aufgabenfarbe angezeigt, der folgende Text dagegen in Lösungsfarbe.
+\item \textbf{\Klasse{schulma-gutachten}:} Anpassung an die Version 3 des \Paket{siunitx}-Pakets
+\end{itemize}
+\item[1.3] 12. August 2022
+\begin{itemize}
+\item \textbf{\Paket{schulma-physik}:} globale Einstellung der \Paket{siunitx}-Option \Option{uncertainty-mode=""separate}; Verwendung eines aufrechten $\symup{\pi}$ in der Ausgabe des Befehls \Befehl{MFK}, wenn das Paket \Paket{unicode-math} geladen ist; Aktualisierung des Hinweises zur Nuklidschreibweise mit dem Paket \Paket{chemmacros}
+\item \textbf{\Klasse{schulma-ab}:} Anpassung der vertikalen Abstände innerhalb der \verb:tasks:"=Umgebung an die Umgebung \Umgebung{Teilaufgaben}
+\item \textbf{\Klasse{schulma-klausur}:} Anpassung der vertikalen Abstände innerhalb der \verb:tasks:-Umgebung an die Umgebung \Umgebung{Teilaufgaben}; neues optionales Argument des Befehls \Befehl{Aufgabe} für die Bearbeitungszeit; Ausgabe von Informationen zu den Aufgaben auf dem Terminal
+\end{itemize}
+\item[1.4] 13. März 2023
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} neue Paketoption \Option{ohne-icomma}
+\item \textbf{\Paket{schulma-physik}:} neue Paketoption \Option{circuitikz}; neue Optionen \Option{cm}, \Option{inch} und \Option{cm+inch} für den Befehl \Befehl{Messschieber}, um eine Zollskala alternativ oder zusätzlich zur Zentimeterskala auszugeben; neuer Befehl \Befehl{Kraftmesser}
+\item \textbf{\Klasse{schulma-klausur}:} neuer Befehl \Befehl{Formeldokument}
+
+Das Verhalten des Befehls \Befehl{Gruppen} wurde für den Fall geändert, dass keine der Klassenoptionen \Option{GruppeA} und \Option{GruppeB} gewählt wurde: In der Musterlösung werden die Texte für beide Gruppen ausgegeben; in der Klausur wird weiterhin der Text für Gruppe A abgedruckt, aber eine Warnung ausgegeben. Damit verbunden ist die Einführung einer Sternversion des Befehls \Befehl{Gruppen}.
+\end{itemize}
+\item[1.5] 21. Juni 2023
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} Verwendung des Schriftbefehls \verb:\small: für alle Beschriftungen innerhalb der Umgebung \texttt{axis} und des Befehls \verb:\,: als Tausendertrennzeichen für die Skalenbeschriftung innerhalb der gleichen Umgebung
+\item \textbf{\Paket{schulma-physik}:} neuer Befehl \Befehl{Multimeter}
+\item \textbf{\Klasse{schulma-gutachten}:} Ermöglichung mehrzeiliger Schulnamen; Anpassung der Schriftart des erreichten Prozentsatzes an die umgebende Schrift
+\end{itemize}
+\item[1.6] 30. Dezember 2023
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} neuer Befehl \Befehl{Rechenkaestchen}
+\item \textbf{\Klasse{schulma-ab}:} Vermeidung doppelter Seitenzahlen bei Verwendung der Klassenoption \Option{twoside}
+\item \textbf{\Klasse{schulma-klausur}:} neue Klassenoption \Option{MusterloesungD}; Problembehebung im Zusammenhang mit dem Paket \Paket{xcolor}; Vermeidung doppelter Seitenzahlen bei Verwendung der Klassenoption \Option{twoside}
+\item \textbf{\Klasse{schulma-komp}:} neue Befehle \Befehl{Nr} und \Befehl{Klausurdatum}, automatische Erzeugung einer Überschrift; Ausblendung der Kompetenzen bei Verwendung der Klassenoption \Option{Musterloesung}
+\end{itemize}
+\item[1.7] 16. April 2025
+\begin{itemize}
+\item \textbf{\Paket{schulma}:} Verwendung eines Dezimalkommas für alle Zahlen innerhalb eines \Paket{pgfplots}-Diagramms (bisher nur für die Skalenbeschriftung)
+\item \textbf{\Klasse{schulma-ab}:} neuer Befehl \Befehl{rechnerfrei}; Aufruf des Befehls \verb:\reversemarginpar:
+\item \textbf{\Klasse{schulma-klausur}:} Ermöglichung von Absätzen in den Argumenten des Befehls \Befehl{Gruppen}; Korrektur der Abstände bei \verb:tasks:-Umgebungen innerhalb von \Umgebung{Teilaufgaben}; Ausblenden der Bearbeitungszeit und der Hilfsmittel sowie Vermeidung eines doppelten Klausurteiltitels bei Verwendung der Klassenoption \Option{MusterloesungD}
+\item \textbf{\Klasse{schulma-gutachten}:} veränderte Formulierung zur Zustimmung des Korreferenten
+\end{itemize}
+\item[1.7.1] \today
+\begin{itemize}
+\item \textbf{\Klasse{schulma-ab}:} Korrektur der Gesamtzahl der Seiten für \LaTeX\ 2025-06-01
+\item \textbf{\Klasse{schulma-klausur}:} Korrektur der Gesamtzahl der Seiten für \LaTeX\ 2025-06-01
+\end{itemize}
+\end{description}
+
+\end{document}

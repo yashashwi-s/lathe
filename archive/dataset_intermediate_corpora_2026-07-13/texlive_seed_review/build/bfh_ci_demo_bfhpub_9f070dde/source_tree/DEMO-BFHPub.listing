@@ -1,0 +1,9 @@
+Set-ExecutionPolicy Unrestricted -Scope Process `\StartConsole`
+Die Ausführungsrichtlinie trägt zum Schutz vor nicht vertrauenswürdigen Skripts bei. ... Möchten Sie die Ausführungsrichtlinie ändern?
+[J]Ja  [A]Ja,alle  [N]Nein  [K]Nein,keine  [H]Anhalten  [?]Hilfe
+(Standard ist "N"): J`\setupLinuxPrompt{student}`
+python -m venv btm1503venv # create new virtual environment
+cd btm1503venv`\setupLinuxPrompt[john][myserver][/home/john/btm1503venv][\$ ]{color=green}`
+.\Scripts\activate # work within venv -> '(btm1503venv)' prompt `\setupLinuxPrompt[(btm1503venv)john][myserver][/home/john/btm1503venv][\$ ]{color=green}`
+pip install spyder-kernels numpy mnist
+deactivate # exit virtual environment after you are done

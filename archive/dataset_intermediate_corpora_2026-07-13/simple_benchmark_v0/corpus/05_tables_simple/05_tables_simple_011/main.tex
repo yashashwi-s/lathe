@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00039\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Temp.} & \textbf{Model}          & \textbf{BERT Score} & \textbf{ROUGE-1} & \textbf{ROUGE-2} & \textbf{ROUGE-L} & \textbf{BLEU} & \textbf{LAME-3} & \textbf{LAME-5} & \textbf{LAME-1} \\ \hline
+0                    & Llama-3.1-70B           & 0.7559              & 0.4249           & 0.1624           & 0.2797           & 0.0326        & 0.7728          & 0.7492          & 0.89            \\ \hline
+0                    & Llama-3.1-8B            & 0.7873              & 0.4534           & 0.1684           & 0.2758           & 0.0508        & 0.7306          & 0.7152          & 0.854           \\ \hline
+0                    & Phi-3.5-3.8B            & 0.7181              & 0.1166           & 0.0077           & 0.0723           & 0.0014        & 0.2016          & 0.202           & 0.336           \\ \hline
+0                    & Phi-3-14B               & 0.7458              & 0.4321           & 0.1341           & 0.2006           & 0.0263        & 0.6802          & 0.6504          & 0.83            \\ \hline
+0.5                  & Llama-3.1-70B           & 0.7727              & 0.4465           & 0.1683           & 0.2806           & 0.0325        & 0.7782          & 0.7451          & 0.91            \\ \hline
+0.5                  & Llama-3.1-8B            & 0.7817              & 0.4534           & 0.1689           & 0.2645           & 0.0439        & 0.7444          & 0.7088          & 0.87            \\ \hline
+0.5                  & Phi-3.5-3.8B            & 0.7758              & 0.3684           & 0.0938           & 0.1851           & 0.0112        & 0.6330          & 0.5738          & 0.764           \\ \hline
+0.5                  & Phi-3-14B               & 0.7409              & 0.4286           & 0.1328           & 0.2068           & 0.0282        & 0.7018          & 0.6698          & 0.864           \\ \hline
+1                    & Llama-3.1-70B           & 0.7830              & 0.4345           & 0.1463           & 0.2656           & 0.0291        & 0.7621          & 0.713           & 0.914           \\ \hline
+1                    & Llama-3.1-8B            & 0.7584              & 0.4389           & 0.1574           & 0.2636           & 0.0413        & 0.7572          & 0.7152          & 0.872           \\ \hline
+1                    & Phi-3.5-3.8B            & 0.7092              & 0.0979           & 0.0023           & 0.0587           & 0.0010        & 0.1498          & 0.226           & 0.254           \\ \hline
+1                    & Phi-3-14B               & 0.7821              & 0.4126           & 0.1119           & 0.1935           & 0.0196        & 0.7360          & 0.6862          & 0.864           \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00383\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|c|c|c}
+\textbf{Parameter}         & \textbf{SAC Value} & \textbf{IQL Value}    & \textbf{CalQL Value} \\ \hline
+Actor Learning Rate        & 3e-4               & 3e-4                  & 1e-4                 \\
+Critic Learning Rate       & 3e-4               & 3e-4                  & 3e-4                 \\
+Value Learning Rate        & -                  & 3e-4                  & -                    \\
+Temperature Learning Rate  & 3e-4               & -                     & -                    \\
+Discount Factor            & 0.99               & 0.99                  & 0.99                 \\
+Tau                        & 0.005              & 0.005                 & 0.005                \\
+Initial Temperature        & 1.0                & -                     & 1.0                  \\
+Critic Reduction           & -                  & Min                   & Min                  \\
+Ensemble Size of Critics   & -                  & 2                     & 2                    \\
+Target Network Update      & Moving Average     & Moving Average        & Moving Average       \\
+Online Evaluation Interval & 5000               & 5000                  & 5000                 \\
+Evaluation Episodes        & 10                 & 10                    & 10                   \\
+Expectile                  & -                  & Environment Dependent & -                    \\
+Inverse Temperature        & -                  & Environment Dependent & -                    \\
+Learning Start Step        & 10000              & -                     & -                    \\
+Offline Gradient Steps     & -                  & 500K                  & 500K                 \\
+Online UTD Ratio           & -                  & -                     & 1.0                  \\
+Automatic Entropy Tuning   & -                  & -                     & True                 \\
+Batch Size                 & 256                & 256                   & 256                 
+\end{tabular}
+}
+\end{table}
+
+\end{document}

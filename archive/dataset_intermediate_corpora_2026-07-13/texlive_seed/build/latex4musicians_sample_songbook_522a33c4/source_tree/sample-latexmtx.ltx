@@ -1,0 +1,23 @@
+\documentclass[12pt]{article}
+\usepackage{mtxlatex} % usually not installed
+\thispagestyle{empty}
+
+\mtxlatex
+
+% compile with:
+% musixtex sample-mtx scale sample-latexmtx.ltx
+
+\begin{document}
+
+This \LaTeX\ document includes music written in M-Tx. The
+\texttt{mus} environment includes music inline: 
+\begin{mus} \input{scale.tex} \end{mus} , while the 
+\texttt{excerpts} environment is used for longer excerpts:
+
+\medskip
+
+\begin{excerpts}
+  \input{sample-mtx.tex}
+\end{excerpts}
+
+\end{document}

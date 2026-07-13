@@ -1,0 +1,17 @@
+
+\subsection[Delimiters]{Delimiters\phantom{g}}
+{\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}cl@{\hspace{3em}}cl@{\hspace{3em}}cl@{\hspace{2em}}cl}\toprule		
+$(.)$   & \lstinline+(.)+   & $[.]$         & \lstinline+[.]+         & $\lfloor.\rfloor$ & \lstinline+\lfloor.\rfloor+\\
+$|.|$   & \lstinline+|.|+   & $\{.\}$       & \lstinline+\{.\}+       & $\lceil.\rceil$   & \lstinline+\lceil.\rceil+\\
+$\|.\|$ & \lstinline+\|.\|+ & $\vert.\vert$ & \lstinline+\vert.\vert+ & $\langle.\rangle$ & \lstinline+\langle.\rangle+\\	
+\bottomrule\end{tabular}}	
+\begin{itemize}
+\item
+Use \lstinline+\left+ \textit{expr} \lstinline+\right+ to stretch delimiters to the height of \textit{expr}
+\item
+A missing delimiter can be added with \lstinline+.+, e.g. \lstinline+\left.+
+\item
+For manual sizing use \lstinline+\big, \Big, \bigg+, e.g. \lstinline+\Big\|+ \lstinline+\Big\lceil+
+\end{itemize}
+^^E^^L 

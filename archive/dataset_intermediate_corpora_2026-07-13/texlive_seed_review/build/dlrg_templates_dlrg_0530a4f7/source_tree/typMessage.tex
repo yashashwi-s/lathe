@@ -1,0 +1,57 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Mitteilung}
+\author{Johannes Pieper}
+
+\begin{document}
+    Mit dem Dokumenttyp \verbcode|message| gibt es die Möglichkeit einfach gestaltete Mitteilungen zu gestalten, wie z.\,B. Pressemitteilungen, wie sie in \autoref{fig:mitteilung} dargestellt ist.
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.4]{Beispiele/dlrg_muster_mitteilung}
+        \caption{Beispiel einer Mitteilung}
+        \label{fig:mitteilung}
+    \end{figure}
+
+    \begin{commands}
+        \command{titel}[\marg{Titel}] Der Titel der Mitteilung.
+        \command{subtitle}[\marg{Untertitel}] Der Untertitel einer Mitteilung.
+        \command{author}[\marg{Autor}] Der Autor der Mitteilung.
+        \command{gliederungName}[\marg{Glederungsname}] Der Gliederungsname mit Bezeichnung wie "`Ortsgruppe Muster"'.
+        \command{funktionsbezeichnung}[\marg{Funktion}] Angabe der Funktion des Autors in der Gliederung, wie "`Leiter Einsatz"'.
+        \command{adresse}[\marg{Adresse}] Adresse aus Straße und Hausnummer.
+        \command{ort}[\marg{Ort}] Angabe der Postleitzahl mit dem Ort.
+        \command{telefon}[\marg{Telefonnummer}] Angabe der Telefonnummer. Am besten im Format "`+49 (0) 123 4567"'.
+        \command{telefax}[\marg{Telefax}] Angabe einer Telefaxnummer. Format wie beim Telefon.
+        \command{email}[\marg{email}] Die E-Mail-Adresse sollte komplett klein angeben werden.
+        \command{webseite}[\marg{Internetadresse}] Die Angabe der Internetadresse sollte \textbf{ohne} führendes www. angegeben werden. Diese Adresse wird auch in der Bauchbinde genutzt.
+    \end{commands}
+
+    \subsubsection{Serienfunktion}
+    Für den Fall, dass man die Mitteilung durch eine Serienfunktion, wie sie z.\,B. mit dem Paket \pkg{datatool} bereit gestellt wird, muss man den Kopf mit hinterlegten Adler durch \verb|\startMitteilungsteil| selbst einbinden. Will man
+    den ersten Kopf unterdrücken, so kann man dieses durch die Option \verb|serienfunktion| machen.
+
+    \begin{options}
+        \opt{serienfunktion}
+            Mit der aktivierten Serienfunktion wird die automatische Einbindung des Kopfes unterbunden.
+    \end{options}
+
+    \begin{commands}
+        \command{startMitteilungsteil} Setzt einen neuen Kopf mit hinterlegtem Adler. Auch wird ein Seitenumbruch zuvor durchgeführt.
+    \end{commands}
+
+\end{document}

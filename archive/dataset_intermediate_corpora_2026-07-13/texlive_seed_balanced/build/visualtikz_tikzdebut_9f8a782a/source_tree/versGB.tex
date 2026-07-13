@@ -1,0 +1,17 @@
+%English version
+\newcommand{\TFRGB}[2]{#2} % #1 en francais #2 in english
+
+\newcommand{\dft}{By default}
+\newcommand{\SSCT}[2]{ \section{#2}}
+\newcommand{\SbSSCT}[2]{ \subsection{#2}}
+\newcommand{\Par}[2]{ \paragraph{#2}}
+\newcommand{\SbSbSSCT}[2]{ \subsubsection{#2}}
+\newcommand{\SSCTTC}[4]{ \section[#2]{#2}}
+\newcommand{\SbSSCTTC}[4]{ \subsection[#2]{#2}}
+\newcommand{\SbSbSSCTTC}[4]{ \subsubsection[#3]{#4}}
+
+\newcommand{\maboite}[1]{\begin{center}  \tikz \draw node[draw,fill=yellow!20,inner sep=0.2cm,text centered,text width=.75\linewidth] {Load package : #1} ; \end{center} }
+
+%\newcommand{\DW}[1]{\begin{center}  \tikz \draw node[draw,fill=red!50,inner sep=0.1cm,text centered] {\tiny don't work !} ; \end{center} }
+
+\newcommand{\DW}[1]{\tikz[baseline=-1mm]  \draw node[draw,fill=red!50] {{\tiny don't work !}}; \index{\textbf{6 list of don't work }}}

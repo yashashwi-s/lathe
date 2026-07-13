@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 31}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[!h]
+\caption{HKSL Learning Loop}\begin{algorithmic}[1]
+\Require trajectory $\tau$
+\For{layer $i$ in HKSL (begin with the lowest layer)}
+\For{layer $j$ in HKSL (begin with the highest layer)}
+\If{$i == j$}
+\State break loop
+\EndIf
+\State Embed first observation $o$ in $\tau$ using layer $j$'s encoder
+\If{layer $j$ is the top layer}
+\For{step layer $j$ can take in $\tau$}
+\State Compute forward-step using layer $j$'s forward model and actions from $\tau$
+\State Store the prediction
+\EndFor
+\Else{ layer $j$ is not the top layer}
+\For{step layer $j$ can take in $\tau$}
+\State Compute forward-step using layer $j$'s forward model, actions from $\tau$, and output from communication manager using the stored rollout from above level
+\State Store the prediction
+\EndFor
+\EndIf
+\EndFor
+\State Embed first observation $o$ in $\tau$ using layer $i$'s encoder
+\For{step layer $i$ can take in $\tau$}
+\State Compute forward-step using layer $i$'s forward model, actions from $\tau$, and output from communication manager using the stored rollout from above level
+\State Project the forward model's output with layer $i$'s nonlinear projection
+\State Compute loss per Equation~\ref{eqn:hksl-loss}
+\EndFor
+\State Update layer $i$'s weights
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

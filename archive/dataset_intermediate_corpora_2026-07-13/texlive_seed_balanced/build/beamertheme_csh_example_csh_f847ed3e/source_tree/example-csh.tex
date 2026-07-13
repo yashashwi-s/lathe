@@ -1,0 +1,140 @@
+% Example presentation using CSH theme
+\documentclass[aspectratio=169]{beamer}
+\usetheme{csh}
+
+\title{Example Presentation}
+\subtitle{Using the CSH Beamer Theme}
+\author{Your Name}
+\institute{Complexity Science Hub}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Welcome}
+    This is an example presentation using the \textbf{CSH theme}.
+
+    \begin{itemize}
+        \item First point
+        \item Second point
+        \item Third point
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Features}
+    \begin{block}{Block Title}
+        This is a block with some content.
+    \end{block}
+
+    \begin{alertblock}{Alert Block}
+        This is an alert block.
+    \end{alertblock}
+
+    \begin{exampleblock}{Example Block}
+        This is an example block.
+    \end{exampleblock}
+\end{frame}
+
+\section{Content}
+
+\begin{frame}{Enumeration and Math}
+    \begin{enumerate}
+        \item First item
+        \item Second item
+        \item Third item
+    \end{enumerate}
+
+    \vspace{1em}
+
+    Some inline math: $E = mc^2$
+
+    \[
+        \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+    \]
+\end{frame}
+
+\begin{frame}{Figures}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{csh-logo-web}
+        \caption{Example figure with caption}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Tables}
+    \begin{table}
+        \centering
+        \begin{tabular}{lcc}
+            \hline
+            \textbf{Method} & \textbf{Accuracy} & \textbf{Runtime} \\
+            \hline
+            Baseline & 0.72 & 1.2s \\
+            Our approach & \textbf{0.89} & 0.8s \\
+            \hline
+        \end{tabular}
+        \caption{Comparison of methods}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Two-Column Layout}
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \textbf{Pros}
+            \begin{itemize}
+                \item Fast convergence
+                \item Low memory usage
+                \item Easy to implement
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Cons}
+            \begin{itemize}
+                \item Limited scalability
+                \item Requires tuning
+                \item Sensitive to noise
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Code Listings}
+    \begin{verbatim}
+def hello_world():
+    print("Hello, World!")
+    return 42
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Source Citation}
+    You can add source citations (e.g., links to websites) to your slides.
+
+    \source{Source: Your citation here}
+\end{frame}
+
+\begin{frame}{References}
+    \begin{thebibliography}{9}
+        \bibitem{thurner2018}
+        S.~Thurner, R.~Hanel, and P.~Klimek.
+        \textit{Introduction to the Theory of Complex Systems}.
+        Oxford University Press, 2018.
+
+        \bibitem{battiston2016}
+        S.~Battiston et al.
+        Complexity theory and financial regulation.
+        \textit{Science}, 351(6275):818--819, 2016.
+    \end{thebibliography}
+\end{frame}
+
+% Closing slide
+\cshclosingslide{Your Name}{lastname@csh.ac.at}{https://csh.ac.at}
+
+\end{document}

@@ -1,0 +1,432 @@
+\documentclass[12pt]{article}
+\usepackage[top=2.5cm, bottom=2cm, left=2cm, right=2cm]{geometry}               
+\geometry{a4paper}               
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[italian]{babel}
+
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usepackage[colorlinks]{hyperref}
+\usepackage{mathpazo,helvet,courier}
+\usepackage{fancyvrb}
+\usepackage{pdfpages}
+
+\usepackage{quiz2socrative}
+
+
+
+\renewcommand{\baselinestretch}{1.2}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\title{Il package \texttt{quiz2socrative}}
+\author{Paolo Lella\footnote{Per segnalazioni di errori o malfunzionamenti e/o per suggerimenti di estensioni delle funzionalit\`a del pacchetto, scrivere a \href{mailto:paolo.lella@polimi.it}{\tt paolo.lella@polimi.it}}}
+\date{\it \small Versione 1.0, Ottobre 2019}
+
+\begin{document}
+	
+\maketitle
+
+\begin{abstract}
+Il package \texttt{quiz2socrative.sty} fornisce alcuni comandi utili per la preparazione di  domande a risposta multipla, quesiti vero/falso e domande con risposta breve. Queste tre tipologie di domande sono le tipologie disponibili  nell'applicazione  \textsf{Socrative} (\url{www.socrative.com}). Tale applicazione non offre la possibilit\`a di inserire codice latex direttamente nel corpo di una domanda, pertanto le formule matematiche possono essere inserite solo sotto forma di immagine. Gli strumenti del package \texttt{quiz2socrative.sty} agevolano la produzione di immagini contenenti domande di contenuto matematico e il formato delle immagini \`e pensato appositamente per la fruizione del quiz tramite lo schermo di uno smartphone.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Comandi}
+L'applicazione  \textsf{Socrative}  offre tre tipologie di domande:
+\begin{itemize}
+\item domande a risposta multipla;
+\item quesiti vero/falso;
+\item domande con risposta breve.
+\end{itemize}
+
+
+\subsection{Domande a risposta multipla}
+Il comando principale per la produzione di una domanda a risposta multipla \`e
+\begin{center}\tt
+\textbackslash socrativeMC\{\textit{<testo della domanda>}\}\{\textit{<lista delle risposte>}\}
+\end{center}
+ dove le singole risposte nella {\tt \textit{<lista delle risposte>}} devono essere separate dalla stringa \texttt{\textbackslash !\textbackslash !}. Ad esempio il comando
+ \begin{center}
+ \parbox{16cm}{\tt
+\textbackslash socrativeMC\{Di che colore \`e il cavallo bianco di Napoleone?\}\\
+\phantom{\textbackslash socrativeMC}\{Nero. \textbackslash !\textbackslash ! Bianco. \textbackslash !\textbackslash ! Rosso.\}\hspace{4cm}}
+ \end{center}
+produce la domanda rappresentata in Figura \ref{fig:MC1} (\textsc{n.b.} gli spazi che precedono e seguono la stringa \texttt{\textbackslash !\textbackslash !} vengono ignorati).
+
+\showBorder
+\begin{figure}[!ht]
+\begin{center}
+\socrativeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero. \!\! Bianco. \!\! Rosso.}
+\caption{\label{fig:MC1} Esempio di utilizzo del comando \texttt{\textbackslash socrativeMC}.}
+\end{center}
+\end{figure}
+ \hideBorder
+ 
+ \newpage
+ 
+ Sono disponibili ulteriori comandi per i casi particolari di:
+ \begin{itemize}
+ \item due risposte
+  \begin{center}
+  \parbox{14cm}{\tt \textbackslash socrativeTwoMC\{\textit{<testo della domanda>}\}\{\textit{<risposta 1>}\}\\
+                              \phantom{\textbackslash socrativeTwoMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 2>}\}
+                         }
+ \end{center}
+ \item tre risposte
+  \begin{center}
+  \parbox{14cm}{\tt \textbackslash socrativeThreeMC\{\textit{<testo della domanda>}\}\{\textit{<risposta 1>}\}\\
+                              \phantom{\textbackslash socrativeThreeMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 2>}\}\\
+                              \phantom{\textbackslash socrativeThreeMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 3>}\}
+                         }
+ \end{center}
+ \item quattro risposte
+  \begin{center}
+  \parbox{14cm}{\tt \textbackslash socrativeFourMC\{\textit{<testo della domanda>}\}\{\textit{<risposta 1>}\}\\
+                              \phantom{\textbackslash socrativeFourMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 2>}\}\\
+                              \phantom{\textbackslash socrativeFourMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 3>}\}\\
+                              \phantom{\textbackslash socrativeFourMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 4>}\}
+                         }
+ \end{center}
+ \item cinque risposte
+  \begin{center}
+  \parbox{14cm}{\tt \textbackslash socrativeFiveMC\{\textit{<testo della domanda>}\}\{\textit{<risposta 1>}\}\\
+                              \phantom{\textbackslash socrativeFiveMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 2>}\}\\
+                              \phantom{\textbackslash socrativeFiveMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 3>}\}\\
+                              \phantom{\textbackslash socrativeFiveMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 4>}\}\\
+                              \phantom{\textbackslash socrativeFiveMC\{\textit{<testo della domanda>}\}}\{\textit{<risposta 5>}\}
+                         }
+ \end{center}
+ \end{itemize}
+In questa serie di comandi, ogni risposta \`e inserita come un singolo argomento.
+
+\subsection{Quesiti vero/falso}
+
+Per la produzione di un'immagine di un quesito vero/falso, il comando \`e
+\begin{center}\tt
+\textbackslash socrativeTF\{\textit{<testo della domanda>}\}
+\end{center}
+ Ad esempio il comando
+ \begin{center}\tt
+\textbackslash socrativeTF\{Un chilo di ferro pesa pi\`u di un chilo di piume.\}
+\end{center}
+produce la domanda rappresentata in Figura \ref{fig:TF1}.
+
+\showBorder
+\begin{figure}[!ht]
+\begin{center}
+\socrativeTF{Un chilo di ferro pesa pi\`u di un chilo di piume.}
+\caption{\label{fig:TF1} Esempio di utilizzo del comando \texttt{\textbackslash socrativeTF}.}
+\end{center}
+\end{figure}
+\hideBorder
+
+\subsection{Domande con risposta breve}
+Per la produzione di un'immagine di domanda con risposta breve, il comando \`e
+\begin{center}\tt
+\textbackslash socrativeSA\{\textit{<testo della domanda>}\}
+\end{center}
+ Ad esempio il comando
+ \begin{center}\tt
+\textbackslash socrativeSA\{Quanto pesa un chilo di ferro?\}
+\end{center}
+produce la domanda rappresentata in Figura \ref{fig:SA1}.
+
+\showBorder
+\begin{figure}[!ht]
+\begin{center}
+\socrativeSA{Quanto pesa un chilo di ferro?}\vspace*{-6pt}
+\caption{\label{fig:SA1} Esempio di utilizzo del comando \texttt{\textbackslash socrativeSA}.}
+\end{center}
+\end{figure}
+\hideBorder
+
+\vspace*{-18pt}
+\section{Opzioni globali}
+Nella chiamata del package \texttt{quiz2socrative}, \`e possibile impostare tre opzioni:
+\begin{description}
+\item[\texttt{socrativeQuiz} / \texttt{pdfQuiz}] Con l'opzione \texttt{socrativeQuiz}\footnotemark[2]\vspace*{-1pt}
+\begin{center}\tt 
+\textbackslash usepackage[socrativeQuiz]\{quiz2socrative\}
+\end{center}\vspace*{-1pt}
+ogni domanda viene stampata per essere ritagliata e inserita come immagine in un test \textsf{Socrative}. Le domande contenute nelle Figure \ref{fig:MC1}, \ref{fig:TF1} e \ref{fig:SA1} sono esempi prodotti con questa opzione.
+
+L'opzione \texttt{pdfQuiz}\footnotemark[2]\vspace*{-1pt}
+\begin{center}\tt 
+\textbackslash usepackage[pdfQuiz]\{quiz2socrative\}
+\end{center}\vspace*{-1pt}
+ \`e pensata invece per la preparazione di test cartacei. L'output dei comandi per produrre domande a risposta multipla rimane invariato, mentre nel caso di quesiti vero/falso vengono aggiunti due riquadri \lq\lq VERO\rq\rq--\lq\lq FALSO\rq\rq~e nel caso di domande con risposta breve viene aggiunto un riquadro con lo spazio per la risposta (vedi Figura \ref{fig:pdfQuiz}).
+ 
+ \begin{figure}[!ht]
+\begin{center} \showBorder \showSolution
+\socrativeTF{Un chilo di ferro pesa pi\`u di un chilo di piume.}[2]
+\hfill
+\socrativeSA{Quanto pesa un chilo di ferro?}[ ]\hideBorder\hideSolution
+\caption{\label{fig:pdfQuiz} Il quesito vero/falso e la domanda con risposta breve descritti in figura sono prodotti dai comandi utilizzati nelle Figure \ref{fig:TF1} e \ref{fig:SA1}, ma con l'opzione  \texttt{pdfQuiz}.}
+\end{center}
+\end{figure}
+
+\item[\texttt{letters} / \texttt{numbers}] Con l'opzione \texttt{letters}\footnotemark[2]\vspace*{-1pt}
+\begin{center}\tt
+\textbackslash usepackage[letters]\{quiz2socrative\}
+\end{center}\vspace*{-1pt}
+le risposte delle domande a risposta multipla vengono enumerate con lettere maiuscole, mentre con l'opzione \texttt{numbers}\footnotemark[2]\vspace*{-1pt}
+\begin{center}\tt
+\textbackslash usepackage[numbers]\{quiz2socrative\}
+\end{center}\vspace*{-1pt}
+vengono enumerate con numeri (vedi Figura \ref{fig:MC2}).
+
+\showBorder
+\begin{figure}[!ht]
+\begin{center}
+\socrativeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero. \!\! Bianco. \!\! Rosso.}
+\hfill\useNumbers
+\socrativeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero. \!\! Bianco. \!\! Rosso.}\useLetters
+\caption{\label{fig:MC2} Una domanda a risposta multipla con l'opzione \texttt{letters} a sinistra e \texttt{numbers} a destra.}
+\end{center}
+\end{figure}
+\hideBorder
+
+\item[\texttt{italian} / \texttt{english}]  Queste due opzioni producono delle differenze se abbinate all'opzione \texttt{pdfQuiz}. Con l'opzione \texttt{italian}\footnotemark[2]
+\begin{center}\tt
+\textbackslash usepackage[italian,pdfQuiz]\{quiz2socrative\}
+\end{center}
+nei due riquadri per la risposta ai quesiti vero/falso viene scritto \lq\lq VERO\rq\rq~e \lq\lq FALSO\rq\rq, mentre con l'opzione \texttt{english}\footnotemark[2]
+\begin{center}\tt
+\textbackslash usepackage[english,pdfQuiz]\{quiz2socrative\}
+\end{center}
+viene scritto \lq\lq TRUE\rq\rq~e \lq\lq FALSE\rq\rq~(vedi Figura \ref{fig:TF2}).
+
+\showBorder\showSolution
+\begin{figure}[!ht]
+\begin{center}
+\socrativeTF{$$\frac{1}{2} > \frac{2}{3}$$}[2]
+\hfill \useEnglish
+\socrativeTF{$$\frac{1}{2} > \frac{2}{3}$$}[2]  \useItalian\vspace*{-18pt}
+\caption{\label{fig:TF2} Un quesito vero/falso con l'opzione \texttt{italian} a sinistra e \texttt{english} a destra.}
+\end{center}
+\end{figure}
+\hideBorder\hideSolution
+\end{description}
+
+\footnotetext[2]{Le opzioni di default sono \texttt{socrativeQuiz,letters,italian}.}
+
+\section{Opzioni avanzate}
+
+\subsection{Larghezza del riquadro}
+Tutti i comandi per la produzione di domande hanno un argomento opzionale che consente di variare la larghezza del riquadro (vedi Figura \ref{fig:MC3}):
+\begin{center}
+\parbox{12cm}{\tt \textbackslash socrativeMC[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeTwoMC[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeThreeMC[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeFourMC[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeFiveMC[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeTF[\textit{<larghezza>}]\{$\cdots$\} \\ 
+			   \textbackslash socrativeSA[\textit{<larghezza>}]\{$\cdots$\} }
+\end{center}
+L'argomento \texttt{\textit{<larghezza>}} deve essere un numero con unit\`a di misura (ad esempio \texttt{cm} o \texttt{pt}).  La larghezza di default \`e $8$ cm.
+
+
+\showBorder
+\begin{figure}[!ht]
+\begin{center}
+\socrativeThreeMC[15cm]{Di che colore \`e il cavallo bianco di Napoleone?}{Nero.}{Bianco.}{Rosso.}
+\caption{\label{fig:MC3} La domanda prodotta dal comando {\tt \textbackslash socrativeThreeMC[15cm]\{Di che colore \`e il cavallo bianco di Napoleone?\}\{Nero.\}\{Bianco.\}\{Rosso.\}}.}
+\end{center}
+\end{figure}
+\hideBorder
+
+\subsection{Bordo del riquadro}
+
+Il bordo del riquadro contenente le domande pu\`o non essere mostrato (vedi Figura \ref{fig:MC4}), e la scelta di mostrarlo/non mostrarlo pu\`o essere modificata in ogni punto del file sorgente (anche pi\`u volte) con i comandi
+\begin{center}
+{\tt \textbackslash hideBorder}\qquad e \qquad {\tt \textbackslash showBorder}.
+\end{center}
+Con l'opzione \texttt{socrativeQuiz} l'impostazione iniziale \`e senza i bordi ({\tt \textbackslash hideBorder}), mentre con l'opzione \texttt{pdfQuiz} l'impostazione iniziale \`e con i bordi ({\tt \textbackslash showBorder}).
+
+\begin{figure}[!ht]
+\begin{center}
+\socrativeThreeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero.}{Bianco.}{Rosso.}
+\caption{\label{fig:MC4} La domanda prodotta dal comando utilizzato in Figura \ref{fig:MC1}, preceduto dal comando {\texttt{\textbackslash hideBorder}}.}
+\end{center}
+\end{figure}
+
+\subsection{Soluzioni}
+
+Esclusivamente con l'opzione \texttt{pdfQuiz}, \`e possibile produrre le soluzioni di un quiz, cio\`e stampare domande e quesiti risolti. 
+
+Per prima cosa, \`e necessario aggiungere nella definizione della domanda l'informazione relativa alla soluzione. Tutti i comandi per la produzione di domande/quesiti hanno un ultimo argomento opzionale che consente di inserire la soluzione/risposta: 
+\begin{center}
+\parbox{12cm}{\tt \textbackslash socrativeMC\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeTwoMC\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeThreeMC\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeFourMC\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeFiveMC\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeTF\{$\cdots$\}[\textit{<soluzione>}] \\ 
+			   \textbackslash socrativeSA\{$\cdots$\}[\textit{<soluzione>}] }
+\end{center}
+Per le domande a risposta multipla (vedi Figura \ref{fig:MC5}), l'argomento opzionale della soluzione \`e dato dal numero della risposta corretta o dalla lista dei numeri delle risposte corrette separati da \lq\lq,\rq\rq~(virgola):
+\begin{center}
+\parbox{13cm}{{\tt[\textit{<risposta corretta>}]} \qquad oppure \\ {\tt [\textit{<risposta corretta 1>,<risposta corretta 2>,\ldots}]}. }
+\end{center}
+
+\begin{figure}[!ht]
+\begin{center}\showSolution\showBorder
+\socrativeThreeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero.}{Bianco.}{Rosso.}[2]\hideSolution\hideBorder
+\caption{\label{fig:MC5} La domanda prodotta dal comando {\tt \textbackslash socrativeThreeMC\{Di che colore \`e il cavallo bianco di Napoleone?\}\{Nero.\}\{Bianco.\}\{Rosso.\}[2]}, preceduto dal comando {\texttt{\textbackslash showSolution}}.}
+\end{center}
+\end{figure}
+
+Per i quesiti vero/falso (vedi Figura \ref{fig:TF3}), se la soluzione \`e \lq\lq VERO\rq\rq~va aggiunto l'argomento opzionale \texttt{[1]}, mentre se la soluzione \`e \lq\lq FALSO\rq\rq~ l'argomento opzionale \`e \texttt{[0]}.
+
+\begin{figure}[!ht]
+\begin{center}\showSolution\showBorder
+\socrativeTF{Un chilo di ferro pesa pi\`u di un chilo di piume.}[0]\hideSolution\hideBorder
+\caption{\label{fig:TF3} La domanda prodotta dal comando {\tt \textbackslash socrativeTF\{Un chilo di ferro pesa pi\`u di un chilo di piume.\}[0]}, preceduto dal comando {\texttt{\textbackslash showSolution}}.}
+\end{center}
+\end{figure}
+
+Per le domande con risposta breve (vedi Figura \ref{fig:SA2}), l'argomento opzionale della soluzione \`e una qualsiasi porzione di testo.
+
+\begin{figure}[!ht]
+\begin{center}\showSolution\showBorder
+\socrativeSA{Quanto pesa un chilo di ferro?}[1000 grammi.]\hideSolution\hideBorder
+\caption{\label{fig:SA2} La domanda prodotta dal comando {\tt \textbackslash socrativeSA\{Quanto pesa un chilo di ferro?\}[1000 grammi.]}, preceduto dal comando {\texttt{\textbackslash showSolution}}.}
+\end{center}
+\end{figure}
+
+La scelta di mostrare/non mostrare la soluzione pu\`o essere modificata in ogni punto del file sorgente (anche pi\`u volte) con i comandi
+\begin{center}
+{\tt \textbackslash showSolution}\qquad e \qquad {\tt \textbackslash hideSolution}.
+\end{center}
+
+
+
+\subsection{La document class \texttt{standalone}}
+
+Per la produzione di immagini da inserire in un quiz  \textsf{Socrative}, si raccomanda l'uso della document class \texttt{standalone} con l'opzione \texttt{tikz}
+\begin{center}
+\tt \textbackslash documentclass[tikz]\{standalone\}
+\end{center}
+In questo modo, l'output sar\`a un documento pdf con una domanda/quesito per ogni pagina (con il formato fornito dal pacchetto \texttt{quiz2socrative}). A questo punto sar\`a necessaria solo l'estrazione e la conversione di ogni pagina in formato \texttt{png} o \texttt{jpeg}.
+
+\newpage
+
+
+\section{Esempi}
+
+\subsection{\texttt{socrativeQuiz} $+$ \texttt{standalone}}
+
+Il file \texttt{sample-quiz2socrative-socrativeQuiz+standalone.tex}
+\begin{Verbatim}[fontsize=\small,frame=single,numbers=left,numbersep=4pt]
+\documentclass[tikz]{standalone}
+
+\usepackage[socrativeQuiz]{quiz2socrative}
+
+\begin{document}
+	
+\socrativeMC{Di che colore \`e il cavallo bianco di Napoleone?}
+         {Nero. \!\! Bianco. \!\! Rosso.}
+
+\socrativeTF{Un chilo di piume pesa pi\`u di un chilo di ferro.}
+
+\socrativeSA{Quanto pesa un chilo di ferro?}
+
+\end{document}
+\end{Verbatim}
+produce un documento pdf con tre pagine descritte nella Figura \ref{fig:ex1}.
+
+\begin{figure}[!ht]
+\begin{tikzpicture}
+\useasboundingbox (0,0);
+\node at (8.45cm,-2.84cm) [minimum width=8cm,minimum height=4.7cm,rectangle,,drop shadow={shadow xshift=.75ex, shadow yshift=-.75ex},fill=white]{};
+
+\node at (8.45cm,-8.04cm) [minimum width=8cm,minimum height=0.925cm,rectangle,,drop shadow={shadow xshift=.75ex, shadow yshift=-.75ex},fill=white]{};
+
+\node at (8.45cm,-6.375cm) [minimum width=8cm,minimum height=1.45cm,rectangle,,drop shadow={shadow xshift=.75ex, shadow yshift=-.75ex},fill=white]{};
+
+\end{tikzpicture}
+
+\begin{center}\showBorder
+
+\socrativeMC{Di che colore \`e il cavallo bianco di Napoleone?}{Nero. \!\! Bianco. \!\! Rosso.}
+
+\bigskip
+
+\socrativeTF{Un chilo di piume pesa pi\`u di un chilo di ferro.}
+
+\bigskip
+
+\socrativeSA{Quanto pesa un chilo di ferro?}
+
+\caption{\label{fig:ex1} Le pagine prodotte dal file {\tt sample-quiz2socrative-socrativeQuiz+ standalone.tex}.}
+\end{center}
+\end{figure}
+
+\subsection{\texttt{pdfQuiz}}
+
+Il file \texttt{sample-quiz2socrative-pdfQuiz.tex}
+\begin{Verbatim}[fontsize=\small,frame=single,numbers=left,numbersep=4pt]
+\documentclass[12pt]{article}
+
+\usepackage[pdfQuiz]{quiz2socrative}
+\usepackage[a4paper]{geometry}
+
+\begin{document}
+\thispagestyle{empty}	
+
+\begin{center}
+{\bf \Large Sample quiz}
+ 
+\socrativeMC[10cm]{Di che colore \`e il cavallo bianco di Napoleone?}
+         {Nero. \!\! Bianco. \!\! Rosso.}
+
+\bigskip
+
+\socrativeTF[10cm]{Un chilo di piume pesa pi\`u di un chilo di ferro.}
+
+\bigskip
+
+\socrativeSA[10cm]{Quanto pesa un chilo di ferro?}
+
+\vspace*{\stretch{1}}
+
+\showSolution
+{\bf \Large Sample quiz} {\it (soluzioni)}
+
+\socrativeMC[10cm]{Di che colore \`e il cavallo bianco di Napoleone?}
+         {Nero. \!\! Bianco. \!\! Rosso.}[2]
+
+\bigskip
+
+\socrativeTF[10cm]{Un chilo di piume pesa pi\`u di un chilo di ferro.}[0]
+
+\bigskip
+
+\socrativeSA[10cm]{Quanto pesa un chilo di ferro?}[1000 g]
+\end{center}
+\end{document}
+\end{Verbatim}
+produce un documento pdf con una pagina descritta nella Figura \ref{fig:ex2}.
+
+\begin{figure}[!ht]
+\begin{center}
+\begin{tikzpicture}
+\useasboundingbox (0,0);
+\node at (0,-11.9cm) [minimum width=16.75cm,minimum height=23.75cm,rectangle,draw,drop shadow={shadow xshift=.75ex, shadow yshift=-.75ex},fill=white]{};
+\end{tikzpicture}
+
+\includegraphics[scale=0.8]{sample-quiz2socrative-pdfQuiz.pdf}
+
+
+\caption{\label{fig:ex2} La pagina prodotta dal file {\tt sample-quiz2socrative-pdfQuiz.tex}.}
+\end{center}
+\end{figure}
+
+
+\end{document}
+

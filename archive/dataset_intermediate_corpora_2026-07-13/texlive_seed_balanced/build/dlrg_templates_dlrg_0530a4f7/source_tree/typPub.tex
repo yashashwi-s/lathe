@@ -1,0 +1,72 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    contentLayout=bauchbinde,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage[
+    language=ngerman,
+    backend=biber,
+    sortlocale=de_DE,%.UTF-8
+    style=authoryear,
+    bibencoding=UTF8,
+    block=space,
+    autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Publikation}
+\author{Johannes Pieper}
+
+\begin{document}
+Der Dokumententyp \verbcode|pub| ist die Kurzform für Publikationen und zur Zeit die Standardeinstellung für Dokumntentypen des DLRG-Pakets. Dieser diese mehrseitigen Publikationen können z.\,B. Handbücher oder Regelwerke sein. Als Dokumentenklasse empfiehlt sich der Einsatz von \verbcode|scrartcl|.
+
+\subsubsection{Layout}
+Um das Layout dieser Publikation zu beeinflussen gibt es mehrere Optionen, die beim Paket mit angegeben werden können.
+\begin{options}
+    \keychoice{contentLayout}{bauchbinde,footline}\Default{footline}
+        Über diese Option lässt sich das Gesamtlayout einstellen.
+        Bei der ersten Möglichkeit bekommt jede Seite eine Bauchbinde. Die zweite Möglichkeit hat die einfache Wortmarke in der Fußzeile und ist gemäß CD-Handbuch \autocite[S.~13]{DLRG_CD2019} angelegt. Sie ist standardmäßig aktiviert.
+    \keyval-{titelbild}{Dateiname}
+        Wenn ein seitenfüllendes Titelbild eingebunden werden soll, so ist über diese Option der Dateiname anzugeben. Wird nichts angegeben erscheint der halbe Adler als Wasserzeichen auf der Titelseite
+    \keyval{titelbildcaption}{Text}
+        Ist ein Titelbild angegeben, so lässt sich hierrüber ein Bildtitel und damit auch ggf. verbunden der Verweis auf den Fotograph. Dieses wird dann in einem möglichen Abbildungsverzeichnis mit aufgeführt.
+\end{options}
+
+Zusätzlich kann die Titelseite nach eigenen Wünschen ergänzt werden. Auch kann das Format der Seite im Dokument gedreht werden.
+
+\begin{commands}
+    \command{titelExtra}[\marg{Titelelemente}] Ermöglicht auf der Titelseite weitere Elemente zu platzieren. Diese müssen als Parameter übergeben werden.
+    \command{querformatSeite}
+        Dreht das Standardmäßig als Hochformat eingestellt Format der Seite auf Querformat.
+    \command{hochformatSeite}
+        Dreht das Seitenformat wieder auf Hochformat zurück.
+\end{commands}
+
+\subsubsection{Boxen}
+\begin{environments}
+    \environment{redPartBox}
+    Erzeugt eine rot umrandete Box, die Zwischenüberschriften enthalten kann.
+    \begin{commands}
+        \command{partTitle}[\marg{Überschrift}]
+        Setzt die Zwischenüberschrift der \verbcode|redPartBox|.
+    \end{commands}
+    \begin{example}[gobble=8]
+        \begin{redPartBox}
+            \partTitle{Teil1}
+            Etwas Text
+            \partTitle{Teil2}
+            Etwas mehr Text
+        \end{redPartBox}
+    \end{example}
+\end{environments}
+\end{document}

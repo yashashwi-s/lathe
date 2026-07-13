@@ -1,0 +1,45 @@
+
+
+\maboite{ \TFRGB{Atention : la création de la commande doit être placée avant}{Warning: the creation of the command must be placed before} \BS{begin}\AC{document} ! }
+
+\TFRGB{syntaxe :\BSS{newcommand}\AC{\BS{}nom}[nombre de variables]\AC{Description}}{syntax :\BSS{newcommand}\AC{\BS{}name}[
+number of variables]\AC{Description}}
+\bigskip
+
+
+\textbf{\TFRGB{Exemple : commande avec une variable}{Example : command with one variable} :}
+
+ \emph{\TFRGB{Création}{Creation}}
+
+
+\begin{tabular}{ll}
+\BS{newcommand} 	& \\ 
+\AC{\BS{}maboite}[1]{\color{red} \{	}	 					& \% \TFRGB{commande nommée maboite et 1 seul d'argument}{command   named \og maboite \fg with one variable } \\ 
+\BS{begin}\AC{center}								& \% \TFRGB{centrage sur la ligne}{centering the box  } \\ 
+\BS{tikzpicture} \BS{node}[fill=yellow				& \% \TFRGB{un n\oe ud de texte de couleur jaune}{a yellow text box} \\ 
+,text centered										& \% \TFRGB{centrage du texte dans la boite}{centering the text in the box} \\ 
+,text width=.5\BS{linewidth}] 							& \% \TFRGB{largeur : la moitié de la ligne}{ to set the width of the box} \\ 
+\#1\} ; \BS{end}\AC{center}				& \%  \TFRGB{\#1 correspond à l'argument}{\#1 will be replaced by the variable} \\ 
+{\color{red} \}	} 		&  \\  
+\end{tabular} 	
+
+\bigskip
+\emph{Utilisation} : \BS{maboite}\AC{contenu}
+
+\maboite{contenu}
+
+
+\bigskip
+\label{DFR}
+
+\textbf{\TFRGB{Exemple : commande sans variable}{Example : command without variable} :}
+ 
+ \emph{\TFRGB{Création}{ creation}}
+ 
+\BS{newcommand}\AC{\BS{DFR}}\AC{ \BS{tikzpicture}[scale=.25]
+ \BS{draw} [fill=blue](0,0) rectangle (3,1.5);
+\BS{draw} [fill=white](1,0) rectangle (2,1.5);
+\BS{draw}[fill=red](2,0) rectangle (3,1.5);\BS{endtikzpicture} }
+ 
+
+\emph{Utilisation}  :  \BS{DFR} \DFR

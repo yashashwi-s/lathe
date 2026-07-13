@@ -1,0 +1,78 @@
+\documentclass[]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    typ=beamer,
+%     titelbild=<bildname>,
+%     titelschriftfarbe=white
+]{dlrg}
+\usepackage{listings}
+
+\title{DLRG Mustervortrag}
+\subtitle{Vorstellung der Vorlagenmöglichkeiten}
+\author{Johannes Pieper}
+\institute{\LaTeX\ in der DLRG}
+\date{\today}
+\footerLink{LaTeX.dlrg.de}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Inhaltsverzeichnis}
+    \tableofcontents
+\end{frame}
+
+\section{Elemente}
+\begin{frame}{Elemente}
+    Bisher sind noch nicht alle möglichen Elemente dem Layout angepasst. Daher wird diese Vorlage in Zukunft noch erweitert. Bei konkreten Wünschen kann man sich an den Support wenden.
+\end{frame}
+
+\subsection{Aufzählungen}
+\begin{frame}{Aufzählungen}
+    Beispiele für Aufzählungen
+    \begin{itemize}
+        \item Item Nr. 1
+        \begin{itemize}
+            \item Ebene tiefer
+        \end{itemize}
+        \item Item Nr. 2
+    \end{itemize}
+
+    \begin{enumerate}
+        \item Durchzählung 1
+        \begin{enumerate}
+            \item Ebene tiefer
+        \end{enumerate}
+        \item Durchzählung 2
+    \end{enumerate}
+\end{frame}
+
+\subsection{Block}
+\begin{frame}{Block}
+    \begin{block}{Überschrift}
+        Text in einem hervorgehobenen Block
+    \end{block}
+\end{frame}
+
+\section{Befehle}
+\begin{frame}[fragile]{\LaTeX-Befehle}
+    \begin{itemize}
+        \item Die Titelseite wird über \lstinline$\maketitle$ gesetzt. Das Hintergrundbild lässt sich über Paketoptionen ändern.
+        \item Mit \lstinline|\footerLink{<Link>}| wird der Link im Footer angegeben. Ohne Angaben erscheint dlrg.de
+    \end{itemize}
+\end{frame}
+
+\section{Support}
+\begin{frame}
+    \frametitle{Support}
+    Die \LaTeX-Vorlagen sind auf werden von Johannes Pieper betreut. Sie sind zu finden auf \url{https://gitlab.com/dlrg-fs/dlrg_latex}. Anregungen usw. können über \url{https://gitlab.com/dlrg-fs/dlrg_latex/-/issues} eingebracht werden oder per E-Mail an \href{mailto:tex-vorlagen@olfen.dlrg.de}{tex-vorlagen@olfen.dlrg.de}
+\end{frame}
+
+\section{Dank}
+\begin{frame}{Dank}
+    Vielen Dank auch an Jonas Kipfstuhl und Christoph Runge für Anregungen, Tipps und Erweiterungen.
+\end{frame}
+
+\end{document}

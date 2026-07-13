@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01391\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{clcc}
+        \toprule
+        \textbf{Rank} & \textbf{Registrar} & \textbf{IANA ID(s)} & \textbf{Domains}\\
+        \midrule
+            1. & NameSilo & 1479 & 5,751 \\
+            2. & Hostinger & 1636 & 2,473 \\
+            3. & Namecheap & 1068 & 1,649 \\
+            4. & GoDaddy & 146 & 1,328 \\
+            5. & Alibaba Cloud & 3775, 1599 & 897 \\
+            6. & Sav & 609, 3892, 3893, 3895 & 603 \\
+            7. & Dynadot & 472 & 471 \\
+            8. & Name.com & 625 & 228 \\
+            9. & Cloudflare Registrar & 1910 & 203 \\
+            10. & Porkbun & 1861 & 167 \\
+            11. & INWX & 1420 & 159 \\
+            12. & Cosmotown & 1509 & 103 \\
+            13. & Regtons.com & 1505 & 80 \\
+            14. & Amazon Route 53 & 468 & 53 \\
+            15. & Spaceship & 3862 & 49 \\
+            16. & DreamHost & 431 & 31 \\
+            17. & Hello & 1924 & 31 \\
+            18. & Internet.bs & 2487 & 29 \\
+            19. & Domain.com & 886 & 27 \\
+            20. & OVH & 433 & 23 \\
+            21. & Netim & 1519 & 23 \\
+            22. & Above.com & 940 & 22 \\
+            23. & BigRock & 1495 & 21 \\
+            24. & Gandi & 81 & 19 \\
+            25. & 123 Reg & 1515 & 9 \\
+            26. & 101domain & 1011 & 9 \\
+            27. & Dreamscape Networks & 1291 & 5 \\
+            28. & Instra Corporation & 1376 & 4 \\
+            29. & EuroDNS & 1052 & 3 \\
+            30. & Reg.com & 1606 & 2 \\
+            31. & alldomains.hosting & 809 & 2 \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05485\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[c]{l|ccccc}
+\toprule{Attack Method} & Vicuna-7B & Llama-3.1-Instruct & Deepseek-R1 & Qwen-1.5-Chat & Qwen-2.5-Instruct \\ \\
+\midrule
+MultiLingual & {\cellcolor[RGB]{195,206,219} 0.25} & {\cellcolor[RGB]{185,210,224} 0.14} & {\cellcolor[RGB]{214,199,211} 0.45} & {\cellcolor[RGB]{174,215,229} 0.03} & {\cellcolor[RGB]{173,215,229} 0.02} \\
+Jailbroken & {\cellcolor[RGB]{183,211,225} 0.12} & {\cellcolor[RGB]{178,213,227} 0.07} & {\cellcolor[RGB]{227,193,205} 0.59} & {\cellcolor[RGB]{176,214,228} 0.05} & {\cellcolor[RGB]{179,213,227} 0.08} \\
+PAIR & {\cellcolor[RGB]{241,187,199} 0.74} & {\cellcolor[RGB]{229,192,204} 0.62} & {\cellcolor[RGB]{218,197,209} 0.50} & {\cellcolor[RGB]{183,211,225} 0.12} & {\cellcolor[RGB]{226,193,206} 0.58} \\
+TAP & {\cellcolor[RGB]{195,206,219} 0.25} & {\cellcolor[RGB]{185,210,224} 0.14} & {\cellcolor[RGB]{218,197,209} 0.50} & {\cellcolor[RGB]{223,195,207} 0.55} & {\cellcolor[RGB]{186,210,224} 0.15} \\
+Cipher & {\cellcolor[RGB]{187,209,223} 0.17} & {\cellcolor[RGB]{173,216,230} 0.01} & {\cellcolor[RGB]{215,198,210} 0.47} & {\cellcolor[RGB]{186,210,224} 0.15} & {\cellcolor[RGB]{203,203,216} 0.34} \\
+RENE & {\cellcolor[RGB]{215,198,210} 0.47} & {\cellcolor[RGB]{201,204,216} 0.32} & {\cellcolor[RGB]{219,196,208} 0.51} & {\cellcolor[RGB]{203,203,216} 0.34} & {\cellcolor[RGB]{202,203,216} 0.33} \\
+ArtPrompt & {\cellcolor[RGB]{194,207,220} 0.24} & {\cellcolor[RGB]{195,206,219} 0.25} & {\cellcolor[RGB]{207,201,214} 0.38} & {\cellcolor[RGB]{207,201,214} 0.38} & {\cellcolor[RGB]{187,209,223} 0.17} \\
+SCAV & {\cellcolor[RGB]{236,189,201} 0.69} & {\cellcolor[RGB]{191,208,221} 0.21} & {\cellcolor[RGB]{221,195,208} 0.53} & {\cellcolor[RGB]{233,190,202} 0.66} & {\cellcolor[RGB]{234,190,202} 0.67} \\
+Overload & {\cellcolor[RGB]{230,192,203} 0.63} & {\cellcolor[RGB]{198,205,218} 0.28} & {\cellcolor[RGB]{211,200,212} 0.42} & {\cellcolor[RGB]{216,197,210} 0.48} & {\cellcolor[RGB]{214,199,211} 0.45} \\
+Past tense & {\cellcolor[RGB]{222,195,207} 0.54} & {\cellcolor[RGB]{216,197,210} 0.48} & {\cellcolor[RGB]{225,194,206} 0.57} & {\cellcolor[RGB]{204,202,215} 0.35} & {\cellcolor[RGB]{214,199,211} 0.45} \\
+Random Search & {\cellcolor[RGB]{234,190,202} 0.67} & {\cellcolor[RGB]{242,187,198} 0.76} & {\cellcolor[RGB]{239,188,200} 0.72} & {\cellcolor[RGB]{225,194,206} 0.57} & {\cellcolor[RGB]{240,188,199} 0.73} \\
+AutoDAN & {\cellcolor[RGB]{218,197,209} 0.50} & {\cellcolor[RGB]{209,200,213} 0.40} & {\cellcolor[RGB]{221,195,208} 0.53} & {\cellcolor[RGB]{215,198,210} 0.47} & {\cellcolor[RGB]{217,197,209} 0.49} \\
+LAA & {\cellcolor[RGB]{239,188,200} 0.72} & {\cellcolor[RGB]{202,203,216} 0.33} & {\cellcolor[RGB]{215,198,210} 0.47} & {\cellcolor[RGB]{194,207,220} 0.24} & {\cellcolor[RGB]{235,190,201} 0.68} \\
+GPTFUZZER & {\cellcolor[RGB]{239,188,200} 0.72} & {\cellcolor[RGB]{188,209,222} 0.18} & {\cellcolor[RGB]{211,200,212} 0.42} & {\cellcolor[RGB]{255,182,193} 0.89} & {\cellcolor[RGB]{207,201,214} 0.38} \\
+DeepInception & {\cellcolor[RGB]{235,190,201} 0.68} & {\cellcolor[RGB]{224,194,206} 0.56} & {\cellcolor[RGB]{224,194,206} 0.56} & {\cellcolor[RGB]{230,192,203} 0.63} & {\cellcolor[RGB]{232,191,203} 0.65} \\
+GCG & {\cellcolor[RGB]{226,193,206} 0.58} & {\cellcolor[RGB]{175,214,228} 0.04} & {\cellcolor[RGB]{214,199,211} 0.45} & {\cellcolor[RGB]{174,215,229} 0.03} & {\cellcolor[RGB]{174,215,229} 0.03} \\
+DRA & {\cellcolor[RGB]{244,186,197} 0.78} & {\cellcolor[RGB]{228,192,204} 0.61} & {\cellcolor[RGB]{209,200,213} 0.40} & {\cellcolor[RGB]{222,195,207} 0.54} & {\cellcolor[RGB]{232,191,203} 0.65} \\
+ICA & {\cellcolor[RGB]{182,212,225} 0.11} & {\cellcolor[RGB]{173,215,229} 0.02} & {\cellcolor[RGB]{212,199,212} 0.43} & {\cellcolor[RGB]{175,214,228} 0.04} & {\cellcolor[RGB]{173,215,229} 0.02} \\
+Morpheus & {\cellcolor[RGB]{243,186,198} 0.77} & {\cellcolor[RGB]{222,195,207} 0.54} & {\cellcolor[RGB]{225,194,206} 0.57} & {\cellcolor[RGB]{219,196,208} 0.51} & {\cellcolor[RGB]{226,193,206} 0.58} \\
+\midrule
+\midrule
+ASR Avg. & {\cellcolor[RGB]{219,196,208} 0.51} & {\cellcolor[RGB]{200,204,217} 0.31} & {\cellcolor[RGB]{218,197,209} 0.50} & {\cellcolor[RGB]{206,202,214} 0.37} & {\cellcolor[RGB]{208,201,214} 0.39} \\
+ASR Std. & {\cellcolor[RGB]{193,207,220} 0.23} & {\cellcolor[RGB]{192,207,221} 0.22} & {\cellcolor[RGB]{179,213,227} 0.08} & {\cellcolor[RGB]{194,207,220} 0.24} & {\cellcolor[RGB]{194,207,220} 0.24} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

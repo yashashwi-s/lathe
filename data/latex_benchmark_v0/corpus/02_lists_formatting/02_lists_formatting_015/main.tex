@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{array,booktabs,enumitem,graphicx,xcolor,hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Picard-Fuchs equations and mirror maps for hypersurfaces}
+\author{Source-backed arXiv sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Extracted Lists}
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+\begin{enumerate}
+\item
+If we analytically continue along
+ a simple loop around $z=0$ in the counterclockwise direction, $t$
+becomes $t+1$.
+(It will be convenient to also introduce $q=e^{2\pi it}$, which
+remains single-valued near $z=0$.)
+
+\item
+There are cycles $\gamma_0$ and $\gamma_1$ such that
+$\int_{\gamma_0}\omega(z)$
+is single valued near $z=0$, and
+\[t=\frac{\int_{\gamma_1}\omega(z)}{\int_{\gamma_0}\omega(z)}\]
+in an angular sector near $z=0$.
+\end{enumerate}
+
+\begin{enumerate}
+\item
+There is a period function for $\omega(z)$,
+\[f_0(z):=\int_{\gamma_0}\omega(z)\]
+which is single-valued near $z=0$.  This period function is unique up to
+multiplication by a constant.
+(This implies that the cycle $\gamma_0$ is also unique up to a
+constant multiple.)
+
+In particular, the family of meromorphic $n$-forms
+\[\widetilde\omega(z):=\frac{\omega(z)}{\int_{\gamma_0}\omega(z)}\]
+will have the property that
+\[\int_{\gamma}\widetilde\omega(z)\equiv1\]
+for some $\gamma$, and it is the unique such family up to constant multiple.
+
+\item
+Fixing a choice of period function $f_0(z)$ as in part (1), there is a
+period function
+\[f_1(z):=\int_{\gamma_1}\omega(z)\]
+such that $\varphi(z):=f_1(z)/f_0(z)$ transforms as
+\[\varphi(z)\mapsto\varphi(z)+1\]
+upon transport around $z=0$ in the counterclockwise direction.
+The ratio $\varphi(z)$ is unique up to the addition of a constant.
+\end{enumerate}
+\end{document}

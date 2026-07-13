@@ -1,0 +1,105 @@
+\documentclass{matapli}
+
+% pour la compilation avec PDFlatex
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% pour les exemples
+\usepackage{lipsum}
+
+% on ajoute notre fichier de bibliographie
+\addbibresource{chap1.bib}
+
+\begin{document}
+
+% titre de l'article
+\titre[court={Titre court}]{Titre long de la contribution}
+
+% on renseigne les auteurs et autrices. Ici avec tous les champs possibles. L'encart en fin d'article n'est généré que si 
+% le champs minibio est renseigné
+\author[
+affiliation = {CNRS, Laboratoire de l'université de France},
+minibio = {Georges \bsc{Felepin} est Ingénieur de Recherche au CNRS. Sa discrétion n'a d'égal que l'ampleur de ses travaux.},
+photo = portrait.png,
+email = georges@felepin.fr,
+webpage = www.felepin.fr/
+]
+{Felepin,Georges}
+
+% un auteur de type collectif (et non individu)
+\author[
+type=collectif,
+]
+{Centre National de la Recherche Scientifique}
+
+% table des matières propre à l'article
+\articletableofcontents
+
+% sectionnement de l'article en parties si besoin 
+% (au dessus de section)
+\partie{Un soustitre pour les différentes parties}
+
+\section{Première section}
+
+\lipsum[1-4]
+Citation, voir~\cite{Knuth1984}.
+
+\subsection{Sous section}
+\lipsum[5]
+
+\[\int_0^1 f(x)\mathrm{d}x=F(1)-F(0).\]
+
+\section{Quelques environnements de la classe}
+
+\lipsum[1]
+
+\begin{bloc}
+  \lipsum[10]
+\end{bloc}
+
+\begin{Important}
+\lipsum[8]
+\end{Important}
+
+\section{Les interviews}
+
+\MatapliQuestion[Maxime]{Que se passe-t-il ?}
+\MatapliReponse{Laurent}{Rien.}
+
+\MatapliQuestion{Question sans nom pour la poser ?}
+\MatapliReponse{Laurent}{\cite{TeXMetafont}}
+
+\section{Les maths}
+
+\begin{theorem}{Test}{test}
+  Voici mon Théorème, classique, mais efficace.
+\end{theorem}
+
+
+\begin{proof}
+  On y fait référence~\ref{th:test} pour en écrire la preuve.
+\end{proof}
+
+\begin{definition}{Test}{test}
+  Ma super définition
+\end{definition}
+
+\begin{lemma}
+  Un petit lemme.
+\end{lemma}
+
+\begin{corollary}
+  Un corrolaire.
+\end{corollary}
+
+\begin{remark}
+  Une remarque.
+\end{remark}
+
+
+% on imprime la bibliographie avec l'option pour que celle-ci ne crée pas un autre article
+\printbibliography[heading=subbibintoc]
+
+% commande obligatoire pour générer la composition des auteurs et autrices
+\printauthors
+\end{document}

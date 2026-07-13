@@ -1,0 +1,61 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\def\myequation{$(1+\sqrt{5})/2$}
+\htmlregister{\myequation}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of multi answers questions. The 
+following options are tested
+\begin{itemize}
+	\item Single or multiple correct answer
+	\item Shuffling or no shuffling
+	\item Numbering
+\end{itemize}
+
+\begin{quiz}[numbering=none]{Example Quiz}
+
+\renewcommand\do[1]{
+\begin{multi}[numbering=#1]{Multiple Choice}
+Text
+\item* A
+\item B
+\item C
+\end{multi}
+}
+\docsvlist{alph,abc,Alph,ABCD,arabic,123,roman,iii,Roman,IIII}
+
+\begin{multi}[multiple,feedback={abc\\def 
+$\sqrt{2}$}]{Multiple Choice}
+Select the following numbers that are prime.
+\item[fraction=70] $\sqrt{25}$
+\item[fraction=-10] \textbf{68}
+\item[fraction=30,feedback={$\sqrt{25}$}] 7
+\item[fraction=-70] 8
+\item \texttt{nothing}
+\end{multi}
+
+\begin{multi}[shuffle,feedback={abc\\def $\sqrt{2}$}]{Multiple 
+Choice}
+Select the following numbers that are prime.
+\item* $\sqrt{25}$
+\item[fraction=-30] 6
+\item[fraction=-30,feedback={$\sqrt{25}$}] 9
+\item[fraction=-70] \begin{enumerate}
+\item False
+\item Wrong
+\end{enumerate}
+\end{multi}
+
+\end{quiz}
+\end{document}

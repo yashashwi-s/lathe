@@ -1,0 +1,53 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\def\myequation{y=a\sqrt{x}/2+{b}}
+\htmlregister{\myequation}
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check that in cloze subquestion code the right 
+brace character is escaped with a backslash, as expected.
+
+This allows the character to pass Moodle import and \LaTeX equations to be 
+displayed in \texttt{clozemulti} answers and in all cloze feedbacks.
+
+\begin{quiz}{Cloze: Escaping Characters}
+
+\begin{cloze}{Cloze}
+No escaping here: $\myequation$
+
+\begin{multi}[points=4,vertical,shuffle=false]
+No escaping here: \texttt{text} $\myequation$
+\item* $\lbrace A\rbrace$
+\item \{B\}
+\end{multi}
+
+\begin{shortanswer}
+{No escaping here: } $\myequation$
+\item[feedback={nip}] chip
+\item[fraction=10,feedback={that must be escaped: $\myequation$}] nop
+\end{shortanswer}
+
+\begin{numerical}
+{No escaping here: } $\myequation$
+\item[feedback={nip}] 0
+\item[fraction=10,feedback={that must be escaped: $\myequation$}] 1
+\end{numerical}
+
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

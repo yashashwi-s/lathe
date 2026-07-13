@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Aligned Mathematical Structures}
+\author{Source-backed grouped formula sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Expressions}
+\paragraph{Expression 1.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\begin{cases}\partial_t u+u\cdot \nabla u+\nabla P=-\nabla\cdot(\nabla d\odot\nabla d)+\nabla\cdot(\sigma^L(u,d)),\\\nabla\cdot u = 0,\\\partial_t d+u\cdot\nabla d-\omega d+\frac{\lambda_2}{\lambda_1} Ad=\frac{1}{|\lambda_1|}\left(\Delta d+|\nabla d|^2d\right)+\frac{\lambda_2}{\lambda_1}\left(d^TAd\right) d.\end{cases}\end{align*}
+
+\paragraph{Expression 2.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}(\Gamma^{0})^{\underline\alpha}_{~~\underline\beta}= \left(\begin{array}{cc}0 & -1\\1 & 0\end{array}\right)\,, \quad(\Gamma^{1})^{\underline\alpha}_{~~\underline\beta}= \left(\begin{array}{cc}-1 & 0\\0 & 1\end{array}\right)\, , \quad \Gamma^2=\Gamma^0\Gamma^1=\left(\begin{array}{cc}0 & -1\\-1 & 0\end{array}\right) \,.\end{align*}
+
+\paragraph{Expression 3.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}D&=\sum_{x,y,z\in\mathbb{F}_{q}^{\times}}\theta(x^dz)\theta(axz)\theta(bz)\theta(-zy^2)\\&=\frac{1}{(q-1)^4}\sum_{l,m,n,k=0}^{q-2}G_{-m}G_{-l}G_{-n}G_{-k}T^l(a)T^n(b)T^k(-1)\\&\times\sum_{x\in\mathbb{F}_{q}^{\times}}T^{l+md}(x)\sum_{y\in\mathbb{F}_{q}^{\times}}T^{2k}(y)\sum_{z\in\mathbb{F}_{q}^{\times}}T^{l+m+n+k}(z).\end{align*}
+
+\paragraph{Expression 4.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\begin{aligned}& g_1\left(x_1,x_2,y_1 \right) = 0,\\& \frac{\partial g_1\left(x_1,x_2,y_1 \right)}{\partial y_1} = 0, \\& \frac{\partial g_1\left(x_1,x_2,y_1 \right)}{\partial x_1} f_1\left(x_1, x_2, y_1 \right) + \frac{\partial g_1\left(x_1,x_2,y_1 \right)}{\partial x_2} f_2\left(x_1,x_2,y_1 \right) = 0.\end{aligned}\end{align*}
+
+\paragraph{Expression 5.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*} |\triangle_{\rm D}^{-\alpha/2} f(x)|&= \bigg|\int_{\mathbb R^N} K_\alpha(x,y)f(y)d\omega(y)\bigg|\\&\leq\int_{d(x,y)\leq s} \frac{d(x,y)^{2+\alpha}}{\|x-y\|^2}\frac1{\omega(B(x,d(x,y)))}|f(y)|d\omega(y)\\&\quad+\int_{d(x,y)>s} \frac{d(x,y)^{2+\alpha}}{\|x-y\|^2}\frac1{\omega(B(x,d(x,y)))}|f(y)|d\omega(y)\\&=:J_1+J_2.\end{align*}
+\end{document}

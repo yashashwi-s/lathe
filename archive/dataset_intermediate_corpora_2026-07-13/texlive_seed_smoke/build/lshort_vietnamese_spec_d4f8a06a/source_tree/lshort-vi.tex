@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Main Input File of the LaTeX2e Introduction
+% $Id: lshort.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% lshort.tex - The not so short introduction to LaTeX
+%                                                      by Tobias Oetiker
+%                                                  tobias@ife.ee.ethz.ch
+%                                                      oetiker@dmu.ac.uk
+%
+%                           based on LKURTZ.TEX Uni Graz & TU Wien, 1987
+%-----------------------------------------------------------------------
+%
+% To compile lshort, you need TeX 3.x, LaTeX and makeindex
+%
+% The sources files of the Intro are:
+%      lshort.tex (this file),
+%      titel.tex, contrib.tex, biblio.tex
+%      things.tes, typeset.tex, math.tex, lssym.tex, spec.tex,
+%      lshort.sty, fancyheadings.sty
+%
+% Further the  verbatim.sty and the layout.sty
+% from the LaTeX Tools distribution is
+% required.
+%
+%
+% To print the AMS symbols you need the AMS fonts and the packages
+% amsfonts, eufrak and eucal from (AMS LaTeX 1.2)
+%
+% ---------------------------------------------------------------------
+
+\ifx\printversion\undefined
+\documentclass[12pt,oneside,openany]{book}
+\else
+\documentclass[a4paper,twoside]{book}
+\usepackage[monochrome]{color}
+\fi
+
+\usepackage{lshort-vi}
+\usepackage{makeidx,shortvrb,latexsym}
+\usepackage{mylayout}
+
+% are we in pdftex ????
+%% \ifx\pdfoutput\undefined % We're not running pdftex
+%% \else
+%% \def\pdfBorderAttrs{/Border [0 0 0] } % No border around Links
+%% \fi
+
+
+\usepackage{amsmath,amssymb}
+% \usepackage[pdftex,a4paper,twoside,headheight=20pt,top=2.5cm,bottom=2.5cm]{geometry}
+
+% them vao de ho tro tieng Viet
+%\usepackage[viscii]{inputenc}
+% \usepackage[vietnam]{babel}
+% \usepackage{ucs}
+% \usepackage[utf8]{vietnam}
+
+\makeindex
+%\typeout{Copyright T.Oetiker, H.Partl, E.Schlegl, I.Hyna}
+
+\usepackage[colorlinks,draft=false,hyperindex,plainpages=false,
+pdftitle={The not so Short Introduction to LaTeX, Vietnamese edition},
+pdfauthor={T. Oetiker, H. Partl, E. Schlegl, I. Hyna, Translator Nguyen
+  Tan Khoa},
+pdfsubject={LaTeX Manual},
+pdfkeywords={LaTeX, typesetting}]{hyperref}
+\ifx\printversion\undefined
+\RequirePackage{thumbpdf}
+\hypersetup{pdfpagemode=UseThumbs}
+\fi
+\input{pd1supp.def}
+
+\begin{document}
+\selectlanguage{vietnam}
+
+\frontmatter
+\include{title}
+\include{contrib}
+\include{overview}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\enlargethispage{\baselineskip}
+\mainmatter
+
+\include{things}
+\include{typeset}
+\include{math}
+\include{lssym}
+\include{spec}
+\include{graphic}
+\include{custom}
+\include{tiengviet}
+
+\backmatter
+\include{biblio}
+\refstepcounter{chapter}
+\addcontentsline{toc}{chapter}{Chỉ mục}
+\printindex
+\refstepcounter{chapter}
+\label{verylast}
+\mbox{}
+\end{document}
+%
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

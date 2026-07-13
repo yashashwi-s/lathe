@@ -1,0 +1,477 @@
+\documentclass[
+%	invert-title=true,
+%	titlepage=false,
+%	titleimage-ratio=34
+]{bfhpub}				% KOMA-script report
+%-----------------  Base packages     --------------------------------------
+% Include Packages
+\usepackage[french,ngerman,main=english]{babel}
+%---------------------------------------------------------------------------
+% Hyperref Package (Create links in a pdf)
+%---------------------------------------------------------------------------
+\usepackage[
+	hidelinks,
+  pdfusetitle
+]{hyperref}
+
+
+% document specific setup.
+% Should not be included for own documents!
+\usepackage{multicol}
+
+\newcommand*{\pkg}[1]{\texttt{#1}}
+\newcommand*{\cls}[1]{\texttt{#1}}
+\newcommand*{\code}[1]{\texttt{#1}}
+\newcommand*{\file}[1]{\texttt{#1}}
+\newcommand*{\opt}[1]{\texttt{#1}}
+
+\newcommand\BFHcolorBox[1]{\textcolor{#1}{\rule{2em}{1em}}\hspace{0.5em}#1}
+
+\LoadBFHModule{terminal,boxes,rules}
+
+%\tcbuselibrary{minted}
+\begin{document}
+
+  %----------------  BFH tile page   -----------------------------------------
+  \title{BFH-CI}
+  \subtitle{\LaTeX{} Bundle for Bern University of Applied Sciences}
+  \author{Marei Peischl\thanks{bfh-ci@peitex.de}}
+%  \subject{Subject}
+  \publishers{pei\TeX{}}
+  \institution{Bern University of Applied Sciences}
+%  \department{}
+%  \institute{Mikro- und Medizintechnik}
+  \version{2.0.0}
+  \date{2021/12/23}
+  %The starred variant will automatically scale and clip the image. the non-starred one will allow you to set the size yourself
+  \titlegraphic*{\includegraphics{example-image}}
+  
+  \maketitle
+  %------------ TABLEOFCONTENTS ---------------
+  \tableofcontents
+ 
+
+\section{Quickstart}
+BFH-CI provides mechanisms for different types of documents.
+Most mechanisms exist among all types. These can be extended by using the BFHModule mechanism (see \autoref{sec:bfhmodule}).
+
+The release includes the following example files:
+
+\begin{description}
+	\item[DEMO-BFHPub.tex] The source to this document. General example for print publications. There are some more specific variants for project proposals (\file{DEMO-BFHProjektProposal.tex}) or fact sheets (\file{DEMO-BFHFactsheet.tex}).
+	\item[DEMO-BFHBeamer.tex] Beamer presentations. There's also a variant with a sidebar in \file{DEMO-BFHBeamer-Sidebar.tex}
+	\item[DEMO-BFHThesis.tex] Thesis template including an affidavit and additional title fields.
+	\item[DEMO-BFHLetter.tex] Letters using \pkg{bfhletter} a layouting wrapper package for \pkg{scrletter}.
+	\item[DEMO-BFHSciPoster.tex] Scientific posters based on \pkg{tcolorbox}'s poster library.
+\end{description}
+
+\noindent It might be useful to start a new document using one of these example files.
+An extended variant of this documentation and general advice for LaTeX users can be found at \url{https://latex.ti.bfh.ch}
+
+\section{Helper packages}
+
+
+The basic design elements for BFH-CI are implemented by the packages \pkg{bfhcolors}, \pkg{bfhfonts} and \pkg{bfhlogo}.
+The latter one is not included in the CTAN Releas due to trademark restrictions.
+Users can download it from the internal GitLab.
+Detailed Information can be found at the installation instructions at  \url{https://latex.ti.bfh.ch}.
+
+These packages will be loaded automatically if one of the bfh-classes or the letter package are loaded.
+
+The classes \cls{bfhpub} and \cls{bfhthesis} as well as the beamerarticle-mode of bfhbeamer also load the \pkg{bfhlayout} package.
+It provides the basic layout functionality without a documentclass requirement.
+Though it should not be loaded without a \KOMAScript{} class.
+
+
+\subsection{bfhcolors}
+
+\subsubsection{Available Colors}
+
+The following table shows all by \pkg{bfhcolors} defined colors. For their usage please have a look at the \pkg{xcolor} documentation.
+
+\medskip
+\begin{tabular}{@{}lll}
+	\BFHcolorBox{BFH-DarkBlue}   & \BFHcolorBox{BFH-MediumBlue}   & \BFHcolorBox{BFH-LightBlue}   \\
+	\BFHcolorBox{BFH-DarkGreen}  & \BFHcolorBox{BFH-MediumGreen}  & \BFHcolorBox{BFH-LightGreen}  \\
+	\BFHcolorBox{BFH-DarkPurple} & \BFHcolorBox{BFH-MediumPurple} & \BFHcolorBox{BFH-LightPurple} \\
+	\BFHcolorBox{BFH-DarkOcher}  & \BFHcolorBox{BFH-MediumOcher}  & \BFHcolorBox{BFH-LightOcher}  \\
+	\BFHcolorBox{BFH-DarkRed}    & \BFHcolorBox{BFH-MediumRed}    & \BFHcolorBox{BFH-LightRed}    \\[1em]
+	\BFHcolorBox{BFH-Orange} &\BFHcolorBox{BFH-Gray}
+\end{tabular}
+
+
+\subsubsection{Package Options}
+
+The \opt{colormode} option can be used to select the correct definitions for the output.
+The names match the design guideline.
+
+\begin{description}
+	\item[colormode=4CU] 4 colors uncoated paper (default)
+	\item[colormode=4CC] 4 colors coated paper
+	\item[colorode=RGB] RGB colors for screens or beamer presentations
+	\item[colormode=SW] grayscale for internal documents
+\end{description}
+
+\subsection{bfhfonts}
+
+The CI guideline generally requires the Fonts Unit Slab Pro and Unit Rounded Pro.
+Due to license restrictions these cannot be published together with BFH-CI.
+BFH-CI provides fallbacks for Source Serif Pro and Nunito which will be loaded if the official fonts cannot be found.
+If you want to use the official fonts please have a look at the installation instructions at  \url{https://latex.ti.bfh.ch}.
+
+These changes have been approved by the communications department and can be used as full replacements.
+
+\pkg{bfhfonts} will try to load fontspec and only use Type 1 fonts if pdf\LaTeX{} is used to compile the documents.
+
+\subsection{bfhlogo}
+
+The \pkg{bfhlogo} package provides translations of the word marks of the BFH logo.
+Generally this package will use the base language but there's also an option to provide multi language support.
+
+\subsubsection{Package options}
+
+\begin{description}
+	\item[language=] The language options accepts the self explaining values \verb+de+, \verb+fr+, \verb+en+, \verb+de_fr+, \verb+de_fr_en+.
+	\item[invert-logo-colors=true/false] This option can be used to invert the logo colors. It's internally used in some poster and beamer elements.
+	\item[trilingual/bilingual/monolingual] These keys only exist for compatibility reasons and will be mapped to the corresponding \verb+language=+ options.
+\end{description}
+
+\section{The base layout for text documents}
+The base mechanism for all text documents is provided using the \pkg{bfhlayout} package.
+\cls{bfhpub} and \cls{bfhthesis} load this package. The other bfh-classes provide the functionality differently.
+Please have a look at the corresponding demo files if you use want to create another document type.
+
+\cls{bfhpub} and \cls{bfhthesis} will pass all their document class options to this package.
+\begin{description}
+	\item[titleimage-ratio=] This choice key accepts the values \code{12} (1:2),\code{13} (1:3), \code{23} (2:3), \code{34} (3:4), \code{56} (5:6) , \code{1011} (10:11).
+	It will adjust the size of the colored area or titlegraphic on the titlepage.
+	For \cls{bfhthesis} some values might be forbidden if the title information takes too much space.
+	
+	The value is initialized to \code{titleimage-ratio=12}. the value will be ignored if no titlepage is generated e.\,g. with \code{titlepage=false}.
+
+	\item[invert-title=true/false] This switch toggles the color of text \& logo on the titlepage. If set to true, the base colors of titlepage (BFH-Orange/BFH-Gray) are switched.
+\end{description}
+
+
+\section{Additional layout modules}
+\label{sec:bfhmodule}
+
+To support some layout elements among all document types BFH-CI introduces the Macro
+\begin{verbatim}
+        \LoadBFHModule{<List of Modules>}
+\end{verbatim}
+
+These modules can be used to extend the basic mechanisms on additional elements.
+
+Currently there are 3 Modules prepared:
+\begin{itemize}
+\item tabular
+\item listings
+\item terminal
+\item boxes
+\item rules
+\end{itemize}
+
+The corresponding filenames following the structure \file{bfh-layout-<modulename>.cfg}. User defined modules can be added.
+
+\subsection{The table module}
+
+This module is automatically loaded by all document types beside \cls{bfhletter.cls}.
+
+\begin{verbatim}
+        \LoadBFHModule{tabular}
+\end{verbatim}
+
+BFH-CI should used colored tabulars. It combined all necessary adjustments in the \verb+\setupBfhTabular+ macro. It will adjust the rowcolor using \pkg{xcolor}. To use the recommended tabular setup one could use:
+
+\begin{verbatim}
+\begin{table}
+        \centering
+	\setupBfhTabular
+	\begin{tabular}{lll}
+	\rowcolor{BFH-tablehead}
+	Header 1&Header 2&Header3\\\hline
+	Content 11&Content 12&Content 13\\\hline
+	Content 21&Content 22&Content 23
+	\end{tabular}
+	\caption{table caption}
+	\label{table-label}
+\end{table}
+\end{verbatim}
+
+\begin{table}[ht]
+	\centering
+	\setupBfhTabular
+	\begin{tabular}{lll}
+		\rowcolor{BFH-tablehead}
+		Header 1&Header 2&Header3\\\hline
+		Content 11&Content 12&Content 13\\\hline
+		Content 21&Content 22&Content 23
+	\end{tabular}
+	\caption{table caption}
+	\label{table-label}
+\end{table}
+
+To simplify the usage the \pkg{bfhlayout} also provides a \verb+bfhTabular+ environment. The upper example would be equal to:
+
+\begin{verbatim}
+\begin{table}
+	\begin{bfhTabular}{lll}
+	Header 1&Header 2&Header3\\
+	Content 11&Content 12&Content 13\\
+	Content 21&Content 22&Content 23
+	\end{bfhTabular}
+	\caption{table caption}
+	\label{table-label}
+\end{table}
+\end{verbatim}
+
+In case the package \pkg{tabularray} is loaded the tabular module will also implement a tblr environ to use the layout.
+For further usage information please have a look at the \pkg{tabularray} documentation.
+
+\begin{verbatim}
+\begin{bfhTblr}{lll}
+	Header 1&Header 2&Header3\\
+	Content 11&Content 12&Content 13\\
+	Content 21&Content 22&Content 23
+\end{bfhTblr}
+\end{verbatim}
+
+\subsection{listings module}
+
+Loades the \pkg{listings} package and adjusts colors for the listing environments to match the CI.
+
+\subsection{terminal module}
+
+Provides some terminal mechanisms to be similar to OSX and ubuntu terminals.
+The mechanism is based on \pkg{tcolorbox} and either \pkg{listings} or \pkg{minted} can be used as listing engine.
+
+The syntax was adapted from internal packages providing this functionality.
+Therefore the syntax for adjusting the terminal propmts is slightly different for the minted engine in contrast to listings.
+
+The following examples show the difference.
+
+Please pay attention to the fact that the current implementation to change the prompt needs global assignments. A reset at start of a new terminal environment might be required.
+
+
+\begin{multicols}{2}[\subsubsection{terminal using listings}]
+\tcbset{listing engine=listings}
+\setupLinuxPrompt{student}
+\begin{ubuntu}
+whoami `\StartConsole`
+student `\setupLinuxPrompt{student}`
+sudo su `\setupLinuxPrompt{root}`
+hostname `\StartConsole`
+ubuntu`\setupLinuxPrompt{root}`
+ssh bob@remotehost`\StartConsole`
+student@remotehost's`\ `password:
+Linux remote host 2.6.32-5-686 #1 SMP Sun Sep 23 09:49:36 UTC 2012 i686
+You have mail.
+Last login: Wed Oct 16 01:12:35 2012 from localhost`\setupLinuxPrompt{remote}`
+whoami`\StartConsole`
+user`\setupLinuxPrompt{remote}`
+_
+\end{ubuntu}
+
+\begin{macos}
+whoami `\StartConsole`
+root `\setupOSXPrompt{root}`
+hostname `\StartConsole`
+ubuntu`\setupOSXPrompt{root}`
+ssh bob@remotehost`\StartConsole`
+bob@remotehost's`\ `password:
+Linux remote host 2.6.32-5-686 #1 SMP Sun Sep 23 09:49:36 UTC 2012 i686
+You have mail.
+Last login: Wed Oct 16 01:12:35 2012 from localhost`\setupOSXPrompt{remote}`
+whoami`\StartConsole`
+user`\setupOSXPrompt{remote}`
+_
+\end{macos}
+\end{multicols}
+
+\subsubsection{terminal environment with more optional arguments}
+There is a newer version of the terminal environment which is fully compliant to the initial variant. The evolution of this environment provides the follwoing fatures.
+
+\begin{itemize}
+ \item provides \verb|\setupLinuxPrompt[user][host][pwd][prompt char][pwd chars]|
+ \item preserves \verb|\setupLinuxPrompt{student}| command uses instead of \verb|\newcommand| use \verb|\NewDocumentCommand|
+ \item the \verb|[pwd chars]| limit the chars count of \verb|[pwd]| string and thus truncate the string. It is useful in multi column context to limit prompt overrun.
+\end{itemize}
+
+\setupLinuxPrompt[john][myserver][][\$ ]{color=BFH-LightGreen}
+
+\begin{ubuntu}
+Set-ExecutionPolicy Unrestricted -Scope Process `\StartConsole`
+Die Ausführungsrichtlinie trägt zum Schutz vor nicht vertrauenswürdigen Skripts bei. ... Möchten Sie die Ausführungsrichtlinie ändern?
+[J]Ja  [A]Ja,alle  [N]Nein  [K]Nein,keine  [H]Anhalten  [?]Hilfe
+(Standard ist "N"): J`\setupLinuxPrompt{student}`
+python -m venv btm1503venv # create new virtual environment
+cd btm1503venv`\setupLinuxPrompt[john][myserver][/home/john/btm1503venv][\$ ]{color=green}`
+.\Scripts\activate # work within venv -> '(btm1503venv)' prompt `\setupLinuxPrompt[(btm1503venv)john][myserver][/home/john/btm1503venv][\$ ]{color=green}`
+pip install spyder-kernels numpy mnist
+deactivate # exit virtual environment after you are done
+\end{ubuntu}
+
+
+\subsubsection{terminal using minted}
+
+This section is commented because minted has to be set up to use it.
+In case this should be used minted has been loaded before the terminal module.
+
+%\tcbset{listing engine=minted}
+%\begin{multicols}{2}
+%\setupLinuxPrompt{student}
+%\begin{ubuntu}
+%	whoami
+%	student  `\StartConsole`
+%	sudo su `\setupLinuxPrompt{student}`
+%	hostname `\setupLinuxPrompt{root}`
+%	ubuntu`\StartConsole`
+%	ssh bob@remotehost`\setupLinuxPrompt{root}`
+%	student@remotehost's`\ `password: `\StartConsole`
+%	Linux remotehost 2.6.32-5-686 #1 SMP Sun Sep 23 09:49:36 UTC 2012 i686
+%	You have mail.
+%	Last login: Wed Oct 16 01:12:35 2012 from localhost
+%	whoami`\setupLinuxPrompt{remote}`
+%	user`\StartConsole`
+%	_`\setupOSXPrompt{remote}`
+%\end{ubuntu}
+%
+%\setupOSXPrompt{student}
+%\begin{macos}
+%	whoami
+%	root`\StartConsole`
+%	hostname`\setupOSXPrompt{root}`
+%	ubuntu`\StartConsole`
+%	ssh bob@remotehost`\setupOSXPrompt{root}`
+%	bob@remotehost's`\ `password:`\StartConsole`
+%	Linux remotehost 2.6.32-5-686 #1 SMP Sun Sep 23 09:49:36 UTC 2012 i686
+%	You have mail.
+%	Last login: Wed Oct 16 01:12:35 2012 from localhost
+%	whoami`\setupOSXPrompt{remote}`
+%	user`\StartConsole`
+%	_`\setupOSXPrompt{remote}`
+%\end{macos}
+%\end{multicols}
+
+\subsection{boxes module}
+
+The boxes module provides box environments based on the BFH coporate identity.
+All of them follow the same syntax:
+
+\begin{verbatim}
+	\begin{ENV_TYPE}[COLOR_OPTION]{BOX TITLE}
+		Some text displayed in the color box.
+	\end{ENV_TYPE}
+\end{verbatim}
+
+General use of the BFH notification box environment.
+\begin{verbatim}
+	\begin{NOTIFICATION_TYPE}
+		Some text displayed in the color box.
+	\end{NOTIFICATION_TYPE}
+\end{verbatim}
+
+
+\subsubsection{The general purpose box}
+The BFH color box using the option to set user defined color.
+
+\begin{verbatim}
+	\begin{bfhBox}[BFH-MediumBlue]{\texttt{bfhBox}}
+		Color provided by \texttt{bfhcolors} package: \texttt{BFH-MediumBlue}
+	\end{bfhBox}
+\end{verbatim}
+
+
+\begin{bfhBox}[BFH-MediumBlue]{\texttt{bfhBox}}
+	Color provided by \texttt{bfhcolors} package: \texttt{BFH-MediumBlue}
+\end{bfhBox}
+
+The box without the color option falls back to default color box in BFH medium green.
+
+\begin{verbatim}
+	\begin{bfhBox}{\texttt{bfhBox}}
+		Color provided by \texttt{bfhcolors} package: \texttt{BFH-MediumGreen}
+		Default color
+	\end{bfhBox}
+\end{verbatim}
+
+\begin{bfhBox}{\texttt{bfhBox}}
+	Color provided by \texttt{bfhcolors} package: \texttt{BFH-MediumGreen}
+	Default color
+\end{bfhBox}
+
+
+\subsubsection{Theme boxes}
+
+\begin{verbatim}
+	\begin{bfhAlertBox}
+		Some text to emphasis.
+	\end{bfhAlertBox}
+\end{verbatim}
+
+\begin{bfhAlertBox}
+	An alert box.
+\end{bfhAlertBox}
+
+\begin{verbatim}
+	\begin{bfhWarnBox}
+		Some text to emphasis.
+	\end{bfhWarnBox}
+\end{verbatim}
+
+\begin{bfhWarnBox}
+	A warning box.
+\end{bfhWarnBox}
+
+\begin{verbatim}
+	\begin{bfhNoteBox}
+		Some text to emphasis.
+	\end{bfhNoteBox}
+\end{verbatim}
+
+\begin{bfhNoteBox}
+	A note box.
+\end{bfhNoteBox}
+
+\begin{verbatim}
+	\begin{bfhRecycleBox}
+		Some text to emphasis.
+	\end{bfhRecycleBox}
+\end{verbatim}
+
+\begin{bfhRecycleBox}
+	A recycle box.
+\end{bfhRecycleBox}
+
+\begin{verbatim}
+	\begin{bfhReadBox}
+		Some text to emphasis.
+	\end{bfhReadBox}
+\end{verbatim}
+
+\begin{bfhReadBox}
+	A read box.
+\end{bfhReadBox}
+
+
+\begin{verbatim}
+	\begin{bfhProcessingBox}
+		Some text to emphasis.
+	\end{bfhProcessingBox}
+\end{verbatim}
+
+\begin{bfhProcessingBox}
+	A processing box.
+\end{bfhProcessingBox}
+
+\subsection{rules module}
+The rules module adds user macros to create separation rules as described in the CI guideline.
+
+\begin{verbatim}
+	\bfhRule[optional length]
+\end{verbatim}
+
+\bfhRule
+
+\end{document}

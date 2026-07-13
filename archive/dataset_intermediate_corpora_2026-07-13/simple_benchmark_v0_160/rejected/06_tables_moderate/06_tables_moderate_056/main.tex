@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00754\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+%\textbf{Year} & N & \textbf{$g$-index} & \textbf{$k$-index} & \textbf{$p$-index} & $p/(2k-1)$ & p/g & 2k-1/g  \\ \hline
+\toprule
+\adjustbox{angle=90}{Year} &
+\adjustbox{angle=90}{Tot. No. of movies} &
+\adjustbox{angle=90}{Gini index ($g$)} &
+\adjustbox{angle=90}{Pietra index ($p$)} &
+\adjustbox{angle=90}{Kolkata index ($k$)}&
+\adjustbox{angle=90}{$p/(2k-1)$} &
+\adjustbox{angle=90}{$p/g$} &
+\adjustbox{angle=90}{$(2k-1)/g$}\\
+\midrule
+\hline
+1999 & 52 & 0.41093 & 0.29326 & 0.64469 & 1.0134 & 0.7136 & 0.7042\\ \hline 
+2000 & 51 & 0.41637 & 0.29554 & 0.64453 & 1.0224 & 0.7098 & 0.6942\\ \hline 
+2001 & 51 & 0.55679 & 0.41486 & 0.70681 & 1.0030 & 0.7451 & 0.7429\\ \hline 
+2002 & 51 & 0.36364 & 0.26156 & 0.63000 & 1.0060 & 0.7193 & 0.7150\\ \hline 
+2003 & 52 & 0.45222 & 0.33932 & 0.66963 & 1.0002 & 0.7503 & 0.7502\\ \hline 
+2004 & 51 & 0.44658 & 0.34524 & 0.67206 & 1.0033 & 0.7731 & 0.7706\\ \hline 
+2005 & 52 & 0.38679 & 0.29895 & 0.64882 & 1.0044 & 0.7729 & 0.7695\\ \hline 
+2006 & 50 & 0.52425 & 0.41003 & 0.70370 & 1.0065 & 0.7821 & 0.7771\\ \hline 
+2007 & 51 & 0.49243 & 0.36600 & 0.68287 & 1.0007 & 0.7433 & 0.7427\\ \hline 
+2008 & 51 & 0.49477 & 0.36377 & 0.68170 & 1.0010 & 0.7352 & 0.7345\\ \hline 
+2009 & 64 & 0.61159 & 0.46545 & 0.72633 & 1.0283 & 0.7610 & 0.7401\\ \hline 
+2010 & 140 & 0.77307 & 0.63066 & 0.80724 & 1.0263 & 0.8158 & 0.7949\\ \hline 
+2011 & 123 & 0.78239 & 0.65696 & 0.81366 & 1.0472 & 0.8397 & 0.8018\\ \hline 
+2012 & 133 & 0.78140 & 0.64864 & 0.81088 & 1.0432 & 0.8301 & 0.7957\\ \hline 
+2013 & 137 & 0.76403 & 0.60528 & 0.79360 & 1.0308 & 0.7922 & 0.7686\\ \hline 
+2014 & 146 & 0.80382 & 0.65775 & 0.81760 & 1.0355 & 0.8183 & 0.7902\\ \hline 
+2015 & 165 & 0.79784 & 0.65836 & 0.81791 & 1.0355 & 0.8252 & 0.7969\\ \hline 
+2016 & 216 & 0.82970 & 0.68791 & 0.83025 & 1.0415 & 0.8291 & 0.7961\\ \hline 
+2017 & 252 & 0.85300 & 0.70442 & 0.84432 & 1.0229 & 0.8258 & 0.8073\\ \hline 
+2018 & 219 & 0.84407 & 0.71848 & 0.84777 & 1.0330 & 0.8512 & 0.8240\\ \hline 
+2019 & 244 & 0.84798 & 0.72439 & 0.85467 & 1.0212 & 0.8543 & 0.8365\\ \hline 
+2020 & 76 & 0.86551 & 0.73448 & 0.85860 & 1.0241 & 0.8486 & 0.8286\\ \hline 
+2021 & 50 & 0.79775 & 0.63359 & 0.81054 & 1.0201 & 0.7942 & 0.7785\\ \hline 
+2022 & 165 & 0.84379 & 0.69608 & 0.84151 & 1.0191 & 0.8249 & 0.8095\\ \hline 
+2023 & 227 & 0.89157 & 0.77006 & 0.87826 & 1.0179 & 0.8637 & 0.8485\\ \hline 
+2024 & 230 & 0.89728 & 0.76409 & 0.87516 & 1.0184 & 0.8516 & 0.8362\\ \hline 
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05387\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{13cm}}
+\Xhline{1pt}
+\textbf{Summarization ($p_{summ}$)}\\ \hline
+Document: \\
+{[}Document{]} \\
+\\
+Please write a brief summary for the given document. The summary should be one sentence.\\ \hline
+\textbf{Binary judgment ($p_{judge}^{bin}$)} \\ \hline
+Below is a document and a corresponding summary. Please determine whether the summary contains hallucinated information that is not supported by the document. \\
+Document: \\
+{[}Document{]} \\
+Summary: \\
+{[}Summary{]} \\ \\
+State the final answer exactly as either 'Yes' (if hallucinated information is found) or 'No' (if not). Do not provide any additional information. \\ \hline
+\textbf{Atomic fact extraction ($p_{atomic\_fact}$)} \\ \hline
+Given the following sentence, list all simple facts it contains. Each fact should be a minimal statement that expresses a single piece of information. Each fact must be written so it makes sense by itself, without relying on the context. \\
+Sentence: {[}Sentence{]} \\
+Answer in the following format: \\ \\
+Facts: \\
+1. \\
+2. \\
+...\\ \hline
+\textbf{Natural language inference ($p_{nli}$)} \\ \hline
+Given the context, determine if the statement is entailed or contradicted or neutral. \\
+Context: {[}Context{]} \\
+Statement: {[}Statement{]} \\
+Answer with "Entailed", "Contradicted" or "Neutral"\\ \hline
+\textbf{Refinement ($p_{refine}$)} \\ \hline
+You will be given a document, a summary, and comment on the summary. Your task is to revise the summary given the comment. Please make sure you address all the suggestions by only making the least amount of changes. \\
+Document:
+{[}Document{]} \\
+Summary: \\
+{[}Summary{]} \\
+Comment: \\
+{[}Comment{]} \\
+Please check the document for the correct information and make appropriate edits. \\
+\Xhline{1pt}
+\end{tabular}
+}
+\end{table}
+
+\end{document}

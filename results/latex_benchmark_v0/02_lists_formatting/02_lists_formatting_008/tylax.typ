@@ -1,0 +1,27 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "The Effective String of 3D Gauge Systems at the Deconfining Transition",
+  author: "Source-backed arXiv sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[The Effective String of 3D Gauge Systems at the Deconfining Transition]
+
+  #text(size: 1.2em)[Source-backed arXiv sample]
+
+]
+
+          /* \maketitle */
+== Extracted Lists
+
+ The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+/ SU(2) In this case there is a good convergence among different published results both for the string tension and for the critical temperature. Data on $T_(c)$ are reported in #cite(<tc1>) for lattices with length $L = 2 $ in the imaginary time direction; in #cite(<tc2>) for $L = 4 $ and in #cite(<tc3>) for $L = 5 $ and 6. Scaling seems to be fulfilled already for $L > 4 $ and allows a rather precise estimation: $T_(c)beta a = 1 . 4 plus.minus 0 . 1 $ #cite(<tc3>) (where $a $ is the lattice spacing and $beta $ the inverse of the coupling constant). Data on $sigma $ are reported in #cite(<sigma1>) and more recently in #cite(<sigma2>), in both case obtained with Wilson loops. Scaling seems to be fulfilled already for $beta > 6 . $ (in agreement with the $T_(c)$ behaviour). These two sets of data agree and give $sigma(beta a)^(2)= 2 . 2 3 plus.minus 0 . 0 4 $. This implies $T_(c)/sqrt(sigma)= 0 . 9 4 plus.minus 0 . 0 3 $ in agreement with our critical temperature for the minimal radius $r_(1)$, $T_(c)/sqrt()= sqrt()/sqrt()= 0 . 9 8 $. Indeed this result was already presented in #cite(<fp>) to support the Nambu-Goto string picture, and has not been significatively changed by the new high precision data of ref #cite(<sigma2>).
+
+/ $Z_(2)$ In this case a rather precise estimate exists for the string tension  #cite(<noiz2>) : $sigma a^(2)(beta_(c)- beta)^(- 2 nu)= 3 . 6 4 plus.minus 0 . 0 9 $ , with $beta_(c)= 0 . 7 6 1 4 $ and $nu = 0 . 6 3 $. For the critical temperature, the scaling region seems to start from $L = 4 $. Data obtained with the Montecarlo renormalization group approach #cite(<wan2>) for $L = 4,8 $, give $T_(c) a(beta_(c)- beta)^(- nu) = 2 . 3 plus.minus 0 . 1 $, while a slightly lower value was obtained using finite size scaling techniques #cite(<wan1>, <brower>) for $L = 4 $: $T_(c) a(beta_(c)- beta)^(- nu)= 2 . 2 plus.minus 0 . 1 $. Taking into account all the uncertainties we can assume: $T_(c)/sqrt(sigma)= 1 . 1 7 plus.minus 0 . 1 $ which is in acceptable agreement with our solution.
+

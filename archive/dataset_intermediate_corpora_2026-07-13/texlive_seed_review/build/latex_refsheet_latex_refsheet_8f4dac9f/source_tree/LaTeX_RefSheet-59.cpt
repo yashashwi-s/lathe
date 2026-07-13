@@ -1,0 +1,14 @@
+
+\subsection{Spacing horizontally}
+Avoid spacing with fixed units like \lstinline+\hspace{0.5cm}+ use \lstinline+\quad+ or \lstinline+\qquad+ instead (see also \ref{sec:units}).
+\textbf{Spacing in math is almost always right!}\\
+{\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}ll|l@{~~}l@{~~}l|l@{~~}l@{~~}l|l@{~~~}l@{}} \toprule
+	\multicolumn{2}{c}{Math}& \multicolumn{3}{c}{Math/Text} & \multicolumn{3}{c}{Math/Text} & \multicolumn{2}{c}{Math/Text} \\\midrule
+	\lstinline+a b+  & $ab$   & \lstinline+a\!b+ & $a\!b$ & a\!b & \lstinline+a\;b+ & $a\;b$ & a\;b & \lstinline+a\quad b+ & a\quad b\\
+	\lstinline+a\>b+ & $a\>b$ & \lstinline+a\,b+ & $a\,b$ & a\,b & \lstinline+a\ b+ & $a\ b$ & a\ b & \lstinline+a\qquad b+ & a\qquad b\\ \bottomrule
+\end{tabular}}\\
+\lstinline+\hspace{+\textit{length}\lstinline+}+;
+\lstinline+*+ variant \lstinline+\hspace*{+\textit{length}\lstinline+}+ space even at line start\\
+Use with care: \lstinline+\hphantom{+\textit{text}\lstinline+}+
+^^E^^L 

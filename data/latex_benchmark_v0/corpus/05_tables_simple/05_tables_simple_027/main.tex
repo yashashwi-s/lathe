@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02195\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}lll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{dat} (‘that’) & 197 \\
+2. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 193 \\
+3. & \textit{er} (‘there’) & 119 \\
+4. & \textit{niet} (‘not’) & 91\\
+5. & \textit{ik} (‘I’) & 75 \\
+6. & \textit{hebben} (‘have’) & 60 \\
+7. & \textit{zijn} (‘are’, ‘be’, ‘his’) & 50 \\
+8. & \textit{om} (‘to’) & 48 \\
+9. & \textit{vergeten} (‘forgotten’) & 41 \\
+10. & \textit{alle} (‘all’) & 38 \\
+11. & \textit{deze} (‘this’, \textsc{masc/fem}) & 38 \\
+12. & \textit{elk} (‘every’, \textsc{neut}) & 38 \\
+13. & \textit{blijkt} (‘turns out’) & 37 \\
+14. & \textit{geen} (‘no’) & 35 \\
+15. & \textit{je} (‘you’, \textsc{inform}) & 35 \\
+16. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 32 \\
+17. & \textit{van} (‘of’) & 32 \\
+18. & \textit{worden} (‘become’) & 32 \\
+19. & \textit{door} (‘by’) & 31 \\
+20. & \textit{u }(‘you’, \textsc{form}) & 31 \\
+21. & \textit{jij} (‘you’, \textsc{inform}) & 29 \\
+22. & \textit{wordt} (‘becomes’) & 29 \\
+23. & \textit{hoe} (‘how’) & 28 \\
+24. & \textit{elke} (‘every’, \textsc{masc/fem}) & 27 \\
+25. & \textit{massa's} (‘masses’) & 27 \\
+26. & \textit{veel} (‘a lot of’) & 27 \\
+27. & \textit{werkt} (‘works’) & 27 \\
+28. & \textit{hier} (‘here’) & 26 \\
+29. & \textit{waarom} (‘why’) & 25 \\
+30. & \textit{ieder} (‘every’, \textsc{neut}) & 24 \\
+31. & \textit{weinig} (‘a few’) & 23 \\
+32. & \textit{aan} (‘to’, \textsc{prep}) & 22 \\
+33. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 21 \\
+34. & \textit{voor} (‘for’) & 21 \\
+35. & \textit{waar} (‘where’) & 21 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05431\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+          \hline
+          $\delta$ & $\textrm{Choose } r$ & \textrm{Computed Bound} & $1.99\delta^{\frac{13}{3}}$\\
+          \hline
+          $6$   & $2$ & $4755.719\ldots$ &      $4686.426\ldots$     \\
+          $7$   & $2$ & $9356.323\ldots$ &      $9139.966\ldots$     \\
+          $8$   & $2$ & $16734.776\ldots$ &     $16302.08$           \\
+          $9$   & $2$ & $27873.380\ldots$ &     $27158.385\ldots$    \\
+          $10$  & $2$ & $43926.616\ldots$ &     $42873.250\ldots$    \\
+          $11$  & $2$ & $66229.915\ldots$ &     $64796.972\ldots$    \\
+          $12$  & $2$ & $96308.469\ldots$ &     $94472.442\ldots$    \\
+          $13$  & $2$ & $135886.071\ldots$ &    $133641.375\ldots$   \\
+          $14$  & $2$ & $186893.968\ldots$ &    $184250.170\ldots$   \\
+          $15$  & $2$ & $251479.733\ldots$ &    $248455.452\ldots$   \\
+          $16$  & $2$ & $332016.143\ldots$ &    $328629.339\ldots$   \\
+          $17$  & $2$ & $431110.078\ldots$ &    $427364.459\ldots$   \\
+          $18$  & $2$ & $551611.412\ldots$ &    $547478.747\ldots$   \\
+          $19$  & $2$ & $696621.921\ldots$ &    $692020.054\ldots$   \\
+          $20$  & $2$ & $869504.192\ldots$ &    $864270.569\ldots$   \\
+          $21$  & $2$ & $1073890.535\ldots$ &   $1067751.082\ldots$  \\
+          $22$  & $2$ & $1313691.905\ldots$ &   $1306225.105\ldots$  \\
+          $23$  & $2$ & $1593106.818\ldots$ &   $1583702.853\ldots$  \\
+          $24$  & $2$ & $1916630.275\ldots$ &   $1904445.097\ldots$  \\
+          $25$  & $2$ & $2289062.689\ldots$ &   $2272966.913\ldots$  \\
+          $26$  & $2$ & $2715518.813\ldots$ &   $2694041.310\ldots$  \\
+          $27$  & $2$ & $3201436.665\ldots$ &   $3172702.77$         \\
+          $28$  & $2$ & $3752586.464\ldots$ &   $3714250.685\ldots$  \\
+          $29$  & $2$ & $4375079.559\ldots$ &   $4324252.720\ldots$  \\
+          $30$  & $2$ & $5075377.363\ldots$ &   $5008548.076\ldots$  \\
+          $31$  & $2$ & $5860300.290\ldots$ &   $5773250.692\ldots$  \\
+          $32$  & $3$ & $6718968.141\ldots$ &   $6624752.368\ldots$  \\
+          $33$  & $3$ & $7653256.765\ldots$ &   $7569725.817\ldots$  \\
+          $34$  & $3$ & $8684471.693\ldots$ &   $8615127.653\ldots$  \\
+          $35$  & $3$ & $9819513.439\ldots$ &   $9768201.324\ldots$  \\
+          $36$  & $3$ & $11065570.052\ldots$ &  $11036479.977\ldots$ \\
+          $37$  & $3$ & $12430121.798\ldots$ &  $12427789.273\ldots$ \\
+          \hline
+      \end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03187\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{| c | c | c |}
+        \toprule
+        Algorithm & Complexity & Remarks \\
+        \hline
+        & & \\
+        Enhash~ & O$(L*d*N*C)$ & \\
+        & & \\
+        \hline
+        & & \\
+        DWM~ & O$(L*d*(N+C))$ & The base classifier is Naive Bayes' Classifier.\\
+        & & \\
+        \hline
+        & & \\
+        Learn$^{++}$.NSE~ & O$(L*(\log N + N*d*\log N))$ & The base classifier is decision tree. The best case complexity for training and testing is assumed in this estimate.\\
+        & & \\
+        \hline
+        & & \\
+        Learn$^{++}$~ & O$(L*(\log N + N*d*\log N))$ & The base classifier is decision tree. The best case complexity for training and testing is assumed in this estimate.\\
+        & & \\
+        \hline
+        & & \\
+        LB~ & O$(L * N * k * \log N)$ &  The base classifier is \texttt{KNNClassifier} from \texttt{scikit-multiflow} package.\\
+        & & \\
+        \hline
+        & & \\
+        OB~ & O$(L * N * k * (\log N + \log w))$ &  The base classifier is \texttt{KNNAdwinClassifier} from \texttt{scikit-multiflow} package.\\
+        & & \\
+        \hline
+        && \\
+        OSMOTEB~  & O$(L * N * k * s * (\log N + \log w))$ & The base classifier is \texttt{KNNAdwinClassifier} from \texttt{scikit-multiflow} package. \\
+        && \\
+        \hline
+        & & \\
+        AWE~ & O$(L*d*(N+C))$ & The base classifier is Naive Bayes' classifier. \\
+        & & \\
+        \hline
+        & & \\
+        AEE~  & O$(L*d*(N+C))$ & The base classifier is Naive Bayes' classifier.\\
+        & & \\
+        \hline
+        & & \\
+        ARF~ & O$(L(\log N + N*d*\log N))$ & The best case complexity for training and testing is assumed in this estimate. \\
+        & & \\
+        \bottomrule
+        \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02562\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Geometry \& traffic} & \\
+    Control zone radius $R$ & $[40,60,80,100, 120,140,160,180,200]$ m \\
+    Safe distance $d_{\text{safe}}$ & $3$ m \\
+    Separation distance $d_{\text{sep}}$ & $4$ m  \\
+    Start/End (N–S lane) & $+240$ m $\rightarrow$ $-240$ m; y-flow \\
+    Start/End (W–E lane) & $-240$ m $\rightarrow$ $+240$ m; x-flow \\
+    Arrival rates $(\Lambda_x,\Lambda_y)$ & $[0.5,0.7,0.9]$ s$^{-1}$ each; $k_{\min}$ $=0.2$ s (2 steps) \\
+    \midrule
+    \textbf{Discretization \& horizon} & \\
+    Time step $\Delta t$ & $0.1$ s \\
+    Horizon length $N$ & $60$ steps \\
+    Simulation duration $T$ & $3600$ s \\
+    \midrule
+    \textbf{Bounds} & \\
+    % Max speed $V_{\max}$ & $15$ m/s \\
+    % Max acceleration $A_{\max}$ & $3$ m/s$^2$ \\
+    Input bounds $u_{q,i}$ & $[-5,\,5]$ m/s$^2$ (per flow) \\
+    % State bounds $x_{q,i}$ &
+    %   $p^x\in[-(R\!+\!2),\,R\!+\!29]$ m,\ $p^y\in[-(R\!+\!29),\,R\!+\!2]$ m; \\
+    %   & $v^x,v^y\in[-15,\,15]$ m/s \\
+    State bounds $x_{q,i}$ &
+      $p^x\in[-R,\,R]$ m,\ $p^y\in[-R,\,R]$ m; \\
+      & $v^x,v^y\in[-15,\,15]$ m/s \\
+    \midrule
+    \textbf{Objective weights} & \\
+    State slacks $\alpha$ & $[1,1,1,1]$ \\
+    Terminal slacks $\beta$ & $[100,100,100,100]$ \\
+    Speed reward $\gamma$ & $1$ \\
+    Reversal penalty $\lambda$ & $1$ \\
+    \midrule
+    \textbf{MIP constants} & \\
+    Big-$M$, Big-$W$ & $10^3,\ 10^6$ \\
+    Proximity buffer $b$ & $4$ m \\
+    Strictness $\varepsilon$ & $0.1$ m \\
+    \midrule
+    \textbf{Solver/Hardware} & \\
+    Solver & Gurobi Optimizer (Python API) \\
+    CPU & Intel(R) Xeon(R) Gold 6248 CPU 2.50GHz \\
+    \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+\end{document}

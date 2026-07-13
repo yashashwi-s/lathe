@@ -1,0 +1,44 @@
+#import "@preview/mitex:0.2.4": *
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+= Expressions
+<expressions>
+==== Expression 1.
+<expression-1.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+M^a_{0c}M^c_{0b}=(M_0^2)^a_b=\left(\begin{array}{cc}-\frac{\alpha'}{2}[A_{\mu},A_{\nu}]\psi^{\mu}\psi^{\nu} +\overline{T}T &-i\sqrt{\alpha'}(\overline{T}A'_{\mu}-A_{\mu}\overline{T})\psi^{\mu} \\-i\sqrt{\alpha'}(TA_{\mu}-A'_{\mu}T)\psi^{\mu} & -\frac{\alpha'}{2}[A_{\mu}',A'_{\nu}]\psi^{\mu}\psi^{\nu}+T\overline{T} \\\end{array}\right) \ .
+\end{aligned}`) $
+
+==== Expression 2.
+<expression-2.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\|r_h^+ u - r_h u\|_{0,2}^2 &= a_h^+(r_h^+ u - r_h u, w) \\&= a_h^+(r_h^+ u - r_h u, w - w_h^+) + a_h^+(r_h^+ u - r_h u, w_h^+) \\&= a_h^+(r_h^+ u - r_h u, w - w_h^+) + a_h^+(u - r_h u, w_h^+) \\&= a_h^+(r_h^+ u - r_h u, w - w_h^+) + a_h^+(u - r_h u, w_h^+ - w_h) \\&\;\;\; + a_h^+(u - r_h u, w_h) - a_h(u-r_h u, w_h) \\&=: T_1 + T_2 + T_3,
+\end{aligned}`) $
+
+==== Expression 3.
+<expression-3.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\sum_{n=1}^\infty c_{1,n}T_1^n\left(\{x_\tau^0\}_{\tau=1}^{r} \right)\equiv&\sum_{n=1}^\infty c_{1,n}T_1^n\left(\{x_\tau^0 \tilde{f}_0^n\}_{\tau=1}^{r} \right) , \\\sum_{n=1}^\infty c_{2,n}T_2^n\left(\{x_\theta^0\}_{\theta=r+1}^{r+s} \right) \equiv&\sum_{n=1}^\infty c_{2,n}T_2^n\left(\{x_\theta^0\tilde{f}_0^n\}_{\theta=r+1}^{r+s} \right).
+\end{aligned}`) $
+
+==== Expression 4.
+<expression-4.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\|\psi_{n,t}(b)^*\psi_{n,t}(b)&+(\psi_{n,e}(c)+\alpha1_{k_n})^*(\psi_{n,e}(c)+\alpha1_{k_n})-\|b\|^21_{k_n}\|\\&\leq \|\psi_{n,t}(b)^*\psi_{n,t}(b)-\psi_{n,e}(b^*b)\|+\|\psi_{n,e}(c)^*\psi_{n,e}(c)-\psi_{n,e}(c^*c)\|\\&= \|\psi_{n,t^{-1}}(b^*)\psi_{n,t}(b)-\psi_{n,e}(b^*b)\|+\|\psi_{n,e}(c^*)\psi_{n,e}(c)-\psi_{n,e}(c^*c)\|<2\varepsilon_n
+\end{aligned}`) $
+
+==== Expression 5.
+<expression-5.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\begin{aligned}& \text{(i) } B=B_1\cup B_2, \widetilde B= E_1\cup E_2 \text{ and }\omega(E_i)\ge \frac12\omega(\widetilde B), i=1,2;\\& \text{(ii) } b(x)-b(y) \text{ does not change sign for all }(x,y)\in B_i\times E_i, i=1,2; \\&\text{(iii) } |b(x)-m_b(\tilde B)|\le |b(x)-b(y)| \text{ for all }(x,y)\in B_i\times E_i, i=1,2.\end{aligned}
+\end{aligned}`) $

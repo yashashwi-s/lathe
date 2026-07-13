@@ -1,0 +1,48 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Schriftart}
+\author{Johannes Pieper}
+
+\begin{document}
+Das CD der DLRG sieht vor, dass alle Schriftstücke möglichst mit der DLRG-Hausschrift verfasst werden. Dieses ist aber nur mit LuaTeX möglich. Dazu muss die Schrift auf dem System installiert sein. Das Modul bindet sie dann automatisch ein. Mit \LaTeX{} ist dieses nicht möglich.
+
+Die Schrift kann im Internet Service Center der DLRG im \href{https://dlrg.net/apps/dokumente?page=assetService&noheader=1&aid=1709&v=o&file=DLRG%20Schriftart.zip}{Bereich der Dokumente } heruntergeladen werden. Dazu muss man mit einem bestätigten DLRG-Account angemeldet sein.
+
+\subsubsection{DLRG-Schriftart mit \LaTeX}
+Die Konvertierung in ein passendes \LaTeX{} Format ist nicht einfach. Außerdem ist Schriftart nicht öffentlich verfügbar, so dass aus lizensrechtlichen Gründen auch die Weitergabe der Konvertierung wahrscheinlich nicht zulässig ist. Als Alternative wird die Schriftart Arial aufgeführt. Alle Schriftstücken, die mit diesem Paket und \LaTeX{} erstellt werden, verwendet diese. Realisiert wird dieses durch das Paket uarial, dass ggf. noch installiert werden muss.
+
+Die Installation von uarial kann bei TeX Live mit folgenden Schritten erfolgen:
+\begin{enumerate}
+    \item Zuerst muss eine Datei heruntergeladen werden: \\
+        \url{http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts}
+    \item Unabhängig vom Betriebssystem muss diese mit \verbcode|texlua| ausgeführt werden:
+    \begin{sourcecode}[gobble=8]
+        texlua install-getnonfreefonts
+    \end{sourcecode}
+    \item Systemweit kann dann die Schriftart mit folgendem Aufruf installiert werden:
+    \begin{sourcecode}[gobble=8]
+        getnonfreefonts --sys arial-urw
+    \end{sourcecode}
+\end{enumerate}
+
+Bei einem Wechsel der TexLive-Version muss man nur die Schrift wieder neu einbinden. Dieses geschieht durch Aufruf von:
+\begin{sourcecode}[gobble=4]
+    updmap-sys --enable Map=ua1
+\end{sourcecode}
+
+\end{document}

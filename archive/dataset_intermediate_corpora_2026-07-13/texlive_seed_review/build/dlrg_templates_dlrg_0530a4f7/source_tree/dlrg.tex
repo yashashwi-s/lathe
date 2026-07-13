@@ -1,0 +1,201 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+    bibliography=totoc,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage{imakeidx}
+\indexsetup{othercode=\footnotesize,level=\section*,firstpagestyle=headings}
+\makeindex[options=-s cnltx.ist,intoc]
+
+\usepackage[
+    typ=pub,
+    link=LaTeX.dlrg.de,
+    module={Personenicon,Paketbeschreibung}
+]{dlrg}
+\usepackage[
+    language=ngerman,
+    backend=biber,
+    sortlocale=de_DE,%.UTF-8
+    style=authoryear,
+    bibencoding=UTF8,
+    block=space,
+    autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+\usepackage{subcaption}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\author{Johannes Pieper}
+
+\addbibresource[type=file]{dlrg.bib}
+\lstset{%
+    breaklines=true, % Zeilenumbrüche
+    language=[latex]tex,
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+}
+
+\makeatletter
+\titelExtra{
+    \vfill
+    \begin{large}
+        \begin{tblr}{colspec={lX[l]}, width=.5\textwidth}
+            Version: & 1.1.0\\
+            Datum: & \@date\\
+            Betreuer: & \@author\\
+        \end{tblr}
+    \end{large}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\section{Vorwort}
+    Mit dem Handbuch Corporate Design (\cite{DLRG_CD2024}) hat die DLRG festgelegt, wie das Aussehen von verschiedenen Elementen zu gestalten ist, die mit der Öffentlichkeit in Berührung kommen. Dazu gehören auch Briefe, Broschüren und Präsentation, die sich auch mit \LaTeX{} erstellen lassen. Hier setzt dieses Paket an, dass neben den nötigen Umsetzungen auch Beispiele mitliefert.
+
+    Besonders durch die komplett ehrenamtliche Erstellung dieses Paket erhebt es keinen Anspruch auf Vollständigkeit und Richtigkeit. Entsprechend ist jeder Verbesserungsvorschlag und jede Ergänzung herzlich willkommen. Dieses ist über \url{https://gitlab.com/dlrg-fs/dlrg_latex/-/issues} möglich. Die Quellen dieses Pakets sind als Git unter \url{https://gitlab.com/dlrg-fs/dlrg_latex} verfügbar.
+
+    \subsection{Öffentliche Version und Markenrecht}\label{sec:markenrecht}
+    Die Wort- und Bildmarke der DLRG sind markenrechtlich geschützt. Sie dürfen nur im Auftrag der DLRG Gliederungen verwendet werden. Dieses schließt auch den angeschnittenen Adler mit ein. Aus diesem Grund enthält das Paket nur in den bereits gesetzten Dokumenten diese geschützten Elemente. Für das fehlerfreie Setzen eigener Dokumente mit diesem Paket sind Platzhalter beigefügt. Das Aussehen davon ist im Anhang unter \nameref{sec:platzhalter} dargestellt.
+
+    Im Internet-Service-Center (\url{dlrg.net}) haben Mitglieder der DLRG die Möglichkeit über die Dokumenten-App die Markenelemente herunterzuladen. Sie sind direkt über \url{https://k.dlrg.de/latex_elemente} zu erreichen. Dort ist auch eine Installationsanleitung unter \url{https://k.dlrg.de/latex_anleitung} dafür zu finden.
+
+    \subsection{Beteiligte Personen}
+    Besonderen Dank gilt folgenden Personen, die durch Anregungen, Hinweise und Ergänzungen zu diesem Paket beigetragen haben:
+    \begin{itemize}
+        \item Jonas Kipfstuhl
+        \item Niklas Reimer
+        \item Christoph Runge
+    \end{itemize}
+
+
+\section{Aufbau des Pakets}
+    Das Paket gliedert sich in zwei verschiedene Elemente. Zum einen kann ein einzelner Dokumenttyp gewählt werden. Zu jedem Dokumententyp können verschiedene Module zusätzlich geladen werden. Einige Typen laden bereits einzelne Module automatisch.
+
+\section{Dokumententypen}
+    Über den Dokumententyp wird ausgewählt, welche Art von Dokument im Bezug zur DLRG genutzt werden soll. Den Typ gibt man über die Option \option{typ} beim Einbinden des Pakets an. Aktuell stehen \pkg{beamer} für Präsentationen, \pkg{pub} für Publikationen und \pkg{letter} für Briefe zur Verfügung.
+    \begin{options}
+        \keyval{typ}{Typname}\Default Der Typ wird mit seinem Namen angegeben
+    \end{options}
+
+\begin{sourcecode}
+    \usepackage[
+        typ=beamer
+    ]{dlrg}
+\end{sourcecode}
+
+    \subsection{Präsentation}
+        \input{typBeamer.tex}
+
+    \subsection{Brief}
+        \input{typLetter.tex}
+
+    \subsection{Publikation}
+        \input{typPub.tex}
+
+    \subsection{Mitteilung}
+        \input{typMessage.tex}
+
+\section{Module}
+    Die Module des Paketes werden teilweise automatisch durch die verschiedenen Dokumententypen geladen. Alle Module lassen sich auch immer optional hinzuladen oder auch ohne einen Dokumententyp laden. Das Laden von Modulen funktioniert über die Optionen an das Paket.
+
+    \begin{options}
+        \keyval{module}{Modul1,Modul2,\dots}\Default Weitere Module können geladen werden, indem sie der Paketoption \option{module} als kommaseparierte Liste übergeben werden.
+    \end{options}
+
+
+    \subsection{Bauchbinde}
+        \input{modulBauchbinde.tex}
+
+    \subsection{Schriftart}
+        \input{modulSchriftart.tex}
+
+    \subsection{Tabellen}
+        \input{modulTabellen.tex}
+
+    \subsection{Hausarbeit Lehrschein}
+        \input{modulHausarbeit.tex}
+
+    \subsection{Personenicon}
+        \input{modulPersonenicon.tex}
+
+    \subsection{Adler}
+        \input{modulAdler.tex}
+
+\appendix
+
+\section{Marke und Platzhalter}\label{sec:platzhalter}
+    Da im öffentlichen DLRG-Paket die Markenelemente (Wortmarke und Bildmarke) nicht vorhanden sein dürfen, sind diese durch Platzhalter ersetzt worden (Siehe \nameref{sec:markenrecht}). An dieser Stelle sind der Platzhalter und das Original der Marke gegenübergestellt.
+
+    \begin{figure}[ht]
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \scalebox{0.2}{
+                \begin{tikzpicture}
+                    %\draw(-16,16) rectangle(16,-16);
+                    \draw(-16,16)[thick,red] rectangle(0,-12.8);
+                    %\clip(-17,16) rectangle(0,-12.8);
+                    \adlerPlatzhalterZeichnen{}{0,0}{dlrgSchwarz}
+                \end{tikzpicture}
+            }
+            \subcaption{Platzhalter}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \scalebox{0.2}{
+                \begin{tikzpicture}
+                    %\draw(-16,16) rectangle(16,-16);
+                    \draw(-16,16)[thick,red] rectangle(0,-12.8);
+                    %\clip(-17,16) rectangle(0,-12.8);
+                    \freigestellterAdlerZeichnen(0,0){dlrgSchwarz}
+                \end{tikzpicture}
+            }
+            \subcaption{Original}
+        \end{subfigure}
+        \caption{Der freigestellter Adler mit der Markierung für den zulässigen Ausschnitt}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \includegraphics{dlrg_wortmarke_rot_platzhalter.pdf}
+            \subcaption{Platzhalter}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \includegraphics{dlrg_wortmarke_rot}
+            \subcaption{Original}
+        \end{subfigure}
+        \caption{Die Wortmarke}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \includegraphics[width=35mm]{dlrg_adler_platzhalter.jpg}
+            \subcaption{Platzhalter}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.5\linewidth}
+            \centering
+            \includegraphics[width=35mm]{dlrg_adler.jpg}
+            \subcaption{Original}
+        \end{subfigure}
+        \caption{Die Bildmarke für z.\,B. die Briefvorlage}
+    \end{figure}
+
+\printbibliography[title=Literaturverzeichnis]
+
+\printindex
+
+% \listoftodos
+\end{document}

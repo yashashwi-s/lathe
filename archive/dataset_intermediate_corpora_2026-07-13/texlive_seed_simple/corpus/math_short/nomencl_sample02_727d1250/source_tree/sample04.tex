@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[cfg=sample04.cfg]{nomencl}
+\usepackage{siunitx}
+\makenomenclature
+\begin{document}
+\section*{Main equations}
+\begin{equation}
+  a=\frac{N}{A}
+\end{equation}%
+\nomenclature{$a$}{The number of angels per unit
+  area\nomunit{\per\square\meter}}%
+\nomenclature{$N$}{The number of angels per needle point}%
+\nomenclature{$A$}{The area of the needle
+  point\nomunit{\square\meter}}%
+The equation $\sigma = m a$%
+\nomenclature{$\sigma$}{The total mass of angels per unit
+  area\nomunit{\kilogram\per\square\meter}}%
+\nomenclature{$m$}{The mass of one angel\nomunit{\kilogram}}
+follows easily.
+\printnomenclature
+\end{document}

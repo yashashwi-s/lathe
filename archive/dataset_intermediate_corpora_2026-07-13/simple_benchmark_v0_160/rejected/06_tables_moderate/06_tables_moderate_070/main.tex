@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02092\_table\_11}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c c c}
+\toprule
+\textbf{Quarters} &
+\textbf{LASSO weight} &
+\textbf{Ridge weight} &
+\textbf{EN weight} &
+\textbf{PCR weight} &
+\textbf{PLSR weight} &
+\textbf{GRU weight} &
+\textbf{Dominant model}\\
+\midrule
+2017 Q1 & 0.262 & 0.105 & 0.116 & 0.119 & 0.152 & 0.246 & LASSO \\
+2017 Q2 & 0.258 & 0.110 & 0.130 & 0.116 & 0.146 & 0.240 & LASSO \\
+2017 Q3 & 0.222 & 0.128 & 0.151 & 0.134 & 0.152 & 0.211 & LASSO \\
+2017 Q4 & 0.215 & 0.134 & 0.153 & 0.141 & 0.160 & 0.197 & LASSO \\
+2018 Q1 & 0.199 & 0.126 & 0.137 & 0.146 & 0.161 & 0.231 & GRU \\
+2018 Q2 & 0.203 & 0.130 & 0.125 & 0.145 & 0.166 & 0.232 & GRU \\
+2018 Q3 & 0.190 & 0.136 & 0.133 & 0.150 & 0.167 & 0.225 & GRU \\
+2018 Q4 & 0.198 & 0.141 & 0.137 & 0.139 & 0.162 & 0.224 & GRU \\
+2019 Q1 & 0.198 & 0.144 & 0.143 & 0.129 & 0.155 & 0.231 & GRU \\
+2019 Q2 & 0.200 & 0.145 & 0.145 & 0.127 & 0.154 & 0.230 & GRU \\
+2019 Q3 & 0.200 & 0.155 & 0.145 & 0.127 & 0.147 & 0.226 & GRU \\
+2019 Q4 & 0.196 & 0.153 & 0.159 & 0.136 & 0.162 & 0.194 & LASSO \\
+2020 Q1 & 0.193 & 0.154 & 0.160 & 0.136 & 0.161 & 0.196 & GRU \\
+2020 Q2 & 0.064 & 0.221 & 0.225 & 0.185 & 0.235 & 0.071 & PLSR \\
+2020 Q3 & 0.089 & 0.199 & 0.200 & 0.252 & 0.175 & 0.084 & PCR \\
+2020 Q4 & 0.089 & 0.199 & 0.201 & 0.250 & 0.176 & 0.084 & PCR \\
+2021 Q1 & 0.090 & 0.200 & 0.202 & 0.248 & 0.175 & 0.084 & PCR \\
+2021 Q2 & 0.098 & 0.197 & 0.198 & 0.230 & 0.184 & 0.094 & PCR \\
+2021 Q3 & 0.099 & 0.196 & 0.197 & 0.229 & 0.185 & 0.094 & PCR \\
+2021 Q4 & 0.101 & 0.195 & 0.195 & 0.225 & 0.187 & 0.096 & PCR \\
+2022 Q1 & 0.102 & 0.198 & 0.198 & 0.224 & 0.179 & 0.098 & PCR \\
+2022 Q2 & 0.116 & 0.184 & 0.212 & 0.195 & 0.180 & 0.113 & EN \\
+2022 Q3 & 0.117 & 0.184 & 0.213 & 0.193 & 0.180 & 0.113 & EN \\
+2022 Q4 & 0.119 & 0.185 & 0.211 & 0.187 & 0.182 & 0.115 & EN \\
+2023 Q1 & 0.121 & 0.187 & 0.209 & 0.183 & 0.185 & 0.115 & EN \\
+2023 Q2 & 0.121 & 0.187 & 0.209 & 0.184 & 0.184 & 0.116 & EN \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04013\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l@{\hspace{4pt}}l}
+\toprule
+\small
+Symbol & Definition \\
+\midrule
+$T_{l,i}$ & Total length of request $i$ (generate and API return) \\
+$T_{t,i}$ & Total processing time of request $i$ \\
+$G_{l,i}$ & Generate length of request $i$ \\
+$A_{l,i}$ & API return length of request $i$ \\
+$N^\text{fwd}_{\max}$ & Maximum number of tokens processed per iteration \\
+
+$M$ & Per-token KV cache memory footprint \\
+$T^\text{INT}_{i}$ & API call duration of request $i$\\
+$C_i$ & Context length (tokens) before external API invocation \\
+$T^{\text{fwd}}$ & Processing time of one forward iteration \\
+
+$L^\text{pre}_i$ & Actual input length of request $i$ (prefill tokens) \\
+$\hat{L}^\text{out}_i$ & Predicted output length of request $i$ \\
+$\tilde{L}^\text{out}_i$ & Observed (true) output length of request $i$ \\
+$\hat{T}^\text{api}_i$ & Predicted API invocation duration of request $i$ \\
+% $\tilde{T}^{api}_i$ & Observed API invocation duration of request $i$ \\
+% $\hat{L}^{ret}_i$ & Predicted API return length of request $i$ \\
+$\tilde{L}^\text{ret}_i$ & Observed API return length of request $i$ \\
+${L}^\text{total}_i$ & Total length processed before API call of request $i$ \\
+
+$S^\text{fwd}$ & Maximum number of tokens swapped per iteration \\
+% $Waste^{policy}_i$ & Memory waste under handling policy $policy$ for request $i$ \\
+$\hat{S}_i$ & Predicted context-handling policy for request $i$ \\
+$\tilde{S}_i$ & Selected context-handling policy for request $i$ \\
+$Cost_i$ & System cost of request $i$ in a specific phase \\
+% (e.g., prefill, decode, API, recompute, swap) \\
+$V^{(1)}_{i,{\hat{S}_i}}$ & Stage I scheduling value of request $i$ (prediction-based) \\
+$V^\text{final}_i$ & Stage II scheduling value of request $i$ (runtime-corrected) \\
+
+$V^\text{sched}_i$ & Scheduling value with waiting time of request $i$ \\
+
+$G^\text{active}_{kv}$ & Memory footprint of running requests \\
+
+% $G^\text{active}_{kv}$ & Memory footprint of running requests \\
+
+$G^\text{paused}_{kv}$ & Memory footprint of paused requests \\
+
+$G^\text{avail}_{kv}$ & Available memory for new tokens \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

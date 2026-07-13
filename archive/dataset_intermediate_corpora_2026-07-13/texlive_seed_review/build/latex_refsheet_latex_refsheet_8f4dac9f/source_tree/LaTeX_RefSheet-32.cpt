@@ -1,0 +1,39 @@
+
+\subsection{Source Code Listings with \texttt{listings}}
+Load: \lstinline+\usepackage{listings}+\\
+Options: \lstinline+\lstset{ basicstyle=\ttfamily\small, language=Python,+\\
+~~\lstinline+numbers=left, keywordstyle=\color{blue}\bfseries }+\\
+~~See option \lstinline+literate+ for Umlauts (\lstinline+literate={+{\small\texttt{ä}}\lstinline+}{{\"a}}1)+\\
+Languages: C, C++, Java, Matlab, Python, HTML, XML, \dots\\
+\begin{tabular}{@{}ll@{}}
+Use: & Environment: \lstinline+\begin{lstlisting}+ \textit{code} \lstinline+\end{lstlisting}+\\
+     & In line: \lstinline:\lstinline+:\textit{code}\lstinline:+: (same start- and end char)\\
+     & File: \lstinline+\lstinputlisting{+\textit{filename}\lstinline+}+
+\end{tabular}
+\lstset{language=Python,
+	basicstyle=\ttfamily\tiny,
+	extendedchars=false,
+	numbers=left,
+	numbersep=12pt,
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{gray!80},
+	stringstyle=\color{cyan!40},
+	showstringspaces=false,
+	linewidth=.96\linewidth,
+	xleftmargin=.12\linewidth,
+	frameround=fttt,
+	framexleftmargin={2pt},
+	framexrightmargin={2pt}
+}
+\begin{lstlisting}
+# Python selection
+secret=42
+guess=int(input("Enter number: "))
+if guess==secret:
+    print ("You won!")
+elif guess<secret:
+    print ("No, secret number bigger.")
+else:
+    print ("No, secret number is smaller.")
+\end{lstlisting}
+^^E^^L 

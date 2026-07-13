@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%
+%
+% sample-mtx.tex
+%
+%%%%%%%%%%%%%%%%
+\def\mtxversion{0.63a}
+\def\mtxdate{<8 April 2018>}
+\input mtx
+\mtxTitleLine{\bigtype Music sample in M-Tx}
+\input musixtex
+\input pmx
+\setmaxslurs{24}\setmaxinstruments{24}%
+\normalmusicsize%
+\nopagenumbers
+\tracingstats=2\relax
+\hsize=454pt
+\vsize740pt
+\def\nbinstruments{1}
+\setstaffs11
+\setclef10
+\setname1{ }
+\generalsignature{ 0}%
+\generalmeter\meterC%
+\parindent 0pt
+\elemskip1pt\afterruleskip1.000pt\beforeruleskip0pt\relax
+\stafftopmarg0pt\staffbotmarg5\Interligne\interstaff{10}\relax
+\nostartrule
+\readmod{sample-mtx}
+\startmuflex\startpiece\addspace\afterruleskip%
+\znotes\zcharnote{16}{\titles{2.0}{}{0}%
+{\mtxTitle}{2.0}{}{0}}\en%
+% Bar count 1
+\pnotes{2.83}\qu c\en%
+\pnotes{2.00}\ibu1d2\qb1d\tbu1\qb1e\ibu1g2\qb1f\qb1g\qb1{'a}\tbu1\qb1b%
+\en%
+% Bar count 2
+\xbar
+\pnotes{2.83}\ql{'c}\en%
+\pnotes{2.00}\ibu1{'b}{-2}\qb1b\tbu1\qb1a\ibu1{`f}{-2}\qb1g\qb1f\qb1e%
+\tbu1\qb1d\en%
+% Bar count 3
+\xbar
+\pnotes{2.00}\ibu1f0\qb1c\qb1g\qb1e\tbu1\qb1g\ibu1f0\qb1c\qb1g\qb1e%
+\tbu1\qb1g\en%
+% Bar count 4
+\xbar
+\pnotes{2.83}\qu c\qu e\qu c\qp\en%
+\endpiece
+\vfill\eject\endmuflex
+\bye

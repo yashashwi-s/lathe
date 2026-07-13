@@ -1,0 +1,17 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_016/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_016/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_016/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unknown variable: over
+   ┌─ tylax.typ:54:16
+   │
+54 │ $ Z = V_(p + 1)(over("T", 2 pi))^((p + 1)/2)integral d tau over("det"(psi,B), sqrt("det" hat((B,B))))over(sqrt("Det" 'hat(P)^(†)hat(P)), "Vol"("CKV"))(over("Det"_(N)'hat(Delta), integral d^(2)xi sqrt(hat(g))))^(-(p + 1)/2) $
+   │                 ^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `o v e r`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"over"`
+

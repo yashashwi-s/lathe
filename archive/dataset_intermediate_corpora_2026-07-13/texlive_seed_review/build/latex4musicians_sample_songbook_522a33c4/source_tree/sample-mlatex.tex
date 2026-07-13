@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{musixtex}
+\thispagestyle{empty}
+
+\begin{document}
+
+A short music excerpt in MusiX\TeX:
+
+\medskip
+
+\begin{music}
+  \smallmusicsize
+  \instrumentnumber{1}
+  \setstaffs1{1}
+  \generalmeter{\meterC}
+  \nobarnumbers
+  \startextract
+  % bar 1
+  \Notes \qu c \en                  % C
+  \notes \ibu1d2\qb1d\tbu1\qb1e \en % beamed DE
+  \notes \ibu1g2\qb1f\qb1g%
+    \qb1{'a}\tbu1\qb1b \en          % beamed FGAB
+  \bar % bar 2
+  \Notes \ql{'c} \en                % c
+  \notes \ibu1{'b}{-3}%             % beam slope
+    \qb1b\tbu1\qb1a \en             % beamed BA
+  \notes \ibu1{g}{-3}%
+    \qb1g\qb1f\qb1e\tbu1\qb1d \en   % beamed GFED
+  \bar % bar 3
+  \notes \ibu1f0\qb1c\qb1g\qb1e\tbu1\qb1g% % beamed CGEG
+    \ibu1f0\qb1c\qb1g\qb1e\tbu1\qb1g \en   % beamed CGEG
+  \bar % bar 4
+  \Notes \qu c\qu e\qu c\qp \en     % CEC
+  \endextract
+
+\end{music}
+
+\end{document}

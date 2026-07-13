@@ -1,0 +1,14 @@
+
+\subsection{Separate Files}
+\begin{itemize}
+\item
+After preamble within the text place:\lstinline+\include{+\textit{file}\lstinline+}+
+Text starts and ends on a new page.
+\textit{file} has to be in the same directory as the master file.
+Otherwise specify a path: \lstinline+\include{+\textit{path}\lstinline+/+\textit{file}\lstinline+}+
+\item
+In preamble place: \lstinline+\includeonly{+\textit{file1},\textit{file2}\lstinline+}+ to run only these files.
+\item
+Use \lstinline+\input{+\textit{file}\lstinline+}+ includes a file without starting/ending on a new page (\lstinline+\includeonly+ not valid).
+\end{itemize}
+^^E^^L 

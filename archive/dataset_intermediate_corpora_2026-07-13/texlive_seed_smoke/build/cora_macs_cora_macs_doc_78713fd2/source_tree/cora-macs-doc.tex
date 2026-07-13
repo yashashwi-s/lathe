@@ -1,0 +1,512 @@
+\documentclass{article}
+
+
+\usepackage[a4paper,landscape]{geometry}
+
+% preamble
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[sets,operations,nn,colors,tikz]{cora-macs}
+
+\title{The \texttt{\CORAMACSname} Package}
+\author{Tobias Ladner, Lukas Koller\\
+        TUM - Cyber-Physical Systems Group\\
+        \texttt{\small tobias.ladner@tum.de, lukas.koller@tum.de}}
+\date{Version: \CORAMACSversion} % Should match the version on CTAN.
+
+% update quote and verbatim environment for uniform display
+
+\AtBeginEnvironment{verbatim}{\begin{quote}\small}
+\AtEndEnvironment{verbatim}{\end{quote} \vspace{\baselineskip}\noindent}
+
+% show color
+\newcommand{\showColor}[1]{{\color{#1}$\blacksquare$}}
+
+% cleverref
+\usepackage{cleveref}
+\newcommand{\updatecrefname}[2]{\crefname{#1}{#2}{#2}\Crefname{#1}{#2}{#2}}
+\updatecrefname{section}{Sec.}
+\updatecrefname{subsection}{Sec.}
+\updatecrefname{figure}{Fig.}
+\updatecrefname{table}{Tab.}
+
+
+% begin document ---
+\begin{document}
+
+% cover page ---
+
+\maketitle
+
+% \vspace{1cm}
+\begin{center}
+  \includegraphics[width=0.5\columnwidth]{./figures/coraLogo}
+\end{center}
+\vspace{1cm}
+
+\begin{center}
+  \begin{minipage}{0.5\textwidth}
+    \begin{abstract}
+      The \texttt{\CORAMACSname} package provides specialized \LaTeX\ tools for researchers in cyber-physical systems.
+      It offers comprehensive commands for mathematical set notation, operations, and other definitions.
+      Designed to accompany the \CORA\ toolbox, the package also facilitates beautiful visualizations through TikZ figures exported from Matlab and a custom color palette.
+    \end{abstract}
+  \end{minipage}
+\end{center}
+
+\newpage
+
+% table of contents ---
+\tableofcontents
+
+\newpage
+
+% introduction ---
+
+\section{Introduction}
+The \texttt{\CORAMACSname} package is written to accompany our toolbox \CORA\footnote{\CORA: \url{https://cora.in.tum.de/}} for continuous reachability analysis.
+It is designed to assist with the notation of various set representation and operations often encountered in cyber-physical systems analysis.
+It also includes predefined color schemes and and an option to export your figures from \CORA\ to \LaTeX.
+
+\section{Installation}
+To install the \texttt{\CORAMACSname} package, follow these steps:
+\begin{enumerate}
+  \item Place the \texttt{cora.sty} file in your working directory or in a directory where \LaTeX\ can find it (e.g., in the local \texttt{texmf} tree).
+  \item Include the package in your \LaTeX\ document preamble with the command:
+        \begin{verbatim}
+\usepackage[options]{cora-macs}
+\end{verbatim}
+\end{enumerate}
+\vspace{-\baselineskip}
+The \texttt{\CORAMACSname} package provides several options that can be passed when loading the package. These options control the inclusion of different sets of commands.
+
+\begin{itemize}
+  \item \texttt{sets}: Enables macros for working with continuous sets (\cref{sec:sets}).
+  \item \texttt{operations}: Enables macros for common operations in set-based computing (\cref{sec:operations}).
+  \item \texttt{nn}: Enables macros related to neural networks (\cref{sec:nn}).
+  \item \texttt{colors}: Defines a set of colors specific to the \texttt{\CORAMACSname} package (\cref{sec:colors}).
+  \item \texttt{tikz}: Include your Matlab figures in \LaTeX\ for beautiful visualizations (\cref{sec:tikz}).
+\end{itemize}
+
+\noindent
+Example usage:
+\begin{verbatim}
+\usepackage[sets, operations]{cora-macs}
+\end{verbatim}
+
+
+\section{Commands and Environments}
+
+\subsection{Continuous Sets (\texttt{sets} option)} \label{sec:sets}
+When the \texttt{sets} option is enabled, the package provides several commands for defining and manipulating continuous sets.
+
+\begin{itemize}
+  \item \verb|\contSet{name}|: Defines a set in calligraphic font, e.g., $\contSet{S}$.
+  \item \verb|\shortI{a}{b}|: Defines a closed interval $\shortI{a}{b}$. For example, the command \verb|$\contSet{I}=\shortI{1}{2}$| results in $\contSet{I}=\shortI{1}{2}$.
+  \item \verb|\defZ|: States the definition of a zonotope. For example,
+        \begin{verbatim}
+\begin{equation}
+    \contSet{Z}=\shortZ{c}{G}=\defZ
+\end{equation}
+\end{verbatim}
+        \vspace{-2\baselineskip}
+        results in
+        \begin{quote}
+          \begin{equation}
+            \contSet{Z}=\shortZ{c}{G}=\defZ
+          \end{equation}
+        \end{quote}
+\end{itemize}
+
+Similar commands also exist for other set representations, which are accessible with its respective abbreviation.
+Please use the abbreviation
+\texttt{I} for intervals,
+\texttt{Z} for zonotopes, and
+\texttt{PZ} for polynomial zonotopes.
+
+\subsection{Operations (\texttt{operations} option)} \label{sec:operations}
+Enabling the \texttt{operations} option introduces a variety of operations that are useful in mathematical and cyber-physical systems contexts.
+
+\begin{itemize}
+  \item \verb|\operator{name}{args}|: Defines a custom operator with the given name and arguments.
+\end{itemize}
+Some operations are already defined within the \CORA\ package for reference. For example,
+\begin{itemize}
+  \item \verb|\opEnclose{S1}{S2}|: Computes the enclosure of two sets.
+  \item \verb|\opIntervalEnclosure{S}|: Specifies an interval enclosure.
+  \item \verb|\opProject{S}|: Projects a set onto a given dimension.
+  \item \verb|\diag{matrix}|: Results the diagonal matrix of the given input.
+\end{itemize}
+
+The commands ensure that the surrounding parenthesis are large enough to capture the content.
+As this can look weird when used inline within text, one can use the option \texttt{inline} to disable the automatic scaling of the parenthesis.
+For example,
+\begin{verbatim}
+Given two sets $\contSet{S}$ and $\widetilde{\contSet{S}}$,
+the enclosure is computed using $\opEnclose{\contSet{S}}{\widetilde{\contSet{S}}}$.
+As this does not look very nice,
+let us try the \texttt{inline} option instead: $\opEnclose[inline]{\contSet{S}}{\widetilde{\contSet{S}}}$.
+\end{verbatim}
+results in
+\begin{quote}
+  Given two sets $\contSet{S}$ and $\widetilde{\contSet{S}}$,
+  the enclosure is computed using $\opEnclose{\contSet{S}}{\widetilde{\contSet{S}}}$.
+  As this does not look very nice,
+  let us try the \texttt{inline} option instead: $\opEnclose[inline]{\contSet{S}}{\widetilde{\contSet{S}}}$.
+\end{quote}
+
+\subsection{Neural Networks (\texttt{nn} option)} \label{sec:nn}
+The \texttt{nn} option introduces commands related to neural networks, including notation for layers, inputs, outputs, and propagations.
+
+\begin{itemize}
+  \item \verb|\NN|: Represents the symbol for a neural network $\NN$.
+  \item \verb|\nnLayer[name]{index}{input}|: Represents a neural network layer with a specified input. Thus \verb|$\nnLayer[LIN]{k}{x}$| results in $\nnLayer[LIN]{k}{x}$. Use \verb|\nnLayerName[name]{index}| to display the layer without explicit input.
+\end{itemize}
+One also often wants to state the propagation of an input vector or a set through the network.
+For example,
+\begin{verbatim}
+Given an input $\nnInput\in\R^{\numNeurons_0}$ and a neural network $\NN$,
+the output $\nnOutput=\NN(\nnInput)\in\R^{\numNeurons_\numLayers}$ is computed by:
+\begin{align}
+    \begin{split}
+        \nnHidden_0 &= \nnInput, \\
+        \nnHidden_k &= \nnLayer{k}{\nnHidden_{k-1}}, \quad k\in[\numLayers], \\
+        \nnOutput &= \nnHidden_\numLayers.
+    \end{split}
+\end{align}
+\end{verbatim}
+results in
+\begin{quote}
+  Given an input $\nnInput\in\R^{\numNeurons_0}$ and a neural network $\NN$,
+  the output $\nnOutput=\NN(\nnInput)\in\R^{\numNeurons_\numLayers}$ is computed by:
+  \begin{align}
+    \begin{split}
+      \nnHidden_0 &= \nnInput, \\
+      \nnHidden_k &= \nnLayer{k}{\nnHidden_{k-1}}, \quad k\in[\numLayers], \\
+      \nnOutput &= \nnHidden_\numLayers.
+    \end{split}
+  \end{align}
+\end{quote}
+
+Similarly, the corresponding set commands \verb|\nnInputSet|, \verb|\nnHiddenSet|, and \verb|\nnOutputSet| can be used to describe the set propagation of the input:
+
+\begin{quote}
+  Given an input set $\nnInputSet\subset\R^{\numNeurons_0}$ and a neural network $\NN$,
+  the output $\nnOutputSet=\NN(\nnInputSet)\subset\R^{\numNeurons_\numLayers}$ is computed by:
+  \begin{align}
+    \begin{split}
+      \nnHiddenSet_0 &= \nnInputSet, \\
+      \nnHiddenSet_k &= \nnLayer{k}{\nnHiddenSet_{k-1}}, \quad k\in[\numLayers], \\
+      \nnOutputSet &= \nnHiddenSet_\numLayers.
+    \end{split}
+  \end{align}
+\end{quote}
+
+\subsection{Colors (\texttt{colors} option)} \label{sec:colors}
+The option \texttt{colors} define a variety of colors that can be used in your documents
+and is especially useful in combination with the \texttt{tikz} option (\cref{sec:tikz}).
+For example, these colors are available:
+
+\begin{itemize}
+  \item \texttt{CORAcolor1}-\texttt{CORAcolor7}: Cycles through the default colors of \CORA\ 
+        (\showColor{CORAcolor1}\showColor{CORAcolor2}\showColor{CORAcolor3}\showColor{CORAcolor4}\showColor{CORAcolor5}\showColor{CORAcolor6}\showColor{CORAcolor7}).
+  \item \texttt{CORAcolorBlue}, \texttt{CORAcolorRed}, \ldots: Specifies default color values used in \CORA\ 
+        (\showColor{CORAcolorBlue}\showColor{CORAcolorRed}\showColor{CORAcolorYellow}\showColor{CORAcolorPurple}\showColor{CORAcolorGreen}\showColor{CORAcolorLightBlue}\showColor{CORAcolorDarkRed}).
+  \item \texttt{CORAcolorReachSet}: A predefined color for reachable sets (\showColor{CORAcolorReachSet}).
+        If two reachable sets are compared in one plot, one case use \texttt{CORAcolorReachSet2} (\showColor{CORAcolorReachSet2}).
+        The initial set and simulations can be plotted with \texttt{CORAcolorInitialSet} (\showColor{CORAcolorInitialSet}) and \texttt{CORAcolorSimulations} (\showColor{CORAcolorSimulations}), respectively.
+  \item \texttt{CORAcolorSafe}: A predefined color for safe sets (\showColor{CORAcolorSafe}).
+  \item \texttt{CORAcolorUnsafe}: A predefined color for unsafe sets (\showColor{CORAcolorUnsafe}).
+        As this color can be intimidating when used at large scale, there is also the \texttt{CORAcolorUnsafeLight} color (\showColor{CORAcolorUnsafeLight}).
+
+  \item \texttt{TUMblue}: TUM corporate blue color (\showColor{TUMblue}).
+\end{itemize}
+
+To plot sets in the default style of CORA, you can use the \texttt{plot filled} pgf key to automatically set the edge color and face color:
+
+\begin{verbatim}
+  \addplot [plot filled=CORAcolorBlue]
+\end{verbatim}
+
+\subsection{TikZ Figures (\texttt{tikz} option)}\label{sec:tikz}
+
+Visualizations are a crucial part in communicating your scientific findings.
+We found that the best option to do so is using TikZ\footnote{Manual: \url{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}}\footnote{Example: \url{https://www.overleaf.com/learn/latex/TikZ_package}} figures.
+The \texttt{tikz} option provides you with a wide variety of useful functionality.
+
+\subsubsection{Introduction}
+
+Let us create a small TikZ graphic in a file \texttt{./figures/mytikzfigure.tikz}:
+
+\begin{verbatim}
+\begin{tikzpicture}
+    \draw[CORAcolorBlue] (-6,0) rectangle (-4,2);
+    \draw[CORAcolorRed] (-2,1) circle (1cm);
+    \draw[CORAcolorYellow] (0,0) -- (0,1) -- (1,2) -- (2,2) -- (2,1) -- (1,0) -- (0,0);
+\end{tikzpicture}
+\end{verbatim}
+
+To include the figure in the main document, please use the following commands:
+\begin{verbatim}
+\begin{figure}
+    \centering
+    \includetikz{./figures/mytikzfigure}
+    \caption{My first TikZ figure.}
+    \label{fig:mytikzfigure}
+\end{figure}
+\end{verbatim}
+
+To compile the document, you need to enable shell-escape\footnote{Shell-escape: \url{https://tex.stackexchange.com/questions/598818/how-can-i-enable-shell-escape}}.
+Usually, this is achieved by adding the compiler argument \texttt{--shell-escape} when compiling the document.
+For example, run \texttt{pdflatex --shell-escape main.tex}.
+The code above then results in \cref{fig:mytikzfigure} within your document.
+\begin{figure}[h!]
+  \centering
+  \includetikz{./figures/mytikzfigure}
+  \caption{My first TikZ figure.}
+  \label{fig:mytikzfigure}
+\end{figure}
+
+Shell-escape allows \LaTeX\ to \emph{externalize} the TikZ figures,
+i.e., creating a stand-alone PDF file which it can use in future compilations to speed up the compilation.
+By default the externalization is disabled. You can enable the externalization by default by calling the following command in the preamble: \verb|\CORAexternalizeFiguresByDefault|.
+The PDF file is located at \texttt{./figures/externalize/figures/mytikzfigure.pdf},
+which you can also use outside of your \LaTeX\ document.
+In case something is wrong with your TikZ figures, you can also find a log file within the same directory.
+
+After the pdf is created, you can also include the respective pdf directly by setting the \texttt{usepdf} flag:
+\begin{verbatim}
+\begin{figure}
+\centering
+\includetikz[usepdf]{./figures/mytikzfigure}
+\caption{My first TikZ figure.}
+\end{figure}
+\end{verbatim}
+If you cannot enable shell-escape but have access to the externalized PDF files,
+you can use \verb|\CORAexternalizeusepdf| to directly use the PDF files instead of the TikZ files.
+Please note that this is done for all TikZ files.
+If you only want to use the pdf for individual files, use the \texttt{usepdf} flag as described above.
+
+If you want to externalize only individual TikZ images, you can use the \texttt{export} option:
+\begin{verbatim}
+\begin{figure}
+    \centering
+    \includetikz[export]{./figures/mytikzfigure}
+    \caption{My first TikZ figure.}
+\end{figure}
+\end{verbatim}
+Similarly, if you do not want to externalize individual TikZ images, you can use the \texttt{noexport} option:
+\begin{verbatim}
+\begin{figure}
+    \centering
+    \includetikz[noexport]{./figures/mytikzfigure}
+    \caption{My first TikZ figure.}
+\end{figure}
+\end{verbatim}
+
+\subsubsection{Exporting Figures from Matlab/\CORA}
+As this package is designed to assist you with our toolbox \CORA\footnote{\CORA: \url{https://cora.in.tum.de/}},
+we also provide an option to export your Matlab figures to \LaTeX\ named \texttt{matlab2tikz}\footnote{matlab2tikz: \url{https://gitlab.lrz.de/cora/matlab2tikz}, fork from: \url{https://github.com/matlab2tikz/matlab2tikz}}.
+The resulting figures are then in TikZ/PGF\footnote{TikZ/PGF Manual: \url{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}} format.
+Please ask for access if you want to use this option.
+
+After clone the repository and adding it to the Matlab path,
+you can convert your current open figure with
+\begin{verbatim}
+path = 'mymatlabfigure.fig';
+savefig(path);
+autoConvertToTikz(path);
+\end{verbatim}
+which makes use of the underlying \texttt{matlab2tikz} function by setting some optimization options. Type
+\begin{verbatim}
+open autoConvertToTikz
+\end{verbatim}
+for details.
+After successful conversion, you should find a file \texttt{mymatlabfigure.tikz} in the current directory.
+This figure can then be moved to your \LaTeX\ project and added to your document as above:
+\begin{verbatim}
+\begin{figure}
+    \centering
+    \includetikz{./figures/mymatlabfigure}
+    \caption{My first Matlab figure.}
+    \label{fig:mymatlabfigure}
+\end{figure}
+\end{verbatim}
+which results in \cref{fig:mymatlabfigure}.
+\begin{figure}[h!]
+  \centering
+  \includetikz{./figures/mymatlabfigure}
+  \caption{My first Matlab figure.}
+  \label{fig:mymatlabfigure}
+\end{figure}
+
+If you have a figure with multiple subplots, \texttt{matlab2tikz} creates multiple TikZ files:
+The main TikZ file contains all settings and plotting options of your figure,
+the content of each subplot is exported in a separate file,
+and an additional file for the legend of your figure is generated.
+Such a figure can be added as above but you have to specify the path to the TikZ files within the main TikZ file, e.g.,
+\begin{verbatim}
+\def\basepath{./figures/}
+\end{verbatim}
+An example figure is visible in \cref{fig:mymatlabgroupfigure}.
+
+Your figures can then be customized as required, e.g., adapting the color (also see \cref{sec:colors}), adding labels of the x- and y-axis, and adapt the legend entries.
+Please visit the TikZ/PGF manual\footnote{TikZ/PGF Manual: \url{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}} for details.
+We have also found that large language models like ChatGPT work surprisingly well with TikZ,
+so you might want to consult them about specific requests.
+
+\begin{figure}[h!]
+  \centering
+  \includetikz{./figures/mymatlabgroupfigure}
+  \caption{My first Matlab figure with multiple subplots.}
+  \label{fig:mymatlabgroupfigure}
+\end{figure}
+
+\subsubsection{TikZ, Git, and Overleaf}
+If you synchronize your \LaTeX\ document with git,
+we recommend you to also synchronize the externalized PDF files.
+You can add \texttt{*.log}, \texttt{*.dpth}, and \texttt{*.md5} to your \texttt{.gitignore} and only need to synchronize the PDF itself.
+
+If you want to use this TikZ figures in Overleaf\footnote{Overleaf: \url{https://overleaf.com/}},
+we recommend you to build the figures locally and upload the PDF files into the correct folder.
+While you can also externalize the figures directly in Overleaf\footnote{Overleaf and TikZ: \url{https://tex.stackexchange.com/questions/596557/overleaf-cache-not-working-properly-with-tikzexternalize-and-include}},
+this has several disadvantages, e.g., having to rebuild all figures when re-opening the document after some time.
+Note: TUM students can also use the TUM instance of Overleaf, which is called ShareLaTeX\footnote{ShareLaTeX: \url{https://sharelatex.tum.de/}}.
+There, they can create a git repository out of the project (Menu $\textrangle$ Git) and clone the repository to interact with the project locally.
+
+\subsubsection{Animated Tikz Figures in Presentations}
+Generally, you can use the same commands as above to include your TikZ figures in presentations\footnote{Document class \texttt{beamer}: \url{https://www.overleaf.com/learn/latex/Beamer}}.
+However, this package also provides some nice commands to animate your figures.
+We provide an example presentation showcasing these options along with the respective animated TikZ figures in \texttt{./examples/presentation.tex}.
+
+To enable animations, please specify the number of overlays of the current frame and add the \texttt{animate} option when including a TikZ figure:
+\begin{verbatim}
+\begin{frame}<1-4>{Introduction to \CORA}
+    \CORA provides you with a wide range of plotting capabilities:
+    \begin{figure}
+        \includetikz[animate]{./figures/mymatlabfigure}
+    \end{figure}
+\end{frame}
+\end{verbatim}
+You can then animate a plot using the \texttt{visible on}/\texttt{invisible on} options. For example,
+\begin{verbatim}
+\addplot [color=CORAcolor1, visible on=<2->]
+\end{verbatim}
+only shows the respective plot from the second overlay onwards.
+You can also use \verb|\only<>{}| to display certain text only on certain slides.
+For example
+\begin{verbatim}
+\only<1|handout:0>{My secret message.}
+\end{verbatim}
+only shows this text on the first overlay of the current frame but not if the document is set to \texttt{handout} mode\footnote{Beamer \texttt{handout} mode: \url{https://tex.stackexchange.com/questions/473485/latex-beamer-handout-beamer-mode-with-overlays}}.
+This option can also be used inside TikZ figures, e.g., to specify node labels depending on the current overlay.
+
+Mode advances animations can be achieved using the \texttt{alt} option,
+which allows to alter the plot style depending on the current overlay (if-then-else).
+For example,
+\begin{verbatim}
+\nextgroupplot[..., plotstyle1/.append style={alt=<1>{fill=CORAcolor1}{fill=none}}]
+\end{verbatim}
+fills all objects with \texttt{plotstyle1} in the first overlay but not in subsequent overlays.
+This changes the style for each subplot. Alternatively, the style can also be animated across all subplots.
+\begin{verbatim}
+  \pgfplotsset{
+    plotstyle1/.style={...,alt=<2->{}{draw=none},alt=<2|handout:0>{fill=CORAcolor1!20}{}}
+  }
+\end{verbatim}
+
+\subsubsection{Drawing Neural Networks}
+
+This package also provides an option to draw neural networks:
+\begin{verbatim}
+\begin{tikzpicture}
+    % draw network
+    \pic[] at (0,0) { nn={3}{2,5,5,2}{0.15cm}{0.02cm} };
+
+    % label the third node in the second layer with a '#'
+    \node also [neuron label={\#}] (l2-3);
+\end{tikzpicture}
+\end{verbatim}
+which results in \cref{fig:neural-network}.
+
+\begin{figure}[h!]
+  \centering
+  \includetikz{./figures/neural-network}
+  \caption{Example neural network with a neuron label.}
+  \label{fig:neural-network}
+\end{figure}
+
+\section{Examples}
+Here are some examples demonstrating how to use the commands from the \texttt{\CORAMACSname} package.
+We recommend to define \LaTeX\ commands for each variable you use in your document.
+
+\subsection{Set Notation}
+For example, to denote the initial set, you can define
+\newcommand{\initialSet}{\contSet{X}_0}
+\begin{verbatim}
+\newcommand{\initialSet}{\contSet{X}_0}
+\end{verbatim}
+within your preamble and then use it within your document as follows:
+\begin{verbatim}
+\begin{equation}
+    \initialSet = \shortZ{c}{G}.
+\end{equation}
+\end{verbatim}
+which results in
+\begin{quote}
+  \begin{equation}
+    \initialSet = \shortZ{c}{G}.
+  \end{equation}
+\end{quote}
+
+\subsection{Operations}
+To define a new operation, simply add
+\newcommand{\opLinComb}[3][]{\operatortt[#1]{linComb}{#2,#3}}
+\begin{verbatim}
+\newcommand{\opLinComb}[3][]{\operatortt[#1]{linComb}{#2,#3}}
+\end{verbatim}
+to your preamble and then use it within your document as follows:
+\begin{verbatim}
+Given two sets $\contSet{S}_1,\contSet{S}_2\subset\R^n$, their linear combination is defined as
+\begin{equation}
+    \opLinComb{\contSet{S}_1}{\contSet{S}_2} \coloneqq
+        \left\{ \lambda s_1 + (1-\lambda s_2)\ \middle|\
+            s_1\in\contSet{S}_1,\,s_2\in\contSet{S}_2,\,\lambda \in[0,1] \right\}.
+\end{equation}
+\end{verbatim}
+which results in
+\begin{quote}
+  Given two sets $\contSet{S}_1,\contSet{S}_2\subset\R^n$, the linear combination is defined as
+  \begin{equation}
+    \opLinComb{\contSet{S}_1}{\contSet{S}_2} \coloneqq
+    \left\{ \lambda s_1 + (1-\lambda s_2)\ \middle|\
+    s_1\in\contSet{S}_1,\,s_2\in\contSet{S}_2,\,\lambda \in[0,1] \right\}.
+  \end{equation}
+\end{quote}
+
+\subsection{Neural Networks}
+To specify a specific network layer, one can write
+\begin{verbatim}
+A linear layer is defined as
+\begin{equation}
+    \nnLayer[LIN]{k}{\nnHidden_{k-1}} \coloneqq W\nnHidden_{k-1} + b,
+        \quad W\in\R^{\numNeurons_{k}\times\numNeurons_{k-1}},\, b\in\R^{\numNeurons_k}.
+\end{equation}
+\end{verbatim}
+which results in
+\begin{quote}
+  A linear layer is defined as
+  \begin{equation}
+    \nnLayer[LIN]{k}{\nnHidden_{k-1}} \coloneqq W\nnHidden_{k-1} + b,
+    \quad W\in\R^{\numNeurons_{k}\times\numNeurons_{k-1}},\, b\in\R^{\numNeurons_k}.
+  \end{equation}
+\end{quote}
+
+\section{Concluding Remarks}
+The \texttt{\CORAMACSname} package offers a comprehensive set of tools for researchers working in cyber-physical systems.
+By providing a consistent notation and color scheme, this package simplifies the process of documenting complex mathematical objects and operations.
+We very much encourage you to extend the functionality of this package and define your own commands for everything you need to improve the consistency throughout your \LaTeX\ document.
+If you have suggestions to include certain commands in this package, please contact us and we are happy to discuss them!
+For more information, visit the \href{https://www.ce.cit.tum.de/cps}{TUM CPS Group website}.
+\end{document}

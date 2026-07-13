@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03838\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+
+\toprule
+ALP                  & Epinephrine*          & LDH                       & Packed RBC           \\
+ALT                  & Famotidine            & Lactate                   & Pantoprazole         \\
+AST                  & Fentanyl              & Lactated Ringers          & Phosphate            \\
+Albumin              & FiO2*                 & Levofloxacin              & Piggyback            \\
+Albumin 25\%         & Fiber                 & Lorazepam                 & Piperacillin         \\
+Albumin 5\%          & Free Water            & Lymphocytes               & Platelet Count*      \\
+Amiodarone           & Fresh Frozen Plasma   & Lymphocytes (Absolute)    & Potassium            \\
+Anion Gap            & Furosemide            & MBP                       & Pre-admission Intake \\
+BUN                  & GCS\_eye*             & MCH                       & Pre-admission Output \\
+Base Excess          & GCS\_motor*           & MCHC                      & Propofol             \\
+Basophils            & GCS\_verbal*          & MCV                       & RBC                  \\
+Bicarbonate          & GT Flush              & Magnesium                 & RDW                  \\
+Bilirubin (Direct)   & Gastric               & Magnesium Sulfate (Bolus) & RR                   \\
+Bilirubin (Indirect) & Gastric Meds          & Magnesium Sulphate        & Residual             \\
+Bilirubin (Total)*   & Glucose (Blood)       & Mechanically ventilated   & SBP*                 \\
+CRR                  & Glucose (Serum)       & Metoprolol                & SG Urine             \\
+Calcium Free         & Glucose (Whole Blood) & Midazolam                 & Sodium               \\
+Calcium Gluconate    & HR                    & Milrinone                 & Solution             \\
+Calcium Total        & Half Normal Saline    & Monocytes                 & Sterile Water        \\
+Cefazolin            & Hct                   & Morphine Sulfate          & Stool                \\
+Chest Tube           & Heparin               & Neosynephrine             & TPN                  \\
+Chloride             & Hgb                   & Neutrophils               & Temperature          \\
+Colloid              & Hydralazine           & Nitroglycerine            & Total CO2            \\
+Creatinine Blood*    & Hydromorphone         & Nitroprusside             & Ultrafiltrate        \\
+Creatinine Urine     & INR                   & Norepinephrine*           & Urine*               \\
+D5W                  & Insulin Humalog       & Normal Saline             & Vancomycin           \\
+DBP*                 & Insulin NPH           & O2 Saturation             & Vasopressin          \\
+Dextrose Other       & Insulin Regular       & OR/PACU Crystalloid       & WBC                  \\
+Dobutamine*          & Insulin largine       & PCO2                      & Weight               \\
+Dopamine*            & Intubated             & PO intake                 & pH Blood             \\
+EBL                  & Jackson-Pratt         & PaO2*                      & pH Urine             \\
+Emesis               & KCl                   & PT                        &                      \\
+Eoisinophils         & KCl (Bolus)           & PTT                       &          \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01093\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+        \toprule
+        & material & storage limit & inventory cost & backlog cost & inventory at $t_0$  \\
+        \midrule
+        Example 1  & $k_1$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_2$  & 25  & 0.03 & 3  & 0  \\
+                & $k_3$  & 25  & 0.03 & 3  & 0  \\
+                & $k_4$  & $\infty$ & 0.1  & 10 & 10 \\
+        Example 2  & $k_1$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_2$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_3$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_4$  & 30  & 0.01 & 1  & 0  \\
+                & $k_5$  & 30  & 0.01 & 1  & 0  \\
+                & $k_6$  & $\infty$ & 0.05 & 5  & 10 \\
+                & $k_7$  & $\infty$ & 0.05 & 5  & 10 \\
+        Example 3  & $k_1$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_2$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_3$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_4$  & 20  & 0.01 & 1  & 0  \\
+                & $k_5$  & 40  & 0.01 & 1  & 0  \\
+                & $k_6$  & 30  & 0.01 & 1  & 0  \\
+                & $k_7$  & 40  & 0.01 & 1  & 0  \\
+                & $k_8$  & $\infty$ & 0.08 & 8  & 10 \\
+                & $k_9$  & $\infty$ & 0.12 & 12 & 10 \\
+        Example 4  & $k_1$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_2$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_3$  & 30  & 0.01 & 1  & 0  \\
+                & $k_4$  & 30  & 0.01 & 1  & 0  \\
+                & $k_5$  & 45  & 0.01 & 1  & 0  \\
+                & $k_6$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_7$  & 30  & 0.01 & 1  & 0  \\
+                & $k_8$  & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_9$  & 30  & 0.01 & 1  & 0  \\
+                & $k_{10}$ & $\infty$ & 0.01 & 1  & 0  \\
+                & $k_{11}$ & $\infty$ & 0.01 & 1  & 0  \\
+                & $p_1$  & $\infty$ & 0.04 & 4  & 40 \\
+                & $p_2$  & $\infty$ & 0.08 & 8  & 20 \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

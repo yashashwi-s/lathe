@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00139\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $ a (dim)$ & $a$ & $x_H$ & $x_p$ & $J_p$ & $\Bar{a}$ & $\Bar{b}$ & $\hat{\alpha}_1 (\mu as)$ & $\theta_1 (\mu as)$ & $\hat{\alpha}_2 (\mu as)$ & $\theta_2 (\mu as)$ \\ \hline
+        -1m & -0.5 & 0.5 & 2 & 7m & 0.769 & -0.110 & $2\pi+45.34$ & 22.674 & $4\pi+45.33$ & 22.668 \\ \hline
+        -0.8m & -0.4 & 0.8 & 1.909 & 6.662m & 0.800 & -0.143 & $2\pi+43.16$ & 21.581 & $4\pi+43.14$ & 21.573 \\ \hline
+        -0.6m & -0.3 & 0.9 & 1.814 & 6.315m & 0.835 & -0.207 & $2\pi+40.91$ & 20.459 & $4\pi+40.90$ & 20.450 \\ \hline
+        -0.4m & -0.2 & 0.958 & 1.715 & 5.957m & 0.878 & -0.263 & $2\pi+38.60$ & 19.302 & $4\pi+38.58$ & 19.290 \\ \hline
+        -0.2m & -0.1 & 0.989 & 1.611 & 5.585m & 0.932 & -0.338 & $2\pi+36.20$ & 18.100 & $4\pi+36.17$ & 18.080 \\ \hline
+        0 & 0 & 1 & 1.5 & 5.196m & 1 & -0.400 & $2\pi+33.69$ & 16.848 & $4\pi+33.65$ & 16.826 \\ \hline
+        0.2m & 0.1 & 0.989 & 1.379 & 4.783m & 1.089 & -0.482 & $2\pi+31.04$ & 15.521 & $4\pi+30.97$ & 15.489 \\ \hline
+        0.4m & 0.2 & 0.958 & 1.245 & 4.337m & 1.220 & -0.624 & $2\pi+28.19$ & 14.095 & $4\pi+28.09$ & 14.045 \\ \hline
+        0.6m & 0.3 & 0.9 & 1.094 & 3.838m & 1.437 & -0.893 & $2\pi+25.03$ & 12.519 & $4\pi+24.84$ & 12.429 \\ \hline
+        0.8m & 0.4 & 0.8 & 0.905 & 3.237m & 1.918 & -1.259 & $2\pi+21.38$ & 10.692 & $4\pi+20.98$ & 10.490 \\ \hline
+        1m & 0.5 & 0.5 & 0.5 & 2m & - & - & - & - & - & - \\ \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00193\_table\_7}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccc}
+\hline
+Bucket center (log10 FLOP) & Number of models & Capability units per year \\
+\hline
+23.05 & 7 & 1.6 \\
+23.15 & 6 & 0.9 \\
+23.25 & 7 & 0.4 \\
+23.55 & 6 & 0.1 \\
+23.75 & 6 & 0.3 \\
+23.85 & 6 & 0.3 \\
+23.95 & 7 & 0.3 \\
+24.05 & 4 & 0.3 \\
+24.45 & 8 & 0.4 \\
+24.55 & 10 & 0.5 \\
+24.65 & 9 & 0.4 \\
+24.75 & 9 & 0.8 \\
+24.85 & 6 & 0.7 \\
+24.95 & 6 & 0.8 \\
+25.25 & 5 & 0.4 \\
+25.35 & 7 & 0.3 \\
+25.45 & 9 & 0.2 \\
+26.55 & 3 & 1.2 \\
+26.65 & 3 & 1.2 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

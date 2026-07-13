@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 25}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[t]
+\caption{Constructing a pseudo-image from a whole genome sample for a given k-mer size $k$.}\begin{algorithmic}
+\Require Sequence reads $X_i = \{X_0, X_1, \ldots X_N\}, \forall X_i \in \mathcal{X}_i$
+\Ensure Pseudo-image $I_r$
+\Procedure{relativeCoOccurrence}{$x_i, x_j$, $I_r$}
+\State $e_{i,j} \gets I_r[i,j]$ \Comment{Current co-occurrence frequency}
+\State $e^\prime_{i,j} \gets e_{i,j} + 1$ \Comment{New co-occurrence frequency}
+\State $r \gets \frac{e_{i,j}}{(\Vert e_{i,j} - e^{\prime}_{i,j} \Vert_2)}$ \Comment{Update co-occurrence}
+\State $e_{i,j} = 2 \sqrt{max(r - 1, 1)} + (min(r-2,2) + 2)$
+\State \textbf{return} $e_{i,j}$\Comment{Relative co-occurrence frequency}
+\EndProcedure
+\Procedure{NormalizeImage}{$I_r, \lambda_m$}
+\State $N\gets\sum_{i=0}^{4^k}{\sum_{j=0}^{4^k}{I[i,j]}}$
+\For{$i \in 4^k$}
+\For{$j \in 4^k$}
+\If{$I_r[i,j] > \lambda_m$}
+\State$I_r[i,j]\gets 255*I[i,j]/N$
+\Else
+\State$I_r[i,j]\gets 0$
+\EndIf
+\EndFor
+\EndFor
+\State \textbf{return} $I_r$\Comment{Normalized Pseudo-Image}
+\EndProcedure
+\State $I_r \gets ones(4^k,4^k)$ \Comment{Initial pseudo-image}
+\For{$ X_i \in \mathcal{X}_i $} \Comment{Iterate through each sequence}
+\For{$ x_i, x_j \in X_i $} \Comment{Iterate through successive k-mers}
+\State $I_r[i,j]\gets$\Call{relativeCoOccurrence}{$x_i, x_j$, $I_r$}
+\EndFor
+\EndFor
+\State $I_r\gets$ \Call{NormalizeImage}{$I_r, \lambda_m$}
+\State \textbf{return} $I_r$\Comment{Final pseudo-image}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

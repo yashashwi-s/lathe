@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05040\_table\_40}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|r|r|r|r}
+CSD id1  & CSD id2  & EMD, am & isosets time, ms & EMD time, ms & cluster size \\
+WODLOS   & XAWGAE   & 85856.22         & 129.619         & 1204.58               & 7            \\
+TAFQIA   & VAVQIS   & 952.96           & 1690.949        & 321603.86             & 20           \\
+FIJKIU   & IPEQUR   & 728.43           & 407.579         & 77455.47              & 16           \\
+JIZMIR01 & JIZNAK   & 496.08           & 40.454          & 634.73                & 5            \\
+HIYVUG01 & MASPIF   & 334.62           & 35.518          & 543.45                & 7            \\
+KIVXEW10 & KIWCEC   & 125.03           & 22.456          & 32.32                 & 5            \\
+XAYZOP   & ZEMDAZ   & 89.47            & 301.217         & 1697.26               & 4            \\
+KIVXEW10 & KIWCEC28 & 83.07            & 21.701          & 32.49                 & 5            \\
+AFIBOH   & NENCUF   & 31.67            & 126.582         & 1160.58               & 5            \\
+KIVXEW07 & KIWCEC09 & 31.11            & 22.287          & 36.95                 & 5            \\
+KIVXEW07 & KIWCEC11 & 31.11            & 22.434          & 36.75                 & 5            \\
+KIVXEW11 & KIWCEC26 & 26.11            & 21.646          & 32.33                 & 5            \\
+SERKIL   & SERKOR   & 23.78            & 2444.885        & 18485.57              & 6            \\
+ADESAG   & REWPOB   & 5.81             & 54.675          & 5689.27               & 15           \\
+GEQRAX   & IFOQOL   & 0.05             & 265.4           & 2090.42               & 6            \\
+BUKYEN   & UYOCES   & 0.03             & 398.129         & 15739.11              & 11           \\
+GOHYOT   & VIHCEY   & 0.01             & 100.031         & 940.16                & 5            \\
+JUMCUP   & QAHBOT   & 0.01             & 179.367         & 4234.6                & 5            \\
+CALMOV   & CALNAI   & 0.01             & 128.437         & 3913.32               & 4            \\
+NABKOT   & ZIVSEF   & 0.01             & 75.401          & 796.14                & 5            \\
+LIBGAE   & VESJUY   & 0.01             & 41.535          & 403.87                & 3            \\
+AMEVEV   & OLERON   & 0                & 70.172          & 558.78                & 4            \\
+SIHFIZ   & TEZBUV   & 0                & 207.984         & 1761.39               & 5            \\
+XATCAA   & ZAQMEN   & 0                & 60.254          & 394.74                & 4            \\
+PIDREA   & XIZNOL   & 0                & 94.135          & 243.46                & 5              
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03957\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccccc} 
+	\hline
+SN Name & $\Delta$m$_{15}$ & Si\,{\sc ii} velocity & Si\,{\sc ii} polarization & Pol. epoch \\
+ & (B mag) & (km s$^{-1}$) & (per cent) & (days) \\
+\hline
+SN 2001el & 1.13 $\pm$ 0.04 & 9746 $\pm$ 109 & 0.16 $\pm$ 0.03 & 0.7 \\
+SN 2001V & 0.73 $\pm$ 0.03 & 11388 $\pm$ 39 & 0.14 $\pm$ 0.06 & -6.4 \\
+SN 2002bo & 1.12 $\pm$ 0.02 & 13585 $\pm$ 66 & 0.47 $\pm$ 0.04 & -7.4 \\
+SN 2002el & 1.38 $\pm$ 0.05 & 10611 $\pm$ 186 & 0.37 $\pm$ 0.12 & -7.6 \\
+SN 2002fk & 1.02 $\pm$ 0.04 & 10080 $\pm$ 96 & 0.11 $\pm$ 0.04 & 0.4 \\
+SN 2003eh & $\dots$ & 10068 $\pm$ 451 & 0.78 $\pm$ 0.27 & 0.0 \\
+SN 2003W & 1.30 $\pm$ 0.05 & 16412 $\pm$ 781 & 0.71 $\pm$ 0.13 & -8.7 \\
+SN 2004br & 0.68 $\pm$ 0.15 & 8968 $\pm$ 500 & 0.09 $\pm$ 0.11 & -3.9 \\
+SN 2004dt & 1.21 $\pm$ 0.05 & 14873 $\pm$ 137 & 1.34 $\pm$ 0.14 & -9.7 \\
+SN 2004ef & 1.45 $\pm$ 0.01 & 12031 $\pm$ 151 & 0.32 $\pm$ 0.25 & -5.3 \\
+SN 2004eo & 1.32 $\pm$ 0.01 & 10907 $\pm$ 285 & 0.3$\pm$ 0.1 & -10.3 \\
+SN 2005cf & 1.18 $\pm$ 0.01 & 10555 $\pm$ 63 & 0.16 $\pm$ 0.03 & -5.8 \\
+SN 2005de & 1.41 $\pm$ 0.06 & 10752 $\pm$ 70 & 0.34 $\pm$ 0.14 & -10.9 \\
+SN 2005df & 1.06 $\pm$ 0.02 & 9819 $\pm$ 57 & 0.31 $\pm$ 0.03 & -2.8 \\
+SN 2005el & 1.40 $\pm$ 0.01 & 10906 $\pm$ 192 & 0.47 $\pm$ 0.16 & -2.7 \\
+SN 2005hk & 1.47 $\pm$ 0.14 & 6694 $\pm$ 350 & 0.0 $\pm$ 0.09 & -2.3 \\
+SN 2005ke & 1.66 $\pm$ 0.14 & 11093 $\pm$ 234 & 0.16 $\pm$ 0.12 & -9.1 \\
+SN 2006X & 1.09 $\pm$ 0.03 & 17041 $\pm$ 90 & 0.63 $\pm$ 0.05 & -3.0 \\
+SN 2007hj & 1.95 $\pm$ 0.06 & 12074 $\pm$ 66 & 0.59 $\pm$ 0.06 & -1.1 \\
+SN 2007le & 1.03 $\pm$ 0.02 & 12549 $\pm$ 51 & 0.45 $\pm$ 0.04 & -5.1 \\
+SN 2008fp & 1.05 $\pm$ 0.01 & 11313 $\pm$ 23 & 0.22 $\pm$ 0.03 & -0.5 \\
+SN 2010ev & 1.12 $\pm$ 0.02 & 14500 $\pm$ 69 & 0.45 $\pm$ 0.06 & -1.1 \\
+SN 2010ko & 1.56 $\pm$ 0.05 & 10835 $\pm$ 102 & 0.34 $\pm$ 0.15 & -7.1 \\
+SN 2011iv & 1.77 $\pm$ 0.01 & 10665 $\pm$ 76 & 0.11 $\pm$ 0.02 & -0.4 \\
+SN 2012fr & 0.80 $\pm$ 0.01 & 12090 $\pm$ 64 & 0.16 $\pm$ 0.02 & -6.9 \\
+\hline
+	\end{tabular}
+}
+\end{table}
+
+\end{document}

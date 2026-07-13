@@ -1,0 +1,15 @@
+
+\subsection{Penalties}
+Penalties are the main values that \TeX{} tries to minimise when line or page breaks are calculated.\\
+\begin{tabular}{@{}ll@{}}
+\lstinline+\linepenalty=10+    & page break within a paragraph\\
+\lstinline+\hyphenpenalty=50+  & line break at an automatic hyphen\\
+\lstinline+\binoppenalty=700+  & line break at a binary operator\\
+\lstinline+\relpenalty=500+    & line break at a relation\\
+\lstinline+\clubpenalty=150+   & page break after first line of paragraph\\
+\lstinline+\widowpenalty=150+  & page break before last line of paragraph\\
+\lstinline+\brokenpenalty=100+ & page break after a hyphenated line\\
+\lstinline+\tolerance=200+     & acceptable badness of lines after hyphenation
+%\lstinline+\pretolerance=100+  & acceptable badness of lines in a paragraph before hyphenation is attempted
+\end{tabular}
+^^E^^L 

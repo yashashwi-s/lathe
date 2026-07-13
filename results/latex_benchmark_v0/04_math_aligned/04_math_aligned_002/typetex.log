@@ -1,0 +1,46 @@
+COMMAND:
+pandoc -f latex -t typst --lua-filter /Users/yashashwisinghania/lathe/scripts/dataset/typetex_filter.lua /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_002/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_002/typetex.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+warning: `diff` is deprecated, use `partial` instead
+   ┌─ @preview/mitex:0.2.4/mitex.typ:28:22
+   │
+28 │   let eval-res = eval("$" + res + "$", scope: mitex-scope)
+   │                       ^^^^^^^^^^^^^^^
+
+error: plugin errored with: error: unknown command: \makebox
+   ┌─ @preview/mitex:0.2.4/mitex.typ:19:8
+   │
+19 │     str(mitex-wasm.convert_math(bytes(get-elem-text(it)), spec))
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex-convert`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:27:12
+   │
+27 │   let res = mitex-convert(mode: "math", it)
+   │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mimath`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:40:4
+   │
+40 │     mimath(it, ..args)
+   │     ^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex`
+   ┌─ typetex.typ:42:3
+   │  
+42 │   $ #mitex(`\begin{aligned}
+   │ ╭────^
+43 │ │ \begin{array}{ccc}\{ U^1_{\alpha} \} & \stackrel{ \rho_{V, \{ U^1_{\alpha} \}} }{ \longleftarrow } & \{ U^1_{\alpha} |_V \} \\\makebox[0pt][r]{ $\scriptstyle{ \rho_{12} }$ } \uparrow & &\uparrow \makebox[0pt][l]{ $\scriptstyle{ \rho_{V, 12} }$ } \\\{ U^2_{\alpha} \} & \stackrel{ \rho_{V, \{ U^2_{\alpha} \} } }{ \longleftarrow } & \{ U^2_{\alpha} |_V \}\end{array}
+44 │ │ \end{aligned}`) $
+   │ ╰───────────────^
+

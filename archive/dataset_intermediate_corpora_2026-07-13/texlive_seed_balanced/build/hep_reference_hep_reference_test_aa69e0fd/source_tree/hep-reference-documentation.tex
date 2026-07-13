@@ -1,0 +1,78 @@
+%%
+%% This is file `hep-reference-documentation.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hep-reference-implementation.dtx  (with options: `documentation')
+%% This is a generated file.
+%% Copyright (C) 2019-2025 by Jan Hajer
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+\ProvidesFile{hep-reference-documentation.tex}[2025/09/01 v1.4 HEP-reference documentation]
+\documentclass{ltxdoc}
+
+\renewcommand*\theCodelineNo{\rmfamily\tstyle\footnotesize\arabic{CodelineNo}}
+\AtBeginEnvironment{macrocode}{\renewcommand*{\ttdefault}{clmt}}
+\renewcommand*{\MacroFont}{\codestyle}
+\AtBeginDocument{\DeleteShortVerb{\|}}
+\AtBeginDocument{\MakeShortVerb{\"}}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\usepackage{hologo}
+
+\usepackage[parskip,oldstyle,font=10pt]{hep-paper}
+\bibliography{bibliography}
+\shortacronym{PDF}{portable document format}
+
+\GetFileInfo{hep-reference.sty}
+
+\title{The \software{hep-reference} package\thanks{This document corresponds to \software{hep-reference}~\fileversion.}}
+\subtitle{Adjustments of standard references, footnote, and citations}
+\author{Jan Hajer \email{jan.hajer@tecnico.ulisboa.pt}}
+\date{\filedate}
+
+\begin{document}
+
+\newgeometry{vscale=.8, vmarginratio=3:4, includeheadfoot, left=11em, marginparwidth=4.6cm, marginparsep=3mm, right=7em}
+
+\maketitle
+
+\begin{abstract}
+The \software{hep-reference} package applies some light convenience modifications to the reference, citation and footnote macros after loading standard classes improving on the default \hologo{LaTeX} behaviour.
+\end{abstract}
+
+\section{Introduction}
+
+The \software{hyperref} package is loaded and the links are hidden.
+
+\DescribeMacro{\cref}
+References are extended with the \software{cleveref} package \cite{cleveref}, which allows to \eg just type "\cref"\marg{key}  in order to write \enquote{figure 1}.
+Furthermore, the \software{cleveref} package allows to reference multiple objects within one "\cref"\marg{key1,key2}.
+
+\DescribeMacro{\cite}
+Citations are adjusted to not start on a new line in order to avoid the repeated use of "~\cite"\marg{key}.
+
+\DescribeMacro{\ref}
+\DescribeMacro{\eqref}
+\DescribeMacro{\subref}
+References are also adjusted to not start on a new line.
+
+\DescribeMacro{\footnote}
+Footnotes are adjusted to swallow white space before the footnote mark and at the beginning of the footnote text.
+Additionally the reference back to the text where they are called from.
+
+\printbibliography
+
+\end{document}
+
+\endinput
+%%
+%% End of file `hep-reference-documentation.tex'.

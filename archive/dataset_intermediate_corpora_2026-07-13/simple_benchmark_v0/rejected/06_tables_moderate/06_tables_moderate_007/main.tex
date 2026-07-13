@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00518\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}cccccc@{}}
+   \toprule
+   Radial bin  & Median $N_{\text{H,tot}}$&Normalization & $k_{\text{B}}T$ & Metallicity & c-stat/d.o.f.  \\ 
+   $\left[\text{arcmin}\right]$  & $\left[\times 10^{20}\text{cm}^{-2}\right]$&$\left[\text{cm}^{-5}\;\text{arcmin}^{-2}\right]$ & $\left[\text{keV}\right]$ & $\left[Z_{\odot}\right]$ &   \\\midrule
+   $0.00\leq R\leq 3.30$ & 6.34&$5.05\substack{+0.12 \\ -0.14}\times 10^{-4}$&$2.84\substack{+0.18 \\-0.19}$&$0.32\substack{+0.07 \\ -0.07}$ &7056.58/7331\\
+   $3.30\leq R\leq 7.85$ &6.29 &$1.82\substack{+0.04 \\ -0.04}\times 10^{-4}$ &$2.64\substack{+0.13 \\-0.15}$ & $0.32\substack{+0.04\\ -0.05}$ & 7688.27/7776\\
+   $7.85\leq R\leq 13.20$& 6.24&$6.75\substack{+0.20 \\ -0.21}\times 10^{-5}$ &$2.80\substack{+0.19 \\-0.20}$ & $0.33\substack{+0.06\\ -0.07}$ & 7944.33/8017\\
+   $13.20\leq R\leq 19.29$& 6.13&$2.29\substack{+0.16 \\ -0.21}\times 10^{-5}$ &$2.32\substack{+0.52 \\-0.39}$ & $0.17\substack{+0.05\\ -0.06}$ & 7849.26/ 8255\\
+   $19.29\leq R\leq 27.62$& 6.00&$1.27\substack{+0.01 \\ -0.01}\times 10^{-5}$ &$1.51\substack{+0.10 \\-0.14}$ & $0.06\substack{+0.02\\ -0.03}$ & 8522.47/8885 \\
+   $27.62\leq R\leq R_\mathrm{500}$ & 5.76 &$4.36\substack{+0.34 \\ -0.31}\times 10^{-6}$ &$1
+   .29\substack{+0.07 \\-0.10}$ & $0.07\substack{+0.02\\ -0.03}$ & 10339.65/10569 \\ 
+   $R_\mathrm{500}\leq R \leq R_\mathrm{200}$& 5.69&$4.71\substack{+0.30\\-0.23}\times 10^{-6}$&$1.15\substack{+0.07\\-0.09}$&$0.00\substack{+0.00\\-0.01}$& 11453.33/11195\\ \midrule
+   $0.2R_{\text{500}}\leq R \leq0.5R_{\text{500}}$ & 6.12&$3.10\substack{+0.10 \\ -0.06}\times 10^{-5}$ &$2.27\substack{+0.15 \\-0.11}$ & $0.19\substack{+0.05\\ -0.03}$ & 9081.10/9350  \\
+   \bottomrule
+   \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00671\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|ccccc|cc}
+\toprule
+\parbox[c]{1.8cm}{\centering\# of overlapping strings} & \parbox[c]{1.1cm}{\centering \#\\ parallel} & \parbox[c]{1.1cm}{\centering \# anti\-parallel} & \parbox[c]{1cm}{\centering\Large$\frac{\kappa_p}{\kappa_0}$} & \parbox[c]{1cm}{\centering\Large$\frac{\kappa_q}{\kappa_0}$} & ~Total \Large$\frac\kappa{\kappa_0}$~ & \parbox[c]{1.3cm}{\centering Casimir ratio} & \parbox[c]{2cm}{\centering SU(3) Rep} \\[5.5mm]
+$C_1 = p+q$ & $p$ & $q$ & $\frac{6+2p+q}{8}$ & $\frac{6+2q+p}{8}$ & \normalsize$\frac{p\,\kappa_p\, +\, q\,\kappa_q}{\kappa_0}$ & $\frac{C_2(p,q)}{C_2(1,0)}$ & $\frac{(p+1)(q+1)(p+q+2)}{2}$\\[2mm] 
+\midrule
+\vspace*{-3mm}\\
+1 & 1 & 0 & 1 & -- & 1 & 1 & \bf 3 
+\\[2mm]
+2 & 2 & 0 & 1.25 & -- & 2.5 & 2.5 & \bf 6 \\
+2 & 1 & 1 & 1.125 & 1.125 & 2.25 & 2.25 & \bf 8 
+\\[2mm]
+3 & 3 &	0 &	1.5	& --	& 4.5 & 4.5	& \bf 10 \\
+3 & 2 &	1 & 1.375	& 1.25 & 4	& 4	& \bf 15
+\\[2mm]
+4&	4&	0&	1.75&	--&	7&	7&	\bf 15' \\
+4&	3&	1&	1.625&	1.375&	6.25&	6.25&	\bf 24\\
+4&	2&	2&	1.5&	1.5&	6&	6&	\bf 27
+\\[2mm]
+5&	5&	0&	2&	--&	10&	10&	\bf 21\\
+5&	4&	1&	1.875&	1.5&	9&	9&	\bf 35\\
+5&	3&	2&	1.75&	1.625&	8.5&	8.5&	\bf 42
+\\[2mm]
+6&	6&	0&	2.25&	--&	13.5&	13.5&	\bf 28\\
+6&	5&	1&	2.125&	1.625&	12.25&	12.25&	\bf 48\\
+6&	4&	2&	2&	1.75&	11.5&	11.5&	\bf 60\\
+6&	3&	3&	1.875&	1.875&	11.25&	11.25&	\bf 64
+\\[2mm]
+7&	7&	0&	2.5&	--&	17.5&	17.5&\bf 	36 \\
+7&	6&	1&	2.375&	1.75&	16&	16&	\bf 63 \\
+7&	5&	2&	2.25&	1.875&	15&	15&	\bf 81\\
+7&	4&	3&	2.125&	2&	14.5&	14.5&\bf	90
+\\[2mm]
+8&	8&	0&	2.75&	--&	22&	22&\bf	45 \\
+8&	7&	1&	2.625&	1.875&	20.25&	20.25&\bf	80 \\
+8&	6&	2&	2.5&	2&	19&	19&	\bf 105 \\
+8&  5&	3&	2.375&	2.125&	18.25&	18.25&	\bf120 \\
+8&	4&	4&	2.25&	2.25&	18&	18&	\bf 125
+\\[2mm]
+\bottomrule\end{tabular}
+}
+\end{table}
+
+\end{document}

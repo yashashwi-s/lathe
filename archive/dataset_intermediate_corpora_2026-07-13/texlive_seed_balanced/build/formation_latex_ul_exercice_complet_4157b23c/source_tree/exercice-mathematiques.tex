@@ -1,0 +1,80 @@
+\documentclass[11pt,article,french]{memoir}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{amsmath}
+  \usepackage{babel}
+  \usepackage[autolanguage]{numprint}
+
+\begin{document}
+
+Soit deux variables aléatoires stochastiquement indépendantes $X_1$ et
+$X_2$. La loi de la première est une exponentielle de paramètre $1$.
+Celle de la seconde est une gamma de paramètres $\alpha$ et $1$. Nous
+allons déterminer la loi de $Y = \theta (X_1/X_2)$.
+
+En premier lieu, la densité conjointe de $X_1$ et $X_2$ est
+simplement le produit des densités marginales:
+\begin{equation*}
+  f_{X_1 X_2}(x_1, x_2) = \frac{1}{\Gamma(\alpha)}
+  x_2^{\alpha - 1} e^{-(x_1 + x_2)}, \qquad
+  x_1 > 0, x_2 > 0.
+\end{equation*}
+
+Nous allons utiliser la méthode du changement de variable (ou du
+Jacobien). Pour ce faire, on pose les deux transformations
+\begin{equation*}
+  \begin{aligned}
+    Y_1 &= \theta \left( \frac{X_1}{X_2} \right) \\
+    Y_2 &= X_2
+  \end{aligned}
+  \qquad \Leftrightarrow \qquad
+  \begin{aligned}
+    X_1 &= \frac{Y_1 Y_2}{\theta} \\
+    X_2 &= Y_2
+  \end{aligned}
+\end{equation*}
+et donc
+\begin{align*}
+  \frac{\partial x_1}{\partial y_1} &= \frac{y_2}{\theta} &
+  \frac{\partial x_1}{\partial y_2} &= \frac{y_1}{\theta} \\
+  \frac{\partial x_2}{\partial y_1} &= 0 &
+  \frac{\partial x_2}{\partial y_2} &= 1,
+\end{align*}
+d'où le Jacobien de la transformation est
+\begin{equation*}
+  J =
+  \begin{vmatrix}
+    y_2/\theta & y_1/\theta \\
+    0 & 1
+  \end{vmatrix}
+  = \frac{y_2}{\theta}.
+\end{equation*}
+Le domaine de $Y_1$ et de $Y_2$ est $R^+$. On a donc
+\begin{align*}
+  f_{Y_1 Y_2}(y_1, y_2)
+  &= f_{X_1 X_2}(y_1 y_2/\theta, y_2)\, \lvert y_2/\theta \rvert \\
+  &= \frac{1}{\theta \Gamma(\alpha)} y_2^\alpha
+    e^{-(y_1 y_2/\theta + y_2)}.
+\end{align*}
+Par conséquent,
+\begin{align*}
+  f_{Y_1}(y_1)
+  &= \int_0^\infty f_{Y_1 Y_2}(y_1, y_2)\, dy_2 \\
+  &= \frac{1}{\theta} \int_0^\infty
+    \frac{1}{\Gamma(\alpha)} y_2^{\alpha + 1 - 1}
+    e^{-[(y_1 + \theta)/\theta] y_2}\, dy_2 \\
+  &= \frac{1}{\theta}
+    \frac{\theta^{\alpha + 1}}{(y_1 + \theta)^{\alpha + 1}} \\
+  &= \frac{\theta^\alpha}{%
+    (y_1 + \theta)^{\alpha + 1}}, \qquad y_1 > 0,
+\end{align*}
+d'où la loi de $Y_1 = \theta (X_1/X_2)$ est une Pareto$(\alpha, \theta)$.
+
+\end{document}

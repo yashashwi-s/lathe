@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 37}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[htbp]
+\caption{Applying Frad to pre-training}\begin{algorithmic}[1]
+\Require
+\Statex$\tau$: Scale of coordinate noise
+\Statex$\sigma$: Scale of dihedral angle noise
+\Statex$GNN_{\theta}$: Graph Neural Network with parameter $\theta$
+\Statex ${\rm NoiseHead}_{\theta_{n}}$: Network module with parameter $\theta_{n}$ for prediction of node-level noise of each atom
+\Statex$X$: Unlabeled pre-training dataset
+\Statex$x_i$: Input conformation
+\Statex$T$: Training steps
+\Statex$\mathcal N$: Gaussian distribution
+\While{$T \neq 0$}
+\State $x_i$ = dataloader($X$) \Comment{random sample $x_i$ from $X$}
+\State Find dihedral angles of $x_i$ denoted as $\psi=(\psi_1,..., \psi_m)\in [0,2\pi)^m$
+\State Change coordinates of $x_i$ to $x_a$ to satisfy that: $\psi_{a}=\psi+\Delta\psi$, where $\psi_{a}$ represents dihedral angles of $x_a$ and $\Delta\psi \sim \mathcal{N}(0, {\sigma}^2I_{m})$
+\State $\tilde{x} = x_{a} + \Delta{x_i}$ , where $\Delta{x_i} \sim \mathcal{N}(0, {\tau}^2I_{3N})$, $N$ is atom number of $x_i$
+\State$\Delta{x_i}^{pred} = {\rm NoiseHead}_{\theta_{n}}(GNN_{\theta}(\tilde{x}))$
+\State Loss = $||\Delta{x_i}^{pred} - \Delta{x_i}||_{2}^{2}$
+\State Optimise(Loss)
+\State $T = T - 1$
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

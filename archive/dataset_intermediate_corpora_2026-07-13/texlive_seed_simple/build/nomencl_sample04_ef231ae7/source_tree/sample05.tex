@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[cfg=sample05.cfg]{nomencl}
+\makenomenclature
+\begin{document}
+\section*{Main equations}
+\begin{equation}
+  a=\frac{N}{A}
+\end{equation}%
+\newcommand{\magritte}{Not the number }
+\nomenclature{$a$}{\magritte of angels per unit area}%
+\nomenclature{$N$}{\magritte of angels per needle point}%
+\nomenclature{$A$}{The area of the needle point}%
+The equation $\sigma = m a$%
+\nomenclature{$\sigma$}{The total mass of angels per unit area}%
+\nomenclature{$m$}{The mass of one angel}
+follows easily.
+
+\renewcommand{\magritte}{The number }
+\printnomenclature
+\end{document}

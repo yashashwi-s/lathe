@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00462\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+%    \shortstack{\textbf{$T_{\mathrm{hor}}$}\\\textbf{(s)}} &
+%    \shortstack{\textbf{ $d_cl$}\\\textbf{(m)}} &
+%    \shortstack{\textbf{$t_hd$}\\\textbf{(m)}} &
+%    \shortstack{\textbf{$s$}\\\textbf{(\%)}} &
+%    \shortstack{\textbf{$v_{cl}$}\\\textbf{(m/s)}} &
+%    \shortstack{\textbf{$t_{r}$}\\\textbf{(ms)}} &
+%    \shortstack{\textbf{$t_{cm}$}\\\textbf{(ms)}} &
+%    \shortstack{\textbf{$t_{cp}$}\\\textbf{(ms)}} &
+%    \shortstack{\textbf{$d_{s}$}\\\textbf{(m)}} \\
+$H_{\mathrm{max}}$ & $d_{cl}$ & $t_{hd}$ & $s$ & $v_{cl}$ & $t_r$ & $t_{cm}$ & $t_{cp}$ & $d_s$ \\
+(s) & (m) & (m) & (\%) & (m/s) & (ms) & (ms) & (ms) & (m) \\
+    \hline
+    0.4 & 3 & 0.2 & 82.5 & 8.18 & 12.74 & 2.24 & 0.475 & 1.881 \\ \hline
+    0.2 & 3 & 0.2 & 79.8 & 8.16 & 11.88 & 1.58 & 0.312 & 1.822 \\
+    \hline
+    0.8 & 3 & 0.2 & 82.5 & 8.28 & 12.35 & 1.85 & 0.382 & 2.105 \\ \hline
+    0.4 & 1 & 0.2 & 82.3 & 8.02 & 12.87 & 2.07 & 0.234 & 1.864 \\
+    \hline
+    0.4 & 4 & 0.2 & 77.6 & 7.16 & 12.16 & 1.66 & 0.423 & 2.054 \\ \hline
+    0.4 & 3 & 0.1 & 82.6 & 7.10 & 11.92 & 1.72 & 0.362 & 1.924 \\
+    \hline
+    0.4 & 3 & 0.4 & 82.6 & 8.18 & 12.17 & 1.97 & 0.403 & 1.945 \\ \hline                     
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00096\_table\_13}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{AI/Machine Learning} & \textbf{Graph} & \textbf{Database /} & \textbf{HPC} & \textbf{Domain-Agnostic } \\
+ & & \textbf{Data Analytics} & & \textbf{General Purpose} \\
+\hline
+PIMSim            & SMCSim          & PIMeval             & NVMain         & uPIMulator \\
+PIMeval           & PIMeval         & PIMSim              & SMCSim         & SMCSim \\
+MPU-Sim           & PIMSim          & UPMEM SDK -         & PIMSim         & Ramulator-PIM \\
+PimSim-NN         & Ramulator-PIM   & funtional Sim       & PIMeval        & MPU-Sim \\
+NeuroSim V2.1     & MPU-Sim         & MPU-Sim             & Ramulator-PIM  & PIMeval \\
+MNSIM 2.0         & MultiPIM        & uPIMulator          & MPU-Sim        & PIMSim \\
+AIHWKit           & uPIMulator      & NDPmulator          & PIMSimulator   & PiMulator \\
+uPIMulator        & M2NDP           & M2NDP               & uPIMulator     & NDPmulator \\
+MemTorch          &                 &                     & NDPmulator     & M2NDP \\
+NDPmulator        &                 &                     & M2NDP          & PIMSimulator \\
+M2NDP             &                 &                     & PIMSimulator   & MultiPIM \\
+3D CiM LLM Sim    &                 &                     & MultiPIM       & NVMain \\
+PIMSimulator      &                 &                     &                & UPMEM SDK - (Functional Sim) \\
+Aim Simulator     &                 &                     &                & functional Sim \\
+UPMEM SDK -       &                 &                     &                &  \\
+functional Sim    &                 &                     &                &  \\
+UPMEM LLM-        &                 &                     &                &  \\
+framework         &                 &                     &                &  \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

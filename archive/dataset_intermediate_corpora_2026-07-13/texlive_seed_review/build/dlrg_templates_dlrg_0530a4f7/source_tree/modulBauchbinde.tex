@@ -1,0 +1,43 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=LaTeX.dlrg.de,
+    module={Paketbeschreibung,Tabellen}
+]{dlrg}
+\usepackage{listings}
+\usepackage{standalone}
+\usepackage[
+    language=ngerman,
+    backend=biber,
+    sortlocale=de_DE,%.UTF-8
+    style=authoryear,
+    bibencoding=UTF8,
+    block=space,
+    autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Bauchbinde}
+\author{Johannes Pieper}
+
+\begin{document}
+    Dieses Modul wird von fast jedem bereits automatisch eingebunden. Mit ihm lässt sich die Bauchbinde, die typisch ist für Dokumente der DLRG, setzen. In vielen Fällen hat diese im linken Bereich einen Link, dieser lässt sich als Option an das Paket anpassen.
+
+    \begin{options}
+        \keyval{link}{Link}\Default{dlrg.de}
+            Gibt den Link an, der in der Bauchbinde an der linken Seite dargestellt werden soll.
+    \end{options}
+
+    Die eigentliche Einbindung erfolgt über einen Befehl:
+
+    \begin{commands}
+        \command{bauchbinde}[\sarg]
+            Setzt die Bauchbinde auf der Seite. Bei der Nutzung der Stern-Variante wird der Link im linken Bereich der Bauchbinde nicht angezeigt.
+    \end{commands}
+\end{document}

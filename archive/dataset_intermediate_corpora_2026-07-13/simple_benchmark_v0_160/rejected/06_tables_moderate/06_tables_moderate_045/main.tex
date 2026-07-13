@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00553\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{3cm} c p{3cm} p{7cm}}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value(s)} & \textbf{Description} \\
+\midrule
+Learning rate        & $lr$              & $1\times 10^{-4}$        & Optimizer step size (Adam/AdamW) \\
+Discount factor      & $\gamma$         & 0.997                     & Discount for future rewards \\
+Batch size           & $B$              & 256                       & Mini-batch size for updates \\
+Replay buffer size   & --               & $10^6$                    & PER capacity \\
+PER coefficient      & $\alpha$         & 0.2                       & Priority exponent \\
+PER annealing        & $\beta$          & $0.45 \to 1.0$            & Importance weight schedule \\
+Gradient clipping    & --               & 10.0                      & Norm clipping for stability \\
+Target update        & --               & 500 steps                 & Replace target network \\
+Slow net update      & --               & 5000 steps                & Replace slow network \\
+Optimizer            & --               & Adam/AdamW                & With $\epsilon = 0.005/B$ \\
+Loss function        & --               & Huber                     & Temporal difference loss \\
+Replay ratio         & --               & 1.0                       & Grad updates per env step \\
+Exploration schedule & $\epsilon$       & $1.0 \to 0.01$ (2M steps) & $\epsilon$-greedy decay \\
+Noisy layers         & --               & Enabled                   & Factorized Gaussian noise \\
+Network arch.        & --               & Impala-IQN / C51          & Conv backbone + distributional head \\
+Model size           & --               & 2                         & Scale factor for Impala CNN \\
+Linear hidden size   & --               & 512                       & Fully-connected layer width \\
+Cosine embeddings    & $n_{\cos}$       & 64                        & IQN quantile embedding size \\
+Number of quantiles  & $\tau$           & 8                         & Quantile samples for IQN \\
+Frame stack          & --               & 4                         & History frames per state \\
+Image size           & --               & $84 \times 84$            & Input resolution \\
+Trust-region         & --               & Disabled                  & Optional stabilizer \\
+EMA stabilizer       & $\tau$           & 0.001                     & Soft target update (if enabled) \\
+Munchausen           & $\alpha$         & 0.9                       & Entropy regularization (if enabled) \\
+Distributional       & --               & C51/IQN                   & Distributional RL variants \\
+Threshold start      & $D_{\text{start}}$ & 0.4                     & Initial threshold ratio \\
+Threshold decay      & $D_{\text{decay}}$ & 0.98                    & Multiplicative decay factor \\
+Threshold interval   & --               & 5000 steps                & Decay period \\
+D-strategy           & --               & none / minnumber / lastact / slownet & Action selection rule \\
+Training frames      & --               & 200M                      & Total Atari interaction budget \\
+Evaluation freq.     & --               & 250k frames               & Eval episodes per checkpoint \\
+Independent runs     & --               & 5 seeds                   & Reported mean/std \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02801\_table\_18}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccccccc}
+				\toprule
+				\toprule
+				\textbf{$symbol{\sqrt{s}}$} & Model 1 & Model 2 & Model 3 & Model 4 & Model 5 & Ref.  \\
+        		\specialrule{1.5pt}{1pt}{1pt}
+				& $\sigma_{inel}$ & $\sigma_{inel}$ & $\sigma_{inel}$ & $\sigma_{inel}$ & $\sigma_{inel}$ & $\sigma_{inel}$  \\
+
+				& (mb) & (mb) & (mb) & (mb) & (mb) & (mb)  \\
+
+				3.363 ${\textrm{GeV}}$ & 34.7854 & 35.0347 & 34.8363 & 34.6413 & 35.1729 & 35.6625 $\pm$ 0.10  \\
+				3.628 ${\textrm{GeV}}$ & 34.2041 & 34.8074 & 34.8218 & 34.985 & 34.7638 & 35.3948 $\pm$ 0.07  \\
+				3.876 ${\textrm{GeV}}$ & 34.4969 & 35.1726 & 34.7398 & 35.0052 & 34.6956 & 35.3327 $\pm$ 0.05  \\
+				4.109 ${\textrm{GeV}}$ & 35.0853 & 35.4589 & 34.8461 & 34.9732 & 34.8325 & 35.0942 $\pm$ 0.05  \\
+				4.329 ${\textrm{GeV}}$ & 34.9696 & 34.4145 & 34.7166 & 34.922 & 34.7585 & 34.9106 $\pm$ 0.04  \\
+				4.54 ${\textrm{GeV}}$ & 34.8188 & 35.3794 & 34.7768 & 34.8799 & 34.828 & 34.9364 $\pm$ 0.04  \\
+				4.741 ${\textrm{GeV}}$ & 34.6625 & 34.3367 & 34.8894 & 34.7296 & 34.84 & 35.0249 $\pm$ 0.03  \\
+				4.935 ${\textrm{GeV}}$ & 34.7238 & 35.3322 & 34.7485 & 34.241 & 34.9065 & 35.1842 $\pm$ 0.04 \\
+				\midrule
+				4.74 ${\textrm{GeV}}$ & 35.5761 & 35.9573 & 35.8173 & 35.7498 & 35.2695 & 34.948 $\pm$ 0.12  \\
+				5.12 ${\textrm{GeV}}$ & 35.6993 & 35.6668 & 35.7191 & 35.6307 & 35.3081 & 35.1526 $\pm$ 0.10  \\
+				5.473 ${\textrm{GeV}}$ & 35.8068 & 35.8295 & 35.8465 & 36.044 & 35.6942 & 35.3515 $\pm$ 0.08  \\
+				5.805 ${\textrm{GeV}}$ & 35.4872 & 35.7094 & 35.7534 & 35.8678 & 35.5762 & 35.2172 $\pm$ 0.07  \\
+				6.119 ${\textrm{GeV}}$ & 35.3606 & 35.6958 & 35.7601 & 35.6368 & 35.3926 & 35.0191 $\pm$ 0.07  \\
+				6.418 ${\textrm{GeV}}$ & 35.2972 & 35.6217 & 35.684 & 35.4408 & 35.4187 & 35.2076 $\pm$ 0.06  \\
+				6.704 ${\textrm{GeV}}$ & 34.96 & 35.6984 & 35.5552 & 35.3209 & 35.4308 & - \\
+				\midrule
+				3.466-4.409 ${\textrm{GeV}}$ & 34.1545 & 35.4989 & 34.5415 & 34.5935 & 34.5428 & 33.179 $\pm$ 0.29  \\
+				4.409-5.187 ${\textrm{GeV}}$ & 34.1049 & 35.265 & 34.4453 & 34.454 & 34.5099 & 33.3516 $\pm$ 0.21  \\
+				5.187-5.863 ${\textrm{GeV}}$ & 34.8855 & 35.4266 & 34.4065 & 35.1899 & 35.1431 & 33.5486 $\pm$ 0.21  \\
+				5.863-6.47 ${\textrm{GeV}}$ & 35.1486 & 35.3532 & 34.9548 & 35.2067 & 35.2074 & 33.6421 $\pm$ 0.20  \\
+				6.47-7.024 ${\textrm{GeV}}$ & 35.1843 & 35.375 & 35.4511 & 35.2545 & 35.2599 & 34.3462 $\pm$ 0.22  \\
+				7.024-7.538 ${\textrm{GeV}}$ & 35.3441 & 35.4129 & 35.3925 & 35.1751 & 35.4606 & 34.4077 $\pm$ 0.25  \\
+				\midrule
+				13.748 ${\textrm{GeV}}$ & 35.7875 & 35.3939 & 35.445 & 35.4193 & 35.3621 & 35.7169  \\
+				16.823 ${\textrm{GeV}}$ & 36.046 & 35.8194 & 35.8236 & 35.7313 & 35.7526 & 36.0778  \\
+				19.416 ${\textrm{GeV}}$ & 36.3134 & 36.2866 & 36.1479 & 36.1372 & 36.1556 & 36.4842  \\
+				21.471 ${\textrm{GeV}}$ & 36.4667 & 36.4354 & 36.3186 & 36.4527 & 36.3395 & 36.7133  \\
+				22.956 ${\textrm{GeV}}$ & 36.6953 & 36.6648 & 36.576 & 36.7236 & 36.5792 & 36.966  \\
+				24.536 ${\textrm{GeV}}$ & 37.0842 & 36.8976 & 36.852 & 36.871 & 36.7106 & 37.1634  \\
+				26.019 ${\textrm{GeV}}$ & 37.3214 & 37.1512 & 37.0726 & 37.0965 & 36.9426 & 37.3869  \\
+				\bottomrule
+				\bottomrule
+			\end{tabular}
+}
+\end{table}
+
+\end{document}

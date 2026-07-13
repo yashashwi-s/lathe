@@ -1,0 +1,81 @@
+% compiler avec lualatex
+\documentclass{matapli}
+%\usepackage{marvosym}
+%\usepackage[cam,a4,center]{crop}
+
+\renewcommand{\numero}{123} %%% modifier   chaque numro
+\renewcommand{\mois}{Novembre 2020}%%% modifier   chaque numro
+
+
+\newcommand{\roundpic}[4][]{
+  \tikz\node [circle, inner sep = 5pt, fill=white, draw=black, minimum width = #2,
+  path picture = {
+    \node [#1] at (path picture bounding box.center) {
+      \includegraphics[width=#3]{#4}};
+  }] {};
+}
+\pagestyle{empty}
+\parindent0pt
+
+\begin{document}
+
+\newcommand\logo{\includegraphics[width=0.4\paperwidth]{Logo.pdf}}
+\newcommand\fond{\includegraphics[width=1.1\paperwidth]{fond.pdf}}
+\newcommand\numDate{\No \numero~~  --- ~~ \mois}
+\begingroup
+\fontspec{libertinussans}%[
+
+\begin{tikzpicture}[overlay, remember picture]
+  \node at (current page.center) {\fond};
+  \node[anchor=north west,font=\Huge\bfseries,scale=3] at ($(current page.north west)+(4.7,-3.5)$) {MATAPLI};
+  \node[anchor=north west] at ($(current page.north west)+(0.2,-0.2)$) {\logo};
+  \node [circle, inner sep = 5pt, fill=white, draw=black, minimum width = 5cm,
+   path picture = {
+     \node [] at (path picture bounding box.center) {
+       \includegraphics[width=5.5cm]{couverture.jpg}
+     };
+   }] at  ($(current page.south)+(-3,0.22\paperheight)$) {};
+  \node [circle, inner sep = 5pt, fill=white, draw=black, minimum width = 9cm,
+   path picture = {
+     \node [] at (path picture bounding box.center) {
+       \includegraphics[width=9.4cm]{CIMPA.png}
+   };
+ }] at  ($(current page.south)+(1,0.5\paperheight)$) {};
+   \node [circle, inner sep = 5pt, fill=white, draw=black, minimum width = 3cm,
+   path picture = {
+     \node [] at (path picture bounding box.center) {
+       \includegraphics[width=3cm]{corona.jpg}};
+   }] at  ($(current page.south)+(1.5,0.23\paperheight)$) {};
+  \node[anchor=south east,color=black, font=\bfseries\Huge] at ($(current
+  page.south east)-(0.5,-0.5)$) {\numDate};
+\end{tikzpicture}
+\endgroup
+
+
+
+\newpage
+\include{redactionModele} %%% %%% modifier   chaque numro
+
+% inner margin : 2cm
+% outer margin : 2.5cm
+% top : 3cm
+% bottom : 2cm
+% paperwidth : 17cm
+% paperheight : 240
+% on laisse 0.5cm de chaque côté
+% on règle la hauteur à la main en fonction de l'image
+
+
+ %%%%%%%%%%%%%%%%%%% == Publicit == %%%%%%%
+% inner margin
+\vspace*{-2.8cm}\hspace*{-1cm}\includegraphics[width=\paperwidth-2cm]{3e}
+
+
+\newpage
+
+    \fancyhead{}
+ %%%%%%%%%%%%%%%%%%% == Publicit == %%%%%%%
+% outer margin
+    \vspace*{-2.8cm}\hspace{-2cm}\includegraphics[width=\paperwidth-1cm]{4e}
+\end{document}
+%%%%%%%%%%%%%%%%

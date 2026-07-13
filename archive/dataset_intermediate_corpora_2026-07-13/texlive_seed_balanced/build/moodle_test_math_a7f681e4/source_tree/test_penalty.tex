@@ -1,0 +1,21 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+\begin{quiz}{Example}
+\begin{multi}[feedback={abc: def}]{Multiple Choice}
+abc: def
+\item[fraction=100]* abc: def
+\item 6
+\end{multi}
+
+\end{quiz}
+\end{document}

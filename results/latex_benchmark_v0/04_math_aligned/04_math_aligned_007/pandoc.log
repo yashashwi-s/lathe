@@ -1,0 +1,28 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_007/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_007/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{cl}&\Delta_{(n-1 l+1)}^{(1)}(x_1,\cdots,x_m|z_1,\cdots,z_{n-1}|z_n,\cdots,z_N) \\=&\displaystyle q^{l-n+1}\sum_{k=n}^{N} z_k\frac{\prod_{j=1}^{n-1}(z_k-z_j q^{-2})}{\prod_{\scriptstyle{i=n}\atop \scriptstyle{i\ne k}}^{N} (z_i-z_k)q^{-1}}\Delta^{(n l)}(x_1,\cdots,x_m|z_1,\cdots, z_{n-1},z_k|z_{n},\mathop{\hat{\cdots}}^{k},z_N), \end{array}
+  \end{align*}, rendering as TeX:
+  }\sum_{k=n}^{N} z_k\frac{\prod_{j=1}^{n-
+                     ^
+  unexpected "\\"
+  expecting "&", "\\\\", white space or "\\end"
+[WARNING] Could not convert TeX math \begin{align*}
+  (II) \hspace{3mm} \left(\begin{array}{c}x_1+{\rm i}y_1 \\x_2+{\rm i}y_2 \\x_3+{\rm i}y_3 \\x_4+{\rm i}y_4\end{array}\right) \hspace{3mm} \leftrightarrow \hspace{3mm}\frac{1}{\sqrt{2}}\left(\begin{array}{c}-(y_2+y_4) +{\rm j}(y_2-y_4) \\(y_1 + y_3) -{\rm j}(y_1-y_3) \\(x_2 + x_4) -{\rm j}(x_2 - x_4) \\-(x_1 + x_3) +{\rm j}(x_1 - x_3)\end{array}\right),
+  \end{align*}, rendering as TeX:
+  (II) \hspace{3mm} \left(\begin{array}{c}
+                ^
+  unexpected "m"
+  expecting digit, ".", "em", "pt", "in" or "cm"
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{rcl}{\rm Tr}\, [\Gamma_{s}(P^{a})\Gamma_{s}(P_{b})]= \delta^{a}{}_{b}\, , \,\,\,\, & \Rightarrow & \Gamma_{s}(P^{a}) = {\textstyle\frac{-i}{2g}}\gamma^{a}\, , \\& & \\{\rm Tr}\, [\Gamma_{s}(M^{ab})\Gamma_{s}(P_{cd})]= \delta^{ab}{}_{cd}\, , \,\,\,\, & \Rightarrow & \Gamma_{s}(M^{ab}) = -{\textstyle\frac{1}{2}}\gamma^{ab}\, .\\\end{array}
+  \end{align*}, rendering as TeX:
+  in{array}{rcl}{\rm Tr}\, [\Gamma_{s}(P^{
+                     ^
+  unexpected control sequence \rm
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

@@ -1,0 +1,44 @@
+% arara: pdflatex
+% arara: makeglossaries
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage{glossaries-extra}
+
+\makeglossaries
+
+\renewcommand*{\glslinkpostsetkeys}{%
+ \ifnum\GlsXtrLinkCounterValue{\glslabel}>1
+  \setkeys{glslink}{hyper=false}%
+ \fi
+}
+
+%\GlsXtrEnableLinkCounting[section]{general}
+\GlsXtrEnableLinkCounting{general}
+
+\newglossaryentry{sample1}{name={sample1},description={an example}}
+\newglossaryentry{sample2}{name={sample2},description={another example}}
+
+\newabbreviation{ex}{ex}{example}
+
+\begin{document}
+
+\section{Sample Section}
+
+\Gls{sample1}, \gls{sample2} and \gls{ex}.
+\Glstext{sample1} and \gls{ex} again.
+Link count: \GlsXtrTheLinkCounter{sample1} (sample1),
+\GlsXtrTheLinkCounter{sample2} (sample2) and
+\GlsXtrTheLinkCounter{ex} (ex).
+
+\section{Another Sample Section}
+
+\Gls{sample1}, \gls{sample2} and \gls{ex}.
+Link count: \GlsXtrTheLinkCounter{sample1} (sample1),
+\GlsXtrTheLinkCounter{sample2} (sample2) and
+\GlsXtrTheLinkCounter{ex} (ex).
+
+\printglossaries
+
+\end{document}

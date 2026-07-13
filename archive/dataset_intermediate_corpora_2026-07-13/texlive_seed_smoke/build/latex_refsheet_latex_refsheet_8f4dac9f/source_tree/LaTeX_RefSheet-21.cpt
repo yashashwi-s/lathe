@@ -1,0 +1,43 @@
+
+\subsection[Fonts]{Fonts\phantom{g}}
+\begin{tabular*}{\columnwidth}{@{}l@{\extracolsep\fill}ll@{}} \toprule
+Command      &    Declaration &   Effect \\ \midrule
+\lstinline+\textrm{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\rmfamily +\textit{text}\lstinline+}+               & %
+\textrm{Roman family} \\
+\lstinline+\textsf{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\sffamily +\textit{text}\lstinline+}+               & %
+\textsf{Sans serif family} \\
+\lstinline+\texttt{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\ttfamily +\textit{text}\lstinline+}+               & %
+\texttt{Typewriter family} \\
+\lstinline+\textmd{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\mdseries +\textit{text}\lstinline+}+               & %
+\textmd{Medium series} \\
+\lstinline+\textbf{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\bfseries +\textit{text}\lstinline+}+               & %
+\textbf{Bold series} \\
+\lstinline+\textup{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\upshape +\textit{text}\lstinline+}+                & %
+\textup{Upright shape} \\
+\lstinline+\textit{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\itshape +\textit{text}\lstinline+}+                & %
+\textit{Italic shape} \\
+\lstinline+\textsl{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\slshape +\textit{text}\lstinline+}+                & %
+{\usefont{T1}{cmr}{m}{sl}Slanted shape} \\
+\lstinline+\textsc{+\textit{text}\lstinline+}+                    & %
+\lstinline+{\scshape +\textit{text}\lstinline+}+                &  %
+% textsc from computer modern because cmbright does not have scshape
+{\usefont{T1}{cmr}{m}{sc}Small Caps shape} \\
+\multicolumn{3}{l}{More general commands:}\\
+\lstinline+\emph{+\textit{text}\lstinline+}+                      & %
+\lstinline+{\em +\textit{text}\lstinline+}+                     & %
+\emph{Emphasized} \\
+\lstinline+\textnormal{+\textit{text}\lstinline+}+                & %
+\lstinline+{\normalfont +\textit{text}\lstinline+}+             & %
+\textnormal{Document font} \\							\bottomrule
+\end{tabular*}\\
+Example: \lstinline+\setkomafont{section}{\scshape}+
+%%The commands produce better results, e.g.  t\textsl{tt}t (textsl) than the declarations, e.g. t{\slshape tt}t (slshape)!
+^^E^^L 

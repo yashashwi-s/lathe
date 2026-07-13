@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 52}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}
+\Require $n=2$, $N\in\mathbb{N}$ sufficiently large
+\Require $X_{1i}$ are independent for $i=0,1,...,k-1$
+\Require $X_{2i}=1+r$, $r>-1$ for $i=0,1,...,k-1$
+\Require $\boldsymbol\pi_{i}=(q_i(\widehat{W}_i,A_i),1-q_i(\widehat{W}_i,A_i))$ for $i=0,1,...,k-1$
+\State $l\gets 0$\Comment{initialize $l$}
+\While{$l\leq N$}
+\State $l\gets l+1$
+\State $i\gets 0$ \Comment{initialize i}
+\State $I\gets 1$ \Comment{initialize $I_i$}
+\State $A\gets A_0$ \Comment{initialize $A_i$}
+\State $\widehat{W}\gets P$ \Comment{initialize $\widehat{W}_i$}
+\While{$i\leq k$}
+\State $i\gets i+1$
+\State $X$ is a realization of $X_{1,i-1}$
+\State $Y\gets q_{i-1}(\overline{W},A)\cdot X+(1-q_{i-1}(\overline{W},A))\cdot (1+r)$
+\State $B^j$ is a realization of $B_{i-1}^j$ for $j=1,2,...,A$
+\State $I\gets I-\sum_{j=1}^IB^j$
+\State $A\gets A-\sum_{j=1}^AB^j$
+\State $\widehat{W}\gets Y\widehat{W}-IAw_i$ \Comment{computes $\widehat{W}_i$}
+\EndWhile
+\State $b_l\gets\begin{cases}
+1,&\widehat{W}\geq 0\\0,&\text{otherwise}\end{cases}$
+\EndWhile
+\State $\mathbb{P}(\widehat{W}_k\geq w)\gets\frac{1}{N}\sum_{l=1}^Nb_l$\\
+\Return{$\mathbb{P}(\widehat{W}_k\geq w)$}
+\end{algorithmic}
+\end{algorithm}
+\end{document}

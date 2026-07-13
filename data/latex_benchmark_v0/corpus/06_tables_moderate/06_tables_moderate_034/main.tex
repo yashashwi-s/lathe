@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05256\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccc}
+\hline
+\makecell{\textbf{Clinical} \\ \textbf{Case}} & \makecell{\textbf{ICD Code}} & \makecell{\textbf{Text Reference}}  & \makecell{\textbf{Age}}  & \makecell{\textbf{Gender}} \\
+\hline
+A &  R52, K08.89 & pain, toothache & 56 & female  \\
+B &  K08.109 & edentulism & 54 & female \\
+C &  \makecell{ E11.9 M79.81 \\ R05 T14.8 } &  \makecell{ abdominal wall \\ hematoma, cough, DM \\  ID, hematoma, right \\ anterior rectal hematoma } & 61 & male \\
+D &  \makecell{ B00.9 B99.9 \\ C15.9 F17.210 \\ K22.2 R13.10 \\ R50.9 R60.9 \\ R63.4 } & \makecell{ dysphagia, edema, \\ esophageal carcinoma, \\ fever, herpes simplex, \\ infection, partial narrowing \\ of the esophageal \\ lumen, smoker, weightloss } & 67 & male \\
+E &  \makecell{ B99.9 C81.90 \\ G93.40 K72.00 \\ K72.90 K92.1 \\ K92.2 R58 \\ R69 R74.0 } & \makecell{ acute liver failure, \\ digestive bleeding, disease, \\ elevated transaminases, \\ encephalopathy, hemorrhage, \\ hepatic encephalopathy, \\ Hodgkin's disease, infection, \\ liver failure, manes } & 16 & male \\
+F &  \makecell{ I10 K42.9 \\ K56.60 K92.2 \\ N80.5 R10.32 \\ R10.814 \\ R19.8 R58 }  & \makecell{ AHT, colon endometriosis, \\ colon hemorrhage, \\ hemorrhage, pain in FII, \\ pain on deep palpation \\ in FII, rectal urgency, \\ sigma level stricture \\ imaging, umbilical hernia }  & 42 & female \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01260\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cccccc}
+ID & \makecell{Final Quality \\Rating}& \makecell{Rest-Frame Lag \\ (days)}  & \makecell{Luminosity \\ ($\lambda L_{\rm 1350\AA}$erg\,s$^{-1}$)}
+& \makecell{Linewidth \\ (km s$^{-1}$)} & \makecell{BH Mass \\ ($10^8$ $M_{\odot}$)} \\ \hline
+DES~J022514.39-044700.14 & gold & $74 \pm 17$ & $1.82 \times 10^{ 46}$ & $3610 \pm 31$ & $8.4 \pm 2.7$\\
+DES~J022327.85-040119.16 & gold & $136 \pm 11$ & $3.54 \times 10^{ 45}$ & $3808 \pm 171$ & $17.2 \pm 4.3$\\
+DES~J022537.03-050109.34 & bronze & $100 \pm 6$ & $6.95 \times 10^{ 45}$ & $4190 \pm 34$ & $15.3 \pm 3.6$\\
+DES~J033401.79-265054.28 & bronze & $205 \pm 10$ & $9.74 \times 10^{ 45}$ & $3605 \pm 77$ & $23.3 \pm 5.5$\\
+DES~J025159.70-005159.89 & gold & $38 \pm 9$ & $1.78 \times 10^{ 45}$ & $4239 \pm 135$ & $6 \pm 2$\\
+DES~J032703.62-274425.27 & bronze & $183 \pm 12$ & $1.27 \times 10^{ 46}$ & $4398 \pm 43$ & $30.9 \pm 7.4$\\
+DES~J002959.21-434835.24 & silver & $145 \pm 6$ & $6.11 \times 10^{ 46}$ & $3595 \pm 11$ & $16.4 \pm 3.8$\\
+DES~J021921.81-043642.21 & bronze & $123 \pm 9$ & $1.1 \times 10^{ 46}$ & $3519 \pm 125$ & $13.3 \pm 3.3$\\
+DES~J021941.16-044100.36 & bronze & $133 \pm 12$ & $4.69 \times 10^{ 45}$ & $4146 \pm 83$ & $20 \pm 5$\\
+DES~J032829.96-274212.23 & bronze & $152 \pm 9$ & $8.88 \times 10^{ 45}$ & $2791 \pm 59$ & $10.3 \pm 2.5$\\
+DES~J032939.97-284952.40 & bronze & $74 \pm 10$ & $7.7 \times 10^{ 45}$ & $3929 \pm 138$ & $10 \pm 2.7$\\
+DES~J022001.63-052216.92 & gold & $186 \pm 15$ & $7.54 \times 10^{ 45}$ & $3548 \pm 64$ & $20.4 \pm 5$\\
+DES~J003743.89-434715.68 & silver & $162 \pm 7$ & $1.39 \times 10^{ 46}$ & $3672 \pm 60$ & $19.1 \pm 4.5$\\
+DES~J033655.83-290218.23 & bronze & $152 \pm 8$ & $1.6 \times 10^{ 46}$ & $4228 \pm 77$ & $23.7 \pm 5.6$\\
+DES~J022410.96-050653.95 & gold & $167 \pm 13$ & $6.16 \times 10^{ 45}$ & $3647 \pm 57$ & $19.4 \pm 4.7$\\
+DES~J033843.76-294922.54 & gold & $92 \pm 4$ & $5.61 \times 10^{ 45}$ & $2781 \pm 198$ & $6.2 \pm 1.6$\\
+DES~J004056.56-431446.40 & bronze & $87 \pm 11$ & $1.61 \times 10^{ 46}$ & $3655 \pm 44$ & $10.1 \pm 2.7$\\
+DES~J025102.06-004142.78 & silver & $66 \pm 12$ & $2.27 \times 10^{ 45}$ & $3317 \pm 172$ & $6.3 \pm 1.9$\\
+DES~J022354.81-044814.94 & silver & $271 \pm 9$ & $3.82 \times 10^{ 46}$ & $4134 \pm 23$ & $40.4 \pm 9.4$\\
+DES~J024511.94-011317.50 & bronze & $34 \pm 11$ & $7.83 \times 10^{ 45}$ & $4021 \pm 90$ & $4.8 \pm 1.9$\\
+DES~J025100.64+001707.38 & bronze & $118 \pm 11$ & $7.59 \times 10^{ 45}$ & --- & ---\\
+DES~J032640.93-283206.80 & silver & $145 \pm 4$ & $7.56 \times 10^{ 45}$ & $4328 \pm 58$ & $23.7 \pm 5.5$\\
+DES~J003957.42-434107.92 & bronze & $146 \pm 5$ & $9.86 \times 10^{ 45}$ & $3636 \pm 57$ & $16.8 \pm 3.9$\\
+DES~J022259.87-063326.65 & bronze & $91 \pm 6$ & $8.99 \times 10^{ 45}$ & $4352 \pm 95$ & $15 \pm 3.6$\\
+DES~J003352.72-425452.55 & bronze & $107 \pm 4$ & $3.44 \times 10^{ 46}$ & $3876 \pm 19$ & $14 \pm 3.3$\\
+DES~J022330.15-043004.09 & bronze & $90 \pm 5$ & $4.21 \times 10^{ 45}$ & --- & ---\\
+DES~J022620.86-045946.48 & bronze & $101 \pm 6$ & $4.43 \times 10^{ 45}$ & $3650 \pm 104$ & $11.7 \pm 2.8$\\
+DES~J024514.93-004101.83 & bronze & $69 \pm 8$ & $5.92 \times 10^{ 45}$ & --- & --- \\
+DES~J025105.13-001732.01 & silver & $69 \pm 5$ & $1.35 \times 10^{ 46}$ & --- & --- \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

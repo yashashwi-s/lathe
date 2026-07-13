@@ -1,0 +1,52 @@
+\documentclass[11pt,article,french]{memoir}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+  \usepackage[autolanguage]{numprint}
+  \usepackage{icomma}           % charger vers la fin
+
+  %% Sous-légendes dans les environnements 'table'
+  \newsubfloat{table}
+
+\begin{document}
+
+\begin{table}
+  \caption{Conversion du nombre décimal $23,31$ en binaire.}
+  \begin{minipage}[t]{0.45\linewidth}
+    \begin{tabular*}{\linewidth}{crrcc}
+      \toprule
+      $i$ & \multicolumn{1}{c}{$v$} & $\lfloor v/2 \rfloor$ & $v \bmod 2$ & $x_i$ \\
+      \midrule
+      $0$ & $23$ & $11$ & $1$ & $1$ \\
+      $1$ & $11$ &  $5$ & $1$ & $1$ \\
+      $2$ &  $5$ &  $2$ & $1$ & $1$ \\
+      $3$ &  $2$ &  $1$ & $0$ & $0$ \\
+      $4$ &  $1$ &  $0$ & $1$ & $1$ \\
+      \bottomrule
+    \end{tabular*}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\linewidth}
+    \begin{tabular*}{\linewidth}{ccccc}
+      \toprule
+      $i$ & $v$ & $2v$ & $\lfloor 2v \rfloor$ & $x_{-i}$ \\
+      \midrule
+      $1$ & $0,31$ & $0,62$ & $0$ & $0$ \\
+      $2$ & $0,62$ & $1,24$ & $1$ & $1$ \\
+      $3$ & $0,24$ & $0,48$ & $0$ & $0$ \\
+      $4$ & $0,48$ & $0,96$ & $0$ & $0$ \\
+      $5$ & $0,96$ & $1,92$ & $1$ & $1$ \\
+      \bottomrule
+    \end{tabular*}
+  \end{minipage}
+\end{table}
+
+
+\end{document}

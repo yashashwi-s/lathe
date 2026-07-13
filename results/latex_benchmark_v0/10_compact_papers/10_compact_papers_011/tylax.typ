@@ -1,0 +1,41 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "String Winding in a Black Hole Geometry",
+  author: "Mordechai Spiegelglas",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[String Winding in a Black Hole Geometry]
+
+  #text(size: 1.2em)[Mordechai Spiegelglas]
+
+]
+
+          /* \maketitle */
+#block(width: 100%, inset: 1em)[
+  #align(center)[#text(weight: "bold")[Abstract]]
+
+ \$U(1)\$ zero modes in the \$SL(2,R)\_k/U(1)\$ and \$SU(2)\_k/U(1)\$ conformal coset theories, are investigated in conjunction with the string black hole solution. The angular variable in the Euclidean version, is found to have a double set of winding. Region III is shown to be \$SU(2)\_k/U(1)\$ where the doubling accounts for the cut sructure of the parafermionic amplitudes and fits nicely across the horizon and singularity. The implications for string thermodynamics and identical particles correlations are discussed.
+
+]
+
+== Introduction
+
+ \#1, \#2, \#3. Nucl. Phys. B\#1 (\#3) \#2 \#1, \#2, \#3, \#4. Nucl. Phys. B\#1 FS\#2 (\#4) \#3 \#1, \#2, \#3. Phys. Lett. \#1B (\#3) \#2 \#1, \#2, \#3. Lett. Mod. Phys. A\#1 (\#3) \#2 \#1, \#2, \#3. Phys. Rev. Lett. \#1 (\#3) \#2 \#1, \#2, \#3. Phys. Rev. D\#1 (\#3) \#2 \#1, \#2, \#3. Phys. Rev. \#1 (\#3) \#2 \#1, \#2, \#3. JEPT Lett. \#1 (\#3) \#2 \#1, \#2, \#3. Sov. Phys. JEPT \#1 (\#3) \#2 \#1, \#2, \#3. Comm. Math. Phys. \#1 (\#3) \#2 1 2
+
+== Method
+
+ math expression zero modes in the math expression and math expression conformal coset theories, are investigated in conjunction with the string black hole solution. The angular variable in the Euclidean version, is found to have a double set of winding. Region \ is shown to be math expression where the doubling accounts for the cut sructure of the parafermionic amplitudes and fits nicely across the horizon and singularity. The implications for string thermodynamics and identical particles correlations are discussed.
+
+ $  L(theta) = sum_(i = 1)^(n) ell(x_(i), theta)  $ <eq-compact>
+ Equation @eq-compact is included to keep the sample paper-like while remaining small.
+
+== Conclusion
+
+ Acknowledgments: I am grateful to J. Avron, M. Dine, F. Englert, Y. Feinberg, M. Marinov, B. Reznik, N. Rosen, J. Sonnenschein and S. Yankielowicz for valuable discussions. S. Yankielowicz has convinced me how tricky the no-ghost situation is and cosequenly focused my interest on the black hole solution. This work was supported in part by US Israel Binational Science Foundation (BSF), by the Israeli Academy of Sciences and by the Technion V.P.R. Fund.
+

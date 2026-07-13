@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 55}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\For{$variant$ in variants}
+\State dates $\gets$ unique dates in which $variant$ exists
+\State dates.sort()
+\State model\_initial\_weights $\gets$ random
+\For{$d$ in dates}
+\State retro\_data $\gets$ all data before $d$
+\State processed\_data $\gets$ preprocess $retro\_data$
+\State dataset $\gets$ structured $processed\_data$ into graphs
+\State train\_dataset, val\_dataset $\gets$ temporally split $dataset$ into 80\% training and the most recent 20\% for validation
+\State model $\gets$ initialize desired model with $model\_initial\_weights$
+\State epochs $\gets$ 100
+\State optimizer $\gets$ Adam(lr=0.05)
+\State early\_stopper $\gets$ EarlyStopper(patience=3)
+\State $model$.train($epochs$, $optimizer$, $early\_stopper$, $train\_dataset$, $val\_dataset$)
+\State best\_model\_weights $\gets early\_stopper$
+\State $model\_initial\_weights$ $\gets$ $best\_model\_weights$
+\EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{document}

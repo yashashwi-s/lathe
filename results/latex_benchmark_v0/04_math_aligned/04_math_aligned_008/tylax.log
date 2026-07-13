@@ -1,0 +1,32 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_008/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_008/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_008/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unexpected underscore
+   ┌─ tylax.typ:40:42
+   │
+40 │ $ over(1, 2) { mat(delim: "[", Q_(alpha) ;_(alpha)),[ Q_(beta)_(beta) ] } = mat(delim: "[", 1, 0 ; 0, 1) M delta_(alpha beta) + mat(delim: "[", p, q /g_(s) ; q /g_(s), - p) over(L(Gamma^(0) Gamma^(1))_(alpha beta), 2 pi alpha^(prime)) .  $
+   │                                           ^
+
+error: unexpected underscore
+   ┌─ tylax.typ:47:203
+   │
+47 │ $ mat(delim: #none, delta Psi_(alpha)= display frac(,)omega^(m n)(Gamma_(m n))_(alpha)zws^(beta) Psi_(beta),, Gamma_(m n)equiv Gamma_(m)_(n)- Gamma_(n)_(m),;delta chi^(alpha)= display frac(,)omega^(m n)(_(m n))^(alpha)zws_(beta) chi^(beta),,_(m n)equiv_(m)Gamma_(n)-_(n)Gamma_(m),)  $
+   │                                                                                                                                                                                                            ^
+
+error: unexpected underscore
+   ┌─ tylax.typ:47:241
+   │
+47 │ $ mat(delim: #none, delta Psi_(alpha)= display frac(,)omega^(m n)(Gamma_(m n))_(alpha)zws^(beta) Psi_(beta),, Gamma_(m n)equiv Gamma_(m)_(n)- Gamma_(n)_(m),;delta chi^(alpha)= display frac(,)omega^(m n)(_(m n))^(alpha)zws_(beta) chi^(beta),,_(m n)equiv_(m)Gamma_(n)-_(n)Gamma_(m),)  $
+   │                                                                                                                                                                                                                                                  ^
+
+error: unclosed delimiter
+   ┌─ tylax.typ:54:78
+   │
+54 │ $ R_(i j)^((ell))(Lambda_(1),...,Lambda_(i),...,Lambda_(j),...,Lambda_(N))= lr({ mat(delim: #none,(Lambda_(1),...,Lambda_(i)- ell,...,Lambda_(j)+ ell,...,Lambda_(N)), upright(if) thin thin Lambda_(i) > Lambda_(j)thin, cr(Lambda_(1),...,Lambda_(i)+ ell,...,Lambda_(j)- ell,...,Lambda_(N)), upright(if) thin thin Lambda_(j) > Lambda_(i)thin .))  $
+   │                                                                               ^
+

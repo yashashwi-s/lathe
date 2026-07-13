@@ -1,0 +1,418 @@
+% !TEX TS-program = pdflatexmk
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}% Begin paragraphs with an empty line rather than an indent
+\pdfmapfile{=libertinust1math.map}
+\usepackage{graphicx}
+%\usepackage{amssymb}% don't use with newtxmath
+%SetFonts
+% libertine+newtxmath
+\usepackage[sb,osf]{libertinus} % use sb in place of bold
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[varqu,varl]{zi4}% inconsolata
+\usepackage{amsthm}
+\usepackage{libertinust1math}
+\usepackage{bm}
+%\useosf % use oldstyle figures except in math
+\usepackage[cal=stix,scr=boondoxo]{mathalpha}% less slanted than STIX cal
+\usepackage{booktabs}
+\usepackage{fonttable}
+%\usepackage[supstfm=libertinesups,%
+%  supscaled=1.2,%
+%  raised=-.13em]{superiors}
+%SetFonts
+\title{The LibertinusT1 Math Package}
+\author{Michael Sharpe}
+\date{\today}  % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+This package is a \LaTeX\ math package to accompany the \LaTeX\ Libertine text package, serving as an alternative to {\tt newtxmath} with the {\tt libertine} option. Both packages use the Greek and Roman letters from Libertine, but LibertinusT1Math symbols are mostly taken from the LibertinusMath font which extends and corrects  Libertine, while {\tt newtxmath} uses symbols matching Times in weight and size, and so are a bit heavier and larger. I've changed a number of glyphs from LibertinusMath and added dozens of new glyphs. Like LibertinusMath, LibertinusT1Math does not contain calligraphic, script or gothic alphabets. The package sets \verb|\mathcal| to the (unscaled) STIX calligraphic font and \verb|\mathbb| to the LibertinusT1Math double-struck alphabet.  The {\tt mathalpha} package (loaded AFTER {\tt libertinust1math}) offers a convenient way to change these default choices and to set the script and gothic alphabets. See the sample invocation below, which assumes you have {\tt mathalpha} version 1.08 (March 2016) or higher. 
+
+\textsc{Additions in version 1.1:}
+There is now support for sans serif fonts in math that allows the ISO typesetting rules to be followed, and to provide a math processing system using sans serif Roman and Greek letters. See the end of this documentation for details.
+
+\textsc{Additions in version 1.1.8:}
+There is now support for the scaling options in both the old libertine and the new libertinus[-type1] packages. Prior versions supported only  earlier libertine package[s]. The details are spelled out below in the discussion of the {\tt scaled} package option.
+ 
+\textsc{Changes and Additions in version 2.0:}
+Prior versions of {\tt libertinust1math} were based on the glyphs in {\tt LibertinusMath.otf} from late 2015. This version is based on the late 2021 font which made a number of important changes.
+\begin{itemize}
+\item
+The math axis changed from 251 to 260.
+\item The symbol sizes were enlarged substantially.
+\end{itemize}
+The overly small symbols of prior versions are no longer a concern.
+Additions include some of the features of {\tt newtxmath}: a {\tt subscriptcorrection} option to improve the kerning of some problem glyphs such as $j$, $f$,$\beta$ in subscripts; an adaptive vector accent with macro \verb|\vv| so that you can write \verb|$\vv{XY}$| to get $\vv{XY}$,  placing an arrow of appropriate length over any mathematical expression; a \verb|\widebar| macro was copied from {\tt newtxmath} so that \verb|$\widebar{XY}$| results in $\widebar{XY}$. See the documentation of {\tt newtx} for further details on these.
+
+\textsc{Additions in version 2.0.3:}
+Subscript corrections are now read from the file {\tt libertinus-subs.tex} in the \verb|/libertinust1math/tex/latex/| folder of the tex distribution. You may copy and modify it, placing it in your local files so that it is seen by tex ahead of the copy in the distribution. It is also possible to specify another file by means of option {\tt subscriptcorrectionfile=}. The file format is discussed in the documentation of {\tt newtx}.
+
+The left sidebearings of the mathematical italic Roman and Greek letters were modified to match those in  version~1 of {\tt LibertinusT1Math}. This goes part way to solve one of the issues of version~2.0, in which italic text with interspersed math fragment, as the statement of a theorem, couldbe typeset poorly. For a bad example, consider   \verb|\textit{`if $U$}'|, which renders as \textit{`if $U$'} with $U$ rather close to \textit{f}. The factors involved are:
+\begin{itemize}
+\item Italic Libertinus has interword spacing of 2.5{\tt pt} (assuming 10{\tt pt} text) with stretch and shrink of 1.25{\tt pt} and .0833{\tt pt} respectively.
+\item Italic Libertinus \textit{f} has an italic correction of .208{\tt em} (2.0{\tt pt} with 20{\tt pt} text.)
+\item $U$ has a left sidebearing of .122{\tt em} so the horizontal gap between the right edge of \textit{f} and the left edge of $U$ is, with 10{\tt pt} text, (2.5-2.08+.1.22){\tt pt}, or 1.64{\tt pt}. (This assumes no stretch or shrink in the line. In the worst case, it could be .833{\tt pt} less.) The separation may be improved considerably by adding italic correction (\verb|\/|) after the \textit{f}, but this is not a good solution.
+%\item 
+\end{itemize}
+I've added in version 2.0.3 a replacement \verb|\textth| for \verb|\textit| that is more suited to italic text with embedded fragments of math, having expanded interword spacing of .32{\tt em}, stretch of .16{\tt em} and shrink of .1{\tt em}, all of which are configurable by means of options {\tt spc, stretch, shrink}. (Option {\tt spacing} is equivalent to {\tt spc}.) With \verb|\texth|, you also get upright punctuation and parentheses, etc. and tabular lining figures which  match math figures. Increased interword spacing reduces the visible effects of large italic corrections.
+ 
+There is a new option {\tt theoremfont} which patches the 
+plain theoremstyle, resulting in the body font for the theorem statement being changed to use \verb|\textth|.
+
+\textsc{Package Options:}
+\begin{itemize}
+\item
+\textbf{New in v.2.0} {\tt subscriptcorrection} allows for a number of problem letters to behave better in subscripts, but at the cost of compatibility with the {\tt xy} package.
+\item \textbf{New in v.2.0} {\tt amsthm} loads the corresponding package in the proper order relative to {\tt amsmath}.
+{\tt lcgreekalpha} makes lower-case Greek letters be of type {\tt mathalpha} rather than {\tt mathord}, forcing them to respond to alphabet changing commands such as \verb|\mathnormal|, \verb|\mathrm|, \verb|\mathit| and \verb|\mathsf|.
+\item
+{\tt upint} changes the style of integrals from the default \emph{slanted} $\int$ to \emph{upright} $\intupop$.
+\item {\tt frenchmath} changes the math style to use upright Greek and Roman capital letters rather than math italic shapes.
+\item
+{\tt slantedGreek} makes uppercase Greek math letters slanted. 
+\item {\tt uprightGreek} makes uppercase Greek math letters upright. This is the default except in ISO mode.
+\item
+{\tt scaled} (or {\tt scale} may be used change the scale of the math. The {\tt fd} files in this package respond to three scale-changing macros: 
+\begin{itemize}
+\item
+\verb|\LinuxLibertineT@scale|, set from option {\tt llscale} ( or {\tt llscaled}) to the {\tt libertine} package;
+\item
+\verb|\LibertinusRM@scale|, set by option {\tt ScaleRM} to the {\tt libertinus-type1} package or to the {\tt libertinus} package;
+\item
+\verb|\libus@scale|, set by the {\tt scaled} option to {\tt libertinust1math}.
+\end{itemize}
+ The current {\tt libertineRoman} package contains no option that affects the scale parameter. If you need to scale {\tt libertineRoman}, add to your preamble lines like
+\begin{verbatim}
+\makeatletter
+\newcommand*{\LinuxLibertineT@scale}{1.03}
+\makeatother
+\end{verbatim}
+ If \verb|\libus@scale| is defined, it takes precedence over the other two settings. The result on math scaling only of the different possible scale settings  is:
+\begin{itemize}
+ \item the {\tt scaled} option to {\tt libertinust1math} overrides all other scale settings;
+\item if you did not issue a {\tt scale} or {\tt scaled} option to {\tt libertinust1math}, then
+\begin{itemize}
+\item
+if you used a {\tt libertine} package that set a value for \verb|\LinuxLibertineT@scale|, then its value is used;
+\item otherwise, if you used {\tt libertinus-type1} or {\tt libertinus}, then the value of \verb|\LibertinusRM@scale| is used.
+\end{itemize}
+ \end{itemize}
+\item See the new material at the end for a discussion of the new options connected with sans serif in math.
+\end{itemize}
+
+\textsc{Sample Invocation:}
+\begin{verbatim}
+\usepackage[sb]{libertine} % or \usepackage[sb]{libertinus}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[varqu,varl]{zi4}% inconsolata for mono, not LibertineMono
+\usepackage[amsthm]{libertinust1math} % slanted integrals, by default
+\usepackage[scr=boondoxo,bb=boondox]{mathalpha} %Omit bb=boondox for default libertinus bb
+\end{verbatim}
+
+\textsc{Some Things to Note:}
+\begin{itemize}
+\item The {\tt amsmath} package is loaded, if necessary, by {\tt libertinust1math}. The package depends on a number of its features and improvements to math typesetting.
+\item
+There are no bold symbols in LibertinusMath, but there are bold Roman and Greek letters, and the same is true of LibertinusT1Math.
+\item The italic letter v (\emph{v}) in LibertinusMath is easily confused with Greek \verb|\nu| ($\nu$), so the math italic letter v is set to $v$, and similarly in the bold math version.
+\item The layout of the type1 math fonts follows STIX to some extent, as does the sty file, though the content of this package is much less rich.
+\item Dotlessi and dotlessj are available in four math styles---mathit, mathrm, mathbf and mathbfit. For example:
+\begin{center}
+  \begin{tabular}{@{} cc @{}}
+    \toprule
+    Macro & Result \\ 
+    \midrule
+   \verb|$\imath$| & $\imath$ \\ 
+   \verb|$\mathrm{\imath}$| & $\mathrm{\imath}$ \\ 
+    \verb|$\mathbf{\imath}$| & $\mathbf{\imath}$ \\ 
+    \verb|$\mathbfit{\imath}$| & $\mathbfit{\imath}$ \\ 
+    \bottomrule
+  \end{tabular}
+\end{center}
+\item There are Greek alphabets in upright and italic shapes, regular and bold weights. Upright Greek letters have names like \verb|\alphaup| (and \verb|\upalpha|) while the italic forms have names like \verb|\alphait|. According to the options you set, \verb|\alpha| and so on are \verb|\let| to the appropriate choice, but you may always use the underlying forms if you wish to use both upright and italic forms in your document.
+\item Uppercase Greek letters are of type {\tt mathalpha}, so when you write \verb|$\mathit{\Gamma}$|, you'll get~$\mathit{\Gamma}$. However, unless you chose the option {\tt lcgreekalpha}, \verb|$\mathrm{\beta}$| would produce $\mathrm{\beta}$, as it is of type {\tt mathord} by default.
+\item There is an upright partial derivative symbol named \verb|\uppartial| that typesets as $\uppartial$, for those who wish to follow ISO rules.
+\item There are (as of version 1.1) macros for mathematical sans serif: \verb|\mathsf|, \verb|\mathsfit| (italic sans), \verb|\mathsfbf| (bold sans) and \verb|\mathsfbfit| (bold sans italic.) See the end of this documentation for details.
+\item If you use one of the AMS classes such as {\tt amsart} or {\tt amsbook}, then the AMS fonts will be loaded even though not needed, taking up two of your precious sixteen math families. If you are running out of families (``too many math alphabets used in version normal''), use another capable class such as {\tt memoir} or {\tt scrartcl} and gain two more families.
+\end{itemize}
+The next pages show the font tables for LibertinusT1Math. If you see an unfamiliar symbol and wish to learn its \LaTeX\ name, get the \LaTeX\ name of the font (e.g., {\tt operators}, {\tt letters}, {\tt symbols}, {\tt largesymbols}) and the hex location of the glyph (e.g., \verb|"FF| is hex notation for $255$) and search {\tt libertinust1math.sty} by hex number.
+\newpage
+{\tt libertinust1-mathrm (operators):}
+\fonttable{libertinust1-mathrm} 
+\newpage
+{\tt libertinust1-mathrm (bold-operators):}
+\fonttable{libertinust1-mathrm-bold} 
+\newpage
+{\tt libertinust1-mathit (letters):}
+\fonttable{libertinust1-mathit} 
+\newpage
+{\tt libertinust1-mathit-bold (bold-letters):}
+\fonttable{libertinust1-mathit-bold} 
+\newpage
+{\tt libertinust1-mathsym (symbols):}
+\fonttable{libertinust1-mathsym} 
+\newpage
+{\tt libertinust1-mathex (largesymbols):}
+\fonttable{libertinust1-mathex} 
+\newpage
+{\tt libertinust1-mathbb (mathbb):}
+\fonttable{libertinust1-mathbb} 
+\newpage
+%{\tt libertinust1-mathsf (mathsf):}
+%\fonttable{libertinust1-mathsf} 
+\textsc{New sans serif alphabets:}\\
+With the new additions to {\tt libertinust1math}, starting with version 1.1, there are substantial changes to the handling of sans serif.  The changes have the following goals.
+\begin{itemize}
+\item
+Provide a math package with which all ISO typesetting rules may be followed.
+\item Simultaneously, add options for the non-ISO user to be able to make better use of sans serif math symbols.
+\item Provide the option of sans serif Roman and Greek math letters together with math symbols from {\tt libertinust1math}, which may be useful to those who like to make their slides using sans serif for enhanced readability at lower resolutions.
+\end{itemize}
+Thanks go to Claudio Beccari for convincing me that the effort involved was worthwhile, at least for the ISO case.
+
+Four fonts parallel to the serifed roman and italic (regular and bold) have been added, with sans serif alphanumeric symbols based on those in STIX, but slightly reduced in size and the italics reworked to match the italic slant of {\tt libertine}. (Aside from {\tt Biolinum Roman}, the {\tt Biolinum} fonts are not, in my opinion, suitable for use as sans math to accompany {\tt libertinust1math}.) Glyphs in the four fonts may be accessed by the macros \verb|\mathsf|, \verb|\mathsfbf|, \verb|\mathsfit| and \verb|\mathsfbfit|, though not all of these may be defined, depending on the options you set.
+
+\textsc{New Package Options and Macros:}\\
+I've followed to some extent the options and macros in the {\tt isomath} package.
+\begin{itemize}
+\item
+{\tt nosans} provides the bare minimum access to sans serif math letters, preserving just  \verb|\mathsf| and its bold counterpart, \verb|\mathsfbf|. This option keeps the use of additional math families to a minimum.  (If you make no use of those macros, no new math families are created.) If {\tt nosans} is not specified, new symbol fonts {sans} and {\tt sansi} are declared, along with bold versions, and \verb|\mathsfbfit| is declared to be the bold italic sans math alphabet. Two of the available sixteen math families will be committed.
+\item Option {\tt lcgreekalpha}  allows proper handling of alphabet changes for lower-case Greek letters. (They are {\tt mathord} by default---this option changes them to {\tt mathalpha}, so that you do in fact get the expected sans Greek when you enter \verb|\mathsf{\phi}|.)
+\item {\tt ISO} specifies changes needed to conform to ISO typesetting rules. If specified, the following changes will occur.
+\begin{itemize}
+\item Option {\tt nosans} is turned off, if present, and option {\tt mathsfit} is ignored unless the additional option {\tt mathsfit} is specified.
+\item Option {\tt lcgreekalpha} is turned on, allowing proper handling of alphabet changes for lower-case Greek letters.  
+\item Option {\tt slantedGreek} is turned on, as required by ISO rules.
+
+\item New commands are provided: \verb|\mathboldsans| means \verb|\mathsfbfit|, and 
+	\verb|\mathbold| means \verb|\mathbfit|, while each of 
+	\verb|\vectorsym|, 
+	\verb|\matrixsym| means \verb|\mathbfit|, and 
+	\verb|\tensorsym| means \verb|\mathsfbfit|. For example, \verb|$\matrixsym{A}$| renders as $\mathbfit{A}$, in accordance with ISO rules.
+\item If you add the option {\tt mathsfit}, then you also have access to sans italic math, which ISO regards as an option for some special cases. This will use another math family.
+\item The option {\tt reuseMathAlphabets} may be added, and can reduce math family usage by redefining \verb|\mathbf| to mean \verb|\mathbfit| (math bold italic) and \verb|\mathsf| to mean \verb|\mathsfbfit| (sans math bold italic.) 
+\item As it may be important to keep track of your math families when using ISO, I've added \verb|\ShowMathFamilies|. If you get an error message  ``too many math alphabets used in version normal'', run the macro just before the error location to get an idea of its cause.\end{itemize}
+\item
+{\tt mathsfit} may be used without {\tt ISO}, with the same effect described under the {\tt ISO} heading.
+\item {\tt reuseMathAlphabets} may be used without {\tt ISO}, but really makes sense only under {\tt ISO}.
+\item {\tt sansmath} sets {\tt nosans} and substitutes sans letters (Roman and Greek) in place of the default Libertine letters. With this option, every math expression in the document will be rendered using sans serif letters.
+
+\end{itemize}
+\newpage
+\verb|libertinust1-mathsfrm (\mathsf)|
+\fonttable{libertinust1-mathsfrm} 
+\newpage
+\verb|libertinust1-mathsfrm-bold (\mathsfbf)|
+\fonttable{libertinust1-mathsfrm-bold} 
+\newpage
+\verb|libertinust1-mathsfit (\mathsfit)|
+\fonttable{libertinust1-mathsfit} 
+\newpage
+\verb|libertinust1-mathsfit-bold (\mathsfbfit)|
+\fonttable{libertinust1-mathsfit-bold} 
+\newpage
+\textbf{\Large Brief samples using the sans serif options, showing mathgroup usage}\\
+
+{\Large1}.
+
+\includegraphics{sample5-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large2}.
+
+\includegraphics{sample1-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large3}.
+
+\includegraphics{sample4-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large4}.
+
+\includegraphics{sample2-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}\hrule
+
+{\Large5}.
+
+\includegraphics{sample6-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large6}.
+
+\includegraphics{sample3-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+(10: \LS1/libertinust1mathsf/m/it/12 = libertinust1-mathsfit at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}\hrule
+
+{\Large7}.
+
+\includegraphics{sample7-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large8}.
+
+\includegraphics{sample8-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}\hrule
+
+{\Large9}.
+
+\includegraphics{sample9-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+(10: \LS1/libertinust1mathsf/m/it/12 = libertinust1-mathsfit at 14.39996pt)
+\end{verbatim}
+\vspace{.1in}
+\hrule
+{\Large10}.
+
+\includegraphics{sample10-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/m/it/12 = libertinust1-mathsfit at 14.39996pt)\end{verbatim}
+\vspace{.1in}\hrule
+
+{\Large11: An example of sansmath}.
+
+\includegraphics{sample11-crop.pdf}
+\vspace{.1in}
+\begin{verbatim}
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathsfrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathsfit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt [bold-letters])
+\end{verbatim}\vspace{.1in}\hrule
+
+
+\end{document}  

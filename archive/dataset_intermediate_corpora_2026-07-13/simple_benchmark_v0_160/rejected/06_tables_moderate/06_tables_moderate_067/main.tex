@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00967\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+        \toprule
+        TIC  & TOI & $D$ & $R_{*}$ & $T_{\text{eff}}$ & [Fe/H] & $L_\star$ & $M_\star$ & $d_\mathrm{HZ, in}$ & $d_\mathrm{HZ, out}$ & $P$ & $R_{p}$ & $a_\mathrm{orb}$ \\
+        & & (PC) & $(R_{\odot})$ & (K) & & ($L_\odot$) & ($M_\odot$) & (AU) & (AU) & (d) & $(R_{\oplus})$ & (AU) \\
+        \hline
+ 323295479 & 1861.01 & 134.62 & 1.061 & 5490 & 0.350 & 0.957 & 0.888 & 0.983 & 1.711 & 742.51 & 11.19 & 1.543 \\
+ 384159646 & 1895.01 & 205.12 & 1.374 & 6762 & -1.211 & 2.927 & 1.239 & 1.638 & 2.705 & 748.07 & 9.57 & 1.732 \\
+ 167905035 & 4191.01 & 83.57 & 1.102 & 5816 & -0.370 & 1.247 & 0.948 & 1.107 & 1.898 & 742.86 & 2.28 & 1.577 \\
+ 146282666 & 4298.01 & 124.27 & 1.221 & 5857 & -0.820 & 1.907 & 1.092 & 1.367 & 2.339 & 722.26 & 2.72 & 1.622 \\
+ 334632624 & 4361.01 & 98.09 & 1.220 & 5944 & -0.130 & 1.666 & 1.007 & 1.274 & 2.171 & 741.43 & 2.77 & 1.607 \\
+ 304339227 & 4629.01 & 91.31 & 1.126 & 6324 & -0.270 & 1.474 & 1.028 & 1.180 & 1.981 & 714.70 & 2.49 & 1.579 \\
+ 415399713 & 5527.01 & 144.37 & 0.926 & 5862 & 0.081 & 0.760 & 0.928 & 0.863 & 1.476 & 346.16 & 2.54 & 0.941 \\
+ 88565745 & 5571.01 & 307.78 & 1.100 & 6250 & -0.625 & 1.638 & 1.099 & 1.247 & 2.099 & 731.48 & 11.78 & 1.639 \\
+ 85292615 & 5721.01 & 138.49 & 1.007 & 5881 & -0.130 & 1.025 & 1.008 & 1.001 & 1.711 & 729.48 & 3.33 & 1.590 \\
+ 162631539 & 5724.01 & 50.36 & 1.375 & 6061 & -0.560 & 2.316 & 1.143 & 1.495 & 2.535 & 697.40 & 3.02 & 1.609 \\
+ 29385858 & 5990.01 & 102.07 & 1.000 & 5626 & -0.090 & 0.890 & 0.906 & 0.943 & 1.631 & 700.96 & 2.22 & 1.494 \\
+ 296737508 & 6267.01 & 117.75 & 1.270 & 5700 & 0.030 & 1.434 & 0.986 & 1.193 & 2.056 & 733.99 & 4.81 & 1.585 \\
+ 313671132 & 6559.01 & 175.55 & 1.220 & 5878 & 0.060 & 1.502 & 0.980 & 1.212 & 2.073 & 733.38 & 6.17 & 1.581 \\
+ 192014454 & 6665.01 & 109.74 & 1.245 & 5973 & -0.320 & 1.714 & 1.054 & 1.290 & 2.197 & 735.80 & 2.77 & 1.623 \\
+ 206361691 & 6668.01 & 99.24 & 1.395 & 6002 & -0.260 & 2.290 & 1.068 & 1.490 & 2.533 & 718.65 & 3.45 & 1.605 \\
+ 232608943 & 4600.02 & 215.95 & 0.832 & 5073 & 0.330 & 0.401 & 0.808 & 0.647 & 1.148 & 482.82 & 6.91 & 1.122 \\
+ 149989864 & 6690.01 & 158.66 & 1.068 & 5599 & 0.020 & 0.933 & 0.915 & 0.966 & 1.673 & 761.71 & 2.56 & 1.585 \\
+ 149302744 & 699.03 & 192.86 & 1.419 & 6139 & 0.040 & 2.370 & 1.179 & 1.507 & 2.548 & 672.64 & 2.97 & 1.587 \\
+ 469810663 & 7060.02 & 190.56 & 1.350 & 6010 & -0.180 & 1.878 & 1.119 & 1.348 & 2.292 & 1064.70 & 4.45 & 2.119 \\
+ 306472057 & 791.02 & 333.96 & 1.430 & 6572 & -1.623 & 3.711 & 1.336 & 1.856 & 3.085 & 928.05 & 12.07 & 2.051 \\        
+ \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02550\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrrlll}
+    \toprule
+    \textbf{Title} & \textbf{Structure} & \textbf{Nodes} & \textbf{Edges} & \textbf{Feature size(initial)} & \textbf{Category} & \textbf{Source}\\
+    \midrule
+    Cora & Single graph & 2,708 & 5,278 & 1,433 (node) & citation & Planetoid \\
+    PubMed & Single graph & 19.717 & 88.648 & 500 (node) & bioinformatics & Planetoid \\
+    Reddit & Single graph & 232,965 & 114,615,892 & 602 (node) & internet-forum & - \\ 
+    Reddit Binary & Multiple subgraphs & $\sim$429.6 & $\sim$995.5 & - & internet-forum & TUDortmund \\
+    AmazonProducts & Single graph & 1,569,960 & 264,339,468 & 200 & e-shop & GraphSAINT \\
+    ogbn-proteins & Multiple subgraphs & 132,534 & 39,561,252 & 8 (edge) & bioinformatics & OGB \\
+    ogbn-mag & Single graph & 1,939,743 & 21,111,007 & 128 (node) & citation & OGB \\
+    ogbn-arxiv & Single graph & 169,343 & 1,166,243 & 128 (node) & citation & OGB \\
+    com-Youtube & Single graph & 1,138,499 & 2,990,443 & - & web-network & SNAP \\
+    com-Orkut & Single graph & 3,072,441 & 117,185,083 & - & web-network & SNAP \\
+    com-Amazon & Single graph & 334,863 & 925,872 & - & e-shop & SNAP \\
+    Flickr & Single graph & 8,925 & 899,765 & - & web-network & GraphSAINT \\
+    Harvard & Multiple subgraphs & 15,126 & 824,617 & - & citation & -  \\ 
+    Citeseer & Single graph & 3.327 & 9.103 & 3,703 (node) & citation & SNAP \\
+    sx-stackoverflow & Single graph & 2,601,977 & 63,497,050 & - & internet-forum & SNAP \\
+    roadNet-CA & Single graph & 1,965,206 & 2,766,607 & - & road-network & SNAP \\
+    web-BerkStan & Single graph & 685,230 & 7,600,595 & - & citation & SNAP \\
+    artist & Single graph & 50,515 & 1,638,396 & - & web-network (?) & Kaggle \\
+    amazon0505 & Single graph & 410,236	& 3,356,824 & - & e-shop & SNAP \\
+    OVCAR-8H & Multiple subgraphs (200) & 46.67 & 48.70 & - & bioinformatics & TUDortmund \\
+    PROTEINS & Multiple subgraphs (1,113) & 39.1 & 145.6 & 3 & bioinformatics & TUDortmund \\
+    PPI & Multiple subgraphs & 2,245.3 & 61,318.4 & - & - & - \\ 
+    ogbl-collab & Single graph & 235,868 & 1,285,465 & 128 (node) & citation & OGB \\
+    ogbl-ppa & Single graph & 576,289 & 30,326,273 & 58 (node) & bioinformatics & OGB \\
+    ogbl-ddi & Single graph & 4,267 & 1,334,889 & - & bioinformatics & OGB \\
+    ogbn-products & Single graph & 2,449,029 & 61,859,140 & 100 (node PCA) & e-shop & OGB \\
+    \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+\end{document}

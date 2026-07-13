@@ -1,0 +1,141 @@
+\documentclass[twoside,8pt]{extarticle}
+\PassOptionsToPackage{
+ paperheight =5in, % inherits from class
+ paperwidth = 4in, % inherits from class
+% inner = , % default 36pt or 0.5in
+% outer = , % 36pt or 0.5in
+% top = , % 36pt or 0.5in
+% bot = , % 36pt or 0.5in
+% binding = 9pt, % 9pt or 0.125in
+ outerbleed = 9pt, % 0pt, but check with your printer
+ innerbleed = 4pt, % 0pt, but check with your printer
+% grid  , % 12 it is just a number
+% marginalgrid =  , % 3 it is just a number
+% marginparsep =  , % 3ex, if using sidenotesplus change to 4 or 5ex
+% headsep = , % inherits from class
+% headheight = , % inherits from class
+% footskip=  , % inherits from class
+ show, % a switch to show frames around the printable areas.
+% fancyhdrOff
+}{flexipage}
+\usepackage{flexipage}
+\usepackage[]{lucimatx}
+\linespread{1.06}
+\usepackage{lipsum}
+\setlipsum{%
+  par-before = \begingroup\color{gray},
+  par-after = \endgroup,
+  sentence-before = \begingroup\color{gray},
+  sentence-after = \endgroup
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[EL,OR]{\thepage}
+\fancyhead[ER]{My New Book}
+\fancyhead[OL]{Chapter 1}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{microtype}
+
+\begin{document}
+
+
+\begin{verbatim}
+\documentclass[twoside,8pt]{extbook}
+\PassOptionsToPackage{
+  paperheight = 5in, %  inherits from class
+  paperwidth =  4in , %  inherits from class
+% inner =         , %  default 36pt or 0.5in
+  outer =         , %          36pt or 0.5in
+% top =           , %          36pt or 0.5in
+% bot =           , %          36pt or 0.5in
+% binding =       , %           9pt or 0.125in
+  outerbleed = 9pt, %           0pt,
+  innerbleed = 4pt, %           0pt,
+% grid =          , %          12
+% marginalgrid =  , %           3
+% marginparsep =  , %           3ex,
+% headsep =       , % inherits from class
+% headheight =    , % inherits from class
+% footskip=       , % inherits from class
+  show            , % a switch to show frames
+% fancyhdrOff       % not using fancyhdr
+}{flexipage}
+\end{verbatim}
+\footnotesize
+
+         \lipsum[10][1-3] \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[8]}
+
+         \lipsum[2] \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[8][1-5]}
+
+         \lipsum[2][1-6]
+
+~
+
+{\normalsize
+\noindent\verb"\NewMarginPage<6ex>{4}" increases marginal and \verb"\parsep" on next page}
+\NewMarginPage<6ex>{4} % Increase margin size
+
+         \lipsum[3][1-3]  \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[10][1-4]}
+
+         \lipsum[1][1-8]
+
+       \lipsum[2][1-7]
+
+~
+
+{\normalsize
+\noindent\verb"\ResetFlexiPage" to original page setup with the narrower margin}
+\ResetFlexiPage
+
+         \lipsum[10][1-5] \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[1][1-3]} \lipsum[2]
+
+~
+
+{\normalsize
+\noindent\verb"\Lanscape" enters landscape mode}
+\begin{Landscape} % enter lanscape mode,
+
+         \lipsum[1-4]
+
+~
+
+{\normalsize
+\noindent\verb"\endLandscape" exits landscape mode }
+\end{Landscape} % exit lanscape mode,
+         \lipsum[2][1-5] \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[1][1-3]} \lipsum[11]
+
+~
+
+{\normalsize
+\noindent\verb"\begin{landscape}" enters landscape environment}
+ \begin{landscape}
+ \lipsum[2-5]
+ \end{landscape}
+{\normalsize
+\noindent\verb"\end{landscape}" exits landscape environment}
+
+~
+
+ \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[1][1-3]}  \lipsum[17]
+
+~
+
+{\normalsize
+\noindent\verb"\NewFullPage" enters full page mode}
+\NewFullPage
+
+         \lipsum[1-4]
+
+~
+
+{\normalsize
+\noindent\verb"\OldMarginPage " restores the previous page format}
+\OldMarginPage
+
+ \marginpar[{\itshape\tiny\lipsum[1][1-4]}]{\itshape\tiny\lipsum[1][1-3]}  \lipsum[17]
+
+
+
+\end{document} 

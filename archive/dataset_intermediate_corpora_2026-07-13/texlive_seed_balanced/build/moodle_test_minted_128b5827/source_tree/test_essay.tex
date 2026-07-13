@@ -1,0 +1,29 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of essay questions.
+
+\begin{quiz}[points=1]{Essay Test}
+
+\begin{essay}[feedback={feedback for essay},template={Type your answer 
+here},response field lines=14]{Title}
+A
+\item B
+\item C
+\end{essay}
+
+\end{quiz}
+
+\end{document}

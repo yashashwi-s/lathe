@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00989\_table\_14}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|cccccc}
+        \hline
+        \textit{Study} & \textit{Signals} & \textit{Dataset} & \textit{SW} & \textit{RW (5)} & \textit{RW (15)} & \textit{RW (30)}\\
+        \hline
+
+        Li et al. (2025)  & \makecell{ECG} & \makecell{Apnea-ECG\\($n=70$)} & \makecell{Acc: 91.91 \\ Sens: 89.00 \\ Spec: 93.70}  & \makecell{Acc: 100.0 \\ Sens: 100.0 \\ Spec: 100.0} & \makecell{Acc: 91.43\\Sens: 100.0\\Spec: 82.35} & \makecell{Acc: 94.29\\Sens: 85.71\\Spec: 100.0} \\
+        \hline
+
+        Li et al. (2025)  & \makecell{ECG} & \makecell{The Second Affiliated Hospital\\of Xi’an Jiaotong University\\($n=185$)} & \makecell{Acc: 82.95\\Sens: 76.60\\Spec: 90.48} & \makecell{N/A} & \makecell{N/A} & \makecell{N/A} \\
+        \hline
+
+        \makecell{Retamales et al. (2024) } & \makecell{Pulse Oximetry,\\ Thoracic/Abdominal\\Movement} & \makecell{MESA, Sleep Heart Health Study,\\Osteroporotic Fractures in Men\\ ($n=10643$)} & \makecell{Acc: 86*\\Sens: 67*\\Spec: 91*}  & \makecell{Acc: 92.23\\Sens: 96.62\\Spec: 59.11} & \makecell{Acc: 88.01\\Sens: 86.35\\Sens: 90.10} & \makecell{Acc: 91.35\\Sens: 74.11\\Spec: 97.36} \\
+        \hline
+
+        \makecell{Zhou \& Kang (2024) } & \makecell{ECG} & \makecell{Apnea-ECG\\ ($n=70$)} & \makecell{Acc: 96.37\\Sens: 95.67\\Spec: 97.44}  & \makecell{N/A} & \makecell{N/A} & \makecell{N/A} \\
+        \hline
+
+        \makecell{Kwon et al. (2023) } & \makecell{EOG, EEG, EMG} & \makecell{University of Coimbra,\\Unspecified\\ ($n=72$)} & \makecell{Acc: 88.52\\Sens: 24.76\\Spec: 99.69}  & \makecell{N/A} & \makecell{N/A} & \makecell{N/A} \\
+        \hline
+
+        \makecell{Sharma et al. (2022) } & \makecell{Pulse Oximetry} & \makecell{University College Dublin\\ ($n=25$)} & \makecell{Acc: 89.21\\Sens: 92.34\\Spec: 89.13}  & \makecell{N/A} & \makecell{N/A} & \makecell{N/A} \\
+        \hline
+
+        Yeo et al. (2022)  & \makecell{ECG, \\ Accelerometry} & \makecell{Cleveland Family Study\\($n=326$)} & \makecell{Acc: 85 \\ Sens: 68 \\ Spec: 89}  & \makecell{N/A} & \makecell{Acc: 88 \\ Sens: 81 \\ Spec: 90} & \makecell{N/A} \\
+        \hline
+
+        Yeo et al. (2022)  & \makecell{ECG, \\ Accelerometry} & \makecell{Multi-Ethnic Study\\of Atherosclerosis (MESA)\\($n=1104$)} & \makecell{Acc: 80 \\ Sens: 66 \\ Spec: 84}  & \makecell{N/A} & \makecell{Acc: 81 \\ Sens: 80 \\ Spec: 82} & \makecell{N/A} \\
+        \hline
+
+
+        % Hemrajani et al. (2023) \cite{Hermajani:2023} & \makecell{ECG} & \makecell{PhysioNet Apnea-ECG\\($n=70$)} & \makecell{Acc: 90.29 \\ Sens: 90.01 \\ Spec: 90.72}  & \makecell{N/A} & \makecell{N/A} & \makecell{N/A} \\
+        % \hline
+
+        % \makecell{Chen et al. (2024) \cite{Chen:2024}\\ \textit{From Table \ref{tab:related-wearable}}} & \makecell{PPG???} & \makecell{Apnea-ECG\\ ($n=144$)} & \makecell{Acc: 75.15 \\ Sens: 67.96 \\ Spec: 79.74}  & \makecell{N/A} & \makecell{N/A} & \makecell{Acc: 82.86 \\ Sens: 80.00 \\ Spec: 86.67} \\
+        % \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04675\_table\_26}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|*{32}{c}}
+    \toprule
+    \diagbox{$\Delta_{in}$}{$\lambda_{out}$}& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & a & b & c & d & e & f & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 1a & 1b & 1c & 1d & 1e & 1f \\
+    \midrule
+    0 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 16\\
+    1 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0\\
+    2 & 16 & 16 & -16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 16 & -16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    3 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    4 & 16 & 16 & 16 & 16 & -16 & -16 & -16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    5 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    6 & 16 & 16 & -16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    7 & 16 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    8 & 16 & 0 & 16 & 0 & 16 & 0 & 16 & 0 & -16 & 0 & -16 & 0 & -16 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    9 & 16 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    a & 16 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & -16 & 0 & 0 & 0 & 0 & 0\\
+    b & 16 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & -16 & 0 & 0 & 0 & 0\\
+    c & 16 & 0 & 16 & 0 & -16 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    d & 16 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    e & 16 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    f & 16 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    10 & 16 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & -16 & 0 & 0 & 0\\
+    11 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    12 & 16 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    13 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    14 & 16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    15 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0\\
+    16 & 16 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    17 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    18 & 16 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    19 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1a & 16 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & -16 & 0\\
+    1b & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1c & 16 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1d & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1e & 16 & 0 & 0 & 0 & 0 & 0 & -16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1f & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -16\\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

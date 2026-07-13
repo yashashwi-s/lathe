@@ -1,0 +1,128 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{minted}
+\usemintedstyle{tango}
+%\RecustomVerbatimEnvironment{Verbatim}{LVerbatim}{}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the \textsf{minted} package.
+
+The only command supported is 
+\texttt{inputminted[<options>]\{<lang>\}\{<filename>\}}.
+
+\begin{quiz}{Minted}
+
+\setminted{numbersep=3ex,tabsize=4,numberblanklines=false,autogobble=true}
+
+\begin{VerbatimOut}{_minted-test_minted/test.tex}
+  % !TeX encoding = UTF-8
+  % !TeX spellcheck = en_US
+  % !TEX TS-program = xelatex
+  
+  \documentclass{article}
+  \usepackage[nostamp]{moodle}
+  \newif\iffvextra
+  \fvextratrue
+  \ifxetex % FOR XELATEX
+   \usepackage{fontspec}
+  \else %% FOR PDFLATEX
+  	\usepackage[utf8]{inputenc} % necessary
+  	\usepackage[T1]{fontenc} % necessary
+  \fi
+\end{VerbatimOut}
+\setminted[latex]{firstline=3,firstnumber=2,lastline=9,numbers=both,style=xcode}
+
+\begin{VerbatimOut}{_minted-test_minted/test.py}
+n = int(input('Type a number, and its factorial will be printed: '))
+
+if n < 0:
+    raise ValueError('non negative integer expected')
+
+fact = 1
+
+for i in range(2, n + 1):
+    fact *= i
+
+print(fact)
+\end{VerbatimOut}
+\setminted[python]{firstline=3,firstnumber=2,lastline=9,numbers=both,style=xcode}
+
+\begin{VerbatimOut}{_minted-test_minted/test.c}
+long some_function();
+/* int */ other_function();
+
+/* int */ calling_function()
+{
+    long test1;
+    register /* int */ test2;
+
+    test1 = some_function();
+    if (test1 > 0)
+          test2 = 0;
+    else
+          test2 = other_function();
+    return test2;
+}
+\end{VerbatimOut}
+\setminted[c]{style=tango,numberblanklines=true,highlightlines={2,4,7}}
+
+\begin{VerbatimOut}{_minted-test_minted/test.pl}
+#!/usr/bin/XXXX
+use strict;
+use warnings;
+use IO::Handle;
+
+my ( $remaining, $tot );
+
+$remaining = $tot = shift(@ARGV);
+
+STDOUT->autoflush(1);
+
+while ( $remaining ) {
+  printf ( "Remaining %s/%s \r", $remaining--, $tot );
+  sleep 1;
+}
+
+print "\n";
+\end{VerbatimOut}
+\setminted[perl]{firstline=1,firstnumber=1,lastline=19,numbers=left}
+
+\begin{numerical}[tolerance=0]{LaTeX Classes}
+In the following \LaTeX\ code excerpt, on which line is the class loaded?
+\inputminted{latex}{_minted-test_minted/test.tex}
+\item[feedback={yes! 
+\inputminted[highlightlines={3}]{latex}{_minted-test_minted/test.tex}},fraction=100]
+ 4
+\item[feedback={No. On line 3, there is only a comment.},fraction=0] 3
+\item[feedback={No. On line 5, the package \texttt{moodle} is 
+loaded.},fraction=0] 5
+\end{numerical}
+
+% To avoid collision of line and item numbers in PDF, force `left-right' mode:
+\RecustomVerbatimEnvironment{Verbatim}{LVerbatim}{frame=lines,
+    label={[Beginning of code]End of code},framesep=3mm,numbersep=9pt}%
+\begin{multi}{Languages}
+Select the code written in the Python language.
+\item[feedback={Indeed, this is Python code.}]* 
+\inputminted[highlightlines={2,4-5},numbers=both]{python}{_minted-test_minted/test.py}
+\item[feedback={No. This is Perl code.}]
+\inputminted[highlightlines={2,4-5},numbers=right,style=colorful]{perl}{_minted-test_minted/test.pl}
+\item[feedback={No. This is C code.}]
+\inputminted[numbers=left]{c}{_minted-test_minted/test.c}
+\end{multi}
+
+
+\end{quiz}
+
+\end{document}

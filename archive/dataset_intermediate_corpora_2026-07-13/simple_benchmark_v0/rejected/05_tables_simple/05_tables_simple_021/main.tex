@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00307\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|l}
+\hline
+\textbf{Symbol} & \textbf{Description} \\ 
+\hline
+$\mathcal{G},\mathcal{G^+},\mathcal{G^-}$ & Signed graph, positive subgraph, negative subgraph \\
+$V, E^+, E^-$ & Node set, negative and positive edge sets\\
+$\mathcal{N}(v_r)$ & Neighbor node set of node $v_r$ \\
+$\theta_D$ & Shared parameters of discriminators $D^+$ and $D^-$\\
+$\theta_G$ & Shared parameters of generators $G^+$ and $G^-$\\
+$\mathbf{d}_{v_r}$ & Node embedding for node $v_r$ of Discriminators\\
+$\mathbf{g}_{v_r}$ & Node embedding for node $v_r$ of Generators\\
+$N, L$ & Maximum number and length of generated path \\
+$\epsilon, \delta$ & Privacy parameters  \\
+$\mathcal{N}(0,\sigma^2)$ & Gaussian distribution with standard deviation $\sigma^2$\\
+$P_{rt}$ & A path from rooted node $v_r$ to target node $v_t$ \\
+$T^+_{v_r}, T^-_{v_r}$ & Positive and negative BFS-trees rooted from $v_r$ \\
+$p_{\text{true}}^{+}(\cdot | v_r)$ & Positive connectivity distributions of $(v_r,v)\in E^+$\\
+$p_{\text{true}}^{-}(\cdot | v_r)$ & Negative connectivity distributions of $(v_r,v)\in E^-$\\
+$p^+_{T^+_{v_r}}(v | v_r)$ & Positive relevance probability between $v_r$ and $v$\\
+$p^-_{T^-_{v_r}}(v | v_r)$ & Negative relevance probability between $v_r$ and $v$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00545\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{.85 cm}|p{6.95 cm}} \hline
+    \textbf{Notation} & \textbf{Description} \\ \hline
+    $\mathcal{G}$     &  Pool of graphs to train the RL model.\\ 
+    $k$     & Budget size, i.e., the number of seed nodes to be selected \\
+    $p_{uv}$     & Propagation probability of node $u$ to node $v$ in IC model. \\
+    $\phi$ & Weighting parameter for fairness in reward function 
+    \\
+    $E$ & The number of episodes for training the RL agent. \\
+    $\gamma$ & Discount parameter in the RL framework. 
+    \\
+    $\epsilon$ & The probability of selecting a random node as the next action according to the $\epsilon$-greedy policy. \\
+    $\eta_\epsilon$  & Cooling down parameter of $\epsilon$. \\
+    $\epsilon_\text{min}$ & The lowest value for $\epsilon$ 
+    \\
+    $d$ & Dimension of network embeddings \\
+    $\Theta$ & The set of parameters to estimate the $Q$-function. \\
+    $\mathcal{M}$ & Replay memory size \\
+    $b$ & Batch size \\
+    $\alpha$ & Learning rate for stochastic gradient descent \\
+    $m$ & The number of (Monte-Carlo) simulations for the IC model \\
+    $K$ & Every $K$ steps, the parameters of the function approximator are updated. \\ \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

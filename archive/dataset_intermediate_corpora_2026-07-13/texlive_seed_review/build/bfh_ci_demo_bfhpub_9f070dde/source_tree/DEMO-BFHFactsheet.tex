@@ -1,0 +1,112 @@
+\documentclass[
+	trilingual,
+	type=factsheet,
+	headings=big,
+]{bfhpub}
+
+\usepackage[french,ngerman,main=english]{babel}
+%---------------------------------------------------------------------------
+% Hyperref Package (Create links in a pdf)
+%---------------------------------------------------------------------------
+\usepackage[
+  hidelinks
+ ,plainpages=false
+ ,pdfpagelabels
+ ,pdfusetitle
+ ,hypertexnames = {true}	% no failures "same page(i)"
+]{hyperref}
+
+
+\newcommand*{\pkg}[1]{\texttt{#1}}
+\newcommand*{\cls}[1]{\texttt{#1}}
+\newcommand*{\code}[1]{\texttt{#1}}
+
+\RequirePackage{blindtext}
+\begin{document}
+
+%enable the placement of BFH logo in the head of every page
+\enableHeadLineLogo
+
+%----------------  BFH tile page   -----------------------------------------
+\title{BFH factsheet demo}
+\subtitle{A demo document and documentation for the fact sheet mode of BFHpub}
+
+\subject{Das ist ein Teaser auf dem Titelblatt. Inveniat odis vid quist eos ut
+	odicidi psandaest, omnis ex et re laborep eribusamet es ulluptaquia
+	suntur se nihic in eum dero eossit, nihil imaximi llatus repta.}
+
+\department{Leistungsbereich oder Organisationseinheit}
+\titlefooterright{Homepage}
+
+%The starred variant will automatically scale and clip the image. the non-starred one will allow you to set the size yourself
+%  \titlegraphic*{\includegraphics{example-image}}
+
+\maketitle
+
+\section{Headline which spans across both columns}
+
+\subsection{Subtitle}
+Ich bin ein Fliesstext. Ex eria int. Untur, quam et etum quam is
+abo. Ut officabo. Nequate sumet ut rem qui reptatincil iunt dio. Lo
+moluptat hil mo etur, sit liatur solum quamet et earum quiasi do-
+luptae. Modi int ea quam sim ut et dunt liqui di doluptur accabor
+min nis audis dic te ea velitati offic teserehent erciunt, et verum,
+apero conectae rae sam dit omnis ped moluptia des as dolum eos
+voluptatendi ad qui con rem as dolorem poreprori ut endia acestis
+et as maximint et aborro doluptatas vention restiam iusape officia
+sequias pos apis nustiaestem ullitem quam susandi sanis quatque
+volorem abo. Et re et fuga. Um et fugit voluptat volendem dolut
+voluptate nobist omnis non es ut excepta menducim autem nost
+harcid ut repratis es que landa alit et occate po
+
+\subsection{Olorum iunt ipsum harchit}
+
+\begin{itemize}
+	\item Adia des nam, voloratem Namd modippidis
+	\item Itamusdantur? Quis et qui nos si acimagni tem. Et qui cum que
+	      volora nos volum quia voluptatem reperum quid eum labo. Ped
+	      evelit alissus aliquasit faccab inci dendiatquid qui:
+	\item Dolorem nam sam et laudiss umquos
+	\item Doluptam abor
+	\item Mod dolore perum aspis maximinusti cus
+\end{itemize}
+
+\bfhRule
+
+%disable the headline logo also starts a new page
+\disableHeadlineLogo
+
+%switch to twocolumn mode. globally this is also possibly by setting twocolumn class option
+\twocolumn[\section{Headline which spans across both columns}]
+
+\subsection{Subtitle}
+Ich bin ein Fliesstext. Ex eria int. Untur, quam et etum quam is
+abo. Ut officabo. Nequate sumet ut rem qui reptatincil iunt dio. Lo
+moluptat hil mo etur, sit liatur solum quamet et earum quiasi do-
+luptae. Modi int ea quam sim ut et dunt liqui di doluptur accabor
+min nis audis dic te ea velitati offic teserehent erciunt, et verum,
+apero conectae rae sam dit omnis ped moluptia des as dolum eos
+voluptatendi ad qui con rem as dolorem poreprori ut endia acestis
+et as maximint et aborro doluptatas vention restiam iusape officia
+sequias pos apis nustiaestem ullitem quam susandi sanis quatque
+volorem abo. Et re et fuga. Um et fugit voluptat volendem dolut
+voluptate nobist omnis non es ut excepta menducim autem nost
+harcid ut repratis es que landa alit et occate po
+
+\subsection{Olorum iunt ipsum harchit}
+
+\begin{itemize}
+	\item Adia des nam, voloratem Namd modippidis
+	\item Itamusdantur? Quis et qui nos si acimagni tem. Et qui cum que
+	      volora nos volum quia voluptatem reperum quid eum labo. Ped
+	      evelit alissus aliquasit faccab inci dendiatquid qui:
+	\item Dolorem nam sam et laudiss umquos
+	\item Doluptam abor
+	\item Mod dolore perum aspis maximinusti cus
+\end{itemize}
+
+\noindent\includegraphics[width=\linewidth]{example-image}
+
+\bfhRule
+
+\end{document}

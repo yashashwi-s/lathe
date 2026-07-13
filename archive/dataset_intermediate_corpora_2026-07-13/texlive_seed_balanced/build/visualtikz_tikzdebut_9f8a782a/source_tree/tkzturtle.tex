@@ -1,0 +1,176 @@
+
+ \maboite{\BS{usetikzlibrary}\AC{turtle}}
+\label{lib-turtle}
+
+
+\begin{center}
+\RRR{ 73 }
+\end{center}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{  \BS{draw} [blue,line width=3pt,turtle={home,forward}];} \\  \hline 
+\begin{tikzpicture}
+\draw[help lines] (-1.5,-2) grid (1.5,2) ; 
+\draw [blue,line width=3pt,turtle={home,forward}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw[help lines] (-1.5,-2) grid (1.5,2) ;  
+\draw [blue,line width=3pt,turtle={home,forward=1.5cm}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw[help lines] (-1.5,-2) grid (1.5,2) ;  
+\draw [blue,line width=3pt,turtle={home,fd}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw[help lines] (-1.5,-2) grid (1.5,2) ; 
+\draw [blue,line width=3pt,turtle={home,fd=1.5cm}];
+\end{tikzpicture}
+\\ \hline 
+turtle=\AC{home,forward}  & turtle=\AC{home,forward=1.5cm} & turtle=\AC{home,fd} & 
+turtle=\AC{home,fd=1.5cm} \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\multicolumn{4}{|c|}{  \BS{draw} [blue,line width=3pt,turtle={home,left,fd];}} \\  \hline  
+\hline 
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,left,fd}];
+\end{tikzpicture} 
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,left=45,fd}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,lt,fd}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,lt=45,fd}];
+\end{tikzpicture}
+\\ \hline
+turtle=\AC{home,left,fd}  & turtle=\AC{home,left=45,fd} & turtle=\AC{home,lt,fd} & 
+turtle=\AC{home,lt=45,fd} \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\multicolumn{4}{|c|}{  \BS{draw} [blue,line width=3pt,turtle={home,right,fd];}} \\  \hline  
+\hline 
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,right,fd}];
+\end{tikzpicture} 
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,right=45,fd}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,rt,fd}];
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw (-1,-1) grid (1,1) ; 
+\draw [blue,line width=3pt,turtle={home,rt=45,fd}];
+\end{tikzpicture}
+\\ \hline
+turtle=\AC{home,right,fd}  & turtle=\AC{home,right=45,fd} & turtle=\AC{home,rt,fd} & 
+turtle=\AC{home,rt=45,fd} \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\tikz[blue,line width=3pt]
+\draw [->,turtle={home,rt,fd,fd,lt,fd,lt,fd}];
+&  
+\tikz[blue,line width=3pt]
+\draw [->,turtle/distance=2cm,turtle={home,rt,fd,fd,lt,fd,lt,fd}];
+\\ \hline 
+[->,turtle={home,rt,fd,fd,lt,fd,lt,fd}] & [->,turtle/distance=2cm,turtle={home,rt,fd,fd,lt,fd,lt,fd}] 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|} \hline 
+\begin{tikzpicture}[turtle/distance=2cm]
+\draw[help lines] (-1.5,-1) grid (6,3) ; 
+\draw [blue,line width=3pt,dotted,turtle={home,forward,right,forward},fd];
+\draw [red,line width=3pt,turtle={how/.style={bend left},home,fd,rt,fd,fd}] ;
+\end{tikzpicture}
+\\  \hline 
+[red,turtle=\AC{\rouge{how/.style}=\AC{bend left},home,fd,rt,fd,fd}]
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|}  \hline 
+\tikz
+\filldraw [turtle/distance=2cm,thick,blue,fill=red!20]
+[turtle=home]
+\foreach \i in {1,...,5}
+{
+[turtle={forward,right=144}]
+}; 
+& 
+ 
+\parbox[b]{10cm}{
+\BS{filldraw}[turtle/distance=2cm,thick,blue,fill=red!20] \\
+$[$ turtle=home $]$ \\
+\BS{foreach} \BS{i} in \AC{1,...,5} \\
+{
+[ turtle=\AC{forward,right=144} ]
+};
+}
+\\ \hline  
+\end{tabular} 
+
+\bigskip
+
+
+
+\begin{tabular}{|c|c|}  \hline 
+\tikz \draw [thick,blue]
+[turtle=home]
+\foreach \i in {1,...,25}
+{
+[turtle={forward=\i/5,right=120}]
+};
+& 
+ 
+\parbox[b]{10cm}{
+\BS{draw}[thick,blue] \\
+$[$ turtle=home $]$ \\
+\BS{foreach} \BS{i} in \AC{1,...,25} \\
+{
+[turtle=\AC{forward=\BS{i}/5,right=120} ]
+}; \\
+\vspace{1cm}
+}
+\\ \hline  
+\end{tabular}
+
+
+

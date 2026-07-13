@@ -1,0 +1,209 @@
+%
+% File:         unidoc.tex
+% Date:         Thu Apr 24 12:36:40 1997
+% Author:       Norbert Preining (norbert)      
+%
+\documentclass{article}
+\usepackage{a4,otibet,multicol,array}
+\title{The \texttt{otibet}-package\\
+ Writing tibetan text for \OMEGA}
+\author{Norbert Preining}
+\def\oo{$\Omega$}
+\def\otp{\oo TP}
+\let\OMEGA=\oo
+\font\logofont=logo10
+\def\METAFONT{{\logofont METAFONT}}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+This package should ease the pain when writing tibetan text for the
+typesetting system \OMEGA, a Unicode-capable descendent of
+\TeX. This package makes heavy use of \oo\ translation process,
+known as \otp. Included in the package there are the necessary
+\otp-files to type tibetan text in a certain transcription and after
+processing the file with \oo\ getting the tibetan glyphs.
+
+Together with this package comes a font \texttt{tibetan.mf} for
+\METAFONT, which has to be used (cf.~sec.~\ref{:font}).
+
+This package is capable of rendering all the basic tibetan
+compound glyphs (as \texttt{rka}) in their usual form. Complex Hindi
+consonant stacks are made up from the basic characters by stacking
+them one above the other.
+
+\section{Input Encoding, Transcription\label{:trans}}
+Two transcriptions for reading the input are supported, the ``Wylie's
+Transcription'' and the one used in the Unicode standard
+(cf.~\cite{unicode}). These two only differ in how to write the
+inverted characters. For these characters there will be a double entry
+under transcription in the following table, standing for
+``Wylie/Unicode''. Each one of this input encodings can be selected as
+an option (see~chap.~\ref{:options}).
+
+{
+\columnseprule=0.5pt
+\advance\baselineskip by 10pt
+\begin{multicols}{3}
+  \halign{\qquad #\hfill&\qquad#\hfil\cr
+Transl. & Tib.\cr
+\cr
+ka& \texttb{ka }\qquad\ \ \cr      
+kha& \texttb{kha }\cr    
+ga& \texttb{ga }\cr      
+nga& \texttb{nga }\cr    
+ca& \texttb{ca }\cr      
+cha& \texttb{cha }\cr    
+ja& \texttb{ja }\cr      
+nya& \texttb{nya }\cr    
+txa/tta& \texttb{txa }\cr
+thxa/ttha& \texttb{thxa }\cr    
+dxa/dda& \texttb{dxa }\cr      
+dxha/ddha& \texttb{dxha }\cr      
+nxa/nna& \texttb{nxa }\cr      
+ta& \texttb{ta }\cr
+tha& \texttb{tha }\cr    
+da& \texttb{da }\cr      
+na& \texttb{na }\cr      
+pa& \texttb{pa }\cr      
+pha& \texttb{pha }\cr    
+ba& \texttb{ba }\cr      
+ma& \texttb{ma }\cr      
+tsa& \texttb{tsa }\cr    
+tsha& \texttb{tsha }\cr  
+dza& \texttb{dza }\cr    
+wa& \texttb{wa }\cr      
+zha& \texttb{zha }\cr    
+za& \texttb{za }\cr      
+'a& \texttb{'a }\cr        
+ya& \texttb{ya }\cr      
+ta& \texttb{ta }\cr      
+la& \texttb{la }\cr      
+sha& \texttb{sha }\cr    
+shxa/ssa& \texttb{shxa  }\cr      
+sa& \texttb{sa  }\cr      
+ha& \texttb{ha  }\cr      
+a& \texttb{a  }\cr
+/& \texttb{/ }\cr
+.,& \texttb{. }\cr
+}
+\end{multicols}
+\par}
+
+For the distinction between praefixed `g' and main `g', as in g.yag,
+use `\{g\}' (`\{g\}yag' gives \texttb{{g}yag} while `gyag' gives
+\texttb{gyag}).
+
+\section{Special characters}
+Some special characters are accessible by the use of
+control-sequences:
+
+{\fontfamily{cmtt}\selectfont
+  \advance \baselineskip by 10pt
+  \halign{\qquad #\hfill&\qquad#\hfill&\qquad#\hfil\cr
+    \verb|\om| & 0F00 & \om \cr
+    \verb|\endsym,\gtertsheg| & 0F14 & \endsym \cr
+    \verb|\anusvara| & 0F71 & \texttb{\protectvowel\anusvara} \cr
+    \verb|\hrih| & --- & \hrih \cr
+    \verb|\dme| & --- & \dme \cr
+    \verb|\hung| & --- & \hung \cr
+    \verb|\swasti| & --- & \swasti \cr
+    }
+  \par
+  }
+
+\section{Unicode characters not implemented}
+The following Unicode characters are at the moment not implemented:
+
+{\fontfamily{cmtt}\selectfont
+  \def\bla#1{\texttb{\protectvowel #1}}
+\begin{multicols}{2}
+  \halign{\qquad #\hfill&\qquad#&\qquad#\hfil\cr
+  \verb|\vowelii| & 0F73 & \bla\vowelii\cr
+  \verb|\voweluu| & 0F75 & \bla\voweluu\cr
+  \verb|\vowelr|  & 0F76 & \bla\vowelr\cr
+  \verb|\vowelrr| & 0F77 & \bla\vowelrr\cr
+  \verb|\vowell|  & 0F78 & \bla\vowell\cr
+  \verb|\vowelll| & 0F79 & \bla\vowelll\cr
+  \verb|\vowelee| & 0F7B & \bla\vowelee\cr
+  \verb|\voweloo| & 0F7D & \bla\voweloo\cr
+  \verb|\rnambcad| & 0F7F & \bla\rnambcad \cr
+  \verb|\reversedi| & 0F80 & \bla\reversedi\cr
+  \verb|\reversedii| & 0F81 & \bla\reversedii\cr
+  \verb|\nyizlanaada| & 0F82 & \bla\nyizlanaada\cr
+  \verb|\snaldan| & 0F83 & \bla\snaldan\cr
+  \verb|\halanta| & 0F84 & \bla\halanta\cr
+  \verb|\paluta| & 0F85 & \bla\paluta\cr
+  \verb|\lcirtags| & 0F86 & \bla\lcirtags\cr
+  \verb|\yangrtags| & 0F87 & \bla\yangrtags\cr
+  \verb|\lcetsacan| & 0F88 & \bla\lcetsacan\cr
+  \verb|\mchucan| & 0F89 & \bla\mchucan\cr
+  \verb|\grucanrgyings| & 0F8A & \bla\grucanrgyings\cr
+  \verb|\grumedrgyings| & 0F8B & \bla\grumedrgyings\cr
+}
+\end{multicols}
+}
+
+\section{Output Encoding}
+The package \texttt{otibet} internally uses the Unicode encoding of
+the tibetan glyphs (\texttt{U+0F00--U+0FBF}), although not every glyph
+can (at the moment) be rendered (depending on the font). The internal
+processing is done in Unicode and finally the output is recoded to the
+(very) special arrangement of the characters in the font
+\texttt{tibetan} (cf.~sec.~\ref{:font}).
+
+\section{Specialities}
+A tsheg is automatically inserted at a space and
+deleted at nonsense places. This option can be turned of with the
+option ``\texttt{notsheg}'' (not implemented yet!).
+
+\section{Consonant Clusters}
+All the basic tibetan glyphs are rendered in there usual form. If a
+cluster of consonants cannot be rendered, the basic glyphs are just
+stacked one over the other. So you get
+\begin{itemize}
+\item from ``rgyo'' a ``\texttb{rgyo}''
+\item from ``ltsr'' a ``\texttb{ltsr}''.
+\end{itemize}
+
+\section{The font \texttt{tibetan}\label{:font}}
+The font \texttt{tibetan} is based on Sirlins fonts \texttt{gtib} and
+\texttt{gtibsp}, which in turn is based on \texttt{pk}-files named
+\texttt{tib.300pk} and \texttt{tibsp.300pk}. A few contributions of the
+author should fill the gaps to a font covering all Unicode characters.
+
+\section{Options to the package\label{:options}}
+There are some options which control the behaviour of the package:
+\begin{itemize}
+  \item \texttt{wylie-input, unicode-input}: These two options select
+    the input encoding, the transcription. See~chap.~\ref{:trans} for
+    details. The \texttt{wylie-input} is the default.
+  \item \texttt{tibetan-output, latin-output}: These two options select the
+    output encoding and the used font.
+  \item \texttt{notsheg}: Inhibits the putting of a tsheg after
+    syllabes. \emph{Not implemented yet.}
+  \item \texttt{realunicode}: Maybe in the future a text will come
+    in Unicode, not in \texttt{ASCII}, so you can select it. \emph{Not
+    implemented yet.}
+\end{itemize}
+
+\section{System Requirements}
+You need \oo\ and a large {\fontfamily{cmtt}\selectfont
+\verb|buff_size|;-)}.
+
+                                %\section{Availability, Rights and Lefts}
+                                %This package is freely distributable
+                                %under the GPL Version~?.? or any 
+                                %later one.
+
+\begin{thebibliography}{1}
+\bibitem{unicode}
+  The Unicode Consortium.
+  \newblock \emph{The Unicode Standard, Version 2.0}.
+  \newblock Addison-Wesley, 1996.
+\end{thebibliography}
+\end{document}
+
+% Local Variables:
+% TeX-command-default: "Lambda"
+% End:

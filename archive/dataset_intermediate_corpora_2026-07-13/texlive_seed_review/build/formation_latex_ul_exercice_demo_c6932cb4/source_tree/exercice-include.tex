@@ -1,0 +1,32 @@
+\documentclass[11pt,french]{memoir}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+  \usepackage{graphicx} % insertion de graphiques avec \includegraphics
+  \usepackage{url}      % commande \url pour les... URL
+
+  \title{R et GNU Emacs}
+  \author{Vincent Goulet}
+  \date{Université Laval}
+
+\begin{document}
+
+\frontmatter
+
+\input{pagetitre}
+
+\tableofcontents*
+
+\mainmatter
+
+\include{rpresentation}
+\include{emacs}
+
+\end{document}

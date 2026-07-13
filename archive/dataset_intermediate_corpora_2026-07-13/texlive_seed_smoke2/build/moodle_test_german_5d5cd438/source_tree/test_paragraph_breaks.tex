@@ -1,0 +1,55 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of paragraph breaks in the items 
+of essay and multi questions.
+
+\begin{quiz}[points=1]{Paragraph Breaks}
+\begin{multi}{Multi}
+A
+\item* B
+
+C
+\item D
+\end{multi}
+
+\begin{cloze}{Close-multi}
+\begin{multi}[vertical]
+\begin{center}
+A
+
+Z
+\end{center}
+\item* B
+
+C
+\item D
+\end{multi}
+\end{cloze}
+
+\begin{essay}{Essay}
+\begin{center}
+A
+
+Z
+\end{center}
+\item B
+
+C
+\item D
+\end{essay}
+\end{quiz}
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{array,booktabs,enumitem,graphicx,xcolor,hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Batalin-Vilkovisky Lagrangian Quantisation}
+\author{Source-backed arXiv sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Extracted Lists}
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+\begin{itemize}
+\item $S_{cl}(\phi ) = S(\Phi ,0)$~: the classical
+action is recovered when all antifields are set to zero.
+\item The extended action should satisfy the {\bf master equation}, which
+at the classical level reads $(S,S)=0$.
+\item $S$ is a proper solution, which means that $S_{\alpha \beta }\equiv
+\dl_\alpha \dr_\beta S$ is
+a matrix of rank $N$ on the stationary surface where $N$ is the number of
+fields $\Phi ^A$.
+\end{itemize}
+
+\begin{itemize}
+\item Point transformations are the easiest ones. This are just
+redefinitions between the fields $\Phi '^A=f^A(\Phi )$. They are obtained
+by $F=\Phi '^*_A f^A(\Phi )$ which thus determines the corresponding
+transformations of the antifields. The latter replace the calculations of
+the variations of the new variables.
+\item Adding the BRST transformation of a function $s\Psi(\Phi )$ to the
+action is obtained by a canonical transformation with $F=\Phi '^*_A\Phi ^A+
+\Psi (\Phi )$. The latter gives
+\begin{equation}
+\Phi'^A = \Phi^A \ ;\qquad
+\Phi ^*_A =\Phi'^*_A + \partial _A \Psi (\Phi ).
+\label{gfermion}\end{equation}
+\item Redefine the symmetries by adding equation of motions
+('trivial symmetries'). This is obtained by
+\begin{equation}
+F=\Phi '^*_A\Phi ^A+ \Phi '^*_A\Phi '^*_B h^{AB}(\Phi )
+\end{equation}
+(the first term is the identity transformation).
+\item Elimination of auxiliary fields can be done by canonical
+transformations
+(see appendix B of \cite{disp}). This procedure will then also give
+the 'compensating transformations'. \end{itemize}
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01808\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c c c c c}
+\hline \hline
+Reaction & Type & $E_{cm}$ & $d_\mathrm{min}$ & $e^2 \frac{Z_L Z_R}{E_{cm}}$  \\ \hline \hline
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 81.85 & 14.25 & 14.07 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 84.85 & 13.77 & 13.58 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 87.85 & 13.33 & 13.11 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 90.85 & 12.92 & 12.68 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 93.85 & 12.51 & 12.27 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 94.85 & 12.37 & 12.14 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 95.85 & 12.23 & 12.02 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 96.85 & 12.08 & 11.89 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 97.85 & 11.92 & 11.77 \\ \hline
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 79.98 & 14.56 & 14.40 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 82.98 & 14.07 & 13.88 \\ 
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 85.98 & 13.61 & 13.40 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 88.98 & 13.18 & 12.95 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 91.98 & 12.77 & 12.52 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 92.98 & 12.64 & 12.39 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 93.98 & 12.50 & 12.26 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 94.98 & 12.37 & 12.13 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 96.10 & 12.22 & 11.99 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 97.10 & 12.08 & 11.86 \\
+$^{40}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 98.10 & 11.93 & 11.74 \\ \hline
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 79.98 & 14.49 & 14.40 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 82.98 & 13.97 & 13.88 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 85.98 & 13.51 & 13.40 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 88.98 & 13.07 & 12.95 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 91.98 & 12.63 & 12.52 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 92.97 & 12.49 & 12.39 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 93.97 & 12.33 & 12.26 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDHF & 94.98 & 12.18 & 12.13 \\ \hline
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 79.98 & 14.45 & 14.40 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 82.98 & 13.94 & 13.88 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 85.98 & 13.48 & 13.40 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 88.98 & 13.04 & 12.95 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 91.98 & 12.60 & 12.52 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 92.98 & 12.46 & 12.39 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 93.98 & 12.31 & 12.26 \\
+$^{48}\text{Ca} + {}^{96}\text{Zr}$ & TDSLDA & 94.98 & 12.16 & 12.13\\ \hline \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02096\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcc}
+\hline
+Property & \textit{Forge~I} & \textit{Forge~II} \\
+\hline
+RA & 09:59:30.28 & 09:59:34.07   \\  %149.876162 & 149.891961 
+DEC & 02:10:00.12  & 02:17:06.31\\       %2.166701  & 2.285085\\
+Redshift & 2.868 & 2.925 \\
+\hline
+CFHT $U$ & $27.26 \pm 0.07$ & $26.37 \pm 0.06$ \\
+Subaru $g$ & $26.16 \pm 0.07$ & $25.00 \pm 0.06$ \\
+Subaru $r$ & $25.58 \pm 0.06$ & $24.41 \pm 0.06$ \\
+Subaru $i$ & $25.59 \pm 0.06$ & $24.20 \pm 0.05$ \\
+Subaru $z$ & $25.74 \pm 0.07$ & $24.30 \pm 0.07$ \\
+Subaru $y$ & $25.75 \pm 0.07$ & $24.13 \pm 0.06$ \\
+HST F814W & $25.74 \pm 0.05$ & $24.30 \pm 0.05$ \\
+JWST F115W & $25.12 \pm 0.09$ & $23.76 \pm 0.06$ \\
+JWST F150W & $24.31 \pm 0.07$ & $22.88 \pm 0.06$ \\
+JWST F200W & $22.78 \pm 0.05$ & $21.81 \pm 0.05$ \\
+JWST F277W & $21.27 \pm 0.05$ & $20.48 \pm 0.05$ \\
+JWST F356W & $20.81 \pm 0.05$ & $19.99 \pm 0.05$ \\
+JWST F444W & $20.03 \pm 0.05$ & $19.25 \pm 0.05$ \\
+JWST F770W & $18.52 \pm 0.12$ & $17.76 \pm 0.12$ \\
+JWST F1280W & $18.04 \pm 0.12$ & $17.15 \pm 0.12$ \\
+JWST F2100W & $17.21 \pm 0.12$ & $16.07 \pm 0.12$ \\
+Spizter MIPS24 & $17.33 \pm 0.12$ & $15.93 \pm 0.12$ \\
+Spizter MIPS70 & $<16.58^{a} $ & $<16.07$ \\
+Spizter MIPS160 & $<14.46 $ & $<14.23$ \\
+ALMA 1.1 mm ($\mu$Jy) & \textemdash & $<30.08$ \\
+\hline
+$\beta_{\rm UV}$ &  $-1.23\pm0.06$ & $-0.73\pm0.02$\\
+$\beta_{\rm optical}$ & $2.91\pm0.12$ & $1.44\pm0.06$\\
+$\Gamma_{\rm 0.3-10keV}$ & $1.80^{+0.19}_{-0.18}$ & $1.54\pm0.09$\\
+$\alpha_{r}$ & \textemdash & $-1.02\pm0.19$\\
+\hline
+$\log[M_{\rm BH}(M_\odot)]$ & $8.57 \pm 0.21$ & $8.99 \pm 0.22$ \\
+$\log[L_{\rm bol}(\rm{erg\ s}^{-1})]$ & $45.89 \pm 0.1$ & $46.47 \pm 0.14$ \\
+$\lambda_{\rm Edd}$ & $0.17_{-0.08}^{+0.25}$ & $0.24_{-0.12}^{+0.42}$ \\
+$\log[L_{\rm X}\,(\rm erg\,s^{-1})]$ & $44.41 \pm 0.11$ & $44.95 \pm 0.14$ \\
+\hline
+$\log[M_\ast(M_\odot)]$ & $9.40 \pm 0.18$ & $10.28 \pm 0.16$ \\
+SFR (M$_\odot$\,yr$^{-1}$) & $16.0 \pm 0.9$ & $77.7 \pm 6.6$ \\
+$\log[Z_\ast(Z_\odot)]$ & $-1.70 \pm 0.15$ & $-1.28 \pm 0.60$ \\
+Age (Gyr) & $0.43 \pm 0.33$ & $0.69 \pm 0.38$ \\
+$A_V$ (mag) & $1.36 \pm 0.13$ & $1.36 \pm 0.30$ \\
+$N_{\rm H} \, (\rm{cm}^{-2})$ &  $2.1^{+1.8}_{-1.3} \times 10^{22}$ & $1.4^{+1.8}_{-1.3} \times 10^{22}$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,423 @@
+% -*- coding: utf-8 -*-
+\newif\ifuptexmode\uptexmodefalse
+\newif\iftatemode\tatemodefalse
+\ifnum\jis"2121="3000 \uptexmodetrue\fi
+
+\makeatletter
+
+\def\@opt@{multi}
+\def\@default{default}
+\def\@jarticle{jarticle}
+\def\@tarticle{tarticle}
+\def\@utarticle{utarticle}
+\def\@deluxe{deluxe}
+
+\newif\ifdeluxe \deluxefalse
+\@for\@@opt:=\option\do{%
+ \ifx\@@opt\@deluxe\deluxetrue\fi
+}
+\ifx\option\@undefined
+ \def\option{default}
+\fi
+\ifx\option\@default
+\else
+ \edef\@opt@{\option,\@opt@}
+\fi
+
+\ifx\class\@undefined
+ \ifuptexmode
+  \def\class{ujarticle}
+ \else
+  \def\class{jarticle}
+ \fi
+\fi
+
+\def\baseshift{-.12zh}
+\ifx\class\@tarticle\def\baseshift{-.5zh}\tatemodetrue\fi
+\ifx\class\@utarticle\def\baseshift{-.5zh}\tatemodetrue\fi
+
+\ifuptexmode
+ \edef\@opt@{uplatex,\@opt@}
+\fi
+\documentclass[a4paper,titlepage,draft,dvipdfmx]{\class}
+%\documentclass[a4paper,titlepage,draft,landscape,dvipdfmx]{\class}
+
+\usepackage[\@opt@]{otf}
+
+%
+\newread\@istheresuchafile
+%
+% okumacro.sty があれば読み込む
+\openin\@istheresuchafile okumacro.sty
+\ifeof\@istheresuchafile\relax
+\else\closein\@istheresuchafile\relax
+\usepackage{okumacro}% found
+\fi
+%
+% pxrubrica.sty があれば読み込む
+\openin\@istheresuchafile pxrubrica.sty
+\ifeof\@istheresuchafile\relax
+\else\closein\@istheresuchafile\relax
+\usepackage{pxrubrica}% found
+\fi
+
+\makeatother
+
+\usepackage{redeffont}
+
+
+\AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}
+\ajCIDVarDef{り}{12746}
+\ajCIDVarDef{高}{8705}
+\ajUTFVarDef{鴎}{9DD7}
+\pagestyle{empty}
+\makeatletter
+\ifx\rubyfamily\@undefined\let\rubyfamily=\relax\fi
+\ifx\mgfamily\@undefined\let\mgfamily=\relax\fi
+\makeatother
+
+\setlength\parindent{0em}
+\iftatemode
+\textwidth250mm
+\oddsidemargin0mm
+\evensidemargin0mm
+\textheight168mm
+\topmargin-15mm
+\else
+\textwidth160mm
+\oddsidemargin0mm
+\evensidemargin0mm
+\textheight250mm
+\topmargin-15mm
+\fi
+
+\begin{document}
+\section{見出し}
+
+コンパイラー：\ifuptexmode upLaTeX\else pLaTeX\fi\\
+クラス：\texttt{\class}\\
+オプション：\texttt{\option}
+
+\vspace{\baselineskip}
+\begin{tabular}{l||ccccc}
+フォント & 仮名 & 漢字 & UTF & CID & ルビ\\
+\hline
+mc/m & ひらかな & 漢字 & \UTF{9DD7} & \CID{8705} & {\rubyfamily 振りかな}\\
+mc/bx & {\bfseries ひらかな} & {\bfseries 漢字} & {\bfseries\UTF{9DD7}} & {\bfseries\CID{8705}} & {\bfseries\rubyfamily 振りかな}\\
+\ifdeluxe
+mc/l & {\ltseries ひらかな} & {\ltseries 漢字} & {\ltseries\UTF{9DD7}} & {\ltseries\CID{8705}} & {\ltseries\rubyfamily 振りかな}\\
+\fi
+gt/m & {\gtfamily ひらかな} & {\gtfamily 漢字} & {\gtfamily\UTF{9DD7}} & {\gtfamily\CID{8705}} & {\gtfamily\rubyfamily 振りかな}\\
+gt/bx & {\gtfamily\bfseries ひらかな} & {\gtfamily\bfseries 漢字} & {\gtfamily\bfseries\UTF{9DD7}} & {\gtfamily\bfseries\CID{8705}} & {\gtfamily\bfseries\rubyfamily 振りかな}\\
+\ifdeluxe
+gt/eb & {\gtfamily\ebseries ひらかな} & {\gtfamily\ebseries 漢字} & {\gtfamily\ebseries\UTF{9DD7}} & {\gtfamily\ebseries\CID{8705}} & {\gtfamily\ebseries\rubyfamily 振りかな}\\
+\fi
+mg/m & {\mgfamily ひらかな} & {\mgfamily 漢字} & {\mgfamily\UTF{9DD7}} & {\mgfamily\CID{8705}} & {\mgfamily\rubyfamily 振りかな}\\
+\end{tabular}
+\vspace{\baselineskip}
+
+日本：\UTF{9aa8}　簡体字：\UTFC{9aa8}　繁體字：\UTFT{9aa8}　朝鮮：\UTFK{9aa8}
+
+日本：\UTF{6d77}　簡体字：\UTFC{6d77}　繁體字：\UTFT{6d77}　朝鮮：\UTFK{6d77}
+
+日本：\UTF{8FF0}　簡体字：\UTFC{8FF0}　繁體字：\UTFT{8FF0}　朝鮮：\UTFK{8FF0}
+
+
+% with okumacro.sty
+\ifx\ruby\@undefined\else
+\vspace{\baselineskip}
+\ruby{漢字}{振りかな}~%
+{\bfseries\ruby{漢字}{振りかな}}~%
+\ifdeluxe
+ {\ltseries\ruby{漢字}{振りかな}}~%
+\fi
+{\gtfamily\ruby{漢字}{振りかな}~%
+ \bfseries\ruby{漢字}{振りかな}~%
+\ifdeluxe
+ \ebseries\ruby{漢字}{振りかな}~%
+\fi
+}%
+{\mgfamily\ruby{漢字}{振りかな}}
+
+\bgroup
+\ruby{\UTFK{c548}}{アン}\ruby{\UTFK{b155}}{ニョン}\ruby{\UTFK{d558}}{ハ}\ruby{\UTFK{c138}}{セ}\ruby{\UTFK{c694}}{ヨ}~%
+\gtfamily\ruby{\UTFK{c548}}{アン}\ruby{\UTFK{b155}}{ニョン}\ruby{\UTFK{d558}}{ハ}\ruby{\UTFK{c138}}{セ}\ruby{\UTFK{c694}}{ヨ}
+\egroup
+\fi
+
+
+% with pxrubrica.sty
+\makeatletter
+\ifx\jruby\@undefined\else
+\vspace{\baselineskip}
+\jruby[g]{漢字}{振りかな}~%
+{\bfseries\jruby[g]{漢字}{振りかな}}~%
+\ifdeluxe
+ {\ltseries\jruby[g]{漢字}{振りかな}}~%
+\fi
+{\gtfamily\jruby[g]{漢字}{振りかな}~%
+ \bfseries\jruby[g]{漢字}{振りかな}~%
+\ifdeluxe
+ \ebseries\jruby[g]{漢字}{振りかな}~%
+\fi
+}%
+{\mgfamily\jruby[g]{漢字}{振りかな}}
+
+\bgroup
+ \jruby[m]{{\UTFK{c548}}{\UTFK{b155}}{\UTFK{d558}}{\UTFK{c138}}{\UTFK{c694}}}{アン|ニョン|ハ|セ|ヨ}~%
+ \gtfamily\jruby[m]{{\UTFK{c548}}{\UTFK{b155}}{\UTFK{d558}}{\UTFK{c138}}{\UTFK{c694}}}{アン|ニョン|ハ|セ|ヨ}
+\egroup
+\fi
+
+\makeatother
+
+\vspace{\baselineskip}
+
+アイウエオ\raisebox\baseshift{\frame{ア}\frame{イ}\frame{ウ}\frame{エ}\frame{オ}}
+
+\ifuptexmode
+ｱｲｳｴｵ\raisebox\baseshift{\frame{ｱ}\frame{ｲ}\frame{ｳ}\frame{ｴ}\frame{ｵ}}
+\fi
+
+UTF:\UTF{FF71}\UTF{FF72}\UTF{FF73}\UTF{FF74}\UTF{FF75}%
+\raisebox\baseshift{\frame{\UTF{FF71}}\frame{\UTF{FF72}}\frame{\UTF{FF73}}\frame{\UTF{FF74}}\frame{\UTF{FF75}}}\\
+UTFM:\UTFM{FF71}\UTFM{FF72}\UTFM{FF73}\UTFM{FF74}\UTFM{FF75}%
+\raisebox\baseshift{\frame{\UTFM{FF71}}\frame{\UTFM{FF72}}\frame{\UTFM{FF73}}\frame{\UTFM{FF74}}\frame{\UTFM{FF75}}}
+
+UTF:%
+\UTF{FF61}\UTF{FF62}\UTF{FF63}\UTF{FF64}\UTF{FF65}\UTF{FF66}\UTF{FF67}\UTF{FF68}\UTF{FF69}\UTF{FF6A}\UTF{FF6B}\UTF{FF6C}\UTF{FF6D}\UTF{FF6E}\UTF{FF6F},%
+\UTF{FF70}\UTF{FF71}\UTF{FF72}\UTF{FF73}\UTF{FF74}\UTF{FF75}\UTF{FF76}\UTF{FF77}\UTF{FF78}\UTF{FF79}\UTF{FF7A}\UTF{FF7B}\UTF{FF7C}\UTF{FF7D}\UTF{FF7E}\UTF{FF7F},%
+\UTF{FF80}\UTF{FF81}\UTF{FF82}\UTF{FF83}\UTF{FF84}\UTF{FF85}\UTF{FF86}\UTF{FF87}\UTF{FF88}\UTF{FF89}\UTF{FF8A}\UTF{FF8B}\UTF{FF8C}\UTF{FF8D}\UTF{FF8E}\UTF{FF8F},%
+\UTF{FF90}\UTF{FF91}\UTF{FF92}\UTF{FF93}\UTF{FF94}\UTF{FF95}\UTF{FF96}\UTF{FF97}\UTF{FF98}\UTF{FF99}\UTF{FF9A}\UTF{FF9B}\UTF{FF9C}\UTF{FF9D}\UTF{FF9E}\UTF{FF9F}=\\
+UTFM:%
+\UTFM{FF61}\UTFM{FF62}\UTFM{FF63}\UTFM{FF64}\UTFM{FF65}\UTFM{FF66}\UTFM{FF67}\UTFM{FF68}\UTFM{FF69}\UTFM{FF6A}\UTFM{FF6B}\UTFM{FF6C}\UTFM{FF6D}\UTFM{FF6E}\UTFM{FF6F},%
+\UTFM{FF70}\UTFM{FF71}\UTFM{FF72}\UTFM{FF73}\UTFM{FF74}\UTFM{FF75}\UTFM{FF76}\UTFM{FF77}\UTFM{FF78}\UTFM{FF79}\UTFM{FF7A}\UTFM{FF7B}\UTFM{FF7C}\UTFM{FF7D}\UTFM{FF7E}\UTFM{FF7F},%
+\UTFM{FF80}\UTFM{FF81}\UTFM{FF82}\UTFM{FF83}\UTFM{FF84}\UTFM{FF85}\UTFM{FF86}\UTFM{FF87}\UTFM{FF88}\UTFM{FF89}\UTFM{FF8A}\UTFM{FF8B}\UTFM{FF8C}\UTFM{FF8D}\UTFM{FF8E}\UTFM{FF8F},%
+\UTFM{FF90}\UTFM{FF91}\UTFM{FF92}\UTFM{FF93}\UTFM{FF94}\UTFM{FF95}\UTFM{FF96}\UTFM{FF97}\UTFM{FF98}\UTFM{FF99}\UTFM{FF9A}\UTFM{FF9B}\UTFM{FF9C}\UTFM{FF9D}\UTFM{FF9E}\UTFM{FF9F}=
+
+\clearpage
+[mc/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+
+{\bfseries%
+[mc/bx]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+
+\ifdeluxe
+{\ltseries%
+[mc/lt]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+\fi
+
+{\gtfamily
+[gt/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+
+{\bfseries%
+[gt/bx]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+
+\ifdeluxe
+{\ebseries%
+[gt/eb]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+\fi
+}
+
+{\mgfamily
+[mg/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+
+{\rubyfamily%
+[ruby/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+
+\fbox{\hbox{\tate\Huge ㇰ}}
+
+\fbox{\hbox{\yoko\Huge ㇰ}}
+
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+
+{\bfseries%
+[ruby/bx]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}}
+
+{\gtfamily\rubyfamily%
+[rubyg/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+
+{\gtfamily\rubyfamily\bfseries%
+[rubyg/bx]
+
+\fbox{\hbox{\tate\Huge ぁ}}
+
+\fbox{\hbox{\yoko\Huge ぁ}}
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}}
+
+{\mgfamily\rubyfamily%
+[rubymg/m]
+
+ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのは
+ばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんヽヾゝゞー
+\ifuptexmode
+ゔゕゖ𛄲
+\fi
+
+ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハ
+バパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ
+\ifuptexmode
+ヷヸヹヺㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ𛅕
+\fi
+
+“回”、‘回’。“回”，‘回’．
+}
+\end{document}

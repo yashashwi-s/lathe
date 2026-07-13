@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[generate,ps2eps]{abc}
+\thispagestyle{empty}
+
+\begin{document}
+
+This is an Irish reel:
+
+\begin{abc}[name=julia,program={abcm2ps -O=}]
+X:63
+T: Julia Delaney's
+M: C|
+L: 1/8
+R: reel
+K: Ddor
+|: dcAG ~F2EF|~E2 DE FD D2|dcAG FGAA|Addc d2 fe :|
+   f2fe fagf |ecgc acgc   |f2fe fagf|edcG Add2  :|
+\end{abc}
+
+This is an Irish polka, slighly smaller:
+
+\abcinput[program={abcm2ps -O=},width=0.9\abcwidth]
+{breeches}
+
+End of document.
+
+\end{document}

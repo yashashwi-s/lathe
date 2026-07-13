@@ -1,0 +1,847 @@
+% arara: pdflatex
+% arara: makeglossaries
+% arara: pdflatex
+% arara: pdflatex
+
+\documentclass{report}
+
+\usepackage[left=1cm,right=0.5cm,marginpar=2.5cm,includemp]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{relsize}
+\usepackage{fontawesome}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage[colorlinks,linkcolor=magenta]{hyperref}
+\usepackage{glossaries-extra}
+
+\newcommand*{\warningsym}{\textcolor{red}{\faExclamationTriangle}}
+
+% If you get any undefined control sequences or undefined
+% style errors, make sure you have the latest versions of
+% glossaries-extra.sty and glossaries.sty
+
+\makeglossaries
+
+% This command is used for short forms for styles
+% that don't have a designated command:
+\renewcommand{\glsabbrvdefaultfont}[1]{\textsf{#1}}
+
+% This command is used on first use for short forms
+% for styles that don't have a designated command:
+%\renewcommand{\glsfirstabbrvdefaultfont}[1]{\textsf{#1}}
+
+% This command is used for long forms for styles
+% that don't have a designated command:
+\renewcommand{\glslongdefaultfont}[1]{\textsf{#1}}
+
+% This command is used on first use for long forms
+% for styles that don't have a designated command:
+%\renewcommand{\glsfirstlongdefaultfont}[1]{\textsf{#1}}
+
+% Test command for "outer" formatting (applied with textformat key)
+\newcommand*{\sampleformat}[1]{\textbf{\color{teal}#1}}
+
+% These commands are used by the '-hyphen' styles.
+% For example, to switch to small-caps for the short form:
+%\renewcommand{\glsabbrvhyphenfont}{\glsabbrvscfont}
+%\renewcommand{\glsxtrhyphensuffix}{\glsxtrscsuffix}
+% and emphasize the long form
+%\renewcommand{\glslonghyphenfont}{\emph}
+
+\renewcommand{\glsxtrabbrvfootnote}[2]{%
+  \footnote{\glshyperlink[\glsfmtshort{#1}]{#1}: #2}%
+}
+
+\glssetcategoryattributes{long-hyphen-short-hyphen}{markwords,markshortwords}{true}
+\glssetcategoryattributes{long-hyphen-postshort-hyphen}{markwords,markshortwords}{true}
+\glssetcategoryattributes{long-hyphen-short-hyphen-desc}{markwords,markshortwords}{true}
+\glssetcategoryattributes{long-hyphen-postshort-hyphen-desc}{markwords,markshortwords}{true}
+\glssetcategoryattributes{short-hyphen-long-hyphen}{markwords,markshortwords}{true}
+\glssetcategoryattributes{short-hyphen-postlong-hyphen}{markwords,markshortwords}{true}
+\glssetcategoryattributes{short-hyphen-long-hyphen-desc}{markwords,markshortwords}{true}
+\glssetcategoryattributes{short-hyphen-postlong-hyphen-desc}{markwords,markshortwords}{true}
+\glssetcategoryattributes{long-hyphen-noshort-desc-noreg}{markwords,markshortwords}{true}
+\glssetcategoryattributes{long-hyphen-noshort-noreg}{markwords,markshortwords}{true}
+
+\newcommand{\stylelist}{}
+
+\newcommand{\teststyle}[1]{%
+ \listadd{\stylelist}{#1}%
+ \setabbreviationstyle[#1]{#1}%
+ \newabbreviation[category=#1,%
+  %sort={#1},% order by style name
+  user1={user text}%
+ ]{sample-#1}{short fm}{long form}%
+ \csdef{glsxtrpostdesc#1}{ [style: #1]}%
+}
+
+\newcommand{\testdescstyle}[1]{%
+ \listadd{\stylelist}{#1}%
+ \setabbreviationstyle[#1]{#1}%
+ \newabbreviation[category=#1,%
+  %sort={#1},% order by style name
+  user1={user text},%
+  description={sample description}]{sample-#1}{short fm}{long form}%
+ \csdef{glsxtrpostdesc#1}{ [style: #1]}%
+}
+
+\teststyle{long-short}
+\teststyle{short-long}
+%\teststyle{footnote}% synonym: short-footnote
+\teststyle{short-footnote}
+%\teststyle{postfootnote}% synonym: short-postfootnote
+\teststyle{short-postfootnote}
+%\teststyle{short}% synonym: short-nolong
+\teststyle{short-nolong}
+\teststyle{short-nolong-noreg}
+\teststyle{nolong-short}
+\teststyle{nolong-short-noreg}
+%\teststyle{long}% synonym: long-noshort
+\teststyle{long-noshort}
+\teststyle{long-noshort-noreg}
+\teststyle{long-only-short-only}
+\teststyle{long-short-sc}
+\teststyle{short-sc-long}
+%\teststyle{short-sc}% synonym: short-sc-nolong
+\teststyle{short-sc-nolong}
+\teststyle{nolong-short-sc}
+\teststyle{long-noshort-sc}
+%\teststyle{long-sc}% deprecated synonym of long-noshort-sc
+\teststyle{short-sc-footnote}
+%\teststyle{footnote-sc}% deprecated synonym of short-sc-footnote
+\teststyle{short-sc-postfootnote}
+%\teststyle{postfootnote-sc}% deprecated synonym of short-sc-postfootnote
+\teststyle{long-short-sm}
+\teststyle{short-sm-long}
+%\teststyle{short-sm}% synonym: short-sm-nolong
+\teststyle{short-sm-nolong}
+\teststyle{nolong-short-sm}
+%\teststyle{long-sm}% deprecated synonym of long-noshort-sm
+\teststyle{long-noshort-sm}
+\teststyle{short-sm-footnote}
+%\teststyle{footnote-sm}% deprecated synonym of short-sm-footnote
+\teststyle{short-sm-postfootnote}
+%\teststyle{postfootnote-sm}% deprecated synonym of short-sm-postfootnote
+\teststyle{long-short-em}
+\teststyle{long-em-short-em}
+\teststyle{short-em-long}
+\teststyle{short-em-long-em}
+\teststyle{short-em-nolong}
+%\teststyle{short-em}% synonym: short-em-nolong
+\teststyle{nolong-short-em}
+\teststyle{long-noshort-em}
+%\teststyle{long-em}% deprecated synonym of long-noshort-em
+\teststyle{long-em-noshort-em}
+\teststyle{long-em-noshort-em-noreg}
+\teststyle{short-em-footnote}
+%\teststyle{footnote-em}% deprecated synonym of short-em-footnote
+\teststyle{short-em-postfootnote}
+%\teststyle{postfootnote-em}% deprecated synonym of short-em-postfootnote
+\teststyle{long-short-user}
+\teststyle{long-postshort-user}
+\teststyle{short-long-user}
+\teststyle{short-postlong-user}
+\teststyle{long-hyphen-short-hyphen}
+\teststyle{long-hyphen-postshort-hyphen}
+\teststyle{short-hyphen-long-hyphen}
+\teststyle{short-hyphen-postlong-hyphen}
+\teststyle{long-hyphen-noshort-noreg}
+
+\testdescstyle{long-short-desc}
+\testdescstyle{short-long-desc}
+%\teststyle{footnote-desc}% synonym: short-footnote-desc
+\testdescstyle{short-footnote-desc}
+%\teststyle{postfootnote-desc}% synonym: short-postfootnote-desc
+\testdescstyle{short-postfootnote-desc}
+%\testdescstyle{short-desc}% synonym: short-nolong-desc
+\testdescstyle{short-nolong-desc}
+\testdescstyle{short-nolong-desc-noreg}
+%\testdescstyle{long-desc}% synonym: long-noshort-desc
+\testdescstyle{long-noshort-desc}
+\testdescstyle{long-noshort-desc-noreg}
+\testdescstyle{long-only-short-only-desc}
+\testdescstyle{long-short-sc-desc}
+\testdescstyle{short-sc-long-desc}
+%\testdescstyle{short-sc-desc}% synonym: short-sc-nolong-desc
+\testdescstyle{short-sc-nolong-desc}
+\testdescstyle{long-noshort-sc-desc}
+%\testdescstyle{long-desc-sc}% deprecated synonym of long-noshort-sc-desc
+\testdescstyle{short-sc-footnote-desc}
+\testdescstyle{short-sc-postfootnote-desc}
+\testdescstyle{long-short-sm-desc}
+\testdescstyle{short-sm-long-desc}
+%\testdescstyle{short-sm-desc}% synonym: short-sm-nolong-desc
+\testdescstyle{short-sm-nolong-desc}
+\testdescstyle{long-noshort-sm-desc}
+%\testdescstyle{long-desc-sm}% deprecated synonym of long-noshort-sm-desc
+\testdescstyle{short-sm-footnote-desc}
+\testdescstyle{short-sm-postfootnote-desc}
+\testdescstyle{long-short-em-desc}
+\testdescstyle{long-em-short-em-desc}
+\testdescstyle{short-em-long-desc}
+\testdescstyle{short-em-long-em-desc}
+%\testdescstyle{short-em-desc}% synonym: short-em-nolong-desc
+\testdescstyle{short-em-nolong-desc}
+\testdescstyle{long-noshort-em-desc}
+%\testdescstyle{long-desc-em}% deprecated synonym of long-noshort-em-desc
+\testdescstyle{short-em-footnote-desc}
+\testdescstyle{short-em-postfootnote-desc}
+\testdescstyle{long-em-noshort-em-desc}
+\testdescstyle{long-em-noshort-em-desc-noreg}
+\testdescstyle{long-short-user-desc}
+\testdescstyle{long-postshort-user-desc}
+\testdescstyle{short-long-user-desc}
+\testdescstyle{short-postlong-user-desc}
+\testdescstyle{long-hyphen-short-hyphen-desc}
+\testdescstyle{long-hyphen-postshort-hyphen-desc}
+\testdescstyle{short-hyphen-long-hyphen-desc}
+\testdescstyle{short-hyphen-postlong-hyphen-desc}
+\testdescstyle{long-hyphen-noshort-desc-noreg}
+
+\newcommand{\marg}[1]{\{\textnormal{\emph{#1}}\}}
+\pagestyle{headings}
+
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline {1}{1.5em}{3.3em}}
+\makeatother
+
+\begin{document}
+\pagenumbering{roman}
+This is a test document demonstrating abbreviation styles
+provided by the \textsf{glossaries-extra} package. Hyperlinks
+are shown in 
+\makeatletter
+\textcolor{\@linkcolor}{\@linkcolor}.
+\makeatother
+
+Some of the styles just use the default formatting commands (which don't
+change the font). To make the default setting clearer, this document has done:
+\begin{verbatim}
+\renewcommand{\glslongdefaultfont}[1]{\textsf{#1}}
+\renewcommand{\glsabbrvdefaultfont}[1]{\textsf{#1}}
+\end{verbatim}
+So any text in this document that's rendered in sans-serif would normally not have any font
+change implemented.
+
+There are additional font changing tests implemented with outer text formatting
+(the textformat key) and inner text formatting (the innertextformat key).
+
+The hyperlink may be placed outside the outer formatting (hyperoutside=true) or
+inside of the outer formatting (hyperoutside=false). Note that when the
+hyperlink is outside, the text colour change applied by the sample formatting
+command (teal) overrides the colour change applied by the hyperlink colour
+setting (magenta). The outer text format can also be changed globally
+by redefining \verb|\glstextformat| or via the \verb|textformat| attribute.
+(Order of precedence: textformat option, textformat attribute,
+\verb|\glstextformat|.)
+
+The inner formatting is implemented within the abbreviation style, so it won't
+show up in custom styles that don't implement it. The outer formatting isn't
+applied to the post-link hook. The inner formatting may be applied to the
+post-link hook, depending whether or not it's supported by the abbreviation
+style.
+
+The outer text format is tested with the custom command defined as:
+\begin{verbatim}
+\newcommand*{\sampleformat}[1]{\textbf{\color{teal}#1}}
+\end{verbatim}
+The inner text format is tested with \verb|\hl| provided by soul.sty.
+(Complex commands such as those provided by soul can only be used
+in the inner text format. The outer format has the text content too
+deeply embedded for those commands to process.)
+
+Each test entry is defined using 
+\begin{verbatim}
+ \newabbreviation[category=#1,user1={user text}]%
+  {sample-#1}{short}{long form}%
+\end{verbatim}
+for the non\texttt{-desc} styles or
+\begin{verbatim}
+ \newabbreviation[category=#1,user1={user text},%
+  description={sample description}]%
+ {sample-#1}{short}{long form}%
+\end{verbatim}
+for the \texttt{-desc} styles (where \verb|#1| is the style label).
+Note that many of the entries will have duplicate sort values, so
+don't build this with \texttt{xindy}. You can change the ordering
+in the glossary to that it's sorted according to the style name
+by changing the above definitions to:
+\begin{verbatim}
+ \newabbreviation[category=#1,user1={user text},sort={#1}]%
+  {sample-#1}{short}{long form}%
+ \newabbreviation[category=#1,user1={user text},sort={#1},%
+  description={sample description}]%
+ {sample-#1}{short}{long form}%
+\end{verbatim}
+
+To assist with distinguishing between the various styles, 
+the post-description hook (used after displaying the description in
+the glossary) is set to \verb*| [style: #1]| for all categories,
+and the footnote command \verb|\glsxtrabbrvfootnote| has been
+redefined to include the short form hyperlinked to the glossary.
+
+The test entries that use the \texttt{-hyphen} styles have had the
+\texttt{markwords} attribute set. This is designed to trigger
+compound word hyphenation if the inserted text (through the final
+optional argument of \verb|\gls|) starts with a hyphen.
+
+\raisebox{2ex}{\hypertarget{warningnote}{}}%
+\renewcommand*{\GlossariesAbbrStyleTooComplexWarning}[2]{%
+ \warningsym\marginpar{\hyperlink{warningnote}{\warningsym} too complex}}%
+The symbol \warningsym\ indicates that a warning would normally be
+issued at that point in the document for a style that's too complex
+to support the given command.
+
+\tableofcontents
+
+\pagenumbering{arabic}
+\chapter{First Use}
+First use of \verb|\gls|.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\glsresetall
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\glsresetall
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\glsresetall
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[innertextformat=hl]{\thislabel}.\glspar}
+
+\chapter{Next Use}
+Next use of \verb|\gls|.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\gls[innertextformat=hl]{\thislabel}.\glspar}
+
+\chapter{First Use With Insert}
+First use of \texttt{\string\gls\marg{label}[-insert]}. The conditional
+\verb|\ifglsxtrinsertinside| is used by some styles to 
+determine whether or not to include the inserted material
+inside the font changing command used by the style.
+The default is: \ifglsxtrinsertinside true\else false\fi.
+
+In this test chapter, each entry is reset, then displayed with
+\begin{verbatim}
+\glsxtrinsertinsidefalse
+\end{verbatim}
+then reset and displayed with 
+\begin{verbatim}
+\glsxtrinsertinsidetrue
+\end{verbatim}
+(following the semi-colon). Some styles may only obey this
+conditional for particular commands. (For example, the inline
+commands like \verb|\glsxtrfull| may behave differently to 
+commands like \verb|\gls|.)
+
+Some of the styles just use the default font commands (which don't
+change the font) so there's no noticeable difference. To make the
+differences more noticeable this document has done:
+\begin{verbatim}
+\renewcommand{\glslongdefaultfont}[1]{\textsf{#1}}
+\renewcommand{\glsabbrvdefaultfont}[1]{\textsf{#1}}
+\end{verbatim}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsreset{\thislabel}\glsxtrinsertinsidefalse
+\gls{\thislabel}[-insert];
+\glsreset{\thislabel}\glsxtrinsertinsidetrue
+\gls{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsreset{\thislabel}\glsxtrinsertinsidefalse
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert];
+\glsreset{\thislabel}\glsxtrinsertinsidetrue
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsreset{\thislabel}\glsxtrinsertinsidefalse
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert];
+\glsreset{\thislabel}\glsxtrinsertinsidetrue
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsreset{\thislabel}\glsxtrinsertinsidefalse
+\gls[innertextformat=hl]{\thislabel}[-insert];
+\glsreset{\thislabel}\glsxtrinsertinsidetrue
+\gls[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+
+\chapter{Next Use With Insert}
+Next use of \texttt{\string\gls\marg{label}[-insert]}.
+
+In this test chapter, each entry is displayed
+with \verb|\glsxtrinsertinsidefalse| and then displayed with
+\verb|\glsxtrinsertinsidetrue| 
+(following the semi-colon). Some styles don't check this
+conditional.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\gls{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\gls{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\gls[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\gls[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\gls[innertextformat=hl]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\gls[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+\chapter{Full Form}
+Full form using \verb|\glsxtrfull| (inline full style).
+This may differ from the display form used by \verb|\gls|
+on first use, depending on the style.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrfull{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrfull[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrfull[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrfull[innertextformat=hl]{\thislabel}.\glspar}
+
+\chapter{Short Form}
+Short form using \verb|\glsxtrshort|.
+This may differ from the display form used by \verb|\gls|
+on subsequent use, depending on the style.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrshort{\thislabel}.\glspar
+}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrshort[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar
+}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrshort[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar
+}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrshort[innertextformat=hl]{\thislabel}.\glspar
+}
+
+
+\chapter{Long Form}
+Long form using \verb|\glsxtrlong|.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrlong{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrlong[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrlong[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrlong[innertextformat=detokenize]{\thislabel}.\glspar}
+
+\chapter{Full Form With Insert}
+Full form using \texttt{\string\glsxtrfull\marg{label}[-insert]} (inline full style).
+In this test chapter, each entry is displayed
+with \verb|\glsxtrinsertinsidefalse| and then displayed with
+\verb|\glsxtrinsertinsidetrue| 
+(following the semi-colon).
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrfull{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrfull{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrfull[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrfull[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrfull[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrfull[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrfull[innertextformat=hl]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrfull[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+\chapter{Short Form With Insert}
+Short form using \texttt{\string\glsxtrshort\marg{label}[-insert]}.
+
+In this test chapter, each entry is displayed
+with \verb|\glsxtrinsertinsidefalse| and then displayed with
+\verb|\glsxtrinsertinsidetrue| 
+(following the semi-colon).
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrshort{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrshort{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrshort[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrshort[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrshort[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrshort[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrshort[innertextformat=hl]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrshort[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+\chapter{Long Form With Insert}
+Long form using \texttt{\string\glsxtrlong\marg{label}[-insert]}.
+Note that the \texttt{hyphen} styles with the \texttt{markwords}
+attribute don't adjust in this case.
+
+In this test chapter, each entry is displayed
+with \verb|\glsxtrinsertinsidefalse| and then displayed with
+\verb|\glsxtrinsertinsidetrue| 
+(following the semi-colon).
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrlong{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrlong{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrlong[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrlong[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrlong[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrlong[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsxtrinsertinsidefalse
+\glsxtrlong[innertextformat=hl]{\thislabel}[-insert];
+\glsxtrinsertinsidetrue
+\glsxtrlong[innertextformat=hl]{\thislabel}[-insert].\glspar}
+\glsxtrinsertinsidefalse
+
+\chapter{First Form}
+First form using \verb|\glsfirst|. This may be different
+from the first use of \verb|\gls| depending on the style.
+In general, it's better not to use \verb|\glsfirst| with
+abbreviations. Use \verb|\gls| (possibly with a reset) 
+or \verb|\glsxtrfull| instead.
+Some styles are too complicated to work with \verb|\glsfirst|.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[textformat=sampleformat,hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[textformat=sampleformat,hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[innertextformat=hl]{\thislabel}.\glspar}
+
+\chapter{Text Form}
+Text form using \verb|\glstext|. This may be different
+from the subsequent use of \verb|\gls| depending on the style.
+In general, it's better not to use \verb|\glstext| with
+abbreviations. Use \verb|\gls| (possibly with an unset) 
+or \verb|\glsxtrshort| instead.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[textformat=sampleformat, hyperoutside=true]{\thislabel}.\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[textformat=sampleformat, hyperoutside=false]{\thislabel}.\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[innertextformat=hl]{\thislabel}.\glspar}
+
+\chapter{First Form With Insert}
+First form using \texttt{\string\glsfirst\marg{label}[-insert]}.
+This is different from the first use of \verb|\gls|
+as can be seen by the location of the inserted material.
+(There's no check for the conditional 
+\verb|\ifglsxtrinsertinside|.) In general it's best not
+to use \verb|\glsfirst| with abbreviations. Use either
+\verb|\gls| (possibly with a reset) or \verb|\glsxtrfull|.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glsfirst[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+\chapter{Text Form With Insert}
+Text form using \texttt{\string\glstext\marg{label}[-insert]}.
+This doesn't check for the conditional 
+\verb|\ifglsxtrinsertinside|.
+In general, it's better not to use \verb|\glstext| with
+abbreviations. Use \verb|\gls| (possibly with an unset) 
+or \verb|\glsxtrshort| instead.
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=true}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[textformat=sampleformat,hyperoutside=true]{\thislabel}[-insert].\glspar}
+
+\section{textformat=sampleformat, hyperoutside=false}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[textformat=sampleformat,hyperoutside=false]{\thislabel}[-insert].\glspar}
+
+\section{innertextformat=hl}
+
+\forglsentries{\thislabel}{\glscategory{\thislabel}:
+\glstext[innertextformat=hl]{\thislabel}[-insert].\glspar}
+
+\chapter{Summary}
+
+\renewcommand{\do}[1]{\section{#1}
+\subsection{First Use}
+\texttt{\string\gls\marg{label}} / \texttt{\string\Gls\marg{label}} / 
+\texttt{\string\GLS\marg{label}}:
+\gls[prereset]{sample-#1};
+\Gls[prereset]{sample-#1};
+\GLS[prereset]{sample-#1}.\par\noindent
+With insert:
+\gls[prereset]{sample-#1}[-insert];
+\Gls[prereset]{sample-#1}[-insert];
+\GLS[prereset]{sample-#1}[-insert].\par\noindent
+Plural \texttt{\string\glspl\marg{label}} / \texttt{\string\Glspl\marg{label}} / 
+\texttt{\string\GLSpl\marg{label}}:
+\glspl[prereset]{sample-#1};
+\Glspl[prereset]{sample-#1};
+\GLSpl[prereset]{sample-#1}.\par\noindent
+With insert:
+\glspl[prereset]{sample-#1}[-insert];
+\Glspl[prereset]{sample-#1}[-insert];
+\GLSpl[prereset]{sample-#1}[-insert].
+\subsection{Next Use}
+\texttt{\string\gls\marg{label}} / \texttt{\string\Gls\marg{label}} / 
+\texttt{\string\GLS\marg{label}}:
+\gls{sample-#1};
+\Gls{sample-#1};
+\GLS{sample-#1}.\par\noindent
+With insert:
+\gls{sample-#1}[-insert];
+\Gls{sample-#1}[-insert];
+\GLS{sample-#1}[-insert].\par\noindent
+Plural \texttt{\string\glspl\marg{label}} / \texttt{\string\Glspl\marg{label}} / 
+\texttt{\string\GLSpl\marg{label}}:
+\glspl{sample-#1};
+\Glspl{sample-#1};
+\GLSpl{sample-#1}.\par\noindent
+With insert:
+\glspl{sample-#1}[-insert];
+\Glspl{sample-#1}[-insert];
+\GLSpl{sample-#1}[-insert].
+\subsection{Full Inline}
+\texttt{\string\glsxtrfull\marg{label}} /
+\texttt{\string\Glsxtrfull\marg{label}} /
+\texttt{\string\GLSxtrfull\marg{label}}: 
+\glsxtrfull{sample-#1};
+\Glsxtrfull{sample-#1};
+\GLSxtrfull{sample-#1}.\par\noindent
+With insert:
+\glsxtrfull{sample-#1}[-insert];
+\Glsxtrfull{sample-#1}[-insert];
+\GLSxtrfull{sample-#1}[-insert].\par\noindent
+Plural \texttt{\string\glsxtrfullpl\marg{label}} /
+\texttt{\string\Glsxtrfullpl\marg{label}} /
+\texttt{\string\GLSxtrfullpl\marg{label}}: 
+\glsxtrfullpl{sample-#1};
+\Glsxtrfullpl{sample-#1};
+\GLSxtrfullpl{sample-#1}.\par\noindent
+Plural with insert: 
+\glsxtrfullpl{sample-#1}[-insert];
+\Glsxtrfullpl{sample-#1}[-insert];
+\GLSxtrfullpl{sample-#1}[-insert].
+\subsection{Short}
+\texttt{\string\glsxtrshort\marg{label}} /
+\texttt{\string\Glsxtrshort\marg{label}} /
+\texttt{\string\GLSxtrshort\marg{label}}: 
+\glsxtrshort{sample-#1};
+\Glsxtrshort{sample-#1};
+\GLSxtrshort{sample-#1}.\par\noindent
+With insert: 
+\glsxtrshort{sample-#1}[-insert];
+\Glsxtrshort{sample-#1}[-insert];
+\GLSxtrshort{sample-#1}[-insert].\par\noindent
+Plural \texttt{\string\glsxtrshortpl\marg{label}} /
+\texttt{\string\Glsxtrshortpl\marg{label}} /
+\texttt{\string\GLSxtrshortpl\marg{label}}: 
+\glsxtrshortpl{sample-#1};
+\Glsxtrshortpl{sample-#1};
+\GLSxtrshortpl{sample-#1}.\par\noindent
+Plural with insert: 
+\glsxtrshortpl{sample-#1}[-insert];
+\Glsxtrshortpl{sample-#1}[-insert];
+\GLSxtrshortpl{sample-#1}[-insert].
+\subsection{Long}
+\texttt{\string\glsxtrlong\marg{label}} /
+\texttt{\string\Glsxtrlong\marg{label}} /
+\texttt{\string\GLSxtrlong\marg{label}}: 
+\glsxtrlong{sample-#1};
+\Glsxtrlong{sample-#1};
+\GLSxtrlong{sample-#1}.\par\noindent
+With insert: 
+\glsxtrlong{sample-#1}[-insert];
+\Glsxtrlong{sample-#1}[-insert];
+\GLSxtrlong{sample-#1}[-insert].\par\noindent
+Plural \texttt{\string\glsxtrlongpl\marg{label}} /
+\texttt{\string\Glsxtrlongpl\marg{label}} /
+\texttt{\string\GLSxtrlongpl\marg{label}}: 
+\glsxtrlongpl{sample-#1};
+\Glsxtrlongpl{sample-#1};
+\GLSxtrlongpl{sample-#1}.\par\noindent
+Plural with insert: 
+\glsxtrlongpl{sample-#1}[-insert];
+\Glsxtrlongpl{sample-#1}[-insert];
+\GLSxtrlongpl{sample-#1}[-insert].
+\subsection{Other}
+Name: \glsentryname{sample-#1}.\par\noindent
+Sort: \texttt{\glsentrysort{sample-#1}}.\par\noindent
+Description: \glsentrydesc{sample-#1}.\par
+}
+
+\dolistloop{\stylelist}
+\printglossaries
+\end{document}

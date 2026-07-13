@@ -1,0 +1,17 @@
+
+\subsection{Physical Units with \texttt{siunitx}}
+Load: \lstinline+\usepackage[sticky-per=true, per-mode=reciprocal]{siunitx}+\\
+Options: \lstinline+\sisetup{output-decimal-marker={,}, per-mode=symbol}+\\
+Use:
+\lstinline+\num{+\textit{number}\lstinline+}+,
+\lstinline+\si{+\textit{unit}\lstinline+}+,
+\lstinline+\SI{+\textit{number}\lstinline+}{+\textit{unit}\lstinline+}+,
+\lstinline+\ang{+\textit{deg}\lstinline+;+\textit{min}\lstinline+;+\textit{sec}\lstinline+}+\\
+\begin{tabular}{@{}ll@{}} \toprule
+$\num{7123456.7e1}$ & \lstinline+\num{7123456.7e1}+\\
+\ang{4;32;10}       & \lstinline+\ang{4;32;10}+\\
+$[g] = \si[per-mode=reciprocal]{\meter\per\second\squared}$ & \lstinline+[g] = \si{\meter\per\second\squared}+\\[2pt]
+$E = \SI[per-mode=fraction]{1.3}{\kilo\volt\per\milli\meter}$ & \lstinline+E = \SI{1.3}{\kilo\volt\per\milli\meter}+\\ \bottomrule
+\end{tabular}\\
+SI units like \lstinline+\degreeCelsius+, \lstinline+\henry+; prefixes like \lstinline+\kilo+, \lstinline+\exa+.
+^^E^^L 

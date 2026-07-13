@@ -1,0 +1,176 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01992\_table\_15}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrr}
+\toprule
+Model & Avg. Tokens/Move & Avg. Cost/Game \\
+\midrule
+o3 (low) & 1927.5 & \$8.1653 \\
+o4-mini (high) & 5695.2 & \$2.7146 \\
+% Grok 3 Mini (high) & 0 & \$0.0000 \\
+o3 (medium) & 5040.3 & \$7.3626 \\
+o1 (medium) & 3309.1 & \$19.5655 \\
+o4-mini (medium) & 2155.6 & \$1.1091 \\
+o1 (low) & 1638.9 & \$13.4843 \\
+o4-mini (low) & 680.23 & \$0.5273 \\
+o3-mini (medium) & 2337.8 & \$1.6058 \\
+o1-preview & 2660.1 & \$22.5618 \\
+Claude 3.7 Sonnet Thinking & 671.33 & \$2.0754 \\
+% Grok-3 Mini (low) & 0 & \$0.0000 \\
+Claude 3.7 Sonnet & 262.81 & \$0.8993 \\
+GPT-4 32K & 6.66 & \$2.2266 \\
+Claude 3.5 Sonnet v2 & 91.15 & \$0.5590 \\
+Qwen2.5-Max & 6.06 & \$0.1336 \\
+GPT-4 Turbo & 6.06 & \$0.8482 \\
+GPT-4o (2024-11-20) & 51.59 & \$0.3165 \\
+GPT-4.1 & 18.94 & \$0.1976 \\
+GPT-4.5 & 8.03 & \$6.4834 \\
+GPT-4 & 8.21 & \$1.8986 \\
+Claude 3.5 Haiku & 67.72 & \$0.0465 \\
+GPT-4o (2024-08-06) & 7.7 & \$0.2081 \\
+Claude 3.5 Sonnet & 88.13 & \$0.5658 \\
+Gemini 2.5 Pro Preview & 434.93 & \$0.5570 \\
+GPT-4o (2024-05-13) & 31.34 & \$0.2669 \\
+o3-mini (low) & 669.8 & \$0.4827 \\
+Deepseek-R1 & 4585 & \$0.9375 \\
+GPT-4.1 Mini & 8.2 & \$0.0172 \\
+GPT-4o Mini & 104.64 & \$0.0215 \\
+Llama-3-70B-Instruct & 41.61 & \$0.0205 \\
+Gemini 2.0 Flash & 93.77 & \$0.0147 \\
+Grok-2 & 66.23 & \$0.1904 \\
+Gemini 1.5 Flash & 19.91 & \$0.0034 \\
+Gemma 2 27B & 55.04 & \$0.0199 \\
+Gemma 2 9B (8bit) & 58.12 & \$0.0014 \\
+DeepSeek-V3 (0324) & 410.71 & \$0.0470 \\
+Llama-3.3-70B & 102.98 & \$0.0140 \\
+Qwen Plus & 440.41 & \$0.0728 \\
+Qwen2.5-72B-Instruct & 219.47 & \$0.0110 \\
+Gemini 2.0 Flash (exp) & 168.15 & \$0.0115 \\
+Llama-3.1-8B & 162.1 & \$0.0009 \\
+Gemini 2.0 Flash Lite & 150.15 & \$0.0075 \\
+DeepSeek-V3 & 246.93 & \$0.0258 \\
+Amazon Nova Lite & 534.38 & \$0.0000 \\
+Amazon Nova Pro & 177.19 & \$0.0000 \\
+Chat-Bison-32K & 31.64 & \$0.0000 \\
+Claude 3 Haiku & 210.64 & \$0.0000 \\
+DeepHermes-3-Llama-3-8B-Preview & 101.36 & \$0.0014 \\
+DeepSeek-R1-Distill-Qwen-14B & 3073.1 & \$0.0019 \\
+DeepSeek-R1-Distill-Qwen-32B & 2173.8 & \$0.0020 \\
+Gemini 2.0 Flash Lite (preview) & 144 & \$0.0044 \\
+Gemini 2.0 Flash Thinking & 724.54 & \$0.0010 \\
+Gemma 2 9B & 20.22 & \$0.0020 \\
+Gemma 3 12B (iq4) & 111.14 & \$0.0000 \\
+Gemma 3 12B (q8) & 151.11 & \$0.0000 \\
+Gemma 3 27B & 115.84 & \$0.0000 \\
+GPT-3.5 Turbo (01/25) & 77.01 & \$0.0020 \\
+GPT-3.5 Turbo (03/01) & 67.06 & \$0.0012 \\
+GPT-3.5 Turbo (06/13) & 93.63 & \$0.0027 \\
+GPT-3.5 Turbo (11/06) & 48.32 & \$0.0011 \\
+GPT-4.1 Nano & 31.51 & \$0.0010 \\
+Granite-3.1-8B-Instruct & 469.13 & \$0.0029 \\
+InternLM3-8B-Instruct & 1543.9 & \$0.0125 \\
+Llama-2-7B-Chat & 116.31 & \$0.0001 \\
+Llama-3.1-Tulu-3-8B & 1996.3 & \$0.0013 \\
+Llama-3-8B & 57.02 & \$0.0004 \\
+Mercury Coder Small & 837.84 & \$0.0327 \\
+Mistral 8B Instruct & 72.11 & \$0.0000 \\
+Mistral-Nemo-Instruct-2407 & 47.7 & \$0.0000 \\
+Mistral-Small-24B-Instruct-2501 & 110.95 & \$0.0000 \\
+Mistral-Small-Instruct-2409 & 88.24 & \$0.0003 \\
+Phi-4 & 333.54 & \$0.0006 \\
+Qwen Turbo & 192.37 & \$0.0016 \\
+Qwen2.5-14B-Instruct & 235.27 & \$0.0085 \\
+Qwen2.5-14B-Instruct (Q8) & 150.63 & \$0.0096 \\
+Qwen2.5-7B-Instruct & 140.79 & \$0.0001 \\
+QWQ-32B & 8158 & \$0.0433 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02839\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+       Source Name & State & alpha (LP) & beta \\ % & prefactor \\
+    \hline
+    \hline
+       PKS 0736+017 & Low & 2.67$\pm$0.13 & 0.18$\pm$0.12 \\ % & $2.91 \times 10^{-11}$ \\
+        $\bar{\alpha}=2.33\pm0.26$ & High & 2.38$\pm$0.04 & 0.13$\pm$0.04 \\ % &  $4.30 \times 10^{-12}$   \\
+        $\bar{\beta}=0.46\pm0.22$ & Full & 2.33$\pm$0.01 & 0.116$\pm$0.009 \\ % &   $1.21 \times 10^{-12}$  \\
+         & VHE & 2.38$\pm$0.05 & -0.02$\pm$0.03 \\
+    \hline
+       PKS 1510-089 & Low+VHE & 2.18$\pm$  0.05 & -0.02$\pm$ 0.02 \\ % &  $2.50 \times 10^{-10}$   \\
+        $\bar{\alpha}=2.39\pm0.12$ & High & 2.48$\pm$0.02 & 0.09$\pm$0.01 \\ % &  $1.31 \times 10^{-10}$   \\
+        $\bar{\beta}=0.07\pm0.07$ & Full & 2.398$\pm$0.004 & 0.059$\pm$0.003 \\ % &  $6.95 \times 10^{-11}$   \\
+         & VHE & 2.38$\pm$0.02 & 0.04$\pm$0.01 \\
+         %& VHE & 1.37$\pm$0.02 & \\
+         & VHE & 2.44$\pm$0.05 & -0.06$\pm$0.23 \\
+    \hline
+       4C+21.35 & Low & 2.65$\pm$0.08 & -0.06$\pm$ 0.03 \\ % &   $5.93 \times 10^{-9}$  \\
+        $\bar{\alpha}=2.46\pm0.16$ & High & 2.10$\pm$0.01 & 0.079 $\pm$0.008 \\ % &  $3.86 \times 10^{-11}$   \\
+        $\bar{\beta}=0.14\pm0.14$ & Full & 2.303$\pm$ 0.007 & 0.054$\pm$0.004 \\ % &  $2.64 \times 10^{-11}$   \\
+         & VHE & 2.12$\pm$0.05 & 0.08$\pm$0.02 \\
+         & VHE & 2.28$\pm$0.02 & 0.04$\pm$0.01 \\
+         & VHE & 2.25$\pm$0.03 & 0.04$\pm$0.02 \\
+         %& VHE & 2.40$\pm$0.05 & -0.01$\pm$0.02 \\
+         %& VHE & 2.34$\pm$0.05 & 0.01$\pm$0.03 \\
+    \hline
+       3C 279 & Low & 2.29$\pm$ 0.09 & 0.06$\pm$0.05 \\ % &   $2.85 \times 10^{-11}$  \\
+        $\bar{\alpha}=2.36\pm0.09$ & High & 2.024$\pm$ 0.009 & 0.088$\pm$0.006 \\ % &   $4.34 \times 10^{-11}$  \\
+        $\bar{\beta}=0.09\pm0.07$ & Full & 2.222$\pm$0.004 & 0.082$\pm$0.003 \\ % &  $1.77 \times 10^{-11}$   \\
+         %& VHE & 2.18$\pm$0.11 & 0.01$\pm$0.05 \\
+         & VHE & 2.24$\pm$0.02 & 0.06$\pm$0.01 \\
+    \hline
+       TON 0599 & Low & 2.32$\pm$0.26 & 0.26$\pm$0.19 \\ % & $1.44 \times 10^{-12}$    \\
+        $\bar{\alpha}=2.25\pm0.18$ & High & 1.83$\pm$0.02 & 0.079$\pm$0.009 \\ % & $4.75 \times 10^{-12}$    \\
+        $\bar{\beta}=0.15\pm0.14$ & Full & 2.071$\pm$0.007 & 0.069$\pm$0.004 \\ % & $3.57 \times 10^{-12}$    \\
+         & VHE & 1.95$\pm$0.03 & 0.06$\pm$0.02 \\
+         & VHE & 1.98$\pm$0.04 & 0.03$\pm$0.02 \\
+    \hline
+       PKS 1441+25 & Low & 2.16$\pm$0.13 & 0.018$\pm$0.06 \\ % & $1.98 \times 10^{-12}$    \\
+        $\bar{\alpha}=2.14\pm0.20$ & High & 1.89$\pm$0.029 & 0.10$\pm$0.02 \\ % & $2.98 \times 10^{-13}$    \\
+        $\bar{\beta}=0.28\pm0.21$ & Full & 2.08$\pm$0.02 & 0.08$\pm$0.01 \\ % & $4.07 \times 10^{-13}$    \\
+         & VHE & 1.83$\pm$0.06 & 0.13$\pm$0.04 \\
+    \hline
+       S3 0218+35 & Low & 2.09$\pm$0.14 &  0.07$\pm$0.07 \\ % & $4.94 \times 10^{-12}$    \\
+        $\bar{\alpha}=2.28\pm0.21$ & High & 2.32$\pm$0.02 & 0.12$\pm$0.01 \\ % & $7.16 \times 10^{-12}$    \\
+        $\bar{\beta}=0.20\pm0.16$ & Full & 2.27$\pm$0.01 & 0.056$\pm$0.007 \\ % &  $6.83 \times 10^{-12}$   \\
+         & VHE & 1.62$\pm$0.11 & 0.05$\pm$0.04 \\
+    \hline
+    \hline
+    Source name & State & Index (PL) & \\
+    \hline
+       B2 1420+32 & Low & 2.42$\pm$0.11 & \\ % &   $6.15 \times 10^{-8}$  \\
+        $\bar{\Gamma}=2.38\pm0.13$ & High & 2.02$\pm$0.01 & \\ % &   $1.411 \times 10^{-11}$  \\
+         & Full & 2.25$\pm$0.01 & \\ % &   $9.16 \times 10^{-12}$  \\
+         & VHE & 2.02$\pm$0.02 & \\
+    \hline
+       PKS 0346-27 & Low & 2.53$\pm$0.09 & \\ % & $8.87 \times 10^{-10}$    \\
+        $\bar{\Gamma}=2.22\pm0.09$ & High & 1.99$\pm$0.01 & \\ % & $1.46 \times 10^{-11}$    \\
+         & Full & 2.097$\pm$0.005 & \\ % &  $4.76 \times 10^{-12}$   \\
+         & VHE & 2.04$\pm$0.04 & \\
+    \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

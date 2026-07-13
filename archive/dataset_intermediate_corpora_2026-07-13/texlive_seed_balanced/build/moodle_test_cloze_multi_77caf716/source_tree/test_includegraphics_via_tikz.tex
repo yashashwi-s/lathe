@@ -1,0 +1,41 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp,tikz]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to experiment the support of picture inclusion using 
+\verb|\includegraphics| via \texttt{tikz}. All options are supported. The file 
+name or path may include spaces. The file path can be specified with 
+\verb|\graphicspath|. File extensions can be omitted.
+
+\begin{quiz}{Includegraphics with TikZ}
+
+\begin{multi}{Picture}
+\includegraphics[width=2em,angle=90]{fig/1 1.PNG}
+%\includegraphics{fig/1.png}
+\item* \includegraphics[scale=.5]{fig/2 2.pdf}
+\item \includegraphics{fig/3.gif}
+\end{multi}
+
+\graphicspath{{./fig/}}
+\begin{matching}[dd]{Picture}
+\includegraphics{1 1}
+\item \includegraphics[angle=45]{2 2} \answer \includegraphics{3}
+\item \includegraphics[angle=-45]{4} \answer \includegraphics{5}
+\item \includegraphics[scale=2]{3} \answer 
+\includegraphics[angle=-180,scale=2]{2 2}
+\end{matching}
+
+\end{quiz}
+
+\end{document}

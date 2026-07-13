@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01438\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{lrrrrr}{\bf Exports} & Indonesia & Australia & SAFR & US & Russia \\
+      India & 165,982 & 81,776 & 52,145 & 25,588 & 11,623 \\
+      China & 164,523 & 31,176 & 2,283 & 5,636 & 22,045 \\
+      Other & 39,718 & 29,586 & 22,092 & 28,025 & 20,836 \\
+      Thailand & 26,347 & -- & -- & -- & -- \\
+      Vietnam & 26,197 & 19,053 & 4,500 & -- & 3,676 \\
+      Philippines & 21,150 & -- & -- & -- & -- \\
+      South Korea & 15,100 & 8,410 & -- & -- & 10,617 \\
+      Bangladesh & 12,736 & -- & 1,605 & -- & -- \\
+      Japan & 11,334 & 19,410 & -- & 2,934 & 3,987 \\
+      Taiwan & 10,499 & 11,129 & -- & -- & 3,232 \\
+      Malaysia & 7,486 & 3,372 & -- & -- & -- \\
+      Australia & -- & 5,819 & -- & -- & -- \\
+      Brazil & -- & 6,715 & 1,214 & 11,155 & 2,175 \\
+      Indonesia & -- & 6,017 & -- & -- & -- \\
+      Senegal & -- & -- & 1,586 & -- & -- \\
+      Pakistan & -- & -- & 6,789 & -- & -- \\
+      Yemen & -- & -- & 1,234 & -- & -- \\
+      Turkey & -- & -- & 2,449 & 4,249 & 8,216 \\
+      UAE & -- & -- & 1,859 & -- & -- \\
+      Netherlands & -- & -- & -- & 8,160 & -- \\
+      US & -- & -- & -- & 2,854 & -- \\
+      Morocco & -- & -- & -- & 2,140 & -- \\
+      Egypt & -- & -- & -- & 5,086 & 1,613 \\
+      Argentina & -- & -- & -- & 1,848 & -- \\
+      Italy & -- & -- & -- & -- & 1,281 \\
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02642\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|c|r} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      %\textbf{V} & \textbf{Value 2} & \textbf{Value 3}\\
+  FRB & $z$ & log10($M_*$) $M_{ \odot}$   \\
+    \hline  
+20221116A & 0.2764 & $11.01_{-0.02}^{0.02}$ \\      
+20220105A & 0.2784 & $10.01_{-0.1}^{+0.05}$ \\    
+20210320C & 0.2796 & $10.37_{-0.06}^{+0.05}$ \\  
+20221012A & 0.2847 & $10.96_{-0.02}^{+0.02}$ \\
+20190102C & 0.2909 & $9.69_{-0.11}^{+0.09}$ \\
+20220506D & 0.3 & $10.45_{-0.03}^{+0.03}$ \\
+20230501A & 0.3015 & 10.29 \\
+20180924B & 0.3212 & $10.39_{-0.02}^{+0.02}$ \\
+20230626A & 0.3270 & $10.44_{-0.04}^{+0.04}$ \\
+20180301A & 0.3305 & $9.64_{-0.11}^{+0.11}$ \\   
+20211203C & 0.3437 & $9.76_{-0.09}^{+0.07}$ \\
+20220208A & 0.3510 & $10.08_{-0.02}^{+0.02}$ \\
+20220726A & 0.3619 & $10.18_{-0.03}^{+0.04}$ \\
+20200906A & 0.3688 & $10.37_{-0.05}^{+0.05}$ \\
+20220330D & 0.3714 & $10.5_{-0.01}^{+0.02}$ \\
+20190611B & 0.3778 & $9.57_{-0.12}^{+0.12}$ \\
+20220204A & 0.4012 & $9.7_{-0.09}^{+0.04}$ \\
+20230712A & 0.4525 & $11.13_{-0.01}^{+0.01}$ \\
+20181112A & 0.4755 & $9.87_{-0.07}^{+0.07}$ \\
+20220310F & 0.4780 & $9.98_{-0.06}^{+0.08}$ \\
+20190711A & 0.5218 & $9.10_{-0.23}^{+0.15}$ \\
+20230216A & 0.5310 & 9.82 \\
+20221027A & 0.5422 & $9.47_{-0.04}^{+0.07}$ \\
+20221219A & 0.5530 & $10.21_{-0.04}^{+0.03}$ \\
+20220418A & 0.6214 & $10.26_{-0.02}^{+0.02}$ \\
+20221029A & 0.9750 & $10.59_{-0.10}^{+0.14}$ \\
+
+
+ \end{tabular}
+}
+\end{table}
+
+\end{document}

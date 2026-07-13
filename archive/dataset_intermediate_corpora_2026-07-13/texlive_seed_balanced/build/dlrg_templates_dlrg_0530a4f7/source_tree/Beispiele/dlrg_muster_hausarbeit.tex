@@ -1,0 +1,169 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+    bibliography=totoc,
+    listof=totoc
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    typ=pub,
+    module={Hausarbeit},
+    hinweise=true,
+    link=LaTeX.dlrg.de
+]{dlrg}
+\usepackage{csquotes}
+
+\usepackage[
+    language=ngerman
+    ,backend=biber
+    ,sortlocale=de_DE%.UTF-8
+    ,style=authoryear
+    ,bibencoding=UTF8
+    ,block=space
+    ,autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+
+\addbibresource[type=file]{dlrg.bib}
+
+\title{Hausarbeit Lehrschein}
+\author{Johannes Pieper}
+\ort{Bad Nenndorf}
+\mentor{Max Mustermann}
+\date{\today}
+\thema[ggf. Kurzform des Themas]{Erstellen einer Musterhausarbeit}
+
+\makeglossaries
+
+\newacronym{abb}{Abb.}{Abbildung}
+\newacronym{abs}{Abs.}{Absatz}
+\newacronym{ca}{ca.}{circa}
+\newacronym{dh}{d.\,h.}{das heißt}
+\newacronym{ggf}{ggf.}{gegebenenfalls}
+\newacronym{ua}{u.\,a.}{unter anderem}
+\newacronym{usw}{usw.}{und so weiter}
+\newacronym{zb}{z.\,B.}{zum Beispiel}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{Vorwort}
+\HinweisZurVorlage{
+    Einleitung in das gewählte Thema, kurze Erläuterung, Beispiele, Anlässe, warum dieses Thema gewählt wurde -- einfach Interesse am Thema wecken und animieren, die Hausarbeit mit Freude zu lesen.
+}
+
+\section{Einführung}
+\subsection{Örtliche Gegebenheiten}
+\HinweisZurVorlage{
+    Darstellung der örtlichen Gegebenheiten wie \gls{zb} Beckengröße, Wassertiefe, Wassertemperatur, Bahnverteilung, etc. einschließlich Besonderheiten und sicherheitsrelevante Faktoren.
+}
+
+\subsection{Die Kursteilnehmer}
+\HinweisZurVorlage{
+    Ausführung zu den Kursteilnehmern, zu deren persönlichen und sozialen Besonderheiten, zu \gls{ggf} vorgegebenen Voraussetzungen, zum Leistungsstand, zur Gruppengröße sowie sich \gls{ggf} daraus ergebende sicherheitsrelevante Verhaltensregeln und methodische Aspekte.
+}
+
+\subsection{Organisatorische Überlegungen}
+\HinweisZurVorlage{
+    Erläuterung organisatorischer Überlegungen zur Gewährleistung eines sicheren und effektiven Unterrichts. Hierzu können \gls{ua} Dauer einer Übungsstunde, Übungsformen, Anzahl und Standpunkte der Übungsleiter/Helfer -- aber auch Informationen der Teilnehmer/Eltern, \gls{usw} in Abhängigkeit zu den örtlichen Gegebenheiten und den Voraussetzungen der Zielgruppe thematisiert werden.
+}
+
+\subsection{Einbindung der thematisierten Stundenplanung in die Kurskonzeption}
+\HinweisZurVorlage{
+    Kurzdarstellung des geplanten Kursrahmens mit der Einbindung der thematisierten Stundenplanung in die Gesamtkonzeption!
+}
+
+\begin{redPartBox}
+    \partTitle{Richtziel des Kurses:}
+    Der Schwimmanfänger/Teilnehmer soll\ldots \\
+
+    \partTitle{Zielgruppe:}
+    Schwimmanfänger/Teilnehmer\ldots  \\
+
+    \partTitle{Übungsstunde: Grobziele:}
+    \begin{enumerate}
+        \item andere Stunde
+        \item andere Stunde
+        \item
+        \item \textbf{z.\,B. thematisierte Stunde}
+        \item
+        \item
+        \item
+    \end{enumerate}
+\end{redPartBox}
+
+\querformatSeite{}
+
+\section{Detaillierte Stundenplanung einer Unterrichtsstunde}\label{sec:stundenplanung}
+\HinweisZurVorlage{
+    Detaillierte Planung einer Unterrichtsstunde, aus der dann die Prüferinnen/Prüfer bei der praktischen Lizenzprüfung einen zeitlichen Ausschnitt von \gls{ca} 10 Minuten auswählen. Wichtig ist hierbei die klare Formulierung der mit dem Thema verbundenen Lernziele, der möglichst genaue zeitliche Ablauf, deren detaillierte inhaltliche Ausgestaltung in Form einer genauen Reihenfolge der einzelnen Lernschritte und der angestrebten Teilziele, die methodische Umsetzung und dein zielgruppengerechter Medien-/Materialeinsatz. Hierzu gehören \gls{ggf} die zu erwartenden Fragen und Antworten der Teilnehmer, eine Kurzbeschreibung des erwarteten Teilnehmerverhaltens – aber auch sicherheitsrelevante Aspekte und methodische Überlegungen, einschließlich einer genauen Formulierung und Gestaltung von Tafeltexten, Folien oder Metaplanwänden, eine deutliche Strukturierung der Ausbildung in einzelne, deutliche voneinander abgesetzten Phasen (Informations-, Er\-pro\-bungs-, Anwendungs-, Übungs-, und Kontrollphase) und Fehlerkorrekturen.
+
+    Die Inhalte von Kapitel \ref{sec:stundenplanung} werden ausschließlich in tabellarischer Form dargestellt. Die nachfolgende Tabelle ist hierfür zu verwenden. Die Spaltenbreiten dürfen je nach Bedarf verändert werden.
+}
+
+\begin{dlrgTblr}[long]{colspec={XXXXX},rowhead=1,hline{1,2,Z}}[ueberschrift,noHlines]
+    Phase/Zeitplan &
+    Feinlernziele \newline
+        I) Kognitiv \newline
+        II) Motorisch \newline
+        III) Emotional \newline
+        IV) Sozial
+    &
+    Inhalte \newline
+        a) Differenzierung \newline
+        b) Fehlerkorrektur \newline
+        c) Motivation \newline
+        d) Sicherheit
+    &
+    Methodik/Or\-ga\-ni\-sa\-tions\-form &
+    Material/Medien \\
+
+    \tabellenZwischenueberschrift{5}Einleitung \\ \hline
+
+    5 min & Text & & & \\
+    1 min & Text davor
+
+        \begin{tabellenItemize}
+            \item Aufzählung die auch länger als eine Spalte ist
+            \item in der Tabelle
+        \end{tabellenItemize}
+
+        Text danach
+    & & & \\
+    \hline \tabellenZwischenueberschrift{5} Hauptteil \\ \hline
+    & Weitere Zeile die etwas Text enthält und etwas Platz braucht & Im Hauptteil & & \\
+    & Noch eine weitere Zeile & Ohne Zwischenline & & \\
+    \hline \tabellenZwischenueberschrift{5} Schluss\\ \hline
+    & & & & \\
+\end{dlrgTblr}
+
+\hochformatSeite{}
+
+\section{Schlussbetrachtung}
+\HinweisZurVorlage{
+    Zusammenfassung und eigene Betrachtung.
+}
+
+\section{Selbstständigkeitserklärung}
+Ich versichere, dass ich diese Hausarbeit selbständig verfasst und keine anderen als die im Literaturverzeichnis aufgeführten Quellen und Hilfsmittel benutzt habe. Zeichnungen, Bilder sowie Stellen der Planung, die anderen Werken dem Wortlaut oder Sinn entnommen sind, habe ich in jedem Fall unter Angabe der Quelle als Entlehnung kenntlich gemacht.
+\vspace*{2cm}
+
+Ort, Datum\hfill Unterschrift
+
+\clearpage
+
+\nocite{Rettungsschwimmen2012}
+\nocite{Schwimmen2007}
+
+\printbibliography[title=Literaturverzeichnis]
+
+\listoffigures
+
+\printglossary[type=\acronymtype,title=Abkürzungsverzeichnis,style=long]
+%makeindex -s muster_hausarbeit.ist -t muster_hausarbeit.alg -o muster_hausarbeit.acr muster_hausarbeit.acn
+
+\end{document}

@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01769\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|p{0.05\textwidth}|p{0.25\textwidth}|p{0.55\textwidth}|p{0.1\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Composite Situations} & \textbf{Primitive Situations Required} & \textbf{Domains} \\ \hline
+CS1 & A delivered object being missing from the place of delivery & \makecell[l]{An object present in a doorstep for n seconds (ST3) \\ \textit{followed by} \\
+the object absent for the next m seconds} & SL \\ \hline
+CS2 & A car stopping in an intersection with heavy traffic flow & \makecell[l]{A car stopped changing position (ST4(a)) \\ 
+\textit{and} \\
+an intersection having heavy traffic flow (ST1(a))} & CM \\ \hline
+% CS3 & Is there a person have become immobile suddenly? & \makecell[l]{A person walking for n seconds (ST4(a)) \\ \textit{followed by} \\
+% a person not walking for next m seconds (ST5(b))} & AL \\ \hline
+CS3 & A car taking a turn & \makecell[l]{A car going left for n seconds (ST5(a)) \\ 
+\textit{followed by} \\
+a car going straight for next m seconds (ST5(a))} & SL/CM \\ \hline
+CS4 & A person going towards a check-post and returns without crossing it & \makecell[l]{A person coming close to a checkpost (ST6(a)) \\ 
+\textit{followed by} \\
+the \textbf{same}  person going away from a checkpost (ST6(b))} & CM \\ \hline
+CS5 & Two people crossing each other & \makecell[l]{A person coming close to another person (ST6(a)) \\ 
+\textit{followed by} \\
+the \textbf{same}  going away from another person (ST6(b))} & SL \\ \hline
+
+CS6 & A person is being picked up by a vehicle & \makecell[l]{A person present for n seconds (ST3) \\ 
+\textit{followed by} \\
+a car coming close to a person (ST6(a)) \\ 
+\textit{followed by} \\
+a person not present for m seconds} & CM \\ \hline
+% CS7 & A person bumping into a door & \makecell[l]{A person coming close to a door (ST7(a)) \\ 
+% \textit{followed by} \\
+% a person stopped walking (ST5(b))} & AL, SL \\ \hline
+% CS8 & Two individuals exchanging an object & \makecell[l]{A person holding an object (ST8(a)) \\ 
+% \textit{followed by} \\
+% two persons holding the object (ST8(a))} & SL \\ \hline
+CS7 & A person (given his/her image) entering and exiting a shopping mall/building k times & \makecell[l]{Searching for a person using his/her image (ST2(a)) \\ \textit{and} \\
+searching if the person entered and exited a shopping\\
+ mall/building k times (ST8(a)) \\
+\textit{and} 
+\\
+searching if the person was holding an object (ST7(a))} 
+& SL \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01643\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|c|c c|c}
+            \toprule
+            Method
+            & Type          & \#Params  & FLOPs     & Top-1 \\
+            
+            \midrule
+            ConvNeXt-T~
+            & ConvNet       & 29M       & 4.5G      & 82.1 \\
+            % InceptionNeXt-T~\cite{inceptionnext}
+            % & ConvNet       & 28M       & 4.2G      & 82.3 \\
+            InternImage-T~
+            & ConvNet       & 30M       & 5.0G      & 83.5 \\
+            % CSwin-T~\cite{cswin} 
+            % & Transformer   & 23M       & 4.3G      & 82.7 \\
+            BiFormer-S~
+            & Transformer   & 26M       & 4.5G      & 83.8 \\
+            TransNeXt-T~
+            & Transformer   & 28M       & 5.7G      & 84.0 \\
+            RMT-S~
+            & Transformer   & 27M       & 4.5G      & 84.1 \\
+            FasterViT-1$^\ddag$~
+            & Transformer   & 53M       & 5.3G      & 83.2 \\
+            VMamba-T~ 
+            & Mamba         & 31M       & 4.9G      & 82.5 \\
+            LocalVMamba-T~ 
+            & Mamba         & 26M       & 5.7G      & 82.7 \\
+            SOFT-S++~
+            & Linear        & 27M       & 4.5G      & 82.6 \\
+            VVT-S~
+            & Linear        & 26M       & 5.6G      & 82.7 \\
+            % FLatten-CSwin-T~\cite{flatten}
+            % & Linear        & 21M       & 4.3G      & 83.1 \\
+            MILA-T$^\ddag$~
+            & Linear        & 25M       & 4.2G      & 83.5 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-T
+            & TTT           & 29M       & 4.9G      & 83.5 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-T$^\ddag$
+            & TTT           & 29M       & 4.9G      & 84.0 \\
+
+            \midrule
+            % ConvNeXt-B~\cite{convnext}
+            % & ConvNet       & 89M       & 15.4G     & 83.8 \\
+            InceptionNeXt-B~
+            & ConvNet       & 87M       & 14.9G     & 84.0 \\
+            InternImage-B~
+            & ConvNet       & 97M       & 16.0G     & 84.9 \\
+            CSwin-B~
+            & Transformer   & 78M       & 15.0G     & 84.2 \\
+            iFormer-L~
+            & Transformer   & 87M       & 14.0G     & 84.8 \\
+            TransNeXt-B~
+            & Transformer   & 90M       & 18.4G     & 84.8 \\
+            % RMT-L~\cite{rmt}
+            % & Transformer   & 95M       & 18.2G     & 85.5 \\
+            FasterViT-3$^\ddag$~
+            & Transformer   & 160M      & 18.2G     & 84.9 \\
+            % Mamba2D-B~\cite{mamband} 
+            % & Mamba         & 94M       & $-$       & 83.0 \\
+            % VMamba-B~\cite{vmamba} 
+            % & Mamba         & 89M       & 15.4G     & 83.9 \\
+            % SOFT-L++~\cite{soft_plus}
+            % & Linear        & 85M       & 15.4G     & 84.1 \\
+            % VVT-L~\cite{vvt}
+            % & Linear        & 62M       & 10.8G     & 84.1 \\
+            % FLatten-CSwin-B~\cite{flatten}
+            % & Linear        & 75M       & 15.0G     & 84.5 \\
+            % MILA-B$^\ddag$~\cite{demystify_mamba}
+            % & Linear        & 96M       & 16.2G     & 85.3 \\
+            % \rowcolor{lightgray!20} H-ViT$^3$-B
+            % & Linear        & 94M       & 16.7G     & 84.9 \\
+            % \rowcolor{lightgray!20} H-ViT$^3$-B$^\ddag$
+            % & Linear        & 94M       & 16.7G     & 85.5 \\
+
+            \bottomrule
+        \end{tabular}
+}
+\end{table}
+
+\end{document}

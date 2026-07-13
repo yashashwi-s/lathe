@@ -1,0 +1,737 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Customising LaTeX output
+% $Id: custom.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Tuỳ biến các thành phần của \LaTeX{}}
+
+\begin{intro}
+Với các lệnh đã học từ chương 1 đến nay, bạn đã có thể soạn thảo được các tài liệu đẹp mắt, có tình chuyên nghiệp khá cao. Dù chúng chưa đạt đến được sự tinh xảo cao nhưng tài liệu của bạn đã tuân theo những qui tắc định dạng chung do đó chúng rất dễ đọc và có tính chất chuyên nghiệp.
+
+Tuy nhiên, trên thực tế của việc soạn thảo với \LaTeX{}, bạn vẫn còn gặp phải một số tình huống mà \LaTeX{} không cung cấp các lệnh hay môi trường phù hợp với yêu cầu của bạn hay kết quả có được từ các lệnh sẵn có không làm cho bạn hài lòng.
+
+Trong chương này, chúng ta sẽ cùng tìm hiểu một vài thủ thuật để ``dạy'' cho \LaTeX{} những kỹ năng mới nhằm tạo ra các tài liệu có kiểu mẫu khác với các kiểu mẫu mặc định.
+\end{intro}
+
+
+\section{Tạo lệnh, gói lệnh và môi trường mới}
+Nếu chú ý thì bạn sẽ thấy rằng tất cả các lệnh trong tài liệu này đều được đóng khung và bạn có thể dễ dàng tìm thấy chúng trong phần chỉ mục của tài liệu. Thay vì trực tiếp sử dụng các lệnh của \LaTeX{}, tôi đã tạo ra một \wi{gói} mới định nghĩa cách các lệnh và môi trường mới này. Khi này, tôi chỉ cần nhập vào như sau:
+
+\begin{example}
+\begin{lscommand}
+\ci{dum}
+\end{lscommand}
+\end{example}
+Trong ví dụ này, tôi đã sử dụng một môi trường mới gọi là \ei{lscommand} và một lệnh mới là \ci{ci}. Môi trường mới này sẽ
+vẽ đóng khung các lệnh. Còn lệnh \ci{ci} được dùng để soạn thảo tên lệnh và đưa nó vào bảng chỉ mục. Bạn có thể kiểm tra điều này bằng cách nhìn qua mục \ci{dum} trong phần chỉ mục của tài liệu này.
+
+Khi tôi muốn thay đổi định dạng cho các lệnh sang một kiểu khác (chẳng hạn như không đóng khung nữa), tôi chỉ cần thay đổi định nghĩa của môi trường \texttt{lscommand}. Điều này giúp cho việc thay đổi được thực hiện khá dễ dàng mà không cần phải tìm kiếm trong suốt tài liệu và tiến hành sửa đổi.
+
+\subsection{Tạo lệnh mới}
+Để thêm vào một lệnh mới của riêng bạn, sử dụng lệnh sau:
+
+\begin{lscommand}
+\ci{newcommand}\verb|{|%
+       \emph{name}\verb|}[|\emph{num}\verb|]{|\emph{definition}\verb|}|
+\end{lscommand}
+\noindent Thông thường, một lệnh sẽ đòi hỏi hai tham số: \emph{name} là tên của lệnh mà bạn muốn tạo và \emph{definition} là định nghĩa của lệnh. Tham số \emph{num} trong dấu ngoặc vuông là tuỳ chọn và xác định số các tham số mà lệnh mới cần đến (một lệnh có khả năng có tối đa là 9 tham số). Nếu ta bỏ qua tham số này thì lệnh này sẽ được gọi mà không có tham số nào cả.
+
+Dưới đây là một ví dụ nhằm giúp bạn hiểu rõ hơn. Trong ví dụ này, trước tiên, ta sẽ tạo ra một lệnh mới gọi là \ci{tnss}. Lệnh này sẽ xuất ra chuỗi ``The Not So Short Introduction to \LaTeXe{}.''
+
+\begin{example}
+\newcommand{\tnss}{The not
+    so Short Introduction to
+    \LaTeXe}
+Đây là tựa đề gốc của tài
+liệu này: ``\tnss'' \ldots{}
+``\tnss''
+\end{example}
+Ví dụ tiếp theo sẽ minh hoạ cho việc tạo lệnh mới và lệnh này sẽ có 1 tham số. Thẻ lệnh \verb|#1| sẽ được thay thế bởi nội dung do bạn cung cấp. Nếu bạn muốn có nhiều hơn 1 tham số, bạn có thể sử dụng thẻ lệnh \verb|#2|, \ldots.
+
+\begin{example}
+\newcommand{\txsit}[1]
+ {Xin chào
+ \emph{#1}. Chúc một ngày tốt lành!}
+% trong phần thân của tài liệu:
+\begin{itemize}
+\item \txsit{Nguyễn Tân Khoa}
+\item \txsit{Babymilky}
+\end{itemize}
+\end{example}
+\LaTeX{} không cho phép việc tạo ra các lệnh mới trùng tên với các lệnh sẵn có. Tuy nhiên, trong trường hợp này, bạn có thể dùng lệnh sau: \ci{renewcommand} một cách tường minh. Lệnh \verb|renewcommand| cũng có cú pháp tương tự như lệnh \verb|\newcommand|.
+
+Trong một số trường hợp cụ thể, bạn có thể sử dụng lệnh \ci{providecommand}. Lệnh này giống như lệnh \ci{newcommand} nhưng khi mà lệnh đã được định nghĩa thì \LaTeXe{} sẽ tự động bỏ qua nó.
+
+Xem thêm trang \pageref{khoảng trắng} để biết thêm chi tiết về các vấn đề liên quan đến khoảng trắng ở sau một lệnh.
+
+\subsection{Tạo môi trường mới}
+Cũng như lệnh \verb|\newcommand|, có một lệnh hỗ trợ cho việc tạo ra các môi trường mới. Đó là lệnh \ci{newenvironment} với cú pháp như sau:
+
+\begin{lscommand}
+\ci{newenvironment}\verb|{|%
+       \emph{name}\verb|}[|\emph{num}\verb|]{|%
+       \emph{before}\verb|}{|\emph{after}\verb|}|
+\end{lscommand}
+Tương tự như lệnh \ci{newcommand}, lệnh \ci{newenvironment} cũng có các tham số tuỳ chọn riêng. Dữ liệu trong phần \emph{before} sẽ được xử lý trước khi phần văn bản được xử lý và dữ liệu trong phần \emph{after} sẽ được xử lý khi lệnh
+\verb|\end{|\emph{name}\verb|}| được xử lý.
+
+Dưới đây là một ví dụ minh hoạ cho việc sử dụng lệnh \ci{newenvironment}.
+
+\begin{example}
+\newenvironment{king}
+ {\rule{1ex}{1ex}%
+      \hspace{\stretch{1}}}
+ {\hspace{\stretch{1}}%
+      \rule{1ex}{1ex}}
+
+\begin{king}
+Đề tài bé nhỏ của tôi \ldots
+\end{king}
+\end{example}
+Tham số \emph{num} sẽ cho biết số đối số của lệnh. \LaTeX{} sẽ kiểm tra xem bạn có định nghĩa lại một môi trường đã tồn tại hay không. Khi này, nếu bạn muốn thay đổi một môi trường đã tồn tại, bạn có thể sử dụng lệnh \ci{renewenvironment}. Cú pháp của lệnh này cũng tương tự như cú pháp của lệnh \ci{renewcommand}.
+
+Các lệnh được sử dụng trong ví dụ trên sẽ được giải thích sau. Đối với các lệnh \ci{rule} và \ci{stretch}, bạn có thể tham khảo thêm ở trang~\pageref{cmd:rule} và~\pageref{sec:rule}. Còn với lệnh \ci{hspace} thì xem thêm ở trang~\pageref{sec:hspace}
+
+\subsection{Tạo một gói lệnh mới}
+Khi mà bạn đã định nghĩa nhiều môi trường và nhiều lệnh mới, phần tựa đề của tài liệu của bạn sẽ trở nên khá dài. Do đó, bạn nên tạo một gói mới chứa định nghĩa của tất cả các lệnh và môi trường mới này. Sau đó, bạn có thể sử dụng lệnh \ci{usepackage} để đưa gói mới này vào sử dụng trong tài liệu của bạn.
+
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+% Demo Package by Tobias Oetiker
+\ProvidesPackage{demopack}
+\newcommand{\tnss}{The not so Short Introduction to \LaTeXe}
+\newcommand{\txsit}[1]{The \emph{#1} Short
+                       Introduction to \LaTeXe}
+\newenvironment{king}{\begin{quote}}{\end{quote}}
+\end{verbatim}
+\end{lined}
+\caption{Ví dụ về một gói lệnh tự tạo.} \label{package}
+\end{figure}
+Việc viết một gói lệnh mới bao gồm việc sao chép nội dung của phần tựa đề của tài liệu vào một tập tin riêng lẻ với phần mở rộng là \texttt{.sty}. Có một lệnh đặc biệt:
+\begin{lscommand}
+\ci{ProvidesPackage}\verb|{|\emph{package name}\verb|}|
+\end{lscommand}
+\noindent để sử dụng ở đầu của tập tin lưu gói lệnh. Lệnh \verb|\ProvidePackage| cho \LaTeX{} biết tên của gói lệnh; đồng
+thời, nó cũng cho phép \LaTeX{} thông báo các lỗi cơ bản như việc đưa gói lệnh vào hai lần. Hình~\ref{package} cho thấy một ví dụ nhỏ về gói lệnh tự tạo chứa các lệnh đã được định nghĩa trong các ví dụ trên.
+
+\section{Font chữ và kích thước font chữ}
+
+\subsection{Các lệnh thay đổi font chữ}
+\index{font}\index{kích thước font chữ} \LaTeX{} sẽ tự động lựa chọn font chữ và kích thước font chữ dựa trên cấu trúc logic của tài liệu (mục, chú thích chân, \ldots). Trong một số tình huống, bạn sẽ muốn tự thay đổi font chữ. Để thực hiện điều này, bạn có thể sử dụng các lệnh trong bảng~\ref{fonts} và~\ref{sizes}. Kích thước phù hợp của font chữ là một kĩ thuật thiết kế dựa trên kiểu tài liệu và các mục chọn của nó. Bảng~\ref{tab:pointsizes} liệt kê các kích thước tương ứng cho các lệnh thay đổi kích thước font chữ trong các lớp tài liệu chuẩn.
+
+\begin{example}
+{\small Chữ nhỏ \textbf{bold}
+dạng Romans} {\Large Chữ lớn
+\textit{Italy}.}
+\end{example}
+Một tính năng quan trọng của \LaTeXe{} là các thuộc tính của font chữ là độc lập. Điều này có nghĩa là bạn có thể thay đổi  font chữ hay kích thước của font chữ mà vẫn giữa được các định dạng in đậm, in nghiêng đã được đặt từ trước.
+
+Trong \emph{chế độ toán học}, bạn có thể dùng các lệnh thay đổi font chữ để tạm thời thoát ra khỏi \emph{chế độ toán học} và nhập vào các đoạn văn bản thông thường. Để thay đổi font chữ trong chế độ toán học, bạn cần sử dụng một tập lệnh đặc biệt. Xem thêm bảng~\ref{mathfonts}.
+
+\begin{table}[!bp]
+\caption{Font chữ.} \label{fonts}
+\begin{lined}{13cm}
+%
+% Alan suggested not to tell about the other form of the command
+% eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
+%
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+\fni{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+\fni{texttt}\verb|{...}|        &      \texttt{đánh máy}\\[6pt]
+\fni{textmd}\verb|{...}|        &      \textmd{trung bình}&
+\fni{textbf}\verb|{...}|        &      \textbf{\wi{in đậm}}\\[6pt]
+\fni{textup}\verb|{...}|        &       \textup{\wi{thắng đứng}}&
+\fni{textit}\verb|{...}|        &       \textit{\wi{in nghiêng}}\\
+\fni{textsl}\verb|{...}|        &       \textsl{\wi{nghiêng}}&
+\fni{textsc}\verb|{...}|        &       \textsc{\wi{chữ nhỏ}}\\[6pt]
+\ci{emph}\verb|{...}|          &            \emph{nhấn mạnh} &
+\fni{textnormal}\verb|{...}|    &    font chữ \textnormal{bình
+thường}
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+
+\begin{table}[!bp]
+\index{font size} \caption{Kích thước của font chữ.} \label{sizes}
+\begin{lined}{12cm}
+\begin{tabular}{@{}ll}
+\fni{tiny}      & \tiny        font chữ nhỏ \\
+\fni{scriptsize}   & \scriptsize  font chữ rất nhỏ\\
+\fni{footnotesize} & \footnotesize  font chữ tương đối nhỏ \\
+\fni{small}        &  \small            font chữ nhỏ \\
+\fni{normalsize}   &  \normalsize  font chữ thường \\
+\fni{large}        &  \large       font chữ lớn
+\end{tabular}%
+\qquad\begin{tabular}{ll@{}}
+\fni{Large}        &  \Large       font chữ lớn hơn \\[5pt]
+\fni{LARGE}        &  \LARGE       font chữ rất lớn \\[5pt]
+\fni{huge}         &  \huge        font chữ ``khổng lồ'' \\[5pt]
+\fni{Huge}         &  \Huge        font chữ lớn nhất
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Kích thước tính theo điểm (pt) của các tài liệu
+chuẩn.}\label{tab:pointsizes} \label{tab:sizes}
+\begin{lined}{13cm}
+\begin{tabular}{lrrr}
+\multicolumn{1}{c}{Cỡ} & \multicolumn{1}{c}{10pt (mặc định) } &
+           \multicolumn{1}{c}{11pt tuỳ chọn}  &
+           \multicolumn{1}{c}{12pt tuỳ chọn}\\
+\verb|\tiny|       & 5pt  & 6pt & 6pt\\
+\verb|\scriptsize| & 7pt  & 8pt & 8pt\\
+\verb|\footnotesize| & 8pt & 9pt & 10pt \\
+\verb|\small|        & 9pt & 10pt & 11pt \\
+\verb|\normalsize| & 10pt & 11pt & 12pt \\
+\verb|\large|      & 12pt & 12pt & 14pt \\
+\verb|\Large|      & 14pt & 14pt & 17pt \\
+\verb|\LARGE|      & 17pt & 17pt & 20pt\\
+\verb|\huge|       & 20pt & 20pt & 25pt\\
+\verb|\Huge|       & 25pt & 25pt & 25pt\\
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+
+\begin{table}[!bp]
+\caption{Các font chữ để soạn thảo trong chế độ toán học.}
+\label{mathfonts}
+\begin{lined}{\textwidth}
+\begin{tabular}{@{}lll@{}}
+\textit{Lệnh}&\textit{Ví dụ}&    \textit{Kết quả}\\[6pt]
+\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+$\mathnormal{R_{19}}\neq R_{19}$\\
+\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+Liên quan đến các lệnh thay đổi kích thước font chữ, \wi{dấu ngoặc
+vuông} đóng một vai trò rất quan trọng. Chúng được dùng để tạo ra
+các \emph{nhóm}. Các \emph{nhóm} sẽ giới hạn phạm vi tác dụng của
+các lệnh trong \LaTeX{}.\index{nhóm}.
+
+\begin{example}
+Tôi thích {\LARGE Toán-Tin học
+và {\small Văn học}}.
+\end{example}
+Các lệnh liên quan đến kích thước của font chữ cũng sẽ thay đổi
+khoảng cách giữa các hàng khi mà một đoạn văn kết thúc bên trong
+phạm vi tác dụng của lệnh này. Do đó, dấu đóng ngoặc \verb|}|
+không nên xuất hiện trước khi kết thúc đoạn văn. Hãy chú ý đến vị
+trí của lệnh \ci{par} trong hai ví dụ sau
+đây.\footnote{\texttt{\bs{}par} tương đương với một hàng trắng.}
+
+\begin{example}
+{\Large Đừng tin cô gái ấy.
+Tôi nói ``thiệt'' đấy!!!\par}
+\end{example}
+
+\begin{example}
+{\Large Đừng tin chàng trai ấy.
+Tôi không ``quan tâm'' đến anh
+ta.}\par
+\end{example}
+Khi bạn muốn kích hoạt việc thay đổi kích thước font chữ cho cả
+doạn văn bản hay nhiều hơn, bạn có thể sử dụng môi trường lệnh để
+thay đổi.
+\begin{example}
+\begin{Large}
+Đừng tin những gì con
+gái nói. Nhưng như vậy
+thì còn biết tin vào
+gì nữa đây???!!! \ldots
+\end{Large}
+\end{example}
+
+\noindent Giải pháp này sẽ giúp bạn tránh được việc nhập thiếu dấu
+đóng ngoặc \verb|}|.
+
+\subsection{Lưu ý khi sử dụng các lệnh thay đổi định dạng}
+Như đã nói đến ở đầu chương, việc thay đổi định dạng của font chữ,
+kích thước thông qua các lệnh tác động trực tiếp sẽ làm cho tài
+liệu của chúng ta trở nên không còn trong sáng như ý tưởng ban
+đầu. Do đó, khi cần thay đổi định dạng của văn bản tại nhiều nơi
+trong văn bản, bạn nên tạo ra một lệnh mới với lệnh
+\verb|\newcommand|.
+
+\begin{example}
+\newcommand{\oops}[1]{\textbf{#1}}
+Đừng \oops{bước vào} căn
+phòng này!! Bên trong căn
+phòng này đang
+có một \oops{con vật lạ}
+từ hành tinh khác!.
+\end{example}
+Hướng tiếp cận này có những lợi điểm riêng bởi vì bạn có thể thay
+đổi cách định dạng về sau với rất ít công sức. Ngược lại, nếu bạn
+sử dụng lệnh thay đổi trực tiếp như \verb|\textbf| thì khi muốn
+thay đổi định dạng, bạn cần phải tìm kiếm tất cả các lệnh
+\verb|\textbf| trong tài liệu và thay thế nó bởi lệnh định dạng
+khác. Hãy nghĩ đến sự phức tạp khi mà bạn muốn thay đổi một loạt
+các định dạng phức tạp!!!
+
+\subsection{Vài lời khuyên}
+Để kết thúc phần giới thiệu về font chữ và kích thước của font
+chữ, dưới đây là một số lời khuyên:\nopagebreak
+
+\begin{quote}
+  \underline{\textbf{Hãy nhớ là\Huge!}} \textit{Sử dụng}
+  \textsf{nhiều\textbf{\LARGE FONT} \texttt{chữ}\textsl{khác nhau}} \Huge
+  Bạn \tiny sẽ \footnotesize \textbf{tạo} ra \small \texttt{một tài liệu đẹp},
+  \large \textit{và} \normalsize dễ \textsc{đọc}.
+\end{quote}
+
+\section{Các khoảng trắng}
+
+\subsection{Khoảng cách giữa cách hàng}
+
+\index{khoảng trắng giữa các hàng} Bạn có thể thay đổi khoảng cách
+giữa các hàng bên trong một tài liệu với lệnh sau:
+\begin{lscommand}
+\ci{linespread}\verb|{|\emph{factor}\verb|}|
+\end{lscommand}
+\noindent ở phần tựa đề của tài liệu. Lệnh \verb|\linespread{1.3}|
+xác định khoảng cách giữa các hàng là ``một rưỡi''; lệnh
+\verb|\linespread{1.6}| xác định khoảng cách giữa các hàng là
+``gấp đôi''. Bình thường thì khoảng cách giữa các hàng không được
+căng ra cho nên khoảng cách mặc định là~1.\index{khoảng cách hàng
+kép}.
+
+\subsection{Định dạng đoạn văn}\label{parsp}
+Trong \LaTeX{}, có hai tham số ảnh hưởng đến việc trình bày các
+đoạn văn. Thông qua các lệnh sau
+
+\begin{code}
+\ci{setlength}\verb|{|\ci{parindent}\verb|}{0pt}| \\
+\verb|\setlength{|\ci{parskip}\verb|}{1ex plus 0.5ex minus 0.2ex}|
+\end{code}
+trong phần tựa đề của tập tin dữ liệu vào, bạn có thể thay đổi
+cách trình bày các đoạn văn. Hai lệnh này sẽ tăng khoảng cách giữa
+các đoạn văn trong khi thiết lập việc canh lề các đoạn văn là 0.
+
+Phần tham số \texttt{plus} và \texttt{minus} của lệnh trên sẽ cho
+\TeX{} biết rằng nó có thể co hẹp lại hay dãn rộng ra việc cách
+đoạn theo một lượng được xác định khi mà đoạn văn tương ứng cần
+phải nằm vừa vặn trong một trang.
+
+Theo định dạng văn bản thông thường ở châu Âu, các đoạn văn thường
+cách nhau bởi một khoảng trắng và không được canh lề. Nhưng bạn
+nên lưu ý rằng, cách định dạng này cũng có những ảnh hưởng riêng
+đến bảng mục lục: khoảng cách giữa các hàng sẽ tương đối lớn làm
+cho bảng mục lục trở nên ``lỏng lẽo''. Để tránh điều này, bạn có
+thể đặt hai lệnh định dạng khoảng cách ở trong phần tựa đề vào
+phần nội dung của tài liệu, ở sau lệnh \verb|\tableofcontent| hoặc
+bạn có thể không sử dụng hai lệnh định dạng trên. Hầu hết các tài
+liệu chuyên nghiệp đều sử dụng định dạng đoạn văn bằng cách canh
+lề chứ không dùng khoảng trắng để cách đoạn.
+
+Để canh lề một đoạn văn chưa được canh lề, hãy sử dụng lệnh sau:
+
+\begin{lscommand}
+\ci{indent}
+\end{lscommand}
+\noindent ở phần đầu của đoạn văn.\footnote{Để canh lề cho đoạn
+văn đầu tiên nằm ở sau tựa đề mục, bạn có thể sử dụng gói
+\pai{indentfirst} trong bộ các công cụ}. Hiển là lệnh này sẽ không
+có tác động khi lệnh \verb|\parindent| được chỉnh là 0.
+
+Để chỉnh cho đoạn văn không được canh lề, bạn có thể sử dụng lệnh
+sau:
+
+\begin{lscommand}
+\ci{noindent}
+\end{lscommand}
+\noindent ở vị trí đầu tiên của đoạn văn. Lệnh này rất có ích khi
+bạn bắt đầu một tài liệu bằng phần văn bản chứ không phải lệnh tạo
+đề mục.
+
+\subsection{Khoảng trắng ngang}
+\label{sec:hspace} \LaTeX{} tác động xác định khoảng trắng giữa
+các từ và các câu một cách tự động. Để thêm vào khoảng trắng
+ngang, bạn có thể dùng lệnh:\index{khoảng trắng!ngang}
+
+\begin{lscommand}
+\ci{hspace}\verb|{|\emph{length}\verb|}|
+\end{lscommand}
+Trong tình huống bạn muốn giữ nguyên các khoảng trắng này tại vị
+trí cuối hàng hoặc đầu hàng, bạn có thể sử dụng lệnh
+\verb|\hspace*| thay cho lệnh \verb|\hspace|. Tham số
+\emph{length} chỉ đơn thuần là một con số và đơn vị đo tương ứng
+(trong tình huống đơn giản nhất). Các đơn vị thường dùng được liệt
+kê trong bảng~\ref{units}.\index{đơn vị}\index{kích thước}.
+
+\begin{example}
+Đây là một khoảng
+trắng dài \hspace{1.5cm}
+ 1.5 cm.
+\end{example}
+\suppressfloats
+\begin{table}[tbp]
+\caption{Các đơn vị trong \TeX{}.} \label{units}\index{units}
+\begin{lined}{9.5cm}
+\begin{tabular}{@{}ll@{}}
+\texttt{mm} & millimetre $\approx 1/25$~inch \quad \demowidth{1mm} \\
+\texttt{cm} & centimetre = 10~mm  \quad \demowidth{1cm}                     \\
+\texttt{in} & inch $=$ 25.4~mm \quad \demowidth{1in}                    \\
+\texttt{pt} & điểm $\approx 1/72$~inch $\approx \frac{1}{3}$~mm  \quad\demowidth{1pt}\\
+\texttt{em} & xấp xỉ chiều rộng của chữ `M' trong font chữ hiện thời \quad \demowidth{1em}\\
+\texttt{ex} & xấp xỉ chiều cao của chữ `x' trong font chữ hiện
+thời \quad \demowidth{1ex}
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\label{cmd:stretch} Lệnh
+\begin{lscommand}
+\ci{stretch}\verb|{|\emph{n}\verb|}|
+\end{lscommand}
+\noindent sẽ tạo ra các khoảng trắng đặc biệt. Nó sẽ dãn ra cho
+đến khi nó sử dụng hết tất cả các khoảng trắng trên hàng. Nếu hai
+lệnh \verb|\hspace{\stretch{|\emph{n}\verb|}}| xuất hiện trên cùng
+một hàng thì việc dãn rộng các khoảng trắng sẽ được quyết định dựa
+trên tham số \emph{n}.
+
+\begin{example}
+x\hspace{\stretch{1}}
+x\hspace{\stretch{3}}x
+\end{example}
+
+When using horizontal space together with text, it may make sense to make
+the space adjust its size relative to the size of the current font.
+This can be done by using the text-relative units \texttt{em} and
+\texttt{en}:
+
+\begin{example}
+{\Large{}big\hspace{1em}y}\\
+{\tiny{}tin\hspace{1em}y}
+\end{example}
+
+\subsection{Khoảng trắng dọc}
+Khoảng cách giữa các đoạn văn, mục, mục con, \ldots\ được xác định
+một cách tự động bởi \LaTeX{}. Khi cần thiết, các khoảng trắng dọc
+\emph{giữa hai đoạn văn} có thể được thêm vào với lệnh sau:
+
+\begin{lscommand}
+\ci{vspace}\verb|{|\emph{length}\verb|}|
+\end{lscommand}
+Lệnh này nên được sử dụng giữa hai hàng trắng. Khi cần giữ khoảng
+trắng ở đầu hay cuối trang, bạn có thể sử dụng lệnh
+\verb|\vspace*| thay cho lệnh \verb|\vspace|.\index{khoảng
+trắng!dọc}.
+
+Lệnh \verb|\stretch| cùng với lệnh \verb|\pagebreak| có thể được
+sử dụng để soạn thảo phần văn bản ở hàng cuối cùng của một trang
+hay canh giữa văn bản theo chiều dọc của trang giấy.
+\begin{code}
+\begin{verbatim}
+Một vài lưu ý \ldots
+
+\vspace{\stretch{1}}
+Đây sẽ là hàng cuối của trang.\pagebreak
+\end{verbatim}
+\end{code}
+
+Lệnh sau sẽ cho phép bạn thay đổi khoảng cách giữa các hàng trong
+cùng một đoạn văn hay trong cùng một biểu bảng:
+
+\begin{lscommand}
+\ci{\bs}\verb|[|\emph{length}\verb|]|
+\end{lscommand}
+Với lệnh \ci{bigskip} và \ci{smallskip}, bạn có thể cách quãng một
+khoảng cách định trước theo chiều dọc.
+
+\section{Trình bày trang}
+\begin{figure}[!hp]
+\begin{center}
+\makeatletter\@layout\makeatother
+\end{center}
+\vspace*{1.8cm} \caption{Các tham số trong việc trình bày trang.}
+\label{fig:layout}
+\end{figure}
+\index{trình bày trang}
+
+\LaTeXe{} cho phép bạn xác định kích thước trang giấy trong lệnh \\
+\verb|\documentclass|. Sau khi được cung cấp kích thước giấy,
+\LaTeX{} sẽ tự động xác định kích thước các biên. Tuy nhiên, đôi
+khi thao tác tự động này không đáp ứng được yêu cầu định dạng của
+bạn. Và với \LaTeX{}, bạn hoàn toàn có khả năng tuỳ biến điều này
+cho phù hợp với yêu cầu công việc.\thispagestyle{fancyplain}.
+Hình~\ref{fig:layout} sẽ cung cấp cho bạn một cái nhìn tổng quát
+về các tham số có thể thay đổi nhằm thực hiện việc định dạng theo
+yêu cầu.%
+\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}
+
+Tuy nhiên, bạn cần phải \textbf{cẩn thận} trước khi quyết định
+việc thay đổi định dạng. Bản thân \LaTeX{} đã cố gắng lựa chọn cho
+bạn những mẫu định dạng mang tính chất chuyên nghiệp và tương đối
+chuẩn trong soạn thảo tài liệu. Do đó, đôi khi việc tuỳ biến các
+định dạng này sẽ cho các bạn một kết quả ngoài dự kiến (thông
+thường thì kết quả sẽ tệ hơn!!!).
+
+Để bạn hiểu rõ hơn, ta bắt đầu đi vào phân tích vấn đề. Khi bạn tự
+so sánh một trang tài liệu của mình với một trang tài liệu được
+soạn thảo bằng MS Word, bạn sẽ thấy rằng trang tài liệu được soạn
+bằng \LaTeX{} nhỏ hơn. Tuy nhiên, nếu bạn nhìn kĩ vào các quyển
+sách đã được xuất bản\footnote{các quyển sách được in bởi các nhà
+xuất bản danh tiếng.} và đếm số kí tự trên một hàng, bạn sẽ thấy
+rằng mỗi hàng thường không chứ quá \emph{66} kí tự. Bây giờ, bạn
+hãy tiến hành kiểm tra tài liệu được soạn thảo bằng \LaTeX{}, bạn
+cũng sẽ có kết quả tương tự. Kinh nghiệm trong ngành in ấn đã cho
+thấy rằng các hàng quá dài sẽ gây khó khăn cho người đọc, dễ làm
+cho người đọc bị mỏi mắt (đây cũng là lý do vì sao mà các tờ báo
+lại chọn cách in dạng nhiều cột).
+
+Như vậy, nếu bạn tự ý tăng độ rộng của phần văn bản, bạn đã vô
+tình gây khó khăn cho người đọc. Tuy nhiên, chúng ta vẫn giới
+thiệu cho các bạn biết về các lệnh để thực hiện việc này (nhưng
+bạn nên để \LaTeX{} tự động lựa chọn cách trình bày chuẩn nhất).
+
+\LaTeX{} cung cấp 2 lệnh để thay đổi các tham số này. Thông
+thường, các lệnh này thường được đặt trong phần tựa đề của tài
+liệu.
+
+Lệnh đầu tiên này sẽ gán một giá trị cố định cho một tham số bất
+kỳ:
+
+\begin{lscommand}
+\ci{setlength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\end{lscommand}
+
+Lệnh thứ hai này sẽ cộng thêm vào giá trị hiện tại của tham số:
+\begin{lscommand}
+\ci{addtolength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\end{lscommand}
+Lệnh thứ hai này hữu ích hơn lệnh thứ nhất (\ci{setlength}) bởi vì
+bạn có thể thao tác dựa trên các định dạng sẵn có. Để thêm vào vào
+chiều rộng của phần nội dung 1cm, bạn thêm lệnh sau vào phần tựa
+đề của tài liệu:
+\begin{code}
+\verb|\addtolength{\hoffset}{-0.5cm}|\\
+\verb|\addtolength{\textwidth}{1cm}|
+\end{code}
+Trong tình huống này, bạn có thể xem thêm gói \pai{calc}. Gói này
+sẽ cho phép bạn sử dụng các toán tử số học trong tham số của lệnh
+\ci{setlength} và các vị trí khác khi bạn nhập giá trị vào tham số
+của một hàm.
+
+\section{Các vấn đề khác với việc định dạng chiều dài}
+Khi có thể, tôi thường tránh việc sử dụng các chiều dài thuần tuý
+trong các tài liệu được soạn thảo bởi \LaTeX{}. Thông thường, ta
+nên dựa vào các tham số cơ bản như chiều dài, rộng của các phần tử
+khác của một trang. Đối với chiều rộng của một hình minh họa, bạn
+nên sử dụng lệnh \verb|\textwidth| để chỉnh cho hình minh họa nằm
+trọn trong một trang.
+
+3 lệnh dưới đây sẽ giúp bạn xác định chiều rộng, cao và sâu của
+chuỗi văn bản.
+
+\begin{lscommand}
+\ci{settoheight}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+\noindent Ví dụ dưới đây cho thấy tác dụng của 3 lệnh trên.
+
+\begin{example}
+\flushleft
+\newenvironment{vardesc}[1]{%
+  \settowidth{\parindent}{#1:\ }
+  \makebox[0pt][r]{#1:\ }}{}
+
+\begin{displaymath}
+a^2+b^2=c^2
+\end{displaymath}
+
+\begin{vardesc}{Với}$a$,
+$b$ -- là hai cạnh kề của
+góc vuông của tam giác vuông.
+
+$c$ -- là cạnh huyền của
+tam giác vuông.
+
+$d$ -- chưa được đề cập ở đây!!!!
+\end{vardesc}
+\end{example}
+
+\section{Các hộp}
+\LaTeX{} xây dựng các trang bằng cách kết hợp các hộp. Đầu tiên,
+mỗi kí tự là một hộp nhỏ. Chúng sẽ được gắn lại với nhau để tạo
+nên các từ. Sau đó, các từ này lại được gắn lại với nhau để tạo ra
+các từ khác. Tuy nhiên, với loại ``keo'' kết dính đặc biệt thì
+chúng có thể co dãn được để có thể nằm trọn trên một hàng.
+
+Đây chỉ là một cách nói nôm na cơ chế làm việc của \LaTeX{}. Không
+chỉ các kí tự mới có thể được đóng hộp. Chúng ta có thể đặt hầu
+hết mọi thứ vào trong một cái hộp (ngay cả một cái hộp khác). Khi
+này, mỗi một hộp sẽ được \LaTeX{} xem như một kí tự đơn.
+
+Trong các chương trước, chúng ta đã bắt gặp các hộp (bao quanh các
+lệnh, \ldots). Môi trường \ei{tabular} và lệnh
+\ci{includegraphics} sẽ hỗ trợ bạn tạo nên các hộp trong tài liệu.
+Điều này có nghĩa là bạn có thể sắp xếp hai biểu bảng hay hình ảnh
+kế bên nhau. Điều duy nhất bạn cần quan tâm ở đây là tổng chiều
+rộng của hai đối tượng này không được vượt quá chiều rộng của văn
+bản.
+
+Ngoài ra, bạn cũng có thể đóng khung một đoạn văn với lệnh
+
+\begin{lscommand}
+\ci{parbox}\verb|[|\emph{pos}\verb|]{|\emph{width}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+\noindent hay môi trường
+
+\begin{lscommand}
+\verb|\begin{|\ei{minipage}\verb|}[|\emph{pos}\verb|]{|\emph{width}\verb|}| text
+\verb|\end{|\ei{minipage}\verb|}|
+\end{lscommand}
+
+\noindent Tham số \texttt{pos} có thể có các giá trị như
+\texttt{c,t} hay \texttt{b} để canh lề hộp theo chiều dọc trong
+mối quan hệ với vạch giới hạn xung quanh phần văn bản. Tham số
+\texttt{width} sẽ xác định chiều rộng của hộp. Điểm khác biệt
+chính giữa môi trường \ei{minipage} và lệnh \ci{parbox} là bạn
+không thể sử dụng tất cả các lệnh và môi trường bên trong một hộp
+được tạo bởi lệnh \ci{parbox}. Ngược lại, bạn có thể làm mọi việc
+bên trong môi trường \ei{minipage}.
+
+Trong khi lệnh \ci{parbox} đóng khung cả đoạn văn bản gồm cả việc
+xuống hàng, \ldots ta có một lớp các lệnh đóng khung khác chỉ làm
+việc với các văn bản được canh lề theo chiều ngang. Đó là lệnh
+\ci{mbox}. Lệnh này chỉ đơn thuần xếp chặt một loạt các hộp vào
+trong một hộp khác. Bạn có thể ngăn chặn việc \LaTeX{} tách rời 2
+từ bằng cách sử dụng lệnh này. Lệnh này có tính linh hoạt rất cao.
+
+\begin{lscommand}
+\ci{makebox}\verb|[|\emph{width}\verb|][|\emph{pos}\verb|]{|\emph{text}\verb|}|
+\end{lscommand}
+
+\noindent Tham số \texttt{width} xác định độ rộng của
+hộp.\footnote{Điều này có nghĩa là hộp có thể nhỏ hơn phần nội
+dung bên trong. Bạn có thể chỉnh độ rộng của hộp là 0pt để phần
+văn bản bên trong hộp được soạn thảo mà không bị ảnh hưởng bởi hộp
+bao quanh.} Bên cạnh các tham số về độ dài, bạn có thể sử dụng các
+lệnh \ci{width}, \ci{height}, \ci{depth} và \ci{totalheight} bên
+trong biểu thức về độ dài. Các tham số này có thể được chỉnh dựa
+trên các giá trị có được bằng cách đo độ rộng của phần văn bản
+\texttt{text}. Tham số \emph{pos} lấy các giá trị sau: \textbf{c}:
+văn bản sẽ được canh giữa, \textbf{l}: văn bản sẽ được dồn về
+trái, \textbf{r}: văn bản sẽ được dồn về bên phải hay \textbf{s}:
+văn bản sẽ được dàn trải ra trong hộp.
+
+Lệnh \ci{framebox} hoạt động tương tự như lệnh \ci{makebox} nhưng
+nó chỉ đơn thuần vẽ một hộp bên ngoài phần văn bản.
+
+Ví dụ dưới đây cho thấy một số ứng dụng của lệnh \ci{makebox} và
+lệnh \ci{framebox}
+
+\begin{example}
+\makebox[\textwidth]{%
+    ở giữa}\par
+\makebox[\textwidth][s]{%
+    dàn trải}\par
+\framebox[1.1\width]{Đóng
+khung một văn bản!} \par
+
+\framebox[0.8\width][r]{Ô kìa,
+    phần văn bản quá dài!!!} \par
+\framebox[1cm][l]{không có
+     chi, tôi cũng vậy}
+Bạn đọc được phần văn bản này chứ?
+\end{example}
+
+Bây giờ, bạn đã có thể điều khiển việc định dạng theo chiều ngang,
+bước tiếp theo là việc thực hiện những định dạng theo chiều
+dọc.\footnote{Việc điều khiển định dạng hoàn toàn phải là sự tổng
+hợp hài hoà của việc điều khiển theo chiều ngang và theo chiều
+dọc}.
+
+\begin{lscommand}
+\ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{depth}\verb|][|\emph{height}\verb|]{|\emph{text}\verb|}|
+\end{lscommand}
+
+\noindent lệnh này cho phếp bạn định nghĩa thuộc tính theo chiều
+dọc của hộp. Bạn cũng có thể sử dụng các lệnh \ci{width},
+\ci{height}, \ci{depth} và \ci{totalheight} ở 3 tham số đầu để xác
+định kích thước của hộp bên trong tham số \emph{text}.
+
+\begin{example}
+\raisebox{0pt}[0pt][0pt]{\Large%
+\textbf{Aaaa\raisebox{-0.3ex}{a}%
+\raisebox{-0.7ex}{aa}%
+\raisebox{-1.2ex}{r}%
+\raisebox{-2.2ex}{g}%
+\raisebox{-4.5ex}{h}}}
+Hãy chú ý khả năng định
+dạng hết sức tinh
+tế và thú vị của \LaTeX{}.
+\end{example}
+
+\section{Đường kẻ và thanh ngang}
+\label{sec:rule} Trong một số trang ở các phần trước, bạn đã thấy
+lệnh:
+
+\begin{lscommand}
+\ci{rule}\verb|[|\emph{lift}\verb|]{|\emph{width}\verb|}{|\emph{height}\verb|}|
+\end{lscommand}
+
+\noindent Thông thường, lệnh này được sử dụng để vẽ các hộp đen.
+\newpage
+\begin{example}
+\rule{3mm}{.1pt}%
+\rule[-1mm]{5mm}{1cm}%
+\rule{3mm}{.1pt}%
+\rule[1mm]{1cm}{5mm}%
+\rule{3mm}{.1pt}
+\end{example}
+
+\noindent Lệnh này rất hữu dụng để vẽ các hàng ngang và hàng dọc.
+Ví dụ như đường kẻ ngang trong phần tựa đề của trang được tạo với
+lệnh \ci{rule}.
+
+Một đường kẻ ngang không có chiều rộng và chỉ có một chiều cao xác
+định là một trường hợp đặc biệt. Trong ngành soạn thảo chuyên
+nghiệp, nó được gọi là ``\wi{strut}''. Nó được sử dụng để đảm bảo
+rằng một thành phần trên trang giấy có một chiều cao nhỏ nhất xác
+định. Bạn có thể sử dụng nó trong môi trường \texttt{bảng} để chắc
+chắn rằng mỗi hàng có một chiều cao xác định nhỏ nhất.
+
+\begin{example}
+\begin{tabular}{|c|}
+\hline
+\rule{1pt}{4ex}Pitprop \ldots\\
+\hline
+\rule{0pt}{4ex}Strut\\
+\hline
+\end{tabular}
+\end{example}
+
+\bigskip
+{\flushright Hết.\par}
+
+%
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

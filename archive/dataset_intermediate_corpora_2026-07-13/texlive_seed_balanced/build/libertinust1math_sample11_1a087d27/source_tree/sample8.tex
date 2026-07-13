@@ -1,0 +1,60 @@
+% !TEX TS-program = pdflatexmk
+% Template file for TeXShop by Michael Sharpe, LPPL
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}% Begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\pdfmapfile{=libertinust1math.map}
+%SetFonts
+% libertine+newtxmath
+\usepackage[sb]{libertine} % use sb in place of bold
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\makeatletter
+\def\LinuxLibertine@scale{1.2}
+\makeatother
+\usepackage[varqu,varl]{zi4}% inconsolata
+\usepackage{amsmath,amsthm}
+\usepackage[ISO]{libertinust1math}
+%\usepackage[noamssymbols]{newtxmath}
+% option vvarbb gives you stix blackboard bold
+\useosf % use oldstyle figures except in math
+\usepackage[cal=boondoxo]{mathalfa}% less slanted than STIX cal
+%SetFonts
+\usepackage{booktabs}
+\pagestyle{empty}
+\begin{document}
+%\expandafter\meaning\csname mathsfbfit \endcsname
+{\tt Options=[ISO]}\\
+%\verb|\mathsf{x}+\mathsfbf{y}+\mathsfbfit{z}+\mathsfit(w)|}
+%\[\mathsf{x}\quad+\]
+%\quad\mathsfbf{y}\quad+\quad\mathsfbfit{z}\quad\text{$\backslash$mathsfit is undefined}\]
+\begin{center}
+  \begin{tabular}{@{} lll @{}}
+    \toprule
+     macro & symbol \\ 
+    \midrule
+    \verb|\mathsf{x}| & $\mathsf{x}$\\ 
+    \verb|\mathsfbf{y}| & $\mathsfbf{y}$ \\ 
+     \verb|\mathsfbfit{z}| & $\mathsfbfit{z}$ \\ 
+     \verb|\mathsfit{w}| & {\tt undefined} \\ 
+   \bottomrule
+  \end{tabular}
+\end{center}
+
+
+\ShowMathFonts
+%+\quad\mathsfit{w}\]
+\end{document}  
+
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathit-bold at 14.39996pt [bold-letters])
+(7: \LS1/libertinust1mathsf/m/n/12 = libertinust1-mathsfrm at 14.39996pt)
+(8: \LS1/libertinust1mathsf/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt)
+(9: \LS1/libertinust1mathsf/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt)

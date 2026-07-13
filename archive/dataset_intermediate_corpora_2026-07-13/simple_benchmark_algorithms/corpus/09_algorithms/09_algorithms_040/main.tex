@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 40}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\State The agents gather information about the prices of the products of their providers.
+\State They calculate their demand for goods(either as input for production or for consumption) and labour(applicable only for producers), leisure and income for the next period. .
+\State All the agents send their demands to their respective providers.
+\State The producers sell their demanders goods from their inventory.
+\State Labour supply and labour demand of the whole demand is calculated and is bought and sold at an aggregate level, with a wage rate being the same across the economy.
+\State After step 5, all trade for that period has been completed. The agents calculate their costs and the producers produce the goods for the next periods and augment that to the inventory. If the producer's inventory falls to zero, then that producer is marked for removal.
+\State Each individual producer calculates the excess demand and changes their commodity price in the direction of the excess demand.
+\State The aggregate excess labour demand is calculated and the wage rate is changed in the direction of the excess demand.
+\State Each individual firm, if it has made profit in that period, redistributes $(1-PRR)$ amount of it among its shareholders. If the firm has been marked for removal, its PRR is set to 0.
+\State Each consumer calculates their own utility and income earned in this period and adds it to their stock of wealth.
+\State All demanders of a firm marked for removal have a choice to either remove the shut-down firm from their provider set or replace it with one of the available producers not already in their provider set. This decision is assumed to be stochastic and each agent has a probability of 0.5 of choosing either of the two outcomes. This choice is however only there when there exists possible candidates for the outgoing firm to be replaced by. In either case, the output elasticities of the producers are renormalized and multiplied with the degree of homogeneity, which remains unchanged throughout. If there is no producer left in the economy, the model program halts.
+\State If any consumer is left with no provider, their utility function parameters and provider set is regenerated.
+\State The shut-down firms are removed from the economy and start the next period.
+\end{algorithmic}
+\end{algorithm}
+\end{document}

@@ -1,0 +1,35 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the command 
+\verb|\htmlonly{...}|.
+
+\begin{quiz}{HTML Only}
+
+\begin{multi}{HTML code}
+A \htmlonly[place holder]{<a href="www.com">$_`'</a>} %%,#,\ breaking 
+%compilation
+\item \htmlonly[\fbox{PDF contents}]{<div style="border: 1px solid green; 
+display: inline-block;">HTML contents</div>}
+\item C
+\item* D
+\end{multi}
+
+\end{quiz}
+
+\end{document}
+
+

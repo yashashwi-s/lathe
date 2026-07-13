@@ -1,0 +1,68 @@
+\documentclass{scrlttr2}
+\usepackage[
+    typ=letter
+]{dlrg}
+\usepackage{lipsum}
+
+%Angaben zur Gliederung
+\gliederungName[LV/Bez/OG Muster]{Landesverband/Bezirk/Ortsgruppe Muster e.\,V.}
+\adresseZusatz{Geschäftsstelle}
+\adresse{Musterstraße 1} % Strasse / Hausnummer
+\ort{12345 Musterhausen} % PLZ / Ort
+\telefon{+49 (0) 1234 567 xxx} % Telefon
+\telefax{+49 (0) 1234 567 xxx} % Fax
+\email{mail@name.dlrg.de} % E-Mail
+\webseite{name.dlrg.de} % Internet
+\rechtsform{eingetragener Verein (e.\,V.)}
+\gericht{Gerichtsort Nummer}
+\bgbVorstand{
+    1. Vors.~Titel Vorname Name\\
+    stellv. Vors.~Titel Vorname Name\\
+    Schatzmeister~Titel Vorname Name
+}
+\bankverbindung{%
+    Musterbank\\
+    IBAN:~\\
+    BIC:~\\
+    Musterbank\\
+    IBAN:~\\
+    BIC:~
+}
+
+%Ansprechpartner
+\ansprechpartner{Max Mustermann}
+\funktionsbezeichnung{Leiter Einsatz}
+
+%Andere Signatur als Ansprechpartner
+\signatur{Vorname, Name\\Sekretariat der Einsatzleitung}
+
+\betreff{Betreff Betreff Betreff}
+
+\begin{document}
+
+    \begin{letter}{%
+        % ===== Zielanschrift =====
+        Empfänger/Institution\\
+        Ansprechpartner\\
+        Empfängeradresse\\
+        PLZ/Ortsname
+        % =======================
+        }
+
+        \opening{Sehr geehrte Damen und Herren,}
+
+        \lipsum[1-6]
+
+        \closing{Mit freundlichen Grüßen}
+
+        % ===== Anlage(n) =====
+        % \setkomavar*{enclseparator}{Anlagen}
+        % \encl{%
+        %   Anlage 1\\
+        %   Anlage 2
+        % }
+        % ===================
+
+    \end{letter}
+
+\end{document}

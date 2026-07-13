@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 36}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\caption{Training GANs-based auction features generator}
+\begin{algorithmic}[1]
+\State $D_{train} \gets$ Initialize training set
+\While {$C(fake)>threshold$} \Comment{The critic can be optimized until $C(fake)$ is near $0$. }
+\State Randomly select a discrete variable $c$ with equal probability
+\State Compute the probability mass function (PMF) of $c$
+\State Randomly select a state $i^*$ inherent to $c$ according its PMF
+\State Create the conditional vector $cond$ so that $\sum_i cond(i) = 1$ and $cond(i^*)=1$
+\For {$batch \in \{1,\dots,N_{batches}\}$} \Comment{Gradient descent with mini-batch}
+\State $real \gets d(c_{i^*}=1)\sim D_{train}$ \Comment{Sample batch of real examples respecting the constraint}
+\State $z \sim \mathcal{N}(0,1)$ \Comment{Sample noise}
+\State $fake \gets \tilde{d} \sim G(z)$ \Comment{Sample fake examples}
+\State $real \gets [real]\times 10$ \Comment{Stack input 10 times for Pac configuration}
+\State $fake \gets [fake] \times 10$
+\State $L^j \gets \big( C(fake_j) - C(real_j)\big) + CE(\tilde{c}, cond)$
+\State $L^{batch} \gets L^{batch} + \lambda(||\nabla L^{batch} ||_{2} - 1)^2$ \Comment{Apply gradient penalty}
+\State $w_{crit} \gets w_{crit} + Adam(\nabla_{w_{crit}}\frac{1}{m}\sum_i^m L^{batch}(i))$ \Comment{Updating $C$ with Adam}
+\If {$batch \bmod k = 0$} \Comment{Synchronicity, depends on $k$}
+\State $w_{gen} \gets w_{gen} + Adam(\nabla_{w_{gen}}\frac{1}{m}\sum_i^m -C(G(z)))$ \Comment{Updating $G$ with Adam}
+\EndIf
+\EndFor
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

@@ -1,0 +1,176 @@
+\documentclass[a4paper]{ltugboat}
+\usepackage{amsmath,amsfonts,amsthm,arsenal-math,multicol}
+\usepackage[svgnames,dvipsnames]{xcolor}
+\setmathfont{ArsenalMath-Sans}[
+    BoldFont=ArsenalMath-SansBold,
+    StylisticSet=1,
+    range={cal, bfcal}] 
+\setmainfont{Arsenal}
+\setcounter{secnumdepth}{0}
+
+\newcommand{\abc}{abcdefghijklmnopqrstuvwxyz}
+\newcommand{\ABC}{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+\newcommand{\alphabeta}{\alpha\beta\gamma\delta
+	\epsilon\varepsilon\zeta\eta\theta\vartheta\iota
+	\kappa\varkappa\lambda\mu\nu\xi o\pi\varpi\rho\varrho\sigma
+	\varsigma\tau\upsilon\phi\varphi\chi\psi\omega}
+\newcommand{\AlphaBeta}{\Gamma\Delta\Theta\Lambda
+	\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega}
+
+\newtheorem{theorem}{Theorem}
+\colorlet{math}{RoyalBlue}
+\everymath{\color{math}}
+\abovedisplayskip 3pt plus 2pt minus 1pt
+\belowdisplayskip 3pt plus 1pt minus .5pt
+
+%% Getting version and date
+\makeatletter
+\def\GetFileInfo#1{%
+  \def\filename{#1}%
+  \def\@tempb##1 ##2 ##3\relax##4\relax{%
+    \def\filedate{##1}%
+    \def\fileversion{##2}%
+    \def\fileinfo{##3}}%
+  \edef\@tempa{\csname ver@#1\endcsname}%
+  \expandafter\@tempb\@tempa\relax? ? \relax\relax}
+\makeatother
+
+\GetFileInfo{arsenal-math.sty}
+
+\begin{document}
+
+\pagestyle{empty}
+\title{Sample of Arsenal Math font}
+\author{\color{black}Rajeesh K\,V}
+\date{Arsenal Math package version \fileversion, \filedate}
+\maketitle
+
+\parindent0pt
+\parskip 0ex plus .1ex
+
+\section{Introduction}
+\label{sec:intro}
+
+Arsenal Math is created from KpMath-Sans and Arsenal font, both licensed under OFL. The math
+symbols are from KpMath-Sans font; Latin characters and numerals are\linebreak
+from Arsenal font.
+
+\section{Results}
+\label{sec:Results}
+
+\begin{theorem}[Residue Theorem]
+Let $f$ be analytic in the region $G$ except for the isolated singularities $a_1,a_2,\ldots,a_m$. If $\gamma$ is a closed rectifiable curve in $G$ which does not pass through any of the points $a_k$ and if $\gamma\approx 0$ in $G$ then
+\begin{align*}
+\frac{1}{2\pi i}\int_\gamma f = \sum_{k=1}^m n(\gamma;a_k) \text{Res}(f;a_k).
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Maximum Modulus]
+\emph{Let $G$ be a bounded open set in $\mathbb{C}$ and suppose that 
+$f$ is a continuous function on $G^-$ which is analytic in $G$. Then}
+\begin{align*}
+\max\{|f(z)|:z\in G^-\}=\max \{|f(z)|:z\in \partial G \}.
+\end{align*}
+\end{theorem}
+
+\section{Large aligned equation and matrix}
+
+\begin{eqnarray*}
+      V(R) &=&
+      \int_{\varphi=0}^{2 \pi}
+      \int_{\theta=0}^{\pi}
+      \int_{r=0}^{R}
+      r^2 \sin(\theta) dr d\theta d\varphi \\ 
+      &=&
+      \left( \int_{\varphi=0}^{2 \pi}  d\varphi \right)
+      \left( \int_{\theta=0}^{\pi} \sin(\theta)  d\theta \right)
+      \left( \int_{r=0}^{R} r^2 dr \right) \\ 
+      &=&
+      \left[   \varphi \right]_{\varphi=0}^{2 \pi}
+      \left[  -\cos(\theta) \right]_{\theta=0}^{\pi}
+      \left[ \frac{r^3}{3} \right]_{r=0}^{R} \\ 
+      &=&
+      \frac{4}{3} \pi R^3 \\
+\det(A) &=& \sum_{\sigma \in S_n} \epsilon(\sigma) 
+ \prod_{i=1}^n a_{i,\sigma(i)} \\
+I_n &=& \mathbb{1}_n\\
+  &\phantom{=}& \left[\begin{array}{ccccc}
+    1 & 0 & 0     & \cdots & 0 \\
+    0 & 1 & 0     & \cdots & 0 \\
+    0 & 0 & \ddots &      & 0 \\
+    \vdots &   &   &      & \vdots \\
+    0 &  0      & \cdots  &  0   & 1
+    \end{array}\right|
+\end{eqnarray*}
+
+\section{Alphabets}
+\label{sec:alphabets}
+\subsection{Uppercase and math}
+\ABC\\
+\textit{\ABC} \\ 
+$\ABC$
+
+\subsection{Lowercase and math}
+\abc\\
+\textit{\abc} \\
+$\abc$\\
+0123456789\quad $01234567890$
+
+\subsection{Greek}
+$\AlphaBeta$ \\
+$\alphabeta$ \\
+$\ell\wp\aleph\infty\propto\emptyset\nabla\partial\mho\imath\jmath\hslash\eth$
+
+\subsection{Lowercase Greek and math}
+$\abc$\\
+$\alphabeta$
+
+\subsection{Uppercase Greek and math}
+$\ABC$\\
+$\AlphaBeta$
+
+\subsection{Greek and misc}
+$\mathrm{A}$ $\Lambda$ $\Delta$ $\nabla$ $\mathrm{B}$ $\mathrm{C}$ $\mathrm{D}$ $\Sigma$ $\mathrm{E}$ $\mathrm{F}$ $\Gamma$ $\mathrm{G}$ $\mathrm{H}$ $\mathrm{I}$ $\mathrm{J}$ $\mathrm{K}$ $\mathrm{L}$ $\mathrm{M}$ $\mathrm{N}$ $\mathrm{O}$ $\Theta$ $\Omega$ $\mho$ $\mathrm{P}$ $\Phi$ $\Pi$ $\Xi$ $\mathrm{Q}$ $\mathrm{R}$ $\mathrm{S}$ $\mathrm{T}$ $\mathrm{U}$ $\mathrm{V}$ $\mathrm{W}$ $\mathrm{X}$ $\mathrm{Y}$ $\Upsilon$ $\Psi$ $\mathrm{Z}$\\
+$1234567890 $
+
+\subsection{Mathbold}
+\textbf{\ABC}\\
+$\mathbf{\ABC}$\\
+\textbf{\abc}\\
+$\mathbf{\abc}$
+
+\subsection{Math and symbols}
+$a$ $\alpha$ $b$ $\beta$ $c$ $\partial$ $d$ $\delta$ $e$ $\epsilon$ $\varepsilon$ $f$ $\zeta$ $\xi$ $g$ $\gamma$ $h$ $\hbar$ $\hslash$ $\iota$ $i$ $\imath$ $j$ $\jmath$ $k$ $\kappa$ $\varkappa$ $l$ $\ell$ $\lambda$ $m$ $n$ $\eta$ $\theta$ $\vartheta$ $o$ $\sigma$ $\varsigma$ $\phi$ $\varphi$ $\wp$ $p$ $\rho$ $\varrho$ $q$ $r$ $s$ $t$ $\tau$ $\pi$ $u$ $\mu$ $\nu$ $v$ $\upsilon$ $w$ $\omega$ $\varpi$ $x$ $\chi$ $y$ $\psi$ $z$$ $ $\infty$ $\propto$ $\emptyset$ $\varnothing$ $\mathrm{d}$ $\eth$ $\backepsilon$
+
+\subsection{Mathcal}
+%$\mathcal{\ABC}$
+$\mathcal{A}$ $\mathcal{B}$ $\mathcal{C}$ $\mathcal{D}$ $\mathcal{E}$ $\mathcal{F}$ $\mathcal{G}$ $\mathcal{H}$ $\mathcal{I}$ $\mathcal{J}$ $\mathcal{K}$ $\mathcal{L}$ $\mathcal{M}$ $\mathcal{N}$ $\mathcal{O}$ $\mathcal{P}$ $\mathcal{Q}$ $\mathcal{R}$ $\mathcal{S}$ $\mathcal{T}$ $\mathcal{U}$ $\mathcal{V}$ $\mathcal{W}$ $\mathcal{X}$ $\mathcal{Y}$ $\mathcal{Z}$ 
+
+\subsection{Mathbb}
+%$\mathbb{\ABC}$
+$\mathbb{A}$ $\mathbb{B}$ $\mathbb{C}$ $\mathbb{D}$ $\mathbb{E}$ $\mathbb{F}$ $\mathbb{G}$ $\mathbb{H}$ $\mathbb{I}$ $\mathbb{J}$ $\mathbb{K}$ $\mathbb{L}$ $\mathbb{M}$ $\mathbb{N}$ $\mathbb{O}$ $\mathbb{P}$ $\mathbb{Q}$ $\mathbb{R}$ $\mathbb{S}$ $\mathbb{T}$ $\mathbb{U}$ $\mathbb{V}$ $\mathbb{W}$ $\mathbb{X}$ $\mathbb{Y}$ $\mathbb{Z}$ 
+
+
+\subsection{Mathscr}
+%$\mathscr{\ABC}$
+$\mathscr{A}$ $\mathscr{B}$ $\mathscr{C}$ $\mathscr{D}$ $\mathscr{E}$ $\mathscr{F}$ $\mathscr{G}$ $\mathscr{H}$ $\mathscr{I}$ $\mathscr{J}$ $\mathscr{K}$ $\mathscr{L}$ $\mathscr{M}$ $\mathscr{N}$ $\mathscr{O}$ $\mathscr{P}$ $\mathscr{Q}$ $\mathscr{R}$ $\mathscr{S}$ $\mathscr{T}$ $\mathscr{U}$ $\mathscr{V}$ $\mathscr{W}$ $\mathscr{X}$ $\mathscr{Y}$ $\mathscr{Z}$ 
+
+\subsection{Uppercase mathfrak}
+%$\ABC$\\
+%$\mathfrak{\ABC}$
+$\mathfrak{A}$ $\mathfrak{B}$ $\mathfrak{C}$ $\mathfrak{D}$ $\mathfrak{E}$ $\mathfrak{F}$ $\mathfrak{G}$ $\mathfrak{H}$ $\mathfrak{I}$ $\mathfrak{J}$ $\mathfrak{K}$ $\mathfrak{L}$ $\mathfrak{M}$ $\mathfrak{N}$ $\mathfrak{O}$ $\mathfrak{P}$ $\mathfrak{Q}$ $\mathfrak{R}$ $\mathfrak{S}$ $\mathfrak{T}$ $\mathfrak{U}$ $\mathfrak{V}$ $\mathfrak{W}$ $\mathfrak{X}$ $\mathfrak{Y}$ $\mathfrak{Z}$ 
+
+\subsection{Lowercase mathfrak}
+%$\abc$\\
+%$\mathfrak{\abc}$
+$\mathfrak{a}$ $\mathfrak{b}$ $\mathfrak{c}$ $\mathfrak{d}$ $\mathfrak{e}$ $\mathfrak{f}$ $\mathfrak{g}$ $\mathfrak{h}$ $\mathfrak{i}$ $\mathfrak{j}$ $\mathfrak{k}$ $\mathfrak{l}$ $\mathfrak{m}$ $\mathfrak{n}$ $\mathfrak{o}$ $\mathfrak{p}$ $\mathfrak{q}$ $\mathfrak{r}$ $\mathfrak{s}$ $\mathfrak{t}$ $\mathfrak{u}$ $\mathfrak{v}$ $\mathfrak{w}$ $\mathfrak{x}$ $\mathfrak{y}$ $\mathfrak{z}$ 
+
+
+\subsection{Bold math}
+{\boldmath$\alpha + b = 27$}
+
+\subsection{Primes}
+$d', d'', d'''$.
+
+\end{document}
+

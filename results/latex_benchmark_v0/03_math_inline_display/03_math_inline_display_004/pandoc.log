@@ -1,0 +1,28 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_004/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_004/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \frac{\partial {\cal V}}{\partial \varphi} = {\textstyle\frac{2}{n}} \frac{1}{{\rm Tr}({\cal M}^2)}\, {\cal M}_{mn} \frac{\partial {\cal V}}{\partial {\cal M}_{mn}}\, ,\,\,\,\,\Rightarrow {\cal M}^{mn}{\cal M}_{pq} \frac{\partial {\cal V}}{\partial {\cal M}_{pq}} - {\rm Tr}({\cal M}^2) \frac{\partial {\cal V}}{\partial {\cal M}_{mn}} = 0\, .
+  \end{align*}, rendering as TeX:
+  rac{\partial {\cal V}}{\partial \varphi}
+                     ^
+  unexpected control sequence \cal
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  \!\!\!\!I\!=\!\int_{\Sigma}\! d^3 \! x \!\sqrt{\gamma}\left(\!R(\gamma)\!-\! {1 \over 2} \!\left( \left(\!DU \right)^2 \!-\! e^{-2U}\!\!\left(\!DV \right)^2 \right) \!-\! {1 \over 2} \!\left(\left(\!D \Phi \!\right)^2 \!-\! e^{- 2 \Phi} \!\left(\!D \Psi \!\right)^2 \right)\!-\! \left(\!D T \right)\!^2 \!+\! e^{-(U\!+\Phi)}V(T) \!\right)
+  \end{align*}, rendering as TeX:
+  mma)\!-\! {1 \over 2} \!\left( \left(\!D
+                     ^
+  unexpected control sequence \over
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  2\frac{\int_{b=\theta_{2}}^{b=\theta_{1}}e^{\frac{\rho rs\cos(b)}{1-\rho^{2}}}\,\d b}{2\pi\int_{0}^{2\pi}e^{\frac{\rho rs\cos a}{1-\rho^{2}}}\d a}\leq2\frac{\int_{b=0}^{b=\theta_{1}-\theta_{2}}e^{\frac{\rho rs\cos(b)}{1-\rho^{2}}}\,\d b}{2\pi\int_{0}^{2\pi}e^{\frac{\rho rs\cos a}{1-\rho^{2}}}\d a}<\frac{\theta_{1}-\theta_{2}}{2\pi^{2}}.
+  \end{align*}, rendering as TeX:
+  }{1-\rho^{2}}}\,\d b}{2\pi\int_{0}^{2\pi
+                     ^
+  unexpected control sequence \d
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

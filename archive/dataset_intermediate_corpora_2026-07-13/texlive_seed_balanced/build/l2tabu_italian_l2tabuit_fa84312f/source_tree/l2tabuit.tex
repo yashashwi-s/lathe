@@ -1,0 +1,1800 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Filename:     l2tabuit.tex                                             %%%
+%%% Author:       Marc Ensenbach <Marc.Ensenbach@post.rwth-aachen.de>      %%%
+%%% Orig. Author: Mark Trettin <Mark.Trettin@gmx.de>                       %%%
+%%% Created:      07 Mär 2005 13:36:50                                     %%%
+%%% Last Modif.:  20 Sep 2011                                              %%%
+%%% Version:      2.3                                                      %%%
+%%%                                                                        %%%
+%%% Copyright (C) 2005 by Mark Trettin                                     %%%
+%%% Copyright (C) 2010 by Marc Ensenbach                                   %%%
+%%%                                                                        %%%
+%%% Italian translation by Mauro Sacchetto <mauro.sacchetto@gmail.com>     %%%
+%%% Created :     January, 26th 2012                                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[fontsize=11pt,paper=a4,pagesize,captions=tableheading,%
+numbers=noenddot,toc=flat]{scrartcl}
+
+% -------------------------------- Codifica ----------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[latin1]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[babel]{csquotes}
+\MakeAutoQuote{«}{»}
+
+% -------------------------------- Caratteri ---------------------------------
+\usepackage[scaled=.88]{beramono}
+\usepackage[scaled=.86]{berasans}
+\usepackage[osf]{mathpazo}
+\linespread{1.05}\selectfont
+\providecommand{\lining}{\fontfamily{ppl}\selectfont}
+\providecommand{\oldstyle}{\fontfamily{fplj}\selectfont}
+\DeclareTextFontCommand{\textln}{\lining}
+\DeclareTextFontCommand{\textos}{\oldstyle}
+
+% ------------------------------ Grafica e tabelle ---------------------------
+\usepackage{xspace}
+\usepackage{booktabs,array}
+\usepackage[italian]{varioref}
+\usepackage[nofancy]{rcsinfo}
+\usepackage{varwidth}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{guit}
+
+% ------------------------------- Formattazione ------------------------------
+\addtokomafont{pagehead}{\small\itshape}
+\addtokomafont{sectioning}{\rmfamily}
+\addtokomafont{caption}{\footnotesize\itshape}
+\addtokomafont{captionlabel}{\upshape\bfseries}
+\addtokomafont{descriptionlabel}{\rmfamily}
+\setcapindent{1em}
+\deffootnote{2.25em}{1.75em}{\thefootnotemark\enspace}
+\reversemarginpar
+\renewcommand*{\othersectionlevelsformat}[1]{%
+  \makebox[0pt][r]{\csname the#1\endcsname\autodot\enskip}}
+
+% --------------------------------- Colori -----------------------------------
+\usepackage{color}
+\definecolor{grau}{gray}{0.45}
+\definecolor{rot}{rgb}{0.75,0.00,0.00}
+\definecolor{blau}{rgb}{0.16,0.24,0.64}
+\definecolor{gruen}{rgb}{0.18,0.58,0.08}
+\definecolor{linkcolor}{rgb}{0,0,0.42}
+
+% ---------------------------------- Nuovi comandi ---------------------------
+%%% scrguide
+\DeclareRobustCommand*{\Macro}[1]{\mbox{\texttt{\char`\\#1}}}
+\DeclareRobustCommand*{\LMacro}[2]{\mbox{\texttt{\char`\\#1\{#2\}}}}
+\DeclareRobustCommand*{\GMacro}[2]{\mbox{\texttt{\{\char`\\#1\ #2\}}}}
+%%% DANTE
+\providecommand{\CTANserver}{ftp.dante.de}
+%%% Alias CTAN:// per ftp://\CTANserver/tex-archive/
+\makeatletter
+\def\url@#1{\expandafter\url@@#1\@nil}
+\def\url@@#1://#2\@nil{%
+  \def\@tempa{#1}\def\@tempb{CTAN}\ifx\@tempa\@tempb
+    \hyper@linkurl{\Hurl{#1:#2}}{ftp://\CTANserver/tex-archive/#2}%
+  \else
+    \hyper@linkurl{\Hurl{#1://#2}}{#1://#2}%
+  \fi
+}
+\makeatother
+%%% Logo XeLaTeX
+\newcommand{\XeLaTeX}{\smash{X\kern-.1em\lower.5ex\hbox{\reflectbox{E}}\kern-.07em\LaTeX}}
+%%% URL
+\newcommand{\biburl}[1]{\hfill\\URL:~\url{#1}}
+\newcommand{\acr}[1]{\textsc{\textls{#1}}}
+\newcommand{\texdoc}[1]{consultabile con \texttt{texdoc~#1}}
+%%% Comandi
+\newcommand{\Doku}[1]{\textsf{#1}\xspace}
+\newcommand{\Paket}[1]{\textsf{#1}\xspace}
+\newcommand{\PakeH}[1]{#1\xspace}
+\newcommand{\Klasse}[1]{\textsf{#1.cls}\xspace}
+\newcommand{\KlassH}[1]{#1.cls\xspace}
+\newcommand{\Bst}[1]{\textsf{#1.bst}\xspace}
+\newcommand{\BstH}[1]{#1.bst\xspace}
+\newcommand{\Option}[1]{\textsf{#1}\xspace}
+\newcommand{\TB}{\textbackslash}
+\newcommand{\schlecht}[1][!]{\marginline{\texttt{#1}}}
+
+%%% Ambiente "NON ... MA"
+\newenvironment{Ers}[1][\linewidth]{%
+  \par\smallskip\noindent\textcolor{rot}{\textbf{\textsf{NON:}}\marginline{$
+      \triangleright$}}~\rahmenpr[#1]}%
+{\endrahmenpr\hfill}
+\newenvironment{Dur}[1][\linewidth]{%
+\noindent\textcolor{gruen}{\textbf{\textsf{MA:}}}~\rahmenpg[#1]}%
+{\endrahmenpg\noindent}
+
+% Ambiente "Schecht"
+\newenvironment{Schlecht}[1][\linewidth]{%
+  \par\smallskip\rahmenpr[#1]}%
+{\endrahmenpr\par\noindent}
+
+% Ambienti "rahmenlength" e "rahmenpg"
+\newsavebox{\rahmenbox}
+\setlength{\fboxrule}{0.6pt}
+\newlength{\rahmenlength}
+\newenvironment{rahmenpr}[1][\linewidth]{%
+  \setlength{\rahmenlength}{#1-2\fboxsep-2\fboxrule}%
+  \begin{lrbox}{\rahmenbox}\begin{varwidth}[t]{\rahmenlength}}
+    {\end{varwidth}\end{lrbox}\noindent\fcolorbox{rot}{white}{\usebox{\rahmenbox}}\vspace*{.5ex}}
+\newenvironment{rahmenpg}[1][\linewidth]{%
+  \setlength{\rahmenlength}{#1-2\fboxsep-2\fboxrule}%
+  \begin{lrbox}{\rahmenbox}\begin{varwidth}[t]{\rahmenlength}}
+    {\end{varwidth}\end{lrbox}\noindent\fcolorbox{gruen}{white}{\usebox{\rahmenbox}}\vspace*{.5ex}}
+
+% Ambiente "description"
+\newenvironment{description*}{%
+  \description%
+    \setlength{\itemsep}{0pt}}%
+  {\enddescription}
+\newsavebox{\Fonte}
+
+%%% Ambiente "esempi"
+\newenvironment{bspcode}[1]{%
+  \sbox{\Fonte}{\footnotesize Fonte: #1}
+  \center
+  \rule{\linewidth}{1.5pt}
+}{%
+  \rule{\linewidth}{1.5pt}
+  \usebox{\Fonte}
+  \endcenter%
+}
+\newcolumntype{N}{>{\footnotesize}l}
+
+%%% Ambiente "tabpar"
+\makeatletter
+\newsavebox{\@tabparbox}
+\newenvironment{tabpar}[3][t]
+  {\long\def\@tabparagraph{#3}\def\@tabparopt{#1}%
+   \begin{lrbox}{\@tabparbox}
+   \begin{tabular}{#2}}
+  {\end{tabular}\end{lrbox}%
+   \parbox{\wd\@tabparbox}{
+     \if t\@tabparopt
+       \@tabparagraph\par\smallskip
+     \fi
+     \usebox{\@tabparbox}\par
+     \if b\@tabparopt
+       \smallskip\@tabparagraph
+     \fi}}
+\makeatother
+
+% -------------------------------- Opzioni PDF -------------------------------
+\ifpdfoutput{
+  \usepackage{hyperref}
+  \hypersetup{%
+    pdfauthor={(c) 2003, 2004, 2005, 2006, 2007 Mark Trettin, 2009, 2010,%
+    2011 Marc Ensenbach},%
+    pdftitle={Elenco dei peccati degli utenti di \LaTeXe, ovvero Comandi e%
+    pacchetti obsoleti e altri errori},%
+    pdfsubject={Trucchi per LaTeX2e},%
+    bookmarksopen=true,%
+    backref=true,
+    linktocpage=true,
+    urlcolor=linkcolor,
+    citecolor=linkcolor,
+    linkcolor=linkcolor,
+    colorlinks=true,
+  }
+  \usepackage{microtype}
+  \SetExpansion[context=slbsp, factor=0]{encoding={OT1, T1, TS1}}{}
+  \newcommand{\EMail}[1]{\href{mailto:#1?Subject=[l2tabu.pdf]}{e-mail:
+\texttt{#1}}}
+  \newcommand{\News}[1]{\href{news:#1}{\texttt{#1}}}
+  \newcommand{\MID}[2]{\href{http://groups.google.com/groups?as_umsgid=#1}%
+    {Message-ID: \texttt{<#2>}}}
+%%% \dots
+%%% \dots
+\pdfstringdefDisableCommands{%
+  \edef\dots{\string...}%
+}
+
+% ----------------------------------- Opzioni PS -----------------------------
+}{
+    \usepackage{hyperref}
+    \newcommand{\EMail}[1]{\href{mailto:#1}{E-Mail: \texttt{#1}}}
+    \newcommand{\News}[1]{\href{news:#1}{\texttt{#1}}}
+    \newcommand{\MID}[2]{<#1>}{Message-ID: \texttt{<#2>}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------------------------- Inizio del documento --------------------------
+\begin{document}
+\pagestyle{headings}
+\rcsInfo $Id: l2tabu.tex,v 2.3 2011/09/20 10:18:00 marc Exp marc $
+
+% -------------------------------- Frontespizio ------------------------------
+\begin{titlepage}
+\pdfbookmark[1]{Frontespizio}{tit}
+  \raggedright
+  \noindent
+  \rule{\linewidth}{1pt}%
+  \vspace{2\baselineskip}
+  {\LARGE\bfseries
+    Elenco del peccati degli utenti di \LaTeXe\\[1ex]
+    \large
+    ovvero Comandi e pacchetti obsoleti e altri errori}\\
+  \vspace{2\baselineskip}
+  \noindent
+  \rule{\linewidth}{1pt}%
+  \vspace{\baselineskip}
+  \raggedleft
+  \textit{Marc Ensenbach, Mark Trettin}\\
+  \EMail{Marc.Ensenbach@post.rwth-aachen.de}\\[1.5\baselineskip]
+  Versione \rcsInfoRevision\ del \rcsInfoLongDate\\[1.5\baselineskip]
+  \footnotesize Traduzione italiana dall'originale\\tedesco di Mauro Sacchetto\\
+  \EMail{mauro.sacchetto@gmail.com}\\[2\baselineskip]
+  \vspace{\baselineskip}
+  \begin{center}
+    \let\footnoterule\relax
+    \begin{minipage}{.9\linewidth}
+      \small
+      \begin{center}
+        \textbf{Sommario}
+      \end{center}
+      \noindent
+      {\em Questa è la traduzione italiana di «l2tabu».
+      \medskip
+
+      Essa corrisponde in larga misura al più recente originale tedesco e se
+      ne discosta significativamente, a parte modifiche e aggiunte minori,
+      solo per la sezione \vref{sec:die-verwendung-von}, che è stata
+      completamente riscritta. Le parti modificate sono indicate in nota,
+      dietro esplicita richiesta dell'autore. Il traduttore, che si è valso
+      dei rilievi mossi a questo proposito dai membri del \GuIT, desidera qui
+      ringraziare in particolar modo Claudio Beccari e Tommaso Gordini. Un
+      riconoscimento finale va all'autore, Marc Ensenbach, che ha letto con
+      accuratezza questa versione italiana fornendo ulteriori rilievi.
+      [N.\,d.\,T.]}
+      \medskip
+
+      Lo stimolo per scrivere questo breve sommario è sorto da una discussione
+      nel \TeX-Newsgroup di lingua tedesca\footnote{\News{de.comp.text.tex}}
+      sul perdurante ricorso a pacchetti e comandi obsoleti e \enquote{superati}.
+      \medskip
+
+      In questo articolo cerchiamo di indicare gli errori più comuni e
+      soluzioni alternative. Questo compendio non intende rimpiazzare né guide
+      introduttive come \Doku{l2kurz}~\cite{l2kurz:03} né le
+      \Doku{De-TeX-FAQ}\footnote{\url{http://projekte.dante.de/DanteFAQ/WebHome}},
+      ma semplicemente offrire un breve sommario.
+      \medskip
+
+      Saremo grati per ogni suggerimento, miglioria e commento.
+    \end{minipage}
+  \end{center}
+  \vfill
+\end{titlepage}
+% ----------------------------- Fine Frontespizio ----------------------------
+
+% ----------------------------- Inizio  Copyright ----------------------------
+\clearpage
+
+\noindent
+Copyright \copyright{} 2003--2007 by Mark Trettin, 2009--2011 by Marc Ensenbach.
+\medskip
+
+\noindent
+This material may be distributed only subject to the terms and
+conditions set forth in the \emph{Open Publication License}, v1.0 or
+later (the latest version is presently available at
+\url{http://www.opencontent.org/openpub/}).
+\medskip
+
+\noindent
+Le denominazioni software e hardware presenti in questo articolo sono, nella
+maggior parte dei casi, anche marchi registrati e perciò soggette come tali
+alle normative vigenti.
+\vfill
+
+\noindent
+Ringraziamo
+Ralf Angeli,
+Christoph Bier,
+Christian Faulhammer,
+Jürgen Fenn\footnote{Traduzione inglese: \url{CTAN://info/l2tabu/english/l2tabuen.pdf}},
+Ulrike Fischer,
+Ralf Heckmann,
+Yvon Henel\footnote{Traduzione francese: \url{CTAN://info/l2tabu/french/l2tabufr.pdf}},
+Yvonne Hoffmüller,
+David Kastrup,
+Markus Kohm,
+Thomas Lotze,
+Gonzalo Medina Arellano\footnote{Traduzione spagnola: \url{CTAN://info/l2tabu/spanish/l2tabues.pdf}},
+Frank Mittelbach,
+Heiko Oberdiek,
+Mauro Sacchetto\footnote{Traduzione italiana: \url{CTAN://info/l2tabu/italian/l2tabuit.pdf}},
+Walter Schmidt,
+Uwe Siart,
+Stefan Stoll,
+Knut Wenzig,
+Emanuele Zannarini\footnote{Traduttore della prima versione italiana, 2005},
+e Reinhard Zierke
+per i trucchi, le osservazioni e le correzioni. Chi fosse stato dimenticato ci
+spedisca una mail.
+% -------------------------------- Fine Copyright ----------------------------
+
+\clearpage
+\enlargethispage{2\baselineskip}
+\phantomsection
+\pdfbookmark[1]{Indice}{toc}
+\tableofcontents
+
+% ---------------------- Sezione 1: "Peccati mortali" ------------------------
+\clearpage
+\section{\enquote{Peccati mortali}}
+\label{sec:todsunden}
+In questa sezione abbiamo raccolto i peggiori errori che si incontrano con
+allarmante frequenza in \News{de.comp.text.tex} e che fanno arrossire di
+rabbia gli esperti di quel newsgroup o che fanno venir loro le lacrime agli
+occhi \texttt{;-)}
+
+\subsection{\PakeH{a4}, e \PakeH{a4wide}}
+\label{sec:paketa4-paketa4wide}
+Questi pacchetti, \emph{tutti e due}, non dovrebbero essere più usati e vanno
+definitivamente eliminati dai sorgenti di \LaTeX. Devono essere sostituiti
+dall'opzione di classe \Option{a4paper} per le classi standard o dall'analoga
+opzione \Option{paper=a4} per \KOMAScript{} a partire dalla versione 3. Va
+considerato che il layout prodotto da questi due pacchetti è più che
+discutibile da un punto di vista tipografico e che ne esistono varie versioni,
+incompatibili l'una con l'altra. Perciò non si può mai essere sicuri che,
+compilato in un altro sistema, il documento risulti uguale.
+
+\subsection{Modifiche del layout}
+\label{sec:layoutanderungen}
+I margini di pagina impostati dalle classi standard (\Klasse{article},
+\Klasse{report}, \Klasse{book}) appaiono di solito troppo ampi. Se non
+soddisfano, si può ricorrere alle corrispondenti classi (\Klasse{scrartcl},
+\Klasse{scrreprt}, \Klasse{scrbook}) del pacchetto \KOMAScript{} oppure al
+pacchetto \Paket{typearea}, contenuto nella collezione di \KOMAScript. La
+relativa documentazione \Doku{scrguide}~\cite{kohm:10} contiene molte altre
+informazioni.
+
+Se davvero si avesse bisogno di margini di pagina diversi da quelli impostati
+ad esempio da \Paket{typearea}, si dovrebbe ricorrere al pacchetto
+\Paket{geometry} e non produrre modifiche \enquote{fatte a mano} con
+\Macro{oddsidemargin} \& C. Il pacchetto \Paket{anysize} è obsoleto e il
+pacchetto \Paket{vmargin}, qui un tempo raccomandato, dovrebbe allo stesso
+modo essere evitato, poiché può produrre effetti collaterali
+indesiderati\footnote{Cfr. anche
+\MID{uirrzdr16.fsf@uwe-siart.de}{uirrzdr16.fsf@uwe-siart.de}}.
+
+Infine, non vanno mai modificate le impostazioni regolate da \Macro{hoffset}
+e da \Macro{voffset}, a meno che non si conosca molto bene il funzionamento
+interno di \TeX.
+
+\subsection{Modifiche di pacchetti e classi}
+\label{sec:ander-von-paket}
+Non si devono mai modificare direttamente le classi di documento
+(\Klasse{article}, \Klasse{scrbook} ecc.) oppure i file di stile
+(\Paket{varioref}, \Paket{color})! O si è in grado di costruirsi una classe
+propria basata su classi preesistenti o file di stile, oppure è meglio
+\emph{copiare} classi e stili, modificare le copie e salvarle con un
+\emph{altro} nome.
+
+Un esempio su come costruire classi basate su classi preesistenti si trova
+nelle \Doku{FAQ} sulla personalizzazione delle classi di
+documento\footnote{\url{http://projekte.dante.de/DanteFAQ/Dokumentenklasse}}.
+
+\paragraph{Suggerimento}
+\label{sec:hinweis}
+In generale, tali classi e pacchetti aggiuntivi dovrebbero essere installati
+o nell'albero locale o nell'albero personale (presente nella \texttt{\$HOME}
+degli utenti dei sistemi Unix) di \TeX{}, perché con un aggiornamento della
+distribuzione \TeX{} queste modifiche andrebbero perse. Se tali modifiche
+servono solo per un progetto particolare, ma potrebbero poi essere diffuse ad
+altri, allora la classe personalizzata può essere inclusa nell'attuale
+directory del progetto.
+
+\subsection{Modifica dell'interlinea mediante \texttt{\TB baselinestretch}}
+\label{sec:ander-des-zeil}
+In generale, le modifiche dei parametri dovrebbero essere effettuate al
+livello più elevato disponibile all'utente. Pertanto una modifica
+dell'interlinea può essere compiuta da tre livelli:
+
+\begin{enumerate}
+\item ridefinendo \Macro{baselinestretch}.
+\item usando il comando \LaTeX{} \LMacro{linespread}{<Fattore>};
+\item usando il pacchetto \Paket{setspace};
+\end{enumerate}
+
+Una ridefinizione di parametri come \Macro{baselinestretch} opera al livello
+più basso e dovrebbe pertanto essere riservata ai pacchetti.
+
+Un metodo migliore, proprio perché espressamente destinato a questo scopo, è
+l'utilizzo di \LMacro{linespread}{<Fattore>}.
+
+Tuttavia il miglior modo di procedere utilizzare del pacchetto
+\Paket{setspace} che, quando modifica l'interlinea, si preoccupa di mantenere
+gli spazi corretti nelle note a piè di pagina o negli elenchi, ambienti la cui
+modifica nella maggior parte dei casi può essere indesiderata.
+
+Se pertanto si ha bisogno di una maggiore interlinea (ad esempio una volta e
+mezza o il doppio), si ricorra innanzitutto al pacchetto \Paket{setspace}. Se
+invece si volessero semplicemente apportare dei piccoli aggiustamenti per
+caratteri diversi dal predefinito Computer Modern (come Palatino), allora
+sarebbe più opportuno usare \LMacro{linespread}{<Fattore>}.
+
+Nel caso del Palatino si può utilizzare un aggiustamento pari a
+\LMacro{linespread}{1.05}.
+
+\subsection{Rientro di capoverso e spaziatura fra paragrafi
+(\texttt{\TB{}parindent}, \texttt{\TB{}parskip})}
+\label{sec:absatz-und-abst}
+A volte può non essere insensato modificare il rientro della prima riga dei
+capoversi (regolato dal parametro \Macro{parindent}). Si dovrebbe tuttavia
+tener presente che:
+
+\begin{itemize}
+\item il rientro va modificato con una misura che dipende dal carattere (em)
+e non con una misura assoluta (mm). \enquote{Dipendenza dal carattere} qui
+significa che il rientro si modifica in base non soltanto alla dimensione,
+ma anche al tipo di carattere, poiché l'ampiezza di $1$em è adattata da
+ciascun disegnatore di caratteri caso per caso a ciascun tipo di carattere;
+\item va usata la sintassi di \LaTeX, perché comporta meno problemi. Ad
+esempio è più facile da verificare per programmi o script
+esterni\footnote{Analizzare sintatticamente, scorporare.} e più semplice da
+mantenere per l'utente. E così si può prevenire ogni incompatibilità con altri
+pacchetti (come \Paket{calc}).
+
+  \begin{Ers}
+    \Macro{parindent}\texttt{=1em}
+  \end{Ers}
+  \begin{Dur}
+    \LMacro{setlength}{\Macro{parindent}\}\{1em}
+  \end{Dur}
+\end{itemize}
+
+Se non si desiderasse \emph{alcun} rientro, ma una distanza aggiuntiva fra
+paragrafi come segno di cesura, \emph{non} si dovrebbe utilizzare
+semplicemente
+
+\begin{Schlecht}
+\begin{verbatim}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+\end{verbatim}
+\end{Schlecht}%
+
+\noindent poiché \Macro{parskip} agisce anche su elenchi, indici e testatine.
+
+Il pacchetto \Paket{parskip} e le classi \KOMAScript{} aggiungono dello spazio
+per evitare questi effetti collaterali. Sull'utilizzo delle diverse opzioni
+(\Option{parskip=full}, \Option{parskip=half} ecc.) di \KOMAScript{} cfr. la
+\Doku{scrguide}~\cite{kohm:10}.  Se si utilizza una delle classi di
+\KOMAScript{} \emph{non} si deve caricare in aggiunta il pacchetto
+\Paket{parskip}.
+
+\subsection{Separazione delle formule dal testo con \texttt{\$\$\dots\$\$}}
+\label{sec:abges-form-mit}
+Per favore no! \texttt{\$\$\dots\$\$} è un comando di plain \TeX{} e dovrebbe
+essere evitato in \LaTeX, perché rende inconsistente lo spazio verticale tra
+le formule matematiche in display e il testo circostante (cfr. anche la
+sezione~\vref{sec:mathematiksatz}, in particolare l'Avvertimento relativo a
+\texttt{displaymath} usato insieme a \Paket{amsmath}). Inoltre, l'opzione di
+classe \Option{fleqn} non funziona più.
+
+\begin{Ers}
+\verb|$$...$$|
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\[...\]
+\end{verbatim}
+  oppure (solo con \Paket{amsmath})
+\begin{verbatim}
+\begin{equation*}
+  ...
+\end{equation*}
+\end{verbatim}
+  oppure (solo senza \Paket{amsmath})
+\begin{verbatim}
+\begin{displaymath}
+  ...
+\end{displaymath}
+\end{verbatim}
+\end{Dur}
+
+\subsection{\texttt{\TB def} vs. \texttt{\TB newcommand}}
+\label{sec:def-vs.-newcommand}
+Le macro dovrebbero essere definite \emph{sempre} mediante\\
+\verb+\newcommand{<nome>}{definizione}+\\ e \emph{non} con
+\Macro{def}\LMacro{<nome>}{<definizione>}\footnote{Cfr. anche
+\cite[Sezione 2.7.2]{clsguide:06} e \cite[Sezione 3.4]{usrguide:05}}.
+
+Il problema fondamentale di \Macro{def} è che non permette di controllare
+l'esistenza di una macro definita in precedenza. Questa potrebbe pertanto
+essere sovrascritta senza alcuna notifica o senza un avvertimento.
+
+Inoltre, è sempre possibile ridefinire le macro già esistenti col comando:\\
+\verb+\renewcommand{<name>}{...}+.
+
+Chi sa a sufficienza del \emph{perché} ha bisogno di \Macro{def}, conosce
+anche i vantaggi e gli svantaggi di tale soluzione e può ignorare
+tranquillamente questa sezione.
+
+\subsection{Utilizzo di \texttt{\TB sloppy}}
+\label{sec:verw-von-textttt}
+
+Il commutatore \Macro{sloppy} non dovrebbe essere usato, e segnatamente in
+modo globale all'interno del preambolo. Se in alcuni paragrafi sorgessero dei
+problemi con la sillabazione, allora:
+
+\begin{enumerate}
+\item verificare se sono stati impostati i corretti strumenti di sillabazione
+  (ad esempio mediante \Paket{babel}) e i caratteri T1 (cfr. anche le
+  \Doku{FAQ} sulla
+  sillabazione\footnote{\url{http://projekte.dante.de/DanteFAQ/Silbentrennung}});
+\item usare il pacchetto \Paket{microtype} che adatta leggermente l'ampiezza
+  delle lettere per produrre una migliore divisione in sillabe. Questo
+  adattamento automatico è possibile solo con pdf\TeX{} a partire dalla
+  versione 1.20 e funziona solo per la creazione di un file PDF, non invece
+  con l'utilizzo di pdf\TeX{} nella modalità DVI;
+\item riformulare il testo. Non è assolutamente necessario modificare la frase
+  in cui è presente il problema di sillabazione: spesso è sufficiente
+  riformulare o spostare le frasi precedenti o quelle successive;
+\item modificare leggermente il parametro che adotta \TeX{} per il calcolo
+  dell'impaginazione delle righe. Axel Reichert ha postato in
+  \News{de.comp.text.tex}\footnote{Reperibile in
+  \MID{a84us0$plqcm$7@ID-30533.news.dfncis.de}{a84us0\$plqcm\$7@ID-30533.news.dfncis.de}}
+  la sua personale modifica, grazie alla quale si evitano i principali
+  problemi di sillabazione in un buon layout:
+
+  \begin{minipage}[t]{\linewidth}
+\begin{verbatim}
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+\end{verbatim}
+  \end{minipage}
+\medskip
+
+Naturalmente questi valori possono essere modificati secondo il gusto
+personale. In realtà, dei vari campi adottati da Reichert, \Macro{clubpenalty}
+e \Macro{widowpenalty} servono per ridurre il numero delle possibili righe
+orfane e vedove, mentre \Macro{hbadness} consente a \TeX{} di fornire messaggi
+in relazione a righe troppo piene o troppo vuote. In sostanza, la maggior
+parte delle impostazioni di Reichert è atta a ridurre gli avvisi
+(\emph{warning}) che \TeX{} emette quando le righe non sono perfettamente
+composte, ma solo \Macro{tolerance} ed \Macro{emergencystretch} hanno un
+qualche effetto sulla sillabazione. Infine, \Macro{raggedbottom} non gioca
+alcun ruolo nel regolare la sillabazione, ma piuttosto l'impaginazione. Prima
+di tutto però si dovrebbe fare attenzione a come modificare
+\Macro{emergencystretch}, altrimenti si otterrà un paragrafo pieno di spazi
+non dovuti, come succede in un noto programma di elaborazione del
+testo\footnote{Questo paragrafo è un'aggiunta del traduttore.}.
+
+Si dovrebbero tuttavia considerare \emph{seriamente} gli avvisi o
+\emph{Warning} che sorgono ed eliminarli tramite riformulazioni:
+\end{enumerate}
+
+Soltanto se questi metodi non producono alcun risultato si può cercare di
+impostare il paragrafo in modo più ``lasco'' con l'ambiente
+\texttt{sloppypar}, come nell'esempio seguente:
+
+\begin{figure}[htp]
+  \begin{minipage}[t]{.48\textwidth}
+    \centering
+    \linespread{1.0}
+    {\fontsize{10pt}{12pt}\fontencoding{OT1}\selectfont
+      \fbox{\parbox{17.61em}{\microtypecontext{expansion=slbsp}\fussy%
+          tatata tatata tatata tatata tatata tatata tata\-tata tatata tatata
+          tatata tatata tatata tatata tata\-tata tatata tatata tatata tatata
+          ta\-tatatatt\-ta tatata tatata tatata tatata tatata tatata
+          ta\-ta\-ta\-ta}}}%
+    \caption{Comportamento con i valori standard di \LaTeX}%
+    \label{fig:beispiel-mit-latex}%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{.48\textwidth}
+    \centering
+    \linespread{1.0}
+    {\fontsize{10pt}{12pt}\fontencoding{OT1}\selectfont
+      \fbox{\parbox{17.61em}{\microtypecontext{expansion=slbsp}%
+          tatata tatata tatata tatata tatata tatata tata\-tata tatata tatata
+          tatata tatata tatata tatata tata\-tata tatata tatata tatata tatata
+          ta\-tatatatt\-ta tatata tatata tatata tatata tatata tatata
+          ta\-ta\-ta\-ta}}}%
+    \caption{Comportamento con \texttt{\string\sloppypar}}%
+    \label{fig:beisp-mit-textttstr}
+  \end{minipage}
+\end{figure}
+
+Nelle immagini~\ref{fig:beispiel-mit-latex} e \vref{fig:beisp-mit-textttstr}
+si cerca di mostrare l'effetto di \Macro{sloppy}. In \News{comp.text.tex}
+Markus Kohm ha pubblicato un esempio che mostra l'effetto in modo assai chiaro.
+Esso è riportato (con l'autorizzazione dell'Autore)
+nell'Appendice~\vref{sec:beispiel-zu-sloppy}).
+
+% ---------------------- Sezione 2: "Pacchetti obsoleti"----------------------
+\clearpage
+\section{Comandi, classi e pacchetti obsoleti}
+\label{sec:obsoletes}
+Markus Kohm ha redatto uno script in Perl col quale si possono verificare on
+line i propri file per rintracciare gli errori più comuni
+(\url{http://kohm.de.tf/markus/texidate.html}).
+
+Tuttavia bisogna notare che tale script non è un analizzatore
+(\,\emph{parser}) \TeX{} completo e che pertanto esso è in grado di rilevare
+solo gli errori più ovvi e diffusi. Prima provare, poi postare.
+
+\subsection{Comandi}
+\label{sec:befehle}
+
+\subsubsection{Modifica dello stile del carattere}
+\label{sec:ander-des-schr}
+Nella Tabella \vref{tab:befehle-zur-anderung} sono affiancati i vecchi e i
+nuovi comandi atti a modificare lo stile del carattere. Quelli vecchi non
+hanno mai funzionato in modo adeguato, anche perché il loro effetto quando
+sono dati in serie è piuttosto imprevedibile. Essi pertanto non vanno mai
+usati.
+
+Ci sono validi sostituti che producono anche il corretto effetto cumulativo:
+ad esempio con \verb+\sffamily\itshape+ si sceglie un font senza grazie
+inclinato (cosa che non sarebbe avvenuta con \verb+\sf\it+). Tuttavia è
+consigliabile usare la forma dichiarativa solo per lunghi tratti di testo
+all'interno di un ambiente; per tratti brevi o singole parole è meglio
+adottare i comandi con argomento (come \Macro{textit}, \Macro{textsf} ecc.),
+che inoltre liberano dal problema di chiudere i gruppi aperti. Si ricordi
+infatti che la sintassi corretta per \Macro{sffamily} e simili è
+\verb+{\sffamily ...}+, dove le graffe possono essere sostituite dai
+delimitatori di un ambiente. Le forme dichiarative sono comode solo in un
+caso: le celle di una tabella composta con \Paket{tabular}\footnote{Questo
+paragrafo è il precedente sono stati modificati dal traduttore.}.
+
+\begin{table}
+\centering
+\caption{Macro per modificare lo stile del carattere.}
+\label{tab:befehle-zur-anderung}
+\begin{tabpar}[b]{lll}
+  {\footnotesize\textsuperscript{\itshape a} Utile nella definizioni di macro.
+All'interno
+   del testo non si dovrebbe usare \GMacro{em}{\dots}, bens\`i
+\LMacro{emph}{\dots}.}
+\toprule
+\multicolumn{1}{c}{Obsolete} & \multicolumn{2}{c}{Sostituite in \LaTeXe{} da}
+\\
+\cmidrule(l){2-3}            & comandi	   & dichiarazioni \\
+\cmidrule(r){1-1}            \cmidrule(lr){2-2}       \cmidrule(l){3-3}
+\GMacro{rm}{\dots}           & \LMacro{textrm}{\dots} & \Macro{rmfamily} \\
+\GMacro{sf}{\dots}           & \LMacro{textsf}{\dots} & \Macro{sffamily} \\
+\GMacro{tt}{\dots}           & \LMacro{texttt}{\dots} & \Macro{ttfamily} \\
+\GMacro{it}{\dots}           & \LMacro{textit}{\dots} & \Macro{itshape} \\
+\GMacro{sc}{\dots}           & \LMacro{textsc}{\dots} & \Macro{scshape} \\
+\GMacro{sl}{\dots}           & \LMacro{textsl}{\dots} & \Macro{slshape} \\
+\GMacro{bf}{\dots}           & \LMacro{textbf}{\dots} & \Macro{bfseries} \\
+---                          & \LMacro{textmd}{\dots} & \Macro{mdseries} \\
+---                          & \LMacro{textup}{\dots} & \Macro{upshape} \\
+---                          & \LMacro{emph}{\dots}   &
+\Macro{em}\textsuperscript{\itshape a} \\
+\bottomrule
+\end{tabpar}
+\end{table}
+
+%\ctable[
+%caption = Macro per modificare lo stile del carattere.,
+%label=tab:befehle-zur-anderung,
+%mincapwidth = \columnwidth,
+%pos = h ]{lll}{
+%\tnote{Utile nella definizioni di macro. All'interno del testo non si dovrebbe
+%usare \GMacro{em}{\dots}, bensì \LMacro{emph}{\dots}.}
+%}{
+%\toprule
+%\multicolumn{1}{c}{Obsolete} & \multicolumn{2}{c}{Sostituite in \LaTeXe{} da} \\
+%\cmidrule(l){2-3}            & locali      & globali/commutative \\
+%\cmidrule(r){1-1}            \cmidrule(lr){2-2}       \cmidrule(l){3-3}
+%\GMacro{rm}{\dots}           & \LMacro{textrm}{\dots} & \Macro{rmfamily} \\
+%\GMacro{sf}{\dots}           & \LMacro{textsf}{\dots} & \Macro{sffamily} \\
+%\GMacro{tt}{\dots}           & \LMacro{texttt}{\dots} & \Macro{ttfamily} \\
+%\GMacro{it}{\dots}           & \LMacro{textit}{\dots} & \Macro{itshape} \\
+%\GMacro{sc}{\dots}           & \LMacro{textsc}{\dots} & \Macro{scshape} \\
+%GMacro{sl}{\dots}           & \LMacro{textsl}{\dots} & \Macro{slshape} \\
+%\GMacro{bf}{\dots}           & \LMacro{textbf}{\dots} & \Macro{bfseries} \\
+%---                          & \LMacro{textmd}{\dots} & \Macro{mdseries} \\
+%---                          & \LMacro{textup}{\dots} & \Macro{upshape} \\
+%---                          & \LMacro{emph}{\dots}   & \Macro{em}\tmark \\
+%\bottomrule
+%}
+
+\paragraph{Perché non si dovrebbero usare i comandi obsoleti?}
+\label{sec:warum-sollte-man}
+I comandi obsoleti non supportano le funzionalità del nuovo sistema di
+selezione dei font\footnote{NFSS: New Font Selection Scheme. Un panorama del
+NFSS è offerto da \Doku{fntguide}~\cite{fntguide:05}.} di \LaTeXe. Ad esempio,
+\GMacro{bf}{foo} annulla tutte le impostazioni già fornite prima di stampare
+«foo» in nero. Ne consegue che non si può definire uno stile corsivo nero
+mediante \GMacro{it}{\Macro{bf Test}} (questa definizione produce:
+{\it\bf Test}).
+
+I nuovi comandi \LMacro{textbf}{\LMacro{textit}{Test}} si comportano come
+atteso e producono: \textbf{\textit{Test}}. Inoltre nei vecchi comandi non c'è
+nessuna «correzione» per il corsivo, ad esempio {\it raf}forzare
+(\GMacro{it}{raf}\texttt{forzare}) e \textit{raf}forzare
+(\LMacro{textit}{raf}\texttt{forzare}).
+
+\subsubsection{Frazioni matematiche (\texttt{\TB over} vs. \texttt{\TB frac})}
+\label{sec:textb-over-vs}
+Il comando \Macro{over} non dovrebbe essere usato. \Macro{over} è un comando
+di \TeX, il quale, a causa della sintassi differente da quella di \LaTeX{}, si
+può analizzare con più difficoltà o non si può analizzare affatto. In
+particolare il pacchetto \Paket{amsmath} ridefinisce \verb+\frac{}{}+,
+cosicché se si usa \verb+\over+ si riceverà un messaggio di errore. Un'altra
+ragione per usare \verb+\frac{}{}+ è che per l'utente -- soprattutto nel caso
+di frazioni complesse -- è più semplice comporre numeratore e denominatore.
+
+\begin{Ers}
+  \verb+$a \over b$+
+\end{Ers}
+\begin{Dur}
+  \verb+$\frac{a}{b}$+
+\end{Dur}
+
+\subsubsection{Centratura con \texttt{\TB centerline}}
+\label{sec:centerline}
+Il comando \Macro{centerline}\ è ancora una volta un comando di \TeX{} e
+dovrebbe essere evitato in \LaTeX. Da un lato \Macro{centerline} è
+incompatibile con alcuni pacchetti di \LaTeX{} (ad esempio \Paket{color}) e
+dall'altro il suo utilizzo può produrre effetti indesiderati o inattesi:
+
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+\begin{verbatim}
+\begin{enumerate}
+\item\centerline{Punto uno}
+\end{enumerate}
+\end{verbatim}
+  \end{minipage}%
+  \hfill%
+ \fbox{ \begin{minipage}[t]{.45\textwidth}
+    \begin{enumerate}
+    \item \centerline{Punto uno}
+    \end{enumerate}
+  \end{minipage}}
+\end{center}
+\begin{Ers}
+  \LMacro{centerline}{\dots}
+\end{Ers}
+\begin{Dur}
+  \GMacro{centering}{\dots} oppure
+  \begin{varwidth}[t]{\linewidth}
+\begin{verbatim}
+\begin{center}
+  ...
+\end{center}
+\end{verbatim}
+  \end{varwidth}
+\end{Dur}
+
+Si noti tuttavia che la dichiarazione \Macro{centering}, a differenza
+dell'ambiente definito da \verb+\begin{center} ... \end{center}+, non agisce
+finché il capoverso non sia teminato esplicitamente mediante \verb+\par+
+oppure con una riga vuota o ancora implicitamente mediante comandi successivi.
+
+\paragraph{Nota}
+\label{sec:anmerkung-5}
+Alcune osservazioni sulla centratura di oggetti grafici e di tabelle si
+leggono nella Sezione~\vref{sec:gleit-figure-table}.
+
+\subsection{Classi e pacchetti}
+\label{sec:pakete}
+
+\subsubsection{\KlassH{scrlettr} vs. \KlassH{scrlttr2}}
+\label{sec:paketscrl-vs.-pakets}
+La classe \Klasse{scrlettr} del pacchetto \KOMAScript\ è obsoleta e
+dev'essere sostituita dalla nuova \Klasse{scrlttr2}. Per produrre un layout
+\emph{simile} a quello della vecchia classe si può caricare l'opzione di
+classe \Option{KOMAold}, che fornisce una modalità compatibile.
+
+\begin{Ers}
+  \verb+\documentclass{scrlettr}+
+\end{Ers}\par
+\begin{Dur}
+  \verb+\documentclass[KOMAold]{scrlttr2}+
+\end{Dur}
+
+\paragraph{Nota}
+\label{sec:anmerkung-3}
+Per nuovi testi e lettere si dovrebbe tuttavia adottare la nuova interfaccia,
+poiché è molto più flessibile.
+
+Una spiegazione delle differenze fra le due interfacce utente esula dagli
+intenti di questo compendio, perciò rinviamo a \Doku{scrguide}~\cite{kohm:10}.
+
+\subsubsection{\PakeH{epsf}, \PakeH{psfig}, \PakeH{epsfig} vs.
+  \PakeH{graphics}, \PakeH{graphicx}}
+\label{sec:grafikeinbindung}
+I pacchetti \Paket{epsf} e \Paket{psfig} vanno sostituiti con \Paket{graphics}
+o con \Paket{graphicx}. \Paket{epsfig} è solo un wrapper\footnote{Qui: un file
+di stile che ne carica un altro o alcuni altri.} per \Paket{graphicx}, la cui
+funzione è consentire l'utilizzo di \Paket{graphicx} per documenti vecchi
+che sono stati composti con \Paket{psfig}.
+
+Dal momento che \Paket{epsfig} invoca \Paket{graphicx}, si \emph{può} usare
+ancora, ma per documenti nuovi si dovrebbe ricorrere ai più recenti
+\Paket{graphics} o \Paket{graphicx}. La sintassi degli ultimi due pacchetti
+citati è estremamente flessibile. Il pacchetto \Paket{epsfig} è fornito
+essenzialmente per motivi di compatibilità.
+
+Sulle differenze fra i pacchetti \Paket{graphics} e \Paket{graphicx} si veda
+\Doku{grfguide}~\cite{graphicx:05}. Per una sintesi sulla centratura di
+oggetti grafici cfr. la Sezione~\vref{sec:gleit-figure-table}.
+
+\begin{Ers}
+\begin{verbatim}
+\usepackage{psfig}
+\psfig{file=figura,...}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{graphicx}
+\includegraphics[...]{figura}
+\end{verbatim}
+\end{Dur}
+
+\subsubsection{\PakeH{doublespace} vs. \PakeH{setspace}}
+\label{sec:zeilenabstande}
+Per modificare l'interlinea si dovrebbe usare il pacchetto \Paket{setspace}.
+\Paket{doublespace} è obsoleto e dovrebbe essere rimpiazzato appunto con
+\Paket{setspace}. Vedere con attenzione anche la
+Sezione~\vref{sec:ander-des-zeil}.
+
+\begin{Ers}
+  \verb|\usepackage{doublespace}|
+\end{Ers}
+\begin{Dur}
+  \verb|\usepackage{setspace}|
+\end{Dur}
+
+\subsubsection{\PakeH{fancyheadings}, \PakeH{scrpage} vs. \PakeH{fancyhdr},
+   \PakeH{scrpage2}}
+\label{sec:lebende-kolumn}
+Il pacchetto \Paket{fancyheadings} è stato sostituito da \Paket{fancyhdr}. Un
+altro modo per personalizzare le testatine è usare il pacchetto
+\Paket{scrpage2} di \KOMAScript. Anche in questo caso bisogna prestare
+attenzione a non usare \Paket{scrpage}. La documentazione di \Paket{scrpage2}
+si trova in \Doku{scrguide}~\cite{kohm:10}.
+
+\begin{Ers}
+  \verb+\usepackage{fancyheadings}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{fancyhdr}+
+\end{Dur}
+\begin{Ers}
+  \verb+\usepackage{scrpage}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{scrpage2}+
+\end{Dur}
+
+\subsubsection{La famiglia di pacchetti \PakeH{caption}}
+\label{sec:die-caption-famile}
+Il pacchetto \Paket{caption2} non dovrebbe più essere usato, perché ne esiste
+una nuova versione (la 3.x). Si dovrebbe prestare attenzione a non usare una
+versione troppo vecchia del pacchetto. Per esserne sicuri, caricare il
+pacchetto nel seguente modo:
+
+\begin{Ers}
+  \verb+\usepackage{caption}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{caption}[2008/08/24]+
+\end{Dur}
+
+Chi avesse utilizzato in precedenza \Paket{caption2}, dovrebbe assolutamente
+prendere visione della la nuova documentazione~\cite[Sezione~C.2]{caption:08}.
+
+\subsubsection{\PakeH{isolatin}, \PakeH{umlaut} vs. \PakeH{inputenc}}
+\label{sec:eingabe-von-umlauten}
+
+\paragraph{Osservazioni generali}
+\label{sec:generelles}
+In generale, ci sono quattro possibilità per inserire Umlaut e altri caratteri
+non ASCII:
+
+\begin{enumerate}
+\item \verb+H{\"u}lle+: Il vantaggio di questo modo di procedere è che
+  funziona sempre e su tutti i sistemi.\\
+  Per contro, gli svantaggi sono che la crenatura\footnote{La spaziatura
+  positiva o negativa fra le lettere in relazione alle combinazioni di segni.}
+  risulta disturbata, che nei testi tedeschi questa è di gran lunga la
+  modalità più complicata di digitare e che il codice si legge con notevole
+  difficoltà.\\
+  Questa variante -- in ragione del problema alla crenatura -- dovrebbe
+  \emph{sempre} essere evitata.
+
+\item L'immissione nella forma \verb+H\"ulle+ o anche \verb+H\"{u}lle+ non
+  presenta il problema di crenatura sopra menzionato e si può adottare
+  tranquillamente su qualunque sistema.\\
+  Gli svantaggi di questo modo di procedere sono anche qui l'immissione
+  complicata e la cattiva leggibilità del codice.\\
+  Questa variante è la più indicata nella definizione delle macro e nei file
+  di stile, perché è indipendente dalla codifica e dai pacchetti
+  caricati.\label{item:die-eingabe-der}
+
+\item Con \Paket{(n)german} oppure con l'opzione \Option{(n)german} del
+  pacchetto \Paket{babel} si possono produrre le Umlaut digitando
+  (\verb+H"ulle+). Il vantaggio è ancora una volta che questo metodo funziona
+  in tutti i sistemi. Poiché \Paket{babel} o anche \Paket{(n)german} sono
+  disponibili in tutte le installazioni di \TeX, non dovrebbe aversi nemmeno
+  alcun problema di compatibilità.\\
+  Gli svantaggi sono anche qui l'immissione complicata e la cattiva
+  leggibilità del codice.\\
+  Questa variante funziona relativamente bene nel corpo di testo, ma dovrebbe
+  essere evitata nella definizione delle macro e nei preamboli.
+
+\item L'inserimento diretto (\verb+Hülle+). I vantaggi qui sono evidenti. Il
+  codice è scritto e si legge in modo ``normale''.\\
+  Lo svantaggio è che bisogna suggerire a \LaTeX{} quale codifica di
+  immissione si sta usando e che potrebbero sorgere eventuali problemi nello
+  scambio di file tra sistemi diversi. Questo non è in sé un problema per
+  \TeX{} o per \LaTeX{}, ma potrebbe causare dei \emph{problemi di
+  visualizzazione} agli editor in sistemi diversi. Ad esempio, \texteuro{}
+  codificato in \textln{iso-8859-15} (\textln{latin9}) potrebbe essere
+  \emph{visualizzato} come {\fontfamily{cmr}\selectfont\textcurrency}{} in un
+  editor per Windows (\textln{CP1252}).\\
+  Questa variante funziona ottimamente per testi lunghi. Dovrebbe tuttavia
+  essere evitata nella definizione di macro e nei preamboli.
+\end{enumerate}
+
+Riassumendo, possiamo pertanto dire che nelle macro, nei preamboli e nei file
+di stile dovrebbe essere adottata la forma \verb+H\"ulle+ oppure
+\verb+H\"{u}lle+ e all'interno del testo o \verb+H"ulle+ oppure \verb+Hülle+.
+
+\paragraph{Codifica dell'input}
+\label{sec:eingabekodierung-1}
+Per suggerire a \LaTeX{} quale codifica impostare \emph{non} si dovrebbe usare
+\Paket{isolatin1} e nemmeno \Paket{isolatin} oppure \Paket{umlaut}. Questi
+pacchetti sono obsoleti e nemmeno disponibili in tutti i sistemi.
+
+È corretto invece utilizzare il pacchetto \Paket{inputenc} con le seguenti
+opzioni:
+
+\begin{description*}
+\item[\texttt{latin1/latin9}] per sistemi Unix (\Option{latin1} è disponibile
+anche in Microsoft Windows e Mac~OS~X);
+\item[\texttt{ansinew}] per Microsoft~Windows;
+\item[\texttt{applemac}] per Mac\footnote{Nell'utilizzo di OS~X si dovrebbe
+    allo stesso modo adottare \texttt{latin1/latin9}, perché questa codifica
+    è più adatta di \texttt{applemac} allo scambio con utenti di altri
+    sistemi operativi. Tuttavia si dovrebbe prestare grande attenzione alla
+    codifica di input degli editor utilizzati.};
+\item[\texttt{cp850}] per \textln{OS/2};
+\item[\texttt{utf8}] per \enquote{moderni} sistemi Unix e in generale per
+    sistemi (ed editor) che adottano Unicode.
+
+\end{description*}
+\begin{Ers}
+  \verb|\usepackage{isolatin1}|
+\end{Ers}
+\begin{Dur}
+  \verb|\usepackage[latin1]{inputenc}|
+\end{Dur}
+\begin{Ers}
+  \verb|\usepackage{umlaut}|
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage[latin1]{inputenc}+
+\end{Dur}
+
+\paragraph{Nota} Il metodo sopra illustrato per dichiarare la codifica di
+input si usa nel \enquote{classico} utilizzo di motori per \LaTeX{} come
+pdf\LaTeX. I recenti sviluppi \XeLaTeX\ e Lua\LaTeX{} elaborano file
+codificati in Unicode anche senza dichiarare la codifica. Entrambi gli ultimi
+motori citati possono essere impiegati produttivamente, ma richiedono di
+solito una riscrittura dei «vecchi» sorgenti \LaTeX{} in relazione alla scelta
+della lingua e dei tipi di carattere e non possiedono ancora le capacità di
+microtipografia nella misura in cui ne gode pdf\LaTeX.
+
+\subsubsection{\PakeH{t1enc} vs. \PakeH{fontenc}}
+\label{sec:schriftkodierung}
+Il pacchetto \Paket{t1enc} è obsoleto e dovrebbe pertanto essere sostituito da
+\Paket{fontenc}.
+
+\begin{Ers}
+  \verb|\usepackage{t1enc}|
+\end{Ers}
+\begin{Dur}
+  \verb|\usepackage[T1]{fontenc}|
+\end{Dur}
+
+\subsubsection{\BstH{natdin} vs. \BstH{dinat}}
+\label{sec:liter-nach-din}
+L'autore di \Bst{dinat} raccomanda di sostituirlo con \Bst{natdin}, perché il
+primo non è più stato sviluppato di recente, mentre il secondo è stato
+enormemente migliorato.
+
+\begin{Ers}
+  \verb|dinat.bst|
+\end{Ers}
+\begin{Dur}
+  \verb|natdin.bst|
+\end{Dur}
+
+\paragraph{Nota} In versioni precedenti di questo documento abbiamo fatto la
+raccomandazione esattamente opposta, che si fondava sullo stato di sviluppo di
+allora. I miglioramenti a \Bst{natdin} che sono stati prodotti in seguito
+giustificano ora la preferenza a favore di quest'ultimo pacchetto.
+
+\subsubsection{\PakeH{glossary} vs. \PakeH{glossaries}}
+\label{sec:glossar}
+Il pacchetto \Paket{glossary} è obsoleto; come successore è stato creato dalla
+stessa autrice \Paket{glossaries}. Dettagli sulla modifica si trovano in
+\cite{glossaries:11}.
+
+\subsubsection{\PakeH{SIstyle} e \PakeH{SIunits} vs. \PakeH{siunitx}}
+\label{sec:einheiten}
+I pacchetti \Paket{SIstyle} und \Paket{SIunits}, utili alla composizione delle
+unità fisiche, non sono più stati sviluppati. Le funzionalità di entrambi i
+pacchetti sono unificate nel successore \Paket{siunitx}. In ragione della sua
+notevole flessibilità, \Paket{siunitx} può sostituire anche pacchetti come
+\Paket{unitsdef}, \Paket{units}, \Paket{fancyunits} e \Paket{fancynum}.
+
+\begin{Ers}
+\begin{verbatim}
+\usepackage{SIunits}
+\unit{1}{\metre}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{siunitx}
+\SI{1}{\metre}
+\end{verbatim}
+\end{Dur}
+
+\subsubsection{\PakeH{subfigure} e \PakeH{subfig} vs. \PakeH{subcaption}}
+\label{sec:subfigures}
+I pacchetti \Paket{subfigure} e \Paket{subfig} non sono più sviluppati e sono
+incompatibili con alcuni pacchetti attuali come \Paket{hyperref} e
+\Paket{caption}. Come sostituto si suggerisce \Paket{subcaption}.
+
+\begin{Ers}
+\begin{verbatim}
+\usepackage{subfig}
+\begin{figure}
+\subfloat[][testo]{figura}
+\end{figure}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\begin{figure}
+\begin{subfigure}{larghezza}
+figura\caption{testo}
+\end{subfigure}
+\end{figure}
+\end{verbatim}
+\end{Dur}
+
+\subsection{Caratteri}
+\label{sec:schriften}
+Il tema «Caratteri e \LaTeX» è fonte di «gioia» perenne in
+\News{de.comp.text.tex}, e in generale si avvia con la domanda: «perché i
+caratteri appaiano così frastagliati in Acrobat Reader?». Le più frequenti ma
+\emph{sbagliate} risposte a questa domanda raccomandano di risolvere il
+problema ricorrendo a \Paket{times} oppure a \Paket{pslatex}. Il fatto è che
+con l'utilizzo di questi pacchetti non solo si impostano caratteri
+completamenti diversi, ma pure -- dal momento che questi pacchetti sono
+obsoleti -- sorgono nuovi problemi. Se, come suggerito nella sezione
+\ref{sec:ae}, si utilizza Latin Modern come sostituto (quasi) identico per il
+carattere «standard» di \LaTeX{} (cioè Computer Modern), allora il problema
+dell'aspetto frastagliato dei caratteri in Adobe Reader non si presenta.
+
+La \Doku{fntguide}~\cite{fntguide:05} fornisce informazioni generali sul New
+Font Selection Scheme (NFSS) di \LaTeXe.
+
+\subsubsection{\PakeH{times}}
+\label{sec:pakettimes}
+Il pacchetto \Paket{times} è obsoleto (si veda \Doku{psnfss2e}
+\cite{psnfss:04}). Esso imposta \Macro{rmdefault} per il carattere Times,
+\Macro{sfdefault} per Helvetica e \Macro{ttdefault} per Courier \emph{senza}
+tuttavia impostare i corrispondenti caratteri matematici. Inoltre l'Helvetica
+non è correttamente scalato e appare troppo grande. Se si volesse adottare la
+combinazione Times/"Helvetica/"Courier, si dovrebbe allora fare così:
+
+\begin{Ers}
+  \verb|\usepackage{times}|
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+\end{verbatim}
+\end{Dur}
+
+\paragraph{Nota}
+\label{sec:anmerkung-1}
+Il fattore di scalatura per \Paket{helvet} in combinazione con Times dovrebbe
+essere compreso fra $0.90$ e $0.92$.
+
+\subsubsection{\PakeH{mathptm}}
+\label{sec:mathptm}
+Il pacchetto \Paket{mathptm} è il predecessore di \Paket{mathptmx} e dunque
+non va più usato.
+
+\begin{Ers}
+  \verb+\usepackage{mathptm}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{mathptmx}+
+\end{Dur}
+
+\subsubsection{\PakeH{pslatex}}
+\label{sec:paketpslatex}
+Il pacchetto \Paket{pslatex} include al suo interno \Paket{mathptm}$+$
+\Paket{helvet} (scalato) e tuttavia adotta un Courier scalato in modo
+eccessivo. Il principale svantaggio di \Paket{pslatex} è che \emph{non}
+funziona con le codifiche T1 e TS1.
+
+\begin{Ers}
+  \verb+\usepackage{pslatex}+
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{mathptmx}
+\usepackage[scaled=.92]{helvet}
+\usepackage{courier}
+\end{verbatim}
+\end{Dur}
+
+\paragraph{Nota su tutte le combinazioni Times/Helvetica}
+\label{sec:anmerkung-zu-allen}
+Ci si può anche limitare all'uso di \texttt{cmtt} per un effetto da «macchina
+da scrivere», col che non serve più caricare \Paket{courier}.
+
+\subsubsection{\PakeH{palatino}}
+\label{sec:paketpalatino}
+Il pacchetto \Paket{palatino} si comporta come \Paket{times} (a parte
+ovviamente l'impostazione di \Macro{rmdefault} a Palatino) e non dovrebbe
+pertanto essere più utilizzato.
+
+\begin{Ers}
+  \verb+\usepackage{palatino}+
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\usepackage{courier}
+\end{verbatim}
+\end{Dur}
+
+\paragraph{Nota}
+\label{sec:anmerkung-2}
+Il fattore di scalatura per \Paket{helvet} in combinazione col carattere
+Palatino dovrebbe essere impostato a $0.95$.
+
+In realtà, nonostante l'Helvetica \emph{non} sia il carattere migliore da
+combinare con il Palatino, anche se ne è stato a lungo il complemento più
+adatto liberamente disponibile e gratuito, la sostituzione sopra suggerita
+assomiglia per quanto possibile al «vecchio» accostamento. Nel frattempo
+sono stati resi disponibili i Vera/Bera Sans --\,un'alternativa a nostro
+avviso migliore.
+
+Chi possieda un CD di CorelDraw\textsuperscript{\textregistered} (anche
+vecchio\footnote{I caratteri che sono forniti con le versioni più vecchie di
+CorelDraw non contengono ancora alcun carattere per l'Euro!}) può combinare
+molto felicemente il Palatino con i caratteri Frutiger\footnote{Bitstream
+Humanist 777, pacchetto \textsf{bfr} per \TeX{} creato da Walter Schmid.}
+oppure Optima\footnote{Bitstream Zapf Humanist, pacchetto \textsf{bop} per
+\TeX{} creato da Walter Schmid.}. Nella sua homepage\footnote{Schriften für
+\TeX: \url{http://home.vr-web.de/was/fonts}} Walter Schmidt ha pubblicato i
+corrispondenti adattamenti (pacchetti \textsf{bfr} e \textsf{bop}) per usare
+questi caratteri con \TeX.
+
+\subsubsection{\PakeH{mathpple}}
+\label{sec:paketmathpple}
+Questo pacchetto è il predecessore di \Paket{mathpazo}. Manca di alcuni
+caratteri, che vengono allora mutuati dai font Euler, altri caratteri non
+si adattano bene al Palatino e alcune metriche del carattere non sono
+corrette. Per più ampie informazioni cfr. \Doku{psnfss2e}~\cite{psnfss:04}.
+
+\begin{Ers}
+  \verb+\usepackage{mathpple}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{mathpazo}+
+\end{Dur}
+
+\subsubsection{\PakeH{utopia}}
+\label{sec:paketutopia}
+Il pacchetto \Paket{utopia} non dovrebbe più essere utilizzato perché il suo
+successore \Paket{fourier} presenta un'interfaccia migliore. Per informazioni
+più precise cfr. \Doku{psnfss2e}~\cite{psnfss:04}.
+
+\begin{Ers}
+  \verb+\usepackage{utopia}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{fourier}+
+\end{Dur}
+
+\subsubsection{Lettere greche matematiche non inclinate}
+\label{sec:aufr-griech-buchst}
+I passaggi che seguono, segnati in rosso, non vanno intesi nel senso di «non
+si deve più fare così», ma che ora il pacchetto \Paket{upgreek} offre un modo
+più facile per immettere i caratteri greci. Per consigli sull'utilizzo si
+consulti sempre la documentazione \Doku{upgreek}~\cite{upgreek:03}.
+
+\minisec{Il trucco \PakeH{pifont}\nopagebreak[4]}
+\begin{Ers}
+\begin{verbatim}
+\usepackage{pifont}
+\newcommand{\uppi}{%
+  \Pisymbol{psy}{112}}
+  ...
+\uppi
+\end{verbatim}
+
+oppure
+
+\begin{verbatim}
+\newcommand[1]{\upgreek}{%
+  \usefont{U}{psy}{m}{n}#1}
+  ...
+\upgreek{p}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{upgreek}
+  ...
+$\uppi$
+\end{verbatim}
+\end{Dur}
+
+\minisec{Il trucco di \PakeH{babel}}
+\begin{Ers}
+\begin{verbatim}
+\usepackage[greek,...]{babel}
+\newcommand{\upgreek}[1]{%
+  \foreignlanguage{greek}{#1}}
+  ...
+\upgreek{p}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage{upgreek}
+  ...
+$\uppi$
+\end{verbatim}
+\end{Dur}
+
+\subsubsection{\PakeH{euler} vs. \PakeH{eulervm}}
+\label{sec:euler-vs-euler}
+Il pacchetto \Paket{euler} dovrebbe essere sostituito con \Paket{eulervm},
+perché il primo presenta dei problemi di compatibilità con altri pacchetti e
+manca di alcuni miglioramenti nei dettagli:
+
+\begin{itemize}
+\item \Macro{hbar} (\Macro{hslash} in questo carattere) funziona ora in modo
+  migliore;
+\item sono disponibili caratteri matematici in nero che includono simboli
+  greci.
+\end{itemize}
+
+Per informazioni più precise cfr. \Doku{eulervm}~\cite{eulervm:05}.
+
+\begin{Ers}
+  \verb+\usepackage{euler}+
+\end{Ers}
+\begin{Dur}
+  \verb+\usepackage{eulervm}+
+\end{Dur}
+
+\subsubsection{\PakeH{ae}, \PakeH{aecompl} e \PakeH{zefonts}}
+\label{sec:ae}
+I pacchetti \Paket{ae} (insieme a \Paket{aecompl}) e \Paket{zefonts} servono
+da soluzione di ripiego per un problema che riguarda le Umlaut e altre lettere
+accentate e che sorge quando si utilizzano i caratteri standard di \LaTeX, e
+cioè i Computer Modern (CM). Poiché questi esistono solo nella codifica OT1,
+le lettere accentate e i caratteri particolari delle lingue diverse
+dall'inglese, inesistenti in quella codifica, vengono ``costruiti'' con i
+segni corrispondenti (una \emph{ü}, cioè, risulta dalla sovrapposizione di
+`\,\"{}\,' a `u' e così via). Questi caratteri composti confondono l'algoritmo
+di sillabazione di \LaTeX, il che fa sì che ad esempio le parole con l'Umlaut
+non riescano a essere sillabate. I pacchetti \Paket{ae} e \Paket{zefonts}
+risolvono questo problema con l'utilizzo dei cosiddetti font virtuali.
+
+Un altro problema, a questo connesso, non viene invece risolto con i pacchetti
+citati: se si produce un file PDF, in quest'ultimo i caratteri composti
+vengono visualizzati in modo (apparentemente) corretto, ma le parole con
+l'Umlaut non sono trattate correttamente nelle ricerche all'interno del file o
+se vengono copiate e incollate.
+
+I problemi qui descritti non si presentano se si utilizza un carattere con
+codifica T1 e in formato Type 1\footnote{Si deve notare che T1 e Type 1,
+nonostante si chiamino in modo simile, non hanno affatto lo stesso
+significato: T1 descrive la codifica del carattere dal versante di \LaTeX,
+mentre Type 1 è una dichiarazione su come i caratteri vengono rappresentati
+nel file PDF. Perciò l'utilizzo di un carattere nella codifica T1 risolve il
+problema della sillabazione delle parole con l'Umlaut, ma non necessariamente
+quello della ricerca delle Umlaut in un file PDF.}. Perciò di recente sono
+stati progettate le famiglie di caratteri cm-super e Latin Modern. Poiché
+quest'ultima famiglia si comporta in modo più solido degli originali Computer
+Modern, raccomandiamo di sostituire i CM con Latin Modern.
+
+\begin{Ers}
+\begin{verbatim}
+\usepackage{ae}
+\end{verbatim}
+oppure
+\begin{verbatim}
+\usepackage{zefonts}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\end{verbatim}
+\end{Dur}
+
+%--------------------------- Sezione 3: "Miscellanea" ------------------------
+\clearpage
+\section{Miscellanea}
+\label{sec:verschiedenes}
+Questa sezione -- con l'eccezione di \vref{sec:der-anhang} -- presenta
+trucchi e consigli più generali di quelli compresi sotto il titolo di
+«peccati».
+
+\subsection{Oggetti flottanti -- «figure», «table»}
+\label{sec:gleit-figure-table}
+Per centrare un oggetto flottante si dovrebbe utilizzare \Macro{centering} in
+luogo dell'ambiente \verb+center+, poiché questo introduce fra l'oggetto
+stesso e il testo circostante uno spazio verticale aggiuntivo che nella
+maggior parte dei casi può risultare indesiderato.
+
+\begin{Ers}
+\begin{verbatim}
+\begin{figure}
+  \begin{center}
+    \includegraphics{bild}
+  \end{center}
+\end{figure}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\begin{figure}
+  \centering
+  \includegraphics{bild}
+\end{figure}
+\end{verbatim}
+\end{Dur}
+
+\paragraph{Nota}
+\label{sec:anmerkung-4}
+Se tuttavia si tratta di centrare una regione all'interno del corpo del testo
+o dell'ambiente \verb+titlepage+, allora questo spazio aggiuntivo può essere
+naturalmente voluto.
+
+\subsection{L'appendice}
+\label{sec:der-anhang}
+L'appendice viene introdotta dal \emph{comando} \Macro{appendix}. \emph{Non si
+tratta} di un ambiente.
+
+\begin{Ers}
+\begin{verbatim}
+\begin{appendix}
+\section{Blub}
+\end{appendix}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\appendix
+\section{Blub}
+\end{verbatim}
+\end{Dur}
+
+\subsection{Formule matematiche}
+\label{sec:mathematiksatz}
+In generale, per la tipografia matematica avanzata si deve usare
+\Paket{amsmath}, eventualmente integrato con \Paket{mathtools}. Esso presenta
+nuovi ambienti, che sostituiscono innanzitutto \verb+eqnarray+. Vantaggi del
+pacchetto:
+
+\begin{itemize}
+\item gli spazi all'interno e intorno agli ambienti sono consistenti;
+\item la numerazione delle equazioni è posizionata in modo da non sovrapporsi
+   mai all'espressione matematica;
+\item i nuovi ambienti (ad esempio \texttt{split}) consentono di spezzare
+  facilmente lunghe equazioni;
+\item possono essere definiti con facilità nuovi operatori (analogamente a
+  \Macro{sin} ecc.) con spaziature più adatte.
+\end{itemize}
+
+\paragraph{Avvertimento}
+\label{sec:warnung}
+Se si utilizza il pacchetto~\Paket{amsmath} non si dovrebbe \emph{mai} fare
+uso degli ambienti \texttt{displaymath}, \texttt{eqnarray} e
+\texttt{eqnarray*}, in quanto essi sono incompatibili con \Paket{amsmath} e
+così si genererebbero ancora una volta spaziature inconsistenti (cfr. le
+Figure~\vrefrange{fig:beisp-fur-texttt}{fig:beisp-fur-texttt-1}).
+
+Invece l'ambiente \verb+\[...\]+ è correttamente adeguato da \Paket{amsmath} e
+può essere usato in luogo di \texttt{displaymath}. Gli ambienti
+\texttt{eqnarray} e \texttt{eqnarray*} possono essere sostituiti con una prima
+approssimazione rispettivamente da \texttt{align} e \texttt{align*}. Per una
+trattazione completa delle possibilità di \Paket{amsmath} si consulti la
+documentazione \Doku{amsldoc}~\cite{amsldoc:99}.
+
+\begin{Ers}
+\begin{verbatim}
+\begin{eqnarray}
+  a &=& b\\
+  b &=& c\\
+  a &=& c
+\end{eqnarray}
+\end{verbatim}
+\end{Ers}
+\begin{Dur}
+\begin{verbatim}
+\begin{align}
+  a &= b\\
+  b &= c\\
+  a &= c
+\end{align}
+\end{verbatim}
+\end{Dur}
+\begin{figure}
+  \centering
+  \begin{minipage}[t]{.45\linewidth}
+      \begin{eqnarray*}
+        a &=& b\\
+        b &=& c\\
+        a &=& c
+      \end{eqnarray*}
+    \caption{Esempio per \texttt{eqnarry*}}
+    \label{fig:beisp-fur-texttt}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.45\linewidth}
+    \begin{align*}
+      a &= b\\
+      b &= c\\
+      a &= c
+    \end{align*}
+    \caption{Esempio per \texttt{align*}}
+    \label{fig:beisp-fur-texttt-1}
+  \end{minipage}
+\end{figure}
+
+\subsection{L'uso di \texttt{\TB graphicspath}}
+\label{sec:die-verwendung-von}
+Bisogna\footnote{Questa sezione è stata interamente riscritta dal traduttore.}
+premettere che, per motivi di sicurezza relativi soprattutto ma non
+esclusivamente a Windows, le più recenti versioni di \TeX{} (sia MiKTeX sia
+Tex Live dalla versione 2009) accettano una versione ridotta e protetta
+dell'esecuzione del comando \Macro{write18} (che equivale a impartire una
+qualche istruzione: l'argomento di \Macro{write18} è cioè interpretato come se
+fosse una linea di comando). \TeX{} consente di eseguire pienamente un certo
+numero di istruzioni (che riguardano fra gli altri Bib\TeX, epstopdf, ecc.),
+ne esegue altre in modo ristretto e infine non ne esegue affatto altre ancora
+(come la cancellazione di file), che devono essere autorizzate
+dall'utente\footnote{A meno di non eliminare tutte le limitazioni allo stesso
+\Macro{write18} indicandolo espressamente nella riga di comando che l'editor
+invia al sistema operativo per lanciare comandi come \texttt{pdflatex}:
+opzione \texttt{-shell-escape} di TeX Live e opzione \texttt{-enable-write18}
+di MiKTeX. Tuttavia in questo caso è necessario essere consapevoli dei rischi
+che tale operazione comporta per la sicurezza dell'intero sistema.}.
+
+Di conseguenza i programmi non possono più usare percorsi assoluti (che cioè
+partono dalla radice del disco fisso), ma solo percorsi relativi alla
+directory dove risiede il file principale del documento.
+
+La diffusa macro \Macro{graphicspath}, la cui comodità risiede nel fatto che,
+una volta impostata, evita di dover specificare ogni volta la/le directory in
+cui si trovano le immagini, dovrebbe essere evitata perché presenta quanto
+meno dei limiti:
+
+\begin{enumerate}
+\item la ricerca da parte di \TeX{} del file grafico da elaborare dura più a
+  lungo rispetto a quando tale ricerca è affidata alla libreria
+  \texttt{kpathsea }a cui ricorre normalmente \TeX{} per la ricerca dei file,
+  anche se con gli attuali processori l'aumento di tempo è trascurabile;
+\item i nomi dei file specificati senza percorso devono essere accuratamente
+  distinti in Windows, che non fa distinzione fra lettere minuscole e
+  maiuscole; questa distinzione deve avere luogo anche se eventuali file
+  omonimi si trovano in subdirectory diverse.
+\end{enumerate}
+
+Tali problemi non si manifestano se tutti i file grafici si trovano in una
+sola subdirectory di quella dove si trova il file principale del documento:
+perciò si può continuare a usare \Macro{graphicspath} in tutta sicurezza. Se
+invece un documento complesso avesse le sue parti (ad esempio i capitoli)
+collocate nelle proprie rispettive subdirectory e se ogni parte conservasse a
+sua volta le proprie immagini in una subsubdirectory, la situazione si
+presenterebbe molto confusa e inutilmente complicata rispetto a quello che si
+potrebbe avere includendo ogni file grafico speficandone il nome completo di
+percorso e di estensione\footnote{Prima del 2009 veniva consigliato di non
+specificare l'estensione, perché \texttt{latex} e \texttt{pdflatex} potevano
+includere file grafici di formato mutuamente esclusivo; quindi era possibile
+che nella stessa cartella una certa immagine fosse presente sia in formato
+\texttt{.eps} sia in formato \texttt{.pdf}. Anche senza specificare
+l'estensione e senza modificare il file sorgente, \texttt{latex} avrebbe
+incorporato il file \texttt{.eps} mentre \texttt{pdflatex} il file
+\texttt{.pdf}. Poiché attualmente anche \texttt{pdflatex} può incorporare file
+in formato \texttt{.eps}, questo modo di procedere non ha più ragione
+d'essere, anzi può risultare dannoso}.
+
+Il motivo per cui la ricerca del file grafico dura più a lungo usando
+\Macro{graphicspath} discende dal fatto che \TeX{} conserva al suo interno una
+lista di percorsi specificati con questo comando. In un documento complesso,
+con molti capitoli che richiedano a loro volta percorsi diversi per le loro
+figure, la ricerca avviene scandendo ricorsivamente tutti i percorsi contenuti
+in quella lista e ricercando in ogni cartella specificata da ciascuno di
+questi percorsi. Invece se si specifica ogni file grafico con il suo percorso
+\TeX{} non deve ricercare nulla, ma punta al file specifico in quanto il nome
+completo del file è univoco.
+
+Egualmente problematico appare il ricorso alla variabile di ambiente
+\texttt{TEXINPUTS}\footnote{Cfr. Risposta di David Carlisle al «Bug-Report» di
+Markus Kohm:
+\url{http://www.latex-project.org/cgi-bin/ltxbugs2html?pr=latex/2618}}.
+Questa variabile può essere impostata nelle modalità proprie dei vari sistemi
+operativi. Benché si tratti più di un'aggiunta che di una modifica vera e
+propria del percorso di sistema, essa è comunque permanente e pertanto andrà
+modificata per ogni nuovo documento (oltre al fatto che in vecchie versioni di
+Windows non esista la possibilità di avere distintamente una variabile
+\texttt{TEXINPUTS} di sistema e una di utente).
+
+Il metodo maggiormente sicuro ed efficiente (valido anche per
+\Macro{graphicspath}) consiste allora nel definire dei link simbolici mediante
+i classici comandi \texttt{ln -s} per i sistemi UNIX e \texttt{mklink} in
+Windows Vista o in Windows 7 (questo procedimento è irrealizzabile nelle
+precedenti versioni di Windows, che non conoscono i link simbolici). A
+differenza di quanto accadeva con \texttt{TEXINPUTS}, tali link, in quanto
+locali, non apportano nessuna modifica ai percorsi di sistema. Grazie a essi
+nella/e directory del documento risultano (virtualmente) presenti, dovunque
+siano fisicamente collocate all'interno del disco fisso, le directory delle
+immagini, che dunque sono individuabili da \Macro{write18} parzialmente
+abilitato.
+
+È sempre opportuno consultare la documentazione del sistema operativo e della
+distribuzione \TeX{} utilizzati.
+
+\subsection{Le macro \texttt{\TB...name}}
+\label{sec:die-macroname-makros}
+Poiché in \News{de.comp.text.tex} si domanda di tanto in tanto come si possa
+modificare a esempio «Bibliografia» in «Elenco delle fonti», nella
+Tabella~\vref{tab:von-paketng-btw} sono indicate le macro (italiane)
+corrispondenti. Più precisamente, esse sono tratte dai file
+\textsf{italian.ldf} per \Paket{babel} e \textsf{gloss-italian.ldf} per
+\Paket{polyglossia}.
+
+Ad esempio, per rinominare l'«Elenco delle figure» come «Figure», si adotti
+il comando seguente:
+
+\begin{verbatim}
+\renewcommand*{\listfigurename}{Figure}
+\end{verbatim}
+
+Le altre macro si possono rinominare in modo analogo. Se si adotta
+\Paket{babel} è opportuno operare con \Macro{addto}. Infatti a ogni
+reimpostazione della lingua (nel nostro caso l'italiano) viene reiterato il
+comando \Macro{captionsitalian}: la personalizzazione andrebbe così persa e
+reintrodotto il termine di default. Il comando \Macro{addto} è definito in
+\Paket{babel}, ma si può applicare anche a \Paket{polyglossia} prestando però
+attenzione a caricare in aggiunta \Paket{etoolbox} o simili. Cfr. anche le
+\Doku{De-TeX-FAQ} su questo tema\footnote{«I miei tentativi di ridefinire
+\Macro{figurename}, \Macro{tablename} e simili con l'utilizzo del pacchetto
+\Paket{babel} falliscono. Che cosa posso fare?» in
+\url{http://projekte.dante.de/DanteFAQ/Verschiedenes}}.
+
+La scrittura corretta è pertanto:
+
+\begin{verbatim}
+\addto{\captionsitalian}{%
+  \renewcommand*{\listfigurename}{Figure}}
+\end{verbatim}
+
+A chi adotta \KOMAScript{} raccomandiamo di usare l'equivalente comando\\
+\Macro{renewcaptionname}:
+
+\begin{verbatim}
+\renewcaptionname{italian}{\listfigurename}{Figure}
+\end{verbatim}
+
+Questo comando dev'essere dato dopo \verb+\begin{document}+.
+
+\begin{table}
+  \begin{minipage}{\textwidth}
+    \renewcommand{\footnoterule}{}
+    \centering
+    \caption{Le macro definite da \Paket{babel} e \Paket{polyglossia} con
+    l'opzione \Option{italian}}
+    \label{tab:von-paketng-btw}
+    \begin{tabular}{@{}lll@{}}
+      \toprule
+      \multicolumn{1}{@{}N}{Nome della macro}        &
+      \multicolumn{1}{N}{Definizione originale} &
+      \multicolumn{1}{N@{}}{Resa italiana}                                             \\
+      \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
+      \Macro{prefacename}                     & Preface         & Prefazione           \\
+      \Macro{refname}\footnote{Solo nella classe \texttt{article}.}
+                                              & References      & Riferimenti bibliografici  \\
+      \Macro{abstractname}                    & Abstract        & Sommario             \\
+      \Macro{bibname}\footnote{Solo nelle classi \texttt{report} e \texttt{book}.}
+                                              & Bibliography    & Bibliografia         \\
+      \Macro{chaptername}                     & Chapter         & Capitolo             \\
+      \Macro{appendixname}                    & Appendix        & Appendice            \\
+      \Macro{contentsname}                    & Contents        & Indice               \\
+      \Macro{listfigurename}                  & List of Figures & Elenco delle figure  \\
+      \Macro{listtablename}                   & List of Tables  & Elenco delle tabelle \\
+      \Macro{indexname}                       & Index           & Indice analitico     \\
+      \Macro{figurename}                      & Figure          & Figura               \\
+      \Macro{tablename}                       & Table           & Tabella              \\
+      \Macro{partname}                        & Part            & Parte                \\
+      \Macro{enclname}                        & encl            & Allegati             \\
+      \Macro{ccname}                          & cc              & e~p.~c.              \\
+      \Macro{headtoname}                      & To              & Per                  \\
+      \Macro{pagename}                        & Page            & Pag.                 \\
+      \Macro{seename}                         & see             & vedi                 \\
+      \Macro{alsoname}                        & see also        & vedi anche           \\
+      \Macro{proofname}                       & Proof           & Dimostrazione        \\
+      \Macro{glossaryname}                    & Glossary        & Glossario            \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+\end{table}
+
+\clearpage
+\appendix
+
+\section{Esempio di \texttt{\TB sloppy}}
+\label{sec:beispiel-zu-sloppy}
+Questo è il codice di esempio che Markus Kohm ha pubblicato in
+\News{de.comp.text.tex}:
+
+\begin{bspcode}{\MID{8557097.gEimXdBtjU@ID-107054.user.dfncis.de}{8557097.gEimXdBtjU@ID-107054.user.dfncis.de}}%
+\small
+\begin{verbatim}
+\documentclass{article}
+
+\setlength{\textwidth}{20em}
+\setlength{\parindent}{0pt}
+\begin{document}
+\typeout{First without \string\sloppy\space and underfull \string\hbox}
+
+tatata tatata tatata tatata tatata tatata ta\-ta\-tata
+tatata tatata tatata tatata tatata tatata tata\-tata
+tatata tatata tatata tatata ta\-tatatatt\-ta
+tatata tatata tatata tatata tatata tatata ta\-ta\-ta\-ta
+
+\typeout{done.}
+
+\sloppy
+\typeout{Second with \string\sloppy\space and underfull \string\hbox}
+
+tatata tatata tatata tatata tatata tatata ta\-ta\-tata
+tatata tatata tatata tatata tatata tatata tata\-tata
+tatata tatata tatata tatata ta\-tatatatt\-ta
+tatata tatata tatata tatata tatata tatata ta\-ta\-ta\-ta
+
+\typeout{done.}
+\end{document}
+\end{verbatim}
+\end{bspcode}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{\refname}
+\raggedright
+
+\begin{thebibliography}{99}
+\bibitem{amsldoc:99}
+  American Mathematical Society,
+  \emph{User's Guide for the {\texttt{amsmath}} Package},
+  versione~2.0,
+  febbraio~2002
+  (\texdoc{amsmath}).
+  \biburl{CTAN://macros/latex/required/amslatex/}
+
+\bibitem{graphicx:05}
+  Carlisle, David\,P. e The \LaTeX3 Project,
+  \emph{Packages in the `graphics' bundle},
+  novembre 2005
+  (\texdoc{graphicx}).
+  \biburl{CTAN://macros/latex/required/graphics/}
+
+\bibitem{kohm:10}
+  Kohm, Markus e Morawski, Jens-Uwe,
+  \emph{\KOMAScript, a versatile \LaTeXe{} bundle},
+  versione~3,
+  maggio~2011
+  (\texdoc{scrguien}).
+  \biburl{CTAN://macros/latex/supported/koma-script/}
+
+\bibitem{clsguide:06}
+  The \LaTeX3 Project,
+  \emph{\LaTeXe{} for class and package writers},
+  febbraio 2006
+  (\texdoc{clsguide}).
+  \biburl{CTAN://macros/latex/doc/clsguide.pdf}
+
+\bibitem{fntguide:05}
+  \LaTeX3 Project Team,
+  \emph{\LaTeXe{} font selection},
+  novembre 2005
+  (\texdoc{fntguide}).
+  \biburl{CTAN://macros/latex/doc/fntguide.pdf}
+
+\bibitem{usrguide:05}
+  \LaTeX3 Project Team,
+  \emph{\LaTeXe{} for authors},
+  novembre 2005
+  (\texdoc{usrguide}).
+  \biburl{CTAN://macros/latex/doc/usrguide.pdf}
+
+\bibitem{eulervm:05}
+  Schmidt, Walter,
+  \emph{The Euler Virtual Math Fonts for use with \LaTeX{}},
+  versione~4,
+  gennaio 2005
+  (\texdoc{eulervm}).
+  \biburl{CTAN://fonts/eulervm/}
+
+\bibitem{upgreek:03}
+  Schmidt, Walter,
+  \emph{The {\textsf{upgreek}} package for \LaTeXe{}},
+  versione~2.0,
+  febbraio~2003
+  (\texdoc{upgreek}).
+  \biburl{CTAN://macros/latex/contrib/upgreek/}
+
+\bibitem{psnfss:04}
+  Schmidt, Walter,
+  \emph{Using common PostScript fonts with \LaTeX{}},
+  \acr{psnnfss} versione~9.2,
+  settembre 2004
+  (\texdoc{psnfss2e}).
+  \biburl{CTAN://macros/latex/required/psnfss/psnfss2e.pdf}
+
+\bibitem{l2kurz:03}
+  Schmidt, Walter, Knappen, Jörg, Partl, Hubert e Hyna, Irene,
+  \emph{\LaTeXe{}-Kurzbeschreibung},
+  versione~2.3,
+  aprile~2003
+  (\texdoc{l2kurz2}).
+  \biburl{CTAN://info/lshort/german/}
+
+\bibitem{caption:08}
+  Sommerfeldt, Axel,
+  \emph{Anpassen der Abbildungs- und Tabellenbeschriftungen mit Hilfe des
+  caption-Paketes},
+  versione~3.2e,
+  novembre~2011
+  (\texdoc{caption-deu}).
+  \biburl{CTAN://macros/latex/contrib/caption/}\\
+  Disponibile allo stesso indirizzo anche nella versione inglese
+  \emph{Customizing captions of floating environments using the caption
+  package}.
+
+\bibitem{glossaries:11}
+  Talbot, Nicola~L.\,C.,
+  \emph{Upgrading from the glossary package to the glossaries package},
+  aprile~2011
+  (\texdoc{glossary2glossaries}).
+  \biburl{CTAN://macros/latex/contrib/glossaries/glossary2glossaries.pdf}
+
+\end{thebibliography}
+\end{document}

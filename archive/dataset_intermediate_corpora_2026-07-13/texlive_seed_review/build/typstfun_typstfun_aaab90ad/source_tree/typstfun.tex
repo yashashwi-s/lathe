@@ -1,0 +1,79 @@
+%  -*- coding: utf-8 -*-
+\documentclass[oneside,11pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+
+\newcommand*{\myversion}{2024A}
+\newcommand*{\mydate}{Version \myversion\ (\the\year-\mylpad\month-\mylpad\day)}
+\newcommand*{\mylpad}[1]{\ifnum#1<10 0\the#1\else\the#1\fi}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+
+\usepackage{typstfun}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{ninecolors}
+\usepackage{codehigh}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue3,
+  linkcolor=green3,
+}
+
+\begin{document}
+
+\title{\textsf{\color{green3}Equivalent Typst Function Names of LaTeX Commands}}
+\author{Jianrui Lyu (tolvjr@163.com)}
+\date{\mydate}
+\maketitle
+
+This documentation lists equivalent \href{https://typst.app}{Typst} function names for LaTeX commands.
+Only math symbols provided by LaTeX format or \texttt{amsmath} bundle are included.
+
+\tableofcontents
+
+\section{Text Environments}
+
+\typstfunPrintEnv{text}
+
+\section{Text Commands}
+
+\typstfunPrintCmd{text}
+
+\section{Math Environments}
+
+\typstfunPrintEnv{math}
+
+\section{Math Commands}
+
+\typstfunPrintCmd{math}
+
+\section{Math Symbols}
+
+\typstfunPrintSym{math}
+
+\begin{thebibliography}{9}
+
+\bibitem{Hefferon}
+  Jim Hefferon,
+  \textit{LaTeX Math for Undergrads},
+  \url{https://gitlab.com/jim.hefferon/undergradmath},
+  2020.
+
+\bibitem{Xie}
+  Johan Xie,
+  \textit{Typst Math for Undergrads},
+  \url{https://github.com/johanvx/typst-undergradmath},
+  2023.
+
+\bibitem{Pakin}
+  Scott Pakin,
+  \textit{The Comprehensive LaTeX Symbol List},
+  \url{https://ctan.org/pkg/comprehensive},
+  2024.
+
+\end{thebibliography}
+
+\end{document}

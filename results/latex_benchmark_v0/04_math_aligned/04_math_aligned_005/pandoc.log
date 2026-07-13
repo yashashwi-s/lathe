@@ -1,0 +1,28 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_005/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_005/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{lll}\delta r_+&=&\delta\left(M+\sqrt{M^2-a^2-Q^2}\right)\\\\&=&\delta M+{1\over2}\,{\left(M^2-a^2-Q^2\right)}^{-{1\over2}}\,2\left(M\,\delta M-a\,\delta a\right)\\\\&=&\delta M+{\left(r_+-M\right)}^{-1}\left(M\,\delta M-a\,\delta a\right)\;,\\\\a\,\delta a&=&a\,\delta\left(J/M\right)={a\over M}\,\delta J-{a^2\over M}\,\delta M\;.\end{array}
+  \end{align*}, rendering as TeX:
+  &=&\delta M+{1\over2}\,{\left(M^2-a^2-Q^
+                     ^
+  unexpected control sequence \over
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  F^{(L)}_{p;r}(q) =q^{-r(r-1)} \times\left\{ \begin{array}{ll}F^{(L)}_{p-2} \left[ \begin{array}{c}{\bf Q}_{r,1} \\ {\bf 0} \end{array} \right]({\bf e}_r | q) &\mbox {if $L \not\equiv r-1$ mod $2$}, \\F^{(L)}_{p-2} \left[ \begin{array}{c}{\bf Q}_{p-r,p} \\ {\bf 0} \end{array} \right]({\bf e}_{p-r} | q) &\text{if $L \equiv r-1$ mod $2$},\end{array}\right.
+  \end{align*}, rendering as TeX:
+  egin{array}{c}{\bf Q}_{r,1} \\ {\bf 0} \
+                     ^
+  unexpected control sequence \bf
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  {\hspace{1mm}^*}\hspace{-1mm}f_{\mu \nu}(x) = - \frac{e_0}{4 \pi \varepsilon_0 c} [ \partial_\mu \vec{n}(x) \wedge \partial_\nu \vec{n}(x) ] \vec{n}(x)=\left( \begin{array}{cccc} 0 & B_x & B_y & B_z \\ -B_x & 0 & \frac{E_z}{c} & \frac{-E_y}{c} \\ -B_y & \frac{-E_z}{c} & 0 & \frac{E_x}{c} \\ -B_z & \frac{E_y}{c} & \frac{-E_x}{c} & 0 \\\end{array} \right)
+  \end{align*}, rendering as TeX:
+  {\hspace{1mm}^*}\hspace{-1mm}f_{\mu \nu}
+            ^
+  unexpected "m"
+  expecting digit, ".", "em", "pt", "in" or "cm"
+
+
+TYPST COMPILE LOG:

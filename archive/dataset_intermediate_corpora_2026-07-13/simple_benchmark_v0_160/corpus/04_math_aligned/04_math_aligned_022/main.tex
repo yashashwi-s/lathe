@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Aligned Mathematical Structures}
+\author{Source-backed grouped formula sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Expressions}
+\paragraph{Expression 1.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*} Q(x) &= \int_{x/\log x}^{x-\sqrt x} \frac1{\log(x-t)}\bigg( \frac t{\log t} + O\bigg( \frac t{\log^2t} \bigg) \bigg) \,dt + O\bigg( \frac{x^2}{\log^3x} \bigg) \\ &= \int_{x/\log x}^{x-\sqrt x} \frac t{(\log t)\log(x-t)} \,dt + O\bigg( \int_{x/\log x}^{x-\sqrt x} \frac t{(\log^2t) \log(x-t)}\,dt + \frac{x^2}{\log^3x} \bigg). \end{align*}
+
+\paragraph{Expression 2.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\begin{aligned}(f_{\mathcal{S}})_\lambda(s_1, s_2) & \leq \sup_{ (y_1^\prime, y_2^\prime, x^\prime ) \in \mathcal{S} } \left\{ f_1(y_1^\prime) + f_2(y_2^\prime) - \sum_{1 \leq \ell \leq 2} \lambda_\ell c_{Y_\ell} \left( y_\ell, y_\ell^\prime \right) \right\} \\&= (f_1 )_{\lambda_1}(y_1) + (f_2 )_{\lambda_2}(y_2).\end{aligned}\end{align*}
+
+\paragraph{Expression 3.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*} K_{\omega,c}(\lambda \Phi_{\omega}) &=2\lambda^2L(\Phi_{\omega})+3\lambda^3N(\Phi_{\omega}) +2\lambda^2\omega Q(\Phi_{\omega}) +2\lambda^2cP(\Phi_{\omega})\\ &=\lambda^2K_{\omega,0}(\Phi_{\omega}) +\lambda^2\{3(\lambda -1)N(\Phi_{\omega})+2cP(\Phi_{\omega})\}\\ &=2\lambda^2\{-3(\lambda -1)\mu_{\omega,0}+cP(\Phi_{\omega})\}. \end{align*}
+
+\paragraph{Expression 4.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*} f^{B,\alpha}(\xi) &:= \partial_x^\alpha\big|_{x=0} \alpha_{-x} \big( f(\xi+Bx) \big) \\&= \sum_{\beta+\gamma = \alpha} \binom \alpha \beta i^{|\beta|}\delta^\beta \big (\partial_x^\gamma\big|_{x=0} f(\xi+Bx) \big) \\&= \sum_{\beta+\gamma = \alpha} \binom \alpha \beta i^{|\beta|}\delta^\beta \partial_{B,\xi}^\gamma f(\xi) . \end{align*}
+
+\paragraph{Expression 5.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\begin{array}{lcrcl}\epsilon&=&1\hspace{10mm}\delta\varepsilon^{1}_{1}(\frac{\pi}{5})&=&\delta\varepsilon^{1}_{3}(\frac{\pi}{5})\;,\\ &&\delta\varepsilon^{1}_{1}(\frac{\pi}{4})&=&\delta\varepsilon^{1}_{2}(\frac{\pi}{4})\;,\\ &&\delta\varepsilon^{1}_{0}(\frac{\pi}{4})&=&\delta\varepsilon^{1}_{3}(\frac{\pi}{4})\;, \end{array}\end{align*}
+\end{document}

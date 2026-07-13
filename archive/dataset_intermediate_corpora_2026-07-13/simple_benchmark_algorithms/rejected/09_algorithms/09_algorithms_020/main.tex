@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 20}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[!htbp]
+\caption{Microenvironment-aware Protein Embedding for PPI Prediction (MAPE-PPI)}
+\begin{algorithmic}[1]
+\Require Proteins $\mathcal{P}=\{P_i\}_{i=1}^N$, PPIs set $\mathcal{X}$, pre-training epoch $E_{pre}$, and training epoch $E$.
+\State Randomly initializing the parameters of protein encoder $f_e$, decoder $f_d$, and codebook $\mathcal{A}$.
+\State \# \textit{Pre-training}
+\For{$\text{epoch}$ $\in$ \{1, 2, $\cdots$, $E_{pre}$\}}
+\State Encoding residue embeddings $\{\mathbf{h}^{(L)}_m\}_{m=1}^M$ for each protein by the encoder $f_e$ in Eq.~(\ref{equ:2});
+\State Performing vector quantization by the codebook $\mathcal{A}$ in Eq.~(\ref{equ:3});
+\State Reconstructing the input from discrete codes $\{z_m\}_{m=1}^M$ by the decoder $f_d$;
+\State Masking the codebook by Eq.~(\ref{equ:5}) and reconstructing the input from the masked $\{\widetilde{\mathbf{e}}_{z_m}\}_{m=1}^M$;
+\State Optimizing encoder $f_e$, decoder $f_d$, and codebook $\mathcal{A}$ by minimizing the loss in Eq.~(\ref{equ:7}).
+\EndFor
+\State \# \textit{PPI Prediction}
+\State Freezing the parameters of encoder $f_e$ and codebook $\mathcal{A}$.
+\State Randomly initializing the parameters of PPI encoder $g_{\text{enc}}$ and PPI classifier $g_{\text{cla}}$.
+\For{$\text{epoch}$ $\in$ \{1, 2, $\cdots$, $E$\}}
+\State Encoding all proteins into microenvironment-aware protein embeddings by Eq.~(\ref{equ:8});
+\State Updating node (protein) embeddings on the PPI graph by the PPI encoder $g_{\text{enc}}$ in Eq.~(\ref{equ:9});
+\State Predicting unknown PPI types by the PPI classifier $g_{\text{cla}}$.
+\State Optimizing PPI encoder $g_{\text{enc}}$ and PPI classifier $g_{\text{cla}}$ by minimizing the objectivein in Eq.~(\ref{equ:10}).
+\EndFor
+\State \textbf{return} Predicted PPI types $\mathcal{Y}_U$, protein encoder $f_e$, and microenvironment codebook $\mathcal{A}$.
+\end{algorithmic}
+\end{algorithm}
+\vspace{-1em}
+\end{algorithm}
+\end{document}

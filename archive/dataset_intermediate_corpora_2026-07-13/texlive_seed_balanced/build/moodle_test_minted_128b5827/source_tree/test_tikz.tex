@@ -1,0 +1,68 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp,tikz]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of picture
+inclusion using Ti\emph{k}Z.
+
+\begin{quiz}{TikZ}
+
+\begin{multi}{Multi}
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}]* \embedaspict{3}
+\item[feedback={\embedaspict{4}}] \embedaspict{5}
+\end{multi}
+
+\begin{matching}[dd]{Matching}
+\embedaspict{1}
+\item \embedaspict{2} \answer \embedaspict{3}
+\item \embedaspict{4} \answer \embedaspict{5}
+\item \embedaspict{3} \answer \embedaspict{2}
+\end{matching}
+
+\begin{shortanswer}{Short}
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}] 3
+\item[feedback={\embedaspict{4}}] 5
+\end{shortanswer}
+
+\begin{numerical}{Numerical}
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}] 3
+\item[feedback={\embedaspict{4}}] 5
+\end{numerical}
+
+\begin{cloze}{Cloze}
+\begin{multi}[horizontal]
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}]* \embedaspict{3}
+\item[feedback={\embedaspict{4}}] \embedaspict{5}
+\end{multi}
+
+\begin{shortanswer}
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}] 3
+\item[feedback={\embedaspict{4}}] 5
+\end{shortanswer}
+
+\begin{numerical}
+\embedaspict{1}
+\item[feedback={\embedaspict{2}}] 3
+\item[feedback={\embedaspict{4}}] 5
+\end{numerical}
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

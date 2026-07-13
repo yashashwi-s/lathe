@@ -1,0 +1,88 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\newif\iffvextra
+\fvextratrue % comment this line to use vanilla 'fancyvrb'
+\iffvextra
+  \usepackage{fvextra,xcolor}
+\else
+  \usepackage{fancyvrb} % must be loaded after fancybox 
+\fi
+
+\fvset{firstline=3,firstnumber=2,lastline=7,numbers=left,tabsize=4,numberblanklines=false}
+\iffvextra
+  \fvset{highlightlines={2-5,8},numbers=both}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of \textsf{fancyvrb} or  
+\textsf{fvextra} packages.
+
+The only command supported is \texttt{VerbatimInput[<options>]\{<filename>\}}.
+The variant with a star is unsupported.
+
+Outside of the moodle question bodies, \texttt{VerbatimOut} environments can be 
+set to define portions of code.
+
+\begin{quiz}{Fancy Verbatim}
+% /!\ firstline and lastline set previously would apply to VerbatimOut
+\begin{VerbatimOut}[firstline,lastline]{test.log}
+  % !TeX encoding = UTF-8
+  % !TeX spellcheck = en_US
+  % !TEX TS-program = xelatex
+  
+  \documentclass{article}
+  \usepackage[nostamp]{moodle}
+  \newif\iffvextra
+  \fvextratrue
+  \ifxetex % FOR XELATEX
+   \usepackage{fontspec}
+  \else %% FOR PDFLATEX
+  	\usepackage[utf8]{inputenc} % necessary
+  	\usepackage[T1]{fontenc} % necessary
+  \fi
+\end{VerbatimOut}
+\fvset{gobble=2} % remove two characters at the beginning of each line
+\fvset{frame=none}% overide default display settings for PDF
+
+% To avoid collision of line and item numbers in PDF, force `left-right' mode:
+\RecustomVerbatimCommand{\VerbatimInput}{LVerbatimInput}{}
+\begin{multi}{LaTeX}
+Pick up the code decorated with line numbering on both sides.
+\item[feedback={No. Here, line numbers lie on the left side.}] 
+\VerbatimInput{test.log}
+\item[feedback={No. Here, line numbers lie on the right side.}] 
+\VerbatimInput[numbers=right,firstnumber=last,numberblanklines=true]{test.log}
+\item[feedback={yes!}]* 
+\VerbatimInput[numbers=left,firstline=9,firstnumber=4,lastline=23]{test.log}
+\end{multi}
+
+\begin{filecontents*}[overwrite]{test.log}
+#include <stdio.h>
+int main() {
+    char c='\0', *pc=&c;
+    printf("Hello world!\n");
+    return *pc;
+}
+\end{filecontents*}
+\begin{multi}{C}
+\VerbatimInput[gobble=0,numbers=left,firstline=1,lastline=6]{test.log}
+
+\item[feedback={}]* ``\&test"
+\item[feedback={}] 'toast'
+\item <$<a>$>
+\end{multi}
+
+\end{quiz}
+
+\end{document}

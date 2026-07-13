@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01392\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccccccc}
+\toprule
+\textbf{Scenario} & \textbf{CO2price} & \textbf{FMsgrowth} & \textbf{BeechArea0} & \textbf{costMargAgri} & \textbf{costInvAgri} & \textbf{costInvLevelAgri} & \textbf{ghgAgri} & \textbf{Agrigrowth} & \textbf{Agriarea0} & \textbf{PeatExtract} \\
+\midrule
+S01 & --     & --     & --     & --     & --     & --     & --     & +90$\%$  & +90$\%$  & +90$\%$ \\
+S02 & --     & --     & --     & --     & --     & --     & --     & -60 $\%$  & -60 $\%$  & -60 $\%$ \\
+S03 & -20 $\%$  & -20 $\%$  & -20 $\%$  & --     & --     & --     & --     & --     & --     & --    \\
+S04 & -20$\%$  & 0 $\%$    & -20$\%$ & --     & --     & --     & --     & --     & --     & --    \\
+S05 & -20$\%$ & 0$\%$    & 0$\%$    & --     & --     & --     & --     & --     & --     & --    \\
+S06 & +20$\%$  & 0$\%$    & +20$\%$  & --     & --     & --     & --     & --     & --     & --    \\
+S07 & +20$\%$ & +20$\%$  & -20$\%$  & --     & --     & --     & --     & --     & --     & --    \\
+S08 & +20 $\%$  & +20$\%$  & +20$\%$  & --     & --     & --     & --     & --     & --     & --    \\
+S09 & --     & --     & --     & --     & --     & --     & --     & --     & --     & --    \\
+S10 & --     & --     & --     & --     & -50 $\%$  & -50 $\%$  & -50 $\%$  & -50 $\%$  & -50 $\%$  & --    \\
+S11 & --     & --     & --     & --     & -20 $\%$  & -20 $\%$  & --     & -20 $\%$  & --     & --    \\
+S12 & --     & --     & --     & --     & -20 $\%$  & -20 $\%$  & -20 $\%$  & --     & --     & --    \\
+S13 & --     & --     & --     & --     & +20 $\%$  & +20 $\%$  & --     & +20 $\%$  & --     & --    \\
+S14 & --     & --     & --     & --     & +20 $\%$  & +20 $\%$  & +20 $\%$  & --     & --     & --    \\
+S15 & --     & --     & --     & --     & -30 $\%$  & -30 $\%$  & --     & -30 $\%$  & --     & --    \\
+S16 & --     & --     & --     & --     & +70 $\%$  & +70 $\%$  & --     & +70 $\%$  & --     & --    \\
+S17 & --     & --     & --     & -40 $\%$  & --     & --     & --     & -40 $\%$  & --     & --    \\
+S18 & --     & --     & --     & +50 $\%$  & --     & --     & +50 $\%$  & +50 $\%$  & +50 $\%$  & +50 $\%$ \\
+S19 & --     & --     & --     & +60 $\%$  & --     & --     & --     & +60 $\%$  & --     & --    \\
+S20 & --     & --     & --     & +100 $\%$ & +100 $\%$ & +100 $\%$ & --     & --     & --     & --    \\
+S21 & --     & --     & --     & --     & --     & --     & - 50 $\%$  & --     & --     & - 50 $\%$ \\
+S22 & --     & --     & --     & --     & --     & --     & -20 $\%$  & -20 $\%$  & -20 $\%$  & -20 $\%$ \\
+S23 & --     & --     & --     & --     & --     & --     & +20 $\%$  & +20 $\%$  & +20 $\%$  & + 20 $\%$ \\
+S24 & --     & --     & --     & --     & --     & --     & +50 $\%$  & +50 $\%$  & +50 $\%$  & +50 $\%$ \\
+S25 & --     & --     & --     & --     & --     & --     & +80 $\%$  & + 80 $\%$  & + 80 $\%$  & + 80 $\%$ \\
+S26 & --     & --     & --     & --     & --     & --     & +80 $\%$  & --     & --     & +80 $\%$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05403\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l p{5.2cm} c p{7.5cm}}
+\toprule
+\textbf{Inspiration ID} & \textbf{Inspiration} & \textbf{Acc. (\%)} & \textbf{Key Architectural Modification} \\
+\midrule
+baseline & ResNet basic block & 90.80 & Two 3$\times$3 conv + BN + ReLU with residual add (standard baseline). \\
+p8515 & DW-FFN: depthwise conv inside MLP for token mixing & 95.22 & Replace 2nd conv by DWConv$\rightarrow$PWConv path; extra PWConv and residual add for spatial token mixing. \\
+p1483 & Per-block top-$k$ expert router (MoE-lite) with load-balance loss & 95.22 & DW-FFN base; add block-wise routing/gating idea (MoE-lite) while keeping residual PW mixing. \\
+p9167 & DW-FFN: depthwise conv inside MLP for token mixing & 95.22 & DWConv($3\times3$, groups=$C$)$\rightarrow$PWConv$\rightarrow$PWConv with residual add; token mixing in FFN style. \\
+p965 & DW-FFN: depthwise conv inside MLP for token mixing & 95.12 & Compact DWConv($3\times3$)$\rightarrow$PWConv; remove last ReLU; pre-activation-style add. \\
+p477 & DW-FFN: depthwise conv inside MLP for token mixing & 95.12 & DWConv($3\times3$)$\rightarrow$PWConv with BN then residual add; lightweight token mixer. \\
+p12347 & RMSNorm swap-in + pre-norm residual & 95.12 & Pre-norm variant of DW-FFN idea (implemented via BN here) before residual add for stability. \\
+p8334 & DWConv($k{=}5$)$\rightarrow$PWConv expand & 94.98 & Replace inner 3$\times$3 with DWConv($5$) then PWConv expansion; residual add kept minimal. \\
+p2571 & DW-FFN: depthwise conv inside MLP for token mixing & 94.94 & Minimal DWConv($3$)$\rightarrow$PWConv pathway attached to residual. \\
+p6793 & DWConv($k{=}7$)$\rightarrow$PWConv expand 4$\times$ (MBConv variant) & 94.92 & Wider DW kernel ($7$) then PW expand; MBConv-like expansion under residual. \\
+p8158 & Task-agnostic expert learning via gating re-param & 94.87 & Output-side GELU gating on residual to encourage expert-like specialization. \\
+p7852 & DWConv($k{=}7$)$\rightarrow$PWConv expand 4$\times$ (MBConv variant) & 94.86 & Stronger MBConv-style expansion (4$\times$) inside residual token mixer. \\
+p9908 & RMSNorm swap-in + pre-norm residual & 94.70 & Pre-norm (via BN) after residual add to stabilize gradients. \\
+p1865 & In-block cross-scale fusion (stage $k\leftrightarrow k{\pm}1$) & 94.69 & Extra 1$\times$1 projection branch merged into residual to blend cross-scale features. \\
+p7257 & Anti-alias downsample branch (blur/dilation) within block & 94.68 & Use dilation in DW-FFN path to reduce aliasing while keeping residual mixing. \\
+p2455 & RMSNorm swap-in + pre-norm residual & 94.67 & BN-as-pre-norm placed on residual output; remove extra nonlinearity. \\
+p4569 & RMSNorm swap-in + pre-norm residual & 94.64 & Pre-norm BN at input; output-side BN after add. \\
+p4199 & Cross-token routing head (top-$k$ sparse links) & 94.61 & Add light routing on DW-FFN output path to sparsify cross-token flow. \\
+p928 & Use pre-norm residual connections for block stability & 94.57 & BN$\rightarrow$Conv$\rightarrow$ReLU pre-activation; residual add before final BN. \\
+p11876 & Dynamic routing head for enhanced feature selection & 94.55 & DW-FFN with dilated DWConv($d{=}2$) plus selection head at output. \\
+p3128 & RMSNorm swap-in + pre-norm residual & 94.52 & Extra normalization after residual add for stability under small models. \\
+p11944 & DW-FFN: depthwise conv inside MLP for token mixing & 94.50 & Minimal DWConv($3$)$\rightarrow$PWConv with straight residual add (no extra BN). \\
+p351 & RMSNorm swap-in + pre-norm residual & 94.49 & Remove tail ReLU; pre-activation residual with BN to improve stability. \\
+p8417 & In-block cross-scale fusion via 1$\times$1 proj + add & 94.43 & Add 1$\times$1 projection and fuse into residual to mix neighbor-scale features. \\
+p9874 & DW-FFN: depthwise conv inside MLP for token mixing & 94.31 & DWConv($3$)$\rightarrow$PWConv$\rightarrow$PWConv chain before add. \\
+p4616 & DW-FFN variant & 94.25 & Second conv becomes DWConv; extra 1$\times$1 to align channels before add. \\
+p8060 & Upconv with residual scaling & 94.22 & Dilated DW path + residual rescaling via extra conv then activation. \\
+p856 & Anti-alias downsample branch (blur$\sim$dilation) & 94.17 & Replace stride-2 with dilation on 2nd conv to suppress aliasing in residual path. \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

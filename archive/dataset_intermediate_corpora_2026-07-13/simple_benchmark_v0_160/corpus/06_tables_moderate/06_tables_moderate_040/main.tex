@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00598\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable}          & \textbf{Description} & \textbf{Detail}                      \\ 
+\midrule
+\textbf{Patient Information}        &                                                                    &                                         \\
+\midrule
+Age                     & Patient age at time of admission & $50.7 \pm 1.3$ years \\
+Sex                     & Patient gender & Most frequent: Male (58.1\%) \\
+Height                  & Patient height in centimeters & $170.4 \pm 10.9$ cm \\
+Weight                  & Patient weight in kilograms & $82.0 \pm 20.8$ kg \\
+Surgery Time            & Surgery start time & --- \\
+Anesthesia Time         & Duration of anesthesia in hours & --- \\
+ASA Status              & ASA physical status classification & Most frequent: Severe Systemic Disease (63.5\%) \\
+Discharge Disposition   & Discharge location (e.g., home, rehab, ICU) & Most frequent: Home Routine (50.3\%) \\
+
+\midrule
+\textbf{Patient Medications} & & \\
+\midrule
+Medication Name        & Name of the prescribed medication & Unique Medications: 1979 \\
+Medication Dose        & Dosage of the prescribed medication & Range: (min, max) not provided \\
+Medication Route       & Route of administration (e.g., oral, IV) & Example: IV, Oral, Topical \\
+Time of Administration & Time when the medication was administered & --- \\
+
+\midrule
+\textbf{Patient Lines, Drains, and Airway Devices (LDA)} & & \\
+\midrule
+Line Type             & Type of line (e.g., central venous line, arterial line) & Unique Lines/Drains: 31 \\
+Drain Type            & Type of drain (e.g., chest drain, Foley catheter) & Included in Lines/Drains \\
+Airway Device         & Airway device used (e.g., endotracheal tube, LMA) & Unique Airway Devices: 4 \\
+Time of Placement     & Time of placement of line, drain, or device & --- \\
+Time of Removal       & Time of removal of line, drain, or device & --- \\
+Location of Placement & Anatomical location of line, drain, or device & Examples: Abdomen, Antecubital \\
+
+\midrule
+\textbf{Patient Labs} & & \\
+\midrule
+Lab Test Name       & Name of the laboratory test ordered & Unique Labs: 549 \\
+Lab Result          & Observed measurement or result & --- \\
+Time of Lab Result  & Time when the lab result was recorded & --- \\
+Reference Range     & Reference range for lab values & Abnormal flag present \\
+
+\midrule
+\textbf{Patient Postoperative Complications} & & \\
+\midrule
+Complication Type        & Type of postoperative complication & Unique Types: 10 \\
+Complication Description & Detailed description or free-text notes & --- \\
+ICU Admission            & Whether admitted to ICU postoperatively & --- \\
+Mortality                & Whether patient died postoperatively & --- \\
+
+\midrule
+\textbf{Patient Procedure Events} & & \\
+\midrule
+Preoperative Events  & Procedures or events before surgery & --- \\
+Perioperative Events & Events during surgery & --- \\
+Postoperative Events & Procedures or events after surgery & --- \\
+
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01643\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|c|c c|c}
+            \toprule
+            Method
+            & Type          & \#Params  & FLOPs     & Top-1 \\
+
+            \midrule
+            ConvNeXt-S~
+            & ConvNet       & 50M       & 8.7G      & 83.1 \\
+            % InceptionNeXt-S~\cite{inceptionnext}
+            % & ConvNet       & 49M       & 8.4G      & 83.5 \\
+            InternImage-S~
+            & ConvNet       & 50M       & 8.0G      & 84.2 \\
+            % CSwin-S~\cite{cswin} 
+            % & Transformer   & 35M       & 6.9G      & 83.6 \\
+            BiFormer-B~
+            & Transformer   & 57M       & 9.8G      & 84.3 \\
+            TransNeXt-S~
+            & Transformer   & 50M       & 10.3G     & 84.7 \\
+            RMT-B~
+            & Transformer   & 54M       & 9.7G      & 85.0 \\
+            FasterViT-2$^\ddag$~
+            & Transformer   & 76M       & 8.7G      & 84.2 \\
+            VMamba-S~ 
+            & Mamba         & 50M       & 8.7G      & 83.6 \\
+            LocalVMamba-S~ 
+            & Mamba         & 50M       & 11.4G     & 83.7 \\
+            SOFT-M++~
+            & Linear        & 48M       & 8.7G      & 83.7 \\
+            VVT-M~
+            & Linear        & 48M       & 9.4G      & 83.8 \\
+            % FLatten-CSwin-S~\cite{flatten}
+            % & Linear        & 35M       & 6.9G      & 83.8 \\
+            MILA-S$^\ddag$~
+            & Linear        & 43M       & 7.3G      & 84.4 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-S
+            & TTT           & 54M       & 8.8G      & 84.4 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-S$^\ddag$
+            & TTT           & 54M       & 8.8G      & 84.9 \\
+
+            \midrule
+            % ConvNeXt-B~\cite{convnext}
+            % & ConvNet       & 89M       & 15.4G     & 83.8 \\
+            % InceptionNeXt-B~\cite{inceptionnext}
+            % & ConvNet       & 87M       & 14.9G     & 84.0 \\
+            % InternImage-B~\cite{internimage}
+            % & ConvNet       & 97M       & 16.0G     & 84.9 \\
+            % CSwin-B~\cite{cswin}
+            % & Transformer   & 78M       & 15.0G     & 84.2 \\
+            % iFormer-L~\cite{iformer}
+            % & Transformer   & 87M       & 14.0G     & 84.8 \\
+            % TransNeXt-B~\cite{transnext}
+            % & Transformer   & 90M       & 18.4G     & 84.8 \\
+            % RMT-L~\cite{rmt}
+            % & Transformer   & 95M       & 18.2G     & 85.5 \\
+            % FasterViT-3$^\ddag$~\cite{fastervit}
+            % & Transformer   & 160M      & 18.2G     & 84.9 \\
+            Mamba2D-B~ 
+            & Mamba         & 94M       & $-$       & 83.0 \\
+            VMamba-B~ 
+            & Mamba         & 89M       & 15.4G     & 83.9 \\
+            SOFT-L++~
+            & Linear        & 85M       & 15.4G     & 84.1 \\
+            % VVT-L~\cite{vvt}
+            % & Linear        & 62M       & 10.8G     & 84.1 \\
+            % FLatten-CSwin-B~\cite{flatten}
+            % & Linear        & 75M       & 15.0G     & 84.5 \\
+            MILA-B$^\ddag$~
+            & Linear        & 96M       & 16.2G     & 85.3 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-B
+            & TTT           & 94M       & 16.7G     & 84.9 \\
+            \rowcolor{lightgray!20} H-ViT$^3$-B$^\ddag$
+            & TTT           & 94M       & 16.7G     & 85.5 \\
+            
+            \bottomrule
+        \end{tabular}
+}
+\end{table}
+
+\end{document}

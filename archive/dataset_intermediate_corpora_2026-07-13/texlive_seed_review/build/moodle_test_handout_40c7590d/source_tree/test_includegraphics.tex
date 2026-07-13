@@ -1,0 +1,45 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of picture inclusion using 
+\verb|\includegraphics|. Only options \texttt{width} and \texttt{height} are 
+supported. The file name or path may include spaces. The file path can be 
+specified with \verb|\graphicspath|. In general, file extensions can be 
+omitted. However, with case-sensitive file-systems (like under Linux), files 
+with extensions in upper-case cannot be omitted.
+
+\begin{quiz}{Includegraphics}
+
+\begin{multi}{Picture}
+\includegraphics[width=2cm]{fig/1 1.PNG}
+\item[feedback={\includegraphics{fig/2 2.pdf}}]* \includegraphics{fig/3.gif}
+\item[feedback={\includegraphics{fig/4.jpg}}] \includegraphics{fig/5.jpeg}
+\end{multi}
+
+\graphicspath{{./fig/}}
+
+\begin{matching}[dd]{Picture}
+\includegraphics{1 1.PNG}
+% on Linux, if .PNG is omitted moodle tries to manipulate "fig/1 1.png"
+\item \includegraphics{2 2} \answer \includegraphics{3}
+\item \includegraphics{4} \answer \includegraphics{5}
+\item \includegraphics{3} \answer \includegraphics{2 2}
+\end{matching}
+
+\end{quiz}
+
+\end{document}

@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05464\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l}
+    \Xhline{3\arrayrulewidth}
+    \textbf{Dataset generation: Feedback generation} \\
+    \hline
+        \multicolumn{1}{p{\columnwidth}}{\strut Given a candidate of a \#Task Prompt\#, evaluate if it can effectively reflect the respondent (or agent)'s Collective Agency (CA), which is defined as the infinite realization of agency across all of reality.} \\
+        \\
+        \,[\verb|Definition of CA|] \\
+        \\
+        \#\# Evaluation criteria \\
+        \multicolumn{1}{p{\columnwidth}}{\strut In addition to the appropriateness to CA, \#Task Prompt\# has to satisfy all of the following criteria:} \\
+        \,[\verb|Predefined criteria|] \\
+        \\
+        \#\# Response \\
+        \,[\verb|Response|] \\
+        \\
+        \#\# Output format \\
+        Begin with a critique for \#Task Prompt\# in 2-3 sentences. \\
+        \multicolumn{1}{p{\columnwidth}}{\strut Then, ends your answer with "In conclusion, this task prompt is: X.", where X is either "Appropriate" or "Inappropriate".} \\
+        Begin now. \\
+        \\
+        \#Task Prompt\#: \\
+        \,[\verb|Generated prompt|] \\
+        \#Critique\#: \\
+    \hline
+    \hline
+    \textbf{Dataset generation: Prompt for refinement} \\
+    \hline
+        \multicolumn{1}{p{\columnwidth}}{\strut Given your previous \#Task Prompt\# and a revisions critique from an evaluator, propose a better version of \#Task Prompt\#, namely \#Revised Task Prompt\#.} \\
+        \\
+        \#\# Task prompt criteria \\
+        \#Revised Task Prompt\# has to satisfy all of the following criteria: \\
+        \,[\verb|Predefined criteria|] \\
+        \\
+        \multicolumn{1}{p{\columnwidth}}{\strut Do not answer anything (e.g., your thoughts, the term ‘\#Revised Task Prompt\#’) except the requested \#Revised Task Prompt\# content. \newline
+        Begin now.} \\
+        \\
+        \#Task Prompt\#: \\
+        \,[\verb|Generated prompt|] \\
+        \#Critique\#: \\
+        \,[\verb|Critique|] \\
+        \#Revised Task Prompt\#: \\
+    \Xhline{3\arrayrulewidth}
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01093\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllll}
+        \toprule
+        & task & machine & processing time & min batch & max batch & starting cost \\
+        \midrule
+        Example 1  & heating & $j_1$ & 1 & 2 & 8 & 0.01 \\
+                & reaction\textsubscript{1} & $j_2$ & 3 & 1 & 4 & 0.01 \\
+                & reaction\textsubscript{2} & $j_3$ & 1 & 0.5 & 2 & 0.01 \\
+                & separation & $j_4$ & 2 & 1.875 & 7.5 & 0.01 \\
+        Example 2  & mixing & $j_1$ & 1 & 2 & 8 & 1 \\
+                & reaction\textsubscript{1} & $j_2$ & 3 & 1.5 & 6 & 1 \\
+                & reaction\textsubscript{2} & $j_3$ & 1 & 0.75 & 3 & 1 \\
+                & reaction\textsubscript{3} & $j_4$ & 1 & 0.75 & 3 & 1 \\
+                & separation & $j_5$ & 2 & 3.75 & 15 & 1 \\
+        Example 3  & heating & heater & 3 & 0.5 & 2 & 0.1 \\
+                & reaction\textsubscript{1} & reactor\textsubscript{1} & 4 & 1.25 & 5 & 0.1 \\
+                & & reactor\textsubscript{2} & 4 & 2 & 8 & 0.1 \\
+                & reaction\textsubscript{2} & reactor\textsubscript{1} & 4 & 1.25 & 5 & 0.1 \\
+                & & reactor\textsubscript{2}  & 4 & 2 & 8 & 0.1 \\
+                & reaction\textsubscript{3} & reactor\textsubscript{1} & 2 & 1.25 & 5 & 0.1 \\
+                & & reactor\textsubscript{2} & 2 & 2 & 8 & 0.1 \\
+                & separation & separator & 4 & 1.25 & 5 & 0.1 \\
+        Example 4  & heating\textsubscript{1} & heater & 2 & 2.5 & 10 & 0.1 \\
+                & heating\textsubscript{2} & heater & 3 & 2.5 & 10 & 0.1 \\
+                & reaction\textsubscript{1} & reactor\textsubscript{1} & 4 & 2.5 & 10 & 0.1 \\
+                & & reactor\textsubscript{2} & 4 & 3.75 & 15 & 0.1 \\
+                & reaction\textsubscript{2} & reactor\textsubscript{1} & 2 & 2.5 & 10 & 0.1 \\
+                & & reactor\textsubscript{2} & 2 & 3.75 & 15 & 0.1 \\
+                & reaction\textsubscript{3} & reactor\textsubscript{1} & 4 & 2.5 & 10 & 0.1 \\
+                & & reactor\textsubscript{2} & 4 & 3.75 & 15 & 0.1 \\
+                & separation & separator & 6 & 5 & 20 & 0.1 \\
+                & mixing & mixer\textsubscript{1} & 4 & 2 & 8 & 0.1 \\
+                & & mixer\textsubscript{2} & 4 & 3 & 12 & 0.1 \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

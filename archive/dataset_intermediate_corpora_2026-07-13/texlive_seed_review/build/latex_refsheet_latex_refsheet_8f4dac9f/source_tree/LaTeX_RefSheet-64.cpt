@@ -1,0 +1,13 @@
+
+\subsection{Own Commands in General}
+\begin{itemize}
+\item
+\lstinline+\newcommand+ doesn't work if the command is already defined: so it's a completely new definition.
+\item
+\lstinline+\renewcommand+ works only if the command is already defined: it's a redefinition.
+\item
+\lstinline+\providecommand+ works like \lstinline+\newcommand+, but if the command is already defined, the (re)definition is ignored.
+\item
+\lstinline+\AtBeginDocument{+\textit{commands}\lstinline+}+ can be helpful.
+\end{itemize}
+^^E^^L 

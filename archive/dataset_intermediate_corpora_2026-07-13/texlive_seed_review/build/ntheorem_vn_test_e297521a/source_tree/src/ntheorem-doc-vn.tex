@@ -1,0 +1,161 @@
+\newif\ifpdf
+\ifx\pdfoutput\undefined\relax
+\else\ifnum\pdfoutput>0\relax
+\pdftrue\fi\fi
+
+\def\filedate{2002/01/07}
+\def\docdate{2001/01/13}
+\def\fileversion{1.203}
+\def\basename{ntheorem}
+
+\documentclass[11pt,oneside]{ltxdoc}
+
+% =====================================================================
+
+\usepackage{latexsym}
+\usepackage[utf8x]{vietnam}
+\usepackage{indentfirst}
+\usepackage{ktv-buildnum}
+\usepackage{verbatim}
+\ifpdf
+\usepackage[
+	ps2pdf,
+	naturalnames=true,
+	hypertexnames=false,
+	colorlinks,draft=false,
+	pdftitle={ntheorem Manual, Vietnamese edition},
+	pdfauthor={Wolfgang May - Andreas Schlechte. Translator: kyanh <kyanh@o2.pl>},
+	pdfsubject={displaymath},
+	pdfkeywords={typesetting, displaymath, theorem}]{hyperref}
+\else
+	\def\texorpdfstring#1#2{#1}
+\fi
+\usepackage{url}
+\usepackage{varioref}
+\usepackage[varioref]{vnhook}
+\usepackage[dvips]{graphicx}
+%% \usepackage{hyperref}
+\usepackage[thmmarks,thref,noconfig]{ntheorem}
+
+\ifpdf
+\input pd1supp.def
+\fi
+
+% =====================================================================
+
+\newif\ifprint
+\include{preamble}
+
+% =====================================================================
+
+\parindent0pt
+\hfuzz2000pt
+\setlength{\textwidth}{360pt}
+
+\setlength{\hoffset}{1cm}
+\setlength{\voffset}{-1cm}
+\setlength{\textwidth}{13.5cm}
+\setlength{\textheight}{23cm}
+
+\MakeShortVerb{\|}
+
+\def\envfont{\normalfont\ttfamily}
+\def\deflabel#1{\ttfamily #1\hfill}
+\def\deflist#1{\begin{list}{}{\settowidth\labelwidth{\ttfamily #1}%
+                              \setlength\leftmargin\labelwidth
+                              \addtolength\leftmargin\labelsep
+                              \let\makelabel\deflabel}}
+\def\enddeflist{\end{list}}
+
+\def\packedlist#1{%
+   \begin{list}{}{\settowidth\labelwidth{#1}\setlength\leftmargin\labelwidth
+                  \addtolength\leftmargin\labelsep
+                  \topsep=0pt\itemsep=0.05cm\parsep=0.05cm
+                  \let\makelabel\nlabel}}
+\def\endpackedlist{\end{list}}
+\makeatletter
+\def\packeddescr{%
+   \begin{list}{}{\leftmargin0.5cm
+                  \labelwidth\z@\itemindent-\leftmargin
+                  \topsep=0pt\itemsep=0.05cm\parsep=0.05cm
+                  \let\makelabel\nlabel}}
+\def\endpackeddescr{\end{list}}
+
+\def\Codelabel#1{\@bsphack  
+ \protected@write\@auxout{}{\string\newlabel{#1}{{\number\the
+           \c@CodelineNo}{\thepage}}}\@esphack}
+\newcounter{tmpcount}
+\def\Coderef#1#2{\setcounter{tmpcount}{0}\@ifundefined{r@#1}\relax
+          {\setcounter{tmpcount}{\ref{#1}}}\relax
+          \addtocounter{tmpcount}{#2}\arabic{tmpcount}}
+\makeatother
+
+\def\nlabel#1{#1\hfill}
+\def\nlist#1{\begin{list}{}{\settowidth\labelwidth{#1}%
+                            \setlength\leftmargin\labelwidth
+                            \addtolength\leftmargin\labelsep
+                            \let\makelabel\nlabel}}
+\def\endnlist{\end{list}}
+\def\DANGER{{\LARGE\textbf{! }\rule{0pt}{2ex}}}
+\def\env{\meta{env}}
+\def\envx{\meta{env'}}
+
+% =====================================================================
+
+\theoremstyle{marginbreak}
+\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\slshape}
+\theoremsymbol{\ensuremath{\diamondsuit}}
+\theoremseparator{:}
+\newtheorem{Theorem}{Định lý}
+
+\theoremstyle{changebreak}
+\theoremsymbol{\ensuremath{\heartsuit}}
+\theoremindent0.5cm
+\theoremnumbering{greek}
+\newtheorem{Lemma}{Bổ đề}
+
+\theoremindent0cm
+\theoremsymbol{\ensuremath{\spadesuit}}
+\theoremnumbering{arabic}
+\newtheorem{Corollary}[Theorem]{Hệ quả}
+
+\theoremstyle{change}
+\theorembodyfont{\upshape}
+\theoremsymbol{\ensuremath{\ast}}
+\theoremseparator{}
+\newtheorem{Example}{Ví dụ}
+
+\theoremstyle{plain}
+\theoremsymbol{\ensuremath{\clubsuit}}
+\theoremseparator{.}
+\newtheorem{Definition}{Định nghĩa}
+
+\theoremheaderfont{\sc}\theorembodyfont{\upshape}
+\theoremstyle{nonumberplain}
+\theoremseparator{}
+\theoremsymbol{\rule{1ex}{1ex}}
+\newtheorem{Proof}{Chứng minh}%
+
+% =====================================================================
+
+\begin{document}
+
+\input title-abstract % //
+\newpage
+\input license
+\newpage
+\tableofcontents
+\pagebreak
+\input thanks
+\input intro % //
+\input user-interface % //
+\input interference % //
+%% %% %% %% \input endmarks % // for devels only
+\input help % // almost for devels only
+\input example
+
+\newpage
+\PrintIndexX
+\end{document}
+
+% =====================================================================

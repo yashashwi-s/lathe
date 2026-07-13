@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02431\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+    \hline
+    Subsystem & Quantity & Design value / requirement \\
+    \hline\hline
+    Frequency reference &
+    Oscillator type &
+    Hydrogen maser or equivalent ultra--stable reference \\
+    &
+    Allan deviation $\sigma_y(\tau)$ &
+    $\lesssim 10^{-14}$ for $\tau=1$--$10~\mathrm{s}$,
+    $\lesssim 10^{-15}$ at $\tau\sim 10^{2}~\mathrm{s}$ \\
+    &
+    Range contribution $\sigma_{R,{\rm osc}}$ &
+    $\lesssim 5~\mu\mathrm{m}$ on $T\sim 10$--$10^{2}~\mathrm{s}$ 
+    [Eqs.~--] \\[0.4em]
+    Laser and modulation &
+    Optical wavelength $\lambda$ &
+    $1064~\mathrm{nm}$ (single-frequency seed) \\
+    &
+    Mean optical power $P_0$ &
+    $1~\mathrm{kW}$ CW at the telescope aperture \\
+    &
+    AM index $a_m$ on precision tone &
+    $0.3$--$0.7$ \\
+    &
+    Tone set $\{f_{m,i}\}$ &
+    $\{50,\,50.1,\,200,\,1000\}~\mathrm{MHz}$ (illustrative) \\
+    &
+    Beam quality $M^{2}$ &
+    $\lesssim 1.3$ at full power \\
+    &
+    AM$\rightarrow$PM residual $|\delta\phi_{\rm AM\rightarrow PM}|$ &
+    $\ll 10^{-3}~\mathrm{rad}$ on $T\simeq 10$--$100~\mathrm{s}$ \\
+    &
+    Nonlinearity range term $\sigma_{R,{\rm nl}}$ &
+    $\lesssim 25~\mu\mathrm{m}$ at $f_m=1~\mathrm{GHz}$
+    [Eqs.~--] \\[0.4em]
+    Tx/Rx optics &
+    Telescope aperture $D$ &
+    $1$--$2~\mathrm{m}$ (monostatic or near-monostatic) \\
+    &
+    Optical bandpass &
+    $\sim 1$--$3~\mathrm{nm}$ at $1064~\mathrm{nm}$ \\
+    &
+    Lunar CCRs &
+    $d_{\rm CCR}=10~\mathrm{cm}$ next-generation arrays \\[0.4em]
+       Hardware regime 
+         & 1 m, $\eta_{\rm eff} \approx 0.2$, & Generic seeing \\
+         & 1--2 m, $\eta_{\rm eff} \approx 0.35$--$0.4$, & Good site \\
+         & 1--2 m, $\eta_{\rm eff} \gtrsim 0.4$, & Excellent site \\[0.4em]
+    Detector and back-end &
+    Detector option~1 &
+    SNSPD at $1064~\mathrm{nm}$, system efficiency $\gtrsim 0.2$, \\
+    &&
+    dark counts $\lesssim 10~\mathrm{s^{-1}}$ \\
+    &
+    Detector option~2 &
+    Low-noise InGaAs photodiode at higher flux \\
+    &
+    ADC timing jitter &
+    $\lesssim 0.5~\mathrm{ps}$ rms (two-way range $\ll 0.1~\mathrm{mm}$) \\
+    &
+    Dynamic range / resolution &
+    Sufficient that amplitude fluctuations do not bias \\
+    && phase
+    estimates at the $10^{-3}$~rad level \\[0.4em]
+    Internal reference &
+    Reference geometry &
+    Short, co-routed optical/RF loop through \\
+    && same RF+ADC chain \\
+    &
+    Residual phase rms$\{\phi_{\rm inst}\}$ &
+    $\lesssim 2\times 10^{-3}~\mathrm{rad}$ over $T\simeq 100~\mathrm{s}$
+    ($\Rightarrow \sigma_{R,{\rm inst}}\lesssim 40~\mu\mathrm{m}$) \\[0.4em]
+    Facility / environment &
+    Laser wall-plug efficiency &
+    $\sim 20$--$30\%$ (electrical draw $\sim 3$--$5~\mathrm{kW}$ for laser) \\
+    &
+    Temperature stability $\delta T$ &
+    $\lesssim 0.1~\mathrm{K}$ over $T\simeq 100~\mathrm{s}$ in laser and RF rooms \\
+    &
+    Bench thermal path term $\sigma_{R,{\rm inst,th}}$ &
+    $\lesssim 10~\mu\mathrm{m}$ on $T\simeq 100~\mathrm{s}$ [Eq.~] \\
+    &
+    Vibrational path term $\sigma_{R,{\rm inst,mech}}$ &
+    $\lesssim 20~\mu\mathrm{m}$ on $T\sim 10$--$100~\mathrm{s}$ [Eq.~] \\
+    &
+    Total instrumental allocation $\sigma_{R,{\rm inst}}$ &
+    $\simeq 40~\mu\mathrm{m}$ (design value in Table~) \\
+    \hline
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02269\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l | l | l |}
+% \tablewidth{2pt}
+\hline
+Target  & H-band Magnitude$^{a,b}$ & Distance$^c$ (pc) \\
+\hline
+2MASSJ00013044+1010146 & 15.132 $\pm$ 0.096 & 139.497 $\pm$ 11.6329\\
+2MASSJ00115060-1523450 & 15.642 $\pm$ 0.151 & 121.819 $\pm$ 10.2766\\
+2MASSJ00335534-0908247 & 15.001 $\pm$ 0.105 & 109.589 $\pm$ 6.7975\\
+2MASSJ00552554+4130184 & 14.963 $\pm$ 0.077 & 78.169 $\pm$ 0.1960\\
+2MASSJ00583814-1747311 & 15.742 $\pm$ 0.165 & 167.563 $\pm$ 12.9690\\
+2MASSJ01045111-3327380 & 15.769 $\pm$ 0.160 & 95.000 $\pm$ 8.2805\\
+2MASSJ01470204+2120242 & 15.028 $\pm$ 0.193 & 252.124 $\pm$ 42.274\\
+2MASSJ01532750+3631482 & 15.153 $\pm$ 0.089 & 172.527 $\pm$ 12.3735\\
+2MASSJ03023398-1028223 & 15.772 $\pm$ 0.145 & 193.810 $\pm$ 19.2206\\
+2MASSJ04035944+1520502 & 15.683 $\pm$ 0.133 & 178.434 $\pm$ 23.134\\
+2MASSJ04071296+1710474 & 15.69 $\pm$ 0.17 & 106.068 $\pm$ 9.8183\\
+2MASSJ04360273+1547536 & 15.142 $\pm$ 0.083 & 223.284 $\pm$ 24.439\\
+2MASSJ11070582+2827226 & 15.168 $\pm$ 0.097 & 108.696 $\pm$ 6.3126\\
+2MASSJ11150577+2520467 & 15.027 $\pm$ 0.077 & 120.735 $\pm$ 6.8643\\
+2MASSJ11240487+3808054 & 12.017 $\pm$ 0.027 & 18.412 $\pm$ 0.0506\\
+2MASSJ11323833-1446374 & 15.621 $\pm$ 0.112 & 172.625 $\pm$ 13.7286\\
+2MASSJ11395113-3159214 & 11.996 $\pm$ 0.022 & 49.709 $\pm$ 0.5112\\
+2MASSJ11463232+0203414 & 15.681 $\pm$ 0.161 & 301.804 $\pm$ 36.780\\
+2MASSJ12121714-2253451 & 15.404 $\pm$ 0.144 & 123.516 $\pm$ 6.3573\\
+2MASSJ13272391+0946446 & 15.340 $\pm$ 0.107 & 145.841 $\pm$ 11.4260\\
+2MASSJ15243203+0934386 & 14.261 $\pm$ 0.055 & 95.109 $\pm$ 2.3872\\
+2MASSJ16304206-0232224 & 14.980 $\pm$ 0.077 & 128.223 $\pm$ 6.0027\\
+2MASSJ17072343-0558249A & 11.260 $\pm$ 0.027 & 15.1 $\pm$ 1.9\\
+2MASSJ17364839+0220426 & 15.358 $\pm$ 0.100 & 138.070 $\pm$ 11.8040\\
+2MASSJ18112466+3748513 & 15.535 $\pm$ 0.046 & 78.7737 $\pm$ 1.1740\\
+2MASSJ18244344+2937133 & 15.886 $\pm$ 0.079 & 140.129 $\pm$ 6.9708\\
+2MASSJ18411320-4000124 & 15.022 $\pm$ 0.088 & 121.355 $\pm$ 7.0145\\
+2MASSJ22120345+1641093 & 10.831 $\pm$ 0.025 & 37.2634 $\pm$ 0.0635\\
+2MASSJ22341394+2359559 & 12.354 $\pm$ 0.023 & 18.4966 $\pm$ 0.0511\\
+2MASSJ23515044-2537367 & 11.725 $\pm$ 0.026 & 20.3744 $\pm$ 0.1880\\
+2MASSJ1237+3028 & 12.959 $\pm$ 0.024 & 36.263 $\pm$ 0.1822\\
+2MASSJ12531308+2728028 & 12.365 $\pm$ 0.026 & 41.9891 $\pm$ 0.1880\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

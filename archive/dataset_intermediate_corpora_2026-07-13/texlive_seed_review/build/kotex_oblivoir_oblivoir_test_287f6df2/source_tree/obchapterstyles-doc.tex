@@ -1,0 +1,62 @@
+\documentclass[chapter,a4paper,oneside]{oblivoir}
+
+\usepackage{graphicx}
+\usepackage{fapapersize}
+\usefapapersize{*,*,1in,2in,1in,1in}
+
+\let\clearforchapters\clearpage
+
+\newcommand\testcode{%
+	\chapter{일야구도하기(\thischapterstyle)}
+
+하수는 두 산 틈에서 나와 돌과 부딪쳐 싸우며, 그 놀란 파도와 성난 물머리와 우는 여울과 노한 물결과 슬픈 곡조와 원망하는 소리가 굽이쳐 돌면서, 우는 듯, 소리치는 듯, 바쁘게 호령하는 듯, 항상 장성을 깨뜨릴 형세가 있어, 전차 만승과 전기 만대나 전포 만가와 전고 만좌로써는 그 무너뜨리고 내뿜는 소리를 족히 형용할 수 없을 것이다. 모래 위에 큰 돌은 홀연히 떨어져 섰고, 강 언덕에 버드나무는 어둡고 컴컴하여 물지킴과 하수 귀신이 다투어 나와서 사람을 놀리는 듯한데, 좌우의 교리가 붙들려고 애쓰는 듯싶었다.
+혹은 말하기를,
+  ``여기는 옛 전쟁터이므로 강물이 저같이 우는 것이다''
+하지만 이는 그런 것이 아니니, 강물 소리는 듣기 여하에 달렸을 것이다.
+
+산중의 내 집 문 앞에는 큰 시내가 있어 매양 여름철이 되어 큰 비가 한번 지나가면, 시냇물이 갑자기 불어서 항상 차기와 포고의 소리를 듣게 되어 드디어 귀에 젖어 버렸다. 내가 일찍이 문을 닫고 누워서 소리 종류를 비교해 보니, 깊은 소나무가 퉁소 소리를 내는 것은 듣는 이가 청아한 탓이요, 산이 찢어지고 언덕이 무너지는 듯한 것은 듣는 이가 분노한 탓이요, 뭇 개구리가 다투어 우는 것은 듣는 이가 교만한 탓이요, 천둥과 우레가 급한 것은 듣는 이가 놀란 탓이요, 찻물이 끓는 듯이 문무가 겸한 것은 듣는 이가 취미로운 탓이요, 거문고가 궁우에 맞는 것은 듣는 이가 슬픈 탓이요, 종이창에 바람이 우는 것은 듣는 이가 의심나는 탓이니, 모두 바르게 듣지 못하고 특히 흉중에 먹은 뜻을 가지고 귀에 들리는 대로 소리를 만든 것이다.
+}
+
+\newcommand*\test[1]{%
+	\chapterstyle{#1}
+	\def\thischapterstyle{#1}
+	\let\clearforchapter\clearpage
+	\testcode
+}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand \multtest { s m }
+{
+	\clist_set:Nn \l_tmpa_clist { #2 }
+
+	\IfBooleanTF { #1 }
+	{
+    	\clist_map_inline:Nn \l_tmpa_clist
+    	{
+    		\test { ob##1 }
+    		\par
+    	}
+	}
+	{
+    	\clist_map_inline:Nn \l_tmpa_clist
+    	{
+    		\test { ##1 }
+    	}
+	}
+}
+
+\ExplSyntaxOff
+
+\begin{document}
+
+\multtest{default,section,article,hangnum,companion,demo,demovar}
+
+\multtest*{
+	bianchi,bringhurst,brotherton,chappell,culver,
+	dash,demo2,demo3,ell,ger,lyhne,madsen,pedersen,
+	southall,thatcher,veelo,verville,crosshead,
+	dowding,komalike,ntglike,tandh,wilsondob
+}
+
+\end{document}

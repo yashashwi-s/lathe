@@ -1,0 +1,1131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Typesetting Part of LaTeX2e Introduction
+% $Id: typeset.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Soạn thảo văn bản}
+
+\begin{intro}
+Sau khi đọc xong chương vừa qua, bạn đã có những kiến thức cơ bản về cấu trúc của một tài liệu được soạn thảo với \LaTeXe{}. Trong chương này, bạn sẽ được cung cấp thêm các thông tin khác để có thể soạn thảo những tài liệu thực sự bằng \LaTeX{}.
+\end{intro}
+
+\section{Cấu trúc văn bản và vấn đề về ngôn ngữ}
+\secby{Hanspeter Schmid}{hanspi@schmid-werren.ch}
+Điều quan trọng khi soạn thảo một tài liệu (trừ các tài liệu hiện đại DAAC~\footnote{Different At All Cost, một bản dịch của Swiss UVA (Um's Verrecken Anders).}) là khả năng truyền đạt những ý tưởng, thông tin, kiến thức đến độc giả. Độc giả sẽ dễ tiếp thu hơn khi nội dung được soạn thảo và trình bày một cách có hệ thống. Ngoài ra, điều này còn được phản ánh thông qua nghệ thuật in ấn bởi vì bản in sẽ phản ánh cấu trúc logic của ý tưởng và ý nghĩa của các thành phần bên trong.
+
+\LaTeX{} khác với các hệ soạn thảo văn bản khác ở điểm bạn chỉ cần cung cấp cho nó cấu trúc logic và ý nghĩa của các thành phần của văn bản. Sau đó, mô hình của bản in sẽ được thiết kế một cách tự động sao cho phù hợp với các yêu cầu định dạng trong phần ``tuỳ chọn'' ở đầu tài liệu hay trong các tập tin kèm theo.
+
+Đơn vị quan trọng nhất trong \LaTeX{} (cũng như trong in ấn) là \wi{đoạn văn}. Chúng ta gọi đó là các ``văn bản đơn vị'' bởi vì một đoạn văn bản sẽ phản ánh những ý nghĩ liền lạc hay một ý tưởng cụ thể. Những mục sau sẽ giúp cho bạn biết được các cách thức để thực hiện các công việc như: yêu cầu \LaTeX{} xuống hàng với lệnh \texttt{\bs\bs}, hay ngắt đoạn bằng cách nhập vào một hàng trắng. Việc quyết định khi nào kết thúc một đoạn văn là rất quan trọng bởi vì các đoạn văn sẽ có nhiệm vụ chuyển tải những ý tưởng, ý nghĩ. Khi mà một ý nghĩ vẫn còn tiếp tục mà ta lại viết nó ở một đoạn văn khác thì sẽ không hợp lí. Ngược lại, ta nên bắt đầu một đoạn văn mới khi ta bắt đầu một dòng suy nghĩ mới.
+
+Trên thực tế, hầu hết mọi người chưa đánh giá đúng mức vai trò của việc đặt các dấu cách đoạn một cách hợp lý khi soạn thảo tài liệu. Hơn nữa, nhiều người còn không biết được ý nghĩa của việc cách đoạn các đoạn văn; hay cụ thể là nói
+về việc ngắt đoạn trong \LaTeX{} mà không hiểu rõ về nó. Bên cạnh đó, việc soạn thảo các công thức Toán học nằm trên cùng một hàng với phần văn bản cũng dễ dẫn đến một số lỗi rất thông dụng. Đây là một số ví dụ: bạn hãy tự kiểm tra xem tại sao có lúc thì các hàng trống (ngắt đoạn) được sử dụng trước và sau một phương trình và đôi lúc lại không. (Đừng lo nếu
+bạn không hiểu hết các lệnh trong các ví dụ dưới đây! Các lệnh này sẽ được giải thích chi tiết trong chương phía sau.)
+
+\begin{code}
+\begin{verbatim}
+% Thí dụ 1
+\ldots khi mà Albert Einstein giới thiệu phương trình:
+\begin{equation}
+  e = m \cdot c^2 \; ,
+\end{equation}
+thì vào thời điểm đó, nó là phương trình được biết đến nhiều nhất
+và đồng thời cũng ít người hiểu được nó nhất.
+
+% Thí dụ 2
+\ldots theo luật Kirchoff về cường độ dòng điện thì:
+\begin{equation}
+  \sum_{k=1}^{n} I_k = 0 \; .
+\end{equation}
+
+Hiệu điện thế theo luật Kirchoff có công thức là \ldots
+
+% Thí dụ 3
+\ldots có nhiều lợi điểm.
+
+\begin{equation}
+  I_D = I_F - I_R
+\end{equation}
+là hạt nhân của rất nhiều mẫu transistor khác nhau. \ldots
+\end{verbatim}
+\end{code}
+
+Đơn vị nhỏ hơn của văn bản là câu. Trong văn bản tiếng Anh, sau dấu chấm câu sẽ là một khoảng trắng lớn. Khoảng trắng này sẽ lớn hơn khoảng trắng đi sau một chữ viết tắt. \LaTeX{} sẽ cố gắng đoán xem bạn muốn đặt khoảng trắng lớn hay nhỏ trong câu. Nếu \LaTeX{} không làm đúng, bạn cần phải hướng dẫn cho nó. Điều này sẽ được đề cập đến ở phần tiếp theo.
+
+Cấu trúc của một văn bản còn có thể chia nhỏ thành các phần của câu. Hầu hết các ngôn ngữ đều có quy tắc ngữ pháp phức tạp riêng. Bạn cần tham khảo thêm tài liệu về cấu trúc ngữ pháp của tiếng Việt để có thể đặt dấu cho đúng.
+
+Cuối cùng, bên cạnh việc sắp xếp các đoạn văn một cách hợp lý, bạn cần phải sắp xếp chúng theo cấp bậc có thứ tự như: phần, chương, mục, mục con, \ldots~.
+
+\section{Định dạng việc xuống hàng và sang trang}
+\subsection{Canh lề các đoạn văn}
+Sách, tài liệu, \ldots~thường được sắp chữ với các hàng có độ dài bằng nhau. Do đó, \LaTeX{} sẽ tự động chèn vào một cách tối ưu các khoảng trắng và \wi{kí tự xuống hàng} cho cả đoạn văn. Khi cần, \LaTeX{} cũng sẽ ngắt các từ quá dài, không nằm gọn trên một hàng. Ngoài ra, việc đinh dạng các đoạn văn vẫn còn phụ thuộc vào kiểu tài liệu mà ta muốn tạo. Thông thường thì hàng đầu tiên của đoạn văn sẽ thục vào và sẽ không có thêm khoảng trắng giữa câc đoạn văn. Tham khảo
+thêm mục~\ref{parsp} để biết thêm chi tiết.
+
+Trong một số tình huống đặc biệt, bạn cần phải yêu cầu \LaTeX{}
+thực hiện việc xuống hàng ngay bằng lệnh sau:
+\begin{lscommand}
+\ci{\bs} hay \ci{newline}
+\end{lscommand}
+\noindent Lệnh sau sẽ bắt đầu một hàng mới chứ không phải bắt đầu
+một đoạn mới:
+
+\begin{lscommand}
+\ci{\bs*}
+\end{lscommand}
+\noindent Lệnh sau sẽ cho phép ngắt trang sau khi xuống hàng:
+
+\begin{lscommand}
+\ci{newpage}
+\end{lscommand}
+\noindent Các lệnh sau:
+
+\begin{lscommand}
+\ci{linebreak}\verb|[|\emph{n}\verb|]|,
+\ci{nolinebreak}\verb|[|\emph{n}\verb|]|,
+\ci{pagebreak}\verb|[|\emph{n}\verb|]| và
+\ci{nopagebreak}\verb|[|\emph{n}\verb|]|
+\end{lscommand}
+\noindent sẽ thực hiện theo thứ tự tương ứng các công việc như: xuống hàng, không xuống hàng, sang trang, không sang trang. Ngoài ra, chúng còn cho phép người soạn thảo tác động đến việc xuống hàng và sang trang với tham số kèm theo. Số $n$ ở đây có thể lấy các giá trị từ \emph{1} đến \emph{4}. Khi \emph{n = 4} thì \LaTeX{} sẽ tự động bỏ qua lệnh này nếu kết quả không đẹp mắt. Lưu ý: bạn không nên nhầm lẫn giữa việc ``ngắt'' trang với việc ``tạo mới'' một trang. Ngay cả khi bạn sử dụng lệnh ``ngắt hàng'' hay ``ngắt trang'' thì \LaTeX{} vẫn cố gắng thực hiện việc cân bằng biên phải cũng như chiều dài của trang. Nếu bạn thực sự muốn chuyển sang một hàng mới thì hãy sử dụng lệnh tương ứng (hãy đoán xem nên dùng lệnh nào trong các lệnh ở trên).
+
+\LaTeX{} luôn cố gắng thực hiện việc xuống hàng một cách hợp lý. Nếu nó không thể tìm thấy cách tốt nhất để ngắt hàng theo chuẩn thì nó sẽ giữ nguyên phần văn bản đó (do đó, phần văn bản này sẽ nằm lấn sang lề phải). Khi này, \LaTeX{} sẽ thông báo khi biên dịch là có phần văn bản nằm lấn ra biên (``\wi{overfull box}'').\footnote{Mặc dù \LaTeX{} đưa ra thông báo lỗi nhưng bạn khó có thể nhìn thấy được phần dư ra này. Nếu bạn sử dụng tham số tuỳ chọn là \texttt{draft} trong lệnh \ci{documentclass} thì các hàng này sẽ được đánh dấu bởi một hàng đen ở biên phải.} Bạn có thể hướng dẫn \LaTeX{} ``linh động'' xử lý tình huống thông qua lệnh \ci{sloppy}. Lệnh này ngăn cản việc tạo ra các dòng quá dài bằng cách tăng khoảng cách giữa các từ -- ngay cả khi mà nó làm cho kết quả xuất ra không mấy đẹp mắt. Khi này, cảnh báo lỗi (``\wi{underfull hbox}'') sẽ xuất hiện. Trong đa số các tình huống thì kết quả trông sẽ không mấy đẹp mắt. Bạn có thể trở lại với cách định dạng ban đầu nhờ vào lệnh \ci{fussy}.
+
+\subsection{Ngắt từ} \label{hyph}
+\LaTeX{} sẽ tự động ngắt từ khi cần thiết. Nếu \LaTeX{} thực hiện việc này không được như ý của bạn thì bạn có thể sử dụng lệnh sau để yêu cầu \LaTeX{} giải quyết trường hợp đặc biệt đó.
+
+\begin{lscommand}
+\ci{hyphenation}\verb|{|\emph{danh sách các từ}\verb|}|
+\end{lscommand}
+\noindent Lệnh này sẽ làm cho các từ trong danh sách bị ngắt quãng tại các điểm được đánh dấu bởi ``\verb|-|''. Tham số của lệnh này chỉ nên chứa các kí tự thông thường hay các dấu được \LaTeX{} xem như kí tự thông thường. Các gợi ý hướng dẫn cho việc ngắt quãng các từ đối với các ngôn ngữ khác nhau sẽ được lưu lại khi lệnh này được thực hiện. Điều này có nghĩa là nếu bạn đặt lệnh này vào phần tựa đề thì tài liệu của bạn sẽ bị ảnh hưởng bởi cách ngắt quãng từ của tiếng Anh. Nếu bạn sử dụng lệnh này sau phần \verb|\begin{document}|; đồng thời, bạn sử một gói hỗ trợ ngôn ngữ
+của bạn như là \pai{babel} thì các hướng dẫn về việc ngắt quãng từ sẽ được kích hoạt thông qua gói \pai{babel}.
+
+Ví dụ dưới đây sẽ ngắt quãng từ ``hyphenation'' cũng như là từ ``Hyphenation''; đồng thời, nó sẽ ngăn không cho từ ``FORTRAN'', ``Fortran'' và ``fortran'' bị ngắt quãng. Lưu ý rằng không có một kí tự đặc biệt nào được phép có mặt trong danh sách tham số.
+
+Ví dụ:
+\begin{code}
+\verb|\hyphenation{FORTRAN Hy-phen-a-tion}|
+\end{code}
+
+Lệnh \ci{-} đặt một cách tuỳ ý dấu cách vào một từ. Đây cũng chính
+là điểm ngắt quãng duy nhất của từ. Lệnh này đặc biệt hữu dụng đối
+với những từ có kí tự đặc biệt (ví dụ như các kí tự về dấu trọng âm)
+bởi vì \LaTeX{} không tự động ngắt quãng các từ có kí hiệu đặc
+biệt.
+\begin{example}
+I think this is: su\-per\-cal\-%
+i\-frag\-i\-lis\-tic\-ex\-pi\-%
+al\-i\-do\-cious
+\end{example}
+
+Nhiều từ có thể được giữ trên cùng một hàng với lệnh:
+\begin{lscommand}
+\ci{mbox}\verb|{|\emph{đoạn văn bản}\verb|}|
+\end{lscommand}
+\noindent Lệnh này cho phép các tham số luôn được giữ trên cùng một hàng.
+\begin{example}
+Số điện thoại của tôi sẽ thay đổi
+trong thời gian ngắn sắp đến. Số
+mới sẽ là: \mbox{(08 8561144)}.
+
+Tham số \mbox{\emph{tên tập tin}}
+ dùng để lưu tên của tập tin.
+\end{example}
+
+Lệnh \ci{fbox} có tính năng tương tự như lệnh \ci{mbox} những có
+thêm đặc điểm là có một hộp vẽ xung quanh phần văn bản.
+
+\section{Các chuỗi kí tự sẵn có trong \LaTeX{}}
+
+Trong một số ví dụ ở các trang trước, bạn đã làm quen với một vài
+lệnh cơ bản của \LaTeX{} phục vụ cho việc soạn thảo những chuỗi
+đặc biệt.
+
+\vspace{2ex} \noindent
+\begin{tabular}{@{}lll@{}}
+Tên lệnh & Ví dụ & Mô tả\\
+\hline
+\ci{today} & \today   &  Ngày tháng hiện thời\\
+\ci{TeX} & \TeX & Tên của bộ máy sắp chữ yêu thích của bạn!!!\\
+\ci{LaTeX} & \LaTeX   & Tên của trò chơi\\
+\ci{LaTeXe} & \LaTeXe & Phiên bản hiện tại của \LaTeX\\
+\end{tabular}
+
+\section{Các kí tự đặc biệt và các kí hiệu}
+
+\subsection{Dấu trích dẫn}
+
+Bạn \emph{không nên} sử dụng \verb|"| làm \wi{dấu trích dẫn} \index{""@\texttt{""}}. Trong in ấn, người ta thường dùng dấu mở ngoặc và đóng ngoặc đặc biệt. Trong \LaTeX{}, bạn nên sử dụng hai dấu~\verb|`| (dấu huyền) làm dấu mở ngoặc và hai dấu~\verb|'| (dấu lược) làm dấu đóng ngoặc. Đối với móc đơn thì sử dụng mỗi một kí tự tương ứng.
+\begin{example}
+``Vui lòng nhấn phím `x'
+ để kết thúc.''
+\end{example}
+Bạn có thể thấy rằng qui tắc nhập liệu này không đẹp mắt trong quá soạn thảo nhưng kết quả của bản in là rất ấn tượng. Ngoài ra bạn cần chú ý rằng kí hiệu đóng mở ngoặc có thể khác đi tuỳ thuộc vào font chữ đang sử dụng.
+
+\subsection{Dấu gạch và dấu ngắt quãng}
+
+\LaTeX{} cung cấp bốn kiểu \wi{dấu gạch}. Bạn có thể sử dụng ba trong số
+đó với số các dấu gạch liên tiếp khác nhau. Dấu gạch thứ tư không
+phải là một dấu gạch bình thường. Nó là dấu trừ trong toán học
+\index{-} \index{--} \index{---} \index{-@$-$} \index{toán
+học!trừ}.
+\begin{example}
+daughter-in-law, X-rated\\
+pages 13--67\\ yes---or no?
+\\ $0$, $1$
+và $-1$
+\end{example}
+Tên của các dấu gạch này là: `-' \wi{hyphen}, `--' \wi{en-dash},
+`---' \wi{em-dash} và `$-$' \wi{dấu trừ}.
+
+\subsection{Dấu ngã (\texorpdfstring{$\sim$}{~})}
+\index{www}\index{URL}\index{tilde} Kí tự này thường được thấy
+trên các địa chỉ web. Để tạo ra kí tự này trong \LaTeX{}, ban có
+thể sử dụng lệnh \verb|\~| tuy nhiên kết quả \~{} không hoàn toàn
+là điều ta muốn. Bạn nên soạn thảo như sau:
+\begin{example}
+http://www.rich.edu/\~{}bush \\
+http://www.clever.edu/$\sim$demo
+\end{example}
+
+\subsection{Kí hiệu về độ \texorpdfstring{($\circ$)}{}}
+
+Ví dụ dưới đây minh hoạ cho việc in ra một \wi{kí hiệu về độ} trong
+\LaTeX{}:
+\begin{example}
+Nhiệt độ hiện nay là $-30\,
+^{\circ}\mathrm{C}$. Tôi sắp
+bị đóng
+băng đây.
+\end{example}
+
+\subsection{Kí hiệu đồng tiền Euro \texorpdfstring{(\euro{})}{}}
+
+Ngày nay, khi soạn thảo tài liệu có liên quan đến tiền tệ, bạn sẽ cần sử dụng đến kí hiệu của đồng Euro. Hiện nay, có nhiều font chữ có kí hiệu này. Bạn có thể sử dụng gói \pai{textcomp} để đưa vào kí hiệu của đồng Euro như sau:
+
+\begin{lscommand}
+\ci{usepackage}\verb|{textcomp}|
+\end{lscommand}
+
+\noindent dùng lệnh sau:
+\begin{lscommand}
+\ci{texteuro}
+\end{lscommand}
+
+\noindent để in ra kí hiệu này.
+
+Nếu font chữ của bạn không hỗ trợ kí hiệu này hay bạn không thích kí hiệu Euro của font chữ trên, bạn có thể sử dụng một trong cách sau:
+
+Cách 1: dùng gói \pai{eurosym}. Gói này cung cấp kí hiệu chính thức của đồng euro.
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}|
+\end{lscommand}
+Nếu bạn muốn kí hiệu đồng Euro phù hợp với font chữ của bạn thì bạn có thể thay thế tuỳ chọn là \texttt{gen} thay cho tuỳ chọn \texttt{official}
+
+Cách 2: dùng gói \pai{marvosym}. Gói này cung cấp nhiều kí hiệu khác nhau trong đó có kí hiệu đồng Euro
+\begin{lscommand}
+\ci{EUR}
+\end{lscommand}
+\begin{example}
+Các lệnh: \texteuro{}, \euro{}
+và \euro{1000} trông khác nhau.
+\end{example}
+
+\subsection{Dấu ba chấm (\texorpdfstring{\ldots}{...})}
+
+Trên các máy đánh chữ, \wi{dấu phẩy} hay \wi{dấu chấm} có cùng một kích thước với các kí tự khác. Trong in ấn sách, các kí tự này chỉ chiếm một khoảng nhỏ và được đặt rất sát kí tự trước nó. Do đó, bạn không thể nhập vào `\wi{dấu ba chấm}' bằng cách nhập 3 dấu chấm liên tiếp nhau. Thay vào đó, ta có một lệnh thực hiện việc này:
+\begin{lscommand}
+\ci{ldots}
+\end{lscommand}
+\index{...@\ldots}
+\begin{example}
+Không phải nhập như thế này ...
+mà nên nhập như thế này:\\
+New York, Tokyo, Budapest, \ldots
+\end{example}
+
+\subsection{Chữ ghép, gạch nối}
+Một số các tổ hợp các kí tự được sắp chữ không chỉ bằng cách lần lượt đưa vào từng kí tự mà phải sử dụng các kí tự đặc biệt.
+\begin{code}
+{\large ff fi fl ffi\ldots}\quad thay vì \quad {\large f{}f f{}i
+f{}l f{}f{}i \ldots}
+\end{code}
+Các tổ hợp kí tự này được gọi là chữ ghép và có thể ngăn chặn bằng cách chèn vào \ci{mbox}\verb|{}| giữa hai kí tự cần xử lý. Điều này có thể cần thiết đối với các từ được xây dựng từ hai từ khác.
+\begin{example}
+\Large Not shelfful\\
+but shelf\mbox{}ful
+\end{example}
+
+\subsection{Dấu trọng âm và các kí tự đặc biệt}
+\LaTeX{} hỗ trợ việc sử dụng \wi{dấu trọng âm} và các \wi{kí tự đặc biệt} của các ngôn ngữ khác nhau. Bảng~\ref{accents} liệt kê tất cả các dấu trọng âm được áp dụng đối với chữ \emph{o}. Tương tự, bạn cũng có thể ghép các dấu trọng âm này với các kí tự khác.
+
+Để đặt một dấu trọng âm phía trên chữ \emph{i} hay \emph{j}, dấu
+chấm ở phía trên của nó phải được bỏ đi. Điều này được thực hiện
+bằng lệnh \verb|\i| và \verb|\j|.
+
+\begin{example}
+H\^otel, na\"\i ve, \'el\`eve,\\
+sm\o rrebr\o d, !`Se\~norita!,\\
+Sch\"onbrunner Schlo\ss{}
+Stra\ss e
+\end{example}
+
+\begin{table}[!hbp]
+\caption{Dấu trọng âm và các kí tự đặc biệt.} \label{accents}
+\begin{lined}{10cm}
+\begin{tabular}{*4{cl}}
+\A{\`o} & \A{\'o} & \A{\^o} & \A{\~o} \\
+\A{\=o} & \A{\.o} & \A{\"o} & \B{\c}{c}\\[6pt]
+\B{\u}{o} & \B{\v}{o} & \B{\H}{o} & \B{\c}{o} \\
+\B{\d}{o} & \B{\b}{o} & \B{\t}{oo} \\[6pt]
+\A{\oe}  &  \A{\OE} & \A{\ae} & \A{\AE} \\
+\A{\aa} &  \A{\AA} \\[6pt]
+\A{\o}  & \A{\O} & \A{\l} & \A{\L} \\
+\A{\i}  & \A{\j} & !` & \verb|!`| & ?` & \verb|?`|
+\end{tabular}
+\index{dotless \i{} và \j}\index{Scandinavian letters}
+\index{ae@\ae}\index{umlaut}\index{grave}\index{acute}
+\index{oe@\oe}\index{aa@\aa}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\section{Sự hỗ trợ đối với các ngôn ngữ quốc tế}
+\index{international} Khi bạn soạn thảo một tài liệu bằng một ngôn ngữ khác với Tiếng Anh, bạn cần phải cấu hình lại \LaTeX{} cho phù hợp:
+
+\begin{enumerate}
+\item Các chuỗi được tạo một cách tự động\footnote{Mục lục, Danh sách các hình minh họa, \ldots } phải được chuyển sang ngôn ngữ đã chọn. Đối với một số ngôn ngữ, những sự thay đổi này có thể được thực hiện thông qua việc sử dụng gói \pai{babel} thiết kế bởi Johannes Braams.
+
+\item \LaTeX{} cần biết các qui luật về ngắt quãng từ đối với một ngôn ngữ mới. Việc đưa các luật này vào \LaTeX{} là tương đối phức tạp. Nó đòi hỏi phải xây dựng lại tập tin đinh dạng với các mẫu ngắt quãng từ ngữ sẵn có. Bạn có thể tham khảo thêm \guide{} để biết thêm chi tiết.
+
+\item Đặc trưng về cách thiết kế bản in của từng ngôn ngữ. Ví dụ, trong tiếng Pháp, trước các dấu hai chầm (:) thường có khoảng trắng.
+\end{enumerate}
+
+Nếu hệ thống của bạn đã được cấu hình phù hợp, bạn có thể kích
+hoạt gói \pai{babel} bằng cách thêm vào lệnh:
+
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{ngôn ngữ}\verb|]{babel}|
+\end{lscommand}
+\noindent ở sau lệnh \verb|\documentclass|. Một danh sách các \emph{ngôn ngữ} được xây dựng cho hệ thống \LaTeX{} của bạn sẽ được liệt kê mỗi khi trình biên dịch chạy. Babel sẽ tự động kích hoạt các quy luật ngắt quãng từ tương ứng. Nếu định dạng \LaTeX{} của bạn không hỗ trợ việc ngắt quãng từ ngữ, \pai{babel} vẫn hoạt động nhưng tắt chế độ ngắt từ đi. Điều này sẽ dẫn đến những ảnh hưởng xấu đến kết quả xuất ra của tài liệu.
+
+\textsf{Babel} cũng xác định một số lệnh mới cho một số ngôn ngữ để đơn giản hoá việc nhập các kí tự đặc biệt. Ví dụ như trong tiếng Đức có nhiều hiện tượng biến âm như (\"a\"o\"u) nên ta sẽ có các lệnh tương ứng để xuất ra các kí tự này. Với \textsf{babel}, bạn có thể nhập vào \"o bằng cách đánh \verb|"o| thay vì~\verb|\"o|.
+
+Nếu bạn sử dụng gói babel với nhiều ngôn ngữ khác nhau
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{ngôn ngữ A}\verb|,|\emph{ngôn ngữ B}\verb|]{babel}|
+\end{lscommand}
+\noindent bạn phải sử dụng lệnh
+\begin{lscommand}
+\ci{selectlanguage}\verb|{|\emph{ngôn ngữA}\verb|}|
+\end{lscommand}
+\noindent để chọn cụ thể một ngôn ngữ.
+
+Hầu hết các máy tính hiện đại đều cho phép bạn nhập vào các kí tự đặc biệt từ bàn phím. \LaTeX{} có thể điều khiển các kí tự này thông qua gói \pai{inputenc}:
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{bảng mã}\verb|]{inputenc}|
+\end{lscommand}
+
+Khi sử dụng gói này, bạn nên quan tâm đến khả năng người khác không thể xem được những tập tin của bạn trên máy của họ do sự khác biệt về bảng mã. Ví dụ như trong tiếng Đức thì biến âm \"a  là tương ứng với kí tự 132 trong hệ điều hành OS/2 nhưng trên các hệ thống Unix sử dụng bảng mã ISO-LATIN~1 là 228, trong khi đó với bẳng mã cp1251 của hệ điều hành Windows thì kí tự này không tồn tại. Do đó, bạn nên sử dụng tính năng này một cách cẩn thận. Các bảng mã sau có thể được sử dụng tuỳ thuộc vào các hệ thống mà bạn làm việc\footnote{Để biết thêm thông tin về các bảng mã dành cho ngôn ngữ Latin và hay ngôn ngữ họ Cyrillic, bạn có thể đọc tài liệu của hai gói tương ứng là \texttt{inputenc.dtx} and \texttt{cyinpenc.dtx}. Xem thêm mục~\ref{sec:Packages} để biết cách tạo tài liệu hướng dẫn của các gói.}:
+\begin{center}
+\begin{tabular}{l | r | r }
+Hệ điều hành & \multicolumn{2}{c}{Bảng mã}\\
+  & western latin      & cyrillic\\
+\hline
+Mac     &  \iei{applemac} & \iei{macukr}  \\
+Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
+Windows &  \iei{ansinew}  & \iei{cp1251}    \\
+DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
+\end{tabular}                
+\end{center}
+
+Trong trường hợp bạn cần phải soạn thảo một tài liệu đa ngôn ngữ và gặp vấn đề với bảng mã, bạn nên chuyển sang sử dụng bảng mã unicode bằng cách sử dụng gói \pai{ucs}.
+\begin{lscommand}
+\ci{usepackage}\verb|{ucs}|\\ 
+\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
+\end{lscommand}
+\noindent giúp bạn soạn thảo tài liệu theo bảng mã \iei{utf8}.
+
+``Font encoding'' là một vấn đề khác. Nó định nghĩa vị trí của từng kí tự trong font chữ.  Các bảng mã khác nhau có thể được ánh xạ vào một bản ``font encoding''. ``Font encoding'' được quản lý thông qua gói \pai{fontenc}:
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{encoding}\verb|]{fontenc}| \index{font encodings}
+\end{lscommand}
+\noindent với \emph{encoding} là là bảng mã của font chữ. Bạn có thể nạp cùng một lúc nhiều bản mã khác nhau.
+
+``Font encoding'' mặc định của \LaTeX{} là \label{OT1} \fei{OT1}, đây là ``encoding'' của font chữ Computer Modern \TeX{}. Font chữ này chỉ có 128 kí tự 7-bit. Khi cần đến các kí tự có dấu \TeX{} sẽ tự động kết hợp kí tự thông thường và kí tự dấu lại với nhau. Mặc dù kết quả trông đẹp mắt khi in ấn nhưng cách làm này khiến cho việc ngắt từ tự động không thể thực hiện. Bên cạnh đó các kí tự Hy Lạp hay Cyrillic hay một số kí tự latin đặc biệt không thể tạo được chỉ bằng cách kết hợp kí tự thông thường và kí tự dấu.
+
+Để giải quyết vấn đề này, một số font 8-bit chữ giống font chữ CM đã ra đời. Các font chữ \emph{Extended Cork} (EC) trong ``encoding'' \fei{T1} chứa các kí tự thông thường, dấu chấm câu, ... cho hầu hết các ngôn ngữ có gốc Latin ở Châu Âu. Các font chữ LH có các kí tự cần thiết để soạn các tài liệu bằng các ngôn ngữ sử dụng ``Cyrillic script''. Vì số kí tự Cyrillic là rất nhiều nên các font này được chia thành bốn ``encoding'' ---\fei{T2A}, \fei{T2B}, \fei{T2C} và~\fei{X2}.\footnote{Bạn có thể tham khảo thêm tài liệu về danh sách các ngôn ngữ được hỗ trợ trong \cite{cyrguide}.} Các font chữ CG chứ các kí tự tronng \fei{LGR} ``encoding'' và dùng để soạn các văn bản tiếng Hy Lạp.
+
+Thông qua việc sử dụng các font chữ này, bạn có thể sử dụng tính năng ngắt từ như khi soạn thảo tài liệu tiếng Anh.
+
+\subsection{Sự hỗ trợ đối với tiếng Bồ Đào Nha}
+
+%\secby{Demerson Andre Polli}{polli@linux.ime.usp.br}
+Để kích hoạt tính năng ngắt quãng từ những và thay đổi các chuỗi
+gốc sang \wi{tiếng Bồ Đào Nha},\index{Portugu\^es} với lệnh:
+\begin{lscommand}
+\verb|\usepackage[portuguese]{babel}|
+\end{lscommand}
+Nếu như bạn đang ở Brazil, bạn có thể thay thế ngôn ngữ bằng
+\wi{brazilian}.
+
+Trong tiếng Bồ Đào Nha, có rất nhiều dấu trọng âm nên bạn cần thêm
+vào gói sau
+
+\begin{lscommand}
+\verb|\usepackage[latin1]{inputenc}|
+\end{lscommand}
+để có thể nhập liệu
+\begin{lscommand}
+\verb|\usepackage[T1]{fontenc}|
+\end{lscommand}
+và lệnh trên để tính năng ngắt quãng từ được thực hiện đúng.
+
+Xem bảng~\ref{portuguese} để biết thêm chi tiết về những gì cần
+thêm vào phần tựa đề của tài liệu để sử dụng tính năng hỗ trợ cho
+Tiếng Bồ Đào Nha. Lưu ý rằng chúng ta sẽ sử dụng việc mã hoá dữ
+liệu vào dạng latin1. Do đó, nó sẽ không làm việc trên nền tảng
+Mac hay DOS. Để sử dụng tính năng này, bạn chỉ cần sử dụng cách mã
+hoá phù hợp với hệ thống của bạn.
+
+\begin{table}[btp]
+\caption{Phần tựa đề hỗ trợ tiếng Bồ Đào Nha.} \label{portuguese}
+\begin{lined}{5cm}
+\begin{verbatim}
+\usepackage[portuges]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\end{verbatim}
+\bigskip
+\end{lined}
+\end{table}
+
+%\newpage
+
+\subsection{Sự hỗ trợ đối với tiếng Pháp}
+%\secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
+Để có thể sử dụng được tính năng hỗ trợ tiếng Pháp trong \LaTeX{},
+bạn có thể sử dụng lệnh sau:
+
+\begin{lscommand}
+\verb|\usepackage[frenchb]{babel}|
+\end{lscommand}
+
+Lưu ý rằng, vì lý do phát triển, tên của gói \textsf{babel} dành
+cho tiếng Pháp là \emph{frenchb} hay \emph{francais} chứ không
+phải là \emph{french}.
+
+Tính năng này kích hoạt tính năng ngắt quãng từ trong tiếng Pháp
+khi bạn đã cấu hình đúng cho hệ thống \LaTeX{}. Nó cũng sẽ tự động
+thay đổi các chuỗi tự động thành tiếng Pháp (như là: Mục lục, Tài
+liệu tham khảo, \ldots). Đồng thời, một tập hợp các lệnh mới cũng
+sẽ có hiệu lực nhằm hỗ trợ cho việc soạn thảo các tài liệu bằng
+tiếng Pháp. Tham khảo thêm mục \ref{cmd-french} để biết thêm chi
+tiết .
+
+\begin{table}[!htbp]
+\caption{Các lệnh đặc biệt dành cho tiếng Pháp.}
+\label{cmd-french}
+\begin{lined}{9cm}
+\selectlanguage{french}
+\begin{tabular}{ll}
+\verb+\og guillemets \fg{}+         \quad &\og guillemets \fg \\[1ex]
+\verb+M\up{me}, D\up{r}+            \quad &M\up{me}, D\up{r}  \\[1ex]
+\verb+1\ier{}, 1\iere{}, 1\ieres{}+ \quad &1\ier{}, 1\iere{}, 1\ieres{}\\[1ex]
+\verb+2\ieme{} 4\iemes{}+           \quad &2\ieme{} 4\iemes{}\\[1ex]
+\verb+\No 1, \no 2+                 \quad &\No 1, \no 2   \\[1ex]
+\verb+20~\degres C, 45\degres+      \quad &20~\degres C, 45\degres \\[1ex]
+\verb+\bsc{M. Durand}+              \quad &\bsc{M.~Durand} \\[1ex]
+\verb+\nombre{1234,56789}+          \quad &\nombre{1234,56789}
+\end{tabular}
+\selectlanguage{vietnam}
+\bigskip
+\end{lined}
+\end{table}
+%\selectlanguage{vietnam}
+
+Ngoài ra, bạn sẽ thấy rằng cách trình bày các danh sách sẽ thay đổi khi ta chuyển sang tiếng Pháp. Để biết thêm chi tiết về cách làm việc của tuỳ chọn \texttt{frenchb} của gói \textsf{babel} để có thể tuỳ biến tính năng của nó, bạn có thể chạy chương trình dịch của \LaTeX{} để dịch tập tin \texttt{frenchb.dtx} và đọc tập tin kết quả \texttt{frenchb.dvi}.
+
+\subsection{Sự hỗ trợ đối với tiếng Đức}
+Để có thể sử dụng tính năng hỗ trợ này, bạn có thể sử dụng lệnh
+sau:
+\begin{lscommand}
+\verb|\usepackage[german]{babel}|
+\end{lscommand}
+
+Lệnh trên sẽ kích hoạt tính năng ngắt quãng từ đối với tiếng Đức
+sau khi bạn đã cấu hình hệ thống \LaTeX{} một cách hợp lý. Ngoài
+ra, nó cũng tự động thay đổi các chuỗi tự động sang tiếng Đức. Bên
+cạnh đó, tập hợp các lệnh hỗ trợ cho việc soạn thảo văn bản bằng
+tiếng Đức cũng sẽ được kích hoạt. Hãy tham khảo thêm~\ref{german}
+để biết thêm chi tiết. Đối với gói \pai{inputenc}, tất cả các tính
+năng này sẽ bị tắt đi nhưng văn bản của bạn vẫn cố định với một
+bảng mã cụ thể.
+
+\begin{table}[!htbp]
+\caption{Một số kí hiệu đặc biệt trong tiếng Đức.} \label{german}
+\begin{lined}{8cm}
+\selectlanguage{german}
+\begin{tabular}{*2{ll}}
+\verb|"a| & "a \hspace*{1ex} & \verb|"s| & "s \\[1ex]
+\verb|"`| & "` & \verb|"'| & "' \\[1ex]
+\verb|"<| or \ci{flqq} & "<  & \verb|">| or \ci{frqq} & "> \\[1ex]
+\ci{flq} & \flq & \ci{frq} & \frq \\[1ex]
+\ci{dq} & " \\
+\end{tabular}
+\selectlanguage{vietnam}
+\bigskip
+\end{lined}
+\end{table}
+
+Trong các tài liệu bằng tiếng Đức, bạn thường gặp các kí hiệu trích dẫn trong tiếng Pháp (\flqq đây là một ví dụ\frqq). Khi sắp chữ cho một tài liệu bằng tiếng Đức, đôi lúc ta thấy rằng không có sự thống nhất về việc này. Đôi khi dấu trích dẫn trông như: \frqq ví dụ\flqq. Nhưng đối với những người Switzerland nói tiếng Đức thì dấu trích dẫn trông giống như trong tiếng Pháp: \flqq trích dẫn \frqq.
+
+Một vấn đề lớn xuất phát từ việc sử dụng lệnh \verb+\flq+: nếu bạn
+sử dụng các font chữ OT1 (theo mặc định) thì dấu trích dẫn sẽ
+trông giống như kí hiệu toán ``$\ll$'' và nó sẽ gây ra một số vấn
+đề. Do đó, để sử dụng dấu trích dẫn như trên thì bạn nên thêm vào
+lệnh sau: \verb|\usepackage[T1]{fontenc}|.
+
+\subsection[Hỗ trợ đối với tiếng Hàn Quốc]{Hỗ trợ đối với tiếng
+Hàn quốc\footnotemark}\label{support_korean}\footnotetext{Phần này
+được đưa vào do có rất nhiều câu hỏi xung quanh việc soạn thảo
+bằng tiếng Hàn Quốc trong \LaTeX{}. Mục này được soạn thảo bởi
+Karnes KIM thay mặt cho nhóm dịch tài liệu này sang tiếng Hàn.
+Ngoài ra, nó cũng được dịch sang tiếng Anh bởi SHIN Jungshik và
+tóm tắt lại bởi Tobi Oetiker}
+
+Để sử dụng tính năng này, bạn cần giải quyết 3 vấn đề sau:
+\begin{enumerate}
+\item Bạn phải có khả năng soạn thảo tập tin dữ liệu vào bằng
+tiếng Hàn. Và tập tin dữ liệu này phải đơn thuần là một tập tin
+văn bản. Tuy nhiên bởi vì tiếng Hàn sử dụng các kí tự riêng không
+có trong bảng mã US-ASCII cho nên các kí tự sẽ trông rất lạ đối
+với các chương trình soạn thảo với bảng mã ASCII thông thường. Hai
+bảng mã được sử dụng rỗng rãi nhất trong việc soạn thảo tiếng Hàn
+là EUC-KR và phần mở rộng của nó để tương thích với bảng mã sử
+dụng bởi MS-Windows bằng tiếng Hàn là CP949/Windows-949/UHC. Với
+các bảng mã này thì các kí tự trong bảng mã US-ASCII sẽ đại diện
+cho kí tự ASCII thông thường tương tự như các bảng mã tương thích
+khác như ISO-8859-\textit{x}, EUC-JP, Shift\_JIS và Big5. Mặt
+khác, các âm tiết Hangul, Hanjas (Các kí tự Trung Quốc sử dụng
+trong tiếng Hàn), Hangul Jamos, Hirakanas, Katakanas, các kí hiệu
+hy lạp kirin và các kí hiệu, kí tự khác trong KS~X~1001 sẽ được
+đại diện bởi hai quãng tám liên tiếp. Phần đầu tiên lưu tập MSB
+của nó. Đến giữa những năm 1990, người ta đã mất rất nhiều công
+sức trong việc xây dựng một môi trường hỗ trợ tiếng Hàn đối với
+các hệ điều hành không phải bằng tiếng Hàn. Bạn có thể xem thêm ở
+địa chỉ \url{http://jshin.net/faq} để lướt qua các thông tin về
+làm thế nào để sử dụng tiếng Hàn trong các hệ điều hành không phải
+bằng tiếng Hàn trong những năm 1990. Ngày nay, cả ba hệ điều hành
+chính (Mac OS, Unix, Windows) đều hỗ trợ tương đối tốt cho các
+ngôn ngữ khác nhau trên thế giới. Do đó, việc soạn thảo một tài
+liệu bằng tiếng Hàn không còn quá khó khăn ngay cả khi trên một
+máy tính không chạy hệ điều hành tiếng Hàn.
+
+\item \TeX{} và \LaTeX{} được thiết kết cho các hệ thống chữ viết
+không vượt quá 256 kí tự trong bảng chữ cái. Do đó, để chúng có
+thể làm việc với các ngôn ngữ có nhiều kí tự hơn như tiếng Hàn
+Quốc%
+\footnote{Korean Hangul là một bảng chữ cái với 14 phụ âm và
+10 nguyên âm cơ bản (Jamos). Không giống như hệ thống chữ viết
+Latin hay Cyrillic, các kí tự riêng lẽ phải được sắp xếp trong các
+hình chữ nhật cùng kích thước như các kí tự tiếng Trung Quốc, mỗi
+ô sẽ đại điện cho một âm tiết. Một tập hợp vô hạn các âm tiết có
+thể được tạo từ tập hữu hạn các âm tiết và phụ âm này. Chuẩn chính
+tả mới trong tiếng Hàn (cả Nam lẫn Bắc Hàn) đặt ra một số giới hạn
+về việc lập nên các nhóm này. Do đó chỉ có một số hữu hạn các âm
+tiết đúng ngữ pháp là tồn tại. Bảng mã tiếng Hàn định nghĩa mã cho
+từng âm tiết này (KS~X~1001:1998 và KS~X~1002:1998). Do đó, bảng
+chữ cái tiếng Hàn sẽ được xử lý như trong tiếng Nhật và Trung Quốc
+với hệ thống chữ viết gồm hàng vạn các kí tự tượng hình và kí tự
+tốc ký. ISO~10466/Unicode đề nghị cả hai cách của việc hiển thị
+tiếng Hàn dùng cho tiếng Hàn hiện đại bằng cách dùng bảng mã
+Conjoining Hangul Jamos (bảng chữ cái có tại
+\url{http://www.unicode.org/charts/PDF/U1100.pdf}) để biết thêm về
+mở rộng cho tất cả các âm tiết đúng chính tả trong tiếng hang hiện
+đại (\url{http://www.unicode.org/charts/PDF/UAC00.pdf}). Một trong
+những vấn đề làm nản lòng nhât khi soạn thảo một văn bản bằng
+tiếng Hàn với \LaTeX{} hay các hệ soạn thảo khác là việc hỗ trợ
+Middle Korean và tiếng Hàn trong tương lai---các âm tiết có thể
+được biểu diễn bằng cách kết hợp Jamos trong unicode. Người ta hy
+vọng rằng trong tương lai, bộ máy định dạng \TeX{} như $\Omega$ và
+$\Lambda$ sẽ giải quyết được được vấn đề này để các nhà ngôn ngữ
+học và lịch sử học sẽ rời bỏ việc sử dụng MS Word (hiện nay MS
+Word hỗ trợ khá tốt cho Middle Korean).}, tiếng Trung Quốc. Do đó,
+một cơ chế mới đã được xây dựng. Nó chia các font chữ CJK với hàng
+ngàn hay hàng vạn các tổ hợp thành các font chữ nhỏ hơn với 256 kí
+tự. Đối với tiếng Hàn, có 3 gói đang được sử dụng rộng rãi là:
+\wi{H\LaTeX{}} viết bởi UN~Koaunghi, \wi{h\LaTeX{}p} viết bởi
+CHA-Jaechoon và \wi{CJK package} viết bởi
+Werner~Lemberg.%
+\footnote{Bạn có thể download các gói trên ở địa chỉ\\
+\texttt{CTAN:/tex-archive/language/korean/HLaTeX/}\\
+\texttt{CTAN://tex-archive/language/korean/CJK/} và
+\texttt{http://knot.kaist.ac.kr/htex/}} H\LaTeX và h\LaTeX{}p hỗ
+trợ tối đa cho tiếng Hàn. Cả hai đều có thể xử lý các tập tin được
+soạn thảo với bảng mã EUC-KR. H\LaTeX{} có thể xử lý luôn cả tập
+tin dữ liệu vào với bảng mã CP949/Windows-949/UHC. Bạn cũng có thể
+dùng nó để soạn thảo các tài liệu đa ngôn ngữ (đặc biệt là tiếng
+Trung Quốc, Nhật và Hàn Quốc).
+
+Gói CJK có thể xử lý dữ liệu được soạn thảo bằng bảng mã UTF-8
+cũng như một số bảng mã khác như EUC-KR và CP949/Windows-949/UHC.
+Bạn cũng có thể dùng nó để soạn thảo các tài liệu đa ngôn ngữ (đặc
+biệt là tiếng Trung Quốc, Nhật và Hàn Quốc). Tuy nhiên, gói CJK
+này không đi kèm với bất kỳ font chữ Hàn nào.
+
+\item  Mục đích cuối cùng của việc sử dụng các chương trình soạn
+thảo như \TeX{} và \LaTeX{} là để có được một tài liệu có ``thẩm
+mỹ''. Do đó, việc có những font chữ đẹp là một yếu tố rất quan
+trọng. H\LaTeX{} cung cấp những font \index{Korean font!UHC font}
+UHC \textsc{PostScript} với 10 họ font khác nhau và các font chữ
+Minhwabu\footnote{Bộ Văn Hoá Hàn Quốc} (TrueType) với 5 họ font
+khác nhau. Gói CJK làm việc với một tập hợp font chữ được sử dụng
+bởi phiên bản cũ hơn của H\LaTeX{} và có thể sử dụng các font
+\mbox{TrueType} của Bitstream.
+\end{enumerate}
+
+Để sử dụng gói H\LaTeX{}, bạn hãy khai báo như sau trong phần tựa
+đề của tài liệu:
+\begin{lscommand}
+\verb+\usepackage{hangul}+
+\end{lscommand}
+
+Lệnh này sẽ kích hoạt tính năng soạn thảo tiếng Hàn. Các tiêu đề
+của chương, mục, mục con, mục lục, \ldots sẽ được dịch sang tiếng
+Hàn và định dạng của tài liệu cũng sẽ thay đổi theo quy ước mẫu
+tài liệu bằng tiếng Hàn.
+
+Các gói trên cũng cung cấp tính năng ``lựa chọn một mẫu nhỏ''.
+Trong tiếng Hàn, có rất nhiều cặp tiền tố tương đương về mặt ngữ
+pháp nhưng khác nhau về hình thức. Cặp tiền tố nào đúng sẽ tuỳ
+thuộc vào âm tiết đứng trước kết thúc bởi một nguyên âm hay phụ
+âm. (Điều này phức tạp hơn nhưng ta có thể nói nôm na như thế cho
+dễ hiểu.) Người dân Hàn Quốc sẽ không gặp khó khăn trong việc lựa
+chọn cặp tiền tố nào cho thích hợp nhưng \TeX{} sẽ không xác định
+được việc sử dụng cặp nào để sử dụng làm tham chiếu và các chuỗi
+mặc định sẽ thay đổi trong khi soạn thảo. H\LaTeX{} đã giải phóng
+được người dùng khỏi vấn đề này bằng một cơ chế làm việc hoạt động
+khá tốt (nhưng vẫn có lỗi).
+
+Khi bạn không cần một số tính năng đặc biệt của soạn thảo tiếng
+Hàn, để đơn giản hoá, bạn có thể dùng lệnh sau để kích hoạt tính
+năng soạn thảo bằng tiếng Hàn:
+\begin{lscommand}
+\verb+\usepackage{hfont}+
+\end{lscommand}
+
+Để biết thêm chi tiết về việc soạn thảo tiếng Hàn với H\LaTeX{},
+bạn có thể tham khảo thêm ở \emph{H\LaTeX{} Guide}. Hãy tham khảo
+thêm thông tin ở trang web người Hàn Quốc dùng TeX{} tại địa chỉ
+\url{http://www.ktug.or.kr/}. Đồng thời bạn cũng có thể tìm thấy
+tài liệu này bằng tiếng Hàn.
+
+\section{Khoảng cách giữa các từ}
+Để biên phải của một tài liệu được canh thẳng cột, \LaTeX{} sẽ chèn khoảng trắng vào giữa các từ. \LaTeX{} sẽ chèn nhiều khoảng trắng hơn vào cuối câu, và điều này sẽ làm cho văn bản dễ đọc hơn. \LaTeX{} qui định rằng một câu sẽ kết thúc với dấu chấm câu, dấu hỏi hay dấu chấm cảm. Nếu một dấu chấm câu theo sau một chữ viết hoá thì nó không được xem là kết
+thúc của một câu bởi vì các dấu chấm đứng sau các chữ viết hoa thường xuất hiện ở các từ viết tắt.
+
+Tất cả các trường hợp ngoại lệ đối với qui tắt này phải được xác định cụ thể bởi người soạn thảo. Một dấu gạch chéo đứng trước một khoảng trắng sẽ tạo ra một khoảng trắng nở rộng. Một dấu~`\verb|~|' sẽ tạo ra một khoảng trắng không thể nở rộng và ngăn không cho xuống hàng. Lệnh \verb|\@| đứng trước một dấu chấm câu sẽ xác định rằng dấu chấm này kết thúc một câu ngay cả khi nó theo sau một chữ cái viết hoa.\cih{"@} \index{~@ \verb.~.} \index{tilde@dấu ngã ( \verb.~.)} \index{., sau khoảng trắng}
+\begin{example}
+Mr.~Smith was happy to see
+her\\ cf.~Fig.~5\\
+I like NEWWORLD\@.
+What about you?
+\end{example}
+
+Khoảng trắng thêm vào sau dấu chấm câu có thể bị bỏ qua với lệnh sau:
+\begin{lscommand}
+\ci{frenchspacing}
+\end{lscommand}
+\noindent Lệnh này sẽ yêu cầu \LaTeX{} \emph{không} chèn thêm khoảng trắng vào sau dấu chấm. Điều này rất phổ biến trong các ngôn ngữ khác với tiếng Anh, trừ phần mục lục tài liệu tham khảo. Nếu bạn sử dụng lệnh \ci{frenchspacing} thì không cần sử dụng lệnh \verb|\@|.
+
+\section{Tựa đề, các chương và các mục}
+Nhằm giúp cho người đọc dễ dàng tìm ra những phần cần thiết trong tài liệu, bạn nên chia nhỏ tài liệu thành các chương, mục và mục con. \LaTeX{} hỗ trợ các lệnh đặc biệt dùng tựa đề của các mục làm đối số. Việc sử dụng chúng theo thứ tự như thế nào sẽ tuỳ thuộc vào bạn.
+
+Các lệnh sau sẵn có dành cho lớp tài liệu dạng \texttt{article}:
+\nopagebreak
+\begin{lscommand}
+\ci{section}\verb|{...}|\\
+\ci{subsection}\verb|{...}|\\
+\ci{subsubsection}\verb|{...}|\\
+\ci{paragraph}\verb|{...}|\\
+\ci{subparagraph}\verb|{...}|
+\end{lscommand}
+
+Nếu bạn muốn chia tài liệu của mình thành các phần mà không ảnh hưởng đến việc đánh số chương, mục bạn có thể sử dụng lệnh sau:
+\begin{lscommand}
+\ci{part}\verb|{...}|
+\end{lscommand}
+
+Khi làm việc với lớp tài liệu \texttt{report} hay \texttt{book}, lệnh chia cấu trúc lớn nhất là
+\begin{lscommand}
+\ci{chapter}\verb|{...}|
+\end{lscommand}
+
+Trong lớp tài liệu dạng \texttt{article} không có khái niệm chương. Bạn có thể xem các tài liệu dạng article như các chương
+của một quyển sách.
+
+Khoảng cách giữa các đoạn, việc đánh số và kích thước font chữ của tiêu đề của các đoạn sẽ được \LaTeX{} quyết định một cách tự động.
+
+Hai lệnh chia đoạn sau tương đối đặc biệt:
+\begin{itemize}
+\item Lệnh \ci{part} không ảnh hưởng đến việc đánh số thứ tự các
+chương.
+\item Lệnh \ci{appendix} không có tham số. Lệnh này chỉ
+thay đổi việc đánh số chương từ số sang chữ.\footnote{Đối
+với lớp tài liệu dạng \texttt{report} thì nó thay đổi cách đánh số
+các mục.}
+\end{itemize}
+
+\LaTeX{} sẽ tạo ra bảng mục lục bằng cách trích lấy phần tựa đề của các mục và vị trí trang của chúng ở lần  biên dịch cuối cùng. Lệnh
+\begin{lscommand}
+\ci{tableofcontents}
+\end{lscommand}
+\noindent sẽ hiển thị nội dung của bảng mục lục tại vị trí nó được chèn vào. Một tài liệu cần phải được biên dịch hai lần để \LaTeX{} có thể xây dựng được bảng mục lục. Đôi khi \LaTeX{} sẽ yêu cầu bạn biên dịch lần thứ ba để có được một bảng mục lục thật chính xác.
+
+Tất cả các lệnh chia đoạn được liệt kê ở trên cũng có thể được viết dưới dạng có dấu \verb|*| ở phía sau. Khi này, tựa đề của các mục sẽ không được hiển thị và không được đưa vào bảng mục lục. Ví dụ như khi bạn không muốn hiển thị tựa đề của mục \verb|\section{Trợ giúp}| vào bảng mục lục, bạn có thể chia đoạn với lệnh \verb|\section*{Trợ giúp}|.
+
+Thông thường tựa đề của các mục sẽ được đưa vào ở bảng mục lục. Đôi khi điều này không thực hiện được do tựa đề quá dài. Khi này, ta có thể yêu cầu \LaTeX{} đưa vào phần mục lục một tựa đề thay thế ngắn hơn.
+
+\begin{code}
+\verb|\chapter[Tựa đề cho bảng mục lục]{Đây là một tựa đề|\\
+\verb| dài và chán ngắt, không thú vị chút nào}|
+\end{code}
+
+Tựa đề của tài liệu sẽ được tạo ra bởi lệnh
+\begin{lscommand}
+\ci{maketitle}
+\end{lscommand}
+\noindent Phần tựa đề của tài liệu phải được xác định bởi một
+trong số các lệnh sau:
+\begin{lscommand}
+\ci{title}\verb|{...}|, \ci{author}\verb|{...}| và có thể thêm và
+tuỳ chọn về ngày tháng với lệnh \ci{date}\verb|{...}|
+\end{lscommand}
+\noindent trước khi gọi lệnh \verb|\maketitle|. Tham số \ci{author} có thể được cung cấp với nhiều tên cách nhau bởi lệnh
+\ci{and}.
+
+Bạn có thể tham khảo thêm ví dụ về các lệnh trên ởhình~\ref{document} ở trang ~\pageref{document}.
+
+Bên cạnh các lệnh chia đoạn được giới thiệu ở trên, \LaTeXe{} giới thiệu thêm 3 lệnh để sử dụng với tài liệu là \verb|book|. Chúng sẽ rất hữu ích cho việc chia đoạn ấn phẩm của bạn. Các lệnh này dùng để thay đổi tựa đề của các chương và việc đánh số trang sẽ làm việc theo yêu cầu của bạn:
+
+\begin{description}
+\item[\ci{frontmatter}] phải là lệnh đầu tiên ngay sau lệnh \verb|\begin{document}|. Khi này các trang sẽ được đánh số theo số La Mã và các mục sẽ không được đánh số. Thông thường, bạn nên sử dụng lệnh chia đoạn với dấu \verb|*| phía sau (như là \verb|\chapter*{Lời tựa}|) đối với lời tựa nhằm khiến cho \LaTeX{} không liệt kê chúng.
+
+\item[\ci{mainmatter}] nằm ngay phía trước chương đầu tiên của quyển sách. Các trang sẽ được đánh số theo số Ả Rập và khởi động lại bộ đếm số trang.
+
+\item[\ci{appendix}] đánh dấu việc bắt đầu các phụ lục. Sau khi lệnh này được gọi, các chương sẽ được đánh số bằng các kí tự.
+
+\item[\ci{backmatter}] xuất hiện ngay trước phần cuối cùng của tài liệu như mục lục tài liệu tham khảo và bảng chỉ mục.
+Trong các tài liệu chuẩn, bạn sẽ không thấy được tác dụng của nó một cách cụ thể.
+\end{description}
+
+\section{Tham chiếu chéo}
+Trong các quyển sách, bảng báo cáo, bài báo, ta thường thấy rất nhiều \wi{tham chiếu chéo} đến hình ảnh, biểu bảng và các đoạn văn bản đặc biệt. \LaTeX{} cung cấp các lệnh sau hỗ trợ cho việc tạo tham chiếu chéo:
+\begin{lscommand}
+\ci{label}\verb|{|\emph{tên nhãn}\verb|}|,
+\ci{ref}\verb|{|\emph{tên nhãn}\verb|}| và
+\ci{pageref}\verb|{|\emph{tên nhãn}\verb|}|
+\end{lscommand}
+\noindent với \emph{tên nhãn} là một tên gọi được chỉ định bởi người soạn thảo. \LaTeX{} thay thế \verb|\ref| bởi số thứ tự của các mục, mục nhỏ, hình, biểu bảng hay các định lý tương ứng với lệnh \verb|\label|. Lệnh \verb|\pageref| sẽ in ra số thứ tự của trang xuất hiện lệnh \verb|\label| tương ứng.\footnote{Các lệnh này không biết đến đối tượng chúng tham chiếu đến. Lệnh \ci{label} chỉ lưu lại số hiệu của việc đánh số cuối cùng.} Đối với tựa đề của các mục thì số thứ tự của lần biên dịch trước sẽ được sử  dụng.
+\begin{example}
+Một tham chiếu đến mục con
+\label{sec:con} trông như: ``xem
+mục~\ref{sec:con} ở
+trang~\pageref{sec:con}.''
+\end{example}
+
+\section{Chú thích ở cuối trang}
+Việc thêm vào chú thích ở cuối trang được thực hiện với lệnh:
+\begin{lscommand}
+\ci{footnote}\verb|{|\emph{nội dung cần chú thích}\verb|}|
+\end{lscommand}
+\noindent khi này, một lời chú thích sẽ được in ra ở cuối trang. Những lời chú thích phải được đặt~\footnote{``đặt'' là một trong những từ thông dụng trong tiếng Việt.} sau một từ hay một câu mà chúng tham chiếu đến. Các lời chú thích đối với một câu hay một đoạn của câu nên được đặt sau dấu chấm hay dấu phẩy.\footnote{Lưu ý rằng những lời ghi chú cuối trang sẽ khiến cho người đọc mất đi sự chú ý đối với phần văn bản đang đọc. Hầu hết chúng ta đều tò mò nên hay đọc phần chú thích phía dưới trước. Do đó, đôi khi ta có thể thêm vào những thông tin ở các phần chú thích ở cuối trang và điều này rất hiệu quả!\footnotemark}\footnotetext{Thông tin không cần phải nằm ngay những vị trí mà nó hướng đến!!!.}
+\begin{example}
+Người dùng \LaTeX{} rất hay sử dụng chú thích\footnote{Đây là một chú thích}
+\end{example}
+
+\section{Các từ được nhấn mạnh}
+Nếu một văn bản được đánh bằng máy đánh chữ thì \texttt{các từ
+quan trọng sẽ được nhấn mạnh bằng cách \underline{gạch dưới}
+chúng.}
+\begin{lscommand}
+\ci{underline}\verb|{|\emph{nội dung}\verb|}|
+\end{lscommand}
+
+\noindent Đối với các ấn bản của sách thì các từ sẽ được nhấn mạnh bằng cách thay đổi định dạng của chúng thành \emph{in nghiêng}. \LaTeX{} hỗ trợ việc này bằng cách cung cấp lệnh sau
+\begin{lscommand}
+\ci{emph}\verb|{|\emph{nội dung}\verb|}|
+\end{lscommand}
+\noindent để nhấn mạnh phần \emph{nội dung}. Tuỳ thuộc vào ngữ cảnh, lệnh này sẽ tác động đến tham số theo các tương ứng:
+\begin{example}
+\emph{Để nhấn mạnh một  từ
+trong một đoạn văn bản đã
+được nhấn mạnh thì \LaTeX{}
+sẽ sử dụng font chữ
+\emph{bình thường}
+để nhấn mạnh từ ấy.}
+\end{example}
+\noindent bạn cần phân biệt việc yêu cầu \LaTeX{} \emph{nhấn mạnh} một từ và yêu cầu \LaTeX{} sử dụng một \emph{font khác} đối với từ đó:
+\begin{example}
+\textit{Bạn cũng có thể
+  \emph{nhấn mạnh} văn bản
+  khi mà nó đã được chỉnh là
+  in nghiêng,}
+\textsf{trong font chữ dạng
+  \emph{sans-serif},}
+\texttt{hay kiểu
+  \emph{đánh máy}.}
+\end{example}
+
+\section{Môi trường}\label{env}
+Để thuận tiện cho việc định dạng phần văn bản, \LaTeX{} đã định nghĩa sẵn một số \wi{môi trường} hỗ trợ. Để sử dụng, bạn cần phải nhập vào như sau:
+\begin{lscommand}
+\ci{begin}\verb|{|\emph{môi trường}\verb|}|\quad
+   \emph{văn bản}\quad
+\ci{end}\verb|{|\emph{môi trường}\verb|}|
+\end{lscommand}
+\noindent với \emph{môi trường} là tên của môi trường cần sử dụng. Môi trường có thể đan xen vào nhau khi mà thứ tự đan xen là hợp lí.
+\begin{code}
+\verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
+\end{code}
+
+\noindent Trong phần này, bạn sẽ được giải thích về tất các các môi trường quan trọng trong \LaTeX{}.
+
+\subsection{Các môi trường liệt kê}
+Với \LaTeX{}, ta có các môi trường liệt kê sau:
+\begin{itemize}
+    \item Môi trường \ei{itemize} phù hợp với việc liệt kê những danh sách đơn giản.
+
+    \item Môi trường \ei{enumerate} được dùng để liệt kê các danh sách (các mục được đánh số một cách tự động).
+
+    \item Môi trường \ei{description} được dùng khi cần mô tả các mục trong danh sách.\cih{item}
+\end{itemize}
+\begin{example}
+\flushleft
+\begin{enumerate}
+\item Bạn có thể kết
+hợp môi trường các danh
+sách theo ý mình:
+\begin{itemize}
+\item Nhưng đôi khi nó
+trông
+không đẹp.
+\item[-] Với một dấu gạch.
+\end{itemize}
+\item Do đó, hãy nhớ rằng:
+\begin{description}
+\item[Những điều ngớ ngẩn] sẽ trở
+nên hay khi chúng nằm trong một
+danh sách
+\item[Những điều hay] có thể được
+trình bày một cách đẹp
+mắt thông qua các danh sách.
+\end{description}
+\end{enumerate}
+\end{example}
+
+\subsection{Canh trái, canh phải, và canh giữa}
+Môi trường \ei{flushleft} và \ei{flushright} có tác dụng canh trái hay canh phải đoạn văn bản.\index{canh trái} Bên cạnh đó, môi trường \ei{center} có tác dụng canh giữa đoạn văn. Nếu bạn không đưa ra các kí hiệu xuống hàng (\ci{\bs}) thì \LaTeX{} sẽ tự động làm điều đó cho bạn.
+\begin{example}
+\begin{flushleft}
+Đoạn văn bản này được\\
+canh trái. \LaTeX{} sẽ không
+cố gắng làm
+cho các hàng có cùng chiều dài.
+\end{flushleft}
+\end{example}
+\begin{example}
+\begin{flushright}
+Đoạn văn bản này được\\
+canh phải. \LaTeX{} sẽ không
+cố gắng làm
+cho các hàng có cùng chiều dài.
+\end{flushright}
+\end{example}
+\begin{example}
+\begin{center}
+Nằm ở tâm \\của trái đất.
+\end{center}
+\end{example}
+
+\subsection{Trích dẫn và các đoạn thơ}
+Môi trường \ei{quote} rất hữu dụng khi soạn thảo các lời trích dẫn, các câu quan trọng hay các ví dụ.
+\begin{example}
+Một quy luật quan trọng
+để kiểm soát chiều dài
+của một hàng là:
+\begin{quote}
+Bình quân thì mỗi hàng
+có không quá 66 kí tự.
+\end{quote}
+Đây chính là lý do vì sao
+mà các gói của \LaTeX{} có
+các biên lớn
+theo mặc định và đây cũng
+là lý do tại sao các báo
+lại sử dụng
+cách in làm nhiều cột.
+\end{example}
+
+Có hai môi trường khác có tính năng tương tự là: \ei{quotation} và \ei{verse}. Môi trường \texttt{quotation} rất hữu ích đối với các trích dẫn dài khoảng vài đoạn văn bởi vì nó sẽ canh lề hàng đầu tiên của các đoạn. Ngoài ra, môi trường \ei{verse} thích hợp với việc soạn các bài thơ khi mà việc xuống hàng đóng một vai trò quan trọng. Việc xuống hàng sẽ được thực hiện với lệnh \ci{\bs} ở cuối hàng và một hàng trắng ở cuối các đoạn thơ.
+\begin{example}
+Lặng lẽ
+\begin{flushleft}
+\begin{verse}
+Em đếm thời gian trôi mãi\\
+Sao ngày cứ dài bất tận\\
+Sao đêm cứ mãi
+mong lung\\
+Để em lạc mất\\
+Mất anh thật rồi.\\
+
+Tỉnh giấc\\
+Trời bừng sáng bên em\\
+Cô đơn, lặng lẽ\\
+Em lại đếm
+thời gian trôi mãi\\
+Bao cuộc tình đến rồi đi\\
+Như cơn gió\\
+Nhưng có bao giờ em khóc được đâu\\
+Phải chăng nước mắt đã chôn
+sâu tình cũ\\
+Phải chăng trong lòng\\
+Em chỉ khóc vì anh? \ldots
+\end{verse}
+\end{flushleft}
+\begin{flushright}
+    Đoàn Thị Ngọc Hà
+\end{flushright}
+\end{example}
+
+\subsection{Lời tựa}
+Các tài liệu khoa học thường bắt đầu với phần tóm tắt nội dung chính để giúp cho độc giả có được cái nhìn tổng quát. \LaTeX{} cung cấp môi trường \ei{abstract} để thực hiện việc này. Thông thường môi trường này sẽ được sử dụng với kiểu lài liệu là bài báo (article).
+
+\newenvironment{abstract}%
+        {\begin{center}\begin{small}\begin{minipage}{0.8\textwidth}}%
+        {\end{minipage}\end{small}\end{center}}
+\begin{example}
+\begin{abstract}
+Nội dung của phần lời tựa.
+\end{abstract}
+\end{example}
+
+\subsection{In ấn đúng nguyên văn}
+Các văn bản được soạn thảo trong cặp lệnh \verb|\begin{|\ei{verbatim}\verb|}| và \verb|\end{verbatim}| sẽ được in ấn trực tiếp ra máy in giống như những gì bạn đã nhập vào (bao gồm cá việc xuống hàng, khoảng trắng mà không thông qua quá
+trình định dạng của \LaTeX{}).
+
+Để thực hiện điều này bên trong một đoạn văn thì ta sử dụng lệnh sau:
+\begin{lscommand}
+\ci{verb}\verb|+|\emph{nội dung}\verb|+|
+\end{lscommand}
+\noindent Lệnh \verb|+| là một ví dụ về kí tự giới hạn. Bạn có thể sử dụng các kí tự bất kỳ trừ các chữ cái, dấu \verb|*| hay khoảng trắng. Có rất nhiều ví dụ của \LaTeX{} trong sách này được soạn với lệnh này.
+\begin{example}
+Lệnh \verb|\ldots| \ldots
+\begin{verbatim}
+10 PRINT "HELLO WORLD ";
+20 GOTO 10
+\end{verbatim}
+\end{example}
+\begin{example}
+\begin{verbatim*}
+phiên bản có dấu *
+ở phía sau của môi trường
+\ei{verbatim} nhấn
+mạnh khoảng trắng giữa
+các từ trong văn bản.
+\end{verbatim*}
+\end{example}
+
+Lệnh \ci{verb} cũng có thể được sử dụng tương tự như trên
+\begin{example}
+\verb*|như thế      này      :-) |
+\end{example}
+Môi trường \texttt{verbatim} và lệnh \verb|\verb| không được sử dụng làm tham số của các lệnh khác.
+
+\subsection{Môi trường bảng}
+\newcommand{\mfr}[1]{\framebox{\rule{0pt}{0.7em}\texttt{#1}}}
+Môi trường \ei{tabular} có thể được sử dụng để soạn thảo các \wi{bảng} đẹp mắt với sự tuỳ biến các đường kẻ đứng và đường kẻ dọc. \LaTeX{} sẽ xác định chiều rộng của các cột một cách tự động.
+
+Tham số \emph{table spec} của lệnh
+\begin{lscommand}
+\verb|\begin{tabular}[|\emph{pos}\verb|]{|\emph{table spec}\verb|}|
+\end{lscommand}
+\noindent xác định định dạng của bảng. \mfr{l} xác định cột canh lề trái, \mfr{r} xác định cột canh lề phải và \mfr{c} xác định cột canh giữa; \mfr{p\{\emph{độ rộng}\}} xác định cột có kích thước cho trước với nội dung được canh lề ở cả hai bên kèm theo các kí tự xuống hàng; kí hiệu \mfr{|} xác định đường kẻ thẳng đứng.
+
+Đối với các cột có nội dung quá dài so với chiều rộng của trang, \LaTeX{} sẽ không tự động bao bọc (wrap) nội dung bên trong cột. Tham số \mfr{p\{độ rộng\}} sẽ định độ rộng của cột và tự động bao bọc văn bản trong cột như đối với các đoạn văn bản thông thường.
+
+Tham số \emph{pos} xác định vị trí của bảng theo chiều dọc dựa vào đường kẻ bao quanh phần văn bản. Bạn có thể nhập vào các giá trị \texttt{t}, \texttt{b} và \texttt{c} để xác định việc sắp xếp bảng ở đầu, ở cuối hay ở giữa trang.
+
+Trong môi trường \texttt{tabular}, lệnh \texttt{\&} được dùng để ngăn cách các cột, lệnh \ci{\bs} bắt đầu một hàng mới và lệnh \ci{hline} dùng để vẽ một hàng ngang. Bạn có thể thêm vào các đường kẻ nhỏ bằng các lệnh như
+\ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}} với i
+và j là số cột mà đường kẻ đi qua.\index{"|@ \verb."|.}
+
+\begin{example}
+\begin{tabular}{|r|l|}
+\hline 7C0 & cơ số 16 \\
+3700 & cơ số 8 \\
+\cline{2-2} 11111000000
+& cơ số 2
+\\ \hline \hline
+1984 & số thập phân \\ \hline
+\end{tabular}
+\end{example}
+\begin{example}
+\begin{tabular}{|p{4.7cm}|}
+\hline
+Đoạn văn này sẽ được
+đóng khung lại. Hy vọng
+rằng bạn sẽ
+thích tính năng này.
+\\ \hline
+\end{tabular}
+\end{example}
+
+Kí tự phân cách cột có thể được xác định với lệnh \mfr{@\{...\}}. Lệnh này sẽ xoá khoảng cách nội giữa các cột và thay vào đó là kí tự giữa dấu ngoặc do bạn chỉ định. Dưới đây là một ứng dụng phổ biến của lệnh này trong việc sắp thẳng hàng các số nguyên. Một ứng dụng khác của lệnh này là dùng để bỏ qua khoảng trắng ở đầu bản với tham số \mfr{@\{\}}.
+\mfr{@\{\}}.
+\begin{example}
+\begin{tabular}{@{} l @{}}
+\hline
+không có khoảng cách trên đầu
+\\ \hline
+\end{tabular}
+\end{example}
+\begin{example}
+\begin{tabular}{l}
+\hline
+có khoảng trắng ở hai đầu\\
+\hline
+\end{tabular}
+\end{example}
+%
+% This part by Mike Ressler
+%
+\index{decimal alignment} Hiện nay, \LaTeX{} chưa hỗ trợ trực tiếp cho việc sắp thẳng hàng các cột lưu các số thập phân,\footnote{nếu các gói ``công cụ'' đã được cài đặt trên máy của bạn thì hãy tham khảo thêm gói \pai{dcolumn}.} nhưng chúng ta vẫn có thể sắp thẳng hàng bằng cách dùng 2 cột: một cột được canh lề bên phải gồm các số nguyên và một cột được canh lề bên trái chứa số thập phân. Lệnh \verb|\@{.}| sẽ được dùng để thay đổi dấu phân cách giữa các cột thành dấu ``.''. Đừng quên thay thế các dấu chấm thập phân trong số liệu của bạn thành kí hiệu cách cột (\verb|&|). Bạn có thể dùng thêm một cột để xuất tựa đề bằng cách sử dụng lệnh\ci{multicolumn}.
+
+\begin{example}
+\begin{tabular}{c r @{.} l}
+Các biểu thức đối với số
+$\pi$ & \multicolumn{2}{c}{Value}
+\\ \hline $\pi$ & 3&1416
+\\ $\pi^{\pi}$
+& 36&46   \\
+$(\pi^{\pi})^{\pi}$
+& 80662&7
+\\
+\end{tabular}
+\end{example}
+\begin{example}
+\begin{tabular}{|c|c|}
+\hline \multicolumn{2}{|c|}
+{Nguyễn} \\
+\hline Tân & Khoa! \\
+\hline
+\end{tabular}
+\end{example}
+
+Nội dung soạn thảo với môi trường \texttt{tabular} luôn nằm gọn trên một trang văn bản. Nếu bạn muốn soạn thảo các bảng dài, bạn có thể tham khảo thêm các môi trường như \pai{supertabular} và \pai{longtabular}.
+
+\section{Tính linh động trong cách trình bày}
+Ngày nay, đa số ấn phẩm đều chứa rất nhiều hình ảnh và biểu bảng. Đây là các thành phần cần được xử lý đặc biệt bởi vì chúng không được phép bị phân tách ra ở các trang khác nhau. Một trong những biện pháp khắc phục là bắt đầu một trang mới mỗi khi gặp phải hình minh hoạ hay biểu bảng quá lớn để có thể trình bày gọn trong một trang. Giải pháp này sẽ làm cho một số trang của tài liệu gần như là rỗng hay có rất ít nội dung làm cho bản in trở nên không đẹp.
+
+Một giải pháp khác cho vấn đề này là cho phép hình minh hoạ hay biểu bảng không nằm gọn trong trang hiện tại nằm trong trang kế tiếp trong khi phần nội dung của trang kế tiếp sẽ tiếp tục được trình bày trong trang hiện tại. \LaTeX{} cung cấp hai môi trường để thực hiện việc này, một dành cho các hình minh hoạ và một dành cho các biểu bảng. Để có thể sử dụng tốt hai môi trường trên, bạn cần hiểu được cơ chế làm việc bên trong của \LaTeX{}. Nếu bạn không nắm vững điều này thì đôi khi \LaTeX{} sẽ làm bạn thất vọng vì nó không bố trí biểu bảng hay hình minh hoạ đúng vị trí mà bạn mong muốn.
+
+\bigskip
+Trước tiên, ta hãy xem qua các lệnh được \LaTeX{} hỗ trợ để thực hiện công việc này:
+
+Tất cả các dữ liệu trong môi trường \ei{figure} hay \ei{table} đều được xem là dữ liệu linh động. Cả hai môi trường này đều hỗ trợ một số tuỳ chọn về vị trí sắp đặt chúng trong tài liệu
+
+\begin{lscommand}
+\verb|\begin{figure}[|\emph{vị trí}\verb|]| hay
+\verb|\begin{table}[|\emph{vị trí}\verb|]|
+\end{lscommand}
+%
+Tham số \emph{vị trí} báo cho \LaTeX{} biết vị trí có thể trình bày nội dung. Tham số này được thiết lập bằng cách xây dựng một chuỗi định dạng từ các lệnh có sẵn. Xem bảng~\ref{tab:permiss} để biết thêm chi tiết.
+
+\begin{table}[!tbp]
+\caption{Các vị trí được phép.}\label{tab:permiss}
+\noindent
+\begin{minipage}{\textwidth}
+\medskip
+
+\begin{center}
+\begin{tabular}{@{}cp{10cm}@{}}
+Kí hiệu & Vị trí đặt nội dung \ldots\\ \hline
+\rule{0pt}{1.05em}\texttt{h} & \emph{ngay tại vị trí} mà biểu bảng hay hình minh hoạ được soạn thảo. Tuỳ chọn này phù hợp với các font chữ nhỏ.\\
+[0.3ex] \texttt{t} & ở \emph{đầu} của một trang\\[0.3ex] \texttt{b} & ở \emph{cuối} của một trang\\
+[0.3ex] \texttt{p} & trên một trang \emph{đặc biệt} chỉ chứa các dữ liệu linh động như vậy.\\
+[0.3ex] \texttt{!} & không quan tâm đến các tham số bên trong\footnote{như là số biểu bảng hay hình minh họa linh động được phép có trên một trang.}, ảnh hưởng đến việc sắp xếp nó.
+\end{tabular}
+\end{center}
+
+\noindent Lưu ý rằng \texttt{pt} và \texttt{em} là hai đơn vị của \TeX{}. Bạn có thể đọc thêm ở bảng \ref{units} ở trang \pageref{units} để biết thêm chi tiết.
+\end{minipage}
+\end{table}
+
+Một biểu bảng có thể bắt đầu với hàng lệnh sau:
+\begin{code}
+\verb|\begin{table}[!hbp]|
+\end{code}
+%
+\noindent Tham số \wi{vị trí} \verb|[!hbp]| cho yêu cầu \LaTeX{} đặt biểu bảng ngay tại vị trí hiện thời (\texttt{h}) hay
+trên một trang đặc biệt chỉ dành cho các dữ liệu linh động như biểu bảng này (\texttt{p}) hay ở cuối trang (\texttt{b}) thậm chí trong trường hợp nó trông không đẹp mắt (\texttt{!}). Việc bố trí theo mặc định sẽ là \verb|[tbp]|.
+
+\LaTeX{} sẽ đặt các biểu bảng hay hình minh hoạ theo các tham số do ta cung cấp. Khi mà biểu bảng hay hình minh họa
+không thể được hiển thị ngay, nó sẽ được đưa vào hàng đợi\footnote{Đây là hàng đợi dạng FIFO---`first in first out'}.
+Khi một trang mới bắt đầu, \LaTeX{} kiểm tra hàng đợi và cố gắng đưa biểu bảng hay hình minh hoạ phù hợp nhất vào. Nếu \LaTeX{} không thực hiện được thì biểu bảng hay hình minh hoạ trong hàng đợi ấy sẽ được xem như vừa mới xuất hiện trong văn bản\footnote{trừ trường hợp ta sử dụng tham số là `h' và tham số này sẽ không thực hiện được} (có nghĩa là nó sẽ bị đưa xuống cuối hàng đợi để chờ đợi được xử lý.) \LaTeX{} sẽ cố gắng để giữ đúng thứ tự xuất hiện của các biểu bảng và hình minh họa. Đây là lý do mà tại sao một hình minh hoạ hay biểu bảng bị đẩy xuống đến cuối tài liệu. Do đó:
+
+\begin{quote}
+Nếu \LaTeX{} không đặt các biểu bảng hay hình minh họa đúng vị trí
+bạn mong muốn thì lỗi gây ra là do một biểu bảng hay hình minh hoạ
+nào đó đã gây nghẽn hàng đợi.
+\end{quote}
+
+\LaTeX{} cho phép việc định vị trí chỉ với một tham số nhưng điều này sẽ gây ra các vấn đề bởi vì nếu \LaTeX{} không thể đặt nó tại vị trí như yêu cầu thì nó sẽ gẫy nghẽn hàng đợi, ảnh hưởng đến các thành phần khác trong hàng đợi này. Cụ thể, bạn không nên sử dụng tham số [h]---tham số này hoạt động không tốt và do đó, trong các phiên bản gần đây của \LaTeX{}, tham số này tự động được thay đổi bởi tham số [ht].
+
+\bigskip
+\noindent Chúng tôi đã giải thích cho các bạn về một số những khó khăn hay gặp; tuy nhiên, vẫn còn một số điều cần lưu ý khi sử dụng hai mội trường này.
+
+Lệnh
+\begin{lscommand}
+\ci{caption}\verb|{|\emph{tiêu đề}\verb|}|
+\end{lscommand}
+\noindent định tiêu đề cho biểu bảng hay hình minh hoạ. Việc đánh số thứ tự vào chuỗi ``Hình'' hay ``Bảng'' sẽ được \LaTeX{} tự động thực hiện.
+
+Hai lệnh sau
+\begin{lscommand}
+\ci{listoffigures} và \ci{listoftables}
+\end{lscommand}
+\noindent làm việc tương tự như lệnh \verb|\tableofcontents|. Lệnh này cho phép xuất ra danh sách các hình ảnh minh hoạ hay biểu bảng. Các danh sách này sẽ hiển thị cả phần tựa đề. Do đó, nếu bạn đặt các tựa đề quá dài thì bạn nên cung cấp thêm một tựa đề tuỳ chọn ngắn hơn đề \LaTeX{} có thể thay thế nó vào trong danh sách. Để làm điều này, bạn chỉ cần đưa thêm tựa đề được thu gọn vào trong dấu ngoặc vuông.
+\begin{code}
+\verb|\caption[Ngắn gọn]{Đây là một tựa đề dài ơi là dài, dài ...}|
+\end{code}
+
+Với các lệnh như \verb|\label| và \verb|\ref|, bạn có thể tham chiếu đến một biểu bảng hay một hình minh hoạ.
+
+Dưới đây là một ví dụ về việc vẽ một hình vuông và chèn nó vào tài liệu. Bạn có thể sử dụng nó nếu bạn muốn dành khoảng trống cho các hình ảnh sắp được thêm vào tài liệu.
+\begin{code}
+\begin{verbatim}
+Hình~\ref{white} là một ví dụ về ảnh.
+\begin{figure}[!hbp]
+\makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
+\caption{Hình có kích thước 5x5~cm.} \label{white}
+\end{figure}
+\end{verbatim}
+\end{code}
+\noindent Trong ví dụ trên, \LaTeX{} sẽ \emph{cố gắng}~\texttt{!} đặt một hình ngay tại vị trí này\footnote{giả sử như hàng đợi đang rỗng}. Nếu \LaTeX{} không thực hiện thành công thì nó sẽ cố gắng đặt hình này ở cuối trang. Nếu \LaTeX{} vẫn không thực hiện được thì nó sẽ cố gắng đặt hình này ở một trang nào phù hợp. Nếu trang này không thoả các việc dặt hình này, \LaTeX{} sẽ bắt đầu một trang mới và lại tiến hành lại các thao tác trên.
+
+Trong một số tình huống thì bạn cần sử dụng lệnh sau
+\begin{lscommand}
+\ci{clearpage} hay là lệnh \ci{cleardoublepage}
+\end{lscommand}
+\noindent nhằm yêu cầu \LaTeX{} phải xuất ra ngay tất cả các biểu bảng hay hình minh hoạ trong hàng đợi và bắt đầu một trang mới. Lệnh \ci{cleardoublepage} sẽ tạo thêm một trang mới bên phải.
+
+Bạn sẽ học cách để đưa các hình ảnh \textsc{PostScript} vào tài liệu được soạn bởi \LaTeXe{} ở phần sau.
+
+\section{Bảo vệ các lệnh ``dễ vỡ''}
+Văn bản làm tham số cho các lệnh như \ci{caption} hay \ci{section} có thể xuất hiện nhiều lần trong tài liệu (e.g trong phần mục lục cũng như trong phần nội dung văn bản). Một số lệnh sẽ gây ra lỗi khi được sử dụng làm tham số cho các lệnh giống như \ci{section}. Các lệnh này gọi là \wi{các lệnh `dễ vỡ'}---ví dụ như lệnh \ci{footnote} hay \ci{phantom}. Các lệnh `dễ vỡ' này cần phải được bảo vệ (tất cả chúng ta đều cần được bảo vệ?). Bạn có thể bảo vệ chúng bằng cách đặt lệnh \ci{protect} trước các lệnh này.
+
+Lệnh \ci{protect} chỉ có hiệu lực đối với lệnh ngay bên phải của nó. Việc lạm dụng lệnh \ci{protect} cũng không gây ảnh hưởng gì.
+\begin{code}
+\verb|\section{Tôi là một người ân cần|\\
+\verb|          \protect\footnote{và bảo vệ phần chú thích cuối trang}}|
+\end{code}

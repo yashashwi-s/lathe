@@ -1,0 +1,123 @@
+% !TeX TS-program = lualatex
+% Ceci est le fichier de test (pdf)(Xe)(lua)latex de l'entension listofitems
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mise en garde : lorsqu'il est compilé, ce fichier DOIT générer des erreurs aux %
+%                 endroits où figure "ERREUR" dans le code source.               %
+%                 Ces erreurs sont émises par l'extension listofitems lorsqu'un  %
+%                 argument ou un index est erroné et qu'une solution est         %
+%                 prévue.                                                        %
+%                 Le fichier pdf DOIT être généré.                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\documentclass[french]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{listofitems,babel}
+\begin{document}
+\parindent=0pt
+{\hfill\huge\bfseries Fichier de test\hfill\null\par}
+\section{Séparateur vide}
+Séparateur vide :\setsepchar{}% ERREUR : le séparateur "," est pris par défaut
+\readlist\castordu{a aa, b , c cc }
+\showitems\castordu
+
+\section{Liste vide}
+Liste vide :\setsepchar{*}
+\readlist\listevide{}% ERREUR
+Showitems = \showitems\listevide\par% ne donne rien, pas d'erreur
+3\ieme{} élément = \listevide[3]\par% ne donne rien, pas d'erreur
+Longueur = \listevidelen% affiche 0
+
+\section{Cas standard}
+\setsepchar{+}
+Lecture par défaut,\readlist\maliste{123+ 456 + ++\par+{+}+* *}
+showitems = \showitems*\maliste
+
+Lecture sans élément vide,\ignoreemptyitems
+\readlist\maliste{123+ 456 + ++\par+{+}+* *}
+showitems = \showitems*\maliste
+
+Lecture sans élément vide ni espace extrêmes,\ignoreemptyitems
+\readlist*\maliste{123+ 456 + ++\par+{+}+* *}
+showitems = \showitems*\maliste
+
+Longueur = \malistelen\par
+liste entière = \maliste[]\par
+2\ieme{} élément = \maliste[2]\par
+-1\ieme{} élément = \maliste[-1]\par
+-2\ieme{} élément = \maliste[-2]\par
+-7\ieme{} élément = \maliste[-7]\par% ERREUR, doit afficher la liste entière
+7\ieme{} élément = \maliste[7]% ERREUR, doit afficher la liste entière
+
+\section{Séparateur = \char`\\par}
+\def\laliste{a b c \par def\par\par xyz}
+\reademptyitems
+\setsepchar{\par}
+Lecture par défaut, \readlist\maliste\laliste
+showitems = \showitems\maliste
+
+Lecture sans élément vide, \ignoreemptyitems
+\readlist\maliste\laliste
+showitems = \showitems\maliste
+
+\section{Séparateur = caractère actif}
+\begingroup
+\catcode`\!=13 \def!{|}
+\setsepchar{!}
+\readlist\foo{!1 ! 2 !! 3!}
+Showitems = \showitems\foo\par
+liste entière = \foo[]\par
+2\ieme{} élément = \foo[2]\par
+-1\ieme{} élément = \foo[-1]\par
+-5\ieme{} élément = \foo[-5]\par% ERREUR, doit afficher la liste entière
+\endgroup
+
+\section{Séparateurs = +\quad -\quad *\quad /}
+\setsepchar[.]{+||-||*||/}
+\def\expression{3 + 2*7 - 4*9/5 - 1}
+\readlist*\nombres\expression
+Showitems = \showitems\nombres\par
+liste entière = \nombres[]\par
+Longueur = \nombreslen\par
+2\ieme{} élément = \nombres[2]\par
+-1\ieme{} élément = \nombres[-1]\par
+-5\ieme{} élément = \nombres[-5]
+
+\section{Séparateurs = \char`\&{} et \char`\\\char `\\}
+\setsepchar{\\/&}
+\readlist\foo{1 & 2 & 3\\ a & b& \\ x & & z}
+Showitems[] = \showitems*\foo\par
+Showitems[2] = \showitems*\foo[2]\par
+Showitems[2,1] = \showitems*\foo[2,1]\par% ERREUR : trop grande profondeur
+Foreachitem = \foreachitem\myitem\in\foo[3]{\myitemcnt = "\myitem"\qquad}\par
+élément [-2,-3] = "\foo[-2,-3]"\par
+
+\section{Séparateurs = \char`\^\char`\^M actif et ponctuations}
+\begingroup
+\obeylines
+\ignoreemptyitems
+\setsepchar{^^M/ ||,||'||-||:||;||.}%
+\readlist\poeme{C'est un trou de verdure où chante une rivière,
+Accrochant follement aux herbes des haillons
+D'argent ; où le soleil, de la montagne fière,
+Luit : c'est un petit val qui mousse de rayons.}% « Le dormeur du val », Arthur Rimbaud
+\begingroup% dans ce groupe
+\renewcommand\showitemsmacro[1]{% aller à la ligne (\par) après chaque élément
+	\begingroup\fboxsep=0.25pt \fboxrule=0.5pt \fbox{\strut#1}\endgroup\par
+}
+Showitems[] =
+\showitems\poeme
+\endgroup% revenir à la macro \showitemsmacro par défaut
+\medbreak
+
+Nombre de vers = \poemelen{} ou \listlen\poeme[]
+Mots du 1\ier{} vers = \showitems\poeme[1]
+Mots du dernier vers = \showitems\poeme[-1]
+4\ieme{} mot du premier vers = "\poeme[1,4]"
+5\ieme{} mot du 3\ieme{} vers = "\poeme[3,5]"
+\medbreak
+
+\textbf{Rimes} :
+\foreachitem\vers\in\poeme{vers \no\verscnt{} : \poeme[\verscnt,-1]\par}
+\endgroup
+\end{document}

@@ -1,0 +1,66 @@
+% !TEX TS-program = pdflatexmk
+% Template file for TeXShop by Michael Sharpe, LPPL
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage[parfill]{parskip}% Begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\pdfmapfile{=libertinust1math.map}
+%SetFonts
+% libertine+newtxmath
+\usepackage[sb]{libertine} % use sb in place of bold
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\makeatletter
+\def\LinuxLibertine@scale{1.2}
+\makeatother
+\usepackage[varqu,varl]{zi4}% inconsolata
+\usepackage{amsmath,amsthm}
+\usepackage[sansmath]{libertinust1math}
+%\usepackage[noamssymbols]{newtxmath}
+% option vvarbb gives you stix blackboard bold
+\useosf % use oldstyle figures except in math
+\usepackage[cal=boondoxo]{mathalfa}% less slanted than STIX cal
+%SetFonts
+\usepackage{booktabs}
+\pagestyle{empty}
+\begin{document}
+%\expandafter\meaning\csname mathsfbfit \endcsname
+{\tt Options=[sansmath]}\\
+
+%\verb|\mathsf{x}+\mathsfbf{y}+\mathsfbfit{z}+\mathsfit(w)|}
+%\[\mathsf{x}\quad+\]
+%\quad\mathsfbf{y}\quad+\quad\mathsfbfit{z}\quad\text{$\backslash$mathsfit is undefined}\]
+The boundedness of $\Phi_ 0$ then yields
+\[\int_D|\overline\partial u|^2e^{\alpha |{z}|^2}\geq c_6\alpha
+\int_{D}|{u}|^2e^{\alpha|{z}|^2}
++c_7\delta^{-2}\int_ A|{u}|^2e^{\alpha|{z}|^2}.\]
+
+Let $B(X)$ be the set of blocks of $\Lambda_{X}$
+and let $b(X) \coloneq |{B(X)}|$. If $\phi \in Q_{X}$ then
+$\phi$ is constant on the blocks of $\Lambda_{X}$.
+\begin{equation}\label{far-d}
+ P_{X} = \{ \phi \in M \mid \Lambda_{\phi} = \Lambda_{X} \},
+\qquad
+Q_{X} = \{\phi \in M \mid \Lambda_{\phi} \geq \Lambda_{X} \}.
+\end{equation}
+If $\Lambda_{\phi} \geq \Lambda_{X}$ then
+$\Lambda_{\phi} = \Lambda_{Y}$ for some $Y \geq X$ so that
+\[ Q_{X} = \bigcup_{Y \geq X} P_{Y}. \]
+Thus by M\"obius inversion
+\[ P_{Y} = \sum_{X\geq  Y} \mu (Y,X)Q_{\hat{X}}.\]
+Thus there is a bijection from $Q_{X}$ to $W^{B(X)}$.
+In particular $ |Q_{X}| = w^{b(X)}$.
+
+
+\ShowMathFonts
+%+\quad\mathsfit{w}\]
+\end{document}  
+
+*** Mathgroups ***
+(0: \LS1/libertinust1math/m/n/12 = libertinust1-mathsfrm at 14.39996pt [operators])
+(1: \LS1/libertinust1math/m/it/12 = libertinust1-mathsfit at 14.39996pt [letters])
+(2: \LS2/libertinust1mathsym/m/n/12 = libertinust1-mathsym at 14.39996pt [symbols])
+(3: \LS2/libertinust1mathex/m/n/12 = libertinust1-mathex at 14.39996pt [largesymbols])
+(4: \LS1/libertinust1mathbb/m/n/12 = libertinust1-mathbb at 14.39996pt [symbolsbb])
+(5: \LS1/libertinust1math/b/n/12 = libertinust1-mathsfrm-bold at 14.39996pt [bold-operators])
+(6: \LS1/libertinust1math/b/it/12 = libertinust1-mathsfit-bold at 14.39996pt [bold-letters])

@@ -1,0 +1,250 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage[english]{babel}%
+\usepackage[latin1]{inputenc}%
+\usepackage[T1]{fontenc}%
+\usepackage{textcomp}%
+\usepackage{lmodern}%
+\usepackage{bera}%
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[symbol]{footmisc}
+\usepackage{endnotes}
+\usepackage[svgnames,rgb]{xcolor}%
+\usepackage{tikz}%
+\usepackage{ragged2e}%
+\usepackage{url}%
+\usepackage[automark,nouppercase]{scrpage2}%
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=NavyBlue,linkcolor=NavyBlue,citecolor=CornflowerBlue,naturalnames=true,hypertexnames=false,breaklinks=true,pdfauthor={Josef Kleber},pdftitle={A bash script for installing a LaTeX font family},pdfsubject={Documentation for the installfont(-tl) script}}
+\renewcommand{\arraystretch}{1.2}
+\newcommand\Link[2]{\href{#1}{#2}\endnote{\href{#1}{\url{#1}}}}
+\makeatletter
+\setlength{\headheight}{1.1\baselineskip}%
+%
+\renewcommand{\maketitle}%
+{%
+  \thispagestyle{empty}%
+  \pagecolor{Ivory}%
+  \begin{titlepage}%
+    \begin{tikzpicture}[remember picture,overlay]%
+      \node[yshift=-2cm] at (current page.north west)%
+      {%
+        \begin{tikzpicture}[remember picture, overlay]%
+          \draw[fill=CornflowerBlue,color=CornflowerBlue] (0,0) rectangle%
+            (\paperwidth,2cm);%
+          \draw[anchor=west,yshift=-4cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\RaggedRight\Huge\sffamily\textbf{\@title}}};%
+          \draw[anchor=west,yshift=-6cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\huge\sffamily\textbf{\@fileversion}}};%
+          \draw[anchor=west,yshift=-9cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\RaggedRight\huge\sffamily\textbf{\@subtitle}}};%
+          \draw[anchor=west,yshift=-14cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\huge\sffamily\textbf{\@date}}};%
+          \draw[anchor=west,yshift=-20cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\Large\sffamily{\@authorline\\\textbf{\@author}}}};%
+        \end{tikzpicture}%
+      };%
+      \node[yshift=0cm] at (current page.south west)%
+      {%
+        \begin{tikzpicture}[remember picture, overlay]%
+          \draw[fill=NavyBlue,color=NavyBlue,yshift=6cm,xshift=2cm] (0,0) rectangle (0.2cm,19cm);%
+          \draw[fill=CornflowerBlue,color=CornflowerBlue] (0,0) rectangle (\paperwidth,2cm);%
+          \draw[anchor=west,yshift=1cm,xshift=3cm,color=NavyBlue] (0,0) node%
+            {\parbox{15cm}{\large\sffamily{\@refline}}};%
+        \end{tikzpicture}%
+      };%
+    \end{tikzpicture}%
+  \end{titlepage}%
+  \pagecolor{white}%
+}%
+%
+\newcommand*{\@tikzhead}[1]%
+{%
+  \begin{tikzpicture}[remember picture,overlay]%
+    \node[yshift=-2cm] at (current page.north west)%
+    {%
+      \begin{tikzpicture}[remember picture, overlay]%
+        \draw[fill=CornflowerBlue] (0,0) rectangle (\paperwidth,2cm);%
+        \draw[anchor=west,yshift=1cm,xshift=1.5cm,color=NavyBlue] (0,0) node%
+          {\parbox{15cm}{\LARGE\sffamily\textbf{\@title}}};%
+        \node[anchor=east,xshift=.9\paperwidth,rectangle,%
+              rounded corners=15pt,inner sep=11pt,fill=NavyBlue]%
+              {\color{white}\textsc{#1}};%
+      \end{tikzpicture}%
+    };%
+  \end{tikzpicture}%
+}%
+\clearscrheadings%
+\ihead{\@tikzhead{\headmark}}%
+\cfoot{\upshape\thepage}%
+\pagestyle{scrheadings}%
+%
+%\newcommand*{\headline}[1]{\@mkboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}%
+\newcommand*{\Headline}[1]{\@mkboth{#1}{#1}}%
+%
+\renewcommand{\headfont}{\normalfont\mdseries\scshape}
+%
+\gdef\@subtitle{}%
+\providecommand*{\Subtitle}[1]{\gdef\@subtitle{#1}}%
+\gdef\@fileversion{}%
+\providecommand*{\Fileversion}[1]{\gdef\@fileversion{#1}}%
+\gdef\@author{}%
+\providecommand*{\Author}[1]{\gdef\@author{#1}}%
+\gdef\@authorline{Package author:}%
+\providecommand*{\Authorline}[1]{\gdef\@authorline{#1}}%
+\gdef\@refline{}%
+\providecommand*{\Refline}[1]{\gdef\@refline{#1}}%
+\gdef\and{\unskip{}, }%
+\newcommand\doubledash{-\kern0.5pt-}
+\def\enoteformat{\rightskip\z@ \leftskip\z@ \parindent=1em\leavevmode\llap{\makeenmark}}
+\makeatother
+\begin{document}
+\setlength{\parindent}{0pt}
+\setfnsymbol{wiley}
+\renewcommand\notesname{Links}
+\title{\texttt{installfont(-tl)}}
+\Subtitle{A bash script for installing a \LaTeX{} font family}
+\Fileversion{v1.7}
+\Authorline{Package author:}
+\Author{Josef Kleber}
+\Refline{\href{mailto:josef.kleber@gmx.de}{\texttt{josef.kleber@gmx.de}}\\\href{https://bitbucket.org/kleberj/installfont/}{\texttt{https://bitbucket.org/kleberj/installfont/}}}
+\maketitle
+\Headline{Abstract}
+\vspace*{3cm}
+\begin{abstract}
+With this script\footnote{This script automates the procedure described in 'Tutorial I
+The Basics' in 
+\href{ftp://dante.ctan.org/tex-archive/info/Type1fonts/fontinstallationguide/fontinstallationguide.pdf}{fontinstallationguide.pdf}} (installfont for MiKTeX; installfont-tl for TeXLive), you can install a LaTeX font family (Postscript Type1, Truetype, Opentype). It supports font series from light to ultra bold + (faked) small caps + faked slanted, but no expert fonts. The script will rename the fonts automatically (optinal) or will otherwise expect *.afm files and the font files (in Postscript Type1 format!) named in the Karl Berry scheme (e.g. 5nar8a.pfb). After running the script, you should have a working font installation in your local TeX tree.
+\end{abstract}
+\clearpage
+\Headline{Dependencies}
+\section*{Dependencies}
+For using this script the following programms have to be installed:
+\begin{itemize}
+\item Windows
+\begin{itemize}
+\item \Link{http://www.miktex.org/}{MiKTeX} or \Link{http://www.tug.org/texlive/}{TeXLive}
+\item \Link{http://www.cygwin.com/}{cygwin} or any other *nix-like environment with the same funtionality
+
+Download \texttt{setup.exe} and follow the instructions on the \texttt{cygwin} homepage
+\item for installing fonts in other formats than Postscript Type1
+\begin{itemize}
+\item Truetype
+
+Download the \Link{http://gnuwin32.sourceforge.net/packages/ttf2pt1.htm}{ttf2pt1 Installer}, install \texttt{ttf2pt1} and add the installation directory to your \texttt{PATH}
+\item Opentype
+
+Download the \Link{ftp://akagi.ms.u-tokyo.ac.jp/pub/TeX/win32/lcdf-typetools-w32.tar.xz}{LCDF Typetools} and run (bash/cygwin)\newline\texttt{unxz lcdf-typetools-w32.tar.xz} followed by \newline\texttt{tar -xf lcdf-typetools-w32.tar} and add the \texttt{bin} directory to the \texttt{PATH}. You need to install \Link{http://www.ghostscript.com/}{Ghostscript} if you are using TeXLive!
+\end{itemize}
+\end{itemize}
+\item *nix
+\begin{itemize}
+\item \Link{http://www.tug.org/texlive/}{TeXLive}
+\item Ghostscript (pf2afm)
+\item for installing fonts in other formats than Postscript Type1
+\begin{itemize}
+\item Truetype
+
+Install the \texttt{ttf2pt1} package with your distribution package manager or download a package from a \Link{http://packages.ubuntu.com/search?lang=en&keywords=ttf2pt1}{webpage}.
+\item Opentype
+
+Install the \texttt{lcdf-typetools} package with your distribution package manager or download a package from a \Link{http://packages.ubuntu.com/search?lang=en&keywords=lcdf-typetools}{webpage}. Should be available in recent versions of TeXLive! 
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+You can also convert the font manually, e.g. with \Link{http://fontforge.sourceforge.net/}{Fontforge}. Load the font, reencode the font to 'Adobe Standard' and generate the font (PS Type1 (Binary)).
+\clearpage
+\Headline{The font(s)}
+\section*{The font(s)}
+The core part of the script needs the font(s) in Postscript Type1 format and named in Karl Berry scheme. It can try to convert and to rename the font(s) and afm files for you by analyzing the afm files. If it fails\footnote{feel free to contact the author, so that another search pattern can be added to \texttt{grep} command(s)} you will have to rename the font(s) and afm files on your own. The Karl Berry scheme expects a file to be named like this:
+
+\begin{center}
+\begin{tabular}{cccc}
+$\underbrace{\text{\strut fxx}}_{\text{font family}}$ & $\underbrace{\text{\strut y(y)}}_{\text{font cut}}$ & $\underbrace{\text{\strut zz}}_{\text{font encoding}}$ & .pfb
+\end{tabular}
+\end{center}
+
+
+with the following meaning:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{rlX}
+f & supplier (type foundry) & p (Adobe), l (Linotype), f (small foundries, free), ...\\
+xx & typeface & tm (Times), ch (Charter), hv (Helvetica), ...\\
+y(y) & weights/variants & r~(regular/medium), ri~(regular/medium italic), rc~(regular/medium small caps), b~(bold), bi~(bold italic), bc~(bold small caps), l~(light), li~(light italic), lc~(light small caps), s~(semi bold), si~(semi bold italic), sc~(semi bold small caps), d~(demi), di~(demi italic), dc~(demi small caps), x~(extra bold), xi~(extra bold italic), xc~(extra bold small caps), u~(ultra bold/heavy), ui~(ultra bold/heavy italic), uc~(ultra bold/heavy small caps)\\
+zz & font encoding & 8a (AdobeStandardEncoding), 8r (\TeX\ base encoding), ...\\
+\end{tabularx}
+\end{center}
+
+The script supports the cuts presented in the table. Don't copy more than these cuts into your working directory, otherwise the automatic renaming will quite likely fail! It will add faked slanted cuts and faked small caps, if there are no real small caps fonts. If you only have one font cut, it will be installed as regular font. If you want more information about Karl Berry scheme read:
+
+\medskip\texttt{texdoc fontname}
+
+\clearpage
+\Headline{Options}
+\section*{Options}
+
+The style file created with this script offers the following options:
+
+\begin{itemize}
+\item scaled
+
+You can use the option \texttt{scaled} for scaling the font to better match with other fonts.
+
+\item leading
+
+For some fonts it might be necessary to increase the leading between lines for a better optical impression, where 1.0 means 100\%.
+\end{itemize}
+
+\Headline{Usage}
+\section*{Usage}
+
+To install a font family simply call the script:
+
+\bigskip
+\texttt{kleberj@home \texttildelow{}/installfont\\\$ installfont -f 5na -n 'Softmaker Nashville' -c Nashville -P MF@Sna\\-v v1.0 -l /cygdrive/d/LocalTeXMF -s MyFonts/Nashville -p nashville\\-m nashville -O -d 2010/09/14}
+\bigskip
+
+You can also put a copy of the script in your working directory and change the default values of the script variables. Then you can simply call the script with
+
+\bigskip
+\texttt{kleberj@home \texttildelow{}/installfont\\\$ ./installfont}
+\bigskip
+
+After running the script the font(s) should be properly installed. You can use the font just with \texttt{\textbackslash{}usepackage\{PACKAGENAME\}} or \texttt{\textbackslash{}FONTCOMMAND}.
+
+\clearpage
+The script offers the following command line options:
+
+\bigskip
+\begin{tabularx}{\linewidth}{llX}
+\texttt{-f} & \texttt{\doubledash fontfamily} & Name of the LaTeX font family, e.g. ptm (Adobe Times)\\
+\texttt{-n} & \texttt{\doubledash fontname} & Font name, e.g. Adobe Times\\
+\texttt{-c} & \texttt{\doubledash fontcommand} & Name of the command that will switch to the font\\
+\texttt{-P} & \texttt{\doubledash fontscaleprefix} & prefix of the scale macro, which should be different for each font (no digits allowed)\\
+\texttt{-t} & \texttt{\doubledash fonttype} & Font type (pst1(default)|ttf|otf)\\
+\texttt{-p} & \texttt{\doubledash packagename} & Name of the LaTeX package\\
+\texttt{-d} & \texttt{\doubledash packagedate} & Date of the LaTeX package\\
+\texttt{-v} & \texttt{\doubledash packageversion} & Version of the LaTeX package\\
+\texttt{-l} & \texttt{\doubledash localtexmf} & root of your local TeX tree, e.g. \newline\texttt{/cygdrive/c/LocalTeXMF}\newline (TeXLive version default: \texttt{\$TEXMFLOCAL)}\\
+\texttt{-s} & \texttt{\doubledash fontsubdir} & location where the fonts and support files should be installed, e.g. \texttt{MyFonts/AdobeTimes}\\
+\texttt{-e} & \texttt{\doubledash fontencoding} & encoding of the font (default: 8a (AdobeStandardEncoding))\\
+\texttt{-o} & \texttt{\doubledash otffontfeatures} & choosing Opentype font features (default: -fkern -fliga)\\
+\texttt{-m} & \texttt{\doubledash mapfilename} & file name of the map file (without .map)\\
+\texttt{-u} & \texttt{\doubledash uninstall} & will uninstall the font family. You must specify \mbox{\texttt{\doubledash localtexmf}} and \texttt{\doubledash fontsubdir}\\
+\texttt{-R} & \texttt{\doubledash rmdefault} & installs font family as roman (serif) font family (default)\\
+\texttt{-S} & \texttt{\doubledash sfdefault} & installs font family as sans serif font family\\
+\texttt{-T} & \texttt{\doubledash ttdefault} & installs font family as typewriter font family\\
+\texttt{-O} & \texttt{\doubledash origfontname} & use original font names instead of Karl Berry names\\
+\texttt{-a} & \texttt{\doubledash admin} & set administrative mode (MiKTeX v2.8+)\\
+\texttt{-V} & \texttt{\doubledash version} & will print the version number of the script\\
+\texttt{-L} & \texttt{\doubledash log} & will redirect the terminal output of the programms to the LOG file\\
+\texttt{-h} & \texttt{\doubledash help} & will print this help statement\\
+\end{tabularx}
+
+\clearpage
+\theendnotes
+\end{document}

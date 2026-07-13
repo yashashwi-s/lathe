@@ -1,0 +1,1309 @@
+\documentclass{slixte}
+
+\title{Using the Slixte class}
+\subtitle{a step-by-step guide}
+\author{Beno{\^i}t Corsini}
+\info{\url{\clsurl}}
+
+\addsection[\faFolderOpenO]{The Slixte class}
+\addsection[\faMapO]{Environments and commands}
+\addsection[\faScissors]{Customizing the slides}
+\addsection[\faCode]{Going further}
+
+\def\clsurl{https://ctan.org/pkg/slixte}
+
+\newcommand{\codetext}[1]{\texttt{\color{second}#1}}
+\newcommand{\cmdt}[1]{\char`\\#1}
+\newcommand{\cbrl}{\char`\{}
+\newcommand{\cbrr}{\char`\}}
+\newcommand{\cbrt}[1]{\cbrl#1\cbrr}
+\newcommand{\cben}{Beno\cbrt{\char`\\\char`^i}t}
+\newcommand{\codeline}[2][0]{\spacing[0.1]\hspace{-1.2cm}\codetext{\foreach\i in {0,...,#1}{~~~~}#2}\par}
+\newcommand{\sptm}[1]{\textit{\color{third}#1}}
+
+\newcommand{\slixte}{\href{\clsurl}{\color{first}Slixte}}
+\newcommand{\overleaf}{\href{www.overleaf.com}{\color{first}Overleaf}}
+\newcommand{\beamer}{\href{https://ctan.org/pkg/beamer}{\color{first}Beamer}}
+\newcommand{\tikzref}{\href{https://en.wikipedia.org/wiki/PGF/TikZ}{\color{first}TikZ}}
+
+\newtoggle{examples}
+\toggletrue{examples}
+\newtoggle{exercises}
+\toggletrue{exercises}
+\newtoggle{qr}
+
+\renewcommand{\frontpage}{
+    \iftoggle{qr}
+        {\node[anchor=north east, inner sep=0cm, outer sep=0cm]
+        at (\paperwidth - 0.2cm, \paperheight - 0.2cm)
+        {\includegraphics[height=2cm]{logo.png}};}
+        {}
+}
+
+\begin{document}
+
+\titlepage
+
+\toggletrue{qr}
+
+\toc
+
+\section
+
+\begin{tikzslide}[Importing the class]
+    \content{
+    To download the \slixte{} class, click on the link below or scan the QR code at the top.
+    \[\textrm{\color{first}\url{\clsurl}}\]
+
+    \spacing[1]
+
+    Once the class is downloaded, place the file \codetext{slixte.cls} in the same folder as the \codetext{.tex} file you will use for the slides (for example placing it in the main \overleaf{} project).
+
+    \spacing[1]
+
+    You are now ready to use the \slixte{} class!
+    Get started either by using the file \codetext{template.tex} provided with the class, or by replacing the first line of your own file with
+
+    \spacing
+
+    \codeline{\cmdt{documentclass}\cbrt{slixte}}
+    }
+\end{tikzslide}
+
+\begin{slide}[Creating your first slides]
+    By simply replacing the original class with the \slixte{} class and compiling the document, several errors likely arise.
+    \begin{itemize}
+        \fillitem There might be unrecognized commands in your main document. It might be easier to remove everything at the start.
+        \fillitem If the main document is empty, an error will arise. To alleviate this issue, simply write the command \codetext{\cmdt{titleslide}} in your main document.
+        \fillitem By default the \slixte{} class requires two image files: \codetext{background.png} and \codetext{logo.png}.
+        \begin{itemize}
+            \emptyitem You can either use your own images, or use the default ones from the package.
+            \emptyitem We will see in the section \tosection{3} how to change the default files or completely remove these images.
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Basic structure of the class]
+    The \slixte{} class creates slides, each occupying a full page.
+    It is mostly powered by the \beamer{} class and the \tikzref{} package.
+    There are several ways to create a new slide.
+    \begin{itemize}
+        \fillitem Using predefined full-page commands.
+        \begin{itemize}
+            \emptyitem Title page: \codetext{\cmdt{titleslide}}, \codetext{\cmdt{titlepage}}, or \codetext{\cmdt{maketitle}}.
+            \emptyitem Table of contents: \codetext{\cmdt{tableofcontents}} or \codetext{\cmdt{toc}}.
+            \emptyitem Final page: \codetext{\cmdt{finalslide}}, \codetext{\cmdt{finalpage}}, or \codetext{\cmdt{makefinal}} (all taking an optional argument for the text to appear, and using the color \codetext{final} for the central text).
+        \end{itemize}
+        \fillitem Using one of the two slide environments.
+        \begin{itemize}
+            \emptyitem Generic slide: \codetext{\cmdt{begin}\cbrt{slide}...\cmdt{end}\cbrt{slide}}.
+            \emptyitem Tikzslide: \codetext{\cmdt{begin}\cbrt{tikzslide}...\cmdt{end}\cbrt{tikzslide}}.
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[The slide environment]
+    The \codetext{slide} environment created by calling \codetext{\cmdt{begin}\cbrt{slide}...\cmdt{end}\cbrt{slide}} creates a new slide taking one page.
+    \begin{itemize}
+        \fillitem Whatever is placed between the \codetext{\cmdt{begin}\cbrt{slide}} and \codetext{\cmdt{end}\cbrt{slide}} is standard text.
+        \fillitem It is possible to set a title to the slide (otherwise empty) by using an optional argument within square brackets: \codetext{\cmdt{begin}\cbrt{slide}[Title]...\cmdt{end}\cbrt{slide}}.
+    \end{itemize}
+
+    \iftoggle{examples}{
+    
+    \spacing[1]
+
+    Try adding the following code within your main document.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{slide}[A slide]}
+    \codeline[1]{The text within the slide.}
+    \codeline{\cmdt{end}\cbrt{slide}}
+    }{}
+\end{slide}
+
+\begin{slide}[The tikzslide environment]
+    The \codetext{tikzslide} environment created by calling \codetext{\cmdt{begin}\cbrt{tikzslide}...\cmdt{end}\cbrt{tikzslide}} creates a new slide taking one page.
+    \begin{itemize}
+        \fillitem Whatever is placed between the \codetext{\cmdt{begin}\cbrt{tikzslide}} and \codetext{\cmdt{end}\cbrt{tikzslide}} belongs to a \codetext{tikzpicture} environment as provided by the \tikzref{} package.
+        \fillitem The position of the origin can be modified (see \tosection{3} for more details).
+        \fillitem It is possible to set a title to the slide (otherwise empty) by using an optional argument within square brackets: \codetext{\cmdt{begin}\cbrt{tikzslide}[title]...\cmdt{end}\cbrt{tikzslide}}.
+        \fillitem Using the \codetext{\cmdt{content}\cbrt{...}} command within the \codetext{tikzslide} environment places text as if it was part of a standard \codetext{slide} environment.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[The tikzslide environment (example)]
+    Try adding the following code within your main document.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{tikzslide}[A tikzslide]}
+    \codeline[1]{\cmdt{foreach} \cmdt{n} in \cbrt{1,...,9} \cbrl}
+    \codeline[2]{\cmdt{node}[draw, circle, first] at (\cmdt{n}, \cmdt{n})\cbrt{};}
+    \codeline[1]{\cbrr}
+    \codeline[1]{\cmdt{content}\cbrl}
+    \codeline[2]{Some text inside the tikzslide.}
+    \codeline[1]{\cbrr}
+    \codeline{\cmdt{end}\cbrt{tikzslide}}
+\end{slide}
+}{}
+
+\section
+
+\begin{slide}[\sectionname]
+    This section covers the following (clickable) topics.
+    \begin{itemize}
+        \fillitem \hyperlink{basic:global}{Global inputs}.
+        \fillitem \hyperlink{basic:section}{Sections}.
+        \fillitem \hyperlink{basic:list}{Basic commands and environments}.
+        \fillitem \hyperlink{basic:frames}{Framed environments}.
+        \fillitem \hyperlink{basic:refs}{References}.
+        \fillitem \hyperlink{basic:moving}{Moving around the document}.
+        \fillitem \hyperlink{basic:final}{Final useful commands}.
+        \iftoggle{exercises}{\fillitem \hyperlink{basic:exercise}{Exercises}.}{}
+    \end{itemize}
+\end{slide}
+
+\hypertarget{basic:global}{}
+\begin{slide}[Global inputs]
+    The \slixte{} class contains 4 global inputs.
+    These should preferably be set in the preamble, but can also be changed within the main part of the document without creating errors.
+    \begin{itemize}
+        \fillitem The title of the slides, modified by calling \codetext{\cmdt{title}\cbrt{...}}. By default the title appears at the bottom left part of any slide (this can be changed, see \tosection{3}).
+        \fillitem The subtitle of the slides, modified by calling \codetext{\cmdt{subtitle}\cbrt{...}}. This parameter is only used for the title page of the document.
+        \fillitem The author of the slides, modified by calling \codetext{\cmdt{author}\cbrt{...}}. By default the author appears at the bottom right part of any slide (to change, see \tosection{3}).
+        \fillitem Extra info for the slides, modified by calling \codetext{\cmdt{info}\cbrt{...}}. This parameter is only used for the title page of the document.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Global inputs (example)]
+    To re-create the title page of this document, include the following in the preamble.
+
+    \spacing
+
+    \codeline{\cmdt{title}\cbrt{Using the Slixte class}}
+    \codeline{\cmdt{subtitle}\cbrt{a step-by-step guide}}
+    \codeline{\cmdt{author}\cbrt{\cben{} Corsini}}
+    \codeline{\cmdt{info}\cbrt{\cmdt{url}\cbrt{https://ctan.org/pkg/slixte}}}
+
+    \spacing[1]
+
+    You can also check that this can be changed dynamically within the document.
+
+    \spacing
+
+    \codeline{\cmdt{titleslide}}
+    \codeline{\cmdt{author}\cbrt{Someone Else}}
+    \codeline{\cmdt{titleslide}}
+\end{slide}
+}{}
+
+\hypertarget{basic:section}{}
+\begin{slide}[Sections]
+    The \slixte{} class lets you organize the document in sections, although with a slightly different structure than usual.
+    \begin{itemize}
+        \fillitem The preamble should include all the sections of the document, created via the command \codetext{\cmdt{addsection}[symbol]\cbrt{section name}}. The \codetext{symbol} argument is optional and set to \codetext{\$\cmdt{bullet}\$} by default.
+        \fillitem Then, within the main part of the document, a new section is specified by calling the function \codetext{\cmdt{section}} without any input.
+        \begin{itemize}
+            \emptyitem The section will naturally be used in the order they were created in the preamble.
+            \emptyitem If the command \codetext{\cmdt{section}} is called more times than \codetext{\cmdt{addsection}}, no compilation error will arise but the intermediate table of contents will be empty and the section name at the bottom of the page will not be updated.  
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Sections (example)]
+    Try adding the following code within your preamble.
+
+    \spacing
+
+    \codeline{\cmdt{addsection}\cbrt{A standard section}}
+    \codeline{\cmdt{addsection}[\$\cmdt{times}\$]\cbrt{A section symbolized by a cross}}
+
+    \spacing[1]
+
+    And add this code within your main document.
+
+    \spacing
+
+    \codeline{\cmdt{section}}
+    \codeline{\cmdt{begin}\cbrt{slide}[A standard slide]\cmdt{end}\cbrt{slide}}
+    \codeline{\cmdt{section}}
+    \codeline{\cmdt{begin}\cbrt{slide}[A slide from the cross section]\cmdt{end}\cbrt{slide}}
+    \codeline{\cmdt{section}}
+    \codeline{\cmdt{begin}\cbrt{slide}[An unclear slide]\cmdt{end}\cbrt{slide}}
+\end{slide}
+}{}
+
+\hypertarget{basic:list}{}
+\begin{slide}[Basic commands and environments]
+    The \slixte{} class contains various useful commands and environments.
+    \begin{itemize}
+        \fillitem Item commands to standardize the style within each \codetext{itemize} environment.
+        \begin{itemize}
+            \emptyitem \codetext{\cmdt{citem}[color]\cbrt{item}} which creates custom colored items.
+            \emptyitem \codetext{\cmdt{fillitem}[color]} which creates colored and filled dots; equivalent to using \codetext{\cmdt{citem}[color]\cbrt{\$\cmdt{bullet}\$}}.
+            \emptyitem \codetext{\cmdt{emptyitem}[color]} which creates colored and empty dots; equivalent to using \codetext{\cmdt{citem}[color]\cbrt{\$\cmdt{circ}\$}}.
+        \end{itemize}
+        \fillitem Other environments useful for transitions.
+        \begin{itemize}
+            \emptyitem \codetext{alert}, \codetext{remark}, \codetext{pointer}, and \codetext{question} environments, all with a single optional argument further explained on the next slide.
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Basic commands and environments]
+    \begin{alert}
+        This is the default \codetext{alert} environment.
+        The alert symbol can be modified by entering an optional argument to the environment.
+        
+        This environment is the fundamental one used to create all subsequent ones.
+    \end{alert}
+
+    \spacing
+
+    \begin{remark}
+        This is the default \codetext{remark} environment.
+        The ``Note'' text can be modified by entering an optional argument to the environment.
+    \end{remark}
+
+    \spacing
+
+    \begin{pointer}
+        This is the default \codetext{pointer} environment.
+        The color of the arrow can be modified by entering an optional argument to the environment.
+    \end{pointer}
+
+    \spacing
+
+    \begin{question}
+        This is the default \codetext{question} environment.
+        The color of the text can be modified by entering an optional argument to the environment.
+    \end{question}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Basic commands and environments (example)]
+    Try putting the following code within a \codetext{slide} environment.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{itemize}}
+    \codeline[1]{\cmdt{fillitem} A filled bullet.}
+    \codeline[1]{\cmdt{emptyitem}[second] An empty circle.}
+    \codeline[1]{\cmdt{citem}[third]\cbrt{3.}{} A custom item.}
+    \codeline{\cmdt{end}\cbrt{itemize}}
+    \codeline{}
+    \codeline{\cmdt{begin}\cbrt{question}A question worth asking?\cmdt{end}\cbrt{question}}
+    \codeline{\cmdt{begin}\cbrt{remark}[Answer]}
+    \codeline[1]{A remark that is actually an answer.}
+    \codeline{\cmdt{end}\cbrt{remark}}
+\end{slide}
+}{}
+
+\hypertarget{basic:frames}{}
+\begin{slide}[Framed environments]
+    As it is intended for scientific presentations, the \slixte{} class contains a few pre-implemented framed environments to highlight results.
+    \begin{itemize}
+        \fillitem The fundamental \codetext{result} environment, taking two arguments, and applied by calling \codetext{\cmdt{begin}\cbrt{result}\cbrt{...}\cbrt{...}...\cmdt{end}\cbrt{result}}.
+        \begin{itemize}
+            \emptyitem The first parameter is the desired name of the type of result.
+            \emptyitem The second parameter is the information on the result; when not empty, it will appear between brackets.
+        \end{itemize}
+        \fillitem The \codetext{theorem}, \codetext{definition}, and \codetext{problem} environments.
+        \begin{itemize}
+            \emptyitem All three are based on the \codetext{result} environment.
+            \emptyitem They take one optional argument corresponding to the info of the result.
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Framed environments]
+    \begin{definition}
+        This is a generic definition, without any optional parameter specified.
+    \end{definition}
+
+    \spacing[1]
+
+    \begin{definition}[More specific]
+        This is a more specific definition, with extra information specified.
+    \end{definition}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Framed environments (example)]
+    Try putting the following code within a \codetext{slide} environment.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{result}\cbrt{Quotation}\cbrt{}}
+    \codeline[1]{``You can create your own result box.''\ - \cben}
+    \codeline{\cmdt{end}\cbrt{result}}
+    \codeline{}
+    \codeline{\cmdt{begin}\cbrt{result}\cbrt{Quotation}\cbrt{\cben, Now}}
+    \codeline[1]{You can create your own result box.}
+    \codeline{\cmdt{end}\cbrt{result}}
+\end{slide}
+
+\begin{slide}[Framed environments (example)]
+    Try putting the following code within a \codetext{slide} environment.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{definition}}
+    \codeline[1]{A general definition that everyone should know.}
+    \codeline{\cmdt{end}\cbrt{definition}}
+    \codeline{}
+    \codeline{\cmdt{begin}\cbrt{definition}[Math]}
+    \codeline[1]{A math definition that some people should know.}
+    \codeline{\cmdt{end}\cbrt{definition}}
+\end{slide}
+}{}
+
+\hypertarget{basic:refs}{}
+\begin{slide}[References]
+    On top of framed results, the \slixte{} class supports references.
+    \begin{itemize}
+        \fillitem A new reference is created by calling the \codetext{\cmdt{addref}} command, which takes five arguments.
+        \begin{itemize}
+            \emptyitem While it is not mandatory to follow this order, the arguments are intended to be: the name of the reference, the author(s), the year, the title, and the journal.
+            \emptyitem The name of the reference, corresponding to the first input of the \codetext{\cmdt{addref}} command, will appear as a superscript within the document.
+        \end{itemize}
+        \fillitem The references created can then be called anywhere in the document by using the \codetext{\cmdt{citeref}\cbrt{refname}} command.
+        \fillitem The reference page can be shown anywhere in the document using the \codetext{\cmdt{refslide}}, \codetext{\cmdt{refpage}}, or \codetext{\cmdt{makeref}} command.
+        All three commands take an optional input as the title of the reference slide.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[References (example)]
+    Try adding the following code within your preamble.
+
+    \spacing
+
+    \codeline{\cmdt{addref}\cbrt{Y}\cbrt{You}\cbrt{yesterday}\cbrt{Math?}\cbrt{online}}
+    \codeline{\cmdt{addref}\cbrt{Me}\cbrt{Me}\cbrt{today}\cbrt{Math!}\cbrt{in-class}}
+
+    \spacing[1]
+
+    And add this code within your main document.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{slide}}
+    \codeline[1]{You said something yesterday\cmdt{citeref}\cbrt{Y},}
+    \codeline[1]{and I only replied now\cmdt{citeref}\cbrt{Me}.}
+    \codeline{\cmdt{end}\cbrt{slide}}
+    \codeline{\cmdt{refslide}}
+\end{slide}
+}{}
+
+\hypertarget{basic:moving}{}
+\begin{slide}[Moving around the document]
+    To simplify the use of the resulting file, both when writing and presenting the slides, the \slixte{} class includes a few automated links.
+    \begin{itemize}
+        \fillitem Clicking on the title (by default at the bottom left) brings you back to the title page.
+        \fillitem Clicking on the author (by default at the bottom right) brings you to the final page.
+        \fillitem Clicking on the section name (by default at the bottom and in the middle) brings you to the beginning of the section. This also applies to any section from the table of contents.
+        \fillitem Clicking on a reference (from the document) brings you to the reference page.
+        \fillitem Clicking on a reference (from the reference page) brings you to the first page where this reference is used.
+    \end{itemize}
+
+    \spacing[1]
+
+    \begin{remark}
+        When the clicking target does not exist, you are brought to the first page.
+    \end{remark}
+\end{slide}
+
+\hypertarget{basic:final}{}
+\begin{slide}[Final useful commands]
+    On top of the previous fundamental commands and environments, and before moving to more advanced methods, the \slixte{} class also implements various useful commands.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{spacing}[length]} which creates vertical space (in cm, by default \codetext{0.5}).
+        \fillitem \codetext{\cmdt{tosection}\cbrt{}} which creates direct links to sections (colored using \codetext{tosection}).
+        \fillitem \codetext{\cmdt{break}}, equivalent to the \codetext{\cmdt{pause}} command for \beamer{}.
+        \fillitem \codetext{\cmdt{showon}[window]\cbrt{...}}, equivalent to \codetext{\cmdt{onslide}<window>\cbrt{...}} for \beamer{}.
+        \fillitem \codetext{\cmdt{makeon}[window]\cbrt{...}}, equivalent to \codetext{\cmdt{only}<window>\cbrt{...}} for \beamer{}.
+        \fillitem \codetext{\cmdt{spliton}} and \codetext{\cmdt{splitoff}}, which switches on/off the previous three commands (useful for removing slide splits when creating the slides).
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Final useful commands (example)]
+    Try putting the following code within a \codetext{slide} in various sections.
+
+    \spacing
+
+    \codeline{You can directly go to \cmdt{tosection}\cbrt{1}{} or \cmdt{tosection}\cbrt{2}.}
+    \codeline{}
+    \codeline{\cmdt{spacing}}
+    \codeline{}
+    \codeline{You can also try to go to \cmdt{tosection}\cbrt{0}{} or \cmdt{tosection}\cbrt{10}.}
+    \codeline{}
+    \codeline{\cmdt{spacing}[2]}
+    \codeline{}
+    \codeline{Finally, we can also go to \cmdt{tosection}\cbrt{}.}
+\end{slide}
+
+\begin{slide}[Final useful commands (example)]
+    Try putting the following code within a \codetext{slide} environment.
+
+    \spacing
+
+    \codeline{A text on every slide.}
+    \codeline{\cmdt{break}}
+    \codeline{Some text appearing on the second slide.}
+    \codeline{}
+    \codeline{\cmdt{showon}[3]\cbrt{A line only shown on the third slide.}}
+    \codeline{}
+    \codeline{\cmdt{makeon}[4]\cbrt{A line only made on the fourth slide.}}
+    \codeline{}
+    \codeline{A final line differentiating show and make.}
+\end{slide}
+}{}
+
+\iftoggle{exercises}{
+\hypertarget{basic:exercise}{}
+\begin{slide}[Exercise: create the following slide (1/3)]
+    In this exercise, we are trying to create:
+    \begin{itemize}\break
+        \fillitem A list of items.\break
+        \fillitem With subtasks, such as:\break
+        \begin{itemize}
+            \emptyitem having different types of items;
+            \emptyitem[second] with different colors.
+        \end{itemize}
+    \end{itemize}\break
+
+    \spacing
+
+    \begin{result}{Observation}{}
+        If you can replicate everything on this slide, proceed to the next one.
+        \spacing[1]
+    \end{result}
+\end{slide}
+
+\addref{1}{Slixte}{2000}{Back in the day}{CTAN}
+\addref{?}{Slixte}{Now}{Question}{CTAN}
+\addref{here}{Slixte}{2025}{Reference page}{CTAN}
+\addref{4}{Slixte}{2030}{But also the future}{CTAN}
+
+\begin{slide}[Exercise: create the following slide (2/3)]
+    \showon[1,3-]{\begin{problem}[Me, Now]
+        Can you still create what is in this slide?\citeref{?}
+    \end{problem}}
+    
+    \makeon[2,4]{\spacing
+    \begin{pointer}[third]
+        The solution should be visible\citeref{here}.
+    \end{pointer}}
+    
+    \showon[3-]{\spacing[2]
+    \begin{remark}[Where to]
+        You can also go to the beginning of the current section,
+        also called \tosection{}.
+    \end{remark}}
+\end{slide}
+
+\refslide[Exercise: create the following slide (3/3)]
+
+\setfontsizecontent{0.4cm}
+
+\begin{slide}[Solution (1/3)]
+    \codeline[1]{\cmdt{begin}\cbrt{slide}[Exercise:\ create the following slide (1/3)]}
+    \codeline[2]{In this exercise, we are trying to create:}
+    \codeline[2]{\cmdt{begin}\cbrt{itemize}\cmdt{break}}
+    \codeline[3]{\cmdt{fillitem} A list of items.\cmdt{break}}
+    \codeline[3]{\cmdt{fillitem} With suptasks, such as:\cmdt{break}}
+    \codeline[3]{\cmdt{begin}\cbrt{itemize}}
+    \codeline[4]{\cmdt{emptyitem} having different types of items;}
+    \codeline[4]{\cmdt{emptyitem}[second] with different colors.}
+    \codeline[3]{\cmdt{end}\cbrt{itemize}}
+    \codeline[2]{\cmdt{end}\cbrt{itemize}\cmdt{break}}
+    \codeline{}
+    \codeline[2]{\cmdt{spacing}}
+    \codeline{}
+    \codeline[2]{\cmdt{begin}\cbrt{result}\cbrt{Observation}\cbrt{}}
+    \codeline[3]{If you can replicate everything on this slide,}
+    \codeline[3]{proceed to the next one.}
+    \codeline[3]{\cmdt{spacing}[1]}
+    \codeline[2]{\cmdt{end}\cbrt{result}}
+    \codeline[1]{\cmdt{end}\cbrt{slide}}
+\end{slide}
+
+\begin{slide}[Solution (2/3)]
+    \codeline[1]{\cmdt{addref}\cbrt{1}\cbrt{Slixte}\cbrt{2000}\cbrt{Back in the day}\cbrt{CTAN}}
+    \codeline[1]{\cmdt{addref}\cbrt{?}\cbrt{Slixte}\cbrt{Now}\cbrt{Question}\cbrt{CTAN}}
+    \codeline[1]{\cmdt{addref}\cbrt{here}\cbrt{Slixte}\cbrt{2025}\cbrt{Reference page}\cbrt{CTAN}}
+    \codeline[1]{\cmdt{addref}\cbrt{4}\cbrt{Slixte}\cbrt{2030}\cbrt{But also the future}\cbrt{CTAN}}
+    \codeline{}
+    \codeline[1]{\cmdt{begin}\cbrt{slide}[Exercise:\ create the following slide (2/3)]}
+    \codeline[2]{\cmdt{showon}[1,3-]\cbrl}
+    \codeline[3]{\cmdt{begin}\cbrt{problem}[Me, Now]}
+    \codeline[4]{Can you still create what is in this slide?\cmdt{citeref}\cbrt{?}}
+    \codeline[3]{\cmdt{end}\cbrt{problem}\cbrr}
+    \codeline[2]{\cmdt{makeon}[2,4]\cbrl}
+    \codeline[3]{\cmdt{spacing}}
+    \codeline[3]{\cmdt{begin}\cbrt{pointer}[third]}
+    \codeline[4]{The solution should be visible\cmdt{citeref}\cbrt{here}.}
+    \codeline[3]{\cmdt{end}\cbrt{pointer}\cbrr}
+    \codeline[2]{\cmdt{showon}[3-]\cbrl}
+    \codeline[3]{\cmdt{spacing}[2]}
+    \codeline[3]{\cmdt{begin}\cbrt{remark}[Where to]}
+    \codeline[4]{You can also go to the beginning of the current section,}
+    \codeline[4]{also called \cmdt{tosection}\cbrt{}.}
+    \codeline[3]{\cmdt{end}\cbrt{remark}\cbrr}
+    \codeline[1]{\cmdt{end}\cbrt{slide}}
+\end{slide}
+
+\begin{slide}[Solution (3/3)]
+    \codeline[1]{\cmdt{refslide}[Exercise:\ create the following slide (3/3)]}
+\end{slide}
+\setfontsizecontent{0.9cm}
+}{}
+
+\section
+
+\begin{slide}[\sectionname]
+    This section covers the following (clickable) topics.
+    \begin{itemize}
+        \fillitem \hyperlink{custom:attrs}{Attributes of the class}.
+        \fillitem \hyperlink{custom:design}{Changing the design}.
+        \fillitem \hyperlink{custom:structure}{Customization structure of the class}.
+        \fillitem \hyperlink{custom:titlepage}{Changing the title page}.
+        \fillitem \hyperlink{custom:banner}{Changing the banners}.
+        \fillitem \hyperlink{custom:toc}{Changing the table of contents}.
+        \fillitem \hyperlink{custom:content}{Changing the content of the slides}.
+        \iftoggle{examples}{\fillitem \hyperlink{custom:template}{Possible template}.}{}
+        \fillitem \hyperlink{custom:summary}{Summary of elements and attributes}.
+    \end{itemize}
+\end{slide}
+
+\hypertarget{custom:attrs}{}
+\begin{slide}[Attributes of the class]
+    The \slixte{} class has several optional attributes.
+    \begin{itemize}
+        \fillitem By default, the page is 20cm high, but can be 10cm with \codetext{short} or 100cm with \codetext{tall}.
+        \fillitem The page ratio can be 1/1 with \codetext{square}, 3/2 with \codetext{photo}, 4/3 with \codetext{standard}, or 16/9 with \codetext{widescreen} (default).
+        \fillitem By default, the origin is at the bottom left of the page, but can be centered with \codetext{center}, or the top left of the page (with y going down) with \codetext{upper}.
+        \fillitem It is possible to cover pages with a grid to simplify the placement of items using \codetext{grid}.
+        \fillitem It is possible to show some of the boxes of the nodes on the page by using \codetext{info}.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Attributes of the class (example)]
+    Try the following code along with some of the other parameters.
+
+    \spacing
+    
+    \codeline{\cmdt{documentclass}[short,upper,grid,info]\cbrt{slixte}}
+    \codeline{}
+    \codeline{\cmdt{begin}\cbrt{document}}
+    \codeline[1]{\cmdt{begin}\cbrt{tikzslide}}
+    \codeline[2]{\cmdt{foreach} \cmdt{n} in \cbrt{1,...,9} \cbrl}
+    \codeline[3]{\cmdt{node}[draw, circle, first] at (\cmdt{n}, \cmdt{n})\cbrt{};}
+    \codeline[2]{\cbrr}
+    \codeline[1]{\cmdt{end}\cbrt{tikzslide}}
+    \codeline{\cmdt{end}\cbrt{document}}
+\end{slide}
+}{}
+
+\begin{slide}[Changing the design]
+    The two images used for the slides (\codetext{background} and \codetext{logo}) can be customized as follows
+    \begin{itemize}
+        \fillitem Use the commands \codetext{\cmdt{background}\cbrt{...}} and \codetext{\cmdt{logo}\cbrt{...}} to change the files.
+        \fillitem Use the commands \codetext{\cmdt{showbackground}}, \codetext{\cmdt{hidebackground}}, \codetext{\cmdt{showlogo}}, and \codetext{\cmdt{hidelogo}} to either show or hide the background and logo.
+    \end{itemize}
+
+    \spacing
+
+    It is also possible to customize the color scheme.
+    \begin{itemize}
+        \fillitem There are five default colors used for the slides: \codetext{text} (black), \codetext{page} (white), \codetext{first} (green), \codetext{second} (purple), and \codetext{third} (red).
+        \fillitem These colors can directly be changed using \codetext{\cmdt{definecolor}} or \codetext{\cmdt{colorlet}}.
+        \fillitem Other color parameters will automatically be used when defined: \codetext{titlepage}, \codetext{author}, \codetext{slideheader}, \codetext{section}, \codetext{ref}, etc. A complete summary of these parameters can be found at the \hyperlink{custom:summary}{\color{first}end of the section}.
+    \end{itemize}
+\end{slide}
+
+\hypertarget{custom:design}{}
+\begin{slide}[Changing the design]
+    On top of the files and whether they appear or not, the \codetext{background} and \codetext{logo} can also be moved around.
+    We focus here on the \codetext{background} parameters, but all the commands below can also be applied to the \codetext{logo}.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{backgroundx}} and \codetext{\cmdt{backgroundy}}: the position on the page of the \codetext{background}.
+        \fillitem \codetext{\cmdt{backgroundwidth}} and \codetext{\cmdt{backgroundheight}}: the size of the \codetext{background}.
+        \fillitem \codetext{\cmdt{backgroundanchor}}: the \tikzref{} anchor of the background.
+    \end{itemize}
+
+    \spacing[1]
+
+    \begin{remark}
+        By default, only \codetext{\cmdt{backgroundanchor}} is defined and set to \codetext{center}.
+        The other four parameters are automatically adapted to fit the structure of the slides (\codetext{short}, \codetext{tall}, \codetext{upper}, etc).
+
+        The other four parameters can be defined using \codetext{\cmdt{newlength}} or directly with \codetext{\cmdt{def}}.
+    \end{remark}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Changing the design (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{logo}\cbrt{background.png}}
+    \codeline{\cmdt{definecolor}\cbrt{titlepage}\cbrt{RGB}\cbrt{0, 100, 255}}
+    \codeline{\cmdt{colorlet}\cbrt{author}\cbrt{first}}
+    \codeline{\cmdt{titleslide}}
+    \codeline{\cmdt{hidelogo}}
+    \codeline{\cmdt{def}\cmdt{backgroundanchor}\cbrt{south west}}
+    \codeline{\cmdt{def}\cmdt{backgroundwidth}\cbrt{2cm}}
+    \codeline{\cmdt{def}\cmdt{backgroundheight}\cbrt{0.5\cmdt{paperheight}}}
+    \codeline{\cmdt{titleslide}}
+\end{slide}
+}{}
+
+\hypertarget{custom:structure}{}
+\begin{slide}[General structure of the class]
+    The \slixte{} class employs a few structural principles for its objects and commands.
+    \begin{itemize}
+        \fillitem Each \sptm{element} of the class has a given name (\codetext{background}, \codetext{logo}, etc).
+        \fillitem A lot of them have an \sptm{innate} command (\codetext{\cmdt{background}\cbrt{...}}, \codetext{\cmdt{title}\cbrt{...}}, etc).
+        \fillitem Each of them has a set of \sptm{attributes}. These can be \sptm{pre-} or \sptm{post-attributes}.
+        \begin{itemize}
+            \emptyitem \sptm{pre-attributes} are predefined commands (\codetext{\cmdt{show}}, \codetext{\cmdt{hide}}, etc).
+            \emptyitem \sptm{post-attributes} are parameters to customize (\codetext{x}, \codetext{width}, etc).
+        \end{itemize}
+        \fillitem They may also have \sptm{relative attributes} (or \sptm{relatives}), such as colors, booleans, counters, etc. These usually share the same name as the \sptm{element}.
+    \end{itemize}
+
+    \spacing
+
+    \begin{pointer}
+        For example, the \sptm{element} \codetext{background} has an \sptm{innate} command (changing the background file), two \sptm{pre-attributes} (\codetext{\cmdt{show}} and \codetext{\cmdt{hide}}), five \sptm{post-attributes} (\codetext{x}, \codetext{y}, \codetext{width}, \codetext{height}, and \codetext{anchor}), and a boolean \sptm{relative} (used to show or hide the background).
+    \end{pointer}
+\end{slide}
+
+\hypertarget{custom:titlepage}{}
+\begin{slide}[Changing the title page]
+    One \sptm{element} of the class is \codetext{titlepage}, with the following \sptm{attributes}.
+    \begin{itemize}
+        \fillitem One \sptm{innate} command with no input, creating the title page (see \tosection{2}).
+        \fillitem One \sptm{pre-attribute}, \codetext{\cmdt{make}}, an alias for \codetext{\cmdt{titlepage}} and \codetext{\cmdt{titleslide}}.
+        \fillitem One \sptm{post-attribute}, \codetext{opacity}, corresponding to the opacity of the overlay on the image from \codetext{background}.
+        \fillitem One \sptm{relative}, corresponding to the color of the overlay on the image from \codetext{background}; this is the same as \codetext{text} by default.
+        \begin{itemize}
+            \emptyitem On top of the \codetext{titlepage} color, there is a second \sptm{relative} color called \codetext{titlepagetext}, equal to \codetext{page} by default.
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Changing the title page]
+    On top of \codetext{titlepage}, \codetext{background}, and \codetext{logo}, the title page is composed of four other \sptm{elements}: \codetext{title}, \codetext{subtitle}, \codetext{author}, and \codetext{info}. Their \sptm{innate} functions were already introduced in \tosection{2} and their \sptm{attributes} are defined below.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{fontsize}}: applies the defined font size of the \sptm{element}.
+        \fillitem \codetext{\cmdt{setfontsize}}: modifies the font size of the \sptm{element} using two inputs, one optional and one compulsory; the compulsory one is the font height and the optional one is the multiplier of the font spacing (by default 1.2).
+        \fillitem \codetext{x} and \codetext{y}: the position of the \sptm{element}.
+        \fillitem \codetext{anchor} and \codetext{align}: the corresponding parameters of the \tikzref{} node.
+        \fillitem \codetext{width}: the text width parameter of the \tikzref{} node.
+        \fillitem A color \sptm{relative}, equal to \codetext{titlepagetext} by default.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Changing the title page (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{def}\cmdt{titlepageopacity}\cbrt{1}}
+    \codeline{\cmdt{colorlet}\cbrt{titlepagetext}\cbrt{third}}
+    \codeline{\cmdt{setfontsizesubtitle}\cbrt{2.5cm}}
+    \codeline{\cmdt{def}\cmdt{titlex}\cbrt{0cm}}
+    \codeline{\cmdt{def}\cmdt{titley}\cbrt{\cmdt{paperheight}}}
+    \codeline{\cmdt{def}\cmdt{titleanchor}\cbrt{north west}}
+    \codeline{\cmdt{def}\cmdt{authorwidth}\cbrt{\cmdt{paperwidth}}}
+    \codeline{\cmdt{def}\cmdt{authoralign}\cbrt{left}}
+    \codeline{\cmdt{titleslide}}
+\end{slide}
+}{}
+
+\hypertarget{custom:banner}{}
+\begin{slide}[Changing the banners]
+    The two banners (top and bottom) on every slide are composed of a variety of \sptm{elements} explored in the next two slides.
+    The four main ones are \codetext{banner}, \codetext{topbanner}, \codetext{bottombanner}, and \codetext{progress} (for the progress line at the bottom of the page).
+    None of these \sptm{elements} have an \sptm{innate} command, but they share the following \sptm{attributes}.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{show}}, \codetext{\cmdt{hide}}, \codetext{height}, and \codetext{opacity}.
+        \fillitem \codetext{\cmdt{fontsize}}, \codetext{\cmdt{setfontsize}}, \codetext{x}, \codetext{y}, \codetext{width} (only \codetext{topbanner} and \codetext{bottombanner}).
+        \begin{itemize}
+            \emptyitem All these five \sptm{attributes} relate to the text within the banner.
+            \emptyitem The text of the banner is placed according to \codetext{x} and \codetext{y}, spanning \codetext{width} horizontally.
+        \end{itemize}
+        \fillitem \codetext{align}  (only \codetext{progress}): either \codetext{left} (default) or \codetext{right}.
+        \fillitem A color \sptm{relative} (\codetext{text} by default, except \codetext{third} for \codetext{progress}).
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Changing the banners]
+    On top of the more structural banner \sptm{elements}, there are six text elements from the banners: \codetext{bannertext}, \codetext{bannerheader}, \codetext{bannertitle}, \codetext{bannerauthor}, \codetext{bannersection}, and \codetext{bannernumber}.
+    They have the following \sptm{attributes}.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{show}}, \codetext{\cmdt{hide}}: by default, they are all visible except \codetext{bannernumber}.
+        \fillitem \codetext{align}, with four options: \codetext{left} (\codetext{bannerheader} and \codetext{bannertitle} default), \codetext{center} (\codetext{bannersection} default), \codetext{right} (\codetext{bannerauthor} and \codetext{bannernumber} default), or a number (for example \codetext{0} is the same as \codetext{left}, and \codetext{1} the same as \codetext{right}).
+        \fillitem A color \sptm{relative} (\codetext{page} by default).
+    \end{itemize}
+    \spacing
+    \begin{alert}
+        The \codetext{bannertitle} refers to the \sptm{element} of the banners related to \codetext{title} (for the whole slide, for example ``Using the Slixte class'' here), and not what is at the top of the slide, instead referred to as the \codetext{bannerheader} (``Changing the banners'' here).
+    \end{alert}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Changing the banners (example)]
+    Try the following code in your document.
+
+    \spacing
+    
+    \codeline{\cmdt{def}\cmdt{banneropacity}\cbrt{1}}
+    \codeline{\cmdt{def}\cmdt{topbannerheight}\cbrt{0.5\cmdt{paperheight}}}
+    \codeline{\cmdt{setfontsizetopbanner}\cbrt{2cm}}
+    \codeline{\cmdt{colorlet}\cbrt{bottombanner}\cbrt{second}}
+    \codeline{\cmdt{def}\cmdt{bottombannery}\cbrt{1cm}}
+    \codeline{\cmdt{def}\cmdt{bannerheaderalign}\cbrt{right}}
+    \codeline{\cmdt{showbannernumber}}
+    \codeline{\cmdt{def}\cmdt{bannernumberalign}\cbrt{0.75}}
+    \codeline{\cmdt{begin}\cbrt{slide}[The bannerheader element]\cmdt{end}\cbrt{slide}}
+\end{slide}
+}{}
+
+\hypertarget{custom:toc}{}
+\begin{slide}[Changing the table of contents]
+    The table of contents part of the slides has three \sptm{elements}: \codetext{toc}, \codetext{section}, and \codetext{symbol}.
+    The \sptm{innate} and all \sptm{pre-attributes} of \codetext{toc} also work with the alias \codetext{tableofcontents}.
+
+    \spacing[1]
+
+    Due to the diversity of roles of the \sptm{elements}, we cover their \sptm{attributes} separately, starting with \codetext{toc}.
+    This \sptm{element} covers properties of the main table of contents and the repeated ones for each section.
+    \begin{itemize}
+        \fillitem The \sptm{innate} was covered in \tosection{2}. It takes an optional input for the header of the slide, which then applies to all subsequent table of contents.
+        \fillitem \codetext{\cmdt{show}} and \codetext{\cmdt{hide}}: whether each section shows the current table of contents or not.
+        \fillitem \codetext{y} and \codetext{height}: vertical position and range of the sections within the table of contents.
+        \fillitem \codetext{opacity}: the opacity of the non-current sections in the table of contents.
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Changing the table of contents]
+    The \sptm{element} \codetext{section} covers properties of the overall organization into sections and the design of the section names in the table of contents.
+    The \sptm{attributes} related to the organization were covered in \tosection{2} (\codetext{\cmdt{add}}, \codetext{\cmdt{to}}, and the \sptm{innate}).
+
+    \spacing[1]
+
+    On top of these \sptm{attributes} already defined, every other one of \codetext{section} is shared with \codetext{symbol} and described below.
+    \begin{itemize}
+        \fillitem \codetext{\cmdt{show}}, \codetext{\cmdt{hide}}, \codetext{\cmdt{fontsize}} and \codetext{\cmdt{setfontsize}}.
+        \fillitem \codetext{x}: the horizontal position of the \codetext{section} or \codetext{symbol}.
+        \fillitem \codetext{anchor}: the anchor defined for \tikzref{} nodes.
+        \fillitem A color \sptm{relative} (by default \codetext{text} for \codetext{section} and \codetext{first} for \codetext{symbol}).
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Changing the table of contents (example)]
+    Try the following code in your document.
+
+    \spacing
+    
+    \codeline{\cmdt{def}\cmdt{tocheight}\cbrt{2cm}}
+    \codeline{\cmdt{def}\cmdt{sectionx}\cbrt{0.5\cmdt{paperwidth}}}
+    \codeline{\cmdt{def}\cmdt{sectionanchor}\cbrt{center}}
+    \codeline{\cmdt{setfontsizesymbol}\cbrt{2cm}}
+    \codeline{\cmdt{toc}[My Table of Contents]}
+    \codeline{\cmdt{hidesymbol}}
+    \codeline{\cmdt{section}}
+    \codeline{\cmdt{hidesection}}
+    \codeline{\cmdt{toc}}
+\end{slide}
+}{}
+
+\hypertarget{custom:content}{}
+\begin{slide}[Changing the content of the slides]
+    Within the main content part of the slides, there are four \sptm{elements}: \codetext{content}, \codetext{item}, \codetext{framing}, and \codetext{ref}.
+    Since \codetext{framing} is the most complex, let us start with the other three.
+    \begin{itemize}
+        \fillitem Attributes of \codetext{content}:
+        \begin{itemize}
+            \emptyitem \codetext{\cmdt{fontsize}}, \codetext{\cmdt{setfontsize}}, and \sptm{innate} (see \tosection{2}).
+            \emptyitem \codetext{align} (default \codetext{justify}), \codetext{opacity} (default \codetext{0.99}), and \codetext{margin} (default \codetext{1.8cm}).
+        \end{itemize}
+        \fillitem Attributes of \codetext{item}:
+        \begin{itemize}
+            \emptyitem \codetext{\cmdt{c}}, \codetext{\cmdt{fill}}, \codetext{\cmdt{empty}} (see \tosection{2}).
+            \fillitem A color \sptm{relative} (by default \codetext{first}).
+        \end{itemize}
+        \fillitem Attributes of \codetext{ref}:
+        \begin{itemize}
+            \emptyitem \codetext{\cmdt{add}}, \codetext{\cmdt{cite}}, and \codetext{\cmdt{make}} (see \tosection{2}).
+            \emptyitem \codetext{\cmdt{fontsize}}, \codetext{\cmdt{setfontsize}} and a color \sptm{relative} (by default \codetext{first}).
+        \end{itemize}
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[Changing the content of the slides]
+    The final \sptm{element} of the main content, \codetext{framing}, relates to the framed environment (see \tosection{2}) and has the following \sptm{attributes}.
+    \begin{itemize}
+        \fillitem \codetext{align}: how the text should align within the environment (default \codetext{justify}).
+        \fillitem \codetext{width}: the total width of the framed environment.
+        \fillitem \codetext{space}: the space at the top of the environment (default \codetext{0.5cm}).
+        \fillitem \codetext{margin}: the margin between the frame and the inner text (default \codetext{1cm}).
+        \fillitem A color \sptm{relative} (by default \codetext{second}).
+    \end{itemize}
+
+    \spacing[1]
+
+    Unique to \codetext{framing} is the \sptm{sub-element} called \codetext{framingbox}, used for the actual structure of the frame and with the following \sptm{attributes}.
+    \begin{itemize}
+        \fillitem \codetext{width}, \codetext{height}, \codetext{linewidth}, \codetext{roundedcorners}, and a color \sptm{relative}.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Changing the content of the slides (example)]
+    Try the following code in your document.
+
+    \spacing
+    
+    \codeline{\cmdt{def}\cmdt{contentopacity}\cbrt{0.9}}
+    \codeline{\cmdt{begin}\cbrt{slide}}
+    \codeline[1]{\cmdt{begin}\cbrt{theorem}Some theorem.\cmdt{end}\cbrt{theorem}}
+    \codeline[1]{\cmdt{def}\cmdt{framingwidth}\cbrt{0.5\cmdt{paperwidth}}}
+    \codeline[1]{\cmdt{def}\cmdt{framingmargin}\cbrt{0cm}}
+    \codeline[1]{\cmdt{colorlet}\cbrt{framingbox}\cbrt{third}}
+    \codeline[1]{\cmdt{def}\cmdt{framingboxheight}\cbrt{-1cm}}
+    \codeline[1]{\cmdt{begin}\cbrt{theorem}Some theorem.\cmdt{end}\cbrt{theorem}}
+    \codeline{\cmdt{end}\cbrt{slide}}
+\end{slide}
+}{}
+
+\newlength{\codefontsize}
+\setlength{\codefontsize}{0.26cm}
+\setlength{\contentmargin}{0.2cm}
+\def\codemargin{13cm}
+
+\iftoggle{examples}{
+\hypertarget{custom:template}{}
+\begin{tikzslide}[Possible template: dark theme and bright colors]
+    \node at (0.2\paperwidth, 0.74\paperheight){\includegraphics[width=0.25\paperwidth, page=1]{designs/dark.pdf}};
+    \node at (0.2\paperwidth, 0.47\paperheight){\includegraphics[width=0.25\paperwidth, page=2]{designs/dark.pdf}};
+    \node at (0.2\paperwidth, 0.20\paperheight){\includegraphics[width=0.25\paperwidth, page=3]{designs/dark.pdf}};
+    \content{%
+    \thisfontsize{\codefontsize}{\codefontspace}%
+    \codeline{\hspace{\codemargin}\cmdt{hidebackground}}
+    \codeline{\hspace{\codemargin}\cmdt{hidelogo}}
+    \codeline{\hspace{\codemargin}\cmdt{hidesymbol}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{definecolor}\cbrt{first}\cbrt{RGB}\cbrt{65, 105, 225}}
+    \codeline{\hspace{\codemargin}\cmdt{definecolor}\cbrt{second}\cbrt{RGB}\cbrt{255, 215, 0}}
+    \codeline{\hspace{\codemargin}\cmdt{definecolor}\cbrt{third}\cbrt{RGB}\cbrt{220, 20, 60}}
+    \codeline{\hspace{\codemargin}\cmdt{definecolor}\cbrt{fourth}\cbrt{RGB}\cbrt{34, 139, 34}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{page}\cbrt{black}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{text}\cbrt{white}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{titlepage}\cbrt{page}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{title}\cbrt{first}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{subtitle}\cbrt{third}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{author}\cbrt{second}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{info}\cbrt{fourth}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{banner}\cbrt{page}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannerheader}\cbrt{fourth}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannertitle}\cbrt{first}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannerauthor}\cbrt{second}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannersection}\cbrt{third}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{progress}\cbrt{fourth}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{section}\cbrt{third}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{item}\cbrt{third}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{framingbox}\cbrt{first}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{titlealign}\cbrt{center}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{subtitlealign}\cbrt{center}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{authoralign}\cbrt{center}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{infoalign}\cbrt{center}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{titlepageopacity}\cbrt{0.9}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{contentopacity}\cbrt{0.9}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{banneropacity}\cbrt{1}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{progressopacity}\cbrt{1}}
+    }
+\end{tikzslide}
+
+\begin{tikzslide}[Possible template: denser with overriding progress]
+    \node at (0.2\paperwidth, 0.74\paperheight){\includegraphics[width=0.25\paperwidth, page=1]{designs/dense.pdf}};
+    \node at (0.2\paperwidth, 0.47\paperheight){\includegraphics[width=0.25\paperwidth, page=2]{designs/dense.pdf}};
+    \node at (0.2\paperwidth, 0.20\paperheight){\includegraphics[width=0.25\paperwidth, page=3]{designs/dense.pdf}};
+    \content{%
+    \thisfontsize{\codefontsize}{\codefontspace}%
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{topbanner}\cbrt{first}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bottombanner}\cbrt{page}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannertext}\cbrt{page}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{progress}\cbrt{first}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{framing}\cbrt{text}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{framingbox}\cbrt{first}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizetopbanner}\cbrt{1}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{banneropacity}\cbrt{1}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{topbannerheight}\cbrt{1.5cm}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{topbannerwidth}\cbrt{0.95\cmdt{paperwidth}}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizebottombanner}\cbrt{0.5}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bottombannerheight}\cbrt{0.5cm}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{progressheight}\cbrt{-1cm}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{progressopacity}\cbrt{1}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{tocy}\cbrt{0.75\cmdt{paperheight}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{tocheight}\cbrt{0.3\cmdt{paperheight}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{sectionx}\cbrt{4cm}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{symbolx}\cbrt{3cm}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizecontent}\cbrt{0.7}}
+    \codeline{\hspace{\codemargin}\cmdt{setlength}\cbrt{\cmdt{contentmargin}}\cbrt{1cm}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{contentopacity}\cbrt{1}}
+    }
+\end{tikzslide}
+
+\begin{tikzslide}[Possible template: grayscale with page number]
+    \node at (0.2\paperwidth, 0.74\paperheight){\includegraphics[width=0.25\paperwidth, page=1]{designs/minimal.pdf}};
+    \node at (0.2\paperwidth, 0.47\paperheight){\includegraphics[width=0.25\paperwidth, page=2]{designs/minimal.pdf}};
+    \node at (0.2\paperwidth, 0.20\paperheight){\includegraphics[width=0.25\paperwidth, page=3]{designs/minimal.pdf}};
+    \content{%
+    \thisfontsize{\codefontsize}{\codefontspace}%
+    \codeline{\hspace{\codemargin}\cmdt{hidebackground}}
+    \codeline{\hspace{\codemargin}\cmdt{hidelogo}}
+    \codeline{\hspace{\codemargin}\cmdt{hideprogress}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{first}\cbrt{white!75!black}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{second}\cbrt{white!25!black}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{third}\cbrt{white!50!black}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{titlepagetext}\cbrt{black}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{banner}\cbrt{white}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{bannertext}\cbrt{black}}
+    \codeline{\hspace{\codemargin}\cmdt{colorlet}\cbrt{page}\cbrt{black}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{contentopacity}\cbrt{0.01}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{titlepageopacity}\cbrt{0.05}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizetitle}\cbrt{2}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{subtitlex}\cbrt{0.1\cmdt{paperwidth}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{subtitley}\cbrt{0.6\cmdt{paperheight}}}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizesubtitle}\cbrt{1.8}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{authory}\cbrt{0.4\cmdt{paperheight}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{authoralign}\cbrt{left}}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizeauthor}\cbrt{2}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{infoy}\cbrt{0.3\cmdt{paperheight}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{infoalign}\cbrt{left}}
+    \codeline{\hspace{\codemargin}\cmdt{setfontsizeinfo}\cbrt{1.8}}
+    \codeline{}
+    \codeline{\hspace{\codemargin}\cmdt{showbannernumber}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bannertitlealign}\cbrt{-0.32}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bannerauthoralign}\cbrt{-0.115}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bannersectionalign}\cbrt{left}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bannersectionnumber}\cbrt{right}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bottombannerx}\cbrt{0.65\cmdt{paperwidth}}}
+    \codeline{\hspace{\codemargin}\cmdt{def}\cmdt{bottombannerwidth}\cbrt{0.65\cmdt{paperwidth}}}
+    }
+\end{tikzslide}
+}{}
+
+\setlength{\contentmargin}{0cm}
+\setfontsizecontent{0.25cm}
+\setlength{\arrayrulewidth}{0.02cm}
+\setlength{\tabcolsep}{0.05cm}
+\renewcommand{\arraystretch}{1.7}
+\def\cru{\color{first}X}
+
+\hypertarget{custom:summary}{}
+\begin{slide}[Summary of elements and attributes]
+    \vspace{1cm}
+    \begin{center}
+    % \begin{tabular}{|c|cccccccc|cccccccccc|cccc|ccccc|}
+    \color{text!10!page}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \sptm{element}
+        &\codetext{author}
+        &\codetext{background}
+        &\codetext{banner}
+        &\codetext{bannerauthor}
+        &\codetext{bannerheader}
+        &\codetext{bannernumber}
+        &\codetext{bannersection}
+        &\codetext{bannertext}
+        &\codetext{bannertitle}
+        &\codetext{bottombanner}
+        &\codetext{content}
+        &\codetext{framing}
+        &\codetext{framingbox}
+        &\codetext{info}
+        &\codetext{item}
+        &\codetext{logo}
+        &\codetext{progress}
+        &\codetext{ref}
+        &\codetext{section}
+        &\codetext{subtitle}
+        &\codetext{symbol}
+        &\codetext{tableofcontents}
+        &\codetext{title}
+        &\codetext{titlepage}
+        &\codetext{titlepagetext}
+        &\codetext{toc}
+        &\codetext{topbanner}
+        \\
+        \hline
+        \sptm{innate}&\cru&\cru&&&&&&&&&\cru&&&\cru&&\cru&&&\cru&\cru&&\cru&\cru&\cru&&\cru&\\
+        \hline
+        \codetext{\cmdt{add}}&&&&&&&&&&&&&&&&&&\cru&\cru&&&&&&&&\\
+        \hline
+        \codetext{\cmdt{c}}&&&&&&&&&&&&&&&\cru&&&&&&&&&&&&\\
+        \hline
+        \codetext{\cmdt{cite}}&&&&&&&&&&&&&&&&&&\cru&&&&&&&&&\\
+        \hline
+        \codetext{\cmdt{empty}}&&&&&&&&&&&&&&&\cru&&&&&&&&&&&&\\
+        \hline
+        \codetext{\cmdt{fill}}&&&&&&&&&&&&&&&\cru&&&&&&&&&&&&\\
+        \hline
+        \codetext{\cmdt{fontsize}}&\cru&&&&&&&&&\cru&\cru&\cru&&\cru&&&&\cru&\cru&\cru&\cru&&\cru&&&&\cru\\
+        \hline
+        \codetext{\cmdt{hide}}&&\cru&\cru&\cru&\cru&\cru&\cru&\cru&\cru&\cru&&&&&&\cru&\cru&&\cru&&\cru&\cru&&&&\cru&\cru\\
+        \hline
+        \codetext{\cmdt{make}}&&&&&&&&&&&&&&&&&&\cru&&&&&\cru&&&&\\
+        \hline
+        \codetext{\cmdt{setfontsize}}&\cru&&&&&&&&&\cru&\cru&\cru&&\cru&&&&\cru&\cru&\cru&\cru&&\cru&&&&\cru\\
+        \hline
+        \codetext{\cmdt{show}}&&\cru&\cru&\cru&\cru&\cru&\cru&\cru&\cru&\cru&&&&&&\cru&\cru&&\cru&&\cru&\cru&&&&\cru&\cru\\
+        \hline
+        \codetext{\cmdt{to}}&&&&&&&&&&&&&&&&&&&\cru&&&&&&&&\\
+        \hline
+        \codetext{align}&\cru&&&\cru&\cru&\cru&\cru&&\cru&&\cru&\cru&&\cru&&&\cru&&\cru&\cru&\cru&&\cru&&&&\\
+        \hline
+        \codetext{anchor}&\cru&\cru&&&&&&&&&&&&\cru&&\cru&&&\cru&\cru&\cru&&\cru&&&&\\
+        \hline
+        \codetext{height}&&\cru&\cru&&&&&&&\cru&&&\cru&&&\cru&\cru&&&&&&&&&\cru&\cru\\
+        \hline
+        \codetext{linewidth}&&&&&&&&&&&&&\cru&&&&&&&&&&&&&&\\
+        \hline
+        \codetext{margin}&&&&&&&&&&&\cru&\cru&&&&&&&&&&&&&&&\\
+        \hline
+        \codetext{opacity}&&&\cru&&&&&&&\cru&\cru&&&&&&\cru&&&&&&&\cru&&\cru&\cru\\
+        \hline
+        \codetext{roundedcorners}&&&&&&&&&&&&&\cru&&&&&&&&&&&&&&\\
+        \hline
+        \codetext{space}&&&&&&&&&&&&\cru&&&&&&&&&&&&&&&\\
+        \hline
+        \codetext{width}&\cru&\cru&&&&&&&&&&\cru&\cru&\cru&&\cru&&&&\cru&&&\cru&&&&\\
+        \hline
+        \codetext{x}&\cru&\cru&&&&&&&&&&&&\cru&&\cru&&&\cru&\cru&\cru&&\cru&&&&\\
+        \hline
+        \codetext{y}&\cru&\cru&&&&&&&&&&&&\cru&&\cru&&&&\cru&&&\cru&&&\cru&\\
+        \hline
+        \color{text}color~\sptm{relative}&\cru&&\cru&\cru&\cru&\cru&\cru&\cru&\cru&\cru&&\cru&\cru&\cru&\cru&&\cru&\cru&\cru&\cru&\cru&&\cru&\cru&\cru&&\cru\\
+        \hline
+    \end{tabular}
+    \spacing[0.2]
+    \color{text}
+    By default, the \sptm{attributes} \codetext{height}, \codetext{width}, \codetext{x}, \codetext{y} and the color \sptm{relative} are not defined.
+    \end{center}
+\end{slide}
+
+\setlength{\contentmargin}{1.8cm}
+\setfontsizecontent{0.9cm}
+
+\section
+
+\begin{slide}[Fundamental environment]
+    To understand the \slixte{} class further, it is worth mentioning the most fundamental environment: \codetext{page}.
+    This environment does not take any argument, creates a single empty page, and is used for every subsequent environment and command.
+    The result belongs to a \tikzref{} environment and is otherwise empty (no background, banner, text box, etc).
+
+    \spacing[1]
+
+    The \codetext{page} environment also hosts two very useful commands: \codetext{\cmdt{prepage}} and \codetext{\cmdt{postpage}}.
+    As their names entail, these commands are automatically called at the beginning and end of a \codetext{page} environment (within the \codetext{tikzpicture} environment themselves).
+
+    \spacing[1]
+
+    Finally, in order to create the different parts of the slide, there exists an \sptm{attribute} not mentioned before: \codetext{\cmdt{draw}}.
+    This \sptm{pre-attribute} should only be used within the \tikzref{} environment (so not within a standard \codetext{slide} for example).
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Fundamental environment (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{backpage}}\cbrl}
+    \codeline[1]{\cmdt{node}[third, scale=5] at (15, 10)\cbrt{Background};}
+    \codeline{\cbrr}
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{frontpage}}\cbrl}
+    \codeline[1]{\cmdt{node}[scale=5] at (15, 5)\cbrt{Foreground};}
+    \codeline[1]{\cmdt{node}\cbrt{\cmdt{includegraphics}[height=5cm]\cbrt{background.png}};}
+    \codeline{\cbrr}
+    \codeline{\cmdt{begin}\cbrt{page}\cmdt{end}\cbrt{page}}
+    \codeline{\cmdt{begin}\cbrt{slide}\cmdt{end}\cbrt{slide}}
+\end{slide}
+}{}
+
+\begin{slide}[The draw attribute]
+    Here is a non-exhaustive list of the \sptm{elements} with the \codetext{\cmdt{draw}} \sptm{attribute}.
+    The possible inputs of the commands are directly written with the \sptm{element}.
+    \begin{itemize}
+        \fillitem \codetext{background} and \codetext{overlay\cbrt{opacity}\cbrt{color}}.
+        \fillitem \codetext{banner}, \codetext{topbanner}, \codetext{bottombanner}, and \codetext{progress}.
+        \fillitem \codetext{top/bottombannertext[color]\cbrt{align}\cbrt{text}}.
+        \fillitem \codetext{bannerheader\cbrt{header}} and \codetext{bannertitle/author/section/number} (with \codetext{bannertext} combining all four of them).
+        \fillitem \codetext{content}: creates the content background.
+        \fillitem \codetext{framingbox}: creates the framing box (using the node \codetext{framing}).
+        \fillitem \codetext{ref\cbrt{refname}\cbrt{author}\cbrt{year}\cbrt{title}\cbrt{journal}}.
+    \end{itemize}
+\end{slide}
+
+\begin{slide}[The draw attribute]
+    While most \sptm{elements} actually have the \codetext{\cmdt{draw}} \sptm{attribute}, the previous list highlights the ones relevant when further customizing the slides (the acute user of the \slixte{} class is invited to check wihtin the \codetext{.cls} file for the other \codetext{\cmdt{draw}} methods).
+
+    \spacing[1]
+
+    The following slides now explain how these commands can be used to create custom slides, or how they can be redefined to fit the various needs.
+
+    \spacing[1]
+
+    \iftoggle{examples}{
+    Before that, the code behind the \codetext{slide} environment is provided, hoping it helps clarify the use of some of these commands.
+    }{}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[The draw attribute (example)]
+    The following code will create a standard \codetext{slide} environment.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{page}}
+    \codeline[1]{\cmdt{drawbackground}}
+    \codeline[1]{\cmdt{drawbanner}}
+    \codeline[1]{\cmdt{drawcontent}}
+    \codeline[1]{\cmdt{drawprogress}}
+    \codeline[1]{\cmdt{drawbannerheader}\cbrt{Slide Header}}
+    \codeline[1]{\cmdt{drawbannertext}}
+    \codeline[1]{\cmdt{content}\cbrt{The slide content.}}
+    \codeline{\cmdt{end}\cbrt{page}}
+\end{slide}
+
+\begin{slide}[The draw attribute (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{begin}\cbrt{page}}
+    \codeline[1]{\cmdt{drawbackground}}
+    \codeline[1]{\cmdt{drawoverlay}\cbrt{0.5}\cbrt{red}}
+    \codeline[1]{\cmdt{drawbannerheader}\cbrt{Slide Header}}
+    \codeline[1]{\cmdt{showbannernumber}}
+    \codeline[1]{\cmdt{drawbannernumber}}
+    \codeline[1]{\cmdt{content}\cbrt{The slide content.}}
+    \codeline{\cmdt{end}\cbrt{page}}
+\end{slide}
+}{}
+
+\begin{slide}[Customizing the commands]
+    Some of the \codetext{\cmdt{draw}} commands can be re-written to fit personal tastes.
+    \begin{itemize}
+        \fillitem \codetext{bannerheader/title/author/section/number}, for example to place these \sptm{elements} elsewhere. It is worth noting that these commands call the \sptm{attribute} \codetext{name} from their corresponding \sptm{element} (\codetext{\cmdt{titlename}}, \codetext{\cmdt{authorname}}, etc).
+        \fillitem \codetext{framingbox}: to draw the framing box and subsequent environments (\codetext{theorem}, \codetext{definition}, etc) differently.
+        \fillitem \codetext{ref}, to restructure the way references are written.
+    \end{itemize}
+\end{slide}
+
+\iftoggle{examples}{
+\begin{slide}[Customizing the commands (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{drawbannerheader}}[1]\cbrl}
+    \codeline[1]{\cmdt{node}[first, scale=5]}
+    \codeline[1]{at (\cmdt{paperwidth}/2, \cmdt{paperheight}/2)\cbrt{\char`\#1};}
+    \codeline{\cbrr}
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{drawbannernumber}}\cbrl}
+    \codeline[1]{\cmdt{drawtopbannertext}[yellow]\cbrt{right}}
+    \codeline[1]{\cbrt{page \cmdt{insertpagenumber}\cmdt{ } out of \cmdt{insertdocumentendpage}}}
+    \codeline{\cbrr}
+    \codeline{\cmdt{begin}\cbrt{slide}[Title]Some slide\cmdt{end}\cbrt{slide}}
+\end{slide}
+
+\begin{slide}[Customizing the commands (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{drawframingbox}}\cbrl}
+    \codeline[1]{\cmdt{draw}[line width=0.1cm] (framing.north) -- (framing.south);}
+    \codeline[1]{\cmdt{draw}[line width=0.1cm] (framing.west) -- (framing.east);}
+    \codeline[1]{\cmdt{draw}[red, fill=red, opacity=0.2, line width=0cm]}
+    \codeline[2]{(framing.north east) rectangle (framing.south west);}
+    \codeline{\cbrr}
+    \codeline{\cmdt{begin}\cbrt{slide}}
+    \codeline[1]{\cmdt{begin}\cbrt{theorem}Some theorem.\cmdt{end}\cbrt{theorem}}
+    \codeline{\cmdt{end}\cbrt{slide}}
+\end{slide}
+
+\begin{slide}[Customizing the commands (example)]
+    Try the following code in your document.
+
+    \spacing
+
+    \codeline{\cmdt{renewcommand}\cbrt{\cmdt{drawref}}[5]\cbrl}
+    \codeline[1]{\cmdt{hyperlink}\cbrt{\char`\#1}\cbrt{\cmdt{textbf}\cbrt{\char`\#4}}}
+    \codeline[1]{\cmdt{hfill}\cmdt{textcolor}\cbrt{text!10!page}\cbrt{\char`\#1}}
+    \codeline[1]{\cmdt{begin}\cbrt{itemize}}
+    \codeline[2]{\cmdt{emptyitem} Written by \char`\#2 in \char`\#3.}
+    \codeline[2]{\cmdt{emptyitem} Published in \cmdt{textit}\cbrt{\char`\#5}.}
+    \codeline[1]{\cmdt{end}\cbrt{itemize}}
+    \codeline{\cbrr}
+    \codeline{\cmdt{refslide}}
+\end{slide}
+}{}
+
+\begin{slide}[Conclusion]
+    I hope this document clarifies the use and options of the \slixte{} class.
+
+    \spacing[1]
+
+    If you still have questions/remarks, feel free to contact me at
+    \[
+        \textrm{\makeatletter\color{first}benoitcorsini@outlook.com\makeatother}\,.
+    \]
+
+    \spacing[1]
+
+    In particular, if the class does not work or behaves differently than expected, please contact me with your code and an explanation of what is wrong, so that I can try to fix the issue.
+
+    \spacing[3]
+
+    I hope you will enjoy using this slide template as much as I do!
+\end{slide}
+
+\togglefalse{qr}
+
+\finalpage
+
+\end{document}

@@ -1,0 +1,15 @@
+
+\subsection{Reserved Characters (see also \ref{sec:textchars}, cf. \ref{sec:math})}\label{sec:specchars}
+\begin{tabular}{@{}lll@{}} \toprule
+\texttt{\textbackslash} & introduces a command                    & \lstinline+\textbackslash+\\
+\texttt{\{ \}} & embraces arguments, creates logical parts        & \lstinline+\{ \}+\\
+\texttt{[ ]}   & embraces \textit{optional} arguments             & \lstinline+[ ]+\\
+\texttt{\%}    & comments: code after \% will be ignored.         & \lstinline+\%+\\
+\texttt{\&}    & separates columns in tabular-like environments ~ & \lstinline+\&+\\
+\texttt{\#}    & parameter for own command declarations           & \lstinline+\#+\\
+\texttt{\$}    & text style math mode (abbr. for \lstinline+\(+\dots\lstinline+\)+)   & \lstinline+\$+\\
+\texttt{\textunderscore}\texttt{\textasciicircum} & index/exponent only valid in math mode, e.g.
+$a_{1}^{2}$ & see \ref{sec:textchars}\\
+\bottomrule
+\end{tabular}\\
+^^E^^L 

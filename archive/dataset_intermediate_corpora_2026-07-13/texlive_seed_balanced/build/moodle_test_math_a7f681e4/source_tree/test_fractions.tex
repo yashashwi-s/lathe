@@ -1,0 +1,31 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check how fractions are handled.
+
+\begin{quiz}{Example Quiz}
+
+\begin{multi}[multiple,feedback={abc\\def 
+$\sqrt{2}$}]{Multiple Choice}
+Select the following numbers that are prime.
+\item[fraction=83.3] $\sqrt{25}$
+\item[fraction=-66.6] \textbf{68}
+\item[fraction=16.7,feedback={$\sqrt{25}$}] 7
+\item[fraction=33.3] 8
+\item[fraction=-0.05] \texttt{nothing}
+\end{multi}
+
+\end{quiz}
+\end{document}

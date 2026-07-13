@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00291\_table\_12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+$\dashleftarrow$ & \verb"\dashleftarrow" &
+$\dashrightarrow$ & \verb"\dashrightarrow" \\
+$\leftleftarrows$ & \verb"\leftleftarrows" &
+$\rightrightarrows$ & \verb"\rightrightarrows" \\
+$\leftrightarrows$ & \verb"\leftrightarrows" &
+$\rightleftarrows$ & \verb"\rightleftarrows" \\
+$\Lleftarrow$ & \verb"\Lleftarrow" &
+$\Rrightarrow$ & \verb"\Rrightarrow" \\
+$\twoheadleftarrow$ & \verb"\twoheadleftarrow" &
+$\twoheadrightarrow$ & \verb"\twoheadrightarrow" \\
+$\leftarrowtail$ & \verb"\leftarrowtail" &
+$\rightarrowtail$ & \verb"\rightarrowtail" \\
+$\looparrowleft$ & \verb"\looparrowleft" &
+$\looparrowright$ & \verb"\looparrowright" \\
+$\leftrightharpoons$ & \verb"\leftrightharpoons" &
+$\rightleftharpoons$ & \verb"\rightleftharpoons" \\
+$\curvearrowleft$ & \verb"\curvearrowleft" &
+$\curvearrowright$ & \verb"\curvearrowright" \\
+$\circlearrowleft$ & \verb"\circlearrowleft" &
+$\circlearrowright$ & \verb"\circlearrowright" \\
+$\Lsh$ & \verb"\Lsh" &
+$\Rsh$ & \verb"\Rsh" \\
+$\upuparrows$ & \verb"\upuparrows" &
+$\downdownarrows$ & \verb"\downdownarrows" \\
+$\upharpoonleft$ & \verb"\upharpoonleft" &
+$\upharpoonright$ & \verb"\upharpoonright" \\
+$\downharpoonleft$ & \verb"\downharpoonleft" &
+$\downharpoonright$ & \verb"\downharpoonright" \\
+$\multimap$ & \verb"\multimap" &
+$\rightsquigarrow$ & \verb"\rightsquigarrow" \\
+$\leftrightsquigarrow$ & \verb"\leftrightsquigarrow" &
+\\
+$\nleftarrow$ & \verb"\nleftarrow" &
+$\nrightarrow$ & \verb"\nrightarrow" \\
+$\nLeftarrow$ & \verb"\nLeftarrow" &
+$\nRightarrow$ & \verb"\nRightarrow" \\
+$\nleftrightarrow$ & \verb"\nleftrightarrow" &
+$\nLeftrightarrow$ & \verb"\nLeftrightarrow" \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00161\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+                                                                      & \begin{tabular}[c]{@{}c@{}}Scalable range-\\ extension\\ (multiple hops)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Reduce ED\\ TX energy\end{tabular} & \begin{tabular}[c]{@{}c@{}}Downlink as\\ well as\\ uplink\end{tabular} & \begin{tabular}[c]{@{}c@{}}Use LoRaWAN\\ ED/server as-is\end{tabular} & \begin{tabular}[c]{@{}c@{}}LoRaWAN\\ standard\\ compatible\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}c@{}}LoRaWAN Relay\\ Specification\end{tabular} & No                                                                                    & Yes                                                                    & Yes                                                                    & No                                                                        & Yes                                                                     \\ \hline
+LoRa Repeaters                                                        & No                                                                                    & No                                                                    & No                                                                     & Yes                                                                       & Yes                                                                     \\ \hline
+\begin{tabular}[c]{@{}c@{}}LoRa-based\\ Mesh Network\end{tabular}     & Yes                                                                                   & N/A                                                                   & No                                                                     & N/A                                                                       & No                                                                      \\ \hline
+LIMA                                                                  & Yes                                                                                   & Yes                                                                   & Yes                                                                    & Yes                                                                       & Yes                                                                     \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

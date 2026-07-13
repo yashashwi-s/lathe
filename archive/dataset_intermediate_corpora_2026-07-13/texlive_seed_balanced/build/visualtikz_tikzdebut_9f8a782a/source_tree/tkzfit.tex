@@ -1,0 +1,215 @@
+\SbSSCT{N\oe ud enveloppant}{Fitting nodes}
+
+
+ \maboite{\BS{usetikzlibrary}\AC{fit}}
+
+\label{lib-fit}
+\begin{center}
+\RRR{52}
+\end{center}
+
+
+\begin{tabular}{|c|l|}  \hline
+\begin{tikzpicture}[baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\fill (.5,1) circle (3pt);
+\fill (2,.25) circle (3pt);
+\fill (1,2)  circle (3pt);
+\fill (1.25,0.25)  circle (3pt);
+\fill (1.75,1.5)  circle (3pt);
+\node[draw=red,ultra thick,fit={(.5,1) (2,.25) (1,2) (1.25,0.25) (1.75,1.5) }]  {};
+\end{tikzpicture}
+&
+\parbox[b]{10cm}{
+\BS{fill } (.5,1) circle (3pt); \\
+\BS{fill } (2,.25) circle (3pt);\\
+\BS{fill }  (1,2)  circle (3pt); \\
+\BS{fill } (1.25,0.25)  circle (3pt); \\
+\BS{fill } (1.75,1.5)  circle (3pt);\\
+\BS{node}[draw=red,ultra thick,\RDD{fit}=\AC{(.5,1) (2,.25) (1,2) (1.25,0.25) (1.75,1.5) }] \AC{} ;
+}
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|l|}  \hline
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue},baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[draw=red,ultra thick,fit=(a) (b) (c) (d) (e)]  {};
+\end{tikzpicture}
+&
+\parbox[b]{10cm}{
+[dot/.style=\AC{inner sep=0pt,draw,circle,blue}]\\
+\BS{node}[dot] (a) at (.5,1) \AC{a}; \\
+\BS{node}[dot] (b) at (2,.25) \AC{b}; \\
+\BS{node}[dot] (c) at (1,2) \AC{c}; \\
+\BS{node}[dot] (d) at (1.25,0.25) \AC{d}; \\
+\BS{node}[dot] (e) at (1.75,1.5) \AC{e}; \\
+\BS{node}[draw=red,ultra thick,\RDD{fit}=(a) (b) (c) (d) (e)] \AC{} 
+}
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|l|}{ \BS{node}[draw=red,ultra thick,fit=(a) (b) (c) (d) (e)] {\color{red}(xxx)} \AC{} }\\
+\multicolumn{3}{|l|}{ \BS{node} at {\color{red} (xxx.east)} [fill=green!20] \AC{x};  }\\ 
+\hline 
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue},baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[draw=red,fit=(a) (b) (c) (d) (e)] (xxx) {};
+\node at (xxx.east) [fill=green!20] {x};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue},baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[draw=red,fit=(a) (b) (c) (d) (e)] (xxx) {};
+\node at (xxx.north east) [fill=green!20] {x};
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[draw=red,fit=(a) (b) (c) (d) (e)] (xxx) {};
+\node at (xxx.center) [fill=green!20] {x};
+\end{tikzpicture}
+\\ \hline xxx.east & xxx.north east & xxx.center \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|l|}{ \BS{node} [draw=green,fit=(a) (b) (c) (d) (e)] {};  }\\ 
+\multicolumn{2}{|l|}{ \BS{node} [\RDD{inner sep}=0pt,draw=red,fit=(a) (b) (c) (d) (e)] {};  }\\ 
+\hline 
+ \begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue},baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[inner sep=0pt,draw=red,ultra thick,fit=(a) (b) (c) (d) (e)]  {};
+\node[draw=green,fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue},baseline=0pt]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[inner sep=.5cm,draw=red,ultra thick,fit=(a) (b) (c) (d) (e)]  {};
+\node[draw=green,fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+\\ \hline  
+inner sep=0pt & inner sep=.5cm \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{ \BS{node}[circle,draw=red,inner sep=0pt,fit=(a) (b) (c) (d) (e)] \AC{};  }\\ 
+\hline  
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[circle,draw=red,inner sep=0pt,fit=(a) (b) (c) (d) (e)]  {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[ellipse,draw=red,inner sep=0pt,fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+[dot/.style={inner sep=0pt,draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[shape=starburst,draw=red,inner sep=0pt,fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+\\ \hline 
+circle & ellipse & shape=starburst (\TFRGB{voir}{see} section \ref{ndbt} ) \\ 
+\hline 
+\end{tabular} 
+
+
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{ \BS{node}[draw=red, \RDD{rotate fit}=45, fit=(a) (b) (c) (d) (e)]  \AC{};  }\\ 
+\hline  
+\begin{tikzpicture}
+[inner sep=0pt,
+dot/.style={draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[draw=red, rotate fit=45, fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+[inner sep=0pt,
+dot/.style={draw,circle,blue}]
+\draw[help lines] (0,0) grid (3,2.5);
+\node[dot] (a) at (.5,1) {a};
+\node[dot] (b) at (2,.25) {b};
+\node[dot] (c) at (1,2) {c};
+\node[dot] (d) at (1.25,0.25) {d};
+\node[dot] (e) at (1.75,1.5) {e};
+\node[ellipse,draw=red, rotate fit=45, fit=(a) (b) (c) (d) (e)] {};
+\end{tikzpicture}
+\\ \hline rotate fit=45 & ellipse, rotate fit=45 \\ 
+\hline 
+\end{tabular} 

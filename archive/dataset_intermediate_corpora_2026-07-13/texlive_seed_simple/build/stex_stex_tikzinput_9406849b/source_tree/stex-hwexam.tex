@@ -1,0 +1,92 @@
+\begin{sfragment}{Introduction}
+The \pkg{hwexam} package and class supplies an infrastructure that allows to format
+nice-looking assignment sheets by simply including problems from problem files marked up
+with the \pkg{problem} package.  It is designed to be compatible with |problems.sty|, and
+inherits some of the functionality.
+\end{sfragment}
+
+\begin{sfragment}{Package Options}
+\begin{variable}{solutions,notes,hints,gnotes,pts,min}
+  The \pkg{hwexam} package and class take the options |solutions|, |notes|, |hints|,
+  |gnotes|, |pts|, |min|, and |boxed| that are just passed on to the \pkg{problems}
+  package (cf. its documentation for a description of the intended behavior).
+\end{variable}
+
+Furthermore, the \pkg{hwexam} package takes the option
+\DescribeMacro{multiple}|multiple| that allows to combine multiple assignment sheets
+into a compound document (the assignment sheets are treated as section, there is a table
+of contents, etc.).
+
+Finally, there is the option \DescribeMacro{test}|test| that modifies the behavior to
+facilitate formatting tests. Only in |test| mode, the macros |\testspace|,
+|\testnewpage|, and |\testemptypage| have an effect: they generate space for the
+students to solve the given problems. Thus they can be left in the {\LaTeX} source. 
+\end{sfragment}
+
+\begin{sfragment}{Assignments}
+This package supplies the \DescribeEnv{assignment}|assignment| environment that groups
+problems into assignment sheets. It takes an optional KeyVal argument with the keys
+\DescribeMacro{number}|number| (for the assignment number; if none is given, 1 is
+assumed as the default or --- in multi-assignment documents --- the ordinal of the
+|assignment| environment), \DescribeMacro{title}|title| (for the assignment title; this
+is referenced in the title of the assignment sheet), \DescribeMacro{type}|type| (for the
+assignment type; e.g. ``quiz'', or ``homework''), \DescribeMacro{given}|given| (for the
+date the assignment was given), and \DescribeMacro{due}|due| (for the date the
+assignment is due).
+\end{sfragment}
+
+\begin{sfragment}{Including Assignments}
+\begin{function}{\inputassignment}
+  The |\inputassignment| macro can be used to input an assignment from another file. It
+  takes an optional KeyVal argument and a second argument which is a path to the file
+  containing the problem (the macro assumes that there is only one |assignment|
+  environment in the included file).  The keys |number|, |title|, |type|, |given|, and
+  |due| are just as for the |assignment| environment and (if given) overwrite the ones
+  specified in the |assignment| environment in the included file.
+\end{function}
+\end{sfragment}
+
+\begin{sfragment}{Typesetting Exams}
+
+The \DescribeEnv{testheading}|\testheading| takes an optional keyword argument
+where the keys \DescribeMacro{duration}|duration| specifies a string that specifies the
+duration of the test, \DescribeMacro{min}|min| specifies the equivalent in number of
+minutes, and \DescribeMacro{reqpts}|reqpts| the points that are required for a perfect
+grade.
+
+\begin{stexcode}
+\title{320101 General Computer Science (Fall 2010)}
+\begin{testheading}[duration=one hour,min=60,reqpts=27]
+  Good luck to all students!
+\end{testheading}
+\end{stexcode}
+
+Will result in
+\begin{center}
+  \begin{minipage}{.9\textwidth}
+\makeatletter
+%^^A\@problem{1.1}{4}{10}
+%^^A\@problem{2.1}{4}{8}
+%^^A\@problem{2.2}{6}{10}
+%^^A\@problem{2.3}{6}{10}
+%^^A\@problem{3.1}{4}{8}
+%^^A\@problem{3.2}{4}{8}
+%^^A\@problem{3.3}{2}{4}
+\makeatother
+\title{320101 General Computer Science (Fall 2010)}
+\begin{testheading}[duration=one hour,min=60,reqpts=27]
+  good luck
+\end{testheading}
+\end{minipage}
+\end{center}
+\footnote{MK: The first three ``problems'' come from the stex examples above, how do we get rid
+  of this?}
+\end{sfragment}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../stex-manual"
+%%% End:
+
+%  LocalWords:  hwexam solutions,notes,hints,gnotes,pts,min gnotes testemptypage reqpts
+%  LocalWords:  inputassignment reqpts hour,min 60,reqpts

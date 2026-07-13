@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00291\_table\_15}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll@{\hspace{2em}}ll}
+$\nless$ & \verb"\nless" &
+$\ngtr$ & \verb"\ngtr" \\
+$\nleq$ & \verb"\nleq" &
+$\ngeq$ & \verb"\ngeq" \\
+$\nleqslant$ & \verb"\nleqslant" &
+$\ngeqslant$ & \verb"\ngeqslant" \\
+$\nleqq$ & \verb"\nleqq" &
+$\ngeqq$ & \verb"\ngeqq" \\
+$\lneq$ & \verb"\lneq" &
+$\gneq$ & \verb"\gneq" \\
+$\lneqq$ & \verb"\lneqq" &
+$\gneqq$ & \verb"\gneqq" \\
+$\lvertneqq$ & \verb"\lvertneqq" &
+$\gvertneqq$ & \verb"\gvertneqq" \\
+$\lnsim$ & \verb"\lnsim" &
+$\gnsim$ & \verb"\gnsim" \\
+$\lnapprox$ & \verb"\lnapprox" &
+$\gnapprox$ & \verb"\gnapprox" \\
+$\nprec$ & \verb"\nprec" &
+$\nsucc$ & \verb"\nsucc" \\
+$\npreceq$ & \verb"\npreceq" &
+$\nsucceq$ & \verb"\nsucceq" \\
+$\precneqq$ & \verb"\precneqq" &
+$\succneqq$ & \verb"\succneqq" \\
+$\precnsim$ & \verb"\precnsim" &
+$\succnsim$ & \verb"\succnsim" \\
+$\precnapprox$ & \verb"\precnapprox" &
+$\succnapprox$ & \verb"\succnapprox" \\
+$\nsim$ & \verb"\nsim" &
+$\ncong$ & \verb"\ncong" \\
+$\nshortmid$ & \verb"\nshortmid" &
+$\nshortparallel$ & \verb"\nshortparallel" \\
+$\nmid$ & \verb"\nmid" &
+$\nparallel$ & \verb"\nparallel" \\
+$\nvdash$ & \verb"\nvdash" &
+$\nvDash$ & \verb"\nvDash" \\
+$\nVdash$ & \verb"\nVdash" &
+$\nVDash$ & \verb"\nVDash" \\
+$\ntriangleleft$ & \verb"\ntriangleleft" &
+$\ntriangleright$ & \verb"\ntriangleright" \\
+$\ntrianglelefteq$ & \verb"\ntrianglelefteq" &
+$\ntrianglerighteq$ & \verb"\ntrianglerighteq" \\
+$\nsubseteq$ & \verb"\nsubseteq" &
+$\nsupseteq$ & \verb"\nsupseteq" \\
+$\nsubseteqq$ & \verb"\nsubseteqq" &
+$\nsupseteqq$ & \verb"\nsupseteqq" \\
+$\subsetneq$ & \verb"\subsetneq" &
+$\supsetneq$ & \verb"\supsetneq" \\
+$\varsubsetneq$ & \verb"\varsubsetneq" &
+$\varsupsetneq$ & \verb"\varsupsetneq" \\
+$\subsetneqq$ & \verb"\subsetneqq" &
+$\supsetneqq$ & \verb"\supsetneqq" \\
+$\varsubsetneqq$ & \verb"\varsubsetneqq" &
+$\varsupsetneqq$ & \verb"\varsupsetneqq" \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05220\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccc}
+\hline
+\hline
+\rule{0pt}{2ex} Date & $t-t_0$ & Source & Range & $R$\\
+(UT date) & (days) & & $\AA$ & \\
+\hline
+2021-06-12 &   0.7 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-13 &   1.0 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-14 &   2.0 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-15 &   3.7 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-16 &   4.1 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-17 &   5.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-06-18 &   6.6 &   ARAS & 3900\,--\,7500 &        1,000 \\
+2021-06-19 &   7.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-06-21 &  10.0 &   ARAS & 3900\,--\,7500 &        1,000 \\
+2021-06-22 &  11.0 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-23 &  12.0 &   ARAS & 3900\,--\,7500 &       10,000 \\
+2021-06-25 &  13.0 &   ARAS & 3900\,--\,7500 &        1,000 \\
+2021-06-27 &  15.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-06-30 &  18.0 &   ARAS & 3900\,--\,7500 &        1,000 \\
+2021-07-01 &  19.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-07-03 &  21.0 &  SNIFS & 3400\,--\,9000 &        1,000 \\
+2021-07-04 &  22.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-07-07 &  25.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-07-09 &  27.0 & Gemini & 4500\,--\,6800 &        4,400 \\
+2021-07-10 &  28.0 &  SNIFS & 3400\,--\,9000 &        1,000 \\
+2021-07-14 &  32.0 &   ARAS & 3900\,--\,7500 &        1,000 \\
+2021-07-18 &  36.0 &  SNIFS & 3400\,--\,9000 &        1,000 \\
+2021-07-31 &  48.0 &  SNIFS & 3400\,--\,9000 &        1,000 \\
+2021-08-03 &  52.0 &  SNIFS & 3400\,--\,9000 &        1,000 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

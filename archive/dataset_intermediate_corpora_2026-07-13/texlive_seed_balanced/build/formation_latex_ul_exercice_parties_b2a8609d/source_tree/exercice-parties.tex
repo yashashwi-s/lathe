@@ -1,0 +1,155 @@
+\documentclass[11pt,french]{memoir}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+  \usepackage[colorlinks]{hyperref}
+
+  \title{}
+  \author{}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Présentation du langage R}
+\label{chap:rpresentation}
+
+\section{Bref historique}
+\label{sec:rpresentation:historique}
+
+À l'origine fut le S, un langage pour «programmer avec des données»
+développé chez Bell Laboratories à partir du milieu des années 1970
+par une équipe de chercheurs menée par John~M.\ Chambers. Au fil du
+temps, le S a connu quatre principales versions communément
+identifiées par la couleur du livre dans lequel elles étaient
+présentées: %
+version «originale», %
+version 2, %
+version 3 et %
+version 4; %
+voir aussi <citation> et <citation> pour plus de détails.
+
+Dès la fin des années 1980 et pendant près de vingt ans, le S a
+principalement été popularisé par une mise en {\oe}uvre commerciale
+nommée S-PLUS. En 2008, Lucent Technologies a vendu le langage S à
+Insightful Corporation, ce qui a effectivement stoppé le développement
+du langage par ses auteurs originaux. Aujourd'hui, le S est
+commercialisé de manière relativement confidentielle sous le nom
+Spotfire S$+$ par TIBCO Software.
+
+Ce qui a fortement contribué à la perte d'influence de S-PLUS, c'est
+une nouvelle mise en {\oe}uvre du langage développée au milieu des
+années 1990. Inspirés à la fois par le S et par Scheme (un dérivé du
+Lisp), Ross Ihaka et Robert Gentleman proposent un langage pour
+l'analyse de données et les graphiques qu'ils nomment R. À la
+suggestion de Martin Maechler de l'ETH de Zurich, les auteurs décident
+d'intégrer leur nouveau langage au projet GNU\footnote{%
+  \url{https://www.gnu.org}}, %
+faisant de R un logiciel libre.
+
+Ainsi disponible gratuitement et ouvert aux contributions de tous,
+R gagne rapidement en popularité là même où S-PLUS avait acquis ses
+lettres de noblesse, soit dans les milieux académiques. De simple
+dérivé «\emph{not unlike S}», R devient un concurrent sérieux à
+S-PLUS, puis le surpasse lorsque les efforts de développement se
+rangent massivement derrière le projet libre. D'ailleurs John Chambers
+place aujourd'hui ses efforts de réflexion et de développement dans le
+projet R.
+
+
+\section{Description sommaire de R}
+\label{sec:rpresentation:description}
+
+R est un environnement intégré de manipulation de données, de calcul
+et de préparation de graphiques. Toutefois, ce n'est pas seulement un
+«autre» environnement statistique (comme SPSS ou SAS, par exemple),
+mais aussi un langage de programmation complet et autonome.
+
+Tel que mentionné précédemment, le R est un langage principalement
+inspiré du S et de Scheme. Le S était à son tour inspiré de plusieurs
+langages, dont l'APL (autrefois un langage très prisé par les
+actuaires) et le Lisp. Comme tous ces langages, le R est
+\emph{interprété}, c'est-à-dire qu'il requiert un autre programme ---
+l'\emph{interprète} --- pour que ses commandes soient exécutées. Par
+opposition, les programmes de langages \emph{compilés}, comme le C ou
+le C++, sont d'abord convertis en code machine par le compilateur puis
+directement exécutés par l'ordinateur.
+
+Cela signifie donc que lorsque l'on programme en R, il n'est pas
+possible de plaider l'attente de la fin de la phase de compilation
+pour perdre son temps au travail. Désolé!
+
+Le programme que l'on lance lorsque l'on exécute R est en fait
+l'interprète. Celui-ci attend que l'on lui soumette des commandes dans
+le langage R, commandes qu'il exécutera immédiatement, une à une et
+en séquence.
+
+Par analogie, Excel est certes un logiciel de manipulation de données,
+de mise en forme et de préparation de graphiques, mais c'est aussi au
+sens large un langage de programmation interprété. On utilise le
+langage de programmation lorsque l'on entre des commandes dans une
+cellule d'une feuille de calcul. L'interprète exécute les commandes et
+affiche les résultats dans la cellule.
+
+Le R est un langage particulièrement puissant pour les applications
+mathématiques et statistiques (et donc actuarielles) puisque
+précisément développé dans ce but. Parmi ses caractéristiques
+particulièrement intéressantes, on note:
+\begin{itemize}
+\item langage basé sur la notion de vecteur, ce qui simplifie les
+  calculs mathématiques et réduit considérablement le recours aux
+  structures itératives (boucles \texttt{for}, \texttt{while}, etc.);
+\item pas de typage ni de déclaration obligatoire des variables;
+\item programmes courts, en général quelques lignes de code seulement;
+\item temps de développement très court.
+\end{itemize}
+
+
+
+\section{Interfaces}
+\label{sec:rpresentation:interfaces}
+
+R est d'abord et avant tout une application n'offrant qu'une invite de
+commande du type de celle présentée à la
+\autoref{fig:rpresentation:console}. En soi, cela n'est pas si
+différent d'un tableur tel que Excel: la zone d'entrée de texte dans
+une cellule n'est rien d'autre qu'une invite de commande\footnote{%
+  Merci à Markus Gesmann pour cette observation.}, par ailleurs aux
+capacités d'édition plutôt réduites.
+
+\begin{figure}
+  \centering
+  \fbox{image}
+  \caption{Fenêtre de la console sous macOS au démarrage de R}
+  \label{fig:rpresentation:console}
+\end{figure}
+
+\begin{itemize}
+\item Sous Unix et Linux, R n'est accessible que depuis la ligne de
+  commande du système d'exploitation (terminal). Aucune interface
+  graphique n'est offerte avec la distribution de base de R.
+\item Sous Windows, une interface graphique plutôt rudimentaire est
+  disponible. Elle facilite certaines opérations tel que
+  l'installation de packages externes, mais elle offre autrement peu
+  de fonctionnalités additionnelles pour l'édition de code R.
+\item L'interface graphique de R sous macOS est la plus élaborée.
+  Outre la console présentée à la
+  \autoref{fig:rpresentation:console}, l'application \texttt{R.app}
+  comporte de nombreuses fonctionnalités, dont un éditeur de code
+  assez complet.
+\end{itemize}
+
+\end{document}

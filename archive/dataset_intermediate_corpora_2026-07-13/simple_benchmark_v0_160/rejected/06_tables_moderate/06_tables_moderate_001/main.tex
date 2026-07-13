@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02677\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+
+\textbf{Components} & \textbf{Boolean} & \textbf{Propositional} & \textbf{Arithmetic} \\
+\hline
+
+\makecell{constants\\$\mathcal{C}$} & \makecell{\\$1$\\\\$0$} & \makecell{\\$0000$\\\\$0001$\\\\$0010$\\\\...\\\\$1111$\\\\} & \makecell{\\$000$\\\\$001$\\\\$002$\\\\...\\\\$999$\\\\} \\
+\hline
+
+\makecell{functions\\$\mathcal{F}$} & \makecell{\\$+^2$\\\\$*^2$\\\\$-^1$\\\\}
+& \makecell{\\$+^2$\\\\$*^2$\\\\$-^1$\\\\$>^2$\\\\} & \makecell{\\$+^2$\\\\$-^2$\\\\$*^2$\\\\} \\
+\hline
+
+\makecell{base-cases\\$\mathcal{B}$} & \makecell{\\$11+$\\\\$10*$\\\\$0-$\\\\...\\\\}
+& \makecell{\\$11000101>$\\\\$10100011+$\\\\$10001110*$\\\\...\\\\} 
+& \makecell{\\$453857+$\\\\$053007*$\\\\$403857-$\\\\...\\\\}  \\
+\hline
+
+
+\makecell{recursion depth\\$\delta$} & 
+\makecell{\\$\delta(11+10**)=2$\\\\$\delta(110**)=2$\\\\$\delta(10*)=1$\\\\...\\\\} & 
+\makecell{\\$\delta(110011001000+*)=2$\\\\$\delta(11001011>)=1$\\\\...\\\\} & 
+\makecell{\\$\delta(222111+003*)=2$\\\\$\delta(333003*)=1$\\\\...\\\\} \\
+\hline
+
+\makecell{expr. length\\$\ell$} & 
+\makecell{\\$\ell(11+10**)=3$\\\\$\ell(110**)=2$\\\\$\ell(10*)=1$\\\\...\\\\} & 
+\makecell{\\$\ell(110011001000+*)=2$\\\\$\ell(11001011>)=1$\\\\...\\\\} & 
+\makecell{\\$\ell(222111+003*)=2$\\\\$\ell(333003*)=1$\\\\...\\\\} \\
+\hline
+
+\makecell{\\expression\\example\\\\} & $10+0-*1*$ & \texttt{01+11-01>} & \texttt{034051+003*} \\
+\hline
+
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01635\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccc@{\hspace{15pt}}ccc}
+			\hline \hline
+			\makecell{Prototypical sliding \\ ferroelectrics} & \makecell{Symmetry \\ operation} & \makecell{Independent SHG \\ coefficients ($+P$)} & \makecell{Independent SHG \\ coefficients ($-P$)} & \makecell{SHG \\ intensity} & \makecell{Orientation \\ distinguishable$?$}  \\
+			\hline
+			\makecell{1T'-WTe$_2$ \\ Td-MoTe$_2$ in $C_{2v}$} 
+			& \makecell{$C_2^{[010]}$ \\ 
+				$\begin{pmatrix}
+					-1 & 0 & 0 \\
+					0 & 1 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$ \\  \\} 
+			& \makecell{$\chi_{xzx}$($\chi_{xxz}$) \\ $\chi_{yyz}$($\chi_{yzy}$) \\ $\chi_{zxx}$ \\ $\chi_{zyy}$ \\ $\chi_{zzz}$ \\  \\} 
+			& \makecell{$-\chi_{xzx}$($-\chi_{xxz}$) \\ $-\chi_{yyz}$($-\chi_{yzy}$) \\ $-\chi_{zxx}$ \\ $-\chi_{zyy}$ \\ $-\chi_{zzz}$ \\  \\} 
+			& \makecell{\\ \textbf{$E_x = 0$, $E_{y,z} \neq$ 0}\\ [0.5em] 
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[\chi_{zzz} \sin^3\theta \\
+					&\quad + (\chi_{zyy} + 2\chi_{yyz}) \cos^2\theta \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[\chi_{zyy} \cos^3\theta \\
+					&\quad + (\chi_{zzz} - 2\chi_{yyz}) \sin^2\theta \cos\theta \bigr]^2
+				\end{aligned}$} 
+			& \makecell{\\ No} \\
+			\hline
+			\makecell{ \\ 3R-MoS$_2$ \\ 3R-BN \\ $\gamma$-InSe in $C_{3v}$} 
+			& \makecell{ \\ $C_2^{[\overline110]}$ \\ 
+				$\begin{pmatrix}
+					0 & -1 & 0 \\
+					-1 & 0 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$} 
+			& \makecell{ \\ $\chi_{xzx}$($\chi_{xxz}$) \\ $\chi_{yyy}$ \\ $\chi_{zxx}$ \\ $\chi_{zzz}$} 
+			& \makecell{ \\ $-\chi_{xzx}$($-\chi_{xxz}$) \\ $\chi_{yyy}$ \\ $-\chi_{zxx}$ \\ $-\chi_{zzz}$} 
+			& \makecell{ \\ \textbf{$E_z = 0$, $E_{x,y} \neq$ 0} \\[0.5em]
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[\chi_{yyy} \sin^3\theta \\
+					&\quad - 3\chi_{yyy} \cos^2\theta \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[-\chi_{yyy} \cos^3\theta \\
+					&\quad + 3\chi_{yyy} \sin^2\theta \cos\theta \bigr]^2
+				\end{aligned}$ \\  \\} 
+			& \makecell{\\ \\ No} \\
+			\hline
+			\makecell{ SnP$_2$S$_6$ \\ SnP$_2$Se$_6$ in $C_{3}$} 
+			& \makecell{$C_2^{[\overline110]}$ \\ 
+				$\begin{pmatrix}
+					0 & -1 & 0 \\
+					-1 & 0 & 0 \\
+					0 & 0 & -1
+				\end{pmatrix}$} 
+			& \makecell{ $\chi_{xxx}$ \\ $\chi_{xxz}$($\chi_{xzx}$) \\ $\chi_{xyz}$($\chi_{xzy}$) \\ $\chi_{yyy}$ \\ $\chi_{zxx}$ \\ $\chi_{zzz}$ \\  \\} 
+			& \makecell{ $-\chi_{xxx}$ \\ $-\chi_{xxz}$($-\chi_{xzx}$) \\ $\chi_{xyz}$($\chi_{xzy}$) \\ $\chi_{yyy}$ \\ $-\chi_{zxx}$ \\ $-\chi_{zzz}$ \\  \\} 
+			& \makecell{\textbf{$E_z = 0$, $E_{x,y} \neq$ 0} \\[0.5em] 
+				$\begin{aligned}
+					I_\parallel &\propto \bigl[4\chi_{xxx} \cos^3\theta - 3\chi_{xxx} \cos\theta \\
+					&\quad + 4\chi_{yyy} \sin^3\theta - 3\chi_{yyy} \sin\theta \bigr]^2 \\
+					I_\perp &\propto \bigl[-4\chi_{xxx} \sin^3\theta + 3\chi_{xxx} \sin\theta \\
+					&\quad + 4\chi_{yyy} \cos^3\theta - 3\chi_{yyy} \cos\theta  \bigr]^2
+				\end{aligned}$} 
+			& \makecell{\\ \\ Yes} \\
+			\hline\hline
+		\end{tabular}
+}
+\end{table}
+
+\end{document}

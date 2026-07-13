@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 24}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\State \textbf{Input:} Stock data for two assets $S_1$ and $S_2$, buy threshold, sell threshold
+\State \textbf{Output:} Trade signals for pairs trading
+\State
+\Procedure{Compute Hedge Ratio}{data1, data2}
+\State model $\gets$ perform OLS regression (data1, data2)
+\State \Return model.params$[1]$
+\EndProcedure
+\State
+\Procedure{Initialize}{fast, slow}
+\State hedge$\_$ratio $\gets$ \Call{Compute Hedge Ratio}{$S_1$, $S_2$}
+\State Calculate spread $\gets$ $S_1$$-$hedge$\_$ratio $\times$ $S_2$
+\State fast$\_$ema $\gets$ \Call{EMA}{spread, fast}
+\State slow$\_$ema $\gets$ \Call{EMA}{spread, slow}
+\State apo$\_$spread $\gets$ fast$\_$ema$-$slow$\_$ema
+\State position $\gets 0$
+\EndProcedure
+\State
+\Procedure{Next}{buy threshold, sell threshold}
+\State \textbf{if}{~apo$\_$spread $<$ buy$\_$threshold} \textbf{then}
+\State \hspace{1cm} Execute Buy for $S_1$ and Sell Short for $S_2$
+\State \textbf{else if}{apo$\_$spread $>$ sell$\_$threshold} \textbf{then}
+\State \hspace{1cm} Execute Sell Short for $S_1$ and Buy for $S_2$
+\State \textbf{end if}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{document}

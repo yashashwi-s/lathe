@@ -1,0 +1,87 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the scoring strategies in multi-choice
+questions with multiple answers allowed.
+
+\begin{quiz}[multiple]{Example Quiz}
+\begin{multi}{All correct}
+100\% is distributed uniformly.
+\item* A
+\item* B
+\item* C
+\end{multi}
+\begin{multi}{Auto sanction}
+Without the star, an error shall be issued because correct answers should add
+up to 100\%.
+\item* A
+\item B
+\item C
+\end{multi}
+\begin{multi}{All correct but total $\geq 100$}
+A warning shall be issued because correct answers must add up to 100\%.
+\item[fraction=50] A
+\item[fraction=50] B
+\item[fraction=50] C
+\end{multi}
+\begin{multi}{Multiple Choice}
+Select the following numbers that are prime.
+\item[fraction=20] 2
+\item* 5
+\item* 7
+\item[fraction=-50] 1
+\item 6
+\item 8
+\end{multi}
+\begin{multi}{Fruits (automatic scores)}
+Select the fruits
+\item* Apple% (100% scaled to +1/3)
+\item Burger% (-100% scaled to -1/3)
+\item Hot dog% (-100% scaled to -1/3)
+\item Pizza% (-100% scaled to -1/3)
+\item* Orange% (100% scaled to +1/3)
+\item* Banana% (100% scaled to +1/3)
+\end{multi}
+\begin{multi}{Vegetables (advanced scores)}
+Select the vegetables
+\item[fraction=10,feedback={Good}] Radish% (10% scaled to 1/11=9.1%)
+\item[fraction=-20] Chocolate% (-20% unchanged)
+\item[fraction=-20] Biscuit% (-30% unchanged)
+\item[fraction=-10] Cheese% (-10% unchanged)
+\item[fraction=100] Carrot% (100% scaled to 10/11=91%)
+%\item* Test
+\end{multi}
+\begin{cloze}{Embedded questions}
+\begin{multi}%{Fruits (automatic scores)}
+Select the fruits
+\item* Apple% (100% scaled to +1/3)
+\item Burger% (-100% scaled to -1/3)
+\item Hot dog% (-100% scaled to -1/3)
+\item Pizza% (-100% scaled to -1/3)
+\item* Orange% (100% scaled to +1/3)
+\item* Banana% (100% scaled to +1/3)
+\end{multi}
+\begin{multi}%{Vegetables (advanced scores)}
+Select the vegetables
+\item[fraction=10,feedback={Good}] Radish% (10% scaled to 1/11=9.1%)
+\item[fraction=-20] Chocolate% (-20% unchanged)
+\item[fraction=-20] Biscuit% (-30% unchanged)
+\item[fraction=-10] Cheese% (-10% unchanged)
+\item[fraction=100] Carrot% (100% scaled to 10/11=91%)
+%\item* Test
+\end{multi}
+\end{cloze}
+\end{quiz}
+\end{document}

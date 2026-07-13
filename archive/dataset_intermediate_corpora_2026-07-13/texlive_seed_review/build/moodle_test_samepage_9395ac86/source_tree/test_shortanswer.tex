@@ -1,0 +1,38 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\def\myequation{$(1+\sqrt{5})/2$}
+\htmlregister{\myequation}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of shortanswer questions.
+
+\begin{quiz}{Example Quiz}
+
+\begin{shortanswer}{Short Answer}
+Enter the string \texttt{"40\%"}.
+\item[fraction=100,feedback={correct \myequation}] 40\%
+\item[fraction=50,feedback={incomplete \myequation}] 40
+\item[fraction=50,feedback={incomplete \myequation}] \%
+\end{shortanswer}
+\begin{cloze}{Short Answer in Cloze}
+\begin{shortanswer}
+Enter the string \texttt{"40\%"}.
+\item[fraction=100,feedback={correct \myequation}] 40\%
+\item[fraction=50,feedback={incomplete \myequation}] 40
+\item[fraction=50,feedback={incomplete \myequation}] \%
+\end{shortanswer}
+\end{cloze}
+
+\end{quiz}
+\end{document}

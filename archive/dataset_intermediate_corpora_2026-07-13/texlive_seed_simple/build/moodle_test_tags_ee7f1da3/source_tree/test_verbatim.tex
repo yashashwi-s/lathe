@@ -1,0 +1,63 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{verbatim}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of verbatim environment.
+
+Outside of the scope of moodle questions, \texttt{filecontents} environments 
+can be set to define portions of code.
+
+\begin{quiz}{Verbatim}
+
+\begin{filecontents*}[overwrite]{test.log}
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = xelatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\newif\iffvextra
+\fvextratrue
+\ifxetex % FOR XELATEX
+	\usepackage{fontspec}
+\else %% FOR PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\fi
+\end{filecontents*}
+
+\begin{multi}{LaTeX}
+\verbatiminput{test.log}
+\item[feedback={}]* test
+\item[feedback={}] toast
+\end{multi}
+
+\begin{filecontents*}[overwrite]{test.log}
+#include <stdio.h>
+int main() {
+    char c='\0', *pc=&c;
+    printf("Hello world!\n");
+    return *pc;
+}
+\end{filecontents*}
+\begin{multi}{C}
+\verbatiminput{test.log}
+\item[feedback={}]* "\&test"
+\item[feedback={}] 'toast'
+\item <$<a>$>
+\end{multi}
+
+\end{quiz}
+
+\end{document}

@@ -1,0 +1,105 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of tags (i.e. keywords).
+
+\begin{quiz}[points=1,tags={quizz-level,{ leading whitespace},{with,  
+comma}}]{Moodle Tags}
+
+	\begin{multi}[tags={multiéàî,\AA\ae\oe}]{Title}%
+		\AA
+		\item[feedback={tic}] \ae
+		\item[feedback={tac}]* \oe
+	\end{multi}
+	
+	\begin{shortanswer}[]{Title}
+		\AA
+		\item[feedback={toc}] B
+		\item[feedback={\guillemotleft\guillemotright}] C
+		\item[fraction=0] *
+	\end{shortanswer}
+	
+	\begin{numerical}[tags={}]{Title}
+		\AA
+		\item[feedback={toc}] 1
+		\item[feedback={\guillemotleft\guillemotright}] 2
+		\item[fraction=0] 3
+	\end{numerical}
+	
+	\begin{matching}[tags={m\aa tch\"ing}]{Title}
+		\AA
+		\item \ae \answer oui
+		\item \oe \answer non
+		\item \answer \AA
+	\end{matching}
+	
+	\begin{essay}[tags={essay}]{Title}
+		\AA
+		\item \ae yo
+		\item \oe
+	\end{essay}
+	
+	\begin{description}[tags={desc}]{Title}%
+		Text
+	\end{description}
+	
+	
+	\begin{truefalse}[tags={TF}]{Title}
+		\AA
+		\item* \ae yo
+		\item \oe
+	\end{truefalse}
+	
+	\begin{cloze}[tags={cloze}]{Cloze}
+		\AA
+		\begin{multi}[shuffle=false]
+			\OE
+			\item[]* chip
+			\item[feedback={yes},fraction=10] chop
+			\item[feedback={no.}] chap
+		\end{multi}
+		\guillemotright
+		\begin{shortanswer}
+			\AA
+			\item[feedback={toc}] B
+			\item[feedback={\guillemotleft\guillemotright}] C
+			\item[fraction=0] *
+		\end{shortanswer}
+		\guillemotleft
+		\begin{numerical}
+			\AA
+			\item[] 1
+			\item[feedback={\guillemotleft\guillemotright}] 2
+			\item[fraction=0] 3
+		\end{numerical}
+		\begin{multi}[shuffle=false,vertical]
+			\OE
+			\item[feedback={yes}]* chip
+			\item[fraction=10] chop
+			\item[feedback={no.}] chap
+		\end{multi}
+		
+		\begin{multi}[shuffle=false,horizontal]
+			\OE
+			\item[feedback={yes}]* chip
+			\item[fraction=10] chop
+			\item[feedback={no.}] chap
+		\end{multi}
+		
+	\end{cloze}
+
+\end{quiz}
+
+\end{document}

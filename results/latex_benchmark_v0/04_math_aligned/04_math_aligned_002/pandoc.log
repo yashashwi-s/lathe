@@ -1,0 +1,21 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_002/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_002/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{ccc}\psi^{\dagger} \psi& \Rightarrow & \beta\int_{\alpha_-}^{\alpha_+}{dp \over2\pi}={\beta\over 2\pi}(\alpha_+-\alpha_-) \\{1\over \beta^2}{\partial \psi^{\dagger} \over \partial \lambda}{\partial \psi \over \partial \lambda} &\Rightarrow &{\beta\over 2\pi}\int dp \, p^2={\beta \over 6\pi}(\alpha_+^3 +-\alpha_-^3) \\\cdots & \cdots & \cdots .\end{array}
+  \end{align*}, rendering as TeX:
+  {\alpha_+}{dp \over2\pi}={\beta\over 2\p
+                     ^
+  unexpected control sequence \over
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{ccc}\{ U^1_{\alpha} \} & \stackrel{ \rho_{V, \{ U^1_{\alpha} \}} }{ \longleftarrow } & \{ U^1_{\alpha} |_V \} \\\makebox[0pt][r]{ $\scriptstyle{ \rho_{12} }$ } \uparrow & &\uparrow \makebox[0pt][l]{ $\scriptstyle{ \rho_{V, 12} }$ } \\\{ U^2_{\alpha} \} & \stackrel{ \rho_{V, \{ U^2_{\alpha} \} } }{ \longleftarrow } & \{ U^2_{\alpha} |_V \}\end{array}
+  \end{align*}, rendering as TeX:
+  } |_V \} \\\makebox[0pt][r]{ $\scriptsty
+                     ^
+  unexpected control sequence \makebox
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

@@ -1,0 +1,51 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of truefalse questions.
+
+The penalty keyword is overridden.
+
+\begin{quiz}[points=3]{Truefalse questions}
+
+\begin{truefalse}[feedback={general feedback},penalty=3]{Truefalse Test 1}
+This is a matching question.
+\item[feedback={Feedback for students choosing "true"}] this is discarded 
+because the feedback key is defined
+\item[]* Feedback for students choosing "false"
+\item* Extra items are ignored
+\end{truefalse}
+
+\begin{truefalse}[feedback={general feedback}]{Truefalse Test 2}
+This is an essay question.
+\item Feedback for students choosing "true"
+\item[feedback={Feedback for students choosing "false"}]*
+\end{truefalse}
+
+\begin{truefalse}[feedback={general feedback}]{Truefalse Test 3}
+Please answer "True".
+\item*
+%\item % if the correct answer is "true", the second item is optional
+\end{truefalse}
+
+\begin{truefalse}[feedback={general feedback}]{Truefalse Test 4}
+Please answer "False".
+\item % if the correct answer is "false", the first item is mandatory, even 
+%when it is not given any feedback
+\item*
+\end{truefalse}
+
+\end{quiz}
+
+\end{document}

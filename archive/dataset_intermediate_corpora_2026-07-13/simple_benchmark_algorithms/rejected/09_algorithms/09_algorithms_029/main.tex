@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 29}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\caption{PC Sampling (HFS-SDE).}
+\begin{algorithmic}[1]
+\Require{$\{\beta_i\}_{i=1}^N, \{\alpha_i\}_{i=1}^N, \text{csm}, \mathbf{\hat{y}}, \lambda_1, \lambda_2, r, N, M, \mathbf{M_u}$.} \Comment{$\text{csm} = \{\text{csm}_1, \cdots, \text{csm}_n\}$, $M_u$ is the undersampling mask}
+\State{$\mathbf{x}_{N} \sim \mathcal{N}(\mathbf{F}^{-1}(\mathbf{M}_l\mathbf{y}), \boldsymbol{\mathcal{F}}_h)$}
+\For{$i = N-1$ to $0$}
+\State{$\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$}
+\State{$\mathbf{g} \leftarrow \boldsymbol{\mathcal{F}}_h(\mathbf{s}_{\boldsymbol{\theta^*}}\left(\mathbf{x}_{i+1}, i+1\right)$})
+\State{$\mathbf{G}=\sum_{j=1}^{n} \text{csm}_j^{*} \cdot \mathbf{F}^{-1}\left(\mathbf{F}(\text{csm} \cdot \mathbf{x}_i) \cdot \mathbf{M_u} - \mathbf{\hat{y}}\right)$}
+\State{$\epsilon \leftarrow \lambda_1\left(\|\mathbf{g}\|_{2} /\|\mathbf{G}\|_{2}\right)$}
+\State{$\mathbf{x}_{i} \leftarrow \mathbf{x}_{i+1}+\dfrac{1}{2}\beta_{i+1}\boldsymbol{\mathcal{F}}_h(\mathbf{x}_i)+\beta_{i+1}(\mathbf{g}-\epsilon\mathbf{G})+\sqrt{\beta_{i+1}}\boldsymbol{\mathcal{F}}_h(\mathbf{z})$}
+\For{$k \gets 1$ to $M$}
+\State{$\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$}
+\State{$\mathbf{g} \leftarrow \boldsymbol{\mathcal{F}}_h(\mathbf{s}_{\boldsymbol{\theta}^*}\left(\mathbf{x}_{i}^{k-1}, i\right)$})
+\State{$\mathbf{G}=\sum_{j=1}^{n} \text{csm}_j^{*} \cdot \mathbf{F}^{-1}\left(\mathbf{F}(\text{csm} \cdot \mathbf{x}_i^k) \cdot \mathbf{M_u} - \mathbf{\hat{y}}\right)$}
+\State{$\epsilon_1 \leftarrow 2 \alpha_{i}\left(r\|\mathbf{z}\|_{2} /\|\mathbf{g}\|_{2}\right)^{2}$}
+\State{$\epsilon_2 \leftarrow \|\mathbf{g}\|_{2} /(\lambda_2 \cdot \|\mathbf{G}\|_{2})$}
+\State{$\mathbf{x}_{i}^{k} \leftarrow \mathbf{x}_{i}^{k-1}+\epsilon_1 (\mathbf{g}-\epsilon_2\mathbf{G})+\sqrt{2 \epsilon_1} \boldsymbol{\mathcal{F}}_h(\mathbf{z})$}
+\EndFor
+\State{$\mathbf{x}_{i-1}^{0} \leftarrow \mathbf{x}_{i}^{M}$}
+\EndFor
+\item[]
+\Return{${\mathbf{x}}_0^0$} \Comment{$\mathbf{x}_0 = \mathbf{x}_i^0$}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

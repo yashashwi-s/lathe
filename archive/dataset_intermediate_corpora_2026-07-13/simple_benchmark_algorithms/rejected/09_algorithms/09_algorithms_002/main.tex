@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 2}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[!ht]
+\caption{3d Subspace Intersects Box}
+\begin{algorithmic}
+\Require
+\State \hspace{5mm}Boundary $\mathcal{S} = [-B,B[\times[-B,B[\times[-B,B[\times[-B,B[$
+\State \hspace{5mm}4d normal $N=(n_x,n_y,n_z,n_t)$ to 3d subspace $\mathcal{S_N}$
+\State \hspace{5mm}Point $V=(x,y,z,t)$ contained in $\mathcal{S_N}$
+\Ensure
+True if $\mathcal{S_N} \cap \mathcal{S} \neq \emptyset$, False otherwise
+\vspace{1mm}
+\Procedure{}{}
+\vspace{1mm}
+\State $d \gets n_xx + n_yy + n_zz + n_tt$
+\State $nxB0 \gets -n_xB$
+\State $nyB0 \gets -n_yB$
+\State $nzB0 \gets -n_zB$
+\State $ntB0 \gets -n_tB$
+\State $nxB1 \gets n_x(B-1)$
+\State $nyB1 \gets n_y(B-1)$
+\State $nzB1 \gets n_z(B-1)$
+\State $ntB1 \gets n_t(B-1)$
+\State $s_0 \gets nxB0 + nyB0 + nzB0 + ntB0 - d$
+\State $s_1 \gets nxB1 + nyB0 + nzB0 + ntB0 - d$
+\State $s_2 \gets nxB0 + nyB1 + nzB0 + ntB0 - d$
+\State $s_3 \gets nxB1 + nyB1 + nzB0 + ntB0 - d$
+\State $s_4 \gets nxB0 + nyB0 + nzB1 + ntB0 - d$
+\State $s_5 \gets nxB1 + nyB0 + nzB1 + ntB0 - d$
+\State $s_6 \gets nxB0 + nyB1 + nzB1 + ntB0 - d$
+\State $s_7 \gets nxB1 + nyB1 + nzB1 + ntB0 - d$
+\State $s_8 \gets nxB0 + nyB0 + nzB0 + ntB1 - d$
+\State $s_9 \gets nxB1 + nyB0 + nzB0 + ntB1 - d$
+\State $s_a \gets nxB0 + nyB1 + nzB0 + ntB1 - d$
+\State $s_b \gets nxB1 + nyB1 + nzB0 + ntB1 - d$
+\State $s_c \gets nxB0 + nyB0 + nzB1 + ntB1 - d$
+\State $s_d \gets nxB1 + nyB0 + nzB1 + ntB1 - d$
+\State $s_e \gets nxB0 + nyB1 + nzB1 + ntB1 - d$
+\State $s_f \gets nxB1 + nyB1 + nzB1 + ntB1 - d$
+\State If all of $s_0,\dots,s_f$ have the same sign, return False, otherwise return True
+\EndProcedure
+\end{algorithmic}\end{algorithm}
+\end{algorithm}
+\end{document}

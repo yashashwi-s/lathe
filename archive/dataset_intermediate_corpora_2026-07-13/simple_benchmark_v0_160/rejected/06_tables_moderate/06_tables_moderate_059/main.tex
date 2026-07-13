@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02161\_table\_10}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|r|r|r|r|r|}
+    \toprule
+    \textbf{Failure Mode} & \textbf{Flux} & \textbf{SD3.5} & \textbf{SD3.5 M} & \textbf{SD3 M} & \textbf{SD3 XL} \\
+    \midrule
+    Cause-and-effect Relations & \textbf{44.83} & 36.84 & 31.58 & 27.59 & 21.05 \\
+    Action and Motion          & \textbf{52.00} & 20.00 & 16.00 & 0.00 & 12.00 \\
+    Anatomical Accuracy        & \textbf{53.33} & 33.33 & 26.67 & 6.67 & 26.67 \\
+    BG-FG Mismatch             & \textbf{76.00} & 69.23 & 73.08 & 53.85 & 53.85 \\
+    Blending Styles            & 5.00 & 10.34 & 3.45 & \textbf{13.79} & 3.45 \\
+    Color Binding              & 93.33 & \textbf{96.67} & 93.33 & \textbf{96.67} & 40.00 \\
+    Counts or Multiple Objects & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    Abstract Concepts          & \textbf{92.31} & 84.62 & 88.46 & 73.08 & 69.23 \\
+    Emotional Conveyance       & \textbf{76.67} & 46.67 & 36.67 & 16.67 & 33.33 \\
+    FG-BG Relations            & \textbf{86.21} & 37.93 & 34.48 & 51.72 & 37.93 \\
+    Human Action               & \textbf{72.41} & 68.97 & 27.59 & 13.79 & 44.83 \\
+    Human Anatomy Moving       & \textbf{79.31} & 48.28 & 17.24 & 0.00 & 24.14 \\
+    Long Text Specific         & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    Negation                   & 25.00 & \textbf{46.43} & 46.43 & 17.86 & 46.43 \\
+    Opposite Relation          & \textbf{6.67} & \textbf{6.67} & 3.33 & 0.00 & 0.00 \\
+    Perspective                & \textbf{33.33} & 23.33 & 20.00 & 10.00 & 6.67 \\
+    Physics                    & \textbf{43.33} & 16.67 & 23.33 & 26.67 & 16.67 \\
+    Scaling                    & \textbf{43.33} & 33.33 & 26.67 & 23.33 & 23.33 \\
+    Shape Binding              & \textbf{60.00} & 50.00 & 30.00 & 30.00 & 3.33 \\
+    Short Text Specific        & \textbf{64.00} & 48.00 & 24.00 & 20.00 & 0.00 \\
+    Social Relations           & \textbf{84.62} & 65.38 & 30.77 & 7.69 & 34.62 \\
+    Spatial Relations          & \textbf{50.00} & 23.33 & 16.67 & 23.33 & 10.00 \\
+    Surreal                    & 28.00 & \textbf{44.00} & 36.00 & 36.00 & 12.00 \\
+    Tense and Aspect           & \textbf{57.69} & 42.31 & 38.46 & 42.31 & 23.08 \\
+    Text Rendering Style       & \textbf{28.00} & 4.00 & 0.00 & 0.00 & 0.00 \\
+    Text-Based                 & \textbf{79.31} & 62.07 & 27.59 & 27.59 & 3.45 \\
+    Texture Binding            & 43.33 & \textbf{63.33} & 53.33 & 36.67 & 23.33 \\
+    \midrule
+    \textbf{Average}           & \textbf{51.04±1.83} & 40.06±1.79 & 30.56±1.68 & 24.27±1.57 & 21.09±1.49 \\
+
+    \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03575\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lc|cccc|cc}
+\toprule
+\textbf{Method} & \textbf{Frames/Retain Ratio} & \textbf{LongVideoBench} & \textbf{EgoSchema} & \textbf{MLVU} & \textbf{VideoMME} & \textbf{Avg.} & \textbf{Acc (\%)} \\
+\midrule
+\rowcolor{gray!15}
+Vanilla & 32f / 100\% & 56.3 & 60.4 & 64.7 & 58.4 & 59.95 & 100.0 \\
+% \cline{1-8}\rowcolor[HTML]{EAFAF1} 
+% \textbf{UniComp (auto)} & 32f / 26.3\% & 57.3 & 61.5 & 64.0 & 58.8 & 60.40 & 100.8 \\
+\midrule
+FastV~ $_{\text{ECCV'24}}$& 32f / 25\% & 56.4 & 60.4 & 61.5 & 56.1 & 58.60 & 97.7 \\
+Pdrop~ $_{\text{CVPR'25}}$& 32f / 25\% & \underline{56.7} & 58.0 & - & 56.4 & - & - \\
+DyCoke~ $_{\text{CVPR'25}}$& 32f / 25\% & 49.5 & 59.9 & 55.8 & 57.4 & 55.65 & 92.8 \\
+VisionZip~ $_{\text{CVPR'25}}$ & 32f / 25\% & 56.5 & 60.3 & \underline{64.8 }& 58.2 & 59.95 & 100.0 \\
+PruneVid~ $_{\text{ACL'25}}$ & 32f / 25\% & 55.7 & 59.9 & - & 57.4 & - & - \\
+FastVid~ $_{\text{NeurIPS'25}}$& 32f / 25\% & 56.3 & 59.3 & 64.1 & 58.0 & 59.43 & 99.1 \\
+HoliTom~ $_{\text{NeurIPS'25}}$ & 32f / 25\% & \underline{56.7} & \underline{61.2} & 64.7 & \underline{58.6} & \underline{60.30} & \underline{100.6} \\
+\rowcolor[HTML]{EAFAF1} 
+\textbf{UniComp} & 32f / 25\% & \textbf{57.6} & \textbf{61.6} & \textbf{65.0} & \textbf{58.9} & \textbf{60.78} & \textbf{101.4} \\
+\midrule
+VisionZip~ $_{\text{CVPR'25}}$ & 32f / 20\% & 55.2 & 59.8 & 64.2 & 57.9 & 59.28 & 98.9 \\
+PruneVid~ $_{\text{ACL'25}}$& 32f / 20\% & 54.7 & 59.7 & - & 56.9 & - & - \\
+FastVid~ $_{\text{NeurIPS'25}}$& 32f / 20\% & \underline{57.1} & 58.3 & \underline{63.9} & 57.9 & 59.30 & 98.9 \\
+HoliTom~ $_{\text{NeurIPS'25}}$ & 32f / 20\% & \underline{57.1} & \underline{61.0} & 63.5 & \underline{58.6} & \underline{60.05} & \underline{100.2} \\
+\rowcolor[HTML]{EAFAF1} 
+\textbf{UniComp} & 32f / 20\% & \textbf{57.7} & \textbf{61.1} & \textbf{64.4} & \textbf{58.7} & \textbf{60.48} & \textbf{100.9} \\
+\midrule
+VisionZip~ $_{\text{CVPR'25}}$ & 32f / 15\% & 54.4 & 59.8 & 63.1 & 56.1 & 58.35 & 97.3 \\
+PruneVid~ $_{\text{ACL'25}}$& 32f / 15\% & 55.4 & 59.7 & - & 56.6 & - & - \\
+FastVid~ $_{\text{NeurIPS'25}}$& 32f / 15\% & 56.2 & 58.7 & \underline{63.2} & \underline{57.7} & 58.95 & 98.3 \\
+HoliTom~ $_{\text{NeurIPS'25}}$ & 32f / 15\% & \underline{56.4} & \textbf{61.2} & 62.9 & 57.3 & \underline{59.45} & \underline{99.2} \\
+\rowcolor[HTML]{EAFAF1} 
+\textbf{UniComp} & 32f / 15\% & \textbf{57.4} & \underline{60.9} & \textbf{64.3} & \textbf{58.4} & \textbf{60.25} & \textbf{100.5} \\
+\midrule
+VisionZip~ $_{\text{CVPR'25}}$ & 32f / 10\% & 49.3 & 58.0 & 59.7 & 53.4 & 55.10 & 91.9 \\
+PruneVid~ $_{\text{ACL'25}}$& 32f / 10\% & 54.5 & 59.8 & 62.3 & 56.0 & 58.15 & 97.0 \\
+FastVid~ $_{\text{NeurIPS'25}}$& 32f / 10\% & \underline{56.3} & 58.3 & \underline{62.7} & \underline{57.3} & 58.65 & 97.8 \\
+HoliTom~ $_{\text{NeurIPS'25}}$ & 32f / 10\% & \underline{56.3} & \textbf{61.2} & 61.3 & 56.8 & \underline{58.90} & \underline{98.2} \\
+\rowcolor[HTML]{EAFAF1} 
+\textbf{UniComp} & 32f / 10\% & \textbf{57.6} & \underline{60.5} & \textbf{63.1} & \textbf{58.0} & \textbf{59.80} & \textbf{99.7} \\
+\midrule
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

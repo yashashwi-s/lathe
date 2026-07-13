@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01954\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|c|c|p{5.7cm}|} \hline 
+\textbf{Category} & \textbf{Technique} & \textbf{System Level} & \textbf{Maturity} & \textbf{Benefits / Limitations} \\ 
+\hline
+Avoidance & Automated Scheduling & Scheduler & Prototype & Avoids high-RFI windows; depends on accurate RFI forecasting \\ \hline
+Avoidance & Dynamic Scheduling & Scheduler & Conceptual & Flexible, but requires real-time RFI maps and coordination \\ \hline
+Avoidance & Satellite Boresight Avoidance & Scheduler & Prototype & Can mitigate >20dB from LEOs; complex implementation \\ \hline
+Analog & Adaptive Analog Attenuators & Analog receiver & In use & Prevents saturation but raises $T_{\text{sys}}$ during daytime by up to 30–50\%  \\ \hline
+Analog & Pre-LNA Superconducting Filters & Analog receiver & Prototype & Raises receiver noise temperature by $<1$–$2$K; selective and narrowband \\ \hline
+Analog & Front-End Notch Filters & Analog receiver & In use & Increase $T_{\text{sys}}$ by $\sim$3–8K depending on position and bandwidth  \\ \hline
+Analog & Switchable Notch Filters & Analog front-end & In use & GBT: reduces 7.2GHz tone contamination; increases insertion loss marginally \\ \hline
+Analog & Tunable Notch Filters & Analog front-end & Prototype & Up to 62.5dB suppression; adds ~3K to $T_{\text{rec}}$ due to filter insertion  \\ \hline
+Analog & Reconfigurable Intelligent Surfaces (RIS) & External & Conceptual & Potential 15–30dB spatial suppression; experimental \\ \hline
+Digital & Real-Time RFI Excision & F-engine & In use & Preserves uncorrupted data; $\approx$4–6\% data flagged (e.g., MeerKAT)  \\ \hline
+Digital & Post-Channelization Flagger & F-engine & Implemented & Enables frequency-specific flagging; computationally light \\ \hline
+Digital & Sigma Cut Flagging & Beamformer & Implemented & Effective real-time suppression; signal replacement reduces transients detection  \\ \hline
+Digital & Spectral Kurtosis (SK) & F-engine & Implemented & Captures non-Gaussianity; may misclassify weak bursts \\ \hline
+Digital & MeFisTo Filtering & Beamformer & In use & Up to 20–30dB filtering in SKA pathfinders (MeerKAT) \\ \hline
+Digital & Power-Based Excision & Beamformer & In use & Cuts strong impulsive RFI; misses continuous weak sources \\ \hline
+Digital & Calibration VarThreshold & Correlator & In use & Avoids skewing calibration solutions; operates at $\sim$8s resolution \\ \hline
+Digital & GRIDflag (UV-Domain) & Correlator & Prototype & Reduces faint RFI contamination; not real-time unless in correlator pipeline  \\ \hline
+Digital & Spatial Filtering & Beamformer / F-engine & Prototype & Effective in known source directions; residuals remain in sidelobes \\ \hline
+Digital & Collaborative Signal Subtraction & F-engine & Conceptual & Enables signal salvation; residuals remain due to mismatch  \\ \hline
+Digital & Pattern Recognition & Correlator & Conceptual & Can identify complex RFI; requires ML training and compute \\ \hline
+Digital & Real-Time Satellite Prediction & Scheduler & Prototype & Avoids known satellite tracks; requires accurate TLE updates \\ \hline
+Digital & Cyclic Spectroscopy & F-engine & Implemented & Discriminates periodic pulsar signals from non-cyclic RFI; may be combined with rejection filtering  \\ \hline
+Digital & Sample Freq. Offset Sampling & F-engine & Prototype & Decorrelates RFI across stations; residual artifacts minimized by shifting RFI to 0Hz  \\ \hline
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05040\_table\_41}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|l|l|r|r|r}
+GNoME id1  & GNoME id2  & EMD, am & isosets time, ms & EMD time, ms & cluster size \\
+\hline
+1547d30046 & ddc216e80c & 1                & 1.659            & 434.362               & 14           \\
+b4065a4798 & e78d3559e6 & 1.7              & 3.034            & 13.271                & 6            \\
+98ab164895 & df1252bc44 & 2                & 1.002            & 419.142               & 14           \\
+0de9d25713 & b1733941a7 & 2.7              & 1.971            & 49.816                & 6            \\
+0e79f7c053 & 6cf951ac6f & 3                & 1.035            & 429.487               & 14           \\
+07ece241f0 & 45cacc8d45 & 3.2              & 0.618            & 14.374                & 6            \\
+a58dc74a92 & c16bf63220 & 4.1              & 2.532            & 641.086               & 14           \\
+5023e3a4b8 & 8f7ffb4d4a & 4.6              & 2.776            & 10.02                 & 6            \\
+3198d1a3ea & 35f67abe6d & 5                & 1.031            & 403.398               & 14           \\
+6826b81efb & 76ee112799 & 5                & 0.985            & 407.618               & 14           \\
+6826b81efb & e9be17f0ee & 5                & 1.008            & 404.306               & 14           \\
+2cff5f2fa0 & f470a5f6fa & 5.3              & 0.635            & 169.911               & 17           \\
+2ce912f039 & 9de239ee0c & 5.5              & 0.632            & 3.456                 & 2            \\
+c9f5a7a51b & fd9f40e0e1 & 6                & 1.14             & 195.261               & 10           \\
+18078e002b & aca2a892a5 & 6                & 1.028            & 421.009               & 14           \\
+18078e002b & b9722429b1 & 6                & 1.18             & 445.453               & 14           \\
+18078e002b & b702e73db3 & 6                & 1.035            & 414.325               & 14           \\
+34b4204eee & adee17535b & 6                & 1.017            & 396.855               & 14           \\
+506b8b5646 & 60d266db80 & 6                & 1.174            & 413.254               & 14           \\
+506b8b5646 & ec7b789cb3 & 6                & 1.174            & 403.014               & 14           \\
+780741962f & a19688f106 & 6.5              & 1.804            & 870.629               & 15           \\
+780741962f & c6af1fc763 & 6.5              & 2.731            & 921.496               & 15           \\
+780741962f & c64c3e245c & 6.5              & 1.792            & 829.979               & 15           \\
+b06353561c & b6d2341d32 & 6.6              & 2.387            & 259.359               & 12           \\
+ebb33e044c & ebc9a4db61 & 6.8              & 1.232            & 450.351               & 14           \end{tabular}
+}
+\end{table}
+
+\end{document}

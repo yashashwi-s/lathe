@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00412\_table\_9}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcc}
+    \toprule
+    \textbf{Model} & \textbf{Truthfulness} & \textbf{Safety} \\
+    
+    \midrule
+    DeepSeek-V3 & 0.948 & 0.916 \\
+    DeepSeek-R1 & 0.952 & 0.928 \\
+    Qwen3-32B & 0.932 & 0.882 \\
+    Qwen3-32B & 0.957 & 0.911 \\
+    GLM-4-9B & 0.936 & 0.924 \\
+    GLM-4-Z1-9B & 0.935 & 0.918 \\
+    GLM-4-32B-Base & 0.928 & 0.901 \\
+    GLM-4-Z1-32B & 0.957 & 0.897 \\
+    MiMo-7B-Base & 0.911 & 0.890 \\
+    MiMo-7B-RL-Zero & 0.946 & 0.877 \\
+    Qwen2.5-7B & 0.931 & 0.927 \\
+    DeepMath-Zero & 0.952 & 0.861 \\
+    Qwen2.5-32B & 0.933 & 0.860 \\
+    DAPO-Qwen-32B & 0.923 & 0.920 \\
+    Qwen2.5-14B & 0.915 & 0.868 \\
+    DPSK-Qwen-14B & 0.947 & 0.926 \\
+    Qwen2.5-32B & 0.933 & 0.860 \\
+    DPSK-Qwen-32B & 0.944 & 0.873 \\
+    LLaMA-3.1-8B & 0.978 & 0.917 \\
+    DPSK-LLaMA-8B & 0.955 & 0.877 \\
+    LLaMA-3.3-70B & 0.956 & 0.904 \\
+    DPSK-LLaMA-70B & 0.936 & 0.883 \\
+    Qwen3-14B-Base & 0.911 & 0.921 \\
+    Qwen3-14B & 0.925 & 0.918 \\
+    o1 & 0.978 & 0.872 \\
+    o3-mini & 0.956 & 0.875 \\
+    Gemini-2.5-Pro & 0.976 & 0.870 \\
+    Claude-Sonnet-4 & 0.956 & 0.905 \\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00336\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+Method & Prompt & Time & Model & Modality \\
+\midrule
+MoonValley  & Text & 24.01 & 	Proprietary Model & Fake Video\\
+Pika & Image/Text & 24.02 & 	Proprietary Model & Fake Video \\
+Noisee & Image/Text & 24.05 & Proprietary Model & Fake Video\\
+Haiper & Image/Text & 24.05 & 	Proprietary Model & Fake Video\\
+Pixverse & Image/Text & 24.01 & 	Proprietary Model & Fake Video\\
+Emu3 & Image/Text & 23.11 & Transformer & Fake Video\\
+Gen3 & Image/Text & 24.06 & 	Proprietary Model & Fake Video\\
+Sora & Image/Text & 24.02 & DIT & Fake Video\\
+Viva & Image/Text & 24.05 & 	Proprietary Model & Fake Video\\
+Vidu & Image/Text & 24.07 & U-ViT  & Fake Video\\
+JiMeng & Image/Text & 24.06 & 	Proprietary Model & Fake Video\\
+\midrule
+MMAudio & Video\&Text & 24.12 & CFM & Fake Audio \\
+AudioX & Video\&Text & 25.04 & DIT & Fake Audio \\
+FoleyCrafter & Video & 24.07 & LDM & Fake Audio \\
+HunYuan & Video\&Text & 25.09 & LDM & Fake Audio \\
+\midrule
+Sora 2 & Image/Text & 25.09 & 	Proprietary Model & Fake Video-Fake Audio \\
+Voe 3 & Image/Text & 25.07 & 	Proprietary Model & Fake Video-Fake Audio \\
+Voe 3.1 & Image/Text & 25.10 & 	Proprietary Model & Fake Video-Fake Audio \\
+Kling 1.6 & Image/Text & 24.12 & DIT & FFake Video-Fake Audio \\
+Kling 2.1 & Image/Text & 25.05 & DIT & Fake Video-Fake Audio \\
+Kling 2.5 Turbo & Image/Text & 25.09 & DIT & Fake Video-Fake Audio \\
+\midrule
+Humo & Audio\&Image & 25.09 & DIT & Fake Video-Real Audio \\
+Wan 2.1 & Audio\&Image & 25.08 & DIT & Fake Video-Real Audio \\
+Kling-Avata & Audio\&Image & 25.09 & DIT & Fake Video-Real Audio \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

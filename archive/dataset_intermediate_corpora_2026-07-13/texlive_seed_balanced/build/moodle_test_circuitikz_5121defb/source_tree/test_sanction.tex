@@ -1,0 +1,143 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\def\myequation{$(1+\sqrt{5})/2$}
+\htmlregister{\myequation}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the \textsc{sanction} option 
+in multi answers questions. By default, this value is 0. It matters only when 
+\texttt{single=true} and \texttt{allornothing=false}
+
+\begin{quiz}[sanction=40]{Example Quiz}
+
+\begin{multi}[sanction=100]{Multiple Choice}
+Text
+\item* A
+\item B
+\item C
+\end{multi}
+
+\begin{multi}[sanction=10,multiple,feedback={abc\\def 
+$\sqrt{2}$}]{Multiple Choice}
+Select the following numbers that are prime.
+\item[fraction=70] $\sqrt{25}$
+\item[fraction=-10] \textbf{68}
+\item[fraction=30,feedback={$\sqrt{25}$}] 7
+\item[fraction=-70] 8
+\item \texttt{nothing}
+\end{multi}
+
+\begin{multi}[shuffle,feedback={abc\\def $\sqrt{2}$}]{Multiple 
+Choice}
+Select the following numbers that are prime.
+\item* $\sqrt{25}$
+\item 6
+\item[fraction=-30,feedback={$\sqrt{25}$}] 9
+\item \begin{enumerate}
+\item False
+\item Wrong
+\end{enumerate}
+\end{multi}
+
+\begin{cloze}{Cloze}
+%% SINGLE
+\begin{multi}[shuffle=false]
+Regular, single, no shuffle
+\item[feedback={yes}]* chip 
+\item[fraction=10] \textit{chop} 
+\item[feedback={no.},fraction=-30] \textbf{chap}
+\end{multi}
+
+\begin{multi}[shuffle=false,vertical]
+Vertical, single, no shuffle
+\item[feedback={yes}]* chip
+\item[fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[sanction=10,shuffle=false,horizontal]
+Horizontal, single, no shuffle
+\item[feedback={yes}]* chip
+\item[fraction=10] chop
+\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true]
+	Regular, single, shuffle
+	\item[]* chip
+	\item[feedback={yes}] chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true,vertical]
+	Vertical, single, shuffle
+	\item[feedback={yes}]* chip
+	\item[fraction=10] chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[shuffle=true,horizontal]
+	Horizontal, single, shuffle
+	\item[feedback={yes}]* chip
+	\item chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+%% MULTIPLE
+\begin{multi}[multiple,shuffle=false]
+	Regular, multiple, no shuffle
+	\item* chip
+	\item[feedback={yes}]* chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+%\begin{multi}[multiple,shuffle=false,vertical]
+%	Vertical, multiple, no shuffle
+%	\item[feedback={yes}]* chip
+%	\item* chop
+%	\item[feedback={no.}] chap
+%\end{multi}
+
+\begin{multi}[sanction=33.33333,multiple,shuffle=false,horizontal]
+	Horizontal, multiple, no shuffle
+	\item[feedback={yes}]* chip
+	\item* chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\begin{multi}[multiple,shuffle=true]
+	Regular, multiple, shuffle
+	\item[]* chip
+	\item[feedback={yes}]* chop
+	\item[feedback={no.}] chap
+\end{multi}
+%
+%\begin{multi}[multiple,shuffle=true,vertical]
+%	Vertical, multiple, shuffle
+%	\item[feedback={yes}]* chip
+%	\item* chop
+%	\item[feedback={no.}] chap
+%\end{multi}
+%
+\begin{multi}[multiple,shuffle=true,horizontal]
+	Horizontal, multiple, shuffle
+	\item[feedback={yes}]* chip
+	\item* chop
+	\item[feedback={no.}] chap
+\end{multi}
+
+\end{cloze}
+
+\end{quiz}
+\end{document}

@@ -1,0 +1,58 @@
+%%
+%% This is file `hep-reference-test.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hep-reference-implementation.dtx  (with options: `test')
+%% This is a generated file.
+%% Copyright (C) 2019-2025 by Jan Hajer
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{hep-reference}
+\usepackage{parskip}
+\providecommand*{\cref}{section \ref}
+
+\begin{document}
+
+\section{Section} \label{sec:Section}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Etiam lobortis section \ref{sec:Section}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Etiam lobortis \cref{sec:Section}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Etiam loborti equation \eqref{eq:Equation}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Etiam loborti reference \cite{cite}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\footnote{
+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+}
+
+\begin{equation} \label{eq:Equation}
+E=mc^2
+\end{equation}
+
+\begin{thebibliography}{1}
+\bibitem{cite} reference
+\end{thebibliography}
+
+\end{document}
+
+\endinput
+%%
+%% End of file `hep-reference-test.tex'.

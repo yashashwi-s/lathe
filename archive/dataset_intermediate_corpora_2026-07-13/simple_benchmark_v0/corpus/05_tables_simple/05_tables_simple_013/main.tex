@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00671\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Colour} &
+        \textbf{Hex Code} \rule[-1.5ex]{0pt}{0pt} &
+        \textbf{$\mathbf{\sigma}_\textup{GoF}$}
+        \rule{0pt}{3ex} &
+        \textbf{$\mathbf{\chi^2_\textup{GoF}}$ }
+        \rule{0pt}{3ex} &
+        \textbf{$\mathbf{p}_\textup{GoF}$} 
+        \rule{0pt}{3ex}
+        \\
+% --- 0-1 Sigma ---
+\hline
+\cellcolor[HTML]{40B748} & \texttt{\#40B748} 
+& $ ~~~0.00$ -- $0.33~~~ $  &  $ ~~~0.00$ -- $0.11~~~ $  &  $ ~~~0.74 $ -- $ 1.00~~~ $ 
+\\
+\cellcolor[HTML]{56BB46} & \texttt{\#56BB46} 
+& $ 0.33$ -- $0.67 $  &  $ 0.11$ -- $0.44 $  &  $ 0.50$ -- $0.74 $ 
+\\
+\cellcolor[HTML]{6CBD45} & \texttt{\#6CBD45}
+& $ 0.67$ -- $1.00 $  &  $ 0.44$ -- $1.00 $  &  $ 0.32$ -- $0.50 $ 
+\\
+%%% --- 1-2 Sigma ---
+\hline
+\cellcolor[HTML]{81C342} & \texttt{\#81C342} 
+& $ 1.00$ -- $1.33 $  &  $ 1.00$ -- $1.78 $  &  $ 0.18$ -- $0.32 $
+\\
+\cellcolor[HTML]{BDCD30} & \texttt{\#BDCD30}
+& $ 1.33$ -- $1.67 $  &  $ 1.78$ -- $2.78 $  &  $ 0.096$ -- $0.18 $
+\\
+\cellcolor[HTML]{FDCD06} & \texttt{\#FDCD06}
+& $ 1.67$ -- $2.00 $  &  $ 2.78$ -- $4.00 $  &  $ 0.046$ -- $0.096 $
+\\
+%%% --- 2-3 Sigma ---
+\hline
+\cellcolor[HTML]{FDB314} & \texttt{\#FDB314} 
+& $ 2.00$ -- $2.33 $  &  $ 4.00$ -- $5.44 $  &  $ 0.020$ -- $0.046 $
+\\
+\cellcolor[HTML]{F79717} & \texttt{\#F79717}
+& $ 2.33$ -- $2.67 $  &  $ 5.44$ -- $7.11 $  &  $ 0.0077$ -- $0.020 $
+  \\
+\cellcolor[HTML]{F78220} & \texttt{\#F78220} 
+& $ 2.67$ -- $3.00 $  &  $ 7.11$ -- $9.00 $  &  $ 0.0027$ -- $0.0077 $    \\
+%%% --- 3-4 Sigma ---
+\hline
+\cellcolor[HTML]{F16820} & \texttt{\#F16820} 
+& $ 3.00$ -- $3.33 $  &  $ 9.00$ -- $11.11 $  &  
+%$ 8.6\mbox{e-4}$ -- $2.7\mbox{e-3} $
+$ [0.86$ -- $2.7]\times 10^{-3}$ 
+\\
+\cellcolor[HTML]{EF4A24} & \texttt{\#EF4A24}
+& $ 3.33$ -- $3.67 $  &  $ 11.11$ -- $13.44 $  &  
+%$ 2.5\mbox{e-4}$ -- $8.6\mbox{e-4} $
+$ [0.25$ -- $0.86]\times10^{-3} $
+\\
+\cellcolor[HTML]{FF0000} & \texttt{\#FF0000}
+& $ 3.67$ -- $4.00 $  &  $ 13.44$ -- $16.00 $  &  
+%$ 6.3\mbox{e-5}$ -- $2.5\mbox{e-4} $
+$ [0.63$ -- $2.5]\times10^{-4} $
+\\
+% --- 4-5 Sigma ---
+\hline
+\cellcolor[HTML]{E63B7A} & \texttt{\#E63B7A}
+& $ 4.00$ -- $4.33 $  &  $ 16.00$ -- $18.78 $  &  $ [1.5$ -- $6.3]\times10^{-5} $
+\\
+\cellcolor[HTML]{B92D5D} & \texttt{\#B92D5D} 
+& $ 4.33$ -- $4.67 $  &  $ 18.78$ -- $21.78 $  &  $ [0.3$ -- $1.5]\times10^{-5} $
+\\
+\cellcolor[HTML]{9A244F} & \texttt{\#9A244F}
+& $ 4.67$ -- $5.00 $  &  $ 21.78$ -- $25.00 $  &  $ [1$ -- $3]\times10^{-6} $
+\\
+%%% --- > 5 Sigma ---
+\hline
+\cellcolor[HTML]{000000} & \texttt{\#000000} 
+& $\ge 5.00$ & $\ge 25.00$ & $\le 10^{-6}$ \\
+        \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00255\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|}
+        \hline
+         & Number of Feature Channels & Operation  \\
+        \hline
+         Input & 24 & N/A \\
+         \hline
+         Block 1 & (32,32,32) & (C, C, DS) \\ 
+         Block 2 & (48,48) & (C, DS) \\ 
+         Block 3 & (64,64) & (C, DS) \\ 
+        \hline
+         Block 4 & (64,64,64,64) & (C, SA, CA, DS) \\ 
+         Block 5 & (128,128,128,128) & (C, SA, CA, DS) \\ 
+         Block 6 & (256,256,256,256) & (C, SA, CA, DS) \\ 
+         Block 7 & (256,256,256) & (C, SA, CA) \\ 
+         Block 8 & (256,256,256,256) & (C, SA, CA, C) \\ 
+         Block 9 & (256,256,256) & (C, SA, CA) \\ 
+         Block 10 & (256,256,256,256) & (C, SA, CA, US) \\ 
+         Block 11 & (256,256,256) & (C, SA, CA) \\ 
+         Block 12 & (256,256,256, 256) & (C, SA, CA, US) \\ 
+         Block 13 & (128,128,128) & (C, SA, CA) \\ 
+         Block 14 & (128,128,128,128) & (C, SA, CA, US) \\ 
+         Block 15 & (64,64,64) & (C, SA, CA) \\ 
+         \hline
+         Block 16 & (64,64) & (US, C) \\ 
+         Block 17 & (48,48) & (US, C) \\ 
+         Block 18 & (32,32,14) & (US, C, C) \\ 
+         \hline
+         Output & 14 & N/A \\
+         \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

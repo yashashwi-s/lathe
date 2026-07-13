@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05387\_table\_7}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{13cm}}
+\Xhline{1pt}
+\textbf{Faithfulness evaluation}\\ \hline
+Your task is to assess which summary is more faithful to the corresponding document. In this context, a summary is considered faithful if all information it contains is directly supported by the content of the document. \\
+ * If the summary introduces any unsupported or incorrect information, it should be rated as unfaithful. \\
+ * If both descriptions contain one or more faithfulness issues, rate them as a Tie. \\ \\
+To guide your evaluation: \\
+ * Carefully compare each detail in the summary with the document to ensure accuracy. \\
+ * A summary should not distort or add information that is not present in the document.\\
+ * If you notice even a single instance of unsupported information in a summary, it should be rated as unfaithful.\\
+ * If both descriptions have one or several faithfulness issues, they should both be considered unfaithful and rated as ’Tie’.\\
+\\
+Please choose between the following options for each comparison:\\
+ * Summary A is more faithful\\
+ * Summary B is more faithful\\
+ * Tie (if both summaries are equally faithful or contain faithfulness issues)\\
+\\
+Document:\\
+\{\{Document\}\}\\
+\\
+Summary A:\\
+\{\{SummaryA\}\}\\
+\\
+Summary B:\\
+\{\{SummaryB\}\}\\
+\\
+\\
+Please type "A", "B", or "Tie", to provide the answer.\\ \hline
+\textbf{General quality evaluation}\\ \hline
+Which of the following summaries does a better job of summarizing the most important points in the given document, without including unimportant or irrelevant details? A good summary is both precise and concise. \\
+\\
+Document: \\
+\{\{Document\}\} \\
+\\
+Summary A: \\
+\{\{SummaryA\}\} \\
+\\
+Summary B: \\
+\{\{SummaryB\}\} \\
+\\
+\\
+Please type "A", "B", or "Tie", to provide the answer.\\
+\Xhline{1pt}
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00193\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{} l c c c c @{}}
+        \toprule
+        \textbf{Benchmark} & \textbf{Release Date} & \textbf{Metric} & \textbf{Source} \\
+        \midrule
+        Adversarial NLI & 2019/10/31 & \% correct &  \\
+        Aider polyglot & 2024/12/21 & \% correct &  \\
+        ARC-AGI & 2019/11/05 & \% correct &  \\
+        ARC Challenge & 2018/03/14 & \% correct &  \\
+        Balrog & 2024/11/20 & Average progress &  \\
+        BIG-Bench Hard & 2022/10/17 & \% correct &  \\
+        % BoolQ & 2019/05/24 & Accuracy & \cite{clark2019boolqexploringsurprisingdifficulty} \\ % comment out because boolq is part of superglue
+        CadEval & 2025/04/22 & Pass rate &  \\
+        CommonSenseQA 2 & 2022/01/14 & Accuracy &  \\
+        Cybench & 2024/08/15 & Unguided \% Solved &  \\
+        DeepResearch Bench & 2025/06/13 & Overall citation accuracy &  \\
+        Factorio learning environment & 2025/03/06 & Lab success \% &  \\
+        Fiction.LiveBench & 2025/02/21 & 16k token score &  \\
+        GeoBench & 2025/03/01 & ACW Country \% &  \\
+        GSM8K & 2021/10/27 & \% correct &  \\
+        GSO-Bench & 2025/05/29 & Success rate &  \\
+        HellaSwag & 2019/05/19 & Accuracy &  \\
+        LAMBADA & 2016/06/20 & Accuracy &  \\
+        Lech Mazur Writing & 2025/01/31 & Mean rubric score &  \\
+        LiveBench & 2024/06/27 & Global average &  \\
+        % MCBench & 2024/10/16 & & \cite{xu2024mcbenchbenchmarkmulticontextvisual} \\ % comment out because arena winrate metric doesn't fit well with benchmark stitching approach
+        MMLU & 2020/09/07 & Accuracy &  \\
+        OpenBookQA & 2018/09/08 & \% correct &  \\
+        OSUniverse & 2025/05/06 & Weighted score &  \\
+        OSWorld & 2024/04/11 & Score &  \\
+        PIQA & 2019/11/26 & Accuracy &  \\
+        ScienceQA & 2022/09/20 & \% correct &  \\
+        SimpleBench & 2024/10/31 & \% correct &  \\
+        SuperGLUE & 2019/05/02 & Mean accuracy &  \\
+        Terminal Bench & 2025/05/19 & Mean accuracy &  \\
+        The Agent Company & 2024/12/18 & \% resolved &  \\
+        TriviaQA & 2017/05/09 & Exact match &  \\
+        VideoMME & 2024/05/31 & \% overall (no subtitles) &  \\
+        Visual Physics Comprehension Test & 2025/01/30 & \% correct &  \\
+        WeirdML & 2025/01/16 & Mean accuracy &  \\
+        WinoGrande & 2019/07/24 & Accuracy &  \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01461\_table\_7}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+    \toprule \rowcolor{gray!10}
+    Method & SUN397 & Cars & RESISC45 & EuroSAT & SVHN & GTSRB & MNIST & DTD 
+      & Avg. $\uparrow$ & ADR $\downarrow$ & AMR $\downarrow$\\   
+    \midrule
+    \rowcolor{cyan!10}
+    Individual      & 81.72 & 92.39 & 98.85 & 99.88 & 98.11 & 99.24 & 99.69 & 84.15 & 94.25 & -- & --      \\
+    \midrule
+    \rowcolor{purple!10} 
+    Weight-Averaging~ &  72.19 & 81.42 & 82.55 & 91.93 & 78.08 & 70.76 & 97.14 & 62.95 & 79.63 & 15.52 & 0.00 \\ 
+    \rowcolor{purple!10}
+    Fisher-Merging~ &  69.24 & 88.61 & 87.50 & 93.53 & 80.66 & 74.82 & 93.32 & 70.07 & 82.22 & 12.77 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    RegMean~ &  73.38 & 81.80 & 86.10 & 97.01 & 88.12 & 84.27 & 98.54 & 60.82 & 83.76 & 11.14 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    Task-Arithmetic~ &  73.92 & 82.13 & 87.64 & 92.82 & 87.91 & 86.77 & 98.94 & 65.64 & 84.47 & 10.38 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    Ties-Merging~ &  74.74 & 84.50 & 89.00 & 94.18 & 85.66 & 82.07 & 98.65 & 67.71 & 84.56 & 10.28 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    DARE~ &  73.03 & 82.70 & 86.19 & 93.41 & 85.26 & 83.48 & 98.58 & 65.69 & 83.54 & 11.36 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    AdaMerging~ &  79.03 & 90.34 & 90.86 & 96.19 & 93.44 & 98.05 & 99.12 & 79.94 & 90.87 & 3.59 & 0.00 \\ 
+    \rowcolor{purple!10} 
+    AdaMerging++~ &  79.46 & 90.38 & 91.66 & 97.47 & 93.42 & 97.55 & 99.05 & 79.20 & 91.02 & 3.43 & 0.00 \\ \midrule
+    \rowcolor{blue!10} 
+    SVD &  78.49 & 89.73 & 98.02 & 99.86 & 98.08 & 98.91 & 99.71 & 81.91 & 93.09  &1.23 & 4.08 \\   
+    \rowcolor{blue!10} 
+    Twin-Merging~ &  \textbf{ 81.92 } & 91.59 & 96.87 & 99.72 & 98.03 & 92.42 & 99.57 & 83.94 & 93.01 & 1.31 & 100.0 \\ 
+    \rowcolor{blue!10} 
+    WEMOE~ &  81.42 & 92.10 & 95.46 & 99.48 & 97.73 & 99.13 & 99.70 & 83.74 & 93.60 & 0.70 & 58.80 \\ 
+    \rowcolor{blue!10} 
+    EMR-Merging~ &  80.47 & 90.71 & 98.55 & 99.54 & 97.94 & 99.10 & 99.69 & 82.71 & 93.59 & 0.71 & 15.62 \\ 
+     \rowcolor{blue!10}
+    FREE-Merging~  & 81.60 & 92.03 & 96.54 & 99.61 & 98.10 & 98.79 & 99.72 & 82.80 &  93.65 &  0.63 & 10.00  \\ 
+    \rowcolor{blue!10} 
+    TALL-Mask~ &  80.58 &	91.61 &	98.68 &	99.76 &	98.08 &	\underline{99.24} &	\underline{99.74} &	83.14 &	93.85 & 0.42 & 15.62 \\ 
+    \rowcolor{blue!10} 
+    T-Switch~ &  \underline{ 81.84 } & \textbf{ 92.38 } & \textbf{ 98.89 } & 99.74 & 98.03 & 99.08 & 99.63 & 83.72 & 94.16 & 0.10 & 6.25 \\
+        \rowcolor{green!15} 
+    DTS-T &  81.82 & 91.93 & 98.82 & \textbf{ 99.90 } & 98.05 & 99.21 & \textbf{ 99.77 } & 83.93 & \underline{ 94.18 } & \underline{0.08} & 2.95 \\ 
+    \rowcolor{green!15} 
+    DTS-D &  81.75 & 92.09 & \textbf{ 98.89 } & \underline{ 99.88 } & \textbf{ 98.27 } & \textbf{ 99.25 } & { 99.72 } & \textbf{ 84.15 } & \textbf{ 94.24 } & \textbf{0.02} & 2.95 \\ 
+    \rowcolor{green!15} 
+    DTS-T* &  81.72 & \underline{ 92.17 } & \underline{ 98.83 } & 99.82 & 98.03 & 99.15 & 99.71 & 83.87 & 94.16 & 0.10 & 0.99 \\ 
+    \rowcolor{green!15} 
+    DTS-D* &  81.69 & 91.73 & 98.77 & 99.86 & \underline{ 98.15 } & { 99.22 } & { 99.72 } & \underline{ 83.99 } & 94.14 & 0.12 & 0.99 \\ 
+    \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02092\_table\_12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c c c}
+\toprule
+\textbf{Quarters} & 
+\textbf{LASSO weight} & 
+\textbf{Ridge weight} & 
+\textbf{EN weight} & 
+\textbf{PCR weight} & 
+\textbf{PLSR weight} & 
+\textbf{GRU weight} & 
+\textbf{Dominant model}\\
+\midrule
+2017 Q1 & 0.310 & 0.087 & 0.096 & 0.098 & 0.130 & 0.280 & LASSO \\
+2017 Q2 & 0.332 & 0.083 & 0.099 & 0.087 & 0.114 & 0.285 & LASSO \\
+2017 Q3 & 0.304 & 0.097 & 0.120 & 0.102 & 0.121 & 0.257 & LASSO \\
+2017 Q4 & 0.313 & 0.102 & 0.123 & 0.108 & 0.132 & 0.222 & LASSO \\
+2018 Q1 & 0.203 & 0.065 & 0.074 & 0.081 & 0.101 & 0.476 & GRU \\
+2018 Q2 & 0.215 & 0.064 & 0.061 & 0.076 & 0.104 & 0.480 & GRU \\
+2018 Q3 & 0.156 & 0.055 & 0.053 & 0.067 & 0.091 & 0.578 & GRU \\
+2018 Q4 & 0.190 & 0.056 & 0.054 & 0.055 & 0.078 & 0.568 & GRU \\
+2019 Q1 & 0.164 & 0.046 & 0.046 & 0.038 & 0.055 & 0.649 & GRU \\
+2019 Q2 & 0.172 & 0.047 & 0.047 & 0.038 & 0.055 & 0.640 & GRU \\
+2019 Q3 & 0.167 & 0.043 & 0.036 & 0.028 & 0.037 & 0.689 & GRU \\
+2019 Q4 & 0.472 & 0.040 & 0.049 & 0.030 & 0.053 & 0.356 & LASSO \\
+2020 Q1 & 0.335 & 0.042 & 0.050 & 0.030 & 0.051 & 0.491 & GRU \\
+2020 Q2 & 0.000 & 0.168 & 0.229 & 0.025 & 0.578 & 0.000 & PLSR \\
+2020 Q3 & 0.000 & 0.003 & 0.003 & 0.994 & 0.000 & 0.000 & PCR \\
+2020 Q4 & 0.084 & 0.087 & 0.087 & 0.574 & 0.084 & 0.084 & PCR \\
+2021 Q1 & 0.100 & 0.102 & 0.103 & 0.496 & 0.100 & 0.100 & PCR \\
+2021 Q2 & 0.111 & 0.113 & 0.113 & 0.442 & 0.111 & 0.111 & PCR \\
+2021 Q3 & 0.123 & 0.125 & 0.125 & 0.380 & 0.124 & 0.123 & PCR \\
+2021 Q4 & 0.151 & 0.152 & 0.152 & 0.242 & 0.151 & 0.151 & PCR \\
+2022 Q1 & 0.159 & 0.159 & 0.159 & 0.204 & 0.159 & 0.159 & PCR \\
+2022 Q2 & 0.114 & 0.115 & 0.418 & 0.125 & 0.114 & 0.114 & EN \\
+2022 Q3 & 0.110 & 0.111 & 0.441 & 0.116 & 0.111 & 0.110 & EN \\
+2022 Q4 & 0.103 & 0.103 & 0.484 & 0.104 & 0.103 & 0.103 & EN \\
+2023 Q1 & 0.122 & 0.124 & 0.386 & 0.123 & 0.123 & 0.122 & EN \\
+2023 Q2 & 0.123 & 0.124 & 0.383 & 0.123 & 0.123 & 0.123 & EN \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00363\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|l|cccccccc|c}
+    \toprule
+    Method & Detector & \multicolumn{1}{c|}{Backbone} 
+    & Car & Pickup & Camping & Truck & Other & Tractor & Boat & Van & \textbf{mAP$_{50}$} \\
+    \midrule
+    RetinaNet~\textcolor{gray}{\footnotesize[TPAMI'20]}~ & RetinaNet & ResNet-50\textsuperscript{\dag} 
+        & 93.36 & 87.86 & \textbf{90.61} & 83.39 & 51.91 & 72.94 & 74.22 & 68.24 & 77.82 \\
+    YOLOrs~\textcolor{gray}{\footnotesize[JSTARS'21]}~ & YOLOv3 & Darknet-53\textsuperscript{\dag} 
+        & 84.15 & 78.27 & 68.81 & 52.60 & 46.75 & 67.88 & 21.47 & 57.91 & 59.73 \\
+    FCOS~\textcolor{gray}{\footnotesize[TPAMI'22]}~ & FCOS & ResNet-50\textsuperscript{\dag} 
+        & 85.86 & 79.22 & 86.08 & 90.93 & 57.27 & 75.36 & 70.53 & 80.20 & 78.20 \\
+    YOLOFusion~\textcolor{gray}{\footnotesize[PR'22]}~ & YOLOv5 & CSPD-53\textsuperscript{\dag} 
+        & 91.70 & 85.90 & 78.90 & 78.10 & 54.70 & 71.90 & 71.70 & 75.20 & 75.90 \\
+    SuperYOLO~\textcolor{gray}{\footnotesize[TGRS'23]}~ & YOLOv5 & CSPD-53 
+        & 91.13 & 85.66 & 79.30 & 70.18 & 57.33 & 80.41 & 60.24 & 76.50 & 75.09 \\
+    FFCA~\textcolor{gray}{\footnotesize[TGRS'24]}~ & YOLOv5 & CSPD-53 
+        & 89.60 & 85.70 & 78.70 & 75.70 & 48.60 & 81.80 & 61.50 & 67.00 & 74.80 \\
+$\mathrm{C}^{2}\mathrm{Former}$~\textcolor{gray}{\footnotesize[TGRS'24]}~ & Cascade R-CNN & ResNet-50\textsuperscript{\dag} 
+        & 87.20 & 80.70 & 77.60 & 79.40 & 58.40 & 72.90 & 71.40 & 75.20 & 75.70 \\
+    YOLOFIV~\textcolor{gray}{\footnotesize[JSTARS'24]}~ & YOLOv5 & CSPD-53\textsuperscript{\dag} 
+        & 93.89 & 87.42 & 82.10 & 61.04 & \textbf{82.15} & 75.47 & 79.28 & 80.16 & 80.16 \\
+    CAFF-DINO~\textcolor{gray}{\footnotesize[CVPR'24]}~ & DINO & ResNet-50\textsuperscript{\dag} 
+        & 88.15 & 83.16 & 81.14 & 69.97 & 60.64 & 71.67 & 69.59 & 68.91 & 74.15 \\
+    GM-DETR~\textcolor{gray}{\footnotesize[CVPR'24]}~ & RT-DETR & ResNet-50 
+        & 91.15 & 87.49 & 83.43 & 89.83 & 70.92 & 81.02 & 91.87 & \textbf{94.06} & 86.22 \\
+    Multi-spectral DETR~\textcolor{gray}{\footnotesize[JSTARS'25]}~ & Deformable-DETR & Swin\textsuperscript{\dag} 
+        & -- & -- & -- & -- & -- & -- & -- & -- & 82.20 \\
+    ADMPF~\textcolor{gray}{\footnotesize[TGRS'25]}~ & YOLOv8 & C2f-CSP 
+        & \textbf{94.45} & \textbf{90.25} & 84.74 & 74.41 & 57.16 & 74.74 & 85.46 & 91.86 & 81.63 \\
+    DPAL-P~\textcolor{gray}{\footnotesize[TGRS'25]}~ & FCOS & ResNet-50\textsuperscript{\dag} 
+        & 88.10 & 83.88 & 86.79 & \textbf{95.53} & 67.98 & 71.07 & 87.06 & 87.05 & 83.43 
+        \\
+    MS2Fusion~\textcolor{gray}{\footnotesize[Inf. Fusion'26]}~ & CO-DETR & ResNet-50\textsuperscript{\dag} 
+    & 93.30 & 88.50 & 80.60 & 78.90 & -- & 85.80 & 65.50 & 83.60 & 84.20 
+    \\
+    \midrule
+    \textbf{MM-DETR (Ours)} & RT-DETR & ResNet-50 
+        & 93.03 & 88.81 & 85.95 & 82.74 & 71.96 & \textbf{89.16} & \textbf{92.00} & 92.34 & \textbf{87.06} \\
+    \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00691\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccccc} 
+\toprule[2pt]
+Method            & Venue    & Rank-1 & Rank-5 & mAP   \\ 
+\hline
+GaitSet~           & AAAI'19  & 36.7   & 58.3   & 30.0  \\ 
+% \hline
+GaitPart~          & CVPR'20  & 28.2   & 47.6   & 47.6  \\ 
+% \hline
+GaitGL~            & ICCV'21  & 29.7   & 48.5   & 22.3  \\ 
+% \hline
+GaitContour~        & WACV'25  & 25.3   & 41.3      & -  \\ 
+SMPLGait~          & CVPR'22  & 46.3   & 64.5   & 37.2  \\ 
+% \hline
+MTSGait~           & MM'22    & 48.7   & 67.1   & 37.6  \\ 
+% \hline
+QAGait~            & AAAI'24  & 67.0   & 81.5   & 56.5  \\ 
+% \hline
+GaitBase~          & CVPR'23  & 64.6   & -      & -     \\ 
+% \hline
+DANet~             & CVPR'23  & 48.0   & 69.7   & -     \\ 
+% \hline
+GaitGCI~           & CVPR'23  & 50.3   & 68.5   & 39.5  \\ 
+% \hline
+DyGait~            & ICCV'23  & 66.3   & 80.8   & 56.4  \\ 
+% \hline
+HSTL~              & ICCV'23  & 61.3   & 76.3   & 55.5  \\ 
+% \hline
+VPNet~             & CVPR'24  & 75.4   & 87.1   & -     \\ 
+% \hline
+DeepGaitV2~        & TPAMI'25 & 74.4   & 88.0   & 65.8  \\ 
+% \hline
+CLTD~              & ECCV'24  & 69.7   & 85.2   & -     \\ 
+% \hline
+GaitMoE~           & ECCV'24  & 73.7   & -      & 66.2  \\ 
+% \hline
+Free Lunch~        & ECCV'24  & 70.1   & -      & 61.9  \\ 
+VM-Gait~        & WACV'25  & 75.4   & 87.5      & 66.4  \\ 
+Mesh-Gait~        & ArXiv'25  & 75.0   & 88.0      & 66.1  \\ 
+\hline
+FoundationGait-0.03B    & ours     & 77.7      & \textbf{89.6}      & 71.1     \\ 
+% \hline
+FoundationGait-0.13B & ours     & \textbf{79.3}      & 89.5      & \textbf{74.0}     \\
+\bottomrule[2pt]
+\end{tabular}
+}
+\end{table}
+
+\end{document}

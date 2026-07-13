@@ -1,0 +1,22 @@
+
+\SbSSCT{Cercle défini par deux points}{Circle defined by two points }
+
+
+ \maboite{\BS{usetikzlibrary}\AC{through}}
+\label{lib-through}
+
+
+\begin{center}
+\RRR{ 71 }
+\end{center}
+
+\begin{tabular}{|c|} \hline 
+\BS{node} [draw] at (2,1) [\RDD{circle through}=\AC{(1,2)}] \AC{c};
+\\ \hline 
+\begin{tikzpicture}
+\draw[help lines] (0,0) grid (3,2);
+\filldraw [red] (1,2) circle (2pt);
+\node [draw] at (2,1) [circle through={(1,2)}] {c};
+\end{tikzpicture}
+\\ \hline 
+\end{tabular}

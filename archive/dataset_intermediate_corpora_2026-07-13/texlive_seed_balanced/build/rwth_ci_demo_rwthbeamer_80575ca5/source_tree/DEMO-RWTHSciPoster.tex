@@ -1,0 +1,139 @@
+%% This is file `DEMO-RWTH-SciPoster.tex' version 1.1 (2026-02-13),
+%% it is part of
+%% RWTH-CI -- Corporate Design for RWTH Aachen University
+%% ----------------------------------------------------------------------------
+%%
+%% Copyright (C) 2025–2026 by Marei Peischl <marei@peitex.de>
+%%
+%% ============================================================================
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The current maintainer of this work is
+%%   Marei Peischl <rwth-ci@peitex.de>
+%%
+%% The development repository can be found at
+%% https://gitlab.git.nrw/rwth-it-center/rwth-latex-templates/rwth-ci
+%% Please use the issue tracker for feedback!
+%%
+%% If you need a compiled version of this document, have a look at
+%% http://mirror.ctan.org/macros/latex/contrib/rwth-ci/doc
+%% or at the documentation directory of this package (if installed)
+%% <path to your LaTeX distribution>/doc/latex/rwth-ci
+%% ============================================================================
+%%
+% !TeX program = lualatex
+%%
+
+\documentclass[
+english,% Main language as global option
+% landscape=true,% Landscape Poster
+% logo=bottom, % Move logo to bottom
+% logofile=example-image-plain,% Select your logo file
+% accept-missing-logos=true,% No error in case logo files are not available
+]{rwth-sciposter}
+
+%%%%%%%%%%%%%%%%%%%
+% Language setup
+%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+
+%%%%%%%%%%%%%%%%%%%
+% Document specific setup for demonstration, generally not needed!
+%%%%%%%%%%%%%%%%%%%
+\newcommand*{\file}[1]{\texttt{#1}}
+\newcommand*{\code}[1]{\texttt{#1}}
+\newcommand*{\pkg}[1]{\textsf{#1}}
+\newcommand*{\cls}[1]{\textsf{#1}}
+\newcommand{\tbs}{\textbackslash}
+\newcommand{\repl}[1]{<\textit{#1}>}
+\newcommand*{\macro}[1]{\code{\tbs#1}}
+%%%%%%%%%%%%%%%%%%%
+% End of demo specific setup
+%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{tcolorbox-Poster using the Corporate Design of RWTH Aachen University}
+\author{Marei Peischl \and the \TeX-Lion}
+\footerqrcode{https://www.peitex.de}
+
+\contactinfo{
+	Telefon: +49 241 80-94123\\
+	E-Mail: kim.muster@mx.rwth-aachen.de
+}
+\addressdata{
+Institut für maximale Ausdehnung der Logosystematik\\
+RWTH Aachen University\\
+Musterstraße 7, 52074 Aachen, GERMANY\\
+www.mx.rwth-aachen.de\\
+\begin{tabular}[t]{@{}ll@{}}
+Telefon:&+49 241 80-94123\\
+Fax:&+49 241 80-94234
+\end{tabular}
+ }
+
+\begin{tcbposter}[
+poster={
+rows=6,% number of rows can be changed. 6 is the default
+%showframe,% Might be helpful for placements
+}]
+
+\begin{posterboxenv}[title=Intro]{name=intro,column=1,row=1,span=2}
+	The document class \cls{rwth-sciposter} is based on the \pkg{tcolorbox} package by Thomas F. Sturm.
+	This document is an example for an academic poster using the Corporate Design of RWTH Aachen University and may be used as a template file.
+
+\end{posterboxenv}
+
+% Box with an image without title but using a caption
+\begin{posterboxenv}{name=caption,below=intro,span=3,rowspan=2}
+	\includegraphics[width=\linewidth]{example-image-plain}
+	\captionof{figure}{
+		An example image in a box with a caption
+	}
+\end{posterboxenv}
+
+
+\begin{posterboxenv}[title=Placement of boxes]{name=positioning,column=4,span=2}
+	It is an additional step, but the boxes are positioned manually in the \pkg{poster} library of the \pkg{tcolorbox} package.
+	This not only allows a nicer alignment of the boxes, but also simplifies the positioning of cross-references.
+	See also \pkg{tcolorbox} documentation.
+\end{posterboxenv}
+
+\begin{posterboxenv}[title=QR code]{name=qrcode,column=4,span=3,row=5}
+	The QR code is set using \macro{footerqrcode}.
+
+	This setup also provides a mechanism to use a URL set via \pkg{biblatex}.
+	The variant \macro{footerqrcode*} will use the argument as a citation key and create a QR code for the corresponding URL.
+\end{posterboxenv}
+
+
+
+\begin{posterboxenv}[title=Footer]{name=footer,below=qrcode,column=4,span=3}
+	The data used in the footer can be set using the custom commands \macro{contactinfo} and \macro{addressdata}.
+
+	They both use one argument which will be placed within the corresponding box in the footer.
+\end{posterboxenv}
+
+\begin{posterboxenv}[title=Relative positioning]{name=relative,between=positioning and qrcode,column=4,span=3}
+	This box is placed between \code{positioning} box and \code{qrcode} box.
+	The box is placed on top of the free area.
+
+	Of course this code has to be placed after the boxes which are used for reference.
+
+	It's possible to combine multiple parameters for exact placement. Please have a look at the tcolorbox documentation for details.
+\end{posterboxenv}
+
+
+
+\end{tcbposter}
+
+\end{document}
+%% End of file `DEMO-RWTH-SciPoster.tex'.

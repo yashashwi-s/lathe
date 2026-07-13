@@ -1,0 +1,49 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\moodleregisternewcommands
+
+%%%% Defining Sets
+\providecommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathcal{C}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\prepostbb}[3]{#1\mathbb{#2}#3}
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of automatic recording of 
+\LaTeX\ new commands for expansion when converting to HTML.
+
+\begin{quiz}{Recording New Commands for Expansion}
+
+\begin{multi}{Sets}
+Standard notation for the set of natural integers: 
+\item* $\N$
+\item $\Z$
+\item $\Q$
+\item $\C$
+\item $\R$
+\item $\prepostbb{}{V}{}$
+\item $\prepostbb{\vphantom{K}^\dagger}{K}{^*_2}$
+\end{multi}
+
+\end{quiz}
+
+\end{document}
+
+

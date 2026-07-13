@@ -1,0 +1,890 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Specialities of the LaTeX system
+% $Id: spec.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Những tính năng đặc trưng của \LaTeX{}}
+\begin{intro}
+  Khi kết hợp các phần lại với nhau thành một tài liệu lớn \LaTeX{} sẽ giúp đỡ bạn thông qua một số tính năng mạnh như việc tạo bảng chỉ mục, quản lý mục lục tài liệu tham khảo và các công việc khác. Để biết thêm chi tiết về các tính năng đặc trưng và khả năng mở rộng của \LaTeX{}, bạn có thể tham khảo thêm ở tài liệu {\normalfont\manual{}} và {\normalfont \companion}.
+\end{intro}
+
+\section{Đưa ảnh EPS vào tài liệu}\label{eps}
+\LaTeX{} cung cấp những phương tiện cơ bản để làm việc với các phần có nội dung mang tính linh động như hình ảnh hay hình đồ thị thông qua hai môi trường là \texttt{figure} và \texttt{table}.
+
+Ngoài ra, ta còn có một số cách khác để tạo ra hình ảnh dựa vào các lệnh của \LaTeX{} hay từ các gói mở rộng của \LaTeX{}. Tuy nhiên, đa số người dùng nhận xét rằng việc sử dụng các tính năng này là tương đối phức tạp, khó khăn và hơi khó hiểu. Do đó, chúng tôi quyết định không giải thích chi trong phạm vi tài liệu ngắn ngọn này. Bạn có thể tham khảo thêm trong \companion{} và \manual{} để biết thêm chi tiết về chủ đề này.
+
+Một cách tiếp cận khác đơn giản hơn là tạo ra các hình ảnh với các chương trình chuyên dụng\footnote{XFig, CorelDraw!, Freehand, Gnuplot, \ldots} sau đó đưa chúng vào tài liệu. Các gói của \LaTeX{} cung cấp rất nhiều biện pháp để thực hiện điều này. Tuy nhiên, trong khuông khổ của tài liệu này, chúng tôi chỉ trình bày về việc sử dụng các hình ành dạng \wi{Encapsulated PostScript} (EPS) bởi vì việc đưa các đối tượng này vào tài liệu là tương đối đơn giản và được sử dụng rộng rãi. Để có thể sử dụng được các hình ảnh dạng EPS, bạn cần phải có máy in hỗ trợ \wi{PostScript}\footnote{Một cách khác để xuất dạng PostScript là sử dụng phần mềm \textsc{\wi{GhostScript}} tại địa chỉ \texttt{CTAN:/tex-archive/support/ghostscript}. Người dùng Windows và OS/2 có thể cần phần mềm \textsc{GSView}.} để xuất kết quả.
+
+Một tập lệnh hỗ trợ việc đưa hình ảnh vào tài liệu làm việc khá tốt được cung cấp trong gói \pai{graphicx} được thiết kế bởi D.~P.~Carlisle. Đây là một phần của họ các gói có tên là ``graphics''.\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/graphics}}
+
+\newpage
+Giả sử bạn đang làm việc trên một hệ thống có sẵn máy in PostScript và gói \textsf{graphicx}, bạn có thể tiến hành theo các bước sau để có thể đưa hình ảnh vào tài liệu:
+\begin{enumerate}
+\item Xuất kết quả trong các chương trình đồ hoạ ra dưới dạng EPS.%
+\footnote{Nếu chương trình của bạn không thể xuất dưới dạng EPS, bạn có thể thử cài đặt driver của máy in PostScript (ví dụ như máy Apple LaserWriter) và in kết quả làm việc ra tập tin với driver này. Thông thường thì tập tin này sẽ có định dạng là EPS. Lưu ý rằng một hình ảnh dạng EPS không được phép chứa nhiều hơn một trang. Một số driver của các máy in có thể được cấu hình trực tiếp để xuất ra dạng EPS.}
+%
+\item Nạp gói \textsf{graphicx} trong phần tựa đề của tập tin dữ liệu vào như sau:
+\begin{lscommand}
+\verb|\usepackage[|\emph{driver}\verb|]{graphicx}|
+\end{lscommand}
+với \emph{driver} là tên của chương trình dịch từ dạng dvi sang dạng postscript. Chương trình thường được sử dụng là \texttt{dvips}. Tên của driver là một đòi hỏi bắt buộc bởi vì không có tiểu chuẩn về cách thức một hình ảnh được đưa vào trong \TeX{}. Thông qua việc biết được tên của \emph{driver} thì gói \textsf{graphicx} sẽ xác định cách để chèn thông tin về hình ảnh vào tâp tin \eei{.dvi} để máy in có thể hiểu được và đưa tập tin \eei{.eps} vào một cách chính xác.
+
+\item Sử dụng lệnh sau:
+\begin{lscommand}
+\ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
+\end{lscommand}
+để đưa tập tin \emph{file} vào tài liệu. Thông số tuỳ chọn của \emph{keys} là một danh sách được phân cách bởi dấu phẩy của các giá trị \emph{values}. Các tham số \emph{keys} có thể được sử dụng để thay đổi độ rộng, cao và sự xoay vòng của hình ảnh. Bảng~\ref{keyvals} sẽ liệt kê các khoá quan trọng.
+\end{enumerate}
+
+\begin{table}[!htb]
+\caption{Tên của các khoá theo gói \textsf{graphicx}.}
+\label{keyvals}
+\begin{lined}{9cm}
+\begin{tabular}{@{}ll}
+\texttt{width}& co dãn hình ảnh theo chiều rộng yêu cầu\\
+\texttt{height}& co dãn hình ảnh theo chiều cao yêu cầu\\
+\texttt{angle}& xoay hình ảnh ngược chiều kim đồng hồ\\
+\texttt{scale}& chỉnh tỷ lệ kích thước của hình ảnh \\
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\pagebreak
+Dưới đây là một ví dụ minh hoạ làm rõ tính năng trên
+\begin{code}
+\begin{verbatim}
+\begin{figure}
+\begin{center}
+\includegraphics[angle=90, width=0.5\textwidth]{test}
+\end{center}
+\end{figure}
+\end{verbatim}
+\end{code}
+Ví dụ trên sẽ đưa vào tài liệu một tập tin có tên là \texttt{test.eps}. \emph{Đầu tiên}, hình ảnh sẽ được xoay một góc
+90 độ ngược chiều kim đồng hồ. \emph{Sau đó}, nó sẽ được tăng kích thước chiều rộng lên gấp 0.5 lần chiều rộng ban đầu. Tỷ lệ là $1.0$ bởi vì ta không chỉ định về chiều cao của hình ảnh. Chiều rộng và chiều cao có thể được xác định theo những kích thước tuyệt đối. Xem thêm bảng~\ref{units} ở trang~\pageref{units} để biết thêm chi tiết. Nếu bạn muốn đi sâu vào mục này, bạn nên đọc 2 tài liệu sau: \cite{graphics} và \ci{eps}.
+
+\section{Tài liệu tham khảo}
+Bạn có thể tạo ra mục lục các tài liệu tham khảo thông qua môi trường \ei{thebibliography}. Trong môi trường này, mỗi mục sẽ được bắt đầu như sau:
+\begin{lscommand}
+\ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marker}\verb|}|
+\end{lscommand}
+Tham số \emph{marker} được sử dụng để trích dẫn sách, bài báo hay các bài luận được sử dụng đến trong tài liệu.
+\begin{lscommand}
+\ci{cite}\verb|{|\emph{marker}\verb|}|
+\end{lscommand}
+Nếu bạn không sử dụng tuỳ chọn \emph{label}, các mục từ sẽ được liệt kê, đánh số một cách tự động. Tham số sau lệnh \verb|\begin{thebibliography}| sẽ xác định không gian dành cho phần đánh số của các nhãn (label). Trong ví dụ dưới đây, tham số \verb|{99}| sẽ cho \LaTeX{} biết rằng không có mục nào trong danh sách các tài liệu tham khảo được đánh số rộng hơn số 99.
+
+\enlargethispage{2cm}
+\begin{example}
+Phần 1~\cite{pa} cho rằng \ldots
+\begin{thebibliography}{99}
+\bibitem{pa} H.~Partl:
+\emph{German \TeX}, TUGboat Quyển~9,
+phát hành lầne~1 (1988)
+\end{thebibliography}
+\end{example}
+
+\chaptermark{Specialities} % w need to fix the damage done by the
+                           %bibliography example.
+\thispagestyle{fancyplain}
+
+\newpage
+Đối với các dự án lớn, có lẽ bạn sẽ cần kiểm tra chương trình Bib\TeX{}. Bib\TeX{} được cung cấp kèm theo với hầu hết các phiên bản được phân phối của \TeX{}. Chương trình này sẽ giúp bạn bảo quản cơ sở dữ liệu về tài liệu tham khảo và đưa các tham chiếu tương ứng vào tài liệu. Phần mềm Bib\TeX{} dựa vào khái niệm ``style sheet'' để tạo ra các mục lục tài liệu tham khảo trực quan. Khái niệm ``style sheet'' cho phép mục lục tài liệu tham khảo được xây dựng dựa vào các mẫu đã được định sẵn.
+
+\section{Tạo chỉ mục} \label{sec:indexing}
+Đối với các tài liệu hoàn chỉnh thì phần \wi{chỉ mục} đóng một vai trò hết sức quan trọng. Với \LaTeX{} và chương trình hỗ trợ việc tạo chỉ mục \texttt{makeindex},\footnote{Trên các hệ thống không hỗ trợ tập tin có tên dài hơn 8~kí tự, chương trình được gọi là \texttt{makeidx}.}, việc tạo chỉ mục cho một tài liệu trở nên hết sức đơn giản. Phần này chỉ giới thiệu sơ qua những lệnh cơ bản hỗ trợ việc tạo các chỉ mục. Để có được một cái nhìn sâu sắc hơn, bạn có thể tham khảo thêm tài liệu \companion. \index{tạo chỉ mục}. \index{gói makeidx}
+
+Để kích hoạt tính năng tạo chỉ mục của \LaTeX{}, bạn cần phải sử dụng vào gói \pai{makeidx} trong phần tựa đề của tài liệu.
+\begin{lscommand}
+\verb|\usepackage{makeidx}|
+\end{lscommand}
+\noindent đổng thời, bạn phải kích hoạt các lệnh tạo chỉ mục bằng cách sử dụng lệnh:
+\begin{lscommand}
+  \ci{makeindex}
+\end{lscommand}
+\noindent trong phần tựa đề của tài liệu.\\
+
+\noindent Nội dung của chỉ mục sẽ được xác định với lệnh:
+\begin{lscommand}
+  \ci{index}\verb|{|\emph{key}\verb|}|
+\end{lscommand}
+\noindent Trong đó, tham số \emph{key} là mục từ trong từ điển các
+chỉ mục. Bạn sẽ nhập vào lệnh \verb|\index{...}| tại vị trí mà bạn
+muốn mục từ trong bảng chỉ mục sẽ trỏ đến. Bảng~\ref{index} sẽ
+giải thích thêm về tham số \emph{key} thông qua một vài ví dụ.
+
+\begin{table}[!tbp]
+\caption{Cú pháp của việc tạo chỉ mục.} \label{index}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+  \textbf{Ví dụ} &\textbf{Mục từ} &\textbf{Chú thích}\\\hline
+  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &Một mục từ đơn thuần\\
+\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Mục từ con của mục từ `hello'\\
+\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& Mục từ được định dạng\\
+\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& Giống như trên\\
+\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Định dạng số trang\\
+\verb.\index{Joe|textit}.     &Joe, \textit{5}& Giống như trên\\
+\verb.\index{eolienne@\'eolienne}.     &\'eolienne, 4& Điều khiển
+các dấu
+\end{tabular}
+\end{center}
+\end{table}
+
+Khi tập tin dữ liệu vào được xử lý bởi \LaTeX{}, mỗi lệnh \verb|\index| sẽ ghi một mục từ tương ứng cùng với số trang hiện
+tại vào danh sách các mục từ trong một tập tin đặc biệt. Tập tin này sẽ có tên trùng với tập tin dữ liệu vào nhưng khác ở phần mở rộng (\verb|.idx|). Tiếp theo, tập tin \eei{.idx} này sẽ được xử lý bởi chương trình \texttt{makeindex}.
+\begin{lscommand}
+  \texttt{makeindex} \emph{tên tập tin}
+\end{lscommand}
+Chương trình \texttt{makeindex} sẽ tạo ra một danh sách các chỉ mục được sắp xếp trong tập tin có tên tương tự nhưng khác phần mở rộng (\eei{.ind}). Nếu chương trình \LaTeX{} lại được gọi để xử lý tập tin dữ liệu vào ban đầu thì bảng chỉ mục đã được sắp xếp này sẽ được đưa vào tài liệu tại vị trí mà \LaTeX{} tìm thấy lệnh
+\begin{lscommand}
+  \ci{printindex}
+\end{lscommand}
+Gói \pai{showidx} đi kèm với \LaTeXe{} sẽ in ra tất cả các mục từ ở cột bên trái của phần văn bản. Điều này rất thuận lợi cho việc kiểm tra lại việc tạo các chỉ mục.
+
+Lưu ý rằng việc sử dụng lệnh \ci{index} một cách không cẩn thận có thể ảnh hưởng đến cách trình bày tài liệu.
+\begin{example}
+Ý tôi \index{ý tôi}. Khác với
+ý tôi\index{ý tôi}. Bạn cần chú ý
+đến vị trí của dấu chấm câu.
+\end{example}
+
+
+\section{Trang trí đầu đề của các trang}
+\label{sec:fancy} Gói \pai{fancyhdr}\footnote{có tại địa chỉ \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/fancyhdr}.} được viết bởi Piet van Oostrum, cung cấp cho ta một số lệnh đơn giản để tuỳ biến phần tựa đề và chân của các trang trong tài liệu. Hãy nhìn vào phần tựa đề và phần chân của các trang trong tài liệu này, bạn sẽ thấy tính hữu dụng của gói này.
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+\documentclass{book}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% xác định rằng phần tựa đề và phần chân của trang
+% sẽ được viết thường.
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}  % xoá các định dạng hiện tại đối với phần tựa đề trang
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % tạo khoảng trống cho vạch ngang
+\fancypagestyle{plain}{%
+   \fancyhead{} % chỉnh phần tựa đề cho trang trắng
+   \renewcommand{\headrulewidth}{0pt} % và đường kẻ ngang
+}
+\end{verbatim}
+\end{lined}
+\caption{Ví dụ về cách sử dụng gói \pai{fancyhdr}.}
+\label{fancyhdr}
+\end{figure}
+Vấn đề tinh xảo của việc tạo tựa đề và phần chân của các trang là việc đưa vào tên của mục hay chương hiện tại. \LaTeX{} xử lý việc này theo hai bước. Trong định nghĩa của phần tựa đề, phần chân của trang, bạn sử dụng lệnh \ci{rightmark} và \ci{leftmark} để cho biết mục và chương tương ứng hiện tại. Hai lệnh này sẽ xuất ra mục hay chương mới khi lệnh tạo mục hay chương mới được xử lý.
+
+Lệnh \verb|\chapter| và các lệnh có tác dụng tương tự khác không tự định nghĩa lại lệnh \ci{rightmark} và \ci{leftmark}. Chúng gọi lệnh khác (như là \ci{chaptermark}, \ci{sectionmark} hay \ci{subsectionmark}) để định nghĩa lại lệnh \ci{rightmark} và \ci{leftmark}.
+
+Nếu bạn muốn thay đổi phong cách thể hiện tên chương trong phần tựa đề của trang, bạn ``chỉ cần'' định nghĩa lại lệnh
+\ci{chaptermark}. \cih{sectionmark}\cih{subsectionmark}.
+
+Hình~\ref{fancyhdr} liệt kê các tham số có thể sử dụng trong \pai{fancyhdr} để làm cho chúng trông giống như phần tựa đề, chân của cuốn sách này. Theo tôi, bạn nên sử dụng các kiểu định dạng được đề nghị trong phần chú thích.
+
+\section{Môi trường hỗ trợ trích đúng nguyên văn}
+Trong các phần trước của tài liệu, bạn đã có dịp tiếp xúc với \emph{môi trường} \ei{verbatim}. Trong mục này, bạn sẽ học cách sử dụng \emph{gói} \pai{verbatim}. Gói \pai{verbatim} là một sự bổ sung cho môi trường \ei{verbatim}. Nó giúp giải quyết một số các hạn chế của môi trường \ei{verbatim}. Bản thân của môi trường này không có gì là đặc biệt nhưng sự bổ sung của nó: gói \pai{verbatim} đã thêm vào một số tính năng mới rất hữu dụng. Gói \pai{verbatim} cung cấp lệnh
+
+\begin{lscommand}
+\ci{verbatiminput}\verb|{|\emph{tên tập tin}\verb|}|
+\end{lscommand}
+\noindent nhằm cho phép đưa vào phần văn bản nguyên mẫu trong tập tin có tên \emph{tên tập tin} vào tài liệu (bên trong môi trường \ei{verbatim}).
+
+Vì gói \pai{verbatim} là một phần của bộ công cụ cho nên nó sẽ được cài đặt sẵn trên hầu hết các hệ thống \LaTeX{}. Bạn có thể tham khảo thêm thông tin chi tiết về gói này bạn nên đọc tài liệu \cite{verbatim}.
+
+
+\section{Tải về và cài đặt các gói của \LaTeX{}}
+Hầu hết các bản cài đặt của \LaTeX{} đều đi kèm với một số lượng lớn các gói phục vụ việc định dạng tài liệu. Tuy nhiên, một số gói hữu dụng khác phải được tải về từ mạng. Nơi mà bạn có thể tìm thấy hầu hết các tiện ích này là CTAN (\verb|http://www.ctan.org/|).
+
+Các gói như \pai{geometry}, \pai{hyphenat}, và một số gói khác thường được tạo thành từ hai tập tin: một tập tin với phần mở rộng là \texttt{.ins} và tập tin kia có phần mở rộng là \texttt{.dtx}. Thường thì đi kèm với các gói còn có tập tin hướng dẫn như \texttt{readme.txt}. Bạn nên đọc kĩ tập tin này.
+
+Trong bất kỳ trường hợp nào thì sau khi tải về các gói mở rộng, bạn cần phải thực hiện hai thao tác sau:
+\begin{enumerate}
+\item Cho hệ thống \TeX{} sẵn có biết về sự tồn tại của gói mới này trên hệ thống của bạn.
+\item Biên dịch tập tin tải về để biết thêm chi tiết.
+\end{enumerate}
+Dưới đây là cách thực hiện thao tác thứ nhất:
+
+\begin{enumerate}
+\item Dùng \LaTeX{} để dịch tập tin \texttt{.ins}. Quá trình này sẽ trích ra một tập tin dạng \eei{.sty}.
+\item Chuyển tập tin dạng \eei{.sty} đến thư mục mà phiên bản \TeX{} trên máy bạn có thể tìm thấy chúng (thông thường thì bạn nên đặt nó trong thư mục \texttt{\ldots/\emph{localtexmf}/tex/latex}.
+\item Cập nhật lại cơ sở dữ liệu lưu trữ các tập tin trong phiên bản \TeX{} trên máy của bạn. Tuỳ theo các phiên bản của \LaTeX{} mà bạn có thể sử dụng các lệnh tương ứng như: với teTeX, fpTeX là \texttt{texhash}; web2c là
+\texttt{maktexlsr}; MikTeX là \texttt{initexmf -update-fndb} hay sử dụng giao diện đồ họa.
+\end{enumerate}
+
+\noindent Bây giờ bạn có thể trích tài liệu hướng dẫn của gói từ tập tin dạng \texttt{.dtx}:
+
+\begin{enumerate}
+\item Chạy \LaTeX{} đối với tập tin \texttt{.dtx}. Kết quả tạo ra là tập tin \texttt{.dvi}. Lưu ý rằng có thể bạn sẽ phải chạy
+\LaTeX{} nhiều lần để các tham chiếu chéo được chính xác. 
+\item Kiểm tra xem \LaTeX{} có tạo ra tập tin \texttt{.idx} hay không. Nếu bạn không tin thấy tập tin này thì bạn có thể tiến hành bước ~\ref{step:final}.
+\item Để tạo ra tập tin chỉ mục, sử dụng lệnh sau:\\
+\fbox{\texttt{makeindex -s gind.ist \textit{tên tập tin}}}\\
+(với \textit{tên tập tin} là tên của tập tin chính (không có phần mở rộng)).
+\item Chạy \LaTeX{} để dịch tập tin \texttt{.dtx} thêm một lần nữa. \label{step:next}.
+\item Tạo tập tin dạng \texttt{.ps} hay \texttt{.pdf} để việc xem được dễ dàng và đẹp mắt hơn.\label{step:final}
+\end{enumerate}
+
+Đôi khi bạn sẽ thấy rằng \LaTeX{} cũng tạo ra tập tin \texttt{.glo} (tự điển thuật ngữ). Dùng lệnh sau ở giữa
+bước~\ref{step:next} và~\ref{step:final}: \noindent\texttt{makeindex -s gglo.ist -o \textit{name}.gls
+\textit{name}.glo}
+
+\noindent Nhớ dùng \LaTeX{} để dịch tập tin \texttt{.dtx} lần cuối trước khi thực hiện bước~\ref{step:final}.
+
+
+
+\section{Làm việc với pdf\LaTeX} \label{sec:pdftex}\index{PDF}
+\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+PDF là một kiểu định dạng tài liệu \wi{siêu văn bản}. Giống như các trang web, một số từ trong tài liệu dạng PDF sẽ được đánh dấu như các siêu liên kết. Chúng sẽ liên kết đến các vị trí khác trong tài liệu hay thậm chí là trong các tài liệu khác. Khi bạn nhấn chuột vào các siêu liên kết này, bạn sẽ được chuyển đến vị trí liên kết tương ứng. Đối với \LaTeX{} thì điều này có nghĩa là các lệnh \ci{ref} và \ci{pageref} sẽ đưa vào các siêu liên kết. Do đó bảng nội dung, chỉ mục và các cấu trúc tương tự khác trở thành một tập hợp của các siêu liên kết.
+
+Hiện nay, hầu hết các trang web đều được viết bằng ngôn ngữ HTML (\emph{HyperText Markup Language}). Kiểu định dạng theo ngôn ngữ này có hai điểm bất lợi khi soạn thảo các tài liệu khoa học:
+\begin{enumerate}
+\item Nói chung thì việc đưa các công thức toán học vào tài liệu HTML không được hỗ trợ. Mặc dù chúng ta đã có chuẩn để thực hiện điều này nhưng hầu hết các trình duyệt hiện nay chưa hỗ trợ hay thiếu các font chữ cần thiết. 
+\item Việc in ấn các tài liệu HTML thật đơn giản nhưng kết quả xuất ra lại phụ thuộc rất nhiều vào hệ điều hành và trình duyệt. Điều này có nghĩa là các bản in của cùng một tài liệu có thể trông rất khác nhau. Bên cạnh đó chất lượng của bản in sẽ kém xa so với \LaTeX{}.
+\end{enumerate}
+Hiện nay, người ta đã có rất nhiều cố gắng để tạo ra các chương trình chuyển từ tập tin \LaTeX{} sang tập tin HTML. Trong số đó có một số chương trình thực hiện tương đối thành công việc tạo ra các trang web rõ ràng, dễ đọc từ một tài liệu được soạn thảo bằng \LaTeX{}. Tuy nhiên, hầu hết các phần mềm đều không làm tốt vì chúng không thể giữ nguyên định dạng ban đầu. Đối với các tài liệu sử dụng các tính năng phức tạp của \LaTeX{} và các gói mở rộng thì các chương trình chuyển từ \LaTeX{} sang HTML không thể thực hiện tốt việc chuyển đổi. Do đó, đối với các tác giả muốn đưa tài liệu của mình lên web nhưng muốn giữ nguyên cách trình bày bản in với chất lượng cao đã lựa chọn PDF (\emph{Portable Document Format})
+như là một giải pháp tốt. Hơn nữa, hầu hết các trình duyệt web ngày nay đều hỗ trợ việc đọc tài liệu dạng này sau khi cài thêm một phần mở rộng cần thiết.
+
+Khác với các địng dạng DVI và PS, tài liệu dạng PDF có thể được xem và in ấn trên hầu hết các hệ điều hành (Unix, Mac, Windows) nhờ vào phần mềm Adobe Acrobat Reader hay xpdf (có thể tải về miễn phí từ trang web của Adobe). Do đó việc phân phối tài liệu theo định dạng PDF sẽ độc giả đến với tài liệu của bạn một cách dễ dàng hơn rất nhiều.
+
+\subsection{Các tài liệu PDF dành cho Web}
+Việc tạo ra tập tin PDF từ tập tin nguồn của \LaTeX{} đã trở nên rất dễ dàng nhờ vào phần mềm pdf\TeX{} được thiết kế bởi Hàn Thế Thành. pdf\TeX{} tạo ra tập tin đầu ra dạng PDF còn \TeX{} sẽ tạo ra tập tin dạng DVI. Ngoài ra, ta cũng có bản pdf\LaTeX{} có tác dụng tạo ra tập tin PDF từ tập tin nguồn của \LaTeX{}.\index{pdftex@pdf\TeX}\index{pdftex@pdf\LaTeX{}}
+
+Cả hai bản pdf\TeX{} và pdf\LaTeX{} đều được cài đặt sẵn đối với các phiên bản mới của \TeX{} như là te\TeX{}, fp\TeX{}, Mik\TeX, \TeX{}Live và CMac\TeX{}.
+
+Để tạo ra tập tin PDF thay vì tập tin DVI, bạn chỉ cần thay lệnh \texttt{latex file.tex} bằng lệnh \texttt{pdflatex file.tex}. Trên các hệ thống mà \LaTeX{} không được gọi từ dòng lệnh, bạn có thể tìm thấy được nút điều khiển tương ứng với lệnh này.
+
+Trong \LaTeX{}, bạn có thể đặt kích thước trang giấy (như \texttt{a4paper} hay \texttt{letterpaper}) thông qua tham số tùy
+chọn của lệnh \verb|\documentclass{..}|. Các lệnh trên cũng làm việc với pdf\LaTeX{}. Ngoài ra, pdf\LaTeX{} còn cần phải biết thêm kích thước của trang giấy chứ không chỉ phần diện tích được dùng để trình bày tài liệu.\index{paper size} Khi sử dụng gói \pai{hyperref} (xem thêm trang \pageref{ssec:pdfhyperref}), kích thước của trang có thể được thay đổi một cách tự động. Nếu không, bạn sẽ phải tự điều chỉnh kích thước trang giấy bằng cách đưa và các lệnh sau trong phần tựa đề của tài liệu:
+\begin{code}
+\begin{verbatim}
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+\end{verbatim}
+\end{code}
+Mục này sẽ không đi sâu vào chi tiết liên quan đến sự khác nhau giữa \LaTeX{} và pdf\LaTeX{}. Những khác biệt chính liên quan đến 3 vấn đề sau: việc sử dụng font chữ, định dạng của hình ảnh đưa vào và việc tự cấu hình các siêu liên kết.
+
+\subsection{Các font chữ}
+\wi{pdf\LaTeX} có thể làm việc với tất cả các kiểu font chữ (PK bitmaps, TrueType, PostScript type~1\dots) nhưng chủ yếu là định dạng font của của \LaTeX{}, font PK dạng bitmap cho ra kết quả rất xấu khi tài liệu được xem bằng Acrobat Reader. Để có tài liệu đẹp mắt thì chỉ nên sử dụng các font chữ dạng PostScript Type 1. \emph{Các bản cài đặt mới của \TeX{} sẽ tự động cấu hình việc này. Nếu mọi thứ vận hành tốt thì bạn có thể bỏ qua cả mục này.}
+
+Chúng ta sẽ không bàn về font chữ trong tài liệu này vì tự \LaTeX{} đã làm tốt việc xử lý các font chữ cũng như việc sử dụng
+bộ font chữ riêng của nó để đáp ứng yêu cầu của việc soạn thảo và in ấn các tài liệu khoa học.
+
+Bộ font \PSi{} dựa vào font chữ Computer Modern và AMSFonts được xây dựng bởi Blue Sky Research và Y\&Y, Inc. Sau đó họ đã chuyển bản quyền sang cho American Mathemcatical Society. Các font chữ này đã được công bố rộng rãi từ năm 1997 và được phân phối kèm theo các phiên bản của \TeX{}.
+
+Tuy nhiên để soạn thảo tài liệu bằng các ngôn ngữ khác với tiếng Anh bạn cần sử dụng bộ font chữ EC, LH hay CB (xem thêm phần nói về font chữ \texttt{OT1} ở trang~\pageref{OT1}). Vladimir Volovich đã tạo ra nhóm font chữ cm-super bao gồm toàn bộ font EC/TC, EC Concrete, EC Bright và LH. Bạn có thể tải về ở địa chỉ \texttt{CTAN:/fonts/ps-type1/cm-super}. Ngoài ra nó cũng được thêm \TeX{}Live7 và Mik\TeX. Apostolos Syropoulos cũng tạo ra bộ font type~1 CB tiếng Hy Lạp và có thể tải về ở địa chỉ \texttt{CTAN:/tex-archive/fonts/greek/cb}. Tuy nhiên, cả hai bộ font chữ này không có cùng chất lượng in ấn như bộ font chữ Type1 CM của Blue Sky/Y\&Y.
+
+Đối với các tài liệu sử dụng các ngôn ngữ gốc Latin bạn có một số tuỳ chọn khác.
+
+%Hiện nay, ta có 2 tập  hợp font chữ của \TeX{}: \emph{Computer Modern} (CM), gồm 128 kí tự và được xem là bộ font mặc định. Bộ font thứ hai là \emph{Extended Cork} (EC), bao gồm 256 kí tự. Điểm đặc trưng của bộ font EC là có chứa tất cả các kí tự đặc biệt của các ngôn ngữ-đặc biệt là các kí tự thể hiện dấu trọng âm trong các ngôn ngữ ở châu Âu như là \"a hay \'e. Điều này cho phép việc ngắt quãng các từ ngữ có các chữ cái đặc biệt này. Bạn có thể kích hoạt việc sử dụng bộ font này với lệnh \verb+\usepackage[T1]{fontenc}+ ở phần tựa đề của tài liệu (xem thêm trang \pageref{fontenc}). Thật không may là không có bộ font PostScript Type 1 miễn phí nào cho tập các kí tự EC. Tuy nhiên, có hai phương pháp có thể giải quyết vấn đề này:
+\begin{itemize}
+	\item Bạn có thể sử dụng gói \pai{aeguill}, \emph{Almost European Computer Modern with Guillements}. Bạn chỉ cần thêm dòng \verb+\usepackage{aeguill}+\paih{aeguill} vào phần tựa đề để sử dụng bộ font chữ ảo AE thay vì bộ font EC.
+	\item Ngoài ra, bạn có thể sử dụng gói \pai{mltex}. Tuy nhiên cách này chỉ có tác dụng khi bạn biên dịch pdf\TeX{} với tham số \wi{mltex}.
+\end{itemize}
+
+Tương tự như hệ thống {Ml\TeX{}}, bộ font chữ ảo AE làm cho \TeX{} tin rằng nó có đầy đủ 256 kí tự bằng cách tạo ra các kí tự bị thiếu trong bộ font CM và thêm vào theo trình tự của font EC. Điều này cho phép chương trình sử dụng bộ font có chất lượng rất cao là type~1 CM. Vì các font chữ có tuân theo encoding T1 nên tính năng tự ngắt từ sẽ hoạt động rất tốt đối với các ngôn ngữ Châu Âu có gốc Latin. Hạn chế duy nhất của hướng tiếp cận này là tính năng tìm kiếm của phần mềm Acrobat Reader không hoạt động được khi bạn cần tìm kiếm nội dung có các kí tự có dấu.
+
+Đối với tiếng Nga thì bạn có một giải pháp tương tự là sử dụng bộ font chữ ảo C1, bộ font này có thể tải về ở \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. Các font chữ này kết hợp bộ font type~1 chuẩn CM của Bluesky và các font chữ type~1 CMCYR của Paradissa và BaKoMa.
+
+Một giải pháp khác là không sử dụng bộ font CM mà chuyển sang sử dụng các font \PSi{} type~1. Hiện nay, một số font chữ dạng này được cung cấp kèm theo với Acrobat Reader. Bộ font này có kích thước các kí tự khác nhau do đó việc trình bày tài liệu sẽ có chút thay đổi. Thông thường, bộ font chữ này sử dụng nhiều khoảng không hơn các font chữ CM (các font chữ CM rất tiết kiệm khoảng không). Ngoài ra, tính mạch lạc tổng thể của tài liệu cũng bị ảnh hưởng bởi vì các font chữ như Times, Helvetica và Courier (các font chính cần thay đổi) không được thiết kế để trình bày một cách cân đối trong một tài liệu như là các font chữ CM.
+
+Ngoài ra, còn có 2 bộ font chữ nữa đáp ứng yêu cầu này: \pai{pxfonts}, dựa trên font \emph{Palatino} để định dạng cho văn
+bản trong phần thân của tài liệu và gói \pai{txfonts}, dựa trên font \emph{Times}. Để sử dụng hai gói này, ta chỉ cần thêm vào các hàng sau ở phần tựa đề của tài liệu.
+\begin{code}
+\begin{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{pxfonts}
+\end{verbatim}
+\end{code}
+
+Bạn có thể thấy cảnh báo sau khi biên dịch tập tin nguồn
+\begin{verbatim}
+Warning: pdftex (file eurmo10): Font eurmo10 at ... not found
+\end{verbatim}
+\noindent trong tập tin có phần mở rộng là \texttt{.log}. Điều này có nghĩa là một số font chữ được sử dụng ở đây đã không được tìm thấy. Bạn cần phải sửa các lỗi này nếu không thì trong tài liệu dạng PDF các trang có các kí tự bị thiếu sẽ không được hiển thị.
+
+Việc thiếu các font chữ EC có chất lượng tương đương với các font chữ CM type~1 luôn được mọi người quan tâm. Do đó, các giải pháp cho vấn đề này sẽ xuất hiện theo thời gian.
+
+\subsection{Sử dụng hình ảnh}
+\label{ssec:pdfgraph} Việc đưa hình ảnh vào trong tài liệu được hỗ trợ tốt nhất với gói \pai{graphicx} (xem trang~\pageref{eps}). Thông qua việc sử dụng các \emph{driver đặc biệt} là \texttt{pdftex}, gói \pai{graphicx} cũng sẽ làm việc tốt với pdf\LaTeX{}:
+
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{color,graphicx}
+\end{verbatim}
+\end{code}
+Trong ví dụ trên, ta đã đưa vào tuỳ chọn màu bởi việc sử dụng màu sắc trong tài liệu đã trở nên ngày càng phổ biến.
+
+Một trong những vấn đề ở đây là dạng EPS (Encapsulated Postscript) \emph{không được hỗ trợ} trong các tập tin dạng PDF. Nếu bạn không định nghĩa một tập tin mở rộng trong lệnh \ci{includegraphics}, gói \pai{graphicx} sẽ tự động tìm tập tin thích hợp (phụ thuộc vào việc chọn \emph{driver}. Đối với \texttt{pdftex}, định dạng của tập tin này có thể là \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (MetaPost) và \texttt{.tif}--- nhưng không là \texttt{.eps}.
+
+Giải pháp đơn giản cho vấn đề này là chuyển các tập tin dạng EPS sang dạng PDF thông qua việc sử dụng tiện ích \texttt{epstopdf}. Đối với các đối tượng hình học vectơ (các hình vẽ), đây là một giải pháp tốt. Tuy nhiên, đối với các dạng bitmap (ảnh, hình được quyét từ ngoài vào) thì giải pháp này không thật sự thuyết phục bởi vì bản thân định dạng PDF đã hỗ trợ việc đưa vào các tập tin PNG và JPEG (PNG thích hợp cho các ảnh có ít màu còn JPEG thích hợp cho các ảnh chụp vì chúng chiếm rất ít chỗ).
+
+Đôi khi, ta không cần vẽ các hình hình học mà chỉ cần mô tả chúng với các ngôn ngữ đặc biệt (như là \MP\index{metapost@\MP}). Ngôn ngữ này có thể được tìm thấy ở hầu hết các phiên bản được phân phối
+của \TeX{} cùng với bản hướng dẫn chi tiết.
+
+\subsection{Các siêu liên kết}
+\label{ssec:pdfhyperref} Gói \pai{hyperref} sẽ đảm nhiệm việc chuyển các tham chiếu trong tài liệu thành siêu liên kết. Để hoàn tất công việc này, ta cần thực hiện một số thao tác hỗ trợ. Bạn cần phải đưa lệnh \verb+\usepackage[pdftex]{hyperref}+ vào vị trí cuối cùng của phần tựa đề của tài liệu.
+
+Lệnh này có nhiều tham số để tuỳ biến cách làm việc của gói \pai{hyperref}:
+
+\begin{itemize}
+\item một danh sách được phân cách bởi dấu phẩy ở phía sau phần tuỳ chọn của pdftex\\ \verb+\usepackage[pdftex]{hyperref}+
+\item hay các hàng riêng biệt với lệnh
+\verb+\hypersetup{+\emph{options}\verb+}+.
+\end{itemize}
+Mục chọn duy nhất được yêu cầu là \texttt{pdftex}; các mục chọn khác là tuỳ ý và cho phép bạn thay đổi cách làm việc bình thường của gói \pai{hyperref}.\footnote{Bạn cần lưu ý rằng gói \pai{hyperref} không chỉ làm việc với pdf\TeX{}. Gói này cũng có thể được cấu hình để nhúng thông tin riêng dạng PDF vào tập tin DVI của \LaTeX{} (tập tin này sẽ được đưa vào tập tin PS với lệnh \texttt{dvips} và cuối cùng được xử lý Adobe Distiller khi nó chuyển tập tin dạng PS sang PDF.)} Dưới đây là danh sách các giá trị mặc định:
+\begin{description}
+  \item[\texttt{bookmarks (=true,\textit{false})}] hiển thị hay
+  không hiển thị của sổ Bookmark khi hiển thị tài liệu.
+  \item[\texttt{unicode (=false,\textit{true})}] cho phép sử dụng các kí tự không có trong ngôn ngữ gốc Latin trong phần bookmarks của Acrobat.
+  \item [\texttt{pdftoolbar (=true,\textit{false})}] hiển thị hay không hiển thị thanh công cụ của Acrobat khi xem.
+  \item [\texttt{pdfmenubar (=true,\textit{false})}] hiển thị hay không hiển thị menu của Acrobat.
+  \item [\texttt{pdffitwindow (=true,\textit{false})}] chỉnh kích thước phóng đại ban đầu khi tập tin pdf được xem.
+  \item [\texttt{pdftitle (=\{texte\})}] xác định nội dung được hiển thị trong cửa sổ \texttt{Document Info} của Acrobat.
+  \item [\texttt{pdfauthor (=\{texte\})}] Tên của tác giả.
+  \item [\texttt{pdfnewwindow (=true,\textit{false})}] xác định xem một cửa sổ mới có được tạo hay không khi liên kết vượt khỏi giới hạn của tài liệu.
+  \item [\texttt{colorlinks (=true,\textit{false})}] hiển thị ``vùng'' liên kết bằng màu. Các màu sắc của các liên kết có thể
+  được chọn như sau:
+    \begin{description}
+    \item [\texttt{linkcolor (=color,\textit{red})}] màu sắc của
+    các liên kết ở bên trong của tài liệu (như mục, chương, trang,
+    \ldots).
+    \item [\texttt{citecolor (=color,\textit{green})}] màu của các
+    liên kết đến các trích dẫn (trong danh mục các tài liệu tham
+    khảo).
+    \item [\texttt{filecolor (=color,\textit{magenta})}] màu của
+    các liên kết đến tập tin.
+    \item [\texttt{urlcolor (=color,\textit{cyan})}] màu của các
+    liên kết đến các địa chỉ URL (liên kết đến hộp thư, địa chỉ web).
+    \end{description}
+\end{description}
+
+\vspace{\baselineskip}
+
+Nếu bạn thấy hài lòng với các định dạng mặc định thì chỉ việc sử
+dụng như sau:
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+Để danh sách các bookmark được liệt kê chi tiết và các liên kết có
+màu (giá trị \texttt{=true} là mặc định):
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\end{verbatim}
+\end{code}
+
+Khi tạo ra các tập tin PDF để in ấn, bạn không nên làm cho các liên kết có màu bởi vì chúng sẽ trở thành màu xám
+khi được in ra (chúng trở nên khó đọc và không đẹp mắt).
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks,%
+            citecolor=black,%
+            filecolor=black,%
+            linkcolor=black,%
+            urlcolor=black,%
+            pdftex}
+\end{verbatim}
+\end{code}
+
+Để cung cấp thông tin cho phần \texttt{Document Info} của tập tin PDF, bạn thực hiện như sau:
+\begin{code}
+\begin{verbatim}
+\usepackage[pdfauthor={Pierre Desproges}%
+            pdftitle={Des femmes qui tombent},%
+            pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+\vspace{\baselineskip}
+
+Để bổ sung cho các siêu liên kết tự động đối với các tham chiếu chéo, bạn có thể đưa vào các liên kết tường minh như sau:
+\begin{lscommand}
+\ci{href}\verb|{|\emph{url}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+Đoạn mã sau
+\begin{code}
+\begin{verbatim}
+Trang web \href{http://www.ctan.org}{CTAN}.
+\end{verbatim}
+\end{code}
+sẽ cho kết quả là ``\href{http://www.ctan.org}{CTAN}''; nhấn chuột vào từ ``\textcolor{magenta}{CTAN}'' sẽ đưa bạn đến với trang web của CTAN.
+
+Nếu liên kết không hướng đến một địa chỉ URL mà là một tập tin trên máy thì bạn có thể sử dụng lệnh sau:
+\begin{verbatim}
+  Bạn có thể xem tài liệu đầu đủ \href{manual.pdf}{ở đây}.
+\end{verbatim}
+Khi này, kết quả xuất ra là: ``Bạn có thể xem tài liệu đầy đủ \href{manual.pdf}{ở đây}''. Nhấn chuột vào ``\textcolor{cyan}{ở đây}'' sẽ mở tập tin \texttt{manual.pdf}. (Tập tin sẽ nằm trong thư mục của tài liệu hiện thời).
+
+Tác giả của một bài báo có thể cung cấp địa chỉ e-mail của mình để người đọc có thể liên hệ với tác giả thông qua lệnh \ci{href} bên trong lệnh \ci{author} trong phần tựa đề của trang trong tài liệu:
+\begin{code}
+\begin{verbatim}
+\author{Nguyễn Tân Khoa $<$\href{mailto:tankhoasp@yahoo.com}%
+       {tankhoasp@yahoo.com}$>$
+\end{verbatim}
+\end{code}
+Lưu ý rằng bạn phải nhập vào liên kết và cả phần văn bản để nó được hiển thị trên trang giấy. Bạn cũng có thể soạn thảo như sau:\\
+\verb+\href{mailto:tankhoasp@yahoo.com}{Nguyễn Tân Khoa}+. \\
+Với Acrobat Reader thì mọi việc vẫn diễn ra tốt đẹp nhưng khi in tài liệu ra thì sẽ không ai biết được địa chỉ e-mail của bạn!!!
+
+\subsection{Vấn đề với các liên kết}
+Các thông điệp như:
+\begin{verbatim}
+! pdfTeX warning (ext4): destination with the same identifier
+  (name{page.1}) has been already used, duplicate ignored
+\end{verbatim}
+\noindent xuất hiện khi bộ đếm được khởi động lại. Ví dụ như khi sử dụng lệnh \ci{mainmatter} được cung cấp bởi lớp tài liệu dạng \texttt{book}, bộ đếm sẽ được khỏi động lại là~1 tương ứng với chương đầu tiên của tài liệu. Tuy nhiên, phần ``lời tựa'' của tài liệu cũng được đánh số là trang~1. Khi này, tất cả các liên kết đến ``trang~1'' sẽ không cho kết quả duy nhất nữa! Do đó, thông báo là ``\verb+duplicate+ has been \verb+ignored+.''
+
+Bộ đếm sẽ thực hiện việc đưa \texttt{plainpages=false} vào mục chọn của các siêu liên kết. Không may là điều này chỉ hỗ trợ việc đếm trang. Một giải pháp triệt để hơn là sử dụng mục chọn \texttt{hypertexnames=false} tuy nhiên khi này các liên kết đến các trang trong phần chỉ mục sẽ không làm việc.
+
+\subsection{Các vấn đề với Bookmark}
+Phần văn bản được hiển thị bởi bookmark không phải lúc nào cũng giống như bạn muốn. Bởi vì các bookmark ``chỉ đơn thuần là văn bản'' cho nên nó sẽ có ít kí tự hơn là phần văn bản của \LaTeX{}. Các siêu liên kết sẽ tự động thấy các lỗi này và đưa ra cảnh báo:
+\begin{code}
+\begin{verbatim}
+Package hyperref Warning:
+Token not allowed in a PDFDocEncoded string:
+\end{verbatim}
+\end{code}
+Bạn có thể giải quyết vấn đề này bằng cách cung cấp một chuỗi kí
+tự cho các bookmark để tránh các lỗi trên như sau:
+\begin{lscommand}
+\ci{texorpdfstring}\verb|{|\emph{\TeX{} text}\verb|}{|\emph{Bookmark Text}\verb|}|
+\end{lscommand}
+
+Các biểu thức toán học chính là các đối tượng thường mắc phải lỗi này nhất:
+\begin{code}
+\begin{verbatim}
+\section{\texorpdfstring{$E=mc^2$}%
+        {E\ =\ mc\texttwosuperior}}
+\end{verbatim}
+\end{code}
+sẽ cho kết quả là ``E=mc2'' trong phần bookmark.
+
+Việc thay đổi màu sẽ không thực hiện tốt trong các bookmark:
+\begin{code}
+\verb+\section{\textcolor{red}{Red !}}+
+\end{code}
+\noindent sẽ tạo ra chuỗi ``redRed!''. Lệnh \verb+\textcolor+ sẽ được bỏ qua nhưng tham số (red) của nó vẫn được in ra.
+
+Nếu bạn soạn thảo:
+\begin{code}
+\verb+\section{\texorpdfstring{\textcolor{red}{Red !}}{Red\ !}}+
+\end{code}
+thì kết quả sẽ dễ đọc hơn.
+
+\subsubsection{Sự tương thích giữa tập tin nguồn trong \LaTeX{} và trong pdf\LaTeX{}} \label{sec:pdfcompat}
+
+Trong tình huống lý tưởng, tài liệu của bạn sẽ được dịch tốt như nhau với \LaTeX{} và pdf\LaTeX{}. Vấn đề lớn ở đây là việc đưa vào các hình ảnh. Giải pháp cơ bản cho vấn đề này là \emph{bỏ qua} phần mở rộng của tập tin trong lệnh \ci{includegraphics}. Khi này, cả \LaTeX{} và pdf\LaTeX{} sẽ tự động tìm kiếm tập tin có định dạng phù hợp trong thư mục hiện thời. Việc bạn cần làm là tạo ra các phiên bản tương ứng của tập tin hình ảnh. \LaTeX{} sẽ tìm kiếm tập tin dạng \texttt{.eps} còn pdf\LaTeX{} sẽ tìm các tập tin có phần mở rộng là \texttt{.png}, \texttt{.pdf}, \texttt{.jpg},
+\text{.mps} hay \texttt{.tif} (theo thứ tự vừa nêu).
+
+Đối với các trường hợp bạn muốn sử dụng các mã khác nhau cho các phiên bản PDF khác nhau của tài liệu của bạn, bạn có thể thêm vào:
+\begin{code}
+\begin{verbatim}
+\newif\ifPDF
+\ifx\pdfoutput\undefined\PDFfalse
+\else\ifnum\pdfoutput > 0\PDFtrue
+     \else\PDFfalse
+     \fi
+\fi
+\end{verbatim}
+\end{code}
+như là các hàng lệnh đầu tiên của tài liệu. Những hàng lệnh này sẽ xác định một lệnh đặc biệt cho phép bạn dễ dàng viết các đoạn mã diều kiện:
+\begin{code}
+\begin{verbatim}
+\ifPDF
+  \usepackage[T1]{fontenc}
+  \usepackage{aeguill}
+  \usepackage[pdftex]{graphicx,color}
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{hyperref}
+\fi
+\end{verbatim}
+\end{code}
+Trong ví dụ trên, bạn có thể thấy rằng tôi đã đưa vào gói siêu liên kết cho cả phiên bản PDF và không phải PDF. Hiệu quả của việc đưa vào các lệnh trên là lệnh \ci{href} làm việc tốt trong tất cả các trường hợp mà không phải đưa vào chỉ thị điều khiển mỗi lần sử dụng lệnh \ci{href}.
+
+Lưu ý rằng trong các phiên bản \TeX{} hiện nay (ví dụ như \TeX{}Live), lựa chọn giữa \texttt{pdftex} và \texttt{dvips} khi
+sử dụng gói \pai{graphicx} và \pai{color} sẽ tự động được xác định một cách tự động trong tập tin cấu hình \texttt{graphics.cfg} và \texttt{color.cfg}.
+
+%\section{Trình diễn với gói \pai{pdfscreen}}
+%\label{sec:pdfscreen}
+%\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+%Bình thường, bạn có thể trình diễn kết quả của tài liệu khoa học của bạn trên một tấm bảng với đèn chiếu hay trực tiếp từ máy tính xách tay có sử dụng phần mềm trình diễn.
+%
+%Với \wi{pdf\LaTeX} và gói \pai{pdfscreen}, bạn có thể tạo nên các
+%``slide'' trong tập tin PDF, có đầy đủ tính năng (màu sắc, sống
+%động) như \emph{MS PowerPoint}. Ngoài ra, tập tin của bạn còn có
+%tính khả chuyển cao (có thể được xem trên các hệ điều hành khác
+%nhau với phần mềm Acrobat Reader).
+%
+%Lớp \pai{pdfscreen} sử dụng gói \pai{graphicx}, \pai{color} và
+%\pai{hyperref} với các mục chọn phỏng theo các cách trình diễn
+%trên màn hình.
+%
+%%La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal #
+%%compiler avec \wi{pdf\LaTeX} et le
+%%rộsultat produit.
+%
+%% ẫcran capturộ par ImageMagick (man ImageMagick) fonction ô import ằ
+%% et convertie en jpg toujours par ImageMagick.
+%\begin{figure}[htbp]
+%\begin{verbatim}
+%\documentclass[pdftex,12pt]{article}
+%%%% các phần mở rộng khác %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[latin1]{inputenc}
+%\usepackage[english]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage{aeguill}
+%%%% sử dụng gói pdfscreen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[screen,panelleft,chocolate]{pdfscreen}
+%% định dạng màn hình
+%\panelwidth=25mm
+%%%          height width
+%\screensize{150mm}{200mm}
+%%%          left right top  bottom
+%\marginsize{42mm}{8mm}{10mm}{10mm}
+%% màu sắc hay ảnh nền
+%\overlayempty
+%\definecolor{mybg}{rgb}{1,0.9,0.7}
+%\backgroundcolor{mybg}
+%% Logo
+%\emblema{MyLogo}
+%%%% với PPower4 (post-processor) %%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{pause}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{document}
+%\begin{slide}
+%\begin{itemize}
+%\item Tin tốt\dots \pause
+%\item Tin xấu
+%\end{itemize}
+%\end{slide}
+%\end{document}
+%\end{verbatim}
+%%  \begin{center}
+%%    \includegraphics[width=.8\textwidth]{pdfscr}
+%    \caption{Ví dụ về tập tin dữ liệu vào sử dụng gói \pai{pdfscreen}}
+%    \label{fig:pdfscr}
+%%  \end{center}
+%\end{figure}
+%
+%Để tạo ra dạng tập tin này, bạn chỉ cần làm việc một cách bình
+%thường với kiểu tài liệu là \texttt{article}. Hình
+%\ref{fig:pdfscr} cho thấy ví dụ về tập tin dữ liệu vào. Trước
+%tiên, bạn phải nạp vào gói \pai{pdfscreen} cùng với các tuỳ chọn
+%tương ứng:
+%\begin{description}
+%\item[\texttt{screen}]: trình diễn trên màn hình. Đối với các bản
+%trình diễn được in ra thì bạn sử dụng mục chọn \texttt{print}.
+%\item[\texttt{panelright}] đặt bảng điều khiển việc di chuyển giữa
+%các ``slide'' ở góc phải màn hình. Ngược lại, để đặt bảng điều
+%khiển ở góc trái, bạn có thể sử dụng mục chọn \texttt{panelleft}.
+%\item[\texttt{french}] hay các ngôn ngữ được hỗ trợ khác để
+%\LaTeX{} xác định tên của các nút trong bảng điều khiển cho phù
+%hợp. Mục chọn này độc lập với các mục chọn được chỉnh với các gói
+%``babel''. \item[\texttt{chocolate}] màu sắc của bảng điều khiển.
+%Các lựa chọn khác là \texttt{gray}, \texttt{orange},
+%\texttt{palegreen},
+% \texttt{bluelace} và \texttt{blue} (mặc định).
+%\end{description}
+%Tiếp đến, bạn sẽ cấu trúc hình cho việc hiển thị. Vì các bản trình
+%diễn thường co dãn theo kích thước thật của màn hình hiển thị, do
+%đó thông tin này sẽ được sử dụng để chỉnh kích thước font chữ.
+%\begin{description}
+%\item[\ci{panelwidth}] xác định kích thước của bảng điều khiển.
+%\item[\ci{screensize}\texttt{\{}\emph{width}\texttt{\}\{}\emph{height}\texttt{\}}]
+%  xác định chiều rộng và chiều cao của màn hình bao gồm cả bảng
+%  điều khiển.
+%\item[\ci{marginsize}\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}]
+%  xác định các biên của tài liệu. Trong phần ví dụ trên, tài liệu
+%  không được canh ở giữa màn hình bởi vì số của các mục được canh
+%  trái.
+%\end{description}
+%Bạn có thể sử dụng hình nền ở với một kiểu định dạng bất kỳ được
+%hỗ trợ bởi pdf\LaTeX{} thông qua lệnh:
+%\begin{lscommand}
+%\ci{overlay}\verb|{|\emph{image}\verb|}|
+%\end{lscommand}
+%hay nếu bạn thích sử dụng phần nền đơn giản, bạn có thể xác định
+%màu của nó với lệnh:
+%\begin{lscommand}
+%\ci{background}\verb|{|\emph{color}\verb|}|
+%\end{lscommand}
+%Cuối cùng, nếu bạn muốn đặt logo của tổ chức hay công ty của bạn
+%vào bảng điều khiển, hãy sử dụng lệnh sau:
+%\begin{lscommand}
+%\ci{emblema}\verb|{|\emph{logo}\verb|}|
+%\end{lscommand}
+%Trong khi trình diễn, để các mục từ từ được hiển thị trên màn
+%hình, bạn có thể sử dụng gói \pai{pause}. Gói này cung cấp lệnh
+%\ci{pause}. Lệnh này sẽ yêu cầu \LaTeX{} tạm ngưng việc hiển thị
+%tài liệu. Gói \pai{pause} là một phần của hệ thống
+%\texttt{ppower4} ($P^4$: \emph{Pdf Presentation Post-Processor}).
+%Hệ thống này sẽ làm cho kết quả xuất ra của pdf\LaTeX{} trình diễn
+%theo ý của bạn. Bạn có thể xử lý kết quả xuất ra của pdf\TeX{}
+%bằng cách đưa vào quá trình ``xử lý sau''. Lệnh này được gọi như
+%sau:
+%\begin{lscommand}
+%\verb+ppower4 xy.pdf xyz.pdf+
+%\end{lscommand}
+%
+%Để điều khiển kết quả xuất ra trên từng slide, bạn có thể sử dụng
+%môi trường \verb+\begin{slide}+ \ldots \verb+\end{slide}+. Nội
+%dung của mỗi slide sẽ được hiển thị ở giữa (theo chiều dọc) trang.
+%
+%Khi biên dịch ví dụ ở trên, bạn sẽ gặp thông báo lỗi:
+%
+%\begin{verbatim}
+%! pdfTeX warning (dest): name{contents} has been
+%  referenced but does not exist, replaced by a fixed one
+%\end{verbatim}
+%Lỗi này là do một nút lệnh trong bảng điều khiển chỉ đến bảng mục
+%lục mà ví dụ này không có lệnh \ci{tableofcontents} cho nên liên
+%kết bị lỗi.
+%
+%Để bảng mục lục có thể được hiển thị ngay bên trong bảng điều
+%khiển, bạn có thể sử dụng mục chọn \texttt{paneltoc} khi dùng gói
+%\pai{pdfscreen}. Điều này chỉ cho ra kết quả tốt khi mà bản trình
+%diễn của bạn có ít mục và tên các mục tương đối ngắn. Bạn cần cung
+%cấp các tựa đề ngắn ngọn cho các mục trong ngoặc vuông.
+%
+%Phần giới thiệu ngắn ngọn này chỉ đưa ra những hướng dẫn gợi ý ban
+%đầu về tính năng trình diễn của gói \pai{pdfscreen} và
+%\texttt{PPower4}. Cả hai gói này đều được cung cấp với tài liệu
+%hướng dẫn chi tiết.
+
+%\section{\texorpdfstring{\Xy}{Xy}-pic}
+%\secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
+%Gói \pai{xy} là một gói đặc biệt để vẽ các biểu đồ. Để sử dụng gói
+%này, bạn chỉ việc thêm vào các hàng lệnh sau trong phần tựa đề của
+%tài liệu:
+%\begin{lscommand}
+%\verb|\usepackage[|\emph{options}\verb|]{xy}|
+%\end{lscommand}
+%Với \emph{options} là một danh sách các hàm của \Xy-pic mà bạn
+%muốn nạp vào. Tôi đề nghị bạn đưa vào mục chọn \verb!all! để
+%\LaTeX{} nạp tất cả các lệnh của \Xy.
+%
+%Các biểu đồ của \Xy-pic được vẽ dựa trên mô hình của các ma trận
+%trong đó mỗi phần tử của biểu đồ được đặt trong một ô của ma trận:
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{A & B \\
+%          C & D }
+%\end{displaymath}
+%\end{example}
+%Lệnh \ci{xymatrix} có thể được sử dụng trong chế độ toán học.
+%Trong ví dụ trên, chúng ta có hai hàng và hai cột. Để tạo biểu đồ
+%này, chúng ta chỉ cần thêm vào các muỗi tên tương ứng với lệnh
+%\ci{ar}.
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{ A \ar[r] & B \ar[d] \\
+%           D \ar[u] & C \ar[l] }
+%\end{displaymath}
+%\end{example}
+%Lệnh vẽ mũi tên được đặt ở ô dành cho mũi tên. Các tham số ở đây
+%là hướng trỏ đến của các mũi tên. (\texttt{u}: mũi tên hướng lên,
+%\texttt{d}: mũi tên hướng xuống, \texttt{r}: mũi tên hướng sang
+%phải và \texttt{l}: mũi tên hướng sang trái).
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+%  A \ar[d] \ar[dr] \ar[r] & B \\
+%  D                       & C }
+%\end{displaymath}
+%\end{example}
+%Để tạo ra các mũi tên theo hướng chéo, bạn chỉ cần thêm vào các
+%đối số về hướng. Để có mũi tên đậm hơn, bạn có thể lặp lại các
+%tham số về hướng.
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+%  A \ar[d] \ar[dr] \ar[drr] & & \\
+%  B                      & C & D }
+%\end{displaymath}
+%\end{example}
+%Bạn có thể vẽ các biểu đồ đẹp bằng cách thêm vào phía trên dấu mũi
+%tên các nhãn. Để làm điều này, bạn có thể sử dụng các toán tử viết
+%lên trên hay viết xuống dưới.
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+%  A \ar[r]^f \ar[d]_g &
+%             B \ar[d]^{g'} \\
+%  D \ar[r]_{f'}       & C }
+%\end{displaymath}
+%\end{example}
+%Như bạn đã thấy, bạn có thể sử dụng trong chế độ toán học. Sự khác
+%biệt duy nhất là việc viết văn bản lên trên được hiểu là ``viết
+%lên phía trên của mũi tên'' còn viết văn bản ở dưới nghĩa là ``ở
+%dưới dấu mũi tên''. Còn đây là toán tử thứ ba (thanh ngang)
+%\verb+|+. Nó sẽ khiến cho phần văn bản đặt \emph{ngay trên} mũi
+%tên.
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+%  A \ar[r]|f \ar[d]|g &
+%             B \ar[d]|{g'} \\
+%  D \ar[r]|{f'}       & C }
+%\end{displaymath}
+%\end{example}
+%
+%Để vẽ các mũi tên có lỗ trống ở giữa, bạn có thể sử dụng lệnh
+%\verb!\ar[...]|\hole!.
+%
+%Trong một số tình huống, điều quan trọng là phân biết sự khác nhau
+%giữa các kiểu của dấu mũi tên. Điều này có thể được thực hiện bằng
+%cách đặt các nhãn lên trên các mũi tên hay thay đổi diện mạo của
+%các mũi tên:
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+% \bullet\ar@{->}[rr] && \bullet\\
+% \bullet\ar@{.<}[rr] && \bullet\\
+% \bullet\ar@{~)}[rr] && \bullet\\
+% \bullet\ar@{=(}[rr] && \bullet\\
+% \bullet\ar@{~/}[rr]  && \bullet\\
+% \bullet\ar@{=+}[rr]   && \bullet
+%}
+%\end{displaymath}
+%\end{example}
+%
+%Bạn hãy chú ý sự khác biệt giữa hai biểu đồ dưới đây:
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+% \bullet \ar[r]
+%         \ar@{.>}[r] &
+% \bullet
+%}
+%\end{displaymath}
+%\end{example}
+%\begin{example}
+%\begin{displaymath}
+%\xymatrix{
+% \bullet \ar@/^/[r]
+%         \ar@/_/@{.>}[r] &
+% \bullet
+%}
+%\end{displaymath}
+%\end{example}
+%
+%Từ bổ sung thêm vào giữa hai dấu gách chéo /~/ xác định cách các
+%đường cong được vẽ. Ngoài ra, \Xy-pic cung cấp nhiều cách khác
+%nhau để tác động đến việc vẽ các đường cong. Để biết thêm chi
+%tiết, bạn có thể tham khảo thêm tài liệu về \Xy-pic.
+%
+%The modifiers between the slashes define how the curves are drawn.
+%\Xy-pic offers many ways to influence the drawing of curves;
+%for more information, check \Xy-pic documentation.
+
+\section{Tạo tài liệu trình diễn với gói \pai{beamer}}
+\label{sec:beamer}
+\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+Thông qua cách viết lên bảng, dùng các loại máy chiếu hay thậm chí trình diễn ngay trên màn mình của máy tính xách tay,  bạn có thể giới thiệu các kết quả nghiên cứu của mình đến với nhiều người.
+
+Sự kết hợp giữa \wi{pdf\LaTeX} và gói \pai{beamer} sẽ giúp bạn soạn các bài trình diễn ấn tượng tương tự như với phần mềm PowerPoint. Hơn thế, việc tập tin được lưu theo định dạng PDF là một thế mạnh rất lớn vì nó giúp bạn mang tài liệu đi khắp nơi do phần mềm Acrobat Reader miễn phí và vận hành trên nhiều nền tảng hệ điều hành khác nhau.
+
+Gói \pai{beamer} sử dụng gói \pai{graphicx}, \pai{color} và \pai{hyperref} với các tham số được tinh chỉnh đề phù hợp với việc trình diễn trên màn hình.
+%La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal à
+%compiler avec \wi{pdf\LaTeX} et le 
+%résultat produit.
+
+% Écran capturé par ImageMagick (man ImageMagick) fonction « import »
+% et convertie en jpg toujours par ImageMagick.
+
+\begin{figure}[htbp]
+\begin{verbatim}
+\documentclass[10pt]{beamer}
+\mode<beamer>{%
+  \usetheme[hideothersubsections,right,width=22mm]{Goettingen}
+}
+
+\title{Bài trình diễn đơn giản}
+\author[D. Flipo]{Daniel Flipo}
+\institute{U.S.T.L. \& GUTenberg}
+\titlegraphic{\includegraphics[width=20mm]{USTL}}
+\date{2005}
+
+\begin{document}
+
+\begin{frame}<handout:0>
+  \titlepage
+\end{frame}
+
+\section{Ví dụ}
+
+\begin{frame}
+  \frametitle{Những việc phải làm vào buổi trưa này Chủ nhật}
+  \begin{block}{Một là \ldots}
+    \begin{itemize}
+      \item dẫn chó đi dạo\dots \pause
+      \item đọc sách\pause
+      \item vui đùa với mèo\pause
+    \end{itemize}
+  \end{block}
+  và nhiều việc khác
+\end{frame}
+\end{document}
+\end{verbatim}
+  \caption{Ví dụ minh hoạ cách sử dụng gói \pai{beamer}}
+  \label{fig:code-beamer}
+\end{figure}
+
+Sau khi dùng \wi{pdf\LaTeX{}} biên dịch đoạn mã được giới thiệu trong hình~\ref{fig:code-beamer}, bạn sẽ có được tập tin dạng PDF gồm trang tựa đề và trang thứ hai chứa các mục, các mục này sẽ từng bước xuất hiện trên màn hình.
+
+Gói beamer hỗ trợ xuất kết quả trực tiếp ra tập tin dạng PDF mà không phải thông qua quá trình chuyển sang dạng PostScript như gói \pai{prosper} hay phải thông qua một vài bước xử lý thêm trước khi xuất ra bài trình diễn như gói \pai{ppower4}. Đây chỉ là một trong những tính năng tiên tiến của gói này.
+
+Dựa vào gói \pai{beamer}, bạn có thể dùng chung tập tin nguồn để biên dịch tài liệu ra thành nhiều phiên bản (version) khác nhau. Các chỉ thị đặc biệt phục vụ cho tính năng này được đặt trong dấu ngoặc ngọn (<>).
+
+\begin{description}
+\item[beamer] tạo ra tập tin trình diễn dạng PDF như đã nói ở trên.
+\item[trans] tạo ra các slide.
+\item[handout] tạo ra bản in.
+\end{description}
+\texttt{beamer} là chế độ mặc định. Bạn có thể thay đổi chế độ biên dịch dựa vào các lệnh có tác động toàn cục như
+\verb|\documentclass[10pt,handout]{beamer}| để biên dịch thành dạng bản in.
+
+Giao diện của bài trình diễn sẽ phụ thuộc vào mẫu mà bạn chọn. Bạn có thể chọn các mẫu kèm theo gói beamer hay tự tạo những mẫu riêng phù hợp với mục đích sử dụng của mình. Bạn nên xem thêm trong \texttt{beameruserguide.pdf} để biết thêm chi tiết.
+
+Bây giờ chúng ta sẽ đi sâu vào chi tiết mã của hình~\ref{fig:code-beamer}.
+
+Đối với phiên bản dùng để trình diễn trên màn hình \verb|\mode<beamer>| chúng ta đã sử dụng mẫu \emph{Goettingen} để hiển thị khung di chuyển (navigation panel) ngay trong bảng nội dung. Tùy chọn này cho phép chọn kích thước của khung (cụ thể là 22mm trong ví dụ này) và vị trí của khung (ở bên phải nội dung). Tuỳ chọn \emph{hideothersubsections} sẽ hiển thị tựa đề của chương nhưng không hiển thị các mục con bên trong. Đối với hai chế độ còn lại là \verb|\mode<trans>| và \verb|\mode<handout>| thì không có tuỳ chọn gì đặc biệt do đó chúng sẽ được biên dịch và hiển thị theo mặc định.
+
+Các lệnh \verb|\title{}|, \verb|\author{}|, \verb|\institute{}| và \verb|\titlegraphics{}| sẽ định nội dung cho trang tựa đề của bài trình diễn. Các tham số tuỳ chọn như \verb|\title[]{}| và \verb|\author[]{}| sẽ giúp bạn định tựa đề cũng như phần tác giả cho các phiên bản khác nhau của bài trình diễn trong khung của mẫu \emph{Goettingen}.
+
+Các lệnh \verb|\section{}| và \verb|\subsection{}| bên ngoài môi trường \ei{frame} sẽ giúp bạn biên soạn tựa đề cũng các tựa đề con của các mục trong khung.
+
+Các biểu tượng di chuyển nhỏ ở cuối màn hình bên trong khung sẽ giúp bạn di chuyển giữa các trang trong bài trình diễn. Việc hiển thị các biểu tượng này không phụ thuộc vào việc lựa chọn mẫu trình diễn.
+
+Nội dung của mỗi slide hay trang màn hình cần phải đặt trong môi trường \ei{frame}. Các tham số tuỳ chọn trong cặp ngoặc nhọn (\verb|<| và \verb|>|) sẽ giúp bạn ẩn các slide (hay trang màn hình) theo yêu cầu đối với các phiên bản khác nhau của bài trình diễn. Trong ví dụ trên, chúng ta đã sử dụng lệnh \verb|<handout:0>| nên trang đầu tiên sẽ không được in ra ở phiên bản dùng để in ấn.
+
+Bạn nên đặt tựa đề cho mỗi slide khác với tựa đề của bài trình diễn, lệnh \verb|\frametitle{}| sẽ giúp bạn thực hiện tác vụ này. Trong trường hợp bạn cần đặt tựa đề con, bạn có thể sử dụng môi trường \ei{block} như trong ví dụ. Ngoài ra bạn cần chú ý rằng lệnh \verb|\section{}| và \verb|\subsection{}| sẽ không xuất ra nội dung tương ứng trên các slide.
+
+Lệnh \verb|\pause| trong môi trường liệt kê (itemize) sẽ giúp bạn hiển thị từng mục một. Để thêm vào các hiệu ứng bạn có thể dùng các lệnh như \verb|\only|, \verb|\uncover|, \verb|\alt| và \verb|\temporal|. 
+
+In any case make sure you read through the beamer class documentation
+\texttt{beameruserguide.pdf} to get a complete picture of what is in
+store for you. This package is being actively developed, check out their website
+\href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net/}
+to get the latest information.
+Để biết thêm thông tin chi tiết bạn nên tham khảo tài liệu \texttt{beameruserguide.pdf}. Gói này đang được phát triển rất nhanh, bạn nên xem thêm thông tin ở trang \href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net} để có thông tin mới nhất.
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

@@ -1,0 +1,42 @@
+\SbSSCT{Les extrémités}{Extremities}
+\label{fleches}
+
+
+\SbSbSSCT{Chargé automatiquement avec TikZ}{TikZ package}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[->,line width=.2cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw[->,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw[->,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [<->,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [>->,line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline  
+[\FDD{->}] & [\FDD{<-}] & [\FDD{<->}] & [\FDD{>->}] \\ 
+\hline
+\tikz \draw[-to,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw[-to reversed,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw[-o,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-|,line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline  
+[\FDD{-to}] & [\FDD{-to reversed}] & [\FDD{-o}] & [\FDD{-|}] \\
+  \hline 
+\tikz \draw[-latex,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw[-latex reversed,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ & 
+\tikz \draw[-stealth,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+& 
+\tikz \draw[-stealth reversed ,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+
+ \\ \hline  
+[\FDD{-latex}] & [\FDD{-latex reversed}] & [\FDD{-stealth}] & [\FDD{-stealth reversed}] \\
+  \hline 
+\end{tabular}
+

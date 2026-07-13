@@ -1,0 +1,73 @@
+% thesis.tex
+\documentclass[fontsize=12pt,paper=a4,open=any,parskip=half,
+  twoside=false,toc=listof,toc=bibliography,fleqn,leqno,
+  captions=nooneline,captions=tableabove,british]{scrbook}
+\usepackage[utf8]{inputenc} % load early
+\usepackage[T1]{fontenc}    % load early
+\usepackage[ngerman,main=british]{babel}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{graphicx, booktabs, float, scrhack}
+\usepackage{amsmath,amssymb}
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage[backend=biber,style=verbose,sortcase=false,
+  language=british]{biblatex}
+\addbibresource{thesis.bib}
+\PassOptionsToPackage{hyphens}{url} 
+\usepackage[hidelinks]{hyperref}  % load late
+\setkomafont{disposition}{\sffamily\color{gray!70}}
+\begin{document}
+\frontmatter % only if you need page numbering roman 
+\titlehead{\hfill\includegraphics[width=2cm]{logo}} 
+\title{My Title} \subtitle{My Subtitle} \author{N.\,N.} \date{}
+\maketitle 
+\tableofcontents \listoffigures \listoftables
+
+\mainmatter % page numbering arabic, starting by 1 again
+\chapter[Intro]{Introduction}\label{sec:intro}
+\section{Technical introduction}\label{sec:tecintro}
+\subsection*{Heading without number}
+Some text in \textbf{bold}, some more text. 
+Some text in \emph{emph}, more text. 
+And now some text in German language
+\foreignlanguage{ngerman}{Hier kommt eine Formel:} \(2+2=5\)
+
+A new paragraph, viz. a new idea, a new thought.
+
+\subsection{Heading lower level}\label{sec:headingLL}
+More text \emph{emphasized} text.\autocite{WC:2017}
+\begin{table}[htp]
+\caption{Table caption}\label{tab:table}
+  \begin{tabular}{l@{\qquad}cr} \toprule
+    Head   & Head & Head \\ \midrule  
+    Data   & first  &  Row \\
+    Data   & second &  Row \\ \bottomrule
+  \end{tabular}
+\end{table}
+
+\chapter{Method}\label{sec:ana}
+Some text, see \autoref{tab:table} for aligned material.
+
+L'Hôpital's rule:
+\begin{equation}
+\lim_{x\to 0}{\frac{e^x-1}{2x}} 
+\overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}} 
+\lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
+\end{equation}\label{eq:lhopital}
+\newpage
+More text. A \enquote*{quote} and a \foreignquote{ngerman}{Zitat}.
+
+\appendix % headings numbered with letters
+\chapter{Appendix}\label{sec:app}
+\begin{figure}[H]
+\KOMAoptions{captions=centeredbeside} 
+\begin{captionbeside}%
+ [Example of a caption centeredbeside]%
+ {Example of a caption beside the figure}
+ [o]   % position left/right/inner/outer
+ [\linewidth]  % width of figure+caption 
+ [0.0in]       % offset from left side
+ \framebox{\begin{minipage}[t][3cm][c]{0.5\textwidth}
+  {\begin{center} A BOX\end{center}}\end{minipage}}	
+\end{captionbeside}\label{fig:cbeside}\end{figure}
+\printbibliography
+\end{document}

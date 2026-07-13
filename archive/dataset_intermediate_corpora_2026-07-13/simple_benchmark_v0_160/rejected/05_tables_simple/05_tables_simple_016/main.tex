@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01912\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+$p$ & $c$ & Running time (seconds) \\\hline\hline
+17        &3         &16       \\\hline
+19        &3         &164      \\\hline
+23        &2         &47       \\\hline
+25        &5         &5974     \\\hline
+29        &2         &220      \\\hline
+31        &1         &8        \\\hline
+37        &1         &29       \\\hline
+41        &2         &1067     \\\hline
+43        &1         &39       \\\hline
+47        &1         &78       \\\hline
+53        &1         &71       \\\hline
+59        &1         &223      \\\hline
+61        &1         &215      \\\hline
+64        &2         &4115     \\\hline
+67        &1         &432      \\\hline
+71        &1         &370      \\\hline
+73        &1         &896      \\\hline
+79        &1         &872      \\\hline
+81        &1         &351      \\\hline
+83        &1         &1394     \\\hline
+89        &1         &1523     \\\hline
+97        &1         &2617     \\\hline
+101       &1         &4071     \\\hline
+103       &1         &4566     \\\hline
+107       &1         &4185     \\\hline
+109       &1         &6284     \\\hline
+113       &1         &6174     \\\hline
+121       &1         &11170    \\\hline
+127       &1         &15367    \\\hline
+131       &1         &17263    \\\hline
+137       &1         &23409    \\\hline
+139       &1         &25232    \\\hline
+149       &1         &38621    \\\hline
+151       &1         &40566    \\\hline
+157       &1         &58429    \\\hline
+163       &1         &75059    \\\hline
+167       &1         &78611    \\\hline
+169       &1         &79241    \\\hline
+173       &1         &104496   \\\hline
+179       &1         &117250   \\\hline
+181       &1         &134716   \\\hline
+191       &1         &196571   \\\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04579\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccc}
+         \hline \hline
+ 		Method&   A &B  &  C&  D& E \\
+ 		\hline
+ 		Pr. I   &\cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		      \textbf{12}\\
+ 		     \textbf{\checkmark}
+ 		\end{array}$ &$\begin{array}{c}
+ 		      1000\\
+ 		     \times
+ 		\end{array}$ &$\begin{array}{c}
+ 		      17\\
+ 		     \checkmark
+ 		\end{array}$ & $\begin{array}{c}
+ 		      14\\
+ 		     \checkmark
+ 		\end{array}$
+        & \cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		     \textbf{12}\\
+ 		     \checkmark
+ 		\end{array}$\\
+\hline        
+ 		Pr. II  & $\begin{array}{c}
+ 		      3\\
+ 		     -
+ 		\end{array}$ &$\begin{array}{c}
+ 		      4\\
+ 		     -
+ 		\end{array}$ &$\begin{array}{c}
+ 		      7\\
+ 		     \checkmark
+ 		\end{array}$ & $\begin{array}{c}
+ 		      4\\
+ 		     \textbf{\checkmark}
+ 		\end{array}$
+        & \cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		      \textbf{2}\\
+ 		     \checkmark
+ 		\end{array}$\\
+\hline        
+ 		Pr. III  & \footnotesize $\begin{array}{c}  
+ 		      \mathrm{not}\\ \mathrm{admissible}
+ 		\end{array}$ &\footnotesize $\begin{array}{c}  
+ 		      \mathrm{not}\\ \mathrm{admissible}
+ 		\end{array}$  &\cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		      \textbf{2}\\
+ 		    \textbf{ \checkmark}
+ 		\end{array}$ &\cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		     \textbf{2}\\
+ 		    \textbf{ \checkmark}
+ 		\end{array}$ &\cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		     \textbf{2}\\
+ 		    \textbf{ \checkmark}
+ 		\end{array}$\\
+\hline        
+        Pr. IV & \cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		      \textbf{2}\\
+ 		    \textbf{\checkmark} 
+ 		\end{array}$ &$\begin{array}{c}
+ 		       42\\
+ 		    \checkmark 
+ 		\end{array}$ &$\begin{array}{c}
+ 		      45\\
+ 		     \checkmark
+ 		\end{array}$ & $\begin{array}{c}
+ 		      7\\
+ 		    \checkmark 
+ 		\end{array}$ &\cellcolor[HTML]{D7D8EC} $\begin{array}{c}
+ 		     \textbf{2}\\
+ 		    \textbf{ \checkmark}
+ 		\end{array}$\\
+        \hline        
+        Pr. V.i  & \cellcolor[HTML]{D7D8EC}  $\begin{array}{c}
+ 		      \textbf{3}\\
+ 		    \textbf{\checkmark}
+ 		\end{array}$ &$\begin{array}{c}
+ 		      681 \\
+ 		    \checkmark 
+ 		\end{array}$ &$\begin{array}{c}
+ 		      48\\
+ 		    \checkmark 
+             
+ 		\end{array}$ & $\begin{array}{c}
+ 		       5\\
+ 		    \checkmark 
+ 		\end{array}$&\cellcolor[HTML]{D7D8EC}  $\begin{array}{c}
+ 		      \textbf{3}\\
+ 		    \textbf{\checkmark}
+ 		\end{array}$ \\
+        \hline        
+        Pr. V.ii  &  \footnotesize $\begin{array}{c}  
+ 		      \mathrm{not}\\ \mathrm{admissible}
+ 		\end{array}$  &\footnotesize $\begin{array}{c}  
+ 		      \mathrm{not}\\ \mathrm{admissible}
+ 		\end{array}$  &$\begin{array}{c}
+ 		      50\\
+ 		      \checkmark
+ 		\end{array}$ & $\begin{array}{c}
+ 		       6\\
+ 		      \textbf{\checkmark }
+ 		\end{array}$ & \cellcolor[HTML]{D7D8EC}$\begin{array}{c}
+ 		       \textbf{3}\\
+ 		      \textbf{\checkmark }
+ 		\end{array}$ \\
+ 		    \hline \hline
+ 		\end{tabular}
+}
+\end{table}
+
+\end{document}

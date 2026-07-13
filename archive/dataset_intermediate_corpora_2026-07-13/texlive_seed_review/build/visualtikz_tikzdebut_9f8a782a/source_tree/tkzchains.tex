@@ -1,0 +1,540 @@
+\SbSbSSCT{Création d'une chaine de n\oe euds}{Starting and Continuing a Chain}
+
+ \maboite{\BS{usetikzlibrary}\AC{chains}}
+\label{lib-chains}
+
+
+\begin{center}
+\RRR{46-2}
+\end{center}
+
+\bigskip
+
+\begin{tabular}{|l|} \hline  
+\BS{begin}\AC{tikzpicture}[\RDD{start chain}] \\
+\BS{node} [\RDD{on chain}] \AC{A};\\
+\BS{node}  [\RDD{on chain}] \AC{B};\\
+\BS{node}  [\RDD{on chain}] \AC{C};\\
+\BS{end}\AC{tikzpicture} \\ \hline  
+\begin{tikzpicture}[start chain]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|}  \hline  
+\BS{begin}\AC{tikzpicture}[start chain, \RDD{node distance}= 0.5 cm] 
+\\ \hline  
+\begin{tikzpicture}[start chain, node distance= .5 cm]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|}  \hline 
+\BS{begin}\AC{tikzpicture}[start chain=\rouge {going below} ]
+\\   \hline 
+\begin{tikzpicture}[start chain=going below]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+\end{tikzpicture}
+\\   \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|}  \hline 
+\BS{begin}\AC{tikzpicture}[start chain=\rouge {going left} ] 
+\\   \hline 
+\rule[0cm]{0pt}{.7cm}  
+\begin{tikzpicture}[start chain=going left]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+\end{tikzpicture} 
+\\ \hline 
+\end{tabular} 
+
+
+\bigskip
+
+\begin{tabular}{|c|}  \hline  
+\BS{begin}\AC{tikzpicture}[start chain, \rouge{every node/.style=draw} ] 
+\\ \hline 
+\rule[0cm]{0pt}{.7cm}  
+\begin{tikzpicture}[start chain, every node/.style=draw]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|}\hline
+\begin{tikzpicture}[start chain=1 going right,
+start chain=2 going left]
+\node [draw,on chain=1] {A};
+\node [draw,on chain=1] {B};
+\node [draw,on chain=1] {C};
+\node [draw,on chain=2] at (3,1) {0};
+\node [draw,on chain=2] {1};
+\node [draw,on chain=2] {2};
+\node [draw,on chain=1] {D};
+\end{tikzpicture} 
+ &  
+\parbox{10cm}{
+\BS{begin}\AC{tikzpicture}[\rouge{start chain=1} going right , \\
+\blll{start chain=2} going left] \\
+\BS{node} [draw,\rouge{on chain=1}] \AC{A}; \\
+\BS{node} [draw,\rouge{on chain=1}] \AC{B}; \\
+\BS{node}[draw,\rouge{on chain=1}] \AC{C}; \\
+\BS{node} [draw,\blll{on chain=2}] at (3,1) \AC{0}; \\
+\BS{node} [draw,\blll{on chain=2}] \AC{1}; \\
+\BS{node} [draw,\blll{on chain=2}] \AC{2}; \\
+\BS{node}[draw,\rouge{on chain=1}] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|c|} \hline  
+\rule[-2cm]{0pt}{4cm} 
+\begin{tikzpicture}[start chain=going right,baseline=-1.5cm]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,continue chain=going below,on chain] {C};
+\node [draw,on chain] {D};
+\node [draw,continue chain=going right,on chain] {E};
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain going right]
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,\RDD{continue chain}=going below,on chain] \AC{C}; \\
+\BS{node}[draw,on chain] \AC{D}; \\
+\BS{node} [draw,\RDD{continue chain}=going right,on chain] \AC{E}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|}  \hline 
+\begin{tikzpicture}[every node/.style=draw,baseline=-1.5cm]
+{ [start chain=1]
+\node [on chain] {A};
+\node [on chain] {B};
+\node [on chain] {C};
+}
+{ [start chain=2 going below]
+\node [on chain=2] at (0.5,-.5) {0};
+\node [on chain=2] {1};
+\node [on chain=2] {2};
+}
+{ [continue chain=1]
+\node [on chain] {D};
+}
+\end{tikzpicture}
+&  
+\parbox{10cm}{
+\BS{begin}\AC{tikzpicture}[start chain going right] \\
+\{ [\RDD{start chain}=1] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\} \\
+\{ [\RDD{start chain}=2] \\
+\BS{node}[draw,on chain=2] \AC{0}; \\
+\BS{node}[draw,on chain=2] \AC{1}; \\
+\BS{node}[draw,on chain=2] \AC{2}; \\
+\} \\
+\{ [\RDD{continue chain}=1] \\
+\BS{node} [draw,on chain] \AC{D}; \\
+\} \\
+\BS{end}\AC{tikzpicture}} 
+\\  \hline 
+\end{tabular} 
+
+\bigskip
+
+\SbSbSSCT{N\oe uds sur la chaine}{Nodes on a Chain}
+
+\begin{center}
+\RRR{46-3} 
+\end{center}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+ \begin{tikzpicture}[start chain=XXX placed  {at=(\tikzchaincount*-30+90:1.5)},baseline=0pt]
+ \foreach \i in {1,...,12}
+ \node [on chain] {\i};
+ \draw (0,0) -- (XXX-10);
+ \draw (0,0) -- (XXX-2);
+ \end{tikzpicture}
+&
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain=\blll{XXX} \RDD{placed} \\ \AC{at=(\BSS{tikzchaincount}*-30+90:1.5)}] \\
+ \BS{foreach} \BS{i} in \AC{1,...,12} \\
+\BS{node} [on chain] \AC{\BS{i}}; \\
+\BS{draw }(0,0) -- \blll{(XXX-10)}; \\
+\BS{draw }(0,0) -- \blll{(XXX-2)}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|c|}  \hline 
+\begin{tikzpicture}[start chain,baseline=-1cm]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,on chain=going below] {C};
+\node [draw,on chain] {D};
+\node [draw,on chain] {E};
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain=\rouge{going below}] \AC{C}; \\
+\BS{node} [draw,on chain] \AC{D}; \\
+\BS{node} [draw,on chain] \AC{E}; \\
+\BS{end}\AC{tikzpicture}} 
+\\  \hline 
+\end{tabular} 
+
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[start chain=going {at=(\tikzchainprevious),shift=(30:1)},baseline=1cm]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,on chain] {C};
+\node [draw,on chain] {D};
+\end{tikzpicture}  
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain=going \\ \AC{at=(\BSS{tikzchainprevious},shift=(30:1)}] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BS{node} [draw,on chain] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[baseline=1cm]
+\node[draw,red] (A) at (0,2) {A};
+{ [start chain]
+\node [draw,on chain] {B};
+\node [draw,on chain] {C};
+\chainin (A) [join];
+\node [draw,on chain] {D};
+\node [draw,on chain] {E};
+}
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture} \\
+\BS{node} [draw,red] (A) at (0,2)  \AC{A}; \\
+\{ [start chain] \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BSS{chainin} (A) [join]; \\
+\BS{node} [draw,on chain] \AC{D}; \\
+\BS{node} [draw,on chain] \AC{E}; \\
+\} \\
+\BS{end}\AC{tikzpicture}} 
+\\  \hline 
+\end{tabular} 
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[baseline=-1cm]
+\matrix [matrix of nodes,column sep=1cm,row sep=1cm,every node/.style=draw]
+{
+|(a) | A 	& |(b) |  B 	& |(c) | C \\
+|(d) | D 	& |(e) | E 		& |(f) | F \\
+};
+{ [start chain,every on chain/.style={join=by ->}]
+\chainin (a);
+\chainin (b);
+\chainin (d);
+\chainin (c);
+\chainin (f);
+\chainin (e);
+}
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture} \\
+\BS{matrix} [matrix of nodes,column sep=5mm,row sep=5mm] ,every node/.style=draw \\
+\{ \\
+|(a) | A 	\& |(b) |  B 	\& |(c) | C \BS{}\BS{} \\
+|(d) | D 	\& |(e) | E 	\& |(f) | F \BS{}\BS{} \\
+\}; \\
+\{ [start chain,every on chain/.style=\AC{join=by ->}] \\
+\BSS{chainin} (a);
+\BSS{chainin}(b);
+\BSS{chainin}(d); \\
+\BSS{chainin} (c);
+\BSS{chainin}(f);
+\BSS{chainin}(e);
+\}
+\BS{end}\AC{tikzpicture}
+} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\SbSbSSCT{Jonction de n\oe uds}{Joining Nodes on a Chain}
+
+\begin{center}
+\RRR{46-4}
+\end{center} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[start chain]
+\node [draw,on chain] {A};
+\node [draw,on chain,join] {B};
+\node [draw,on chain] {C};
+\node [draw,on chain,join] {D};
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain,\RDD{join}] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BS{node} [draw,on chain,\RDD{join}] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[start chain, every on chain/.style=join, every join/.style=->]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,on chain] {C};
+\node [draw,on chain] {D};
+\end{tikzpicture}
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain, \RDD{every on chain}/.style=join, \\ \RDD{every join}/.style=->] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain,\RDD{join}] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BS{node} [draw,on chain,\RDD{join}] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|}  \hline 
+\begin{tikzpicture}[start chain,baseline=-1cm]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,on chain] {C};
+\node [draw,on chain=going below,join=with chain-2 ] {D};
+\end{tikzpicture} 
+&  
+\parbox{11cm}{
+\BS{begin}\AC{tikzpicture}[start chain] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BS{node} [draw,on chain=going below,\rouge{join=with chain-2} ] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\begin{tikzpicture}[start chain,baseline=-1cm]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+\node [draw,on chain] {C};
+\node [draw,on chain=going below,join=with chain-1 by {blue,<-}] {D};
+\end{tikzpicture}
+&
+\parbox{12cm}{
+\BS{begin}\AC{tikzpicture}[start chain] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\BS{node} [draw,on chain] \AC{C}; \\
+\BS{node} [draw,on chain=going below,join=with chain-1 \rouge{ by \AC{blue,<-}} ] \AC{D}; \\
+\BS{end}\AC{tikzpicture}} 
+\\ \hline 
+\end{tabular} 
+
+
+
+\bigskip
+
+\SbSbSSCT{Branches}{Branches}
+
+\begin{center}
+\RRR{46-5}
+\end{center} 
+
+
+\bigskip
+
+\begin{tabular}{|c|c|}  \hline 
+\begin{tikzpicture} [baseline=-2cm]
+{ [start chain=XXX]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+{ [start branch=YYY going below]
+\node [draw,on chain] {1};
+\node [draw,on chain] {2};
+\node [draw,on chain] {3};
+}
+\node [draw,on chain,join=with XXX/YYY-end,join=with XXX/YYY-2 ] {C};
+}
+\end{tikzpicture}
+&  
+\parbox{12cm}{
+\BS{begin}\AC{tikzpicture}\\
+\{ [start chain=\blll{XXX}] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\{ [\RDD{start branch}=\blll{YYY} going below] \\
+\BS{node} [draw,on chain] \AC{1}; \\
+\BS{node} [draw,on chain] \AC{2}; \\
+\BS{node} [draw,on chain] \AC{3}; \\
+\} \\
+\BS{node} [ draw,on chain,join=with \blll{XXX/YYY}\rouge{-end}, \\ join=with \blll{XXX/YYY}\rouge{-2}]  \AC{C}; \\
+\} \\
+\BS{end}\AC{tikzpicture}   } 
+
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|} \hline 
+\BS{begin}\AC{tikzpicture}[ \RDD{node distance}=.2cm and 3cm]
+\\ \hline 
+\begin{tikzpicture}[ node distance=.2cm and 3cm]
+{ [start chain=XXX]
+\node [on chain] {A};
+\node [on chain] {B};
+{ [start branch=YYY going below]
+\node [on chain] {1};
+\node [on chain] {2};
+\node [on chain] {3};
+}
+\node [on chain,join=with XXX/YYY-end] {C};
+}
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[ node distance=2mm and 1cm,baseline=-2cm]
+{ [start chain=XXX]
+\node [draw,on chain] {A};
+\node [draw,on chain] {B};
+{ [start branch=YYY going below]
+\node [draw,on chain] {1};
+\node [draw,on chain] {2};
+\node [draw,on chain] {3};
+}
+\node [draw,on chain,join=with XXX/YYY-end] {C};
+{
+[continue branch=YYY]
+\node [draw,on chain] {4};
+\node [draw,on chain] {5};
+}
+}
+\end{tikzpicture}
+&  
+\parbox{12cm}{
+\BS{begin}\AC{tikzpicture}[ node distance=2mm and 1cm]\\
+\{ [start chain=\blll{XXX}] \\
+\BS{node} [draw,on chain] \AC{A}; \\
+\BS{node} [draw,on chain] \AC{B}; \\
+\{ [start branch=\blll{YYY} going below] \\
+\BS{node} [draw,on chain] \AC{1}; \\
+\BS{node} [draw,on chain] \AC{2}; \\
+\BS{node} [draw,on chain] \AC{3}; \} \\
+\BS{node}  [draw,on chain,join=with \blll{XXX/YYY}-end]  \AC{C}; \\
+\{ [\RDD{continue branch}=\blll{YYY}]\\
+\BS{node} [on chain] \AC{4}; \\
+\BS{node} [on chain] \AC{5}; \} \\
+\} \\
+\BS{end}\AC{tikzpicture}   } 
+\\ \hline 
+\end{tabular} 
+
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\begin{tikzpicture}[node distance=2mm and 1cm, every node/.style=draw,baseline=-1cm]
+{ [start chain]
+\node [on chain] {1};
+\node [on chain] {2};
+{ [start branch=XXX going below] }
+\node [on chain] {3};
+{ [start branch=YYY going above] }
+\node [on chain] {4};
+{ [continue branch=XXX]
+\node [on chain] {a};
+\node [on chain] {b};
+}{
+[continue branch=YYY]
+\node [on chain] {A};
+\node [on chain] {B};
+}
+}
+\end{tikzpicture}
+&  
+\parbox{12cm}{
+\BS{begin}\AC{tikzpicture}[node distance=2mm and 1cm, every node/.style=draw]\\
+\{ [start chain] \\
+\BS{node} [on chain] \AC{1};  \\
+\BS{node} [on chain] \AC{2}; \\
+\{ [\RDD{start branch}=\blll{XXX} going below] \} \\
+\BS{node} [on chain] \AC{3}; \\
+\{ [\RDD{start branch}=\blll{YYY} going above] \} \\
+\BS{node} [on chain] \AC{4}; \\
+\{ [\RDD{continue branch}=\blll{XXX} ] \\
+\BS{node} [on chain] \AC{a}; \\
+\BS{node} [on chain] \AC{b};\} \\
+\{ [\RDD{continue branch}=\blll{YYY} ] \\
+\BS{node} [on chain] \AC{A}; \\
+\BS{node} [on chain] \AC{B}; \}  }
+\\ \hline 
+\end{tabular} 
+
+

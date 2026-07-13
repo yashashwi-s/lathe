@@ -1,0 +1,60 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+	\usepackage{libertine} % includes the "großes Eszett" ß
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+	\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\fi
+
+\newcommand{\NewGlyphLC}[2]{\appto\DiacriticsLC{#1#2\ }}%
+\newcommand{\NewGlyphUC}[2]{\appto\DiacriticsUC{#1#2\ }}%
+\newcommand{\NewDiac}[3]{%
+  \forcsvlist{\NewGlyphLC{#1}}{#2}
+  \forcsvlist{\NewGlyphUC{#1}}{#3}
+}%
+
+\moodleregisternewcommands
+
+\newcommand{\DiacriticsLC}{}
+\newcommand{\DiacriticsUC}{}
+\NewDiac{\"}{a,e,i,o,u,y}{A,E,I,O,U}%
+\NewDiac{\'}{a,e,i,o,u}{A,E,I,O,U}%
+\NewDiac{\.}{c,e,g,i,z}{C,E,G,I,Z}%
+\NewDiac{\=}{a,e,g,i,o,u,y}{A,E,G,I,O,U,Y}%
+\NewDiac{\^}{a,e,i,o,u}{A,E,I,O,U}%
+\NewDiac{\`}{a,e,i,o,u}{A,E,I,O,U}%
+\NewDiac{\~}{a,n,o}{A,N,O}%
+\NewDiac{\b}{b,d,k,l,n,t,z}{B,D,K,L,N,T,Z}%
+\NewDiac{\c}{c,s,t}{C,S,T}%
+\NewDiac{\d}{a,b}{A,B}%
+\NewDiac{\H}{o,u}{O,U}%
+\NewDiac{\k}{a,e,i,o,u}{A,E,I,O,U}%
+\NewDiac{\r}{a,u}{A,U}%
+\NewDiac{\u}{a,e,g,i,\i,o,u}{A,E,G,I,O,U}%
+\NewDiac{\v}{c,d,e,l,n,r,s,t,z}{C,D,E,L,N,R,S,T,Z}%
+\newcommand\OtherGlyphsLC{\aa\ \ae\ \dh\ \dj\ \i\ \ij\ \j\ \l\ \ng\ \o\ \oe\ %
+\ss\ \th\ }%
+\newcommand\OtherGlyphsUC{\AA\ \AE\ \DH\ \DJ\ \IJ\ \L\ \NG\ \O\ \OE\ %
+\SS\ \TH\ }%
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of diacritical marks (accents) 
+and ligatures found in different languages written with the Latin alphabet.
+
+\begin{quiz}[points=1]{Diacritical marks and ligatures}
+\begin{multi}{\OtherGlyphsUC}
+\DiacriticsUC
+\item* \DiacriticsLC
+\item \OtherGlyphsLC
+\end{multi}
+\end{quiz}
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.04660\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c c c c} 
+    
+      % --- 第 1 部分: SE (维度 1-8) ---
+      \toprule
+      \textbf{Metric (SE)} &
+      \makecell[c]{Action-\\State-Change} &
+      \makecell[c]{Aesthetic-\\Quality} &
+      \makecell[c]{Blending-\\Naturalness} &
+      \makecell[c]{Composition-\\Interaction} &
+      \makecell[c]{Editing-\\Artifacts} &
+      \makecell[c]{Image-\\Quality} &
+      \makecell[c]{Instruction-\\Following} &
+      \makecell[c]{Local-\\Attribute} \\
+      \midrule
+      \textbf{Ours ($\rho$)} & \textbf{0.9839} & \textbf{0.9889} & \textbf{0.8866} & \textbf{0.9997} & \textbf{0.9006} & \textbf{0.9033} & \textbf{0.9960} & \textbf{0.9877} \\
+      LMM-Baseline ($\rho$) & 0.9769 & -0.0643 & 0.8866 & 0.9851 & 0.8983 & 0.4154 & 0.9960 & 0.9842 \\
+      \midrule % <-- 分隔线
+      
+      % --- 第 2 部分: SE (维度 9-15 + Overall) ---
+      \textbf{Metric} &
+      \makecell[c]{Non-Edited-\\Fidelity} &
+      \makecell[c]{Object-\\Manipulation} &
+      \makecell[c]{Physical-\\Plausibility} &
+      \makecell[c]{Spatial-\\Accuracy} &
+      \makecell[c]{Subject-\\Identity} &
+      \makecell[c]{Text-Content-\\Style} &
+      \makecell[c]{World-\\Knowledge} &
+      \textbf{Overall} \\
+      \midrule
+      \textbf{Ours ($\rho$)} & \textbf{0.9019} & \textbf{0.9787} & \textbf{0.8055} & \textbf{0.9303} & \textbf{0.9133} & \textbf{0.9979} & \textbf{0.9628} & \textbf{0.9425} \\
+      LMM-Baseline ($\rho$) & 0.7687 & 0.9673 & 0.6958 & 0.9191 & -0.3494 & 0.8847 & 0.9506 & 0.7277 \\
+      \midrule % <-- 分隔线
+
+      % --- 第 3 部分: ME (维度 1-8) ---
+      \textbf{Metric (ME)} &
+      \makecell[c]{Aesthetic-\\Quality} &
+      \makecell[c]{Blending-\\Naturalness} &
+      \makecell[c]{Composition-\\Interaction} &
+      \makecell[c]{Cross-Source-\\Attribute} &
+      \makecell[c]{Detail-\\Fidelity} &
+      \makecell[c]{Image-\\Quality} &
+      \makecell[c]{Instruction-\\Following} &
+      \makecell[c]{Inter-Subject-\\Consistency} \\
+      \midrule
+      \textbf{Ours ($\rho$)} & \textbf{0.9034} & \textbf{0.6177} & \textbf{0.8951} & \textbf{0.9917} & \textbf{0.8767} & \textbf{0.6579} & \textbf{0.9248} & \textbf{0.9469} \\
+      LMM-Baseline ($\rho$) & 0.7138 & 0.6177 & 0.8205 & 0.9902 & 0.8092 & -0.9202 & 0.9248 & 0.8293 \\
+      \midrule % <-- 分隔线
+      
+      % --- 第 4 部分: ME (维度 9-15 + Overall) ---
+      \textbf{Metric} &
+      \makecell[c]{Non-Edited-\\Fidelity} &
+      \makecell[c]{Physical-\\Plausibility} &
+      \makecell[c]{Spatial-\\Accuracy} &
+      \makecell[c]{Subject-\\Consistency} &
+      \makecell[c]{Subject-\\Extraction} &
+      \makecell[c]{Text-Content-\\Style} &
+      \makecell[c]{World-\\Knowledge} &
+      \textbf{Overall} \\
+      \midrule
+      \textbf{Ours ($\rho$)} & \textbf{0.6459} & \textbf{0.9017} & \textbf{0.9008} & \textbf{0.9401} & \textbf{0.9732} & \textbf{0.9043} & \textbf{0.9523} & \textbf{0.8688} \\
+      LMM-Baseline ($\rho$) & 0.5978 & 0.8887 & 0.8230 & 0.6616 & 0.7763 & 0.8573 & 0.8534 & 0.6829 \\
+      \bottomrule % <-- 只有最后一个用 bottomrule
+      
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01096\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}>{\raggedright\arraybackslash\itshape}p{4.2cm}>{\raggedright\arraybackslash\itshape}p{0.6cm}>{\raggedright\arraybackslash\itshape}p{0.5cm}>{\raggedright\arraybackslash\itshape}p{2.1cm}@{}}
+    \toprule
+
+ \textbf{Description}   &  \textbf{Symbol}    & \textbf{Value}  & \textbf{Unit}\\
+ \midrule
+Bulk Density         &\(\rho\)              & 1.30  & gm/\(cm^3\) \\ 
+Viscosity         &\(\eta\)              & 1019  & Pas \\ 
+Shear Modulus         & G              & 2.4  & MPa \\ 
+Auxin degradation rate         &\(\mu_a\)              & 0.5  & \(min^{-1}\) \\  
+auxin-TIR1 dissociation rate   & \(\gamma_{a}\)       & 5    &\(min^{-1}\)\\
+auxin-TIR1 binding rate     & \(\beta_{a}\) & 0.5        &  \(\mu M^{-1} min^{-1}\)  \\
+Maximum mRNA transcription rate    & \(\alpha_{m}\)   & 0.5   &  \(\mu M min^{-1}\) \\
+Ratio of ARF-dependent to \(ARF_2\)- and double ARF-dependent mRNA transcription rates         & \(\phi_m\)             & 0.1     & - \\
+ARF-DNA binding threshold     &  \(\theta_f\)            & 1  &  \(\mu M\) \\
+\(ARF_2\) binding threshold      &  \(\theta_w\)         & 10 &  \(\mu M\) \\
+ARF + Aux/IAA-DNA binding threshold       &   \(\theta_g\)      & 1  & \(\mu M\)  \\
+Double ARF-DNA binding threshold       & \(\psi_f\)     & 0.1  &  \(\mu M^2\)  \\
+ARF-Aux/IAA-DNA binding threshold        &  \(\psi_g\)   & 0.1 &  \(\mu M^2\) \\
+Aux/IAA translation rate     &  \(\alpha_r\)     & 5  & \(min^{-1}\)  \\
+Aux/IAA-auxin-TIR1 binding rate    & \(\beta_r\)    & 5  & \(\mu M^{-1} min^{-1}\) \\
+Aux/IAA-auxin-TIR1 dissociation rate    & \(\gamma_r\)   & 5   &   \(min^{-1}\) \\
+ARF-Aux/IAA binding rate      & \(\beta_g\)  & 0.5  &  \(\mu M^{-1} min^{-1}\) \\
+ARF-Aux/IAA dissociation rate     & \(\gamma_g\)  & 5  & \(min^{-1}\)  \\
+PIN2 translation rate     &   \(\alpha_p\)    & 5     &  \(min^{-1}\) \\
+PIN2-auxin-TIR1 binding rate      & \(\beta_p\)  & 100      &  \(\mu M^{-1} min^{-1}\)     \\
+PIN-auxin-TIR1 dissociation rate    & \(\gamma_p\)  & 5       &  \(min^{-1}\)     \\
+PIN decay rate        &    \(\mu_p\)          & 5     &   \(min^{-1}\)     \\
+ARF dimerisation rate     &  \(\beta_f\)  & 0.5     &  \(\mu M^{-1} min^{-1}\)     \\
+\(ARF_2\) splitting rate      & \(\gamma_f\)   & 5       &  \(min^{-1}\)     \\
+Aux/IAA decay rate       &   \(\mu_r\)          & 5     &  \(min^{-1}\)       \\
+Auxin biosynthesis rate    &  \(\alpha_a\)   & 0.5      &  \(\mu M min^{-1}\)     \\
+AUX1 biosynthesis rate    & \(\alpha_u\)    & 5     &  \(\mu M min^{-1}\)     \\
+AUX1 degradation rate        &   \(\mu_u\)          & 5      &   \(min^{-1}\)     \\
+Rate of AUX1 localisation to membrane     &   \(\omega_u\)         & 0.5     &   \(\mu m \, min^{-1}\)     \\
+Rate of AUX1 dissociation from membrane   & \(\delta_u\)    & 0.05        &  \(min^{-1}\)     \\
+Maximum rate of PIN2 localisation to membrane    &   \(\omega_p\)      & 0.5     &  \(\mu m \, min^{-1}\) \\
+Rate of PIN2 dissociation from membrane     & \(\delta_p\)   & 0.05        & \(min^{-1}\)  \\
+Fraction of protonated auxin in cell   &  \(\kappa_a^{ef}\)     & 0.004      &  - \\
+Fraction of protonated auxin in wall  &  \(\kappa_a^{in}\)     & 0.24       &  - \\
+Effective PIN2-induced auxin efflux  &  \(\kappa_p^{ef}\)     & 4.67        &  - \\
+Effective AUX1-induced auxin influx   &   \(\kappa_u^{in}\)   & 3.56        &  - \\
+Auxin membrane permeability         &  \(\phi_a\)    & 0.55      &   \(\mu m \, min^{-1}\) \\
+PIN2-induced auxin membrane permeability  &   \(\tilde{\phi}_p\)   & 0.27  & \(\mu m \, \mu M^{-1} min^{-1}\)  \\
+AUX1-induced auxin membrane permeability  &  \(\tilde{\phi}_u\)    & 0.55  & \(\mu m \, \mu M^{-1} min^{-1}\)  \\
+Rate of auxin diffusion in apoplast      & \(\phi_A\)      & 67    &  \(\mu m \, min^{-1}\) \\
+Sensitivity of PIN2 localisation to auxin flux        & \(h\)    & 50   &  - \\
+Auxin flux threshold    &  \(\theta\)  & 2  & -  \\
+
+
+
+  \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

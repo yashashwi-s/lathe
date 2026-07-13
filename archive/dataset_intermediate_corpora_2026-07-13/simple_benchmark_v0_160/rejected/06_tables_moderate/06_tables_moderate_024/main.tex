@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01438\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrr}
+\toprule
+Country & Port & Latitude & Longitude \\
+\midrule
+Russia & Oust-Louga & 59.673 & 28.329 \\
+Russia & Saint-Pétersbourg & 59.934 & 30.306 \\
+Russia & Vladivostok & 43.106 & 131.875 \\
+Russia & Mourmansk & 68.971 & 33.074 \\
+Russia & Arkhangelsk & 64.540 & 40.543 \\
+Russia & Nakhodka & 42.783 & 132.867 \\
+Russia & Novorossiysk & 44.724 & 37.768 \\
+Russia & Vostochny & 42.728 & 133.099 \\
+Russia & Kaliningrad & 54.698 & 20.533 \\
+Russia & Primorsk & 60.367 & 28.739 \\
+SAFR & Durban & -29.872 & 31.022 \\
+SAFR & East London & -33.018 & 27.912 \\
+SAFR & Mossel Bay & -34.181 & 22.146 \\
+SAFR & Richards Bay & -28.783 & 32.038 \\
+SAFR & Port Elizabeth & -33.917 & 25.602 \\
+SAFR & Cape Town & -33.918 & 18.435 \\
+SAFR & Port Nolloth & -29.240 & 16.861 \\
+SAFR & Ngqura & -33.795 & 25.688 \\
+South Korea & Yeosu & 34.754 & 127.738 \\
+South Korea & Mokpo & 34.794 & 126.389 \\
+South Korea & Incheon & 37.449 & 126.617 \\
+South Korea & Gwangyang & 34.917 & 127.767 \\
+South Korea & Busan & 35.103 & 129.040 \\
+South Korea & Ulsan & 35.519 & 129.372 \\
+US & Los Angeles & 33.733 & -118.276 \\
+US & Long Beach & 33.754 & -118.217 \\
+US & New York \& New Jersey & 40.668 & -74.041 \\
+US & Savannah & 32.081 & -81.091 \\
+US & Houston & 29.739 & -95.263 \\
+US & Oakland & 37.795 & -122.279 \\
+US & Charleston & 32.782 & -79.926 \\
+US & Seattle/Tacoma & 47.602 & -122.341 \\
+US & Virginia (Norfolk Portsmouth) & 36.867 & -76.311 \\
+US & Miami & 25.778 & -80.183 \\
+Vietnam & Cat Lai (Saïgon/HCM) & 10.768 & 106.772 \\
+Vietnam & Hai Phong & 20.850 & 106.683 \\
+Vietnam & Cam Pha & 21.017 & 107.300 \\
+Vietnam & Da Nang & 16.083 & 108.233 \\
+Vietnam & Quy Nhon & 13.767 & 109.233 \\
+Vietnam & Nha Trang & 12.250 & 109.196 \\
+Vietnam & Can Tho & 10.031 & 105.769 \\
+Vietnam & Vung Tau & 10.353 & 107.085 \\
+Vietnam & Phu My & 10.509 & 107.023 \\
+Vietnam & Cai Mep–Thi Vai & 10.520 & 107.030 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02801\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cccccccccccccccc}
+				\toprule
+				\toprule
+				\textbf{$\sqrt{s}$} & $A_0$ & $\alpha$ & $B_0$ & $\beta$ & $\epsilon_0$ & $t_d$ & $\Delta$ & $O_O$ & $\delta_O$ & $D_O$ & $I_0$ & $\delta_I$ & $E_0$ & $\mu$ &  $\chi^{2}$ \\
+				\specialrule{1.5pt}{1pt}{1pt}
+				& ($\text{mb}/\textrm{GeV}^{2}$) &  & ($\textrm{GeV}^{-2}$) & ($\textrm{GeV}^{-2}$) &  & ($\textrm{GeV}^{2}$) & ($\textrm{GeV}^{2}$) & ($\text{mb}/\textrm{GeV}^{2}$) &  & ($\textrm{GeV}^{-2}$) & ($\text{mb}/\textrm{GeV}^{2}$) &  & ($\textrm{GeV}^{-2}$) &  & \\
+				
+				3.363 ${\textrm{GeV}}$ & 89.25 & 0.085 & 4.6 & 0.4 & 0.08 & -0.8 & 0.2 & 0.2 & 0.12 & 0.85 & 0.06 & 0.12 & 2.9 & 0.09 & 0.189 \\
+				3.628 ${\textrm{GeV}}$ & 86.0 & 0.075 & 4.7 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 0.65 & 0.06 & 0.1 & 2.9 & 0.009 & 0.3151 \\
+				3.876 ${\textrm{GeV}}$ & 82.5 & 0.085 & 5.0 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 1.02 & 0.06 & 0.1 & 2.9 & 0.009 & 0.1623 \\
+				4.109 ${\textrm{GeV}}$ & 71.5 & 0.12 & 5.9 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 1.15 & 0.06 & 0.1 & 2.9 & 0.009 & 0.0404 \\
+				4.329 ${\textrm{GeV}}$ & 69.25 & 0.12 & 5.8 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 1.3 & 0.06 & 0.1 & 2.9 & 0.009 & 0.0736 \\
+				4.54 ${\textrm{GeV}}$ & 66.8 & 0.12 & 5.8 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 1.3 & 0.06 & 0.1 & 2.9 & 0.009 & 0.0752 \\
+				4.741 ${\textrm{GeV}}$ & 65.0 & 0.12 & 5.6 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.1 & 1.3 & 0.06 & 0.1 & 2.9 & 0.009 & 0.1084 \\
+				4.935 ${\textrm{GeV}}$ & 64.0 & 0.12 & 5.5 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.12 & 1.35 & 0.06 & 0.12 & 2.9 & 0.009 & 0.2733 \\
+				\midrule
+				4.74 ${\textrm{GeV}}$ & 61.5 & 0.13 & 5.5 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.15 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0709 \\
+				5.12 ${\textrm{GeV}}$ & 58.5 & 0.135 & 5.8 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.25 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0348 \\
+				5.473 ${\textrm{GeV}}$ & 56.473 & 0.135 & 6.02 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.4 & 0.125 & 3.0 & 0.06 & 0.0735 \\
+				5.805 ${\textrm{GeV}}$ & 55.9 & 0.13 & 5.65 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0285\\
+				6.119 ${\textrm{GeV}}$ & 54.2 & 0.13 & 5.65 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.019 \\
+				6.418 ${\textrm{GeV}}$ & 52.8 & 0.13 & 5.65 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0268\\
+				6.704 ${\textrm{GeV}}$ & 51.20 & 0.13 & 5.45 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0054 \\
+				\midrule			
+				3.466-4.409 ${\textrm{GeV}}$ & 71.45 & 0.13 & 4.2 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.1987 \\
+				4.409-5.187 ${\textrm{GeV}}$ & 64.0 & 0.13 & 4.45 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0861 \\
+				5.187-5.863 ${\textrm{GeV}}$ & 60.15 & 0.13 & 4.65 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0629 \\
+				5.863-6.4 ${\textrm{GeV}}$ & 56.7 & 0.13 & 5.45 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0003 \\
+				6.47-7.024 ${\textrm{GeV}}$ & 50.650 & 0.13 & 5.85 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0085 \\
+				7.024-7.538 ${\textrm{GeV}}$ & 49.0 & 0.13 & 6.25 & 0.4 & 0.32 & -0.2 & 0.5 & 0.04 & 0.125 & 1.35 & 0.42 & 0.125 & 3.0 & 0.06 & 0.0141 \\
+				\midrule
+				13.748 ${\textrm{GeV}}$ & 41.8 & 0.123 & 4.7 & 0.4 & 0.08 & -0.2 & 0.2 & 0.04 & 0.15 & 2.73 & 0.06 & 0.15 & 3.0 & 0.009 & 0.0447 \\
+				16.823 ${\textrm{GeV}}$ & 40.2 & 0.123 & 4.9 & 0.4 & 0.3 & -0.2 & 0.2 & 0.04 & 0.1 & 2.68 & 0.06 & 0.1 & 3.0 & 0.009 & 0.1919 \\
+				19.416 ${\textrm{GeV}}$ & 38.2 & 0.123 & 5.25 & 0.4 & 0.3 & -0.2 & 0.2 & 0.04 & 0.1 & 2.73 & 0.06 & 0.1 & 3.0 & 0.009 & 0.1963 \\
+				21.471 ${\textrm{GeV}}$ & 38.5 & 0.123 & 5.25 & 0.4 & 0.4 & -0.5 & 0.2 & 0.04 & 0.1 & 2.74 & 0.06 & 0.1 & 3.0 & 0.009 & 0.1651 \\
+				22.956 ${\textrm{GeV}}$ & 38.3 & 0.123 & 5.3 & 0.4 & 0.4 & -0.5 & 0.2 & 0.04 & 0.1 & 2.74 & 0.06 & 0.1 & 2.99 & 0.01 & 0.3596 \\
+				24.536 ${\textrm{GeV}}$ & 38.0 & 0.125 & 5.3 & 0.4 & 0.6 & -0.5 & 0.2 & 0.04 & 0.1 & 2.74 & 0.06 & 0.1 & 2.99 & 0.01 & 0.9788 \\
+				26.019 ${\textrm{GeV}}$ & 32.0 & 0.15 & 5.45 & 0.4 & 0.8 & -0.5 & 0.2 & 0.04 & 0.1 & 2.74 & 0.06 & 0.1 & 2.99 & 0.01 & 1.1303 \\
+				\bottomrule
+				\bottomrule
+			\end{tabular}
+}
+\end{table}
+
+\end{document}

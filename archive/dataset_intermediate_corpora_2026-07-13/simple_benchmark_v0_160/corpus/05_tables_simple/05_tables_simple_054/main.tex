@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03070\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+
+\hline
+ & \begin{tabular}[c]{@{}l@{}}Calinski\\ Harabasz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Silhouette\\ FAMD\end{tabular} & \begin{tabular}[c]{@{}l@{}}Silhouette\\ Gower\end{tabular} & \begin{tabular}[c]{@{}l@{}}Davies\\ Bouldin\end{tabular} \\\hline\hline
+K-Prototypes                                                 & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Modha\\ Spangler\end{tabular}     & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+KAMILA                                                       & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+ClustMD                                                      & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+MixtComp                                                     & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Phillip \&\\ Ottaway\end{tabular} & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+DenseClus                                                   & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ FAMD\end{tabular}       & \textbf{182.22}                                             & \textbf{0.66}                                             & \textbf{0.65}                                              & \textbf{0.70}                                            \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ UMAP\end{tabular}       & 163.89                                                      & 0.36                                                      & 0.44                                                       & 1.24                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ PaCMAP\end{tabular}     & 61.80                                                       & 0.34                                                      & 0.29                                                       & 1.12           \\  \hline
+PretopoMD         &         105.17 &         0.239 &          0.263 &        1.71 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03701\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+\textbf{Method} & \textbf{Trad} & \textbf{CNN} & \textbf{Super} & \textbf{Deblur} & \textbf{Color} & \textbf{Frame} & \textbf{All} \\
+\hline
+Human & 80.8 & 84.4 & 73.4 & 67.1 & 68.8 & 68.6 & 73.9 \\
+\hline
+PSNR & 57.3 & 80.1 & 64.2 & 59.0 & 62.5 & 54.4 & 62.9 \\
+SSIM & 57.5 & 76.9 & 61.6 & 58.4 & 52.2 & 55.4 & 60.3 \\
+MS-SSIM & 58.8 & 76.8 & 63.9 & 58.9 & 52.3 & 57.3 & 61.3 \\
+FSIM  & 62.8 & 79.4 & 66.1 & 59.0 & 57.1 & 58.1 & 63.8 \\
+GMSD & 60.9 & 77.2 & 67.6 & 59.5 & 51.8 & 57.5 & 62.4 \\
+$\ast$VIF & 56.3 & 75.9 & 63.4 & 58.8 & 52.6 & 54.0 & 60.1 \\
+$\ast$MAD & 63.7 & 80.2 & 67.5 & 58.8 & 55.4 & 58.9 & 64.4 \\
+NLPD & 55.0 & 76.6 & 63.4 & 58.5 & 52.6 & 54.0 & 60.4 \\
+\hline
+LPIPS (Alex) & 74.0 & 82.4 & 70.5 & 59.9 & 61.9 & 62.8 & 68.6 \\
+LPIPS+ (Alex-lin) & 73.9 & 82.9 & 70.7 & 60.1 & 62.2 & 62.2 & 68.7 \\
+LPIPS (VGG) & 71.4 & 81.4 & 69.0 & 57.3 & 58.8 & 62.7 & 66.8 \\
+LPIPS+ (VGG-lin) & 70.5 & 81.7 & 69.2 & 57.9 & 59.1 & 62.0 & 66.7 \\
+ST-LPIPS & 71.9 & 81.2 & 69.6 & 60.9 & 62.9 & 63.1 & 68.3 \\
+DISTS & 74.9 & 81.3 & 69.2 & 59.9 & 61.5 & 62.8 & 68.3 \\
+PieAPP & 59.4 & 58.2 & 59.8 & 68.5 & 62.6 & 62.5 & 63.2 \\
+\hline
+SUSSBase & 60.3 & 70.5 & 58.7 & 60.1 & 56.7 & 56.7 & 60.5 \\
+SUSSBAPPS-R & 64.6 & 70.1 & 59.0 & 60.3 & 59.0 & 59.5 & 62.1 \\
+SUSSBAPPS-RH & 64.5 & 72.5 & 66.7 & 64.0 & 59.1 & 58.9 & 64.3 \\
+\hline
+SUSSBaseY1 & 61.1 & 71.1 & 59.2 & 60.3 & 55.2 & 56.9 & 60.5 \\
+SUSSBaseY2 & 60.2 & 70.2 & 58.6 & 59.9 & 56.6 & 56.6 & 60.3 \\
+SUSSBaseY3 & 61.4 & 71.4 & 59.3 & 60.2 & 55.5 & 56.8 & 60.5 \\
+SUSSBaseCbCr & 60.1 & 68.7 & 55.9 & 55.0 & 59.5 & 53.6 & 58.8 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

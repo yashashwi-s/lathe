@@ -1,0 +1,39 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of some \LaTeX\ commands for 
+conversion to HTML.
+
+\begin{quiz}[points=1]{LaTeX Commands}
+\begin{multi}{LaTeX Commands}
+Find the answer with small capitals
+\item \TeX{} and\\\relax \LaTeX% no-ops {} and \relax are tested here
+\item word with \emph{emphasis} catches the eye
+\item \textbf{bold}
+\item \textit{italic}
+\item \texttt{typewriter}
+\item* \textsc{Small Capitals}
+\item \underline{underlined} in text
+\item $\underline{underlined}$ in math
+\item M\textsuperscript{me}
+\item H\textsubscript{2}O
+\item \url{http://192.0.0.256}
+\item \href{mailto:name@server.com}{Contact me}
+\end{multi}
+
+\end{quiz}
+\end{document}

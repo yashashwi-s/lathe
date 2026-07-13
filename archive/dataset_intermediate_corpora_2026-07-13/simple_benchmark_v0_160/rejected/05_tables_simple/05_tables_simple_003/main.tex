@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03750\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l l l l r}
+\hline
+\textbf{Model} & \textbf{Dataset} & \textbf{Modality} & \textbf{Embedding Type} & \textbf{DFT Level of Theory} & \textbf{\# Params} \\
+\hline
+Orb V2 & MPTrj, sAlex & 3D & Vanilla & PBE\_MP & 25,161,727 \\
+Orb V3 OMat Direct Inf & OMat & 3D & Vanilla & PBE\_OMat24 & 25,644,479 \\
+Orb V3 OMat Direct 20 & OMat & 3D & Vanilla & PBE\_OMat24 & 25,644,479 \\
+Orb V3 OMat Direct 20 Randomized & OMat & 3D & Vanilla & PBE\_OMat24 & 25,644,479 \\
+Orb V3 MPA Direct Inf & MPTrj, sAlex & 3D & Vanilla & PBE\_MP & 25,644,479 \\
+Orb V3 MPA Direct 20 & MPTrj, sAlex & 3D & Vanilla & PBE\_MP & 25,644,479 \\
+Orb V3 OMat Conservative Inf & OMat & 3D & Equivariant & PBE\_OMat24 & 25,510,582 \\
+Orb V3 OMat Conservative 20 & OMat & 3D & Equivariant & PBE\_OMat24 & 25,510,582 \\
+Orb V3 MPA Conservative Inf & MPTrj, sAlex & 3D & Equivariant & PBE\_MP & 25,510,582 \\
+Orb V3 MPA Conservative 20 & MPTrj, sAlex & 3D & Equivariant & PBE\_MP & 25,510,582 \\
+UMA Medium & OMat, OMol, OMC, ODAC, OC20 & 3D & Invariant & PBE\_OMat24 & 1,396,669,089 \\
+UMA Small & OMat, OMol, OMC, ODAC, OC20 & 3D & Invariant & PBE\_OMat24 & 146,566,817 \\
+ESEN MP & MPTrj & 3D & Invariant & PBE\_MP & 30,086,018 \\
+ESEN OMPA & OMat, MPTrj, sAlex & 3D & Invariant & PBE\_OMat24 & 30,161,153 \\
+ESEN OMat & OMat & 3D & Invariant & PBE\_OMat24 & 30,161,410 \\
+EqV2 OMPA Large & OMat, MPTrj, sAlex & 3D & Invariant & PBE\_OMat24 & 153,769,868 \\
+EqV2 OMPA Medium & OMat, MPTrj, sAlex & 3D & Invariant & PBE\_OMat24 & 86,589,068 \\
+EqV2 OMPA Small & OMat, MPTrj, sAlex & 3D & Invariant & PBE\_OMat24 & 31,207,434 \\
+EqV2 OMat Large & OMat & 3D & Invariant & PBE\_OMat24 & 153,769,868 \\
+EqV2 OMat Medium & OMat & 3D & Invariant & PBE\_OMat24 & 86,589,068 \\
+EqV2 OMat Small & OMat & 3D & Invariant & PBE\_OMat24 & 31,207,434 \\
+EqV2 MP Small & MPTrj & 3D & Invariant & PBE\_MP & 31,207,434 \\
+EqV2 Dens MP Large & MPTrj & 3D & Invariant & PBE\_MP & 160,673,293 \\
+EqV2 Dens MP Medium & MPTrj & 3D & Invariant & PBE\_MP & 94,033,933 \\
+EqV2 Dens MP Small & MPTrj & 3D & Invariant & PBE\_MP & 34,339,083 \\
+MACE MP Large Equivariant & MPTrj & 3D & Equivariant & PBE\_MP & 15,847,440 \\
+MACE MP Large & MPTrj & 3D & Invariant & PBE\_MP & 15,847,440 \\
+MACE MP Medium Equivariant & MPTrj & 3D & Equivariant & PBE\_MP & 1,428,368 \\
+MACE MP Medium & MPTrj & 3D & Invariant & PBE\_MP & 1,428,368 \\
+MACE MP Small & MPTrj & 3D & Invariant & PBE\_MP & 3,847,696 \\
+MACE OFF23 Large & SPICE & 3D & Invariant & Hybrid Functional (SPICE) & 4,707,312 \\
+MACE OFF23 Medium & SPICE & 3D & Invariant & Hybrid Functional (SPICE) & 1,428,368 \\
+MACE OFF23 Small & SPICE & 3D & Invariant & Hybrid Functional (SPICE) & 694,320 \\
+PET-MAD & MAD, MC3D, MC2D, SHIFTML & 3D & Vanilla & PBE\_Sol & 3,258,420 \\
+Geom2Vec & Denali & String / SMILES & Vanilla & None & 5,000,000 \\
+Molformer & PubChem, Zinc & String / SMILES & Vanilla & None & 46,800,000 \\
+ChemBERTa & PubChem & String / SMILES & Vanilla & None & 77,000,000 \\
+ChemGPT & PubChem & String / SELFIES & Vanilla & None & 1,200,000,000 \\
+DeepSeek R1 & Internet & String & Vanilla & None & 685,000,000,000 \\
+DeepSeek R1 Blank & Internet & String & Vanilla & None & 685,000,000,000 \\
+DeepSeek R1 Blank Atomistic & Internet & String & Vanilla & None & 685,000,000,000 \\
+Qwen3 A3B & Internet & String & Vanilla & None & 30,000,000,000 \\
+Qwen3 A3B Blank & Internet & String & Vanilla & None & 30,000,000,000 \\
+Qwen3 A3B Blank Atomistic & Internet & String & Vanilla & None & 30,000,000,000 \\
+GPT OSS 20B & Internet & String & Vanilla & None & 20,000,000,000 \\
+GPT OSS 20B Blank & Internet & String & Vanilla & None & 20,000,000,000 \\
+GPT OSS 20B Blank Atomistic& Internet & String & Vanilla & None & 20,000,000,000 \\
+ESM2 Large & UniRef50 & Sequence & Vanilla & None & 650,000,000 \\ 
+ESM2 Medium & UniRef50 & Sequence & Vanilla & None & 150,000,000 \\
+ESM2 Small & UniRef50 & Sequence & Vanilla & None & 8,000,000 \\
+ProstT5 Structure & UniRef50, PDB & Structure & Vanilla & None & 3,000,000,000 \\
+ProstT5 Sequence & UniRef50, PDB & Sequence & Vanilla & None & 3,000,000,000 \\
+ESMC Medium & UniRef50 & Sequence & Vanilla & None & 600,000,000 \\
+ESMC Small & UniRef50 & Sequence & Vanilla & None & 300,000,000 \\
+ESM3 Sequence & UniRef50, PDB & Sequence & Vanilla & None & 1,400,000,000 \\
+ESM3 Structure & UniRef50, PDB & Structure & Vanilla & None & 1,400,000,000 \\
+ESM IF1 & PDB & Structure & Vanilla & None & 142,000,000 \\
+ProteinMPNN & PDB & Structure & Vanilla & None & 1,660,000 \\
+Random Baseline & None & 3D & Vanilla & Random & -- \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03776\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cccccccc}
+ Nucleus & Force & $Q^\prime_2$ (b) & $Q_2$ (b) & $Q_3$ ($\mathrm{b}^{3/2}$) &
+ $E(Q'_2, 0)$ (MeV) & $E_{\text{def}}(0, 0)$ (MeV) & $E_{\text{def}}(Q_2, Q_3)$ (MeV) \\
+\hline\\[-9pt]
+$^{222}\text{Rn}$ & SkM* & 12.509 & 12.669  & 2.830
+ & -1703.679 & 0.595
+& -0.438  \\
+ & SLy4 & 12.112 & 12.427 & 1.127
+ & -1699.971& 1.197 & -0.027  \\
+%
+$^{224}\text{Rn}$ & SkM* & 15.075 & 15.082  & 1.792
+ & -1714.463 & 1.690
+& -0.053  \\
+[5pt]
+$^{222}\text{Ra}$ & SkM* & 12.615 & 13.780  & 3.311
+ & -1701.435 & 0.807
+& -1.391  \\
+ & SLy4 & 12.363 & 13.920 & 2.484
+ & -1701.029& 1.301 & -0.700  \\
+ & UNEDF1 & 12.773 & 14.133 & 2.435
+ & -1707.339& 1.329 & -0.611  \\
+%
+$^{224}\text{Ra}$ & SkM* & 15.922 & 15.953  & 3.395
+ & -1713.749 & 2.351
+& -0.919  \\
+ & SLy4 & 14.809 & 15.788 & 2.707
+ & -1711.932& 2.599 & -0.659  \\
+ & UNEDF1 & 15.245 & 15.972 & 2.556
+ & -1718.647& 2.417 & -0.511  \\
+%
+$^{226}\text{Ra}$ & SkM* & 18.343 & 18.121  & 2.988
+ & -1725.840 & 3.946
+& -0.322  \\
+ & SLy4 & 17.093 & 17.546 & 2.644
+ & -1722.532& 3.881 & -0.423  \\
+ & UNEDF1 & 17.476 & 17.683 & 2.262
+ & -1729.661& 3.504 & -0.266  \\
+%
+$^{228}\text{Ra}$ & SkM* & 20.257 & 20.282  & 1.409
+ & -1737.544 & 5.282
+& -0.026  \\
+ & SLy4 & 19.107 & 19.162 & 2.044
+ & -1732.786& 5.082 & -0.129  \\
+ & UNEDF1 & 19.399 & 19.378 & 1.617
+ & -1740.286& 4.484 & -0.070  \\
+[5pt]
+$^{222}\text{Th}$ & SkM* & 10.521 & 11.125  & 3.106
+ & -1695.131 & 0.218
+& -1.619  \\
+ & SLy4 & 10.879 & 12.626 & 2.398
+ & -1697.522& 0.527 & -0.717  \\
+ & UNEDF1 & 11.292 & 12.888 & 2.453
+ & -1703.599& 0.563 & -0.821  \\
+%
+$^{224}\text{Th}$ & SkM* & 15.239 & 15.242  & 3.559
+ & -1708.708 & 1.944
+& -1.522  \\
+ & SLy4 & 14.393 & 15.174 & 2.839
+ & -1709.960& 2.138 & -0.943  \\
+ & UNEDF1 & 14.934 & 15.387 & 2.872
+ & -1716.354& 1.907 & -0.979  \\
+%
+$^{226}\text{Th}$ & SkM* & 18.802 & 17.734  & 3.620
+ & -1722.446 & 4.117
+& -0.783  \\
+ & SLy4 & 17.635 & 17.376 & 3.115
+ & -1722.243& 3.690 & -0.757  \\
+ & UNEDF1 & 18.340 & 17.566 & 3.084
+ & -1728.973& 3.428 & -0.714  \\
+%
+$^{228}\text{Th}$ & SkM* & 21.004 & 20.406  & 3.090
+ & -1735.774 & 6.036
+& -0.163  \\
+ & SLy4 & 20.245 & 19.578 & 3.113
+ & -1734.235& 5.437 & -0.348  \\
+ & UNEDF1 & 20.783 & 19.797 & 2.962
+ & -1741.264& 4.739 & -0.266  \\
+[5pt]
+$^{224}\text{U}$ & SkM* & 12.347 & 11.741  & 3.271
+ & -1699.625 & 0.811
+& -1.648  \\
+ & SLy4 & 12.173 & 13.171 & 2.596
+ & -1703.603& 0.735 & -0.773  \\
+ & UNEDF1 & 12.831 & 13.504 & 2.752
+ & -1709.794& 0.786 & -1.009  \\
+%
+$^{226}\text{U}$ & SkM* & 17.556 & 16.236  & 3.692
+ & -1714.514 & 2.969
+& -1.256  \\
+ & SLy4 & 16.423 & 16.185 & 3.059
+ & -1717.310& 2.687 & -0.853  \\
+ & UNEDF1 & 17.570 & 16.504 & 3.185
+ & -1723.823& 2.427 & -0.989  \\
+%
+$^{228}\text{U}$ & SkM* & 21.106 & 19.360  & 3.678
+ & -1729.555 & 5.555
+& -0.366  \\
+ & SLy4 & 20.363 & 18.854 & 3.345
+ & -1730.966& 4.905 & -0.502  \\
+ & UNEDF1 & 21.163 & 19.103 & 3.415
+ & -1737.786& 4.377 & -0.528  \\
+[5pt]
+$^{226}\text{Pu}$ & SkM* & 13.774 & 11.869  & 3.402
+ & -1702.691 & 1.161
+& -1.519  \\
+ & SLy4 & 13.336 & 13.369 & 2.692
+ & -1708.162& 0.944 & -0.659  \\
+ & UNEDF1 & 14.632 & 13.510 & 2.950
+ & -1714.458& 1.036 & -0.960  \\
+%
+$^{228}\text{Pu}$ & SkM* & 19.776 & 16.988  & 3.725
+ & -1718.772 & 3.698
+& -0.834  \\
+ & SLy4 & 18.371 & 17.025 & 3.076
+ & -1723.076& 3.198 & -0.539  \\
+ & UNEDF1 & 20.685 & 17.291 & 3.302
+ & -1729.784& 3.118 & -0.601  \\
+%
+$^{230}\text{Pu}$ & SkM* & 22.713 & 21.176  & 3.371
+ & -1734.851 & 6.607
+& -0.043  \\
+ & SLy4 & 22.001 & 20.666 & 3.099
+ & -1737.920& 5.705 & -0.165  \\
+ & UNEDF1 & 23.101 & 21.265 & 3.228
+ & -1744.877& 5.359 & -0.134  \\
+%
+$^{288}\text{Pu}$ & SkM* & 20.266 & 15.931  & 5.402
+ & -1992.829 & 0.190
+& -1.438  \\
+ & SLy4 & 17.218 & 18.117 & 4.589
+ & -1952.142& 0.005 & -0.849  \\
+%
+$^{290}\text{Pu}$ & SkM* & 28.325 & 22.099  & 5.798
+ & -1997.272 & 1.956
+& -0.509  \\
+ & SLy4 & 25.124 & 22.511 & 5.050
+ & -1954.144& 1.488 & -0.569  \\
+ & UNEDF1 & 23.298 & 20.739 & 4.605
+ & -1980.658& 0.249 & -0.796  \\
+[5pt]
+$^{228}\text{Cm}$ & SkM* & 14.887 & 11.699  & 3.513
+ & -1704.331 & 1.456
+& -1.326  \\
+ & SLy4 & 14.345 & 13.373 & 2.708
+ & -1711.228& 1.267 & -0.457  \\
+ & UNEDF1 & 20.438 & 13.273 & 3.138
+ & -1717.665& 1.424 & -0.736  \\
+%
+$^{290}\text{Cm}$ & SkM* & 32.332 & 13.996  & 5.551
+ & -2015.804 & 0.860
+& -1.316  \\
+ & SLy4 & 19.380 & 17.595 & 4.897
+ & -1978.145& 0.450 & -0.910  \\
+ & UNEDF1 & 16.680 & 15.428 & 4.605
+ & -2002.682& 0.224 & -1.240  \\
+\end{tabular}
+}
+\end{table}
+
+\end{document}

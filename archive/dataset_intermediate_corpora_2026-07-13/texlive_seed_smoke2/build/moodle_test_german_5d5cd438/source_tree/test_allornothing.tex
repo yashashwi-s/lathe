@@ -1,0 +1,74 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the \texttt{allornothing} 
+option for multiple choice questions.
+
+\begin{quiz}[]{All Or Nothing}
+%\begin{quiz}[allornothing]{All Or Nothing}
+
+\begin{multi}[allornothing]{All Or Nothing}%
+text
+\item* a
+\item[fraction=20] b
+\item[fraction=-30] c
+\item d
+\end{multi}
+
+\begin{multi}[allornothing,multiple]{All Or Nothing Wins Conflict 1}%
+text
+\item* a
+\item* b
+\item c
+\item d
+\end{multi}
+
+\begin{multi}[multiple,allornothing]{All Or Nothing Wins Conflict 2}%
+text
+\item* a
+\item* b
+\item c
+\item d
+\end{multi}
+
+\begin{multi}[allornothing,single=false]{All Or Nothing Wins Conflict 3}%
+text
+\item* a
+\item* b
+\item c
+\item d
+\end{multi}
+
+\begin{multi}[single=false,allornothing]{All Or Nothing Wins Conflict 4}%
+text
+\item* a
+\item* b
+\item c
+\item d
+\end{multi}
+
+\begin{cloze}{Title}
+\begin{multi}[allornothing=false] % <- true results in an error issued
+text
+\item* a
+\item[fraction=20] b
+\item[fraction=-30] c
+\item d
+\end{multi}
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

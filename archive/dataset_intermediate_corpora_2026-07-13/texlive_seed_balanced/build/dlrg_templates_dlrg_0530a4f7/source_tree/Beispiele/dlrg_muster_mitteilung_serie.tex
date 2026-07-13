@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    typ=message,
+    serienfunktion
+]{dlrg}
+\usepackage{lipsum}
+\usepackage{datatool}
+
+\title{Persönliche Mitteilung}
+\author{Vorname Nachname}
+\funktionsbezeichnung{Leiter Einsatz}
+\gliederungName{Ortgruppe Muster e.\,V.}
+\adresse{Musterweg 2}
+\ort{12345 Musterhausen}
+\telefon{++49 (0) 987 6543}
+\telefax{++49 (0) 987 6540}
+\email{name@muster.dlrg.de}
+\webseite{muster.dlrg.de}
+
+\DTLnewdb{datensaetze}
+\DTLnewrow{datensaetze}
+\DTLnewdbentry{datensaetze}{Name}{John}
+\DTLnewdbentry{datensaetze}{Nachname}{Smith}
+\DTLnewrow{datensaetze}
+\DTLnewdbentry{datensaetze}{Name}{Jane}
+\DTLnewdbentry{datensaetze}{Nachname}{Brown}
+
+\begin{document}
+
+\DTLforeach{datensaetze}{\Name=Name,\Nachname=Nachname}{
+    \subtitle{Für \Name\ \Nachname}
+    \startMitteilungsteil
+
+    Lieber \Name,
+
+    \lipsum[1-6]
+}
+
+\end{document}

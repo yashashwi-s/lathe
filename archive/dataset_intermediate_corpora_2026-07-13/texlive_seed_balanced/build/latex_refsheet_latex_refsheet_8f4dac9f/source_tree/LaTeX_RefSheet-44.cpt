@@ -1,0 +1,25 @@
+
+\subsection{Often used Math Expressions}
+\renewcommand{\arraystretch}{1.5}
+\everymath{\displaystyle}
+\begin{tabular}{@{}ll@{\qquad\quad}ll@{}}
+$x^{n+1}$ & \lstinline:x^{n+1}: & $E_{\mathrm{kin}}$ & \lstinline+E_{\mathrm{kin}}+ \\
+$\frac{a+b}{2}$ & \lstinline:\frac{a+b}{2}: & $\sqrt[n]{a^2+b^2}$ & \lstinline:\sqrt[n]{a^2+b^2}:\\
+$x_1 , \ldots, x_n$~  & \lstinline+x_1, \ldots, x_n+ & $x_1 + \cdots + x_n$~ & \lstinline:x_1 + \cdots + x_n: \\	
+\end{tabular}\\[6pt]
+\newcommand{\myvec}[1]{\ensuremath{\underline{\boldsymbol {#1}}}}
+\begin{tabular}{@{}lm{.8\columnwidth}@{}}
+$\left( a + \frac12 \right)^2$ & \lstinline:\left( a + \frac{1}{2} \right)^2:\\[2mm]
+$\sum\limits_{i=1}^{N}$ \quad $\prod\limits_{i=1}^{N}$ & \lstinline+\sum_{i=1}^{N}+ \quad \lstinline+\prod_{i=1}^{N}+\\
+$\lim\limits_{a \rightarrow \infty}$ & \lstinline+\lim_{a \rightarrow \infty}+\\
+$\int\limits_a^b x^2\; \mathrm{d}x$  & \lstinline+\int_a^b x^2\; \mathrm{d}x+\\
+$\left. \frac{\mathrm df}{\mathrm{d}x} \right|_{x_0}$ & \lstinline+\left. \frac{\mathrm{d}f}{\mathrm{d}x} \right|_{x_0}+\\
+$\myvec{F}_{\perp}$ \quad $\myvec{F}_{\parallel}$ &
+                   \lstinline+\myvec{F}_{\perp}+\footnotemark[1] \quad \lstinline+\myvec{F}_{\parallel}+\footnotemark[1]\\
+$\myvec{a}^{\top}$ $A^{\dagger}$ $\boldmath{A}^{*}$  & \lstinline+\myvec{a}^{\top}+\footnotemark[1] \quad \lstinline+A^{\dagger}+ \quad \lstinline+\boldmath{A}^{*}+\\
+$\stackrel{!}{<}$ \quad $\stackrel{\mathrm{def}}{=}$ & \lstinline+\stackrel{!}{<}+ \quad \lstinline+\stackrel{\mathrm{def}}{=}+\\
+$\overset{above}{mid}$ \quad $\underset{below}{mid}$ & \lstinline+\overset{above}{mid}+ \quad \lstinline+\underset{below}{mid}+
+\end{tabular}
+$^1$\lstinline+\newcommand{\myvec}[1]{\ensuremath{\underline{\boldsymbol{#1}}}}+%
+\everymath{\textstyle}%
+^^E^^L 

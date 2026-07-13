@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 32}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\Procedure{penalizedG}{$\vec A, \vec H, \vec Y, \lambda$,\,corstr,\,$\kappa$} %Put comment if you want: \Comment{The g.c.d. of a and b}
+\State Compute $E(\vec A_i|\vec H_i)$ for $i=1,\ldots,n$ \Comment{logistic regression on the pooled data}
+\State $\vec\theta^{\text{up}} \gets \{\sum_{i=1}^n\vec D_i^\top(\vec H_i\;\;\vec A_i\cdot\vec H_i)\}^{-1}\sum_{i=1}^n\vec D_i^\top \vec Y_i$ \Comment{univariate unpenalized G-estimator}
+\ForAll{$\lambda \in (\lambda_{max}, \ldots, \lambda_{min})$} %\Comment{We have the answer if r is 0}
+\State Initialize: $t = 0$, $\vec\theta^0 \gets \vec\theta^{\text{up}}$
+\Repeat
+\State $\vec e_i \gets \vec Y_i - (\vec H_i\;\;\vec A_i\cdot\vec H_i)\vec\theta^t$ for $i=1,\ldots,n$%\Comment{comment}
+\State Compute $\sigma^t$ and $\alpha^t$ under corstr using \ref{moment.method} \Comment{method of moments estimator}
+\State Compute $\hat{\vec V}_i$ according to corstr for $i=1,\ldots,n$ \Comment{$\hat{\vec V}_i=\hat{\vec V}$ $\forall i$ if $J$ is fixed}
+\State Compute $\vec S^{\text{eff}}(\vec\theta^t)$ using (\ref{form})
+\State Compute $\vec H_n(\vec\theta^t)$ and $\vec E_n(\vec\theta^t)$ using (\ref{eq.Hn}) and (\ref{eq.En}), respectively.
+\State Update $\vec\theta^{t}$ according to (\ref{update.penalizedG}) and obtain $\vec\theta^{t+1}$
+\State $t \gets t+1$
+\Until{$||\vec\theta^{t} - \vec\theta^{t-1}|| < \kappa$}\Comment{we set $\kappa=10^{-4}$}
+\State $\tilde{\vec\theta}_\lambda \gets \vec\theta^t$, $\tilde{\sigma}_\lambda \gets \sigma^t$, and $\tilde{\alpha}_\lambda \gets \alpha^t$
+\State Compute $\text{DRIC}_{\lambda}$ according to (\ref{dric})
+\EndFor
+\State $\tilde{\vec\theta} \gets \tilde{\vec\theta}_\lambda^*$ such that $\tilde{\vec\theta}_\lambda^*$ corresponds to the minimum of $\text{DRIC}_{\lambda}$
+\State \textbf{return} $\tilde{\vec\theta}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{document}

@@ -1,0 +1,74 @@
+% arara: pdflatex
+% arara: bib2gls
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[colorlinks]{hyperref}
+\usepackage[record=nameref,% use bib2gls with nameref information (requires bib2gls v1.8+)
+ equations,% switch to equation counter in numbered equations
+ floats,% switch to corresponding counter when in a float
+ counter=section,% use section as the default record counter
+ stylemods,% load glossaries-extra-stylemods.sty
+ style=index]{glossaries-extra}
+
+\GlsXtrLoadResources[
+   % entries defined in example-glossaries-brief.bib and
+   % example-glossaries-symbols:
+   src={example-glossaries-brief,example-glossaries-symbols},
+   sort={en-GB},% sort according to en-GB locale
+   %selection=all,% select all entries provided in the .bib file
+   loc-suffix% add default suffix (full stop) for location list
+ ]
+
+\begin{document}
+
+\Gls[counter=page]{dolor}.
+
+\section{Sample Section}
+
+\gls{dolor}, \gls{amet}.
+
+See \url{https://ctan.org/pkg/bib2gls} for converting
+\texttt{.bib} to \texttt{.glstex} files.
+
+\section{Another Section}
+
+\glspl{lorem}, \gls{amet}.
+
+`Lorem' unused or undefined? \GlsXtrIfUnusedOrUndefined{lorem}{yes}{no}.
+
+\begin{figure}[hb]
+\centering
+X
+\caption{Sample Figure \glsfmttext{lorem}}
+\end{figure}
+
+\gls{lorem} again.
+
+\section{Yet Another Section}
+
+\Gls{lorem}, \gls{amet}, \gls{alpha}.
+
+\begin{equation}
+\glssymbol{alpha} = 2\glssymbol[counter=page]{beta}
+\end{equation}
+
+\gls{beta}.
+
+\begin{align}
+\glssymbol{alpha} &= 2\glssymbol{beta}\\
+\glssymbol{gamma} &= \glssymbol{beta}[^2] = \frac{1}{4}\glssymbol{alpha}[^2]
+\end{align}
+
+\newpage
+
+\Gls{lorem} and \gls[counter=page]{dolor}.
+
+\section{Section about \glsfmttext{lorem}}
+
+\Gls{lorem}.
+
+\printunsrtglossary
+
+\end{document}

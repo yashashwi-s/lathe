@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 48}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}[htbp]
+\small
+\caption{Training Process of RESTC}
+\begin{algorithmic}[1]
+\Require
+Sessions $\mathbf{S}$, item embeddings $\mathbf{V_{s}}$
+\Ensure
+Top-k recommendation items
+\State Transform session data into spatial and temporal view
+\State Construct CFG overall sessions
+\For{epoch in range(Epoches)}
+\For{batch in DataLoader}
+\For{each session s in batch}
+\State \textbf{Spatio-Temporal Contrastive Learning task:}
+\State Spatial view embedding $\mathbf{G}(s) \gets$ Eq.(1) to (6)
+\State Temporal view embedding $\mathbf{T}(s) \gets$ Eq.(7) to (13)
+\State Contrastive loss $\mathcal{L}_{cont} \gets$ Eq.(14)
+\State \textbf{Prediction task:}
+\State CFG embedding $\mathbf{\tilde{Z}} \gets$ Eq.(15)
+\State Enhanced spatial embedding $\mathbf{H_{g}} \gets$ Eq.(16)
+\State Embedding Fusion $\mathbf{S_{h}} \gets$ Eq.(17) to (19)
+\State Next-item Predition loss $\mathcal{L}_{main} \gets$ Eq.(20), (21)
+\EndFor
+\EndFor
+\State $\mathcal{L}=\mathcal{L}_{\text {main}}+\eta_{1} \mathcal{L}_{cont}+\eta_{2}\|\Theta\|_{2}^{2}$
+\State Using multi-task training to jointly optimize $\mathcal{L}$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02392\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l@{\hspace{2pt}}ccc|cc}
+     \toprule
+     \textbf{Methods} & \textbf{HOTA}$\uparrow$ & \textbf{IDF1}$\uparrow$ & \textbf{AssA}$\uparrow$ & \textbf{MOTA}$\uparrow$ & \textbf{DetA}$\uparrow$ \\
+     \midrule
+    \textit{\underline{Tracking-by-Detection:}} \\
+    SORT~ (ICIP2016) & 47.9 & 50.8 & 31.2 & 91.8 & 72.0 \\
+    DeepSORT~ (ICIP2017) & 45.6 & 47.9 & 29.7 & 87.8 & 71.0 \\
+    CenterTrack~ (ECCV2020) & 41.8 & 35.7 & 22.6 & 86.8 & 78.1 \\
+    FairMOT~ (IJCV2021) & 39.7 & 40.8 & 23.8 & 82.2 & 66.7 \\
+    QDTrack~ (CVPR2021) & 45.7 & 44.8 & 29.2 & 83.0 & 72.1 \\
+    ByteTrack~ (ECCV2022) & 47.3 & 52.5 & 31.4 & 89.5 & 71.6 \\
+    OC-SORT~ (CVPR2023) & 55.1 & 54.2 & 38.0 & 89.4 & 80.3 \\
+    Hybrid-SORT~ (AAAI2024) & 65.7 & 67.4 & --- & 91.8 & --- \\
+    SparseTrack~ (TCSVT2025) & 55.7 & 58.1 & 39.3 & 91.3 & 79.2 \\
+    DiffMOT~ (CVPR2025) & 62.3 & 63.0 & 47.2 & 92.8 & 82.5 \\
+    TrackTrack~ (CVPR2025) & 66.5 & 67.8 & 52.9 & \textbf{93.6} & --- \\
+     \midrule
+    \textit{\underline{End-to-End:}} \\
+    TransTrack~ (arXiv2020) & 45.5 & 45.2 & 27.5 & 88.4 & 75.9 \\
+    MOTR~ (ECCV2022) & 54.2 & 51.5 & 40.2 & 79.7 & 73.5 \\
+    MeMOTR~ (ICCV2023) & 63.4 & 65.5 & 52.3 & 85.4 & 77.0 \\
+    CO-MOT~ (CVPR2023) & 69.4 & 71.9 & 58.9 & 91.2 & 82.1 \\
+    MOTRV2~ (CVPR2023) & 69.9 & 71.7 & 59.0 & 91.9 & \textbf{83.0} \\
+    MOTIP~ (CVPR2025) & 67.5 & 72.2 & 57.6 & 90.3 & 79.4 \\
+    SambaMOTR~ (ICLR2025) & 67.2 & 70.5 & 57.5 & 88.1 & 78.8 \\
+    \rowcolor{gray!20} Ours & \textbf{71.7} & \textbf{77.2} & \textbf{63.5} & 91.3 & 81.0 \\
+     \midrule
+    \textit{\underline{with extra data:}} \\
+    MOTRV2$^*$~ (CVPR2023) & 73.4 & 76.0 & 64.4 & 92.1 & 83.7 \\
+    MOTRv3$^*$~ (arXiv2023) & 70.4 & 72.3 & 59.3 & \textbf{92.9} & \textbf{83.8} \\
+    MOTIP$^*$~ (CVPR2025) & 71.4 & 76.3 & 62.8 & 91.6 & 81.3 \\
+    \rowcolor{gray!20} Ours$^*$ & \textbf{74.4} & \textbf{80.0} & \textbf{67.0} & 92.2 & 82.7 \\
+     \bottomrule
+ \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05018\_table\_13}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccccc}
+		\toprule
+		$m_{\ell\ell} \,\,[\text{GeV}]$ & $A_{0}$ & $(\delta A_{0})_{\text{stat}}^{300}$ & $(\delta A_{0})_{\text{stat}}^{3000}$ & $(\delta A_{0})_{\text{syst}}^{3\%} $\\
+		\midrule
+		$100-105$ & $0.206069$ & $0.00220099$   & $0.000696013$ & $0.0138179$ \\
+		$105-110$ & $0.198655$ & $0.00390891$   & $0.0012361$   & $0.0140404$ \\
+		$110-115$ & $0.192236$ & $0.0043067$    & $0.0013619$   & $0.0142329$ \\
+		$115-120$ & $0.18408$ & $0.00459632$    & $0.00145349$  & $0.0144776$ \\
+		$120-126$ & $0.178093$ & $0.00527618$   & $0.00166847$  & $0.0146572$ \\
+		$126-133$ & $0.16969$ & $0.00676013$    & $0.00213774$  & $0.0149093$ \\
+		$133-141$ & $0.163594$ & $0.00667648$   & $0.00211129$  & $0.0150922$ \\
+		$141-150$ & $0.157821$ & $0.00815895$   & $0.00258008$  & $0.0152653$ \\
+		$150-160$ & $0.150422$ & $0.0090537$    & $0.00286303$  & $0.0154873$ \\
+		$160-171$ & $0.145611$ & $0.0109549$    & $0.00346424$  & $0.0156316$ \\
+		$171-185$ & $0.137872$ & $0.00920768$   & $0.00291172$  & $0.0158639$ \\
+		$185-200$ & $0.126617$ & $0.0122699$    & $0.00388007$  & $0.0162015$ \\
+		$200-220$ & $0.124962$ & $0.0136978$    & $0.00433163$  & $0.0162512$ \\
+		$220-243$ & $0.106773$ & $0.0130855$    & $0.00413799$  & $0.0167968$ \\
+		$243-273$ & $0.0990207$ & $0.0193292$   & $0.00611242$  & $0.0170294$ \\
+		$273-320$ & $0.097449$ & $0.0197648$    & $0.00625017$  & $0.0170767$ \\
+		$320-380$ & $0.0809004$ & $0.0236554$   & $0.00748048$  & $0.017573$ \\
+		$380-440$ & $0.0768314$ & $0.0331067$   & $0.0104693$   & $0.0176951$ \\
+		$440-510$ & $0.0528575$ & $0.0400658$   & $0.0126699$   & $0.0184143$ \\
+		$510-600$ & $0.0517298$ & $0.0535121$   & $0.016922$    & $0.018448$ \\
+		$600-700$ & $0.0508636$ & $0.0685334$   & $0.0216721$   & $0.0184748$ \\
+		$700-830$ & $0.0460793$ & $0.0885335$   & $0.0279967$   & $0.0186168$ \\
+		$830-1000$ & $0.0420531$ & $0.117322$   & $0.0371003$   & $0.0187368$ \\
+		$1000-1500$ & $0.0289552$ & $0.141289$  & $0.0446794$   & $0.0191276$ \\
+		$1500-3000$ & $0.0236164$ & $0.41192$   & $0.130261$    & $0.0192946$ \\
+		$3000-10000$ & $-0.673888$ & $6.51047$  & $2.05879$     & $0.0415498$ \\
+	\bottomrule
+	\end{tabular}
+}
+\end{table}
+
+\end{document}

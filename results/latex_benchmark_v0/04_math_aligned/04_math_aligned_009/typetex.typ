@@ -1,0 +1,44 @@
+#import "@preview/mitex:0.2.4": *
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+= Expressions
+<expressions>
+==== Expression 1.
+<expression-1.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+B&:= A^\ast\cup (A^\ast+c)\\C&:=(A^\ast+7c-d)\cup (A^\ast+8c-d)\\D&:=(A^\ast+10c-d)\cup(A^\ast+11c-d)\\E&:=(A^\ast+17c-2d)\cup(A^\ast+18c-2d)\\F&:=(A^\ast+30c-3d)\cup(A^\ast+31c-3d)\\G&:=(A^\ast+37c-4d)\cup(A^\ast+38c-4d)\\H&:=(A^\ast+40c-4d)\cup(A^\ast+41c-4d)\\I&:=(A^\ast+47c-5d)\cup(A^\ast+48c-5d)\\J&:=B\cup C\cup D\cup E\cup F\cup G\cup H\cup I
+\end{aligned}`) $
+
+==== Expression 2.
+<expression-2.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\begin{array}{cl}&\Delta_{(n+1 l-1)}^{(0)}(x_1,\cdots,x_m|z_1,\cdots,z_{n+1}|z_{n+2},\cdots,z_N) \\=&\mathrm{d} isplaystyle\sum_{k=1}^{n+1}\frac{\prod_{i=n+2}^{N}(z_i-z_k q^{-2})}{\prod_{\scriptstyle{j=1}\atop \scriptstyle{j\ne k}}^{n+1} (z_k-z_j)q^{-1}}\Delta^{(n l)}(x_1,\cdots,x_m|z_1,\mathop{\hat{\cdots}}^{k},z_{n+1}|z_k, z_{n+2},\cdots,z_N), \end{array}
+\end{aligned}`) $
+
+==== Expression 3.
+<expression-3.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\big|\|\varphi_{n,t}(b)\|^2-\|b\|^2\big|&=\big|\|\varphi_{n,t}(b)^*\varphi_{n,t}(b)\|-\|b^*b\|\big|\\&\leq\big|\|\varphi_{n,t^{-1}}(b^*)\varphi_{n,t}(b)\|-\|\varphi_{n,e}(b^*b)\|\big|+\big|\|\varphi_{n,e}(b^*b)\|-\|b^*b\|\big|\\&\leq\big|\|\varphi_{n,t^{-1}}(b^*)\varphi_{n,t}(b)-\varphi_{n,e}(b^*b)\|\big|+\big|\|\varphi_{n,e}(b^*b)\|-\|b^*b\|\big|
+\end{aligned}`) $
+
+==== Expression 4.
+<expression-4.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+\begin{array}{lll}[ M_i , p_j ] & = i\epsilon_{ijk}p_k\, ,\qquad & [ M_i , p_0 ] =0\, ,\medskip\cr [ N_i , p_0 ] & = i p_i\, , \qquad & [ p_\mu ,p_\nu ] = 0\, ,\medskip\cr[ N_i , p_j ]& =i\mathrm{d} elta_{ij}\left[\kappa c\sinh(\frac {p_0}{\kappa c})e^{-\frac{p_0}{\kappa c}} + \frac1{2\kappa c} (\vec p)^2\right] -\frac {i}{\kappa c} p_i p_j\,.&\end{array}
+\end{aligned}`) $
+
+==== Expression 5.
+<expression-5.>
+The following expression is taken from a source-backed formula corpus.
+
+$ #mitex(`\begin{aligned}
+ X_1 & := \{ w \in W_{\mathrm{per}}^{1,r}({\mathcal{S}}) : w = 0 \mathrm{ on } \{ \zeta = -1\} \} \\X_2 &:= L^\infty([-1,0]) \\ Y &:= \{ u \in (W_{\mathrm{per}}^{1,r'}(\mathcal{S}))^* : u = \mathcal{A} + \partial_\xi \mathcal{B}_1 + \partial_\zeta \mathcal{B}_2, \mathrm{ for } \mathcal{A} , \mathcal{B}_1, \mathcal{B}_2 \in L^r({\mathcal{S}}) \},
+\end{aligned}`) $

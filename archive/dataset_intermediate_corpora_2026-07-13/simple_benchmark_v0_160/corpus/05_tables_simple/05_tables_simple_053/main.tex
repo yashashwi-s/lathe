@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03071\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+
+\hline
+ & \begin{tabular}[c]{@{}l@{}}Calinski\\ Harabasz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Silhouette\\ FAMD\end{tabular} & \begin{tabular}[c]{@{}l@{}}Silhouette\\ Gower\end{tabular} & \begin{tabular}[c]{@{}l@{}}Davies\\ Bouldin\end{tabular} \\\hline\hline
+K-Prototypes                                                 & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Modha\\ Spangler\end{tabular}     & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+KAMILA                                                       & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+ClustMD                                                      & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+MixtComp                                                     & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Phillip \&\\ Ottaway\end{tabular} & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+DenseClus                                                   & 176.08                                                      & 0.34                                                      & 0.44                                                       & 1.23                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ FAMD\end{tabular}       & \textbf{182.22}                                             & \textbf{0.66}                                             & \textbf{0.65}                                              & \textbf{0.70}                                            \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ UMAP\end{tabular}       & 163.89                                                      & 0.36                                                      & 0.44                                                       & 1.24                                                     \\\hline
+\begin{tabular}[c]{@{}l@{}}Pretopo\\ PaCMAP\end{tabular}     & 61.80                                                       & 0.34                                                      & 0.29                                                       & 1.12           \\  \hline   
+PretopoMD         &         105.17 &         0.239 &          0.263 &        1.71 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04244\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l c c l l c }
+        \hline
+        $N$ & Observed $\tau^{max}_N$ 
+            & \begin{tabular}[c]{@{}c@{}}Multiple\\observations\end{tabular} 
+            & Minimiser
+            & \begin{tabular}[c]{@{}c@{}}MLE fit\\for endpoint\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}95\% upper\\credible bound\end{tabular}
+            & \begin{tabular}[c]{@{}c@{}}68\% smallest\\credible interval\end{tabular} \\
+        \hline
+        3           & 0.33333333333333 & --      & DE       & --            &   --     & -- \\
+        4           & 0.42264973081037 & --      & DE       & --            &   --     & -- \\
+        5           & 0.45399486580028 & 100/100 & DE       & --            &   --     & -- \\
+        6           & 0.46365344258188 & 42/100  & DE       & --            &   --     & -- \\
+        7           & 0.47402556454109 & 10/50   & DE       & --            &   --     & -- \\ 
+        8           & 0.4794393476107  & 56/500  & DE       & --            &   --     & -- \\ 
+        9$^{(*)}$   & 0.4834291842117  & 12/500  & DE       & 0.48361(7)    & 0.483678 & [0.483530, 0.483627]\\ 
+        9$^{(*)}$   & 0.483429184      & 11/500  & CMA-ES   & --            &   --     & -- \\
+        10$^{(*)}$  & 0.485274995845   & 5/500   & DE       & 0.48536(5)    & 0.485417 & [0.485307, 0.485372]\\
+        10$^{(*)}$  & 0.485274996      & 3/500   & CMA-ES   & 0.485286(7)   & 0.485304 & [0.485279, 0.485292]\\
+        11$^{(*)}$  & 0.48761809234    & 2/100   & DE       & 0.48768(12)   & 0.488127 & [0.487684, 0.487929]\\
+        11$^{(*)}$  & 0.48761809       & 6/1000   & CMA-ES   & 0.48771(2)    & 0.487754 & [0.487672, 0.487726]\\
+        12$^{(*)}$  & 0.4886904        & NO/100  & DE       & 0.48875(9)    & 0.488914 & [0.488705, 0.488811]\\
+        12$^{(*)}$  & 0.4886904        & NO/500  & CMA-ES   & 0.48872(2)    & 0.488768 & [0.488699, 0.488736]\\
+        13          & 0.4898755        & NO/500  & CMA-ES   & 0.48984(8)    & 0.489926 & [0.489878, 0.489901]\\
+        14          & 0.4908994        & NO/500  & CMA-ES   & 0.49088(5)    & 0.490958 & [0.490904, 0.490932]\\ 
+        15          & 0.4925471        & NO/500  & CMA-ES   & 0.49260(24)   & 0.492825 & [0.492604, 0.492730]\\
+        20          & 0.4940428        & NO/100  & CMA-ES   & 0.49410(10)   & 0.494321 & [0.494046, 0.494174]\\
+        \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

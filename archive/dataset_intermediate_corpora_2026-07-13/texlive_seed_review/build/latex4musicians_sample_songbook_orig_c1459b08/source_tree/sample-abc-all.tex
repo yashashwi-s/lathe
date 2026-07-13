@@ -1,0 +1,132 @@
+% typeset with:
+% pdflatex -shell-escape sample-abc-all.tex
+
+\documentclass{article}
+\thispagestyle{empty}
+\usepackage[generate,ps2eps]{abc}
+
+% --- M-Tx support
+\newenvironment{mtx}[1][]
+{\renewcommand{\normalabcoutputfile}{out-mtx}%
+\abc[program=musixtex,options={-g},extension=mtx,#1]}
+{\endabc}
+\newcommand{\mtxinput}[2][]{%
+\abcinput[program=musixtex,options={-g},extension=mtx,#1]{#2}}
+
+% --- PMW support
+\newenvironment{pmw}[1][]
+{\renewcommand{\normalabcoutputfile}{out-pmw}%
+\abc[program=pmw,options={-includefont},extension=pmw,#1]}
+{\endabc}
+\newcommand{\pmwinput}[2][]{%
+\abcinput[program=pmw,options={-includefont},extension=pmw,#1]{#2}}
+
+% --- LilyPond support
+% !!! BUG: the LilyPond source must begin with a \null command
+\newenvironment{lily}[1][]
+{\renewcommand{\normalabcoutputfile}{out-lily}%
+\abc[program=lilypond,options={-d backend=eps},extension=ly,#1]}
+{\endabc}
+\newcommand{\lilyinput}[2][]{%
+\abcinput[program=lilypond,options={--ps},extension=ly,#1]{#2}}
+
+% --- MUP support
+\newenvironment{mup}[1][]
+{\renewcommand{\normalabcoutputfile}{out-mup}%
+\abc[program=mup,options={-F},extension=mup,#1]}
+{\endabc}
+\newcommand{\mupinput}[2][]{%
+\abcinput[program=mup,options={-F},extension=mup,#1]{#2}}
+
+% --- ABC must be redefined
+\newenvironment{ABC}[1][]
+{\renewcommand{\normalabcoutputfile}{out-ABC}%
+\abc[program=abcm2ps,options={-O=},extension=abc,#1]}
+{\endabc}
+\newcommand{\ABCinput}[2][]{%
+\abcinput[program=abcm2ps,options={-O=},extension=abc,#1]{#2}}
+
+\begin{document}
+
+This document includes music excerpts written in several formats. It
+uses \texttt{abc.sty} and defines new environments.
+
+This is a short piece, typeset by M-Tx:
+
+\begin{mtx}
+Title: \bigtype Music sample in M-Tx
+Style: Solo
+Meter: C
+Width: 160mm
+
+c4 d8 e f g a b | c4 b8 a g f e d | c8 g+ e g c- g+ e g | c4- e c r |
+\end{mtx}
+
+The same piece, typeset by LilyPond:
+
+\begin{lily}
+ % twice - it's required to avoid a bug
+\version "2.18.2"
+\version "2.18.2"
+
+\header {
+  title = "Music sample in LilyPond" 
+  tagline = "" % no footer
+}
+
+\relative c' {
+  \time 4/4
+  \clef treble
+  c4 d8 e f8 g a b | c4 b8 a g8 f e d |
+  c8 g' e g c,8 g' e g | c,4 e c r \bar "|."
+}
+\end{lily}
+
+The same piece, typeset by PMW:
+
+\begin{pmw}
+Heading "|Music sample in PMW"
+Key C
+Time 4/4
+
+[stave 1 treble 1]
+c d- e-; f-g-a-b-; | c' b- a-; g-f-e-d-; |
+c-g-e-g-; c-g-e-g-; |c e c r |
+[endstave]
+\end{pmw}
+
+The same piece, typeset by MUP:
+
+\begin{mup}
+// music sample in MUP notation
+
+header
+  title "Music sample in MUP"
+
+score
+  time=4/4
+
+music
+  1: 4c; 8d bm; e ebm; f bm; g; a; b ebm;
+  bar
+  1: 4c+; 8b bm; a ebm; g bm; f; e; d ebm;
+  bar
+  1: 8c bm; g; e; g ebm; c bm; g; e; g ebm;
+  bar
+  1: 4c; e; c; r;
+  endbar
+\end{mup}
+
+The same piece, typeset by abcm2ps:
+
+\begin{ABC}
+X: 1
+T: Music sample in ABC
+M: 4/4
+L: 1/4
+K: C
+%
+C D/E/ F/G/A/B/|c B/A/ G/F/E/D/|C/G/E/G/ C/G/E/G/|CECz|]
+\end{ABC}
+
+\end{document}

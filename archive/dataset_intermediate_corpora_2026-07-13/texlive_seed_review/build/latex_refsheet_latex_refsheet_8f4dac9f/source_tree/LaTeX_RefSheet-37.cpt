@@ -1,0 +1,14 @@
+
+\subsection{Example}
+\begin{mylatex}
+% in preambel
+\usepackage[autostyle=true]{csquotes} % Load
+\usepackage[backend=biber,style=nature,language=british]
+  {biblatex} % Load
+\addbibresource{mybibliographyfile.bib} % Define
+% anywhere within the document
+\autocite{citekey} % Use
+\printbibliography % Print
+\end{mylatex}	
+KOMAoption \lstinline+bibliography+ (see~\ref{sec:options}) generates entry for TOC.
+^^E^^L 

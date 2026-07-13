@@ -1,0 +1,56 @@
+%============================ MAIN DOCUMENT ================================
+% define document class
+\documentclass[
+	a4paper               % paper format
+%	,10.5pt               % fontsize
+%	,BCOR=18mm            % Binding correction
+	,bibliography=totoc   % If enabled add bibliography to TOC
+	,listof=totoc         % If enabled add lists to TOC
+%	,bilingual
+	,monolingual
+]{bfhthesis}              % KOMA-script report
+
+\usepackage[
+	hidelinks,
+	pdfusetitle,
+]{hyperref}
+
+\begin{document}
+
+\frontmatter
+
+\title{Bachelor's Thesis}
+\subtitle{Thesis subject}
+\author{Anton Muster \and Cindy Example}
+\institution{Bern University of Applied Sciences}
+\department{Technik und Informatik}
+\institute{Mikro- und Medizintechnik}
+\version{1.0}
+\titlegraphic{\includegraphics[width=\width]{example-image}}
+\advisor{Prof. Dr. Super Smart}
+\coadvisor{PhD A. Smart}
+\projectpartner{proj partner}
+\expert{Some expert}
+\degreeprogram{Bachelor of Science in Computer Science}
+
+%----------------  BFH tile page   -----------------------------------------
+\maketitle
+
+\addchap{Abstract}
+Here an abstract might be placed.
+
+
+%------------ TABLEOFCONTENTS ----------------
+\tableofcontents
+
+%------------ START MAIN PART ----------------
+\mainmatter
+
+\chapter{First chapter of the main part}
+
+\appendix
+
+\chapter{First appendix Chapter}
+
+
+\end{document}

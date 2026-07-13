@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02178\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l | c c c c c} 
+%\hline
+%\hline
+%\multicolumn{7}{l}{$\beta=0.95$, $\gamma=0.95$, 1,000 iterations for \bruno{MDP?}, 10,000 iterations for the other settings} \\
+%\hline
+% \multicolumn{7}{l}{conj0 : $Normal-InvGamma$[$\mu_0=0, n_0=10, a_0=5, b_0=20$]} \\
+% \multicolumn{7}{l}{conj1 : $Normal-InvGamma$[$\mu_0=0, n_0=10, a_0=5, b_0=5$]} \\
+% \hline
+% \hline
+%\multicolumn{7}{l}{true \bruno{data generating distribution}: Normal(mean=0, var=4) ($F(3.289707)=0.95$)}\\
+Method &  & n=10 & n=30 & n=50 & n=100 & n=1000 \\
+ \hline
+Normal (noninformative)  & undercoverage & 0.0475 & 0.0502 & 0.0504 & 0.0484 & 0.0502 \\
+ & mean coverage  & 0.9894 & 0.9813 & 0.9768 & 0.9710 & 0.9578 \\
+ & mean upper limit & 5.674 & 4.4002 & 4.1067 & 3.8448 & 3.4550 \\
+% normal,conj0
+%  & undercoverage & 0 & 0.0227 & 0.0326 & 0.0402 & 0.0489 \\
+% (correct strong prior) & mean coverage  & 0.989786 & 0.980363 & 0.975898 & 0.970455 & 0.957728 \\
+%  & mean upper limit & 4.830133 & 4.243465 & 4.034031 & 3.818741 & 3.454200 \\
+% normal,conj1 
+%  & undercoverage & 0.2869 & 0.1674 & 0.1357 & 0.0993 & 0.0668 \\
+% (wrong strong prior) & mean coverage  & 0.961383 & 0.96715 & 0.967136 & 0.965619 & 0.957145 \\
+%  & mean upper limit & 3.75516 & 3.807448 & 3.765598 & 3.684158 & 3.441335\\
+% normal,noninfo.grph
+%  & undercoverage & 0.0172 & 0.0066 & & &\\
+%  & mean coverage  & 0.996048 & 0.993991 & & &\\
+%  & mean upper limit & 7.802375 & 5.741896 & & & \\
+% normal,conj1.grph
+%  & undercoverage & 0.2116 & 0.0452 & & & \\
+%  & mean coverage  & 0.969096 & 0.984122 & & & \\
+%  & mean upper limit & 4.274972 & 4.697029 & & & \\
+Frequentist Nonparametric
+ & undercoverage & -- & -- & -- & 0.0363 & 0.0466 \\
+ & mean coverage  & --  & -- & -- & 0.9801 & 0.9611 \\
+ & mean upper limit & -- & -- & -- & 4.2951 & 3.5367 \\
+\hline
+% DP.$0.01N(0,2^2)$
+%  & undercoverage & 0.6052 & 0.2142 & 0.0754 & 0.1175 & 0.0584 \\
+%  & mean coverage  & 0.908693 & 0.967568 & 0.980238 & 0.970094 & 0.960036 \\
+%  & mean upper limit & 3.0661542 & 4.082118 & 4.491038 & 3.885974 & 3.511151 \\
+% DP.$1N(0,2^2)$
+%  & undercoverage & 0.6052 & 0.2142 & 0.0754 & 0.1175 & 0.0584 \\
+%  & mean coverage  & 0.939972 & 0.967568 & 0.980238 & 0.970094 & 0.960036 \\
+%  & mean upper limit & 3.33858 & 4.082118 & 4.491038 & 3.885974 & 3.511151 \\
+DP$(a=10,F_0 = N(0,2^2))$
+ & undercoverage  & 0 & 0.2142 & 0.0754 & 0.1175 & 0.0584 \\
+ & mean coverage  & 0.9826 & 0.9735 & 0.9803 & 0.9712 & 0.9600 \\
+ & mean upper limit & 4.2794 & 4.1642 & 4.4508 & 3.9041 & 3.5112 \\
+DP$(a=100,F_0 = N(0,2^2))$
+ & undercoverage & 0 & 0 & 0 & 0.0059 & 0.0452 \\
+ & mean coverage  & 0.9768 & 0.9747 & 0.9730 & 0.9704 & 0.9599 \\
+ & mean upper limit & 3.9968 & 3.9345 & 3.8835 & 3.8031 & 3.5070 \\
+DP$(a=10,F_0 = \text{Laplace}(0,2))$
+ & undercoverage & 0 & 0 & 0.0818 & 0.0361 & 0.0452 \\
+ & mean coverage  & 0.9995 & 0.9893 & 0.9810 & 0.9791 & 0.9609 \\
+ & mean upper limit & 6.5358 & 4.7046 & 4.5003 & 4.1847 & 3.5300 \\
+DP$(a=100,F_0 = \text{Laplace}(0,2))$
+ & undercoverage & 0 & 0 & 0 & 0 & 0.0099 \\
+ & mean coverage  & 0.9986 & 0.9972 & 0.9953 & 0.9899 & 0.9641 \\
+ & mean upper limit & 5.9930 & 5.5526 & 5.2168 & 4.6870 & 3.6108 \\
+DP$(a=10,F_0 = 2t_5)$ & undercoverage & 0 & 0 & 0.0818 & 0.0361 & 0.0601 \\
+ & mean coverage  & 0.9975 & 0.9823 & 0.9804 & 0.9761 & 0.9602 \\
+ & mean upper limit & 5.6114 & 4.3879 & 4.4891 & 4.0424 & 3.5155 \\
+DP$(a=100,F_0 = 2t_5)$
+ & undercoverage & 0 & 0 & 0 & 0 & 0.0145 \\
+ & mean coverage  & 0.9950 & 0.9921 & 0.9893 & 0.9836 & 0.9627 \\
+ & mean upper limit & 5.1624 & 4.8519 & 4.6357 & 4.3089 & 3.5728 \\
+\hline
+MDP$(a\sim \text{Gamma}(1,1), F_0 = N(\mu, \sigma^2)$ 
+ & undercoverage & 0.0970 & 0.1220 & 0.0750 & 0.0680 & 0.0680 \\
+$\mu\sim N(0, 10^2)$ 
+ & mean coverage  & 0.9837 & 0.9763 & 0.9787 & 0.9726 & 0.9587 \\
+$\sigma^2\sim \text{Inv-Gamma}(1,1)$ 
+ & mean upper limit & 5.6763 & 4.3093 & 4.275 & 3.9328 & 3.4789 \\
+\hline
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01775\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\toprule
+Expression & Pattern & Expression & Pattern \\ \hline
+$(A+B)+C$ & $A+B+C$ & $A+(B+C)$ & $A+B+C$  \\ \hline
+$(A+B)-C$ & $A+B-C$ & $A+(B-C)$ & $A+B-C$  \\ \hline
+$(A+B) \times C$ & $(A+B) \times C$ & $A+(B \times C)$ & $A \times B+C$  \\ \hline
+$(A+B)/C$ & $(A+B)/C$ & $A+(B/C)$ & $A/B+C$  \\ \hline
+$(A-B)+C$ & $A+B-C$ & $A-(B+C)$ & $A-B-C$  \\ \hline
+$(A-B)-C$ & $A-B-C$ & $A-(B-C)$ & $A+B-C$  \\ \hline
+$(A-B) \times C$ & $(A-B) \times C$ & $A-(B \times C)$ & $A-B \times C$  \\ \hline
+$(A-B)/C$ & $(A-B)/C$ & $A-(B/C)$ & $A-B/C$  \\ \hline
+$(A \times B)+C$ & $A \times B+C$ & $A \times (B+C)$ & $(A+B) \times C$  \\ \hline
+$(A \times B)-C$ & $A \times B-C$ & $A \times (B-C)$ & $(A-B) \times C$  \\ \hline
+$(A \times B) \times C$ & $A \times B \times C$ & $A \times (B \times C)$ & $A \times B \times C$  \\ \hline
+$(A \times B)/C$ & $A \times B/C$ & $A \times (B/C)$ & $A \times B/C$  \\ \hline
+$(A/B)+C$ & $A/B+C$ & $A/(B+C)$ & $A/(B+C)$  \\ \hline
+$(A/B)-C$ & $A/B-C$ & $A/(B-C)$ & $A/(B-C)$  \\ \hline
+$(A/B) \times C$ & $A \times B/C$ & $A/(B \times C)$ & $A/B/C$  \\ \hline
+$(A/B)/C$ & $A/B/C$ & $A/(B/C)$ & $A \times B/C$  \\ \hline
+$A+(B+(C+D))$ & $A+B+C+D$ & $A+(B+(C-D))$ & $A+B+C-D$  \\ \hline
+$A+(B+(C \times D))$ & $A \times B+C+D$ & $A+(B+(C/D))$ & $A/B+C+D$  \\ \hline
+$A+(B-(C+D))$ & $A+B-C-D$ & $A+(B-(C-D))$ & $A+B+C-D$  \\ \hline
+$A+(B-(C \times D))$ & $A+B-C \times D$ & $A+(B-(C/D))$ & $A+B-C/D$  \\ \hline
+$A+(B \times (C+D))$ & $(A+B) \times C+D$ & $A+(B \times (C-D))$ & $(A-B) \times C+D$  \\ \hline
+$A+(B \times (C \times D))$ & $A \times B \times C+D$ & $A+(B \times (C/D))$ & $A \times B/C+D$  \\ \hline
+$A+(B/(C+D))$ & $A/(B+C)+D$ & $A+(B/(C-D))$ & $A/(B-C)+D$  \\ \hline
+$A+(B/(C \times D))$ & $A/B/C+D$ & $A+(B/(C/D))$ & $A \times B/C+D$  \\ \hline
+$A-(B+(C+D))$ & $A-B-C-D$ & $A-(B+(C-D))$ & $A+B-C-D$  \\ \hline
+$A-(B+(C \times D))$ & $A-B \times C-D$ & $A-(B+(C/D))$ & $A-B/C-D$  \\ \hline
+$A-(B-(C+D))$ & $A+B+C-D$ & $A-(B-(C-D))$ & $A+B-C-D$  \\ \hline
+$A-(B-(C \times D))$ & $A \times B+C-D$ & $A-(B-(C/D))$ & $A/B+C-D$  \\ \hline
+$A-(B \times (C+D))$ & $A-(B+C) \times D$ & $A-(B \times (C-D))$ & $A-(B-C) \times D$  \\ \hline
+$A-(B \times (C \times D))$ & $A-B \times C \times D$ & $A-(B \times (C/D))$ & $A-B \times C/D$  \\ \hline
+$A-(B/(C+D))$ & $A-B/(C+D)$ & $A-(B/(C-D))$ & $A-B/(C-D)$  \\ \hline
+$A-(B/(C \times D))$ & $A-B/C/D$ & $A-(B/(C/D))$ & $A-B \times C/D$  \\ \hline
+$A \times (B+(C+D))$ & $(A+B+C) \times D$ & $A \times (B+(C-D))$ & $(A+B-C) \times D$  \\ \hline
+$A \times (B+(C \times D))$ & $(A \times B+C) \times D$ & $A \times (B+(C/D))$ & $(A/B+C) \times D$  \\ \hline
+$A \times (B-(C+D))$ & $(A-B-C) \times D$ & $A \times (B-(C-D))$ & $(A+B-C) \times D$  \\ \hline
+$A \times (B-(C \times D))$ & $(A-B \times C) \times D$ & $A \times (B-(C/D))$ & $(A-B/C) \times D$  \\ \hline
+$A \times (B \times (C+D))$ & $(A+B) \times C \times D$ & $A \times (B \times (C-D))$ & $(A-B) \times C \times D$  \\ \hline
+$A \times (B \times (C \times D))$ & $A \times B \times C \times D$ & $A \times (B \times (C/D))$ & $A \times B \times C/D$  \\ \hline
+$A \times (B/(C+D))$ & $A \times B/(C+D)$ & $A \times (B/(C-D))$ & $A \times B/(C-D)$  \\ \hline
+$A \times (B/(C \times D))$ & $A \times B/C/D$ & $A \times (B/(C/D))$ & $A \times B \times C/D$  \\ \hline
+$A/(B+(C+D))$ & $A/(B+C+D)$ & $A/(B+(C-D))$ & $A/(B+C-D)$  \\ \hline
+$A/(B+(C \times D))$ & $A/(B \times C+D)$ & $A/(B+(C/D))$ & $A/(B/C+D)$  \\ \hline
+$A/(B-(C+D))$ & $A/(B-C-D)$ & $A/(B-(C-D))$ & $A/(B+C-D)$  \\ \hline
+$A/(B-(C \times D))$ & $A/(B-C \times D)$ & $A/(B-(C/D))$ & $A/(B-C/D)$  \\ \hline
+$A/(B \times (C+D))$ & $A/(B+C)/D$ & $A/(B \times (C-D))$ & $A/(B-C)/D$  \\ \hline
+$A/(B \times (C \times D))$ & $A/B/C/D$ & $A/(B \times (C/D))$ & $A \times B/C/D$  \\ \hline
+$A/(B/(C+D))$ & $(A+B) \times C/D$ & $A/(B/(C-D))$ & $(A-B) \times C/D$  \\ \hline
+$A/(B/(C \times D))$ & $A \times B \times C/D$ & $A/(B/(C/D))$ & $A \times B/C/D$  \\ \hline
+$A+((B+C)+D)$ & $A+B+C+D$ & $A+((B-C)+D)$ & $A+B+C-D$  \\ \hline
+$A+((B \times C)+D)$ & $A \times B+C+D$ & $A+((B/C)+D)$ & $A/B+C+D$  \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

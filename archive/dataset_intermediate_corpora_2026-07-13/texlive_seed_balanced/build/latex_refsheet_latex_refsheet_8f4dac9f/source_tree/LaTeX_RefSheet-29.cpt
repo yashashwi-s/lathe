@@ -1,0 +1,21 @@
+
+\subsection{Tables width aligned material}
+With `table' the environment to place aligned material is meant. The table caption is printed where the caption command is placed in the input.  For positioning options see~\ref{sec:figure}.
+\begin{mylatex}
+\KOMAoptions{captions=tableabove} % move to praeambel
+\begin{table}[htbp] \centering
+ \caption{Table caption}\label{tab:exp}
+ \begin{tabular}{@{}ll@{}}
+  \emph{Name} & \emph{Desc.}\\ \hline
+  tikz2pdf    & Python script\\
+  LaTable     & visual table editor
+ \end{tabular}
+\end{table}
+\end{mylatex}
+Use: \lstinline+\begin{tabular}[c b t]{@{} l r c | p{+\textit{unit}\lstinline+}}+\\
+Column separation: \lstinline+@{\hspace{+\textit{unit}\lstinline+}}+ or \lstinline+\setlength{\tabcolsep}{+\textit{unit}\lstinline+}+\\
+Row separation: \lstinline+\\[+\textit{unit}\lstinline+]+ or \lstinline+\renewcommand{\arraystretch}{+\textit{unit}\lstinline+}+\\		
+Partial lines: \lstinline+\cline{2-3}+ instead of \lstinline+\hline+\\
+Additional packages: \texttt{array}, \texttt{longtable}, \texttt{booktabs}, \texttt{tabu},\\
+~~\texttt{xcolor} with option \lstinline+table+, \texttt{tabularx}, \texttt{tabulary}
+^^E^^L 

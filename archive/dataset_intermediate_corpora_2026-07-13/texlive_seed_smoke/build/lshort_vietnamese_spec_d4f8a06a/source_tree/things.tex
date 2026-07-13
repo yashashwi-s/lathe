@@ -1,0 +1,617 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Things you need to know
+% $Id: things.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Những kiến thức cơ bản về \LaTeX{}}
+
+\begin{intro}
+  Phần đầu tiên của chương sẽ giới thiệu một cách ngắn gọn sự ra đời
+  và quá trình phát triển của \LaTeXe{}. Phần hai sẽ tập trung vào các
+  cấu trúc cơ bản của một tài liệu soạn thảo bằng \LaTeX{}. Sau khi
+  kết thúc chương này, các bạn sẽ có được những kiến thức căn bản về
+  cách thức làm việc của \LaTeX{} và điều này sẽ là một nền tảng quan
+  trọng để bạn có thể hiểu kĩ những chương sau.
+\end{intro}
+
+\section{Tên gọi của trò chơi}
+\subsection{\TeX} \TeX{} là một chương trình được thiết kế bởi 
+\index{Knuth, Donald E.} Donald E. Knuth \cite{texbook}. \TeX{} được
+thiết kế nhằm phục vụ cho việc soạn thảo các văn bản thông thường và
+các công thức toán học. Knuth bắt đầu thiết kế công cụ sắp chữ \TeX{}
+vào năm 1977 để khám phá tìm lực của các thiết bị in ấn điện tử khi mà
+nó bắt đầu xâm nhập vào công nghệ in ấn lúc bấy giờ. Ông hy vọng rằng
+sẽ tránh được xu hướng làm giảm chất lượng bản in, điều mà các tài
+liệu của ông đã bị ảnh hưởng. \TeX{} như chúng ta thấy ngày nay được
+phát hành vào năm 1982 cùng với một số nâng cấp được bổ sung vào năm
+1989 để hỗ trợ tốt hơn cho các kí tự 8-bit và đa ngôn ngữ. \TeX{} đã
+được cải tiến và trở nên cực kỳ ổn định, có thể chạy trên các hệ thống
+máy tính khác nhau và gần như là không có lỗi. Các phiên bản của
+\TeX{} đang dần tiến đến số $\pi$ và phiên bản hiện nay là $3.141592$.
+
+\TeX{} được phát âm là ``Tech'', với ``ch'' như trong từ
+``Ach''\footnote{Trong tiếng Đức có hai cách phát âm đối với chữ
+  ``ch''. Một trong hai cách này là âm ``ch'' trong chữ ``Pech'' và
+  cách đọc này có vẻ phù hợp. Khi được hỏi vè điều này, Knuth đã trả
+  lời trong Wikipedia tiếng Đức như sau: \emph{Tôi không bực mình khi
+    mọi người phát âm \TeX{} theo cách riêng của họ \ldots{} và ở Đức
+    nhiều người phát âm chữ X bởi âm ch nhẹ vì nó theo sao nguyên âm e
+    chứ không phải ch mạnh khi nó theo sau nguyên âm a. Ở Nga, `tex'
+    là một từ rất thông dụng và được phát âm là `tyekh'. Tuy nhiên
+    cách phát âm chính xác nhất là ở Hy Lạp vì họ dùng âm ch mạnh
+    trong từ ach hay Loch.}} trong tiếng Đức hay từ ``Loch'' trong
+tiếgn Scotland. ``ch'' bắt nguồn từ bảng chữ cái của tiếng Hy Lạp,
+trong đó X là chữ ``ch'' hay ``chi''. Ngoài ra \TeX{} còn là âm đầu
+tiên của từ texnologia (technology) trong tiếng Hy Lạp. Trong môi
+trường văn bản thông thường, \TeX{} được viết là \texttt{TeX}.
+
+\subsection{\LaTeX} \LaTeX{} là một gói các tập lệnh cho phép tác giả
+có thể soạn thảo và in ấn tài liệu của mình với chất lượng bản in cao
+nhất thông qua việc sử dụng các kiểu trình bày chuyên nghiệp đã được
+định nghĩa trước. Ban đầu, \LaTeX{} được thiết kế bởi \index{Lamport,
+  Leslie} Leslie Lamport~\cite{manual}. \LaTeX{} sử dụng bộ máy định
+dạng \TeX{} để làm hạt nhân cơ bản phục vụ cho việc định dạng tài
+liệu. Ngày nay, \LaTeX{} được duy trì và phát triển bởi một nhóm những
+người yêu thích và nghiên cứu về \TeX{}, đứng đầu là
+\index{Mittlebach, Frank} Frank Mittlebach.
+
+%In 1994 the \LaTeX{} package was updated by the \index{LaTeX3@\LaTeX
+%  3Đ\LaTeX 3 team, led by \index{Mittelbach, FrankĐFrank Mittelbach,
+%to include some long-requested improvements, and to re\-unify all the
+%patched versions which had cropped up since the release of
+%\index{LaTeX 2.09@\LaTeX{} 2.09Đ\LaTeX{} 2.09 some years earlier. To
+%distinguish the new version from the old, it is called \index{LaTeX
+%2e@\LaTeXeĐ\LaTeXe. This documentation deals with \LaTeXe. These days you
+%might be hard pressed to find the venerable \LaTeX{} 2.09 installed
+%anywhere.
+
+\LaTeX{} được phát âm là ``Lay-tech'' hay là ``Lah-tech''.
+\LaTeX{} trong môi trường văn bản thông thường được viết là
+\texttt{LaTeX}. \LaTeXe{} được phát âm là ``Lay-tech two e'' và
+viết là \texttt{LaTeX2e}.
+
+%Figureấ\ref{componentsĐ above % on page \pageref{componentsĐ
+%shows how \TeX{} and \LaTeXe{Đ work together. This figure is taken from
+%\texttt{wots.texĐ by Kees van der Laan.
+
+%\begin{figureĐ[btp]
+%\begin{linedĐ{0.8\textwidthĐ
+%\begin{centerĐ
+%\input{kees.figĐ
+%\end{centerĐ
+%\end{linedĐ
+%\caption{Components of a \TeX{} System.Đ \label{componentsĐ
+%\end{figureĐ
+
+\section{Những điều cơ bản}
+\subsection{Tác giả, người trình bày sách và người sắp chữ} Trước
+khi một tác phẩm được in ấn, tác giả sẽ gửi bản viết tay của mình
+đến nhà xuất bản. Sau đó, người trình bày sách sẽ quyết định việc
+trình bày tài liệu (độ rộng của cột, font chữ, khoảng cách giữa
+các tiêu đề, ~\ldots). Người trình bày sách sẽ ghi lại những chỉ
+dẫn định dạng của mình lên bản viết tay và đưa cho người thợ sắp
+chữ, và người thợ này sẽ sắp chữ cho quyển sách theo những định
+dạng được chỉ dẫn trên bản viết tay.
+
+Người trình bày sách phải cố gắng để tìm hiểu xem tác giả đã nghĩ
+gì khi viết bản viết thảo để có thể quyết định được những hình
+thức định dạng phù hợp cho: tiêu đề, trích dẫn, ví dụ, công thức,
+\ldots~. Đây là công việc phải dựa nhiều vào kinh nghiệm và nội dung của
+bản thảo.
+
+Trong môi trường \LaTeX{}, \LaTeX{} đóng vai trò là người trình bày sách và sử dụng \TeX{} như là một người thợ sắp chữ. Tuy nhiên, \LaTeX{} ``chỉ'' là một chương trình máy tính do đó nó phải được hướng dẫn bởi người soạn thảo. Người soạn thảo sẽ cung cấp thêm thông tin để mô tả cấu trúc logic của tác phẩm và thông tin này sẽ được viết vào văn bản dưới hình thức là các ``lệnh của \LaTeX{}.''
+
+Đây chính là một trong những điểm khác biệt lớn đối với các chương trình soạn thảo \wi{WYSIWYG}\footnote{What you see is what you get.} như là: \emph{MS Word}, hay \emph{Corel WordPerfect}. Với các chương trình trên thì người soạn văn bản sẽ tương tác trực tiếp với chương trình và họ sẽ thấy ngay kết quả của việc đinh dạng. Khi này, văn bản trên màn hình sẽ phản ánh đúng với bản in.
+
+Khi sử dụng \LaTeX{}, bạn không nhìn thấy bản in ngay khi soạn thảo. Tuy nhiên, sau khi biên dịch bạn có thể xem và sửa đổi nội dung trước khi thực hiện thao tác in ấn.
+
+\subsection{Trình bày bản in}
+Việc thiết kế bản in là một công việc thủ công. Những người soạn văn bản không có khiếu trình bày thường mắc phải một số lỗi định dạng nghiêm trọng vì quan điểm: ``Nếu một tài liệu trông sắc sảo thì nó đã được thiết kế tốt.'' Tuy nhiên các tài liệu được in ấn là để đọc chứ không phải để trưng bày trong một phòng triển lãm nghệ thuật. Do đó, tính rõ ràng, dễ đọc, dễ hiểu phải được đặt lên hàng đầu. Ví dụ:
+
+\begin{itemize}
+\item Kích thước của font chữ và việc đánh số tiêu đề phải được  chọn một cách hợp lý nhằm làm cho cấu trúc của các chương, mục trở nên rõ ràng đối với người đọc.
+\item Chiều dài của dòng văn bản phải đủ ngắn để không làm mỏi mắt người đọc; đồng thời, nó phải đủ dài để có thể nằm vừa vặn trong trang giấy. Điều này mới nghe qua ta thấy có vẻ mâu thuẫn nhưng đây chính là một yếu tố rất quan trọng quyết định đến tính rõ ràng và đẹp mắt của tài liệu.
+\end{itemize}
+
+Với các hệ soạn thảo \emph{WYSIWYG}, tác giả thường tạo ra các tài liệu sắc sảo, trông đẹp mắt nhưng lại không đảm bảo được tính thống nhất trong định dạng các thành phần của tài liệu. \LaTeX{} ngăn chặn những lỗi như thế bằng cách yêu cầu người soạn thảo phải định nghĩa \emph{cấu trúc logic} của tài liệu. Sau đó, chính \LaTeX{} sẽ lựa chọn cách trình bày tốt nhất.
+
+\subsection{Những điểm mạnh và điểm yếu của \LaTeX{}}
+Khi những người sử dụng các phầm mềm \emph{WYSIWYG} và những người sử dụng LaTeX{} gặp nhau, họ thường tranh luận về ``những \emph{điểm mạnh / điểm yếu} của \LaTeX{} đối với các chương trình soạn thảo thông thường'' và ngược lại. Cách tốt nhất mà bạn nên làm là đứng giữa và lắng nghe. Tuy nhiên, đôi lúc bạn sẽ không thể nào đứng ngoài được!
+
+\medskip\noindent Dưới đây là một số \emph{điểm mạnh} của \LaTeX{}:
+
+\begin{itemize}
+\item Các mô hình trình bày bản in chuyên nghiệp đã có sẵn và điều này sẽ giúp cho tài liệu do bạn soạn thảo trông thật chuyên nghiệp.
+\item Việc soạn thảo các công thức toán học, kỹ thuật được hỗ trợ đến tối đa.
+\item Người sử dụng chỉ cần học một số lệnh dễ nhớ để xác định cấu trúc logic của tài liệu. Người dùng gần như không bao giờ cần phải suy nghĩ nhiều đến việc trình bày bản in vì công cụ sắp chữ  \TeX{} đã làm việc này một cách tự động.
+\item Ngay cả những cấu trúc phức tạp như chú thích, tham chiếu, biểu bảng, mục lục, \ldots cũng được tạo một cách dễ dàng.
+\item Bạn có thể sử dụng rất nhiều gói thêm vào (add-on package) miễn phí nhằm bổ sung những tính năng mà \LaTeX{} không hỗ trợ một cách trực tiếp. Ví dụ: các gói thêm vào có thể hỗ trợ việc đưa hình ảnh  \textsc{PostScript} hay hỗ trợ việc lập nên các danh mục sách tham khảo theo đúng chuẩn. Bạn có thể tham khảo thêm thông tin về các gói cộng thêm trong tài liệu \companion.
+\item \LaTeX{} khuyến khích người soạn thảo viết những tài liệu có cấu trúc rõ ràng bởi vì đây là cơ chế làm việc của \LaTeX{}.
+\item \TeX{}, công cụ định dạng của \LaTeXe{}, có tính khả chuyển rất cao và hoàn toàn miễn phí. Do đó, chương trình này sẽ chạy được trên hầu hết các hệ thống phần cứng, hệ điều hành khác nhau.
+\end{itemize}
+
+%
+% Thêm vào các ví dụ
+%
+
+\medskip
+
+\noindent \LaTeX{} cũng có nhiều điểm chưa thuận lợi cho người sử dụng. Bạn có thể liệt kê ra những điểm bất lợi này khi bắt đầu sử dụng \LaTeX{}. Ở đây, tôi xin liệt kê ra một vài điểm như sau:
+\begin{itemize}
+        \item \LaTeX{} không phục vụ tốt cho những kẻ đánh mất lương tri.
+        \item Mặc dù, đối với một kiểu trình bày văn bản định sẵn,  các tham số đình dạng đều có thể thay đổi nhưng việc thiết kế một kiểu trình bày mới hoàn toàn là rất khó khăn và tốn nhiều thời gian.\footnote{Một số tin đồn cho rằng đây sẽ là một trong những điểm yếu được khắc phục tronog phiên bản \LaTeX{}3}
+        \item Biên soạn những tài liệu không có cấu trúc, hoặc lộn xộn ... là rất khó khăn
+        \item Trong những bước làm việc đầu tiên bạn có thể dùng chuột nhưng khi sử dụng quen thì con chuột sẽ không phục vụ gì nhiều cho khái nhiệm đánh dấu logic (Logical Markup).
+\end{itemize}
+
+\section{Các tập tin nhập liệu của \LaTeX{}}
+Dữ liệu đưa vào cho \LaTeX{} là văn bản thông thường được lưu dưới dạng kí tự \texttt{ASCII}. Bạn có thể soạn thảo tập tin này bằng một chương trình soạn thảo văn bản thông thường như \emph{Notepad}, \emph{vim}, \emph{gvim}, \ldots Tập tin này sẽ chứa phần văn bản cũng như các lệnh định dạng của \LaTeX{}.
+
+\subsection{Khoảng trắng}
+Các kí tự: khoảng trắng hay tab được xem như nhau và được gọi là kí tự ``\wi{khoảng trắng}''. Nhiều kí tự khoảng trắng liên tiếp cũng chỉ được xem là \wi{một} khoảng trắng. Các khoảng trắng ở vị trí bắt đầu một hàng thì được bỏ qua. Ngoài ra kí tự xuống hàng đơn được xem là một khoảng trắng. \index{khoảng trắng! ở đầu hàng}
+
+Một hàng trắng giữa hai hàng văn bản sẽ xác định việc kết thúc một đoạn văn. \emph{Nhiều hàng trắng} được xem là \emph{một} hàng trắng.
+
+Từ đây trở đi, các ví dụ sẽ được trình bày như sau: bên trái sẽ là phần dữ liệu được nhập vào và bên phải sẽ là kết quả được xuất ra tương ứng (phần kết quả được xuất ra được đóng khung).
+
+\begin{example}
+Đây là một ví dụ cho thấy
+rằng nhiều            khoảng
+trắng cũng
+chỉ được xem là
+một             khoảng trắng.
+
+
+Đồng thời một hàng trắng
+sẽ bắt đầu một đoạn mới.
+\end{example}
+
+\subsection{Một số kí tự đặc biệt}
+Những kí tự sau là các kí tự được \wi{dành riêng} hay có một ý nghĩa đặc biệt trong \LaTeX{} hoặc là nó không có mặt trong bất kỳ bộ font chữ nào. Khi bạn nhập chúng vào một cách trực tiếp thì thông thường chúng sẽ không được in ra và đôi khi nó cũng khiến cho \LaTeX{} làm một số việc mà bạn đã không dự đoán trước hoặc chúng cũng có thể khiến cho \LaTeX{} báo lỗi. %Các kí tự đặt biệt đó là: 
+
+\begin{code}
+\verb. # $ % ^ & _ { } ~ | . % $
+\end{code}
+Bạn sẽ thấy rằng các kí tự này sẽ được sử dụng rất nhiều trong tài
+liệu. Để sử dụng các kí hiệu trên trong tài liệu, bạn cần phải thêm vào một tiền tố phía trước là dấu gạch chéo (\bs{}).
+\begin{example}
+\# \$ \% \^{} \& \_ \{ \} \~{}
+\end{example}
+
+Các kí hiệu khác có thể được in ra trong các công thức toán hay các dấu trọng âm với các chỉ thị lệnh. Dấu gạch chéo (\bs{})
+\emph{không thể} được nhập vào bằng cách thêm vào trước nó một dấu gạch chéo (\verb|\\|) như các trường hợp trên. Khi bạn nhập vào \verb|\\| thì \LaTeX{} sẽ hiểu rằng bạn muốn xuống
+hàng\footnote{Bạn nên nhập vào %
+\texttt{\$}\ci{backslash}\texttt{\$}. Chỉ thị lệnh này sẽ in ra %
+dấu '\bs{}'.}.
+
+\subsection{Một số lệnh của \LaTeX{}}
+
+Các lệnh của \LaTeX{} cần phải được nhập vào theo đúng chữ hoa và
+chữ thường. Nó có thể có hai dạng thức như sau:
+\begin{itemize}
+        \item Chúng có thể bắt đầu bằng dấu \verb|\| và tiếp theo là tên lệnh (chỉ gồm các kí tự). Các tên lệnh thường được kết thúc bằng một khoảng trắng, một số hay một 'kí hiệu'. 
+        \item Chúng gồm có một dấu vạch chéo ngược (\bs{}) và chỉ đúng một `kí hiệu'.
+\end{itemize}
+%
+% \\* doesn't comply !
+%
+%
+% Can \3 be a valid command ? (jacoboni)
+%
+\label{whitespace}
+
+\LaTeX{} bỏ qua khoảng trắng sau các lệnh. Nếu bạn muốn có khoảng trắng sau các lệnh thì bạn nên nhập thêm vào \verb|{}| và một khoảng trắng hay một lệnh khoảng trắng đặc biệt sau tên lệnh. Việc nhập vào \verb|{}| sẽ ngăn cản \LaTeX{} xoá mất các kí tự khoảng trắng sau tên lệnh.
+
+\begin{example}
+Knuth phân loại người
+sử dụng \TeX{} thành
+\TeX{}nicians
+và \TeX
+ eperts.
+\end{example}
+Rõ ràng trong ví dụ trên, khi sử dụng lệnh \verb|\TeX| mà không thêm vào \verb|{ }| thì chữ các khoảng trắng giữa từ `experts' và \verb|\TeX| bị bỏ qua và do đó chúng được viết liền nhau thành \TeX{}experts.
+
+Một số lệnh cần có \wi{tham số}. Các tham số này sẽ được ghi ở
+giữa dấu ngoặc \verb|{ }| ở phía sau tên lệnh. Một số lệnh có yêu
+cầu tham số; tuy nhiên, các tham số này là \wi{tuỳ chọn}, khi này nó được
+nhập vào trong dấu ngoặc vuông \verb|[ ]|.
+
+\begin{example}
+Bạn có thể \textsl{dựa} vào tôi!
+\end{example}
+
+\begin{example}
+Vui lòng bắt đầu một
+hàng mới!\newline
+Cám ơn!
+\end{example}
+
+\subsection{Các lời chú thích} \index{comments}
+Khi mà \LaTeX{} gặp một kí tự \verb|%| thì nó sẽ bỏ qua phần còn lại của hàng đang được xử lý. Ngoài ra, các kí tự xuống hàng và các khoảng trắng ở đầu hàng tiếp theo sẽ được bỏ qua.
+
+Bạn có thể sử dụng kí tự này để thực hiện việc ghi chú vào tập tin soạn thảo mà không lo lắng việc in chúng ra cùng với bản in hoàn chỉnh.
+
+\begin{example}
+Nó quả là % đơn giản
+% tốt hơn <----
+một ví dụ khùng điên,
+        vô nghĩa
+\end{example}
+
+Ngoài ra, kí tự \texttt{\%} còn có thể được sử dụng để chia các hàng dữ liệu
+nhập vào quá dài khi mà các kí tự khoảng trắng hay là xuống hàng
+không được phép xuất hiện.
+
+Với các lời bình dài, bạn có thể sử dụng môi trường được cung cấp
+bởi gói \pai{verbatim} là \ei{comment}. Gói này được đưa vào sử dụng thông qua lệnh sau:  \verb|\usepackage{verbatim}| 
+
+\begin{example} Đây là một ví dụ khác
+\begin{comment}
+cũng đơn giản nhưng hữu dụng
+\end{comment}
+minh hoạ cách đưa lời bình
+vào tài liệu.
+\end{example}
+
+Bạn cần chú ý rằng môi trường ghi chú này không làm việc trong những môi trường phức tạp như là các môi trường chứa các công thức toán học.
+
+\section{Cấu trúc của tập tin nhập liệu}
+Khi mà \LaTeXe{} xử lý một tập tin dữ liệu vào, nó sẽ đòi hỏi dữ
+liệu vào phải có một \wi{cấu trúc} nhất định. Mỗi tập tin
+dữ liệu vào phải được bắt đầu bởi lệnh:
+\begin{code}
+\verb|\documentclass{...}|
+\end{code}
+
+Lệnh này sẽ xác định kiểu của tài liệu mà bạn muốn soạn thảo. Tiếp
+đến, bạn có thể thêm vào các lệnh khác để định dạng cấu trúc của
+toàn bộ tài liệu. Ngoài ra, bạn có thể sử dụng các \wi{gói} khác
+để thêm vào các tính năng mở rộng không có sẵn trong \LaTeX{}. Các
+gói lệnh đó có thể được đưa vào bằng cách sử dụng lệnh
+\begin{code}
+\verb|\usepackage{...}|
+\end{code}
+
+Khi việc khai báo định dạng của tài liệu đã hoàn tất\footnote{Vùng dữ
+liệu nằm giữa \texttt{\bs
+    documentclass} và \texttt{\bs
+    begin$\mathtt{\{}$document$\mathtt{\}}$} được gọi là vùng
+  \emph{\wi{lời tựa}} (tiếng Anh là preamble).}, bạn có thể bắt đầu soạn phần thân của tài liệu với lệnh
+\begin{code}
+\verb|\begin{document}|
+\end{code}
+
+Bây giờ thì bạn bắt đầu soạn thảo phần văn bản kết hợp với các
+lệnh định dạng hữu ích của \LaTeX{}. Khi hoàn tất việc soạn thảo, bạn sẽ
+thêm vào lệnh
+\begin{code}
+\verb|\end{document}|
+\end{code}
+
+Lệnh này sẽ yêu cầu \LaTeX{} kết thúc phiên làm việc. Nội dung còn lại trong tài liệu sẽ bị bỏ qua.
+
+Hình~\ref{mini} minh hoạ cấu trúc cơ bản của một tập tin nhập liệu được soạn
+thảo theo \LaTeX{}. Một ví dụ về \wi{tập tin nhập liệu} phức tạp
+hơn sẽ được cung cấp ở hình~\ref{document}
+
+\begin{figure}[!bp]
+\begin{lined}{6cm}
+\begin{verbatim}
+\documentclass{article}
+\begin{document}
+Nhỏ gọn nhưng có nhiều ý nghĩa
+\end{document}
+\end{verbatim}
+\end{lined}
+\caption{Tập tin nhập liệu cơ bản của \LaTeX{}} \label{mini}
+\end{figure}
+
+\begin{figure}[!bp]
+\begin{lined}{10cm}
+\begin{verbatim}
+\documentclass[a4paper,11pt]{article}
+% Tựa đề của tài liệu
+\author{H.~Partl}
+\title{Minimalism}
+\begin{document}
+% Tạo tựa đề
+\maketitle
+% Tạo bảng mục lục
+\tableofcontents
+\section{Vài điều thú vị}
+Một tài liệu thú vị??!!
+\section{Tạm biệt các bạn}
+\ldots{} đây là phần kết thúc.
+\end{document}
+\end{verbatim}
+\end{lined}
+\caption{Ví dụ về một cấu trúc của một tài liệu được soạn thảo
+bằng \LaTeX{}.} \label{document}
+\end{figure}
+
+\section{Một số lệnh thông dụng}
+Tôi dám cược rằng bạn đang cố gắng thử làm việc dựa trên đoạn dữ liệu
+vào ngắn gọn ở trang \pageref{mini}. Dưới đây là một số hướng dẫn:
+bản thân của \LaTeX{} không phải là một chương trình có giao diện
+thân thiện với người dùng (\texttt{GUI - Graphic User Interfaces}) với các nút nhấn dùng để định dạng văn bản. \LaTeX{} là một phần mềm xử lý tập tin dữ liệu
+vào của bạn. Một vài phiên bản cài đặt của \LaTeX{} có giao diện
+đồ họa thân thiện và bạn có thể nhấn chuột để biên dịch. Tuy
+nhiên, đối với \texttt{dân chuyên nghiệp} thì nghệ thuật nằm ở
+cách mà bạn dùng hàng lệnh để dịch một tập tin dữ liệu vào thông
+qua các hàng lệnh. Chú ý: chúng tôi giả sử rằng một phiên bản chạy
+được của \LaTeX{} đã có trên máy của bạn.
+
+\begin{enumerate}
+\item
+  Soạn thảo tập tin dữ liệu vào của bạn bằng một chương trình soạn
+  thảo đơn giản thông thường. Trên hệ thống máy UNIX thì các phần
+  mềm soạn thảo thông thường đều có khả năng thực hiện thao tác
+  này. Trên hệ thống Windows thì bạn có thể sử dụng \emph{Notepad}
+  hay các chương trình khác và xác định dạng lưu trữ là
+  \emph{Plain text}. Ngoài ra, bạn cần lưu ý rằng phần mở rộng của tập
+  tin là \emph{.tex}.
+
+\item
+  Chạy \LaTeX{} với tập tin dữ liệu vào của bạn. Nếu chương trình thực hiện thành công thì nó sẽ xuất ra một tập tin có phần mở rộng là \emph{.dvi}. Trong một số tình huống, bạn cần phải chạy \LaTeX{} nhiều lần để có thể có được bảng mục lục và một số tham chiếu bên trong văn bản. Khi mà tập tin dữ liệu vào của bạn có lỗi thì \LaTeX{} sẽ báo cho bạn biết và ngừng thao tác xử lý tập tin này. Khi này, hãy nhấn \texttt{Ctrl-D} để trở về dòng lệnh bình thường.
+
+\begin{lscommand}
+\verb+latex thu01.tex+
+\end{lscommand}
+
+\item Bây giờ bạn có thể xem tập tin DVI. Có nhiều cách để thực hiện tác vụ này. Bạn có thể xem trên màn hình với lệnh
+\begin{lscommand}
+\verb+xdvi thu01.dvi &+
+\end{lscommand}
+
+Lưu ý: lệnh trên được thực thi trên nền hệ điều hành Unix, trong chế độ đồ hoạ X11. Nếu bạn làm việc trên nền hệ điều hành Windows bạn có thể sử dụng chương trình tương tự là \texttt{yap} (yet another previewer).
+
+Ngoài ra, bạn có thể chuyển tập tin dạng DVI sang dạng PostScript để in ấn hay xem với chương trình Ghostscript.
+
+\begin{lscommand}
+\verb+dvips -Pcmz thu01.dvi -o thu01.ps+
+\end{lscommand}
+
+Nếu hệ thống \LaTeX{} trên máy bạn đã được cài đặt chương trình \texttt{dvipdf} thì bạn có thể chuyển tập tin từ dạng DVI trực tiếp sang dạng PDF.
+
+\begin{lscommand}
+\verb+dvipdf thu01.dvi+
+\end{lscommand}
+
+\end{enumerate}
+
+
+\section{Cách trình bày một tài liệu}
+\subsection{Các lớp tài liệu}\label{sec:documentclass}
+Thông tin đầu tiên mà \LaTeX{} cần biết khi xử lý một tập tin dữ liệu vào là kiểu tài liệu mà người soạn thảo muốn tạo ra. Kiểu tài liệu sẽ được xác định với lệnh 
+\begin{lscommand}
+\ci{documentclass}\verb|[|\emph{tuỳ
+chọn}\verb|]{|\emph{lớp}\verb|}|
+\end{lscommand}
+
+\noindent Ở đây, \emph{lớp} cho biết kiểu tài liệu cần biên soạn. Bảng~\ref{documentclasses} liệt kê các kiểu tài liệu được định nghĩa sẵn. Bên cạnh các kiểu tài liệu chuẩn, \LaTeX còn cho phép thêm vào các gói mở rộng nhằm hỗ trợ cho việc tạo ra các kiểu tài liệu khác như: thư từ, các trang trình diễn, \ldots. Tham số \emph{\wi{tuỳ chọn}} sẽ tuỳ biến định dạng của các kiểu tài liệu. Các tham số trong mục \emph{tuỳ chọn} phải được cách nhau bởi dấu phẩy. Bạn có thể xem thêm bảng~\ref{options} để biết thêm các tham số thông dụng.
+
+\begin{table}[!bp]
+\caption{ Các lớp tài liệu.} \label{documentclasses}
+\begin{lined}{13cm}
+\begin{description}
+
+\item [\normalfont\texttt{article}]  phù hợp khi soạn các bài báo trong các tạp chí khoa học, các văn bản trình diễn, các báo cáo ngắn, chương trình hoạt động, thư mời, \ldots \index{article class}
+
+\item [\normalfont\texttt{report}] phù hợp khi soạn các báo cáo gồm nhiều chương, các quyển sách nhỏ, luận văn,\ldots \index{report class}
+
+\item [\normalfont\texttt{book}] phù hợp khi soạn sách.\index{book class}
+
+\item [\normalfont\texttt{slides}] dùng để thiết kế các trang trình diễn. Kiểu tài liệu này này sử dụng các kí tự sans serif cỡ lớn. Bạn có thể sử dụng một kiểu tài liệu khác là Foil\TeX{}\footnote{%
+        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}.
+        \index{slides class}\index{foiltex}
+\end{description}
+\end{lined}
+\end{table}
+
+\begin{table}[!bp]
+\caption{Các tuỳ chọn cho lớp tài liệu.} \label{options}
+\begin{lined}{13cm}
+\begin{flushleft}
+\begin{description}
+\item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}]
+\quad  Chỉnh kích thước font chữ trong cả tài liệu. Nếu không có tuỳ chọn nào được thiết lập thì cỡ chữ mặc đinh được chọn là
+\texttt{10pt}.\index{kích thước font chữ của tài liệu}\index{kích thước font cơ bản}
+
+\item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \ldots]
+\quad  Xác định cỡ giấy. Cỡ giấy mặc đinh là \texttt{letterpaper}. Ngoài ra, còn có các kiểu giấy khác như: \texttt{a5paper},
+\texttt{b5paper}, \texttt{executivepaper}
+  và \texttt{legalpaper}. \index{legal paper}
+  \index{paper size}\index{A4 paper}\index{letter paper} \index{A5
+    paper}\index{B5 paper}\index{executive paper}
+
+\item[\normalfont\texttt{fleqn}] \quad các công thức được hiển thị ở bên trái thay vì ở chính giữa.
+
+\item[\normalfont\texttt{leqno}] \quad đánh số các công thức ở bên trái thay vì ở bên phải.
+
+\item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad xác định việc tạo một trang trắng ngay sau \wi{ tựa đề của tài liệu} hay không. Theo mặc định, lớp \texttt{article} không bắt đầu một trang trắng ngay sau phần tựa đề. Ngược lại, đối với lớp \texttt{report} và \texttt{book} thì ngược lại.\index{title}
+
+\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Tài liệu được chia làm 1 hay 2 cột.
+
+\item[\normalfont\texttt{twoside, oneside}] \quad Xác định xem tài liệu sẽ được xuất ra dạng hai hay một mặt. Lớp
+\texttt{article} và \texttt{report} được thiết lập là các tài liệu \wi{ một mặt}. Ngược lại, lớp \texttt{book} là dạng tài liệu \wi{hai mặt}. Những tuỳ chọn này chỉ nhằm xác định dạng thức của tài liệu mà thôi. Tuỳ chọn \texttt{twoside} sẽ \emph{ không} thực hiện việc in tài liệu ra dạng hai mặt.
+
+\item[\normalfont\texttt{landscape}] \quad Thay đổi cách trình bày từ kiểu trang dọc sang trang ngang.
+
+\item[\normalfont\texttt{openright, openany}] \quad Các chương sẽ bắt đầu ở các trang bên tay phải hay ở trang trống kế tiếp. Tuỳ chọn này không làm việc đối với lớp \texttt{article} bởi vì đối với lớp này thì không có khái niệm về chương. Theo mặc định, lớp \texttt{report} sẽ bắt đầu các chương ở trong kế tiếp và lớp
+\texttt{book} bắt đầu các chương ở trang phía tay phải.
+\end{description}
+\end{flushleft}
+\end{lined}
+\end{table}
+
+Ví dụ: một tập tin nguồn của \LaTeX{} có thể được bắt đầu với
+\begin{code}
+\ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
+\end{code}
+
+Lệnh này sẽ báo cho \LaTeX{} biết rằng bạn cần tạo một tài liệu kiểu \emph{article}
+với cỡ chữ là \emph{11 điểm}, được in \emph{hai mặt} trên khổ giấy \emph{A4}.
+
+\subsection{Các gói} \index{package} 
+Trong quá trình soạn thảo tài liệu, bạn sẽ nhận thấy rằng có một số công việc mà \LaTeX{} không thể giải quyết được. Ví dụ, chỉ với \LaTeX{} thì bạn không thể kết hợp các hình ảnh vào tài liệu được, hay đơn giản hơn là bạn không thể đưa màu sắc vào tài liệu. Khi này, để có thể mở rộng khả năng của \LaTeX{}, bạn sẽ cần thêm vào một số công cụ bổ sung (chúng được gọi là các \emph{gói}). Để sử dụng các gói bổ sung này, ta cần phải sử dụng lệnh:
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{tuỳ %
+chọn}\verb|]{|\emph{tên gói}\verb|}|
+\end{lscommand}
+\noindent \emph{ tuỳ chọn} là một danh sách các từ khoá nhằm kích hoạt các tính năng của gói. Với các phiên bản \LaTeX{} chuẩn, bạn có thể tìm thấy rất nhiều các gói cơ bản. Ngoài ra, bạn có thể tìm thấy các gói khác được phân phối
+riêng lẻ. Bạn có thể vào các trang web có liên quan để biết thêm thông tin về cách cài đặt và sử dụng các gói. Bạn có thể tìm hiểu thêm thông tin chi tiết về mã nguồn, cách thiết kế trong quyển \companion.
+
+\begin{table}[!hbtp]
+\caption{ Một số gói được phân phối chúng với \LaTeX{}.}
+\label{packages}
+\begin{lined}{11cm}
+\begin{description}
+\item[\normalfont\pai{doc}]  Cung cấp tài liệu về các chương trình của \LaTeX{}. Chúng được mô tả trong tập tin \texttt{doc.dtx}\footnote{ tập tin này có trên máy của bạn và bạn có thể dịch nó sang dạng DVI vào một thư mục bất kỳ bằng cách đánh lệnh \texttt{latex doc.dtx} Với các tập tin được đề cập khác bạn cũng có thể thao tác tương tự.}
+
+\item[\normalfont\pai{exscale}] Cung cấp các phiên bản có thể thay đổi kích thước của các font chữ về toán.\\
+  Thông tin được mô tả trong tập tin \texttt{ltexscale.dtx}.
+
+\item[\normalfont\pai{fontenc}] Xác định cách \wi{mã hoá font chữ} mà \LaTeX{} nên dùng.\\
+  Thông tin được mô tả trong tập tin \texttt{ltoutenc.dtx}.
+
+\item[\normalfont\pai{ifthen}] Cung cấp các lệnh thao tác trên các biểu mẫu\\ 
+  `if \ldots then  do\ldots hay là do\ldots.'\\ Thông tin được mô
+  tả trong tập tin \texttt{ifthen.dtx} và \companion.
+
+\item[\normalfont\pai{latexsym}] để truy cập đến các kí hiệu trong các font chữ của \LaTeX{}. Bạn nên sử dụng gói \texttt{latexsym}. Thông tin được mô tả trong tập tin \texttt{latexsym.dtx} và trong
+\companion.
+
+\item[\normalfont\pai{makeidx}] Cung cấp các lệnh để tạo chỉ mục. Thông tin được mô tả trong mục~\ref{sec:indexing} và trong \companion.
+
+\item[\normalfont\pai{syntonly}] Biên dịch tài liệu mà không tiến hành sắp chữ. Gói này cho phép kiểm tra lỗi cú pháp khi soạn thảo mà không biên dịch cho nên việc kiểm tra diễn ra rất nhanh.
+
+\item[\normalfont\pai{inputenc}] Hỗ trợ việc nhập liệu theo các bảng mã như ASCII, ISO Latin-1, ISO Latin-2, 437/850 IBM, Apple Macintosh, Next, ANSI-Windows hay do người dùng định nghĩa.\\
+Thông tin được mô tả trong \texttt{inputenc.dtx}.
+\end{description}
+\end{lined}
+\end{table}
+
+\subsection{Các định dạng trang của trang văn bản}
+\LaTeX{} hỗ trợ ba kiểu định dạng sẵn cho phần \wi{tiêu đề} / \wi{phần
+chân} (header/footer) của các trang văn bản. Câu lệnh điều khiển:
+\begin{lscommand}
+\ci{pagestyle}\verb|{|\emph{kiểu}\verb|}|
+\end{lscommand}
+\noindent Tham số \emph{kiểu} xác định kiểu định dạng được sử dụng. Bảng~\ref{pagestyle} liệt kê tất cả các kiểu định dạng được định nghĩa sẵn của trang văn bản.
+
+\begin{table}[!thbp]
+\caption{Các kiểu định dạng sẵn của trang văn bản trong \LaTeX.}
+\label{pagestyle}
+\begin{lined}{12cm}
+\begin{description}
+
+\item[\normalfont\texttt{plain}]  đánh và xuất số trang ở giữa phần chân ở cuối trang văn bản. Đây là kiểu định dạng mặc định.
+
+\item[\normalfont\texttt{headings}] xuất tiêu đề của chương hiện tại và số thứ tự của trang văn bản ở vùng tiêu đề của trang; đồng thời, phần chân của trang được để trống.
+
+\item[\normalfont\texttt{empty}] đặt cả phần tiêu đề và phân chân của trang là rỗng.
+
+\end{description}
+\end{lined}
+\end{table}
+
+Bạn cũng có thể đặt định dạng cho riêng từng trang với lệnh sau:
+\begin{lscommand}
+\ci{thispagestyle}\verb|{|\emph{style}\verb|}|
+\end{lscommand}
+
+Bạn có thể tham khảo thêm chi tiết về việc trình bày tiêu đề và phần chân của trang văn bản theo ý riêng trong tài liệu
+\companion{} hay trong mục~\ref{sec:fancy} ở trang~\pageref{sec:fancy}.
+
+\section{Một số dạng tập tin thường gặp}
+Khi làm việc với \LaTeX{}, có đôi lúc bạn sẽ cảm thấy mình bị lạc giữa một mê cung các tập tin với các phần đuôi mở rộng khác nhau. Dưới đây là danh sách liệt kê các \wi{kiểu tập tin} mà bạn có thể gặp phải khi làm việc với \TeX{}. Lưu ý rằng đây chỉ là một bảng tóm tắt các dạng tập tin thông dụng mà bạn có thể gặp trong khi làm việc với \LaTeX{}.
+
+\begin{description}
+
+\item[\eei{.tex}]  Tập tin nhập liệu của \LaTeX{} hay \TeX{}. Nó
+có thể được biên dịch với lệnh:\
+  \texttt{latex}.
+\item[\eei{.sty}] Gói lệnh thêm vào cho \LaTeX{}. Nó là một tập
+tin riêng lẽ và bạn có thể kết hợp nó vào tập tin tài liệu của bạn
+bằng cách sử dụng lệnh: \
+  \ci{usepackage}.
+\item[\eei{.dtx}] Tài liệu về \TeX{}. Tập tin này là dạng được cung cấp với các tập tin định dạng. Nếu bạn dịch một tập tin .DTX thì bạn sẽ có được tài liệu về các tập lệnh trong gói chứa trong tập tin .DTX.
+
+\item[\eei{.ins}] Các tập tin cài đặt đi kèm với các tập tin có phần mở rộng là .DTX. Nếu bạn tải về một gói cộng thêm của \LaTeX{} từ trên mạng, thông thường thì bạn sẽ có được một tập tin .dtx và một tập tin .ins. Chạy \LaTeX{} đối với tập tin .ins sẽ được kết quả là tập tin .dtx.
+
+\item[\eei{.cls}] Tập tin lưu các lớp định nghĩa việc định dạng
+tài liệu của bản. Chúng được sử dụng bởi lệnh:\\
+\ci{documentclass}.
+
+\item[\eei{.fd}] Tập tin mô tả font chữ giúp \LaTeX{} có thông tin về các font chữ mới.
+\end{description}
+
+
+Dưới đây là một số tập tin được tạo ra khi bạn sử dụng \LaTeX{} để biên dịch tập tin dữ liệu vào:
+
+\begin{description}
+\item[\eei{.dvi}]  Tập tin này mô tả dữ liệu độc lập với thiết bị. Nó chứa đựng kết quả chính của quá trình biên dịch của \LaTeX{}. Bạn có thể xem nội dung của nó bằng các chương trình xem tập tin DVI như \emph{YAP, dvips}, \ldots.
+
+\item[\eei{.log}] Lưu các thông tin chi tiết về quá trình biên dịch cuối cùng.
+
+\item[\eei{.toc}] Lưu tiêu đề của tất cả các mục. Nó sẽ được đọc trong lần biên dịch tiếp theo và được sử dụng để tạo bảng mục lục.
+
+\item[\eei{.lof}] Tương tự như tập tin .toc nhưng nó lưu thông tin về danh sách các hình ảnh.
+
+\item[\eei{.lot}] Tương tự như hai tập tin trên nhưng nó lưu thông tin về các bảng trong tài liệu.
+
+\item[\eei{.aux}] Tập tin này chuyển các thông tin biên dịch từ tập tin này đến tập tin khác. Các tập tin .aux này sẽ được dùng để lưu thông tin về các tham chiếu chéo.
+
+\item[\eei{.idx}] Nếu tài liệu của bạn có trang về chỉ mục thì tập tin này sẽ lưu tất cả các từ khoá. Bạn có thể biện dịch tập tin này với lệnh:\\
+  \texttt{makeindex}. Tham khảo thêm chương \ref{sec:indexing} ở trang \pageref{sec:indexing} để biết thêm chi tiết.
+
+\item[\eei{.ind}] Chứa thông tin đã được dịch từ tập tin .idx. Bạn có thể đính kèm tập tin này vào tài liệu của bạn cho lần biên dịch tiếp theo.
+
+\item[\eei{.ilg}] Tập tin này lưu trữ thông tin về những gì mà lệnh \texttt{makeindex} đã tiến hành..
+\end{description}
+
+
+\section{Các tài liệu lớn}
+Thông thường, khi làm việc với các tài liệu lớn, ta thường chia tài liệu ra làm nhiều phần nhỏ hơn để việc quản lý tài liệu được thuận tiện, dễ dàng hơn. \LaTeX{} cung cấp cho bạn hai lệnh hỗ trợ cho việc này.
+\begin{lscommand}
+\ci{include}\verb|{|\emph{filename}\verb|}|
+\end{lscommand}
+\noindent Bạn có thể sử dụng lệnh này ở trong phần thân của tài liệu để chèn vào nội dung của một tập tin khác có tên là
+\emph{filename.tex}. Lưu ý rằng \LaTeX{} sẽ không bắt đầu một trang mới trước khi xử lý các dữ liệu trong tập tin dữ liệu vào nhập từ tập tin \emph{filename.tex}
+
+Lệnh thứ hai có thể sử dụng trong phần tựa đề. Nó cho phép bạn hướng dẫn \LaTeX{} chỉ đưa vào một số tập tin.
+\begin{lscommand}
+\ci{includeonly}\verb|{|\emph{filename}\verb|,|\emph{filename}%
+\verb|,|\ldots\verb|}|
+\end{lscommand}
+
+Sau khi lệnh này được thực thi ở phần tựa đề của tài liệu, thì chỉ có các lệnh \ci{include} ứng với các tập tin trong danh sách tham số của lệnh \ci{includeonly} mới có tác dụng. Lưu ý rằng không có khoảng trắng giữa tên các tập tin trong phần danh sách tham số và các tập tin phải được cách ra bởi dấu phẩy.
+
+Lệnh \ci{include} tiến hành sắp chữ dữ liệu từ nhập tin ở một trang mới. Việc sử dụng lệnh \ci{includeonly} là rất hữu ích bởi vì các chỉ thị kết thúc trang sẽ không bị di chuyển ngay cả khi một số tập tin đưa vào bị bỏ qua. Nếu không thích việc sắp chữ này thì bạn có thể chèn tập tin vào trực tiếp thông qua lệnh:
+\begin{lscommand}
+\ci{input}\verb|{|\emph{filename}\verb|}|
+\end{lscommand}
+
+\noindent Lệnh này chỉ đơn thuần là kèm tập tin được chỉ đinh vào
+tài liệu hiện thời của bạn mà không kèm theo điều kiện gì cả.
+
+Nhằm giúp cho \LaTeX{} có thể kiểm tra tài liệu của bạn một cách
+nhanh chóng hơn, bạn có thể sử dụng gói \pai{syntonly}. Gói này
+cho phép \LaTeX{} lướt qua tài liệu của bạn và chỉ kiểm tra một số
+cú pháp và các lệnh nhưng không xuất ra kết quả (tập tin DVI). Khi
+sử dụng gói này, \LaTeX{} sẽ chạy rất nhanh và bạn sẽ tiết kiệm
+được rất nhiều thời gian. Cách sử dụng gói này rất đơn giản:
+\begin{verbatim}
+\usepackage{syntonly}
+\syntaxonly
+\end{verbatim}
+
+Khi mà bạn muốn tạo ra các trang kết quả thật sự, bạn chỉ việc loại bỏ
+gói \emph{syntonly} ra khỏi tài liệu.
+
+%
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

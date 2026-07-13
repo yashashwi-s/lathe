@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 45}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\caption{$[W] = DistributedChebyshevFilter(V, m, a, b, a_{0})$}
+\begin{algorithmic}[1]
+\State \textbf{variables}: $\Omega$ the 2D grid of $p$ processes; $A$ the distributed sparse matrix; $I$ the distributed identity matrix; $V$ the distributed input matrix; $m$ the degree of a Chebyshev polynomial; $a$ the lower bound of unwanted eigenvalues of $A$; $b$ the upper bound of all eigenvalues; $a_{0}$ the lower bound of all eigenvalues;
+\State $c = (a + b) / 2$; $e = (b - a)/2$;
+\State $\sigma = e/(a_{0}-c)$;
+\State $t = 2/\sigma$;
+\State Compute $U = (AV - cV)\sigma/e $ using distributed SpMM;
+\State Transpose the 2D grid $\Omega$;
+\State Update $U \hookleftarrow I U$ using distributed SpMM;
+\For{$i = 2:m$}
+\State $\sigma_{1} = 1/(\tau - \sigma)$;
+\State Transpose the 2D grid $\Omega$;
+\State Compute $W = 2\sigma_{1}(A U - c U)/e - \sigma\sigma_{1}v$ using distributed SpMM;
+\State Transpose the 2D grid $\Omega$;
+\State Update $W \hookleftarrow I W$ using distributed SpMM;
+\State $V = U$;
+\State $U = W$;
+\State $\sigma = \sigma_{1}$;
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

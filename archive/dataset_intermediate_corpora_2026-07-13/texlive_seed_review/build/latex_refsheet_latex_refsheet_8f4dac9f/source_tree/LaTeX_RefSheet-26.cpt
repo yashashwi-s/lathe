@@ -1,0 +1,13 @@
+
+\subsection{Acronyms with \texttt{acro}}\label{sec:acro}
+\begin{mylatex}
+\usepackage{acro,hyperref,longtable,tabu} %next 5 to praeambel
+\acsetup{list-style=longtabu,list-heading=addchap}
+\DeclareAcroListStyle{longtabu}{table}{table=longtabu,
+  table-spec=@{}>{\bfseries}lX@{}}
+\DeclareAcronym{ecm}{short=EM,long=Electro Machining}
+...
+\ac{EM} or \Ac{EM} for capitalized first letter
+\printacronyms
+\end{mylatex}
+^^E^^L 

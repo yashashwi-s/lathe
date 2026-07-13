@@ -1,0 +1,58 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{amsmath}% for \:, \medspace, \; and \thickspace
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of some \LaTeX\ commands for 
+horizontal spacing.
+
+The list of horizontal spacings is inspired from 
+\texttt{https://tex.stackexchange.com/a/74354/228515}.
+
+\begin{quiz}[points=1]{Horizontal spacing}
+\begin{multi}[shuffle=false]{LaTeX Commands}
+Find the nut.
+\item mnnm \quad $mnnm$
+\item mn\space nm \quad $mn\space nm$
+\item mn nm \quad $mn nm$
+\item mn\,nm \quad $mn\,nm$
+\item mn\thinspace nm \quad $ mn\thinspace nm$
+\item mn~nm \quad $mn~nm$
+\item mn\ nm \quad $mn\ nm$
+\item $mn\>nm$ % defined only in math-mode
+\item mn\:nm \quad $mn\:nm$
+\item mn\medspace nm \quad $mn\medspace nm$
+\item mn\;nm \quad $mn\;nm$
+\item mn\thickspace nm \quad $mn\thickspace nm$
+\item* mn\enspace nm \quad $mn\enspace nm$
+\item mn\quad nm \quad $mn\quad nm$
+\item mn\qquad nm \quad $mn\qquad nm$
+\item mn\textvisiblespace nm
+\item mn\\nm
+\item mn\newline nm
+\item mn%
+
+nm
+\item mn\par nm
+\end{multi}
+\begin{multi}[shuffle=false]{Math spacing}
+Dummy text{}
+\item $a+$
+\item $a+b$
+\item* $a+{}$
+\item $a\ +$
+\end{multi}
+\end{quiz}
+\end{document}

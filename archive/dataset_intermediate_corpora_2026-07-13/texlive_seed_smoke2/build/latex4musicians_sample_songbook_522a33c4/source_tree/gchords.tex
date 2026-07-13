@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{gchords}
+\thispagestyle{empty}
+
+\begin{document}
+
+\def\numfrets{4}
+
+\chords{ % print a row of chords
+% fingers: n, x, o, p{n}, f{n}
+% C chord: finger 3 pos. 3, finger 2 pos. 2, finger 1 pos. 1
+\chord{t}{n,f3p3,f2p2,n,f1p1,n}{C}
+\chord{t}{n,n,p2,p2,p1,n}{Am}
+\chord{t}{x,n,n,p2,p3,p1}{Dm}
+\chord{t3}{n,p2,n,p1,n,n}{G7 (ugly)}
+{\tiny   % font size for string labels, t{X}
+\chord{t}{t{E}n,t{A}n,t{D}n,t{G}n,t{B}n,t{e}n}
+{std. tuning} }
+}
+
+\end{document}

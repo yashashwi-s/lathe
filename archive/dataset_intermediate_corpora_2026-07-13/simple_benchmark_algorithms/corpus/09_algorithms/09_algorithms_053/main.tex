@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 53}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\State possible pair list $\gets$ conventional neighbour list
+\State new pair list $\gets \varnothing$
+\ForAll{stickers $i$}
+\State $N_{bonds}[i]\gets0$
+\EndFor
+\State shuffle possible pair list
+\ForAll{pairs $(i,j) \in$ possible pair list}
+\State $\Delta E_{ij} \gets U_{bound}(r_{ij})-U_{unbound}(r_{ij})$
+\If {$(i,j) \in$ previous pair list}
+\If {$X\sim U(0,1)>\exp(-\Delta E_{ij})$}
+\State append $(i,j)$ to new pair list
+\State $N_{bonds}[i]\gets N_{bonds}[i]+1$
+\State $N_{bonds}[j]\gets N_{bonds}[j]+1$
+\EndIf
+\ElsIf{$N_{bonds}[i]<functionality$ \textbf{ and } $N_{bonds}[j]<functionality$}
+\If {$X\sim U(0,1)<\exp(-\Delta E_{ij})$}
+\State append $(i,j)$ to new pair list
+\State $N_{bonds}[i]\gets N_{bonds}[i]+1$
+\State $N_{bonds}[j]\gets N_{bonds}[j]+1$
+\EndIf
+\EndIf
+\EndFor
+\State previous pair list $\gets$ new pair list
+\end{algorithmic}
+\end{algorithm}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[12pt,french]{article}
+  %% ===== Ne rien modifier dans ce bloc =====================
+  \usepackage{iftex}            % détection du moteur utilisé
+  \iftutex                      % XeLaTeX
+    \usepackage{fontspec}
+  \else                         % pdfLaTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+  \fi
+  %% =========================================================
+  \usepackage{babel}
+
+\begin{document}
+
+Les commandes \LaTeX débutent par le symbole \verb=\= et se
+terminent par le premier caractère autre qu'une lettre, y compris
+l'espace. Cela a pour conséquence qu'une espace immédiatement après
+une commande sans argument sera \emph{avalée} par la commande.
+
+La portée d'une commande est \bfseries limitée à la zone entre accolades.
+
+\begin{itemize}
+\item L'environnement \texttt{enumerate} permet de créer une liste
+  numérotée.
+\item Les environnements de listes sont parmi les plus utilisés en
+  \LaTeX.
+\end{itemize}
+
+\end{document}

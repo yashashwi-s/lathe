@@ -1,0 +1,86 @@
+% This file is public domain.
+
+\documentclass{article}
+
+\usepackage{color}
+\usepackage[draft]{flowfram}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+
+\newstaticframe[1,2]{3in}{3in}{0pt}{0pt}[sf1]
+\newdynamicframe[1,3]{2in}{3in}{0.7\textwidth}{0.5\textheight}[df1]
+
+\newstaticframe[2]{3in}{3in}{0.5\textwidth}{0.5\textheight}[sf2]
+
+\newdynamicframe[3]{2in}{2in}{0.5\textwidth}{0pt}[df2]
+
+\setlength{\sdfparindent}{\parindent}
+
+\onecolumn
+
+\newlength\fancywidth
+\newlength\fancyheight
+\newlength\fancydepth
+
+\newcommand{\fancyframe}[1]{%
+\settowidth{\fancywidth}{#1}%
+\settoheight{\fancyheight}{#1}%
+\settodepth{\fancydepth}{#1}%
+\addtolength{\fancyheight}{\fancydepth}%
+\tikz[baseline=0pt]{%
+\draw[decorate,decoration={bumps}]
+  (0pt,0pt)
+  rectangle (\fancywidth,\fancyheight);
+}}
+
+\begin{document}
+\setstaticframe{1,2}{valign=t}
+\setstaticframe{1}{border=fancyframe}
+\setstaticcontents{1}{Top\par
+\vfill
+Bottom}
+
+\setdynamiccontents{1}{Bar}
+\begin{dynamiccontents*}{df1}
+Paragraph 1
+
+Paragraph 2
+\end{dynamiccontents*}
+
+Dynamic frame 1 is 
+\relativeframelocation{dynamic}{1}{static}{1}
+of static frame 1.
+
+\newpage\mbox{}
+
+\begin{staticcontents*}{sf1}
+Some sample text on the left static frame.
+\continueonframe[continued \relativeframelocation{static}{2}{static}{1}]{sf2}
+Some more text on the right static frame, and
+some more text to pad it out a bit.
+\end{staticcontents*}
+
+\newpage\mbox{}
+
+Dynamic frame 1 is
+\SaveRelativeFrameLocation{savedref}{dynamic}{1}{static}{1}% save to aux file
+\RefSavedRelativeLocation{savedref} % needs rerun
+of static frame 1.
+
+Is dynamic frame 1 above static frame 1?
+\IfSavedRelativeLocationAbove{savedref}{true}{false}.
+
+Is dynamic frame 1 above but not right of static frame 1?
+\IfSavedRelativeLocationEq{savedref}{\FFabove}{true}{false}.
+
+Is dynamic frame 1 above right of static frame 1?
+\IfSavedRelativeLocationEq{savedref}{\FFaboveright}{true}{false}.
+
+\begin{dynamiccontents}{1}
+Some sample text in the first dynamic frame.
+\continueonframe[continued \reldynamicloc*{df2}{df1}]{2}
+Some more text in the second dynamic frame, and
+some more text to pad it out a bit.
+\end{dynamiccontents}
+
+\end{document}

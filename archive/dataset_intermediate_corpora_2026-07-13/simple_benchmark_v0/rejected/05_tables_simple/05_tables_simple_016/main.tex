@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00323\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ & \textbf{models} & \textbf{atlas-math-sets} & \textbf{bioasq10b-factoid} & \textbf{biomedical\_cpgQA} & \textbf{ielts} & \textbf{JournalQA} & \textbf{QuAC} & \textbf{ScienceQA} & \textbf{Question Answer Dataset} \\ \hline
+\textbf{1} & \textbf{twmkn9/albert-base-v2-squad2} & - & - & - & - & - & - & {[}{[}1, 0.36{]}, {[}3, 0.08{]}{]} & - \\ \hline
+\textbf{2} & \textbf{valhalla/bart-large-finetuned-squadv1} & {[}{[}4, 1.0{]}{]} & {[}{[}1, 0.74{]}{]} & {[}{[}5, 1.0{]}{]} & - & - & - & {[}{[}2, 0.21{]}{]} & - \\ \hline
+\textbf{3} & \textbf{deepset/roberta-base-squad2} & - & {[}{[}3, 0.58{]}{]} & - & {[}{[}2, 0.94{]}{]} & - & - & - & - \\ \hline
+\textbf{4} & \textbf{Palak/microsoft\_deberta-large\_squad} & - & - & {[}{[}3, 1.0{]}{]} & - & {[}{[}3, 0.18{]}, {[}4, 0.43{]}{]} & - & - & - \\ \hline
+\textbf{5} & \textbf{bhadresh-savani/electra-base-squad2} & {[}{[}1, 0.04{]}, {[}2, 1.0{]}{]} & - & - & - & {[}{[}2, 0.43{]}{]} & - & - & {[}{[}1, 0.31{]}, {[}5, 0.57{]}{]} \\ \hline
+\textbf{6} & \textbf{gpt2} & - & - & - & {[}{[}4, 1.0{]}{]} & - & - & - & - \\ \hline
+\textbf{7} & \textbf{allenai/longformer-large-4096-finetuned-triviaqa} & - & {[}{[}2, 0.65{]}{]} & - & - & - & {[}{[}3, 0.1{]}, {[}4, 0.05{]}{]} & - & - \\ \hline
+\textbf{8} & \textbf{csarron/mobilebert-uncased-squad-v2} & - & - & {[}{[}1, 0.98{]}{]} & - & - & - & - & {[}{[}3, 0.63{]}{]} \\ \hline
+\textbf{9} & \textbf{SRDdev/QABERT-small} & - & - & - & - & - & - & {[}{[}4, 0.18{]}{]} & - \\ \hline
+\textbf{10} & \textbf{bert-large-uncased-whole-word-masking-finetuned-squad} & - & - & - & {[}{[}3, 0.92{]}{]} & {[}{[}1, 0.27{]}{]} & - & - & - \\ \hline
+\textbf{11} & \textbf{ahotrod/electra\_large\_discriminator\_squad2\_512} & {[}{[}3, 0{]}, {[}5, 0{]}{]} & {[}{[}4, 0.47{]}, {[}5, 0{]}{]} & {[}{[}2, 0.95{]}, {[}4, 0.95{]}{]} & {[}{[}1, 0.89{]}, {[}5, 0{]}{]} & {[}{[}5, 0.6{]}{]} & {[}{[}1, 0.23{]}, {[}2, 0.09{]}, {[}5, 0{]}{]} & {[}{[}5, 0{]}{]} & {[}{[}2, 0.74{]}, {[}4, 0.61{]}{]} \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00291\_table\_13}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cl@{\hspace{4em}}cl}
+
+$\leq$        & \verb"\leq"        & $\geq$        & \verb"\geq" \\
+$\prec$       & \verb"\prec"       & $\succ$       & \verb"\succ" \\
+$\preceq$     & \verb"\preceq"     & $\succeq$     & \verb"\succeq" \\
+$\ll$         & \verb"\ll"         & $\gg$         & \verb"\gg" \\
+$\subset$     & \verb"\subset"     & $\supset$     & \verb"\supset" \\
+$\subseteq$   & \verb"\subseteq"   & $\supseteq$   & \verb"\supseteq" \\
+$\sqsubset$   & \verb"\sqsubset"   & $\sqsupset$   & \verb"\sqsupset" \\
+$\sqsubseteq$ & \verb"\sqsubseteq" & $\sqsupseteq$ & \verb"\sqsupseteq" \\
+$\in$         & \verb"\in"         & $\ni$         & \verb"\ni" \\
+$\vdash$      & \verb"\vdash"      & $\dashv$      & \verb"\dashv" \\
+$\smile$      & \verb"\smile"      & $\mid$        & \verb"\mid" \\
+$\frown$      & \verb"\frown"      & $\parallel$   & \verb"\parallel" \\
+$\neq$        & \verb"\neq"        & $\perp$       & \verb"\perp" \\
+$\equiv$      & \verb"\equiv"      & $\cong$       & \verb"\cong" \\
+$\sim$        & \verb"\sim"        & $\bowtie$     & \verb"\bowtie" \\
+$\simeq$      & \verb"\simeq"      & $\propto$     & \verb"\propto" \\
+$\asymp$      & \verb"\asymp"      & $\models$     & \verb"\models" \\
+$\approx$     & \verb"\approx"     & $\doteq$      & \verb"\doteq" \\
+              &                    & $\Join$       & \verb"\Join"
+\end{tabular}
+}
+\end{table}
+
+\end{document}

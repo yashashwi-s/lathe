@@ -1,0 +1,21 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_006/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_006/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{rl}\displaystyle \Delta _{\pm } & =\displaystyle\frac{c}{24}\pm \left( I^{\pm }_{H}-2I^{\pm }_{S}-I^{\pm }_{C}-I^{\pm }_{W}\right) +\displaystyle\frac{1}{2\pi }\Sigma _{\pm }\\ & \mp \displaystyle\frac{1}{2\pi }\displaystyle\int\limits ^{\infty }_{-\infty }\displaystyle\frac{dx}{2\pi }\varphi ^{,}_{\pm }(x){\cal Q}_{\pm }(x)\: ,\end{array}
+  \end{align*}, rendering as TeX:
+  {,}_{\pm }(x){\cal Q}_{\pm }(x)\: ,\end{
+                     ^
+  unexpected control sequence \cal
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{l}\mathbf{E}(\mathbf{x},t) =\displaystyle\frac{1}{4\pi}\int\rho_e(\mathbf{x}',t-r)\frac{\mathbf{r}}{r^3}\,d^3x'\\~\\+\displaystyle\frac{1}{4\pi}\int\mathbf{J}_m(\mathbf{x}',t-r)\,{\bf\times}\,\frac{\mathbf{r}}{r^3}\,d^3x'-\displaystyle\frac{1}{4\pi}\int\frac{1}{r}\frac{\partial\mathbf{J}_m(\mathbf{x}',t-r)}{\partial t}\,d^3x' ,\end{array}
+  \end{align*}, rendering as TeX:
+  thbf{x}',t-r)\,{\bf\times}\,\frac{\mathb
+                     ^
+  unexpected control sequence \bf
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

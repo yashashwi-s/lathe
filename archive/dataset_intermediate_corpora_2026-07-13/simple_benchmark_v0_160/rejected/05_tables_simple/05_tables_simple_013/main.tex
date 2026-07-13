@@ -1,0 +1,200 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.05149\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{N.} & \textbf{HM symbol} & \textbf{2D W.P.} & \textbf{Orb.} & \textbf{Und. Man.} \\
+\hline
+1 & $p1$ & $p1 (o)$ & $o$ & $T^2 \times I$ \\
+\hline
+2 & $p\overline{1}$ & $p2 (2222)$ & $\bar{1} \, \bar{1} \, \bar{1} \, \bar{1}$ & $S^2 \times I$ \\
+\hline
+3 & $p112$ & $p2 (2222)$ & $2222$ & $S^2 \times I$ \\
+\hline
+4 & $p11m$ &$p1 (o)$ & $\odot \, o$ & $T^2 \times I$ \\
+\hline
+5 & $p11a$ &$p1 (o)$ & $\otimes \, o$ & $T^2 \times I$ \\
+\hline
+6 &$p112/m$ &$p2 (2222)$ & $\odot \, 2222$ & $S^2 \times I$ \\
+\hline
+7 & $p112/a$ &$p2 (2222)$ & $\otimes \, 2222$ & $S^2 \times I$ \\
+\hline
+8 & $p211$ & $pm (**)$ & $\tilde{2} \tilde{2}$ & $(S^1 \times I) \times I$  \\
+\hline
+9 & $p2_111$ & $pg (\times\times)$ & $\vec{2} \vec{2}$ & $K \times I$ \\
+\hline
+10 & $c211$ & $cm (*\times)$ & $\tilde{2} \vec{2}$ & $\mathrm{Mb} \times I$  \\
+\hline
+11 & $pm11$ &$pm (**)$ & $**$ & $(S^1 \times I) \times I$  \\
+\hline
+12 & $pb11$ &$pg (\times\times)$ & $\times\times$ & $K \times I$ \\
+\hline
+13 & $cm11$ &$cm (*\times)$ & $*\times$ & $\mathrm{Mb} \times I$ \\
+\hline
+14 & $p2/m11$ & $pmm (*2222)$ & $* \bar{1} \, \bar{1} \, \bar{1} \, \bar{1}$ & $D^2 \times I$ \\
+\hline
+15 & $p2_1/m11$ & $pmg (22*)$ & $\bar{1} \, \bar{1} \,*$ & $D^2 \times I$ \\
+\hline
+16 & $p2/b11$ & $pmg (22*)$ & $\bar{1} \, \bar{1} \,\tilde{2}$ & $D^2 \times I$\\
+\hline
+17 & $p2_1/b11$ & $pgg (22\times)$ & $\bar{1} \, \bar{1} \,\times$ & $\mathbb{RP}^2 \times I$ \\
+\hline
+18 & $c2/m11$ & $cmm (2*22)$ & $\bar{1} * \bar{1} \,  \bar{1}$ & $D^2 \times I$ \\
+\hline
+19 & $p222$ & $pmm (*2222)$ & $\tilde{2}\,2222$ & $D^2 \times I$ \\
+\hline
+20 & $p2_122$ & $pmg (22*)$ & $22\tilde{2}$ & $D^2 \times I$  \\
+\hline
+21 & $p2_12_12$ & $pgg (22\times)$ & $22\vec{2}$ & $\mathbb{RP}^2 \times I$ \\
+\hline
+22 & $c222$ & $cmm (2*22)$ & $2 \tilde{2} 22$ & $D^2 \times I$ \\
+\hline
+23 & $pmm2$ &$pmm (*2222)$ & $*2222$ & $D^2 \times I$ \\
+\hline
+24 & $pma2$ &$pmg (22*)$ & $22*$ & $D^2 \times I$ \\
+\hline
+25 & $pba2$ &$pgg (22\times)$ & $22\times$ & $\mathbb{RP}^2 \times I$ \\
+\hline
+26 & $cmm2$ &$cmm (2*22)$ & $2*22$ & $D^2 \times I$ \\
+\hline
+27 & $pm2m$ &$pm (**)$ & $\odot\,**$ & $(S^1 \times I) \times I$ \\
+\hline
+28 & $pm2_1b$ &$pm (**)$ & $\otimes**$ & $(S^1 \times I) \times I$ \\
+\hline
+29 & $pb2_1m$ &$pg (\times\times)$ & $\odot\times\times$ & $K \times I$ \\
+\hline
+30 & $pb2b$ &$pm (**)$ & $\otimes\,\tilde{2}\,\tilde{2}$ & $(S^1 \times I) \times I$  \\
+\hline
+31 & $pm2a$ &$pm (**)$ & $*\tilde{2}$ & $(S^1 \times I) \times I$ \\
+\hline
+32 & $pm2_1n$ &$cm (*\times)$ & $\otimes*\vec{2}$ & $\mathrm{Mb} \times I$ \\
+\hline
+33 & $pb2_1a$ &$pg (\times\times)$ & $\otimes\times\vec{2}$ & $K \times I$ \\
+\hline
+34 & $pb2n$ &$cm (*\times)$ & $\otimes\,\tilde{2}\times$ & $\mathrm{Mb} \times I$ \\
+\hline
+35 & $cm2m$ &$cm (*\times)$ & $\odot*\times$ & $\mathrm{Mb} \times I$ \\
+\hline
+36 & $cm2e$ &$pm (**)$ & $\otimes\,*\tilde{2}$ & $(S^1 \times I) \times I$ \\
+\hline
+37 & $pmmm$ &$pmm (*2222)$ & $\odot*2222$ & $D^2 \times I$ \\
+\hline
+38 & $pmaa$ &$pmm (*2222)$ & $\odot*\bar{1} \, \bar{1} \, \bar{1} \, \bar{1}$ & $D^2 \times I$ \\
+\hline
+39 & $pban$ &$cmm (2*22)$ & $\otimes \bar{1} \tilde{2} 2 2$ & $D^2 \times I$ \\
+\hline
+40 & $pmam$ &$pmg (22*)$ & $\odot \, 22*$ & $D^2 \times I$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.05149\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{N.} & \textbf{HM symbol} & \textbf{2D W.P.} & \textbf{Orb.} & \textbf{Und. Man.} \\
+\hline
+41 & $pmma$ &$pmm (*2222)$ & $\otimes*22\, \bar{1} \, \bar{1}$ & $D^2 \times I$ \\
+\hline
+42 & $pman$ &$cmm (2*22)$ & $\otimes 2 * \bar{1} \, \bar{1}$ & $D^2 \times I$ \\
+\hline
+43 & $pbaa$ &$pmg (22*)$ & $\otimes\bar{1} \, \bar{1} \, \tilde{2}$ & $D^2 \times I$ \\
+\hline
+44 & $pbam$ &$pgg (22\times)$ & $\odot22\times$ & $\mathbb{RP}^2 \times I$ \\
+\hline
+45 & $pbma$ &$pmg (22*)$ & $\otimes22 *$ & $D^2 \times I$ \\
+\hline
+46 & $pmmn$ &$cmm (2*22)$ & $\otimes \bar{1}*22$ & $D^2 \times I$ \\
+\hline
+47 & $cmmm$ &$cmm (2*22)$ & $\odot2*22$ & $D^2 \times I$ \\
+\hline
+48 & $cmme$ &$cmm (2*22)$ & $\otimes2*22$ & $D^2 \times I$ \\
+\hline
+49 & $p4$ &$p4 (442)$ & $442$ & $S^2 \times I$\\
+\hline
+50 & $p\bar{4}$ &$p4 (442)$ & $\bar{4}\bar{4}2$ & $S^2 \times I$ \\
+\hline
+51 & $p4/m$ &$p4 (442)$ & $\odot 442$ & $S^2 \times I$\\
+\hline
+52 & $p4/n$ &$p4 (442)$ & $\otimes 442$ & $S^2 \times I$ \\
+\hline
+53 & $p422$ &$p4m (*442)$ & $\tilde{2}442$ & $D^2 \times I$ \\
+\hline
+54 & $p42_12$ &$p4g (4*2)$ & $4\tilde{2}2$ & $D^2 \times I$ \\
+\hline
+55 & $p4mm$ &$p4m (*442)$ & $*442$ & $D^2 \times I$ \\
+\hline
+56 & $p4bm$ &$p4g (4*2)$ & $4*2$ & $D^2 \times I$ \\
+\hline
+57 & $p\bar{4}2m$ &$p4m (*442)$ & $\tilde{2}\bar{4}\bar{4}2$ & $D^2 \times I$ \\
+\hline
+58 & $p\bar{4}2_1m$ &$p4g (4*2)$ & $\bar{4}*2$ & $D^2 \times I$ \\
+\hline
+59 & $p\bar{4}m2$ &$p4m (*442)$ & $*\bar{4}\bar{4}2$ & $D^2 \times I$ \\
+\hline
+60 & $p\bar{4}b2$ &$p4g (4*2)$ & $\bar{4}\tilde{2}2$ & $D^2 \times I$ \\
+\hline
+61 & $p4/mmm$ &$p4m (*442)$ & $\odot*442$ & $D^2 \times I$ \\
+\hline
+62 & $p4/nbm$ &$p4m (*442)$ & $\otimes\tilde{2}442$ & $D^2 \times I$ \\
+\hline
+63 & $p4/mbm$ &$p4g (4*2)$ & $\odot4*2$ & $D^2 \times I$ \\
+\hline
+64 & $p4/nmm$ &$p4m (*442)$ & $\otimes*442$ & $D^2 \times I$ \\
+\hline
+65 & $p3$ &$p3 (333)$ & $333$ & $S^2 \times I$ \\
+\hline
+66 & $p\bar{3}$ &$p6 (632)$ & $\bar{3}32$ & $S^2 \times I$ \\
+\hline
+67 & $p312$ &$p3m1 (*333)$ & $\tilde{2}333$ & $D^2 \times I$ \\
+\hline
+68 & $p321$ &$p31m (3*3)$ & $3\tilde{2}3$ & $D^2 \times I$ \\
+\hline
+69 & $p3m1$ &$p3m1 (*333)$ & $*333$ & $D^2 \times I$ \\
+\hline
+70 & $p31m$ &$p31m (3*3)$ & $33*3$ & $D^2 \times I$ \\
+\hline
+71 & $p\bar{3}1m$ &$p6m (*632)$ & $\tilde{2}\bar{3}32$ & $D^2 \times I$ \\
+\hline
+72 & $p\bar{3}m1$ &$p6m (*632)$ & $*\bar{3}32$ & $D^2 \times I$ \\
+\hline
+73 & $p6$ &$p6 (632)$ & $632$ & $S^2 \times I$ \\
+\hline
+74 & $p\bar{6}$ &$p3 (333)$ & $\bar{6}\bar{6}\bar{6}$ & $S^2 \times I$ \\
+\hline
+75 & $p6/m$ &$p6 (632)$ & $\odot632$ & $S^2 \times I$ \\
+\hline
+76 & $p622$  &$p6m (*632)$ & $\tilde{2}632$ & $D^2 \times I$ \\
+\hline
+77 & $p6mm$  &$p6m (*632)$ & $*632$ & $D^2 \times I$ \\
+\hline
+78 & $p\bar{6}m2$  &$p3m1 (*333)$ & $\odot*\bar{6}\bar{6}\bar{6}$ & $D^2 \times I$\\
+\hline
+79 & $p\bar{6}2m$  &$p31m (3*3)$ & $\odot \, \bar{6}\bar{6}*\bar{6}$ & $D^2 \times I$\\
+\hline
+80 & $p6/mmm$  &$p6m (*632)$ & $\odot *632$ & $D^2 \times I$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

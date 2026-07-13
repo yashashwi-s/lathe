@@ -1,0 +1,78 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=LaTeX.dlrg.de,
+    module={Paketbeschreibung,Personenicon}
+]{dlrg}
+\usepackage{listings}
+\usepackage{standalone}
+\usepackage[
+    language=ngerman,
+    backend=biber,
+    sortlocale=de_DE,%.UTF-8
+    style=authoryear,
+    bibencoding=UTF8,
+    block=space,
+    autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Personenicon}
+\author{Johannes Pieper}
+
+\begin{document}
+Das Modul \module{Personenicon} stellt verschiedene Icons bereit, mit der Personen in verschiedenen Kontext rund um die Arbeit der DLRG dargestellt werden können. Alle Icons lassen sich nur innerhalb von \verbcode|\tikz| oder einer \verbcode|tikzpicture|-Umgebung nutzen. Dabei lassen sich alle je nach Wunsch in der Größe verändern und in eine passende Richtung drehen. Außerdem lässt sich angeben, ob es sich um ein DLRG-Person mit roter Kleidung oder eine normale Person handelt. Teilweise ist auch die Angabe des Geschlechts möglich. Die Reihenfolge der Optionen hinter den Koordinaten ist dabei beliebig, wobei keine Leerzeichen dazwischen zulässig sind.
+
+\begin{commands}
+    \command{dlrgPersonStehend}[\sarg \darg{x,y} \eargChoices{r}{n,e,s,w,\meta{Winkel}} \earg{s}{Faktor}]
+        Eine stehende Person \tikz{\dlrgPersonStehend (0,0)}.
+
+    \command{dlrgPersonStehendArme}[\sarg \darg{x,y} \eargChoices{r}{n,e,s,w,\meta{Winkel}} \earg{s}{Faktor}]
+        Eine stehende Person, bei der die Arme nach vorne und hinten gehen \tikz{\dlrgPersonStehendArme (0,0)}.
+
+    \command{dlrgPersonStehendSitzend}[\sarg \darg{x,y} \eargChoices{r}{n,e,s,w,\meta{Winkel}} \earg{s}{Faktor}]
+        Eine sitzende Person \tikz{\dlrgPersonSitzend (0,0)}.
+
+    \command{dlrgPersonSchwimmenKraul}[\sarg \darg{x,y} \eargChoices{r}{n,e,s,w,\meta{Winkel}} \earg{s}{Faktor} \eargChoices{g}{w,m} \earg{e}{Equip\-ment}]
+        Eine Person die Kraul schwimmt \tikz{\dlrgPersonSchwimmenKraul (0,0)}.
+
+    \command{dlrgPersonSchwimmenBrust}[\sarg \darg{x,y} \eargChoices{r}{n,e,s,w,\meta{Winkel}} \earg{s}{Faktor} \eargChoices{g}{w,m} \earg{e}{Equip\-ment}]
+        Eine Person die Brust schwimmt \tikz{\dlrgPersonSchwimmenBrust (0,0)}.
+\end{commands}
+
+Es folgen Beispiele für den Einsatz der verschiedenen Optionen, die abhängig vom genutzten Personenicon sind.
+
+\begin{description}
+    \item[Kleidung (\textasteriskcentered):] Ein Stern hinter dem Befehl und vor den Koordinaten sorgt dafür, dass die Person in roter Kleidung dargestellt wird.
+\begin{example}
+    \tikz{\dlrgPersonStehend* (0,0)}
+\end{example}
+
+    \item[Rotation (r):] Entweder wird die Blickrichtung mit der Himmelsrichtung (n,e,s,w) angeben oder dem Winkel zur Standardrichtung, die nach Osten gerichtet ist.
+\begin{example}
+    \tikz{\dlrgPersonStehend (0,0)r{n}}
+\end{example}
+
+    \item[Skallierung (s):] Es kann ein Skallierungsfaktors angegeben werden, mit dem dem die Person vergrößert bzw. verkleinert wird.
+\begin{example}
+    \tikz{\dlrgPersonStehend (0,0)s{0.6}}
+\end{example}
+
+    \item[Geschlecht (g):] Über die Möglichkeiten w und m lässt sich das Geschlecht der Person wählen. Standardmäßig ist daabei männlich gewählt.
+\begin{example}
+    \tikz{\dlrgPersonSchwimmenKraul (0,0)g{w}}
+\end{example}
+
+    \item[Equipment (e):] Die Person kann mit weiterem Equipment ausgestattet werden. Welches Equipment möglich ist, hängt von der gewählten Form der Person ab. Das p steht dabei für Pullboy.
+\begin{example}
+    \tikz{\dlrgPersonSchwimmenKraul (0,0)e{p}}
+\end{example}
+
+\end{description}
+\end{document}

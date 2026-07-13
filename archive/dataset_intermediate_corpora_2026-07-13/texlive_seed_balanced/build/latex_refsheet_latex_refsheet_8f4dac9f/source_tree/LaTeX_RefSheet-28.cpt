@@ -1,0 +1,16 @@
+
+\subsection{Subfigures with \texttt{subcaption}}
+Load: \lstinline+\usepackage{subcaption}+\\
+Use: \lstinline+\begin{subfigure}[+\textit{pos}\lstinline+]{+\textit{width}\lstinline+}+ \dots{} \lstinline+\end{subfigure}+
+\begin{mylatex}
+\begin{figure}[ht] \centering
+ \begin{subfigure}[t]{0.5\textwidth}
+  \centering \includegraphics[height=1.2in]{figure-a}
+  \caption{Subcaption 1}\label{fig:SubFig1}\end{subfigure}
+ \begin{subfigure}[t]{0.5\textwidth}
+  \centering \includegraphics[height=1.2in]{figure-b}
+  \caption{Subcaption 2}\label{fig:SubFig2}\end{subfigure}
+ \caption{Caption of complete figure}\label{fig:Fig1}
+\end{figure}
+\end{mylatex}
+^^E^^L 

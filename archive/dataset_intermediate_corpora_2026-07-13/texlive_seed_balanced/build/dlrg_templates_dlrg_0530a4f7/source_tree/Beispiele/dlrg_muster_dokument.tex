@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt,twoside,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    module={Tabellen},
+    link={LaTeX.dlrg.de}
+]{dlrg}
+\begin{document}
+
+\section{Allgemeiner Bereich}
+
+Dieses ist ein Beispiel für ein einfaches Dokument mit Bauchbinde. Es hat zusätzlich zur Demostation das Modul Tabellen eingebunden.
+
+\section{Tabellen}
+In diesem Bereich werden die verschiedenen Möglichkeiten für Tabellen dargestellt, die mit dem Modul Tabellen möglich sind.
+
+Die Umgebung \textbf{dlrgTblr} liefert das einfache Ergebnis einer Tabelle, bei der alle Zellen schwarz umrandet sind.
+
+\begin{dlrgTblr}{colspec={XXX}}
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 7 & Inhalt 8 & \\
+\end{dlrgTblr}
+
+Durch die Option \verb|noHlines| werden die horizontalen Linien nicht erstellt. Analog funktioniert dieses mit \verb|noVlines| für die vertikalen Linien.
+
+\begin{dlrgTblr}{colspec={XXX}}[noHlines]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 7 & Inhalt 8 & \\
+\end{dlrgTblr}
+
+Mit der Option \verb|ueberschrift| kann man die erste Zeile als Überschrift hervorheben. Dabei wird diese bei der einfachen Ansicht grau hinterlegt.
+
+\begin{dlrgTblr}{colspec={XXX}}[ueberschrift]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 7 & Inhalt 8 & \\
+\end{dlrgTblr}
+
+Mit der Option \verb|layout=rot| werden die Linien der Tabelle in Rot dargestellt.
+
+\begin{dlrgTblr}{colspec={XXX}}[layout=rot]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 7 & Inhalt 8 & \\
+\end{dlrgTblr}
+
+Bei der Kombination von \verb|ueberschrift| und \verb|layout=rot| kann man deutlich erkennen, dass die Darstellung der Überschrift auch an das rote Layout angepasst ist.
+
+\begin{dlrgTblr}{colspec={XXX}}[ueberschrift,layout=rot]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 7 & Inhalt 8 & \\
+\end{dlrgTblr}
+
+\end{document}

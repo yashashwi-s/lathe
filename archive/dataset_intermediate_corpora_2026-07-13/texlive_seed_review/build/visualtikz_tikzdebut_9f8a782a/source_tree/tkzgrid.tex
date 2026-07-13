@@ -1,0 +1,56 @@
+
+\SbSSCT{Quadrillage}{Grid}
+
+
+\begin{tabular}{|c|}\hline 
+\tikz \draw(0,0) grid (2,2); 
+\\ \hline 
+\BS{draw} (0,0) \RDD{grid} (2,2); \RRR{14-8}
+\\ \hline 
+\end{tabular} 
+
+
+\bigskip
+\begin{tabular}{|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{ \BS{draw} (0,0) grid  [\RDD{step}=.75cm] (0,0) grid (3,3);   }\\ 
+\hline  
+\begin{tikzpicture}
+\draw[dotted](0,0) grid (3,3); 
+\draw[red] (0,0) grid [step=.75cm] (3,3);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw[dotted](0,0) grid (3,3); 
+\draw[red] (0,0) grid [xstep=.75cm] (3,3);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}
+\draw[dotted](0,0) grid (3,3); 
+\draw[red] (0,0) grid [ystep=.75cm] (3,3);
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+\draw[dotted](0,0) grid (3,3); 
+\draw[red] (0,0) grid [step=(45:1)] (3,3);
+\end{tikzpicture}
+\\ \hline 
+step=.75cm & x step=.75cm & ystep=.75cm  & step=(45:1)
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+ 
+\BS{draw}[red] (0,0) grid [\RDD{rotate}=45] (3,3);
+&  
+\BS{draw}[\RDD{help lines}] (0,0) grid  (3,3);
+\\ \hline  
+\begin{tikzpicture}
+\draw[dotted](0,0) grid (3,3); 
+\draw[red] (0,0) grid [rotate=45] (3,3);
+\end{tikzpicture}
+& 
+\tikz \draw[help lines] (0,0) grid (3,3); \\ 
+\hline 
+\end{tabular} 

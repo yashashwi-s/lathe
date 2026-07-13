@@ -1,0 +1,129 @@
+% LuaLaTeX 文書; 文字コードは UTF-8
+\documentclass[a4paper]{ltjsarticle}
+\renewcommand{\headfont}{\gtfamily\romanseries{sbc}\sffamily}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[unicode,colorlinks,hyperfootnotes=false]{hyperref}
+\hypersetup{linkcolor=blue!75!black,urlcolor=green!45!black}
+\usepackage{bxtexlogo}
+\bxtexlogoimport{*}
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+\usepackage{verbatim}
+\newenvironment{myverbatim}
+  {\begin{quote}\small\verbatim}
+  {\endverbatim\end{quote}}
+\newcommand{\PkgVersion}{0.5}
+\newcommand{\PkgDate}{2023/07/23}
+\newcommand{\Pkg}[1]{\textsf{#1}}
+\newcommand{\Meta}[1]{$\langle$\mbox{}#1\mbox{}$\rangle$}
+\newcommand{\Note}{\par\noindent ※}
+\newcommand{\Means}{：\quad}
+\newcommand{\jemph}{\textsf}
+\newcommand{\wbr}{\linebreak[0]}
+\newcommand{\Cs}[1]{\texttt{\symbol{`\\}#1}}
+%-----------------------------------------------------------
+\begin{document}
+\title{\Pkg{bxcjkvert} パッケージ}
+\author{八登崇之\ （Takayuki YATO; aka.~``ZR''）}
+\date{v\PkgVersion\quad[\PkgDate]}
+\maketitle
+
+\begin{abstract}
+本パッケージは\Pkg{CJKvert}パッケージの改造版であり、
+縦組と横組の混在が普通に起こりうる日本語組版に
+パッケージの機能を適合させたものである。
+\end{abstract}
+
+\tableofcontents
+
+%===========================================================
+\section{パッケージ読込}
+\label{sec:loading}
+
+\begin{verbatim}
+\usepackage[オプション,...]{bxcjkvert}
+\end{verbatim}
+
+本パッケージは\Pkg{CJKvert}パッケージを内部で読み込む。
+
+利用可能なオプションを以下で挙げる。
+
+%-------------------
+\subsection{フォントリセットに関する設定}
+
+\Pkg{CJKvert}パッケージは、書字方向変更の命令
+（|\CJKhorz| および |\CJKvert|）の呼出の際に、
+|\normalfont| を実行して現在フォントをリセットする。
+この挙動は異なる書字方向を混在させる場合には特に不便である。
+従って、\Pkg{bxcjkvert}は既定ではこの挙動を抑止している。
+ただし |resetfont| オプションによりこの挙動は調整可能である。
+
+\begin{itemize}
+\item |resetfont=true|\Means
+  書字方向命令が現在フォントをリセット（|\normalfont|）する。
+  \Note 本来の\Pkg{CJKvert}の挙動。
+\item |resetfont=false|（既定）\Means
+  書字方向命令が現在フォントを変更しない。
+\end{itemize}
+
+%-------------------
+\subsection{ベースライン伸長の補正に関する設定}
+
+\Pkg{CJKvert}は書字方向変更時に |\baselinestretch| の値に対する
+補正を行う。
+具体的には、|\CJKvert| が有効な間は
+ベースライン伸長値が |\CJKbaselinestretch| 倍
+\footnote{\Cs{CJKbaselinestretch}の既定値は$1.3$である。}
+に増大する。
+ところが、日本語組版を考慮する限り、ベースライン伸長値を
+変えるべき理由はどこにもない。
+従って、\Pkg{bxcjkvert}はこの機能を無効化している。
+ただし |usebaselinestretch| オプションによりこの挙動は
+調整可能である。
+
+
+\begin{itemize}
+\item |usebaselinestretch=true|\Means
+  |usebaselinestretch| オプション付きの\Pkg{CJKvert}パッケージと同じ。
+  すなわち、|\CJKvert| 実行時にはベースライン伸長値
+  を |\CJKbaselinestretch| 倍にし、|\CJKhorz| 実行時には
+  ベースライン伸長値を復元する。%
+  \footnote{ただし、この場合、ベースライン伸長値は
+  「\Pkg{CJKvert}パッケージ読込時に保持されていた値」に戻される
+  ことに注意。}
+\item |usebaselinestretch=false|\Means
+  |usebaselinestretch| オプション無しの\Pkg{CJKvert}パッケージと同じ。
+  すなわち、|\CJKvert| 実行時にはベースライン伸長値
+  を |\CJKbaselinestretch| の値に設定し、|\CJKhorz| 実行時には
+  ベースライン伸長値を$1$に設定する。
+  （ユーザによるベースライン伸長値の設定は無視される。）
+\item |usebaselinestretch=retain|（既定）\Means
+  ベースライン伸長値に対する変更を一切行わない。
+\end{itemize}
+
+\Note \Pkg{CJKvert}が予め |usebaselinestretch| オプション付きで
+読み込まれていた場合は、本パッケージの |usebaselinestretch| の
+既定値は（|retain| ではなく）|true| になる。
+
+%-------------------
+\subsection{書字方向の初期値に関する設定}
+
+\Pkg{CJKvert}では初期（文書開始時）の書字方向は縦組と
+定められている。
+本パッケージでは初期の書字方向をユーザが選択することができる。
+
+\begin{itemize}
+\item |main=true|\Means
+  書字方向の初期値を縦組とする。
+  \Pkg{CJKvert}ではこれが既定である。
+\item |main=false|\Means
+  書字方向の初期値を横組とする。
+\item |main=retain|（既定）\Means
+  書字方向の初期値を何も指定しない。
+  この場合、プレアンブルで |\CJKvert| や |\CJKhorz| を実行することで
+  書字方向の初期値を決めることができる。
+\end{itemize}
+
+%===========================================================
+\end{document}

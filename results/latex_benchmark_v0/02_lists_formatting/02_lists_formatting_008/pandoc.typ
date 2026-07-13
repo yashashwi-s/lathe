@@ -1,0 +1,42 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+= Extracted Lists
+<extracted-lists>
+The list environments below are extracted from arXiv LaTeX source and
+wrapped for pdfLaTeX validation.
+
+#block[
+SU(2)\] In this case there is a good convergence among different
+published results both for the string tension and for the critical
+temperature. Data on $T_c$ are reported in~[tc1] for lattices with length
+$L = 2$ in the imaginary time direction; in~[tc2] for $L = 4$ and in~[tc3]
+for $L = 5$ and 6. Scaling seems to be fulfilled already for $L > 4$ and
+allows a rather precise estimation:
+$T_c beta a = 1.4 plus.minus 0.1$~[tc3] (where $a$ is the lattice spacing
+and $beta$ the inverse of the coupling constant). Data on $sigma$ are
+reported in~[sigma1] and more recently in~[sigma2], in both case obtained
+with Wilson loops. Scaling seems to be fulfilled already for
+$beta > 6 .$ (in agreement with the $T_c$ behaviour). These two sets of
+data agree and give $sigma\(beta a\)^2= 2.23 plus.minus 0.04$. This
+implies $T_c\/sqrt(sigma) = 0.94 plus.minus 0.03$ in agreement with our
+critical temperature for the minimal radius $r_1$,
+$T_c\/sqrt(sigma) = sqrt(3)\/sqrt(pi) = 0.98$. Indeed this result was
+already presented in~[fp] to support the Nambu-Goto string picture, and
+has not been significatively changed by the new high precision data of
+ref~[sigma2.]
+
+$Z_2$\] In this case a rather precise estimate exists for the string
+tension ~[noiz2]~:
+$sigma a^2\(beta_c - beta\)^(- 2 nu)= 3.64 plus.minus 0.09$~, with
+$beta_c = 0.7614$ and $nu = 0.63$. For the critical temperature, the
+scaling region seems to start from $L = 4$. Data obtained with the
+Montecarlo renormalization group approach~[wan2] for $L = 4\,8$, give
+$T_c a\(beta_c - beta\)^(- nu)= 2.3 plus.minus 0.1$, while a slightly
+lower value was obtained using finite size scaling
+techniques~[wan1][brower] for $L = 4$:
+$T_c a\(beta_c - beta\)^(- nu)= 2.2 plus.minus 0.1$. Taking into account
+all the uncertainties we can assume:
+$T_c\/sqrt(sigma) = 1.17 plus.minus 0.1$ which is in acceptable
+agreement with our solution.
+
+]

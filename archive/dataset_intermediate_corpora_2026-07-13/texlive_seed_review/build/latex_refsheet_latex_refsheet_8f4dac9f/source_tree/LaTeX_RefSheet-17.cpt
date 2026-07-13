@@ -1,0 +1,47 @@
+
+\subsection{Enhanced Lists with \texttt{enumitem}}
+Load: \lstinline+\usepackage{enumitem}+\\[1pt]
+\begin{minipage}[t]{.65\columnwidth}
+Example (for enumerate):\\
+\lstinline+\setlist[enumerate,1]{label=\Alph*)}+\\
+\lstinline+\setlist[enumerate,2]{label=\alph*)}+\\
+\lstinline+\setlist[enumerate,3]{label=\roman*)}+\\
+\lstinline+\setlist[enumerate,4]{label=\arabic*)}+\\
+\end{minipage}\hfill
+\begin{minipage}[t]{.33\columnwidth}
+\setlist[enumerate,1]{label=\Alph*)}
+\setlist[enumerate,2]{label=\alph*)}
+\setlist[enumerate,3]{label=\roman*)}
+\setlist[enumerate,4]{label=\arabic*)}
+\setlist[enumerate]{nosep}
+\vspace*{2pt}
+\begin{enumerate}
+\item one
+\begin{enumerate}
+	\item one
+	\item two
+\end{enumerate}
+\item two
+\end{enumerate}%
+\end{minipage}\\[-2pt]
+\begin{minipage}[t]{.65\columnwidth}
+Example (for legal list):\\
+\lstinline+\newlist{legal}{enumerate}{10}+\\
+\lstinline+\setlist[legal]{label*=\arabic*.,noitemsep}+\\
+Use: \lstinline+\begin{legal}+ \lstinline+\item ...+\lstinline+\end{legal}+
+\end{minipage}\hfill
+\begin{minipage}[t]{.3\columnwidth}
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.,noitemsep,nosep}
+\begin{legal}
+ \item one
+ \begin{legal}
+  \item two
+  \begin{legal}
+   \item three
+   \item strawberry
+  \end{legal}			
+ \end{legal}	
+\end{legal}%
+\end{minipage}%
+^^E^^L 

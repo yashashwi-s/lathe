@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00031\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Feature} & \textbf{XgenSilicon} & \textbf{TVM} & \textbf{MLIR} & \textbf{XLA} & \textbf{Glow} & \textbf{LLVM} \\
+\hline
+\textbf{Learned Optimization} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Multi-Algorithm Auto-Tuning} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Extreme Quantization (FP4/Binary)} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Full KL Divergence Calibration} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Multi-Framework Support} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Dynamic Shapes} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & Partial & $\times$ \\
+\textbf{Hardware Validation} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{ASIC-Ready Output} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{RISC-V Vector Support} & $\checkmark$ & Partial & Partial & $\times$ & $\times$ & Partial \\
+\textbf{Multi-Model Pipeline} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{Zero Manual Tuning} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{HEX File Generation} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\textbf{100+ ONNX Operators} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\times$ & $\checkmark$ & $\times$ \\
+\textbf{Auto-Tuning} & Multi-Algorithm & Manual & Manual & Manual & Manual & $\times$ \\
+\textbf{Quantization Methods} & PTQ/QAT (Full) & PTQ only & PTQ only & PTQ/QAT & PTQ/QAT & $\times$ \\
+\textbf{Cache-Aware Modeling} & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00291\_table\_17}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccc}
+\hline
+KIC & Mass ($M_\odot$) & Age (Gyr) & Radius ($R_\odot$) \\
+\hline
+3427720  & $1.097^{+0.028}_{-0.027}$ & $2.408^{+0.124}_{-0.165}$ & $1.112^{+0.012}_{-0.012}$ \\
+3735871  & $1.132^{+0.032}_{-0.031}$ & $1.685^{+0.301}_{-0.294}$ & $1.108^{+0.012}_{-0.013}$ \\
+6106415  & $1.111^{+0.016}_{-0.020}$ & $4.701^{+0.225}_{-0.094}$ & $1.232^{+0.008}_{-0.009}$ \\
+6225718  & $1.156^{+0.029}_{-0.025}$ & $2.409^{+0.147}_{-0.215}$ & $1.229^{+0.014}_{-0.012}$ \\
+7206837  & $1.380^{+0.004}_{-0.010}$ & $1.907^{+0.100}_{-0.087}$ & $1.571^{+0.003}_{-0.006}$ \\
+7771282  & $1.203^{+0.013}_{-0.009}$ & $4.365^{+0.279}_{-0.191}$ & $1.611^{+0.011}_{-0.009}$ \\
+8179536  & $1.271^{+0.026}_{-0.038}$ & $1.948^{+0.273}_{-0.294}$ & $1.360^{+0.012}_{-0.018}$ \\
+8228742  & $1.347^{+0.024}_{-0.011}$ & $3.618^{+0.102}_{-0.190}$ & $1.855^{+0.011}_{-0.003}$ \\
+8379927  & $1.134^{+0.024}_{-0.027}$ & $1.655^{+0.170}_{-0.148}$ & $1.124^{+0.011}_{-0.013}$ \\
+9139151  & $1.119^{+0.024}_{-0.028}$ & $2.030^{+0.443}_{-0.163}$ & $1.135^{+0.011}_{-0.011}$ \\
+9955598  & $0.919^{+0.011}_{-0.019}$ & $6.507^{+0.336}_{-0.310}$ & $0.893^{+0.004}_{-0.006}$ \\
+10454113 & $1.245^{+0.017}_{-0.041}$ & $1.614^{+0.238}_{-0.226}$ & $1.270^{+0.006}_{-0.019}$ \\
+10644253 & $1.146^{+0.027}_{-0.027}$ & $1.341^{+0.178}_{-0.153}$ & $1.112^{+0.011}_{-0.012}$ \\
+11772920 & $0.860^{+0.016}_{-0.019}$ & $9.040^{+0.582}_{-0.569}$ & $0.857^{+0.006}_{-0.007}$ \\
+12009504 & $1.190^{+0.030}_{-0.021}$ & $4.002^{+0.232}_{-0.360}$ & $1.406^{+0.013}_{-0.010}$ \\
+12069424 & $1.059^{+0.016}_{-0.010}$ & $7.120^{+0.464}_{-0.222}$ & $1.220^{+0.006}_{-0.005}$ \\
+12069449 & $1.015^{+0.014}_{-0.012}$ & $6.936^{+0.337}_{-0.171}$ & $1.106^{+0.005}_{-0.004}$ \\
+12258514 & $1.221^{+0.005}_{-0.014}$ & $5.197^{+0.033}_{-0.146}$ & $1.589^{+0.004}_{-0.007}$ \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

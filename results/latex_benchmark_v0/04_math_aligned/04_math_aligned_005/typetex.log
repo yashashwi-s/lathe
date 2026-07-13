@@ -1,0 +1,40 @@
+COMMAND:
+pandoc -f latex -t typst --lua-filter /Users/yashashwisinghania/lathe/scripts/dataset/typetex_filter.lua /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_005/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_005/typetex.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+error: plugin errored with: error: unknown command: \mbox
+   ┌─ @preview/mitex:0.2.4/mitex.typ:19:8
+   │
+19 │     str(mitex-wasm.convert_math(bytes(get-elem-text(it)), spec))
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex-convert`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:27:12
+   │
+27 │   let res = mitex-convert(mode: "math", it)
+   │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mimath`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:40:4
+   │
+40 │     mimath(it, ..args)
+   │     ^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex`
+   ┌─ typetex.typ:26:3
+   │  
+26 │   $ #mitex(`\begin{aligned}
+   │ ╭────^
+27 │ │ F^{(L)}_{p;r}(q) =q^{-r(r-1)} \times\left\{ \begin{array}{ll}F^{(L)}_{p-2} \left[ \begin{array}{c}{\bf Q}_{r,1} \\ {\bf 0} \end{array} \right]({\bf e}_r | q) &\mbox {if $L \not\equiv r-1$ mod $2$}, \\F^{(L)}_{p-2} \left[ \begin{array}{c}{\bf Q}_{p-r,p} \\ {\bf 0} \end{array} \right]({\bf e}_{p-r} | q) &\text{if $L \equiv r-1$ mod $2$},\end{array}\right.
+28 │ │ \end{aligned}`) $
+   │ ╰───────────────^
+

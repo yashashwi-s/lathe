@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Aligned Mathematical Structures}
+\author{Source-backed grouped formula sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Expressions}
+\paragraph{Expression 1.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\begin{bmatrix} V_{\ell, YY} & V_{\ell, YX} \\ V_{\ell, XY} & V_{\ell, XX} \end{bmatrix} & = \begin{bmatrix}(Q_{\ell} / Q_{\ell, XX})^{-1} & - Q_{\ell, YY}^{-1} Q_{\ell, YX} (Q_{\ell} / Q_{\ell, YY})^{-1} \\- (Q_{\ell} / Q_{\ell, YY})^{-1} Q_{\ell, XY} Q_{\ell, YY}^{-1} & (Q_{\ell} / Q_{\ell, YY})^{-1} \end{bmatrix} ,\end{align*}
+
+\paragraph{Expression 2.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\left\{\begin{array}{rcl}\mathrm{d}X_{s} & = & u_{s}\mathrm{d}W_{s}, \\-\mathrm{d}Y_{s} & = & \Big [\left\langle Q_{s}X_{s},X_{s}\right\rangle+\left\langle R_{s}u_{s},u_{s}\right\rangle +\kappa Z_{s}\Big ]\mathrm{d}s-Z_{s}\mathrm{d}W(s), \\X_{0} & = & x,Y_{T}=\left\langle GX_{T},X_{T}\right\rangle ,\end{array}\right. \end{align*}
+
+\paragraph{Expression 3.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}& \int_{\mathbb{T}^d\times[0,T)} \bar{f} \left(\frac{\partial \phi}{\partial t} + u\cdot\nabla \phi\right) \; dxdt \\& = \lim_{i\to\infty} \int_{\mathbb{T}^d\times[0,T)} f^{\nu_i} \left(\frac{\partial \phi}{\partial t} + u\cdot\nabla \phi + \nu_i \Delta \phi\right) \; dxdt \\& = - \int_{\mathbb{T}^d} f_0 \phi_0 \; dx,\end{align*}
+
+\paragraph{Expression 4.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\bigl|\frac{f(p)}{\xi(p)}- \frac{f(q)}{\xi(q)}\bigr| & = |f(p)\bigl(\frac{1}{\xi(p)}-\frac{1}{\xi(q)} \bigr)+ \frac{f(p) - f(q)}{\xi(q)}| \\& \leq 2\xi(p)\bigl(\frac{1}{\xi(p)}-\frac{1}{\xi(q)} \bigr)+ \frac{d(p,q)}{\xi(q)}\\& = \frac{1}{\xi(q)}[2(\xi(q) - \xi(p)) + d(p,q)]\\& \leq 3 \frac{d(p,q)}{\xi(q)}=3\rho(p,q).\end{align*}
+
+\paragraph{Expression 5.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\gamma_*\big( \gamma^*\O(x,y)\otimes \alpha^*\O_\rho(z) \big) = \gamma_* \O(x,y)((z-x)e) \\\O(x,y)\otimes \rho_* \O_\rho(z) - \O(x-3,y-1)\otimes \rho_* \O_\rho(z-1) \\\sum_{0 \leq h \leq z } \O(x-h,y)-\sum_{0 \leq k \leq -z -2} \O(1+x+k,y)-\sum_{0 \leq j \leq z-1} \O(x-3-j,y-1)+\sum_{0 \leq l \leq -z-1} \O(x+l-2,y-1)\end{align*}
+\end{document}

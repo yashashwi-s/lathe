@@ -1,0 +1,216 @@
+% Please refer README file for more details about this document
+
+\documentclass[twoside,twocolumn]{article}
+
+\usepackage{tabulary,graphicx,times,caption,fancyhdr,amsfonts,amssymb,amsbsy,latexsym,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{url,multirow,morefloats,floatflt,cancel,tfrupee,textcomp,colortbl,xcolor,pifont}
+\usepackage[nointegrals]{wasysym}
+\urlstyle{rm}
+
+\makeatletter
+
+%Etal definition in references
+\usepackage{ifxetex}
+\ifxetex\else
+  \usepackage{dblfloatfix}
+\fi
+
+\@ifundefined{subparagraph}{
+\def\subparagraph{\@startsection{paragraph}{5}{2\parindent}{0ex plus 0.1ex minus 0.1ex}%
+{0ex}{\normalfont\small\itshape}}%
+}{}
+
+\def\URL#1#2{\@ifundefined{href}{#2}{\href{#1}{#2}}}
+
+%%For url break
+\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+\makeatother
+\def\floatpagefraction{0.8} 
+\def\dblfloatpagefraction{0.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[paperheight=11in,paperwidth=8.3in,margin=2.5cm,headsep=.7cm,top=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\def\floatpagefraction{0.8}
+\widowpenalty 10000
+\clubpenalty 10000
+
+\renewenvironment{abstract}
+	{\trivlist\item[]\leftskip0pt\par\vskip4pt\noindent
+  	\textbf{\abstractname}\mbox{\null}\\}
+	{\par\noindent\endtrivlist}
+
+\def\keywords#1{\par\medskip\par\noindent\textbf{Keywords}: #1\par}
+
+\linespread{1.13} \date{} \emergencystretch 8pt
+
+\captionsetup[figure]{labelfont=normal,skip=1.4pt,aboveskip=1pc}
+\captionsetup[table]{labelfont=normal,skip=1.4pt}
+
+\makeatletter
+\def\author#1{\gdef\@author{\hskip-\tabcolsep%
+	\parbox{\textwidth}{\raggedright\bfseries#1\\[1pc]}}}
+\def\address[#1]#2{\g@addto@macro\@author{\\\hskip-\tabcolsep\parbox{\textwidth}{\raggedright%
+	\normalsize\normalfont\textsuperscript{#1}#2}}}
+\let\addresslink\textsuperscript
+\def\correspondence#1{\g@addto@macro\@author{\\\hskip-\tabcolsep\parbox{\textwidth}{\raggedright%
+	\vspace*{10pt}\normalsize\normalfont~\\#1~\\[12pt]}}}
+\def\email#1{\g@addto@macro\@author{\\\hskip-\tabcolsep\parbox{\textwidth}{\raggedright%
+	\normalsize\normalfont Emails: #1}}}
+
+\def\title#1{\gdef\@title{\vspace*{-30pt}%
+	\raggedright\textbf{\@journaltitle}~\\%
+  \raggedright\bfseries\ifx\@articleType\@empty\vspace*{20pt}\else%
+  \vspace*{20pt}\@articleType\vspace*{20pt}\\\fi#1}}
+\let\@journaltitle\@empty \def\journaltitle#1{\gdef\@journaltitle{{\normalfont\itshape#1}}}
+\let\@articleType\@empty \def\articletype#1{\gdef\@articleType{{\normalfont\itshape#1}}}
+
+\let\@runningHead\@empty \def\RunningHead#1{\gdef\@runningHead{{\normalfont #1}}}
+
+\usepackage{fancyhdr}
+\fancypagestyle{headings}{\renewcommand{\headrulewidth}{0pt}\fancyhf{}
+  \fancyhead[R]{\itshape\@runningHead}
+  \fancyfoot[C]{\thepage}}
+\pagestyle{headings}
+
+\fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}%
+	\fancyhf{}\fancyhead[R]{\LaTeX\ template for Hindawi journal articles}
+  \fancyfoot[C]{\thepage}}
+\makeatother
+
+\usepackage[%
+	numbers,sort&compress%
+	%authoryear
+  ]{natbib}
+
+\setcounter{secnumdepth}{0}
+\usepackage{float,xcolor}
+
+\journaltitle{<journal title>}
+\articletype{<article type>} % Research Article/Review Article/Clinical Study
+
+\begin{document}
+
+% Title of the document
+\title{Title goes here}
+
+% Author names
+\author{%
+		A. Author\addresslink{1,2},
+  	B. Author\addresslink{2} and
+  	C. Author\addresslink{3}
+    }
+		
+% Affiliation
+\address[1]{Affiliation one}
+\address[2]{Affiliation two}
+\address[3]{Affiliation three}
+
+% Corresponding author details
+\correspondence{Correspondence should be addressed to 
+    	<corresponding author's name>: <corresponding author's email>}
+
+% Emails of authors
+\email{A@gmail.com (A. Author), B@gmail.com (B. Author)}%
+
+% Running Head
+\RunningHead{Running head}
+
+\maketitle 
+
+% Abstract
+\begin{abstract}
+Abstract text goes here 
+
+Abstract text goes here Abstract text goes here Abstract text goes here
+Abstract text goes here Abstract text goes here  Abstract text goes
+here Abstract text goes here Abstract text goes here Abstract text goes
+here Abstract text goes here  Abstract text goes here Abstract text
+goes here Abstract text goes here Abstract text goes here Abstract text
+goes here 
+
+% Keywords - if any
+\keywords{Key1; Key2; Key3}
+\end{abstract}
+    
+% First level heading
+\section{Introduction}
+Normal section goes here ...
+
+% Second level heading
+%\subsection{}
+
+% Third level heading
+%\subsubsection{}
+
+% Fourth level heading
+%\paragraph{}
+
+% Fourth level heading
+%\subparagraph{}
+
+% Numbered equation
+%\begin{eqnarray}
+%\end{eqnarray}
+
+% Table
+\begin{table}[!htbp]
+% Use starred version (\begin{table*} \end{table*}) for two column spanned table
+\caption{\label{tbl1}Caption of the table.}
+\centering 
+\def\arraystretch{1.15} % To increase the row spacing
+\begin{tabular}{ll}
+\hline
+One & Two \\
+\hline
+Three & Four\\
+\hline
+\end{tabular} 
+\end{table}
+
+% Figure
+\begin{figure}[!htbp]
+\centering 
+% Uncomment below line to include image
+% \includegraphics{image1}% <image name>
+\caption{\label{fig1}Caption of the figure}
+\end{figure}
+
+% Itemized list
+%\begin{itemize}
+%  \item 
+%  \item 
+%  \item 
+%\end{itemize}
+
+% Numbered list
+%\begin{enumerate}
+	%\item 
+	%\item 
+	%\item 
+%\end{enumerate}
+
+% Bibliography style - if using a .bib file
+	%\bibliographystyle{hindawi_bib_style}
+	%\bibliography{<bib file name>} % without .bib extension
+  
+  %Or
+  
+  \begin{thebibliography}{00}
+  \bibitem{b1}
+		J. Bruix and M. Sherman, ``Management of hepatocellular carcinoma: 
+		an update'', \textit{Hepatology}, vol. 53, no. 3, pp. 1020--1022, 2011.
+ 
+ %  \bibitem{b2}
+		% ...
+
+ %  \bibitem{b3}
+		% ...
+ 
+ \end{thebibliography}  
+
+\end{document}

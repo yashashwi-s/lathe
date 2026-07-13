@@ -1,0 +1,15 @@
+
+\subsection[Own Commands]{Own Commands\phantom{g}}\label{owncmds}
+\begin{tabular}{@{}ll@{}}
+Define:  & \lstinline+\newcommand{\+\textit{cmdname}\lstinline+}{+\textit{commands}\lstinline+}+ \\
+Exmp:    & \lstinline+\newcommand{\mytext}{Some text which I need very often.}+\\			
+Exmp:    & \lstinline+\newcommand{\diff}{\mathop{}\!\mathrm{\vphantom( d}}+\\			
+Params:  & \lstinline+#1+ \dots{} \lstinline+#9+ \\
+Define:	& \lstinline+\newcommand[+\textit{paramsquantity}\lstinline+]{\+\textit{cmdname}\lstinline+}{+\textit{cmds} \lstinline+#1+ \dots{}\lstinline+}+\\
+Redefine: & \lstinline+\renewcommand[+\textit{paramsquantity}\lstinline+]{\+\textit{cmdname}\lstinline+}{+\textit{commands}\lstinline+}+ \\
+Copy:	    & with \texttt{letltxmacro}: \lstinline+\LetLtxMacro{\+\textit{cmdcpyname}\lstinline+}{\+\textit{cmdname}\lstinline+}+ \\[2pt]
+Define:   & \lstinline+\DeclareMathOperator{+\textit{name}\lstinline+}{+\textit{commands}\lstinline+}+\\
+Exmp:     & \lstinline+\DeclareMathOperator{\dirac}{\ensuremath{\delta}}+\\
+Exmp:     & \lstinline+\DeclareMathOperator{\acrsinh}{arcsinh}+
+\end{tabular}%
+^^E^^L 

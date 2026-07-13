@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00518\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}cccccc@{}}
+   \toprule
+   Radial bin  & Median $N_{\text{H,tot}}$&Normalization & $k_{\text{B}}T$ & Metallicity & c-stat/d.o.f.  \\ 
+   $\left[\text{arcmin}\right]$  & $\left[\times 10^{20}\text{cm}^{-2}\right]$&$\left[\text{cm}^{-5}\;\text{arcmin}^{-2}\right]$ & $\left[\text{keV}\right]$ & $\left[Z_{\odot}\right]$ &   \\\midrule
+   $0.00\leq R\leq 3.30$ & 6.34&$5.05\substack{+0.12 \\ -0.14}\times 10^{-4}$&$2.84\substack{+0.18 \\-0.19}$&$0.32\substack{+0.07 \\ -0.07}$ &7056.58/7331\\
+   $3.30\leq R\leq 7.85$ &6.29 &$1.82\substack{+0.04 \\ -0.04}\times 10^{-4}$ &$2.64\substack{+0.13 \\-0.15}$ & $0.32\substack{+0.04\\ -0.05}$ & 7688.27/7776\\
+   $7.85\leq R\leq 13.20$& 6.24&$6.75\substack{+0.20 \\ -0.21}\times 10^{-5}$ &$2.80\substack{+0.19 \\-0.20}$ & $0.33\substack{+0.06\\ -0.07}$ & 7944.33/8017\\
+   $13.20\leq R\leq 19.29$& 6.13&$2.29\substack{+0.16 \\ -0.21}\times 10^{-5}$ &$2.32\substack{+0.52 \\-0.39}$ & $0.17\substack{+0.05\\ -0.06}$ & 7849.26/ 8255\\
+   $19.29\leq R\leq 27.62$& 6.00&$1.27\substack{+0.01 \\ -0.01}\times 10^{-5}$ &$1.51\substack{+0.10 \\-0.14}$ & $0.06\substack{+0.02\\ -0.03}$ & 8522.47/8885 \\
+   $27.62\leq R\leq R_\mathrm{500}$ & 5.76 &$4.36\substack{+0.34 \\ -0.31}\times 10^{-6}$ &$1
+   .29\substack{+0.07 \\-0.10}$ & $0.07\substack{+0.02\\ -0.03}$ & 10339.65/10569 \\ 
+   $R_\mathrm{500}\leq R \leq R_\mathrm{200}$& 5.69&$4.71\substack{+0.30\\-0.23}\times 10^{-6}$&$1.15\substack{+0.07\\-0.09}$&$0.00\substack{+0.00\\-0.01}$& 11453.33/11195\\ \midrule
+   $0.2R_{\text{500}}\leq R \leq0.5R_{\text{500}}$ & 6.12&$3.10\substack{+0.10 \\ -0.06}\times 10^{-5}$ &$2.27\substack{+0.15 \\-0.11}$ & $0.19\substack{+0.05\\ -0.03}$ & 9081.10/9350  \\
+   \bottomrule
+   \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01392\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+\textbf{Scenario} & \textbf{CO2price} & \textbf{FMsgrowth} & \textbf{BeechArea0} & \textbf{GrassArea0} & ${\tau}^{\text{LULUCF}}_{t}$ & \textbf{cap0FMs} & \textbf{costMargFMs} & \textbf{costInvFMs} & \textbf{costInvLevelFMs} & \textbf{ghgFMs} & \textbf{*} \\
+\midrule
+S01 & -20\% & -20\% & -20\% & --    & --    & --    & --    & --    & --    & --    & -- \\
+S02 & -20\% & 0\%   & -20\% & --    & --    & --    & --    & --    & --    & --    & -- \\
+S03 & -20\% & 0\%   & 0\%   & --    & --    & --    & --    & --    & --    & --    & -- \\
+S04 & +20\% & 0\%   & +20\% & --    & --    & --    & --    & --    & --    & --    & -- \\
+S05 & +20\% & +20\% & -20\% & --    & --    & --    & --    & --    & --    & --    & -- \\
+S06 & +20\% & +20\% & +20\% & --    & --    & --    & --    & --    & --    & --    & -- \\
+S07 & --    & -20\% & --    & --    & --    & --    & --    & --    & -20\% & --    & -- \\
+S08 & --    & -20\% & --    & --    & -20\% & --    & --    & --    & -20\% & -20\% & -- \\
+S09 & --    & +20\% & --    & --    & --    & --    & --    & --    & +20\% & --    & -- \\
+S10 & --    & +20\% & --    & --    & +20\% & --    & --    & --    & +20\% & +20\% & -- \\
+S11 & --    & -20\% & -20\% & -20\% & -20\% & -20\% & --    & --    & --    & --    & -- \\
+S12 & --    & +20\% & +20\% & +20\% & +20\% & +20\% & --    & --    & --    & --    & -- \\
+S13 & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & -20\% \\
+S14 & --    & --    & --    & --    & --    & --    & --    & --    & --    & --    & +20\% \\
+S15 & --    & --    & --    & --    & --    & --    & --    & -20\% & -20\% & --    & -- \\
+S16 & --    & --    & --    & --    & --    & --    & --    & -10\% & +10\% & --    & -- \\
+S17 & --    & --    & --    & --    & --    & --    & --    & +20\% & +20\% & --    & -- \\
+S18 & --    & --    & --    & --    & --    & --    & -50\% & -50\% & -50\% & --    & -- \\
+S19 & --    & --    & --    & --    & --    & --    & -50\% & -50\% & -50\% & -50\% & -- \\
+S20 & --    & --    & --    & --    & --    & -20\% & -20\% & -20\% & -20\% & --    & -- \\
+S21 & --    & --    & --    & --    & --    & --    & -20\% & -20\% & -20\% & -20\% & -- \\
+S22 & --    & --    & --    & --    & --    & +20\% & +20\% & +20\% & +20\% & --    & -- \\
+S23 & --    & --    & --    & --    & --    & --    & +20\% & +20\% & +20\% & +20\% & -- \\
+S24 & --    & --    & --    & --    & --    & --    & +50\% & +50\% & +50\% & --    & -- \\
+S25 & --    & --    & --    & --    & --    & --    & +50\% & +50\% & +50\% & +50\% & -- \\
+S26 & --    & +30\% & +30\% & +30\% & +30\% & --    & --    & --    & --    & --    & -- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

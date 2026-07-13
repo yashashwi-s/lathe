@@ -1,0 +1,38 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of short answers questions 
+embedded in cloze questions.
+
+\begin{quiz}{Close Short Answer}
+
+\begin{cloze}{Cloze}
+\begin{shortanswer}[usecase]
+Who?
+\item chip
+\item[feedback={yes},fraction=10.4999] chop
+\item[feedback={no.},fraction=-30.4999] chap
+\end{shortanswer}
+\begin{shortanswer}
+what?
+\item chip
+\item[feedback={yes},fraction=10.5001] chop
+\item[feedback={no.},fraction=-30.5001] chap
+\end{shortanswer}
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

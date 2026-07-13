@@ -1,0 +1,20 @@
+
+\subsection{Header and Footer of Page (aka running heading)}
+~\includegraphics[width=.975\columnwidth]{header-graph.pdf}
+\begin{mylatex}
+% delete default settings and define your own
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead[]{\headmark} \ofoot[\pagemark]{\pagemark}
+\end{mylatex}
+\begin{mylatex}
+% Variant for a thesis with horizontal rules at head and foot
+\usepackage[headsepline=0.005pt:,footsepline=0.005pt:,
+plainfootsepline,automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead[]{\headmark} \ofoot[\pagemark]{\pagemark}
+\ModifyLayer[addvoffset=-.6ex]{scrheadings.foot.above.line}
+\ModifyLayer[addvoffset=-.6ex]{plain.scrheadings.foot.above.line}
+\setkomafont{pageheadfoot}{\small}
+\end{mylatex}
+^^E^^L 

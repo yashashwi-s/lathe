@@ -1,0 +1,549 @@
+\label{ducks}
+
+ \maboite{\BS{usepackage}\AC{tikzducks} \cite {tikzducks}}
+
+
+\begin{center}
+\begin{tabular}{|c|}\hline  
+\BS{tikz} \BSS{duck} ;
+\\ \hline  
+\tikz \duck ;
+\\ \hline 
+\end{tabular} 
+\end{center}
+
+
+\subsubsection{Options}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{\BS{tikz} \BS{duck}[\RDD{body}=red] ;} 
+\\ \hline
+\tikz \duck[body=red] ;
+&  
+\tikz \duck[head=red] ;
+&
+\tikz \duck[bill=red] ;
+  &
+  \tikz \duck[eye=red] ;
+    \\ 
+\hline  
+[\RDD{body}=red] & [\RDD{head}=red] & [\RDD{bill}=red] & [\RDD{eye}=red] \\ 
+\hline 
+\end{tabular} 
+\begin{tabular}{|c|} \hline
+\BS{tikz}  \BS{duck}[\RDD{grumpy}] ;
+\\ \hline   
+\tikz  \duck[grumpy] ;
+\\ \hline  
+
+\end{tabular} 
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline  
+\tikz \duck[longhair] ;
+&  
+\tikz \duck[shorthair] ;
+&
+\tikz \duck[crazyhair] ;
+&
+\tikz \duck[recedinghair] ;
+&
+\tikz \duck[mohican] ;
+&
+\tikz \duck[mullet] ;
+\\ \hline  
+[\RDD{longhair}] & [\RDD{shorthair}] & [\RDD{crazyhair}] & [\RDD{recedinghair}] &  [\RDD{mohican}] &  [\RDD{mullet}]\\ 
+\hline
+\tikz \duck[longhair=red] ;
+&  
+\tikz \duck[shorthair=red] ;
+&
+\tikz \duck[crazyhair=red] ;
+  &
+  \tikz \duck[recedinghair=red] ;
+  &
+  \tikz \duck[mohican=red] ;
+  &
+  \tikz \duck[mullet=red] ;
+    \\ 
+\hline  
+[longhair=red] & [shorthair=red] & [crazyhair=red] & [recedinghair=red] &  [mohican=red] &  [mullet=red]  \\ 
+\hline 
+\end{tabular}
+
+\bigskip
+
+
+
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline  
+\tikz \duck[eyebrow] ;
+&  
+\tikz \duck[eyebrow=red] ;
+&
+\tikz \duck[beard] ;
+  &
+  \tikz \duck[beard=red] ;
+    \\ 
+\hline  
+[\RDD{eyebrow}] & [eyebrow=red] & [\RDD{beard}] & [beard=red] \\ 
+\hline
+ 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline  
+\tikz \duck[tshirt] ;
+&  
+\tikz \duck[tie] ;
+&
+\tikz \duck[jacket] ;
+&
+\tikz \duck[cape] ;
+&
+\tikz \duck[tshirt,tie ,jacket ,cape] ;
+\\ \hline
+[\RDD{tshirt}] & [\RDD{tie}] & [\RDD{jacket}] & [\RDD{cape}]& [tshirt,tie ,jacket ,cape]
+\\ \hline
+\dft{white} & \dft{blue} & \dft{blue} & \dft{red}&
+\\ \hline
+\tikz \duck[tshirt=red] ;
+&  
+\tikz \duck[tie=red] ;
+&
+\tikz \duck[jacket=red] ;
+&
+\tikz \duck[cape=blue] ;
+&
+
+\\ \hline
+[tshirt=red] & [tie=red] & [jacket=red] & [cape=blue]& 
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\tikz \duck[water];
+&
+\tikz \duck[alien];
+&
+\tikz \duck[hat];
+&
+\tikz \duck[tophat];
+&
+\tikz \duck[cap];
+\\ \hline
+[\RDD{water}] & [\RDD{alien}] & [\RDD{hat}]& [\RDD{tophat}] & [\RDD{cap}]
+\\ \hline
+\tikz \duck[santa];
+&
+\tikz \duck[graduate];
+&
+\tikz \duck[graduate,tassel];
+&
+\tikz \duck[beret];
+&
+\tikz \duck[peakedcap];
+\\ \hline
+[\RDD{santa}] & [\RDD{graduate}] & [graduate,\RDD{tassel}] & [\RDD{beret}] & [\RDD{peakedcap}]
+\\ \hline
+\tikz \duck[crown];
+&
+\tikz \duck[queencrown];
+&
+\tikz \duck[kingcrown];
+&
+\tikz \duck[sheep];
+&
+\tikz \duck[horsetail];
+\\ \hline
+[\RDD{crown}] &[\RDD{queencrown}]&[\RDD{kingcrown}] & [\RDD{sheep}] &[\RDD{horsetail}]
+\\ \hline
+
+\tikz \duck[crozier];
+&
+\tikz \duck[unicorn];
+&
+
+\tikz \duck[bunny];
+&
+\tikz \duck[bunny=red,inear=blue];
+&
+\tikz \duck[witch];
+\\ \hline
+ [\RDD{crozier}] & [\RDD{unicorn}] &[\RDD{bunny}] & [bunny=red,\RDD{inear}=blue] & [\RDD{witch}]
+\\ \hline
+\tikz \duck[magicwand];
+&
+\tikz \duck[magichat];
+&
+\tikz \duck[magichat=teal,
+magicstars=blue!30!cyan,
+magicwand];
+&
+\tikz \duck[glasses];
+&
+\tikz \duck[sunglasses];
+\\ \hline
+[\RDD{magicwand}] & [\RDD{magichat}] & \parbox{3cm}{[magichat,\\ \RDD{magicstars}]} & [\RDD{glasses}] & [\RDD{sunglasses}]
+\\ \hline
+\end{tabular}  
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline
+
+\tikz \duck[squareglasses];
+&
+\tikz \duck[signpost=42];
+&
+\tikz \duck[signpost=XXX,signcolour=green];
+&
+\tikz \duck[signpost=XXX,signback=green];
+&
+\tikz \duck[speech={XXX}];
+\\ \hline
+[\RDD{squareglasses}] & [\RDD{signpost}=42] & \parbox{3cm}{[signpost=XXX,\\ \RDD{signcolour}=green]} & \parbox{3cm}{[signpost=XXX, \\ \RDD{signback}=green]} & [\RDD{speech}=\AC{XXX}] 
+\\ \hline 
+\end{tabular}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\tikz \duck[speech={XXX},bubblecolour=green];
+&
+\tikz \duck[think={XXX}];
+&
+\tikz \duck[think=XXX,bubblecolour=green];
+&
+\tikz \duck[book={XXX}];
+\\ \hline
+\parbox{3cm}{[speech={XXX},\\ \RDD{bubblecolour}=green]} & [\RDD{think}=\AC{XXX}] & 
+\parbox{3cm}{[think={XXX},\\ \RDD{bubblecolour}=green]}
+&[\RDD{book}=\AC{XXX}] 
+\\ \hline
+%\end{tabular}  
+%
+%\begin{tabular}{|c|c|c|c|c|} \hline
+\tikz \duck[book=XXX,bookcolour=green];
+&
+\tikz \duck[book=\scalebox{0.5}{XXX}];
+&
+\multicolumn{2}{|c|}{\tikz 
+\duck[signpost=\scalebox{0.4}{
+\parbox{2cm}{
+\centering XXX \\ XXXXX}}]
+;}
+\\ \hline
+
+\parbox{3cm}{[book={XXX},\\ \RDD{bookcolour}=green]} 
+&
+\parbox{3.5cm}{\BS{tikz} \BS{duck}[book=\\ \BS{scalebox}\AC{0.5}\AC{XXX}]; }
+&
+\multicolumn{2}{|c|}{ \parbox{7cm}{ \BS{tikz} 
+\BS{duck}[signpost=\BS{scalebox}\AC{0.4}\AC{ \\
+\BS{parbox}\AC{2cm}{  
+\BS{centering} XXX \ XXXXX}}]}
+;}
+\\ \hline
+\end{tabular}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\tikz \duck[cricket];
+&
+\tikz \duck[hockey];
+&
+\tikz \duck[football];
+&
+\tikz \duck[lightsaber];
+&
+\tikz \duck[torch];
+\\ \hline
+[\RDD{cricket}]& [\RDD{hockey}] & [\RDD{football}] & [\RDD{lightsaber}] & [\RDD{torch}]
+\\ \hline
+\tikz \duck[prison];
+&
+\tikz \duck[necklace];
+&
+\tikz \duck[icecream];
+&
+\tikz \duck[icecream,flavoura=green];
+&
+\tikz \duck[icecream,flavourb=green];
+\\ \hline
+[\RDD{prison}] & [\RDD{necklace}] & [\RDD{icecream}] &
+\parbox{3cm}{[icecream,\\ \RDD{flavoura}=green]} & 
+\parbox{3cm}{[icecream,\\ \RDD{flavourb}=green]}
+\\ \hline
+\tikz \duck[icecream,flavourc=green];
+&
+\tikz \duck[chef];
+&
+\tikz \duck[rollingpin];
+&
+\tikz \duck[cake];
+&
+\tikz \duck[pizza];
+\\ \hline
+\parbox{3cm}{[icecream,\\ \RDD{flavourc}=green]} &
+ [\RDD{chef}] & [\RDD{rollingpin}] & [\RDD{cake}] & [\RDD{pizza}]
+\\ \hline
+\tikz \duck[baguette];
+&
+\tikz \duck[milkshake];
+&
+\tikz \duck[wine];
+&
+\tikz \duck[mask];
+&
+\tikz \duck[buttons];
+\\ \hline
+  [\RDD{baguette}] & [\RDD{milkshake}] & [\RDD{wine}] & [\RDD{mask}] & [\RDD{buttons}]
+\\ \hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\tikz \duck[basket];
+&
+\tikz \duck[easter];
+&
+\tikz \duck[easter,egga=red];
+&
+\tikz \duck[easter,eggb=red];
+&
+\tikz \duck[easter,eggc=red];
+\\ \hline
+[\RDD{basket}]& [\RDD{easter}] & [easter,\RDD{egga}=red] & [easter,\RDD{eggb}=red] & [easter,\RDD{eggc}=red]
+\\ \hline
+
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline 
+\multicolumn{4}{|c|}{\BS{tikz} \BS{duck} \BS{path}[preaction=\AC{fill,green},pattern=dots, pattern  color=red]  \BSS{duckpathbody} ;} 
+\\ \hline
+\tikz \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathbody;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathgrumpybill;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathbill;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathtshirt;
+\\ \hline 
+\BSS{duckpathbody } & \BSS{duckpathgrumpybill} & \BSS{duckpathbill} & \BSS{duckpathtshirt} 
+\\ \hline
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathjacket;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathcape ;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathshorthair ;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathlonghair;
+\\ \hline 
+\BSS{duckpathjacket} & \BSS{duckpathcape}  & \BSS{duckpathshorthair} & \BSS{duckpathlonghair} 
+\\ \hline 
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathcrazyhair;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathrecedinghair;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathcrown ;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]   \duckpathmohican ;
+\\ \hline 
+\BSS{duckpathcrazyhair} & \BSS{duckpathrecedinghair} & \BSS{duckpathcrown} & \BSS{duckpathmohican}
+\\ \hline 
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]   \duckpathmullet;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]   \duckpathqueencrown ;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]   \duckpathkingcrown ;
+&
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathdarthvader ;
+\\ \hline 
+\BSS{duckpathmullet} & \BSS{duckpathqueencrown} & \BSS{duckpathkingcrown} & \BSS{duckpathdarthvader}
+\\ \hline 
+\tikz   \duck
+\path[preaction={fill,green},pattern=dots, pattern  color=red]  \duckpathhorsetail ;
+& & & 
+\\ \hline 
+\BSS{duckpathhorsetail}& & & 
+\\ \hline 
+\end{tabular}
+
+
+\SbSbSSCT{Canards aléatoires}{Random ducks}
+
+\noindent
+
+\begin{tabular}{|c|}\hline  
+\BS{tikz} \BSS{randuck} ; \BS{tikz} \BSS{randuck} ; \BS{tikz} \BSS{randuck} ; \BS{tikz} \BSS{randuck} ; \BS{tikz} \BSS{randuck} ; 
+\\ \hline    
+\tikz \randuck ; \tikz \randuck  ; \tikz  \randuck  ; \tikz  \randuck  ; \tikz  \randuck ;
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|} \hline  
+\BS{tikz} \BSS{shuffleducks} \BS{duck}[\BSS{randomhead}] ;
+\\ \hline  
+\tikz \shuffleducks \duck[\randomhead] ; \tikz \shuffleducks \duck[\randomhead] ; \tikz \shuffleducks \duck[\randomhead] ; \tikz \shuffleducks \duck[\randomhead] ;
+\tikz \shuffleducks \duck[\randomhead] ;
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|} \hline  
+\BS{tikz} \BSS{shuffleducks} \BS{duck}[\BSS{randomaccessories}] ;
+\\ \hline  
+\tikz \shuffleducks \duck[\randomaccessories] ; \tikz \shuffleducks \duck[\randomaccessories] ; \tikz \shuffleducks \duck[\randomaccessories] ; \tikz \shuffleducks \duck[\randomaccessories] ; \tikz \shuffleducks \duck[\randomaccessories] ; 
+\\ \hline 
+\end{tabular} 
+
+
+\SbSbSSCT{Coordonnées}{Coordinates}
+
+\noindent
+
+
+\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|c|}{\BS{tikz} \BS{duck} \BS{fill}[red] (wing) circle (3pt);}
+\\ \hline  
+\tikz \duck \fill[red] (wing) circle (3pt);
+&
+\tikz \duck \fill[red] (head) circle (3pt);
+&
+\tikz \duck \fill[red] (bill) circle (3pt);
+\\ \hline wing &  head & bill \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|} \hline
+\BS{tikz} \BS{duck}[\RDD{name}=XXX] \\ \BS{begin}\AC{scope} [xshift=4cm] \BS{duck}[\RDD{name}=YYY] 
+\BS{end}\AC{scope} \\ \BS{draw}[red] (XXX-wing) - - (YYY-bill) ;
+\\ \hline
+\tikz \duck[name=XXX] \begin{scope} [xshift=4cm] 
+\duck[name=YYY]
+\end{scope}  \draw[red] (XXX-wing) -- (YYY-bill);
+\\ \hline
+\end{tabular} 
+
+
+\SbSbSSCT{Rayures}{Stripes}
+
+\noindent
+
+\begin{tabular}{|c|c|} \hline  
+\tikz \duck \stripes ;
+&  
+\tikz \duck[stripes] ;
+\\ \hline  
+\BS{tikz} \BS{duck} \BSS{stripes} ; 
+&  
+\BS{tikz} \BS{}duck[\RDD{stripes}] ;
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline  
+\tikz \duck[rollingpin] \stripes ;
+&  
+\tikz  \duck[rollingpin,stripes] ;
+\\ \hline  
+\BS{tikz} \BS{duck}[rollingpin] \BS{stripes} ;
+&  
+\BS{tikz}  \BS{duck}[rollingpin,stripes] ;
+\\ \hline 
+\end{tabular} 
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|}\hline 
+\multicolumn{4}{|c|}{\BS{tikz} \BS[duck] \BS{stripes}[\RDD{color}=red];}
+\\ \hline  
+\tikz \duck \stripes[color=red];
+& 
+\tikz \duck \stripes[distance=.5]; 
+&  
+\tikz \duck \stripes[width=.05];
+&
+\tikz \duck \stripes[height=1];  
+\\ \hline 
+[\RDD{color}=red] & [\RDD{distance}=.5] & [\RDD{width}=.05] & [\RDD{height}=1] 
+\\ \hline 
+\dft{black} & \dft{0.3}  & \dft{0.15}  &  \dft{2.7} \\ 
+\hline  
+
+\tikz \duck \stripes[rotate=45]; & \tikz \duck \stripes[initialx=1]; & \tikz \duck \stripes[initialy=1]; &  
+\\ \hline 
+[\RDD{rotate=}45] & [\RDD{initialx}=1] & [\RDD{initialy}=1] &
+\\ \hline 
+\dft{-10} & \dft{0.1} & \dft{-0.3} & 
+\\ \hline 
+\end{tabular} 
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+\multicolumn{3}{|c|}{\BS{tikz} \BS[duck] \BS{stripes}[\RDD{emblem}=XXX];}
+\\ \hline 
+\tikz \duck \stripes[emblem={XXX}];
+&  
+\tikz \duck \stripes[emblem={\includegraphics[width=6mm]{LogoIUT}}];
+&  
+\tikz \duck \stripes[emblem={\DFR}];
+\\ \hline  
+[emblem=XXX]
+& \parbox{5cm}{ [emblem=\{\BS{includegraphics}  [width=6mm]\AC{LogoIUT} \} ] }  
+&  [emblem=\AC{\BS{DFR}}  ] 
+\\ \hline 
+& &  \BS{DFR} : \TFRGB{voir}{see} page \pageref{DFR} 
+\\ \hline   
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+\tikz \duck[stripes={ \stripes \stripes[rotate=45]}] ;
+\\ \hline 
+\BS{tikz}
+\BS{duck}[stripes=\AC{
+\BS{stripes}
+\BS{stripes}[rotate=45] } ]
+;
+
+\\ \hline  
+\end{tabular}
+
+

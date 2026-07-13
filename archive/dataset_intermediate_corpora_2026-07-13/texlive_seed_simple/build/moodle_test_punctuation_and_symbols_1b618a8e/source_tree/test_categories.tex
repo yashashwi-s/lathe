@@ -1,0 +1,77 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[section,nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of category settings in the quiz 
+environment.
+
+%\setcategory{Category Outside Quiz}
+%\setsubcategory{Subcategory Outside Quiz}
+
+\begin{quiz}{Examples}
+\setsubcategory{Generic}
+\begin{multi}{Multi}
+A
+\item* B
+\item C
+\item D
+\end{multi}
+
+\begin{numerical}{Numerical}
+One
+\item 1
+\end{numerical}
+
+\setsubcategory{Very Specific}
+\begin{multi}{Multi}
+A
+\item* B
+\item C
+\item D
+\end{multi}
+
+\begin{numerical}{Numerical}
+One
+\item 1
+\end{numerical}
+
+\setcategory{Other Category}
+
+\begin{multi}{Multi}
+A
+\item* B
+\item C
+\item D
+\end{multi}
+
+\begin{numerical}{Numerical}
+One
+\item 1
+\end{numerical}
+
+\setsubcategory{Other Subcategory}
+\begin{multi}{Multi}
+A
+\item* B
+\item C
+\item D
+\end{multi}
+
+\begin{numerical}{Numerical}
+One
+\item 1
+\end{numerical}
+
+\end{quiz}
+\end{document}

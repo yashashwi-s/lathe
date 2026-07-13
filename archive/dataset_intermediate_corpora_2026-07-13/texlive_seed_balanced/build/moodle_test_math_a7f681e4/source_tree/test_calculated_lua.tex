@@ -1,0 +1,77 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{hyperref,luacode}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the possibility of generating 
+pseudo-calculated questions with the help of Lua scripts.
+
+Inspired by
+\url{https://github.com/avohns/python-latex-moodle-quiz/blob/master/simple-examples-eng/example1_arithmetic.tex}
+
+\begin{quiz}[tags={calculated}]{Example Quiz}
+% THIS DOES NOT REQUIRE LUACODE AND WORKS WITH RECENT LUATEX (2020)
+%\directlua{
+%function clozenum_print(pair,op,result)
+%  tex.print("\\begin{numerical}$"..pair[1].." "..op.." "..pair[2].." 
+%  =$".."\\item ",result,"\\end{numerical}")
+%end
+%function cloze_print(pair,points)
+%  tex.print("\\begin{cloze}[points="..points.."]{Arithmetic Quiz 
+%  ("..pair[1]..", "..pair[2]..")}Solve the following tasks!\\\\")
+%  clozenum_print(pair,"+",pair[1]+pair[2])
+%  clozenum_print(pair,"-",pair[1]-pair[2])
+%  clozenum_print(pair,"*",pair[1]*pair[2])
+%  if pair[1]/pair[2]==math.floor(pair[1]/pair[2]) then
+%    clozenum_print(pair,":",math.floor(pair[1]/pair[2]))
+%  end
+%  tex.print("\\end{cloze}")
+%end
+%for x = 2,4 do
+%  for y = 2,4 do
+%    if x>y then
+%      if x/y==math.floor(x/y) then points=4 else points=3 end
+%      cloze_print({x,y},points)
+%    end
+%  end
+%end
+%}
+% THIS SEEMS TO WORK BETTER WITH EARLIER VERSIONS OF LUATEX
+\begin{luacode*}
+function clozenum_print(pair,op,result)
+  tex.print([[\begin{numerical}$]]..pair[1].." "..op.." "..pair[2]..
+  " = $"..[[\item ]],result,[[\end{numerical}]])
+end
+function cloze_print(pair,points)
+  tex.print([[\begin{cloze}[points=]]..points.."]{Arithmetic Quiz ("..
+  pair[1]..", "..pair[2]..[[)}Solve the following tasks!\\]])
+  clozenum_print(pair,"+",pair[1]+pair[2])
+  clozenum_print(pair,"-",pair[1]-pair[2])
+  clozenum_print(pair,"*",pair[1]*pair[2])
+  if pair[1]/pair[2]==math.floor(pair[1]/pair[2]) then
+    clozenum_print(pair,":",math.floor(pair[1]/pair[2]))
+  end
+  tex.print([[\end{cloze}]])
+end
+for x = 2,4 do
+  for y = 2,4 do
+    if x>y then
+      if x/y==math.floor(x/y) then points=1 else points=2 end
+      cloze_print({x,y},points)
+    end
+  end
+end
+\end{luacode*}
+\end{quiz}
+\end{document}

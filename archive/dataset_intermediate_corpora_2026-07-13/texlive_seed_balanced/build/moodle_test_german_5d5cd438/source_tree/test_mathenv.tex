@@ -1,0 +1,39 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+\begin{quiz}{Example Quiz}
+\begin{multi}{Multiple Choice}
+\[\begin{array}{c}\$1\\2\end{array}\]
+
+$$\begin{array}{c}\$1\\2\end{array}$$
+
+\(\begin{array}{c}\$1\\2\end{array}\)
+\item[fraction=100]* $\$\sqrt{25}$
+\item 6
+\item[fraction=30,feedback={\[\$\sqrt{25}\]}]* 7
+\item[fraction=10] 8
+\end{multi}
+\begin{cloze}{Cloze}
+\begin{multi}[vertical	]
+\[\begin{array}{c}\$1\\2\end{array}\]
+
+$$\begin{array}{c}\$1\\2\end{array}$$
+
+\(\begin{array}{c}\$1\\2\end{array}\)
+\item[fraction=100]* $\$\sqrt{25}$
+\item 6
+\item[fraction=30,feedback={\[\$\sqrt{25}\]}]* 7
+\item[fraction=10] 8
+\end{multi}
+\end{cloze}
+\end{quiz}
+\end{document}

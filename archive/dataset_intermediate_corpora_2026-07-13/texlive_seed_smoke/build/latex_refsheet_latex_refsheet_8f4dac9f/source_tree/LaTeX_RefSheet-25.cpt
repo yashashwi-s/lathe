@@ -1,0 +1,20 @@
+
+\subsection{References with \texttt{hyperref} (loads \texttt{url} implicitly)}
+\begin{tabular}{@{}p{.30\columnwidth}p{.69\columnwidth}@{}}\toprule
+\lstinline+\autocite{+\textit{citekey}\lstinline+}+ & Cite a bibliographic reference (package \texttt{biblatex})\\
+\lstinline+\label{+\textit{marker}\lstinline+}+   &  Set a marker for cross reference,
+often if the form \lstinline+\label{sec:item}+ or \lstinline+\label{fig:diag1}+ \\
+\end{tabular}\\
+\begin{tabular}{@{}p{.42\columnwidth}p{.55\columnwidth}@{}}
+\lstinline+\autoref{+\textit{marker}\lstinline+}+ &  Give type name and number of marker \\
+\lstinline+\autopageref{+\textit{marker}\lstinline+}+ &  Give abbreviation of ``page'' and page number of marker \\
+\lstinline+\url{+\textit{url}\lstinline+}+ & Print clickable web page\\
+\lstinline+\href[+\textit{options}\lstinline+]{+\textit{url}\lstinline+}{+\textit{text}\lstinline+}+
+& Print clickable link\\
+\lstinline+\hyperref[+\textit{marker}\lstinline+]{+\textit{text}\lstinline+}+
+& Print clickable reference\\
+\bottomrule\end{tabular}\\
+Style: \lstinline+\urlstyle{+\textit{xx}\lstinline+}+ with \textit{xx} a style like ``tt'', ``rm'', ``sf'' or ``same''. \\
+Names for autoref  (package \texttt{babel}):\\ ~~\lstinline+\renewcaptionname{+\textit{language}\lstinline+}{\+\textit{typename}\lstinline+autorefname}{+\textit{text}\lstinline+}+,\\
+~~e.g. \lstinline+\renewcaptionname{english}{\subsectionautorefname}{section}+%
+^^E^^L 

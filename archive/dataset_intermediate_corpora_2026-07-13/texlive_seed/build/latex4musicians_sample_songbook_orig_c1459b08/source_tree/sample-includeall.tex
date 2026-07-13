@@ -1,0 +1,81 @@
+% typeset with:
+% pdflatex -shell-escape sample-example.tex
+
+\documentclass{article}
+\thispagestyle{empty}
+\usepackage[generate,ps2eps]{abc}
+
+% --- M-Tx support
+% https://ctan.org/pkg/m-tx
+
+\newcommand{\mtxinput}[2][]{%
+\abcinput[program=musixtex,options={-g},extension=mtx,#1]{#2}}
+
+% --- PMW support
+% http://people.ds.cam.ac.uk/ph10/pmw.html
+
+\newcommand{\pmwinput}[2][]{%
+\abcinput[program=pmw,options={-includefont},extension=pmw,#1]{#2}}
+
+% --- LilyPond support
+% http://lilypond.org/
+
+\newcommand{\lilyinput}[2][]{%
+\abcinput[program=lilypond,options={-d backend=eps},extension=ly,#1]{#2}}
+
+% --- MUP support
+% http://arkkra.com/
+
+\newcommand{\mupinput}[2][]{%
+\abcinput[program=mup,options={-F},extension=mup,#1]{#2}}
+
+% --- ABC is supported by default
+
+\begin{document}
+
+This document includes music excerpts written in several formats. It
+uses \texttt{abc.sty} and defines new environments.
+
+\bigskip
+
+This is a short piece, typeset by M-Tx:
+
+\medskip
+
+\mtxinput{sample-mtx}
+
+\medskip
+
+The same piece, typeset by LilyPond:
+
+\medskip
+
+\lilyinput{sample-lilypond}
+
+\medskip
+
+The same piece, typeset by PMW:
+
+\medskip
+
+\pmwinput{sample-pmw}
+
+\medskip
+
+The same piece, typeset by MUP:
+
+\medskip
+
+\mupinput{sample-mup}
+
+\medskip
+
+The same piece, typeset by abcm2ps:
+
+\medskip
+
+\abcinput[program=abcm2ps,options={-c -O=},extension=abc]{sample-abc}
+
+\end{document}
+
+% End of file `sample-includeall.tex'.

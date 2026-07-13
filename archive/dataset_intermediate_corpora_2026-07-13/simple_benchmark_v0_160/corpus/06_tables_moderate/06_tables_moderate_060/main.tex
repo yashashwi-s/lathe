@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01665\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} l c c c c c c c c @{}}
+\toprule
+\textbf{Method}   & \textbf{Venue} & \textbf{Backbone}   & \textbf{Param} & $\mathbf{AP_{50}}$ & $\mathbf{AP_{75}}$ & $\mathbf{AP_{50}^S}$ & $\mathbf{AP_{50}^M}$ & $\mathbf{AP_{50}^L}$ \\
+\midrule
+Faster R-CNN      & NeurIPS'15     & ResNet-50           & 41M               & 11.6               & 2.1                & 14.8                 & 9.0                  & 22.5                 \\
+RetinaNet         & ICCV'17        & ResNet-50           & 31M               & 5.2                & 0.7                & 8.9                  & 4.8                  & 8.7                  \\
+Cascade R-CNN     & CVPR'18        & ResNet-50           & 68M               & 9.9                & 1.7                & 12.9                 & 8.0                  & 20.7                 \\
+YOLOv3            & ArXiv'18       & DarkNet-53          & 61M               & 4.4                & 0.1                & 5.6                  & 4.2                  & 14.1                 \\
+FCOS              & ICCV'19        & ResNet-50           & 31M               & 7.0                & 1.2                & 9.3                  & 5.6                  & 10.7                 \\
+RepPoints         & ICCV'19        & ResNet-50           & 31M               & 5.0                & 0.8                & 7.2                  & 5.1                  & 10.8                 \\
+TridentNet        & ICCV'19        & ResNet-50           & 32M               & 2.3                & 1.0                & 3.3                  & 3.4                  & 10.2                 \\
+ATSS              & CVPR'20        & ResNet-50           & 31M               & 14.6               & 2.2                & 14.0                 & 11.9                 & 29.7                 \\
+YOLOv5            & CVPR'20        & CSPDarkNet-s        & 26M               & 13.8               & 2.4                & 17.6                 & 10.3                 & 29.2                 \\
+FoveaBox          & TIP'20         & ResNet-50           & 36M               & 12.0               & 1.8                & 12.7                 & 10.2                 & 28.0                 \\
+TPH-YOLOv5        & ICCV'21        & CSPDarkNet-s        & 27M               & 10.1               & 1.9                & 14.8                 & 7.0                  & 24.8                 \\
+Dyhead            & CVPR'21        & ResNet-50           & 38M              & 10.5               & 1.6                & 12.1                 & 8.2                  & 24.5                 \\
+YOLOv8            & TGRS'22        & CSPDarkNet-s        & 12M               & 10.0               & 1.7                & 12.2                 & 7.5                  & 23.1                 \\
+RT-DETR           & 2023           & HGNetV2             & 31M               & 7.6                & 0.6                & 9.4                  & 5.4                  & 18.7                 \\
+DDOD              & TMM'23         & ResNet-50           & 32M              & 14.5               & 2.2                & 14.9                 & 11.9                 & 28.6                 \\
+DINO              & ICLR'23        & ResNet-50           & 47M              & 8.5                & 1.1                & 12.2                 & 7.0                  & 12.6                 \\
+KLDNet            & TGRS'24        & ResNet-50           & 45M               & 13.3               & 2.1                & 13.4                 & 11.3                 & 27.9                 \\
+YOLOv10           & 2024           & CSPDarkNet-s        & 7M                & 11.9               & 2.3                & 13.6                 & 9.2                  & 20.5                 \\
+YOLOv11           & 2024           & C3k2Net-s           & 8M                & 12.2               & 2.2                & 13.9                 & 9.5                  & 23.8                 \\
+SCDNet            & TGRS'23        & CSPDarkNet-s        & 43M               & 24.2               & 3.3                & 21.0                 & 18.3                 & 43.7                 \\
+\midrule
+\textbf{ScaleBridge-Det (Ours)} & -        & Multi-Expert        & 2B              & \textbf{29.8}      & \textbf{7.2}       & \textbf{24.0}        & \textbf{26.0}        & \textbf{42.0}        \\
+\bottomrule
+\end{tabular*}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04772\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llcccl@{}}
+\toprule
+\textbf{Campaign} & \textbf{Vineyard} & \textbf{Runs} & \textbf{Weather} & \textbf{Plant Growth} & \textbf{Grass Height} \\ \midrule
+\textbf{ID 01} & Trellis & 01, 02     & Cloudy        & Stem, no leaves             & Low ($\sim 5$ cm)    \\
+12/02          & Pergola & 01, 02     & Cloudy       & Stem, no leaves             & Low ($\sim 5$ cm)    \\ \midrule
+\textbf{ID 02} & Trellis & 01, 02     & Sun          & Stem, no leaves             & Medium ($\sim 20$ cm)    \\
+20/03          & Pergola & 01, 02     & Sun          & Stem, no leaves             & Medium ($\sim 20$ cm)    \\ \midrule
+\textbf{ID 03} & Trellis & 01, 02     & Sun          & Stem, no leaves             & Tall ($>$40 cm)    \\
+11/04          & Pergola & 01, 02     & Sun          & Stem, no leaves             & Tall ($>$40 cm)    \\ \midrule
+\textbf{ID 04} & Trellis & 01, 02     & Sun          & Stem, few leaves            & Tall ($>$40 cm) \\
+15/05          & Pergola & 01, 02     & Sun          & Stem, few leaves            & Tall ($>$40 cm) \\ \midrule
+\textbf{ID 05} & Trellis & 01, 02     & Cloudy        & Branches, leaves              & Medium ($\sim 20$ cm)   \\
+06/06          & Pergola & 01, 02     & Cloudy        & Branches, leaves              & Tall ($>$40 cm)   \\ \midrule
+\textbf{ID 06} & Trellis & 01, 02     & Sun          & Branches, leaves              & Medium ($\sim 20$ cm)   \\
+25/06          & Pergola & 01, 02     & Sun          & Branches, leaves              & Medium ($\sim 20$ cm)   \\ \midrule
+\textbf{ID 07} & Trellis & 01, 02, 03 & Sun          & Branches, leaves              & Low ($\sim 5$ cm)    \\
+11/07          & Pergola & 01, 02     & Sun          & Branches, leaves              & Medium ($\sim 20$ cm)    \\ \midrule
+\textbf{ID 08} & Trellis & 01, 02, 03 & Sun          & Branches, leaves, fruit       & Low ($\sim 5$ cm)    \\
+28/07          & Pergola & 01, 02     & Sun          & Branches, leaves, fruit       & Low ($\sim 5$ cm)    \\ \midrule
+\textbf{ID 09} & Trellis & 01, 02, 03 & Sun          & Branches, leaves, fruit       & Medium ($\sim 20$ cm) \\
+14/08          & Pergola & 01, 02     & Sun          & Branches, leaves, fruit       & Low ($\sim 5$ cm) \\ \midrule
+\textbf{ID 10} & Trellis & 01, 02, 03 & Cloudy        & Branches, leaves, fruit       & Medium ($\sim 20$ cm) \\
+11/09          & Pergola & 01, 02     & Cloudy        & Branches, leaves, fruit       & Tall ($>$40 cm) \\ 
+\midrule
+\textbf{ID 11} & Trellis & 01, 02, 03 & Sun              & Branches, leaves, fruit             & Low ($\sim 5$ cm)   \\
+02/10          & Pergola & 01, 02     & Sun              & Branches, leaves, fruit             & Low ($\sim 5$ cm)    \\ \midrule
+\textbf{ID 12} & Trellis & 01, 02, 03 & Cloudy               & Branches, leaves             & Low ($\sim 5$ cm)    \\
+30/10          & Pergola & 01, 02     & Cloudy               & Branches, leaves             & Low ($\sim 5$ cm)    \\ \midrule
+\textbf{ID 13} & Trellis & 01, 02, 03 & Cloudy              & Branches, leaves            & Medium ($\sim 20$ cm)   \\
+19/11          & Pergola & 01, 02     & Cloudy              & Branches, leaves            & Medium ($\sim 20$ cm)   \\ 
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

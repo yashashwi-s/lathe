@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01033\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{3cm}p{6cm}p{3cm}}
+\toprule
+\textbf{Function} & \textbf{Description and Best Practices} & \textbf{Settings} \\
+\midrule
+Bandpass & Cutoff for low and high frequencies & \texttt{low\_freq = 256} \\
+         & & \texttt{high\_freq = 120000} \\
+\addlinespace[0.2cm]
+Noise-Removal & Non-stationary noise removal & \texttt{time\_constant\_s = 0.2} \\
+              & & \texttt{time\_mask\_smooth\_ms = 5} \\
+              & & \texttt{stationary = False} \\
+              & & \texttt{freq\_mask\_smooth\_hz = 256} \\
+\addlinespace[0.2cm]
+Pre-Emphasis & Emphasis high-frequencies & \texttt{pre\_emphasis = 0.97} \\
+\addlinespace[0.2cm]
+Short-Time Fourier Transform (STFT) & STFT for power-to-decibel spectrograms. Use a n\_fft of 8ms, with a window of 4ms and 1ms overlaps. Normalize with respect to median power values. & \texttt{n\_fft = 2048} \\
+                                    & & \texttt{fmin = 256} \\
+                                    & & \texttt{fmax = 120000} \\
+                                    & & \texttt{hop\_length = 256} \\
+                                    & & \texttt{win\_length = 1024} \\
+                                    & & \texttt{sr = 250000} \\
+\addlinespace[0.2cm]
+Mel-Frequency Cepstral Coefficients (MFCCs) & Use 64 mel-bins & \texttt{as in STFT} \\
+                                            & & \texttt{n\_mels = 64} \\
+\addlinespace[0.2cm]
+Dynamic Threshold Segmentation & Tokenize original audio segments into shorter sub-components & \texttt{as in STFT} \\
+                               & & \texttt{db\_delta = 5} \\
+                               & & \texttt{ref\_level\_db = 20} \\
+                               & & \texttt{pre\_emphasis = 0.97} \\
+                               & & \texttt{min\_silence\_for\_spec = 0.1} \\
+                               & & \texttt{max\_vocal\_for\_spec = 1} \quad (\# second) \\
+                               & & \texttt{min\_level\_db = -60} \quad (\# threshold of sound or noise) \\
+                               & & \texttt{silence\_threshold = 0.1} \\
+                               & & \texttt{verbose = True} \\
+                               & & \texttt{min\_syllable\_length\_s = 0.01} \\
+                               & & \texttt{spectral\_range = [2000, 60000]} \\
+\addlinespace[0.2cm]
+MEL-Filterbank & Compute Log-MEL-Spectrograms. Use a MEL-filter bank to increase the frequency resolution of spectrograms to 4093 (fft\_length // 2 + 1); map them into 32 mel\_bins; increase the relative distance of decibels to 120 db & \texttt{fft\_size = 8192} \quad (\# samples per frame) \\
+               & & \texttt{hop\_size = 8192} \quad (\# samples to step) \\
+               & & \texttt{fft\_length = 8192 * 2} \quad (\# size of the FFT) \\
+               & & \texttt{n\_mels = 32} \\
+               & & \texttt{f\_min = 500} \\
+               & & \texttt{f\_max = 120000} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02178\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l l | c c c c c} 
+%\hline
+%\hline
+%\multicolumn{7}{l}{$\beta=0.95$, 2,000 iterations for each setting} \\
+%\hline
+%\hline
+ %\multicolumn{7}{l}{true DGP: Laplace(location=0, scale=1)}\\
+ Method &  & n=10 & n=30 & n=50 & n=100 & n=1000 \\
+\hline
+DP$(a=0)$
+& coverage & 0.7969 & 0.9075 & 0.9292 & 0.9419 & 0.9491 \\
+%& & [0.530 0.961] & [0.792 0.977] & [0.857 0.978] & [0.893 0.974] & [0.936 0.961] \\
+& length & 4.0448 & 5.3963 & 5.7746 & 5.9703 & 5.9881 \\
+%& & [1.746 7.302] & [3.345 7.985] & [4.039 7.984] & [4.563 7.56 ] & [5.511 6.515]\\
+DP$(a=10, F_0=N(0,1))$
+& coverage & 0.8614 & 0.9088 & 0.9259 & 0.9386 & 0.9487 \\
+%& & [0.782 0.954] & [0.821 0.971] & [0.861 0.973] & [0.891 0.971] & [0.935 0.961] \\
+& length & 4.3511 & 5.2436 & 5.5872 & 5.8256 & 5.9716 \\
+%& & [3.044 6.753] & [3.535 7.549] & [4.052 7.602] & [4.523 7.274] & [5.497 6.496] \\
+DP$(a=10, F_0=t_5)$
+& coverage & 0.8981 & 0.9210 & 0.9324 & 0.9416 & 0.9490 \\
+%& & [0.849 0.961] & [0.850 0.974] & [0.875 0.975] & [0.897 0.972] & [0.936 0.961] \\
+& length & 4.8965 & 5.5004 & 5.7576 & 5.9200 & 5.9824 \\
+%& & [3.784 7.129] & [3.855 7.713] & [4.25  7.733] & [4.62  7.357] & [5.508 6.505] \\
+DP$(a=10, F_0=\text{Laplace}(0,1))$
+& coverage & 0.9148 & 0.9277 & 0.9363 & 0.9435 & 0.9492 \\
+%& & [0.878 0.965] & [0.865 0.975] & [0.882 0.976] & [0.900 0.973] & [0.936 0.961] \\
+& length & 5.2163 & 5.6603 & 5.8669 & 5.9831 & 5.9901 \\
+%& & [4.208 7.321] & [4.056 7.795] & [4.375 7.796] & [4.695 7.415] & [5.517 6.512] \\
+DP$(a=100, F_0=N(0,1))$
+& coverage & 0.8693 & 0.8867 & 0.8979 & 0.9138 & 0.9446 \\
+%& & [0.851 0.902] & [0.854 0.925]& [0.863 0.933] & [0.879 0.945] & [0.931 0.957] \\
+& length & 4.0981 & 4.4188 & 4.6464 & 4.9945 & 5.8160\\
+%& & [3.81  4.713] & [3.85  5.284] & [3.984 5.532] & [4.252 5.89 ] & [5.374 6.307] \\
+DP$(a=100, F_0=t_5)$
+& coverage & 0.9268 & 0.9304 & 0.93303 & 0.9370 & 0.9474 \\
+%& & [0.919 0.945] & [0.909 0.954] & [0.909 0.956] & [0.911 0.959] & [0.935 0.959] \\
+& length & 5.2606 & 5.3939 & 5.4876 & 5.6144 & 5.9189 \\
+%& & [5.019 5.901] & [4.801 6.21 ] & [4.808 6.351] & [4.869 6.472] & [5.476 6.401] \\
+DP$(a=100, F_0=\text{Laplace}(0,1))$
+& coverage & 0.9492 & 0.9488 & 0.9486 & 0.9482 & 0.9493 \\
+%& & [0.945 0.961] & [0.936 0.965] & [0.932 0.966] & [0.928 0.966] & [0.937 0.960] \\
+& length & 5.9868 & 5.9986 & 6.0084 & 6.0021 & 5.9901 \\
+%& & [5.798 6.566] & [5.487 6.774] & [5.369 6.833] & [5.262 6.819] & [5.552 6.467] \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

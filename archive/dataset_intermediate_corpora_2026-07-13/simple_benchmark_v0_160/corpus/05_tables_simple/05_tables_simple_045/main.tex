@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02566\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll|ll}
+\hline
+\textbf{Label} & \textbf{Pct} & \textbf{Label} & \textbf{Pct} \\
+\hline
+magnetic resonance & 0.0016456367 & dot plot & 0.0016198410 \\
+functional magnetic resonance & 0.0016157048 & survival curve & 0.0014810793 \\
+radial plot & 0.0014789354 & intraoral imaging & 0.0014599673 \\
+human & 0.0014181240 & density plot & 0.0013346044 \\
+circos plot & 0.0013059153 & user interface & 0.0011404918 \\
+tool & 0.0010539856 & roc curve & 0.0009932869 \\
+optical coherence tomography & 0.0009341144 & screenshot & 0.0008343880 \\
+violin plot & 0.0008291993 & metabolic pathway & 0.0008278167 \\
+phase contrast microscopy & 0.0008206435 & transmission electron microscopy & 0.0007905368 \\
+aerial photography & 0.0007299856 & circular plot & 0.0007264203 \\
+RT PCR & 0.0007226259 & teeth & 0.0006845110 \\
+process chart & 0.0006718811 & checklist table & 0.0005735024 \\
+3D chemical reaction & 0.0005326223 & intraoperative image & 0.0005291735 \\
+procedural image & 0.0005042245 & neural network & 0.0004901149 \\
+patient photo & 0.0004813765 & system diagram & 0.0004802114 \\
+manuscript & 0.0004780481 & reagents & 0.0004636123 \\
+humans and devices & 0.0004603306 & algorithm & 0.0004338552 \\
+drawing & 0.0004153686 & immunoassay & 0.0003963423 \\
+plot and chart & 0.0003894797 & flow diagram & 0.0003860271 \\
+differential gene expression matrix & 0.0003814792 & medical equipment & 0.0003706203 \\
+laryngoscopy & 0.0003408360 & 2D mesh & 0.0003278449 \\
+eye & 0.0003246564 & flowcytometry & 0.0003243030 \\
+human head & 0.0003202484 & word cloud & 0.0003137431 \\
+skull & 0.0002876872 & list & 0.0002694608 \\
+funnel plot & 0.0002647887 & immunocytochemistry & 0.0002596583 \\
+illustration & 0.0002404416 & pyramid chart & 0.0001193004 \\
+mammography & 0.0000844672 & karyotype & 0.0000812088 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04980\_table\_21}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|} 
+\hline
+Model       & $\gamma_{(1)}^{YU} = 0$ & $\gamma_{(1)}^{YU} = 0.25$ & $\gamma_{(1)}^{YU} = 0.5$ & $\gamma_{(1)}^{YU} = 0.75$ & $\gamma_{(1)}^{YU} = 1$ & $\gamma_{(1)}^{YU} = 1.25$ & $\gamma_{(1)}^{YU} = 1.5$ & $\gamma_{(1)}^{YU} = 1.75$ & $\gamma_{(1)}^{YU} = 2$ & $\gamma_{(1)}^{YU} = 2.25$ & $\gamma_{(1)}^{YU} = 2.5$ \\ \hline 
+
+\textbf{CDVAE (ours)} & \textbf{0.43$\pm$0.02}& \textbf{0.50$\pm$0.03}& \textbf{0.96$\pm$0.09}& \textbf{1.57$\pm$0.08}& \textbf{1.90$\pm$0.10}&  \textbf{2.35$\pm$0.18}& \textbf{3.57$\pm$0.17}& \textbf{4.80$\pm$0.20}& \textbf{6.84$\pm$0.20}& \textbf{7.64$\pm$0.48}& \textbf{9.03$\pm$0.50}\\
+\hline
+
+
+\textbf{Causal CPC} & 0.43$\pm$0.01 & 0.50$\pm$0.03 & 1.08$\pm$0.08 & 2.49$\pm$0.14 & 2.98$\pm$0.09 & 4.98$\pm$0.21 & 5.91$\pm$0.29 & 10.15$\pm$0.38 & 12.25$\pm$0.49 & 15.65$\pm$0.56 & 19.39$\pm$0.59 \\
+
+\textbf{Causal CPC (with substitute)} & 0.46$\pm$0.02 & 0.49$\pm$0.01 & 1.02$\pm$0.05 & 2.38$\pm$0.08 & 2.83$\pm$0.09 & 4.81$\pm$0.13 & 5.38$\pm$0.22 & 8.13$\pm$0.39 & 10.11$\pm$0.41 & 12.01$\pm$0.54 & 14.03$\pm$0.64 \\
+
+\textbf{Causal CPC (oracle)} & 0.45$\pm$0.02 & 0.43$\pm$0.03 & 0.96$\pm$0.04 & 1.59$\pm$0.06 & 2.14$\pm$0.08 & 4.41$\pm$0.10 & 5.08$\pm$0.30 & 6.93$\pm$0.25 & 8.70$\pm$0.17 & 10.15$\pm$0.47 & 12.91$\pm$0.51 \\
+\hline
+ 
+\textbf{Causal Transformer} & 0.46$\pm$0.02 & 0.68$\pm$0.04 & 1.50$\pm$0.06 & 2.55$\pm$0.18& 3.65$\pm$0.20& 5.55$\pm$0.50& 8.15$\pm$0.72& 12.35$\pm$0.25& 15.48$\pm$1.02& 24.77$\pm$2.21& 43.84$\pm$2.58\\
+
+
+\textbf{Causal Transformer (with substitute)} &  0.46$\pm$0.02 & 0.67$\pm$0.02& 1.46$\pm$0.03& 2.48$\pm$0.08& 3.53$\pm$0.09& 5.23$\pm$0.11& 7.72$\pm$0.18& 11.86$\pm$0.17& 15.22$\pm$0.17& 20.12$\pm$0.35& 33.58$\pm$0.45\\
+
+
+\textbf{Causal Transformer (oracle)} & 0.46$\pm$0.02&  0.60$\pm$0.03 & 1.48$\pm$0.03 & 2.35$\pm$ 0.06& 3.30$\pm$0.07& 5.11$\pm$0.09& 7.34$\pm$0.13& 11.55$\pm$0.25& 16.98$\pm$0.29& 18.64$\pm$0.31& 28.45$\pm$0.33\\
+
+ \hline
+\textbf{G-Net} & 0.62$\pm$0.05&  0.80$\pm$0.05& 4.90$\pm$0.03& 5.56$\pm$0.05& 4.82$\pm$0.15& 5.79$\pm$0.12& 10.36$\pm$0.23& 15.17$\pm$0.25& 23.89$\pm$0.54& 32.75$\pm$1.20& 49.35$\pm$2.35\\
+
+\textbf{G-Net (with substitute)} & 0.56$\pm$0.04&  0.75$\pm$0.01& 3.61$\pm$0.02& 4.99$\pm$0.20& 4.27$\pm$0.18& 5.50$\pm$0.15& 8.34$\pm$0.64& 13.55$\pm$0.97& 17.97$\pm$1.83& 19.25$\pm$2.04& 40.21$\pm$2.10\\
+
+\textbf{G-Net (oracle)} & 0.48$\pm$0.02& 0.69$\pm$0.03& 3.10$\pm$0.05& 4.36$\pm$0.08& 4.45$\pm$0.12& 5.28$\pm$0.17& 8.28$\pm$0.23& 13.10$\pm$0.50& 17.47$\pm$0.65& 16.22$\pm$0.95& 35.35$\pm$1.77\\
+ \hline
+
+ 
+\textbf{CRN} & 0.53$\pm$0.02& 0.68$\pm$0.03& 1.63$\pm$0.04& 2.94$\pm$0.11& 5.14$\pm$0.17& 6.66$\pm$0.19& 9.08$\pm$0.25& 11.93$\pm$0.37& 16.54$\pm$0.65& 18.68$\pm$0.67& 29.66$\pm$1.12\\
+
+\textbf{CRN (with substitute)} & 0.48$\pm$0.01& 0.65$\pm$0.01& 1.51$\pm$0.02& 2.56$\pm$0.18 & 3.98$\pm$0.21 & 6.05$\pm$0.35 & 6.81$\pm$0.65 & 8.50$\pm$1.16 & 13.81$\pm$0.76 & 16.23$\pm$0.73 & 26.11$\pm$1.41 \\
+
+\textbf{CRN (oracle)} & 0.53$\pm$0.01& 0.60$\pm$0.01& 1.69$\pm$0.02& 2.87$\pm$0.09& 3.75$\pm$0.13& 5.69$\pm$0.17& 8.92$\pm$0.22& 9.65$\pm$0.31& 13.49$\pm$0.54& 15.64$\pm$0.61& 25.98$\pm$0.97\\
+
+ \hline
+\textbf{RMSN} & 0.57$\pm$0.02& 0.67$\pm$0.02& 1.60$\pm$0.03& 2.67$\pm$0.05& 4.31$\pm$0.15& 5.58$\pm$0.17& 7.40$\pm$0.32& 11.25$\pm$0.57& 15.01$\pm$0.89& 19.41$\pm$1.13& 25.07$\pm$0.97\\
+
+\textbf{RMSN (with substitute)} & 0.45$\pm$0.01& 0.67$\pm$0.02& 1.51$\pm$0.04 & 2.31$\pm$0.03& 3.61$\pm$0.20& 4.61$\pm$0.20& 6.14$\pm$0.50& 7.58$\pm$0.82& 10.63$\pm$1.31& 18.53$\pm$1.50& 21.08$\pm$1.60\\
+
+\textbf{RMSN (oracle)} & 0.48$\pm$0.01& 0.62$\pm$0.01& 1.43$\pm$0.03& 1.97$\pm$0.03& 3.42$\pm$0.13& 4.43$\pm$0.15& 6.00$\pm$0.27& 7.31$\pm$0.34& 9.20$\pm$0.48& 17.06$\pm$0.83& 19.32$\pm$1.26\\
+ \hline
+ \end{tabular}
+}
+\end{table}
+
+\end{document}

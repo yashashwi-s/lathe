@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00650\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llcl}
+No & Column name & Units & Description \\ 
+\hline
+1 & RA\_2000 & degrees &  Right Ascension J2000 \\ 
+2 & DEC\_2000 & degrees &  Declination J2000 \\ 
+3 & $\ell$ & degrees &  IAU 1958 Galactic longitude \\
+4 & $b$  & degrees &  IAU 1958 Galactic latitude \\
+5 & mergedClass &    &  Band-merged morphological class \\
+6 & i\_AB & mag &  $i$ band AB magnitude \\
+7 & i\_V & mag & $i$ band Vega magnitude  \\
+8 & err\_i & mag &  $i$ band photometric uncertainty \\ 
+9 & Class\_i &    & $i$ morphological class \\
+10 & Av\_conf\_i &     & $i$ band confidence level \\
+11 & errbits\_i &     & $i$ band cumulative warning flag   \\
+12 & Ha\_AB & mag &  H$\alpha$ band AB magnitude \\
+13 & Ha\_V & mag & H$\alpha$ band Vega magnitude \\
+14 & err\_Ha & mag &  H$\alpha$ band photometric uncertainty \\ 
+15 & Class\_Ha &    & H$\alpha$ morphological class \\
+16 & Av\_conf\_Ha &     & H$\alpha$ band confidence level \\
+17 & errbits\_Ha &     & H$\alpha$ band cumulative warning flag  \\
+18 & rr\_AB & mag &  red-OB $r$ band AB magnitude \\
+19 & rr\_V & mag & red-OB $r$ band Vega magnitude \\
+20 & err\_rr & mag &  red-OB $r$ band photometric uncertainty \\ 
+21 & Class\_rr &    & red-OB $r$ morphological class \\
+22 & Av\_conf\_rr &     & red-OB $r$ band confidence level \\
+23 & errbits\_rr &     & red-OB $r$ band cumulative warning flag \\
+24 & rb\_AB & mag &  blue-OB $r$ band AB magnitude \\
+25 & rb\_V & mag & blue-OB $r$ band Vega magnitude  \\
+26 & err\_rb & mag &  blue-OB $r$ band photometric uncertainty \\ 
+27 & Class\_rb &    & blue-OB $r$ morphological class \\
+28 & Av\_conf\_rb &     & blue-OB $r$ band confidence level \\
+29 & errbits\_rb &     & blue-OB $r$ band cumulative warning flag \\
+30 & g\_AB & mag &  $g$ band AB magnitude \\
+31 & g\_V & mag & $g$ band Vega magnitude \\
+32 & err\_g & mag &  $g$ band photometric uncertainty \\ 
+33 & Class\_g &    & $g$ morphological class \\
+34 & Av\_conf\_g &     & $g$ band confidence level \\
+35 & errbits\_g &     & $g$ band cumulative warning flag   \\
+36 & u\_AB & mag &  $u$ band AB magnitude \\
+37 & u\_V & mag & $u$ band Vega magnitude \\
+38 & err\_u & mag &  $u$ band photometric uncertainty \\ 
+39 & Class\_u &    & $u$ morphological class \\
+40 & Av\_conf\_u &     & $u$ band confidence level \\
+41 & errbits\_u &     & $u$ band cumulative warning flag   \\
+42 & main\_id &    & SIMBAD main identifier \\
+43 & main\_type &    & SIMBAD main object type \\
+44 & sp\_type &    &  SIMBAD spectral classification \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00193\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c}
+      % \hline
+      \textbf{Benchmark} & \textbf{Optimized for} \\ 
+      \hline
+      Aider polyglot                          & TRUE  \\
+      ANLI                                    & TRUE  \\
+      ARC AI2                                 & TRUE  \\
+      ARC-AGI                                 & TRUE  \\
+      Balrog                                  & FALSE \\
+      BBH                                     & TRUE  \\
+      BoolQ                                   & TRUE  \\
+      CadEval                                 & FALSE \\
+      CSQA2                                   & FALSE \\
+      Cybench                                 & TRUE  \\
+      DeepResearch Bench                      & FALSE \\
+      Factorio learning environment           & FALSE \\
+      Fiction.LiveBench                       & FALSE \\
+      FrontierMath-2025-02-28-Private         & TRUE  \\
+      GeoBench                                & FALSE \\
+      GPQA diamond                            & TRUE  \\
+      GSM8K                                   & TRUE  \\
+      GSO-Bench                               & FALSE \\
+      HellaSwag                               & TRUE  \\
+      LAMBADA                                 & TRUE  \\
+      Lech Mazur Writing                      & FALSE \\
+      LiveBench                               & TRUE  \\
+      MATH level 5                            & TRUE  \\
+      MCBench                                 & FALSE \\
+      MMLU                                    & TRUE  \\
+      OpenBookQA                              & TRUE  \\
+      OSUniverse                              & FALSE \\
+      OSWorld                                 & TRUE  \\
+      OTIS Mock AIME 2024-2025                & TRUE  \\
+      PIQA                                    & TRUE  \\
+      ScienceQA                               & TRUE  \\
+      SimpleBench                             & FALSE \\
+      SuperGLUE                               & TRUE  \\
+      SWE-Bench verified                      & TRUE  \\
+      Terminal Bench                          & TRUE  \\
+      The Agent Company                       & FALSE \\
+      TriviaQA                                & TRUE  \\
+      VideoMME                                & TRUE  \\
+      VPCT                                    & FALSE \\
+      WeirdML                                 & FALSE \\
+      Winogrande                              & TRUE  \\
+      % \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

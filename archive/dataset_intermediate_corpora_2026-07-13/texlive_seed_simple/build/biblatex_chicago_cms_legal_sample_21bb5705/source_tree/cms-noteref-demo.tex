@@ -1,0 +1,286 @@
+\documentclass[a4paper,12pt]{article}
+% \usepackage[T1]{fontenc}
+% \usepackage{textcomp}
+\usepackage{fontspec}
+% \usepackage[latin1]{inputenc}
+\usepackage[american]{babel}
+\usepackage[autostyle]{csquotes}
+%\usepackage[document]{ragged2e}
+\usepackage[notes,strict,backend=biber,autolang=other,cmsbreakurl,%
+booklongxref=false,compresspages,%
+noteref=section,noterefintro=introduction]{biblatex-chicago}
+% \usepackage{lmodern}
+% \usepackage{gentium}
+%\renewcommand*{\rmdefault}{fgn}% The font (gentium) used for pdf
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage{vmargin} \setpapersize{A4}
+\setmarginsrb{1in}{20pt}{1in}{.5in}{1pt}{2pt}{0pt}{6mm}
+\usepackage[split=section]{cmsendnotes}
+% \renewcommand{\footnote}{\endnote}
+\usepackage{multicol}
+\hyphenation{tech-re-port Ap-ril}
+\protected\def\onethird{{\mbox{\scriptsize\raisebox{.7ex}{1}%
+    \hspace{-0.1em}\raisebox{.2ex}{/}\hspace{-0.03em}3}}}
+\setlength{\parindent}{0pt}
+\setlength{\dimen\footins}{9.5in}
+\newcommand{\mycolor}{}%[1]{\textcolor[HTML]{228B22}{#1}}
+\usepackage{xr-hyper}
+\externaldocument[cms-]{biblatex-chicago}%
+\usepackage[hyperref,svgnames]{xcolor}
+\usepackage[colorlinks,filecolor=Teal,citecolor=black,
+plainpages=false,breaklinks=true,urlcolor=DarkSlateBlue,
+linkcolor=DarkSlateBlue,baseurl=biblatex-chicago.pdf\#]{hyperref}
+\setmainfont{GentiumPlus-Regular.ttf}[
+ItalicFont = GentiumPlus-Italic.ttf,
+BoldFont = GentiumPlus-Bold.ttf,
+BoldItalicFont = GentiumPlus-BoldItalic.ttf]
+\setsansfont{ClearSans-Regular.ttf}[
+BoldFont = ClearSans-Bold.ttf,
+ItalicFont = ClearSans-Italic.ttf,
+BoldItalicFont = ClearSans-BoldItalic.ttf,
+Scale = MatchLowercase]
+\setmonofont{lmmonoprop10-regular.otf}[
+BoldFont = lmmonoproplt10-bold.otf,
+HyphenChar={-}]
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries}}
+\newrobustcmd*{\cmssecref}[2][]{\marginpar{\href{\@baseurl%
+      \getrefbykeydefault{#2}{anchor}{}}{\small \S\,\getrefnumber{#2}}%
+      \ifblank{#1}{}{\scriptsize,\, s.v.\\[1pt]\enquote{#1}}}}%
+\makeatother
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\newcommand{\mylittlespace}{\vspace{5pt}}%.5\baselineskip}}
+\addbibresource{notes-test.bib}
+%%\onehalfspacing
+%\tracingmacros=1
+\begin{document}
+
+{\Large\bfseries The \texttt{noteref} Option to the Notes \&\
+  Bibliography Style}\label{cms:top}
+\vspace*{1.5ex}
+
+Recent editions of the \emph{Chicago Manual of
+  Style}\autocite[14.31]{chicago:manual} have suggested that, in short
+notes, it may sometimes be helpful to provide a cross-reference to the
+work's initial presentation in a long note, \enquote{especially in the
+  absence of a full bibliography.}  With this release, I have provided
+for this purpose the \texttt{noteref} package option, which
+additionally involves many sub-options and even a new dependent
+\LaTeX\ package \textsf{cmsendnotes.sty} (with its own options) to
+help those users who need the same functionality in endnotes instead
+of footnotes (see page~\pageref{cms:endnotes}).  The full
+documentation in \cmssecref{cms-sec:noteref}
+\textsf{biblatex-chicago.pdf} contains all of the murky details, but
+in this document I wanted to provide straightforward examples so that
+users could get a quick glimpse of the features provided.
+
+\mylittlespace By setting the following options when loading
+\textsf{biblatex-chicago}:
+\begin{verbatim}
+noteref=section,noterefintro=introduction
+\end{verbatim}
+you'll get the following results, in what is obviously a rather
+artificial setting.
+
+\section{Long notes}
+\label{sec:one}
+
+Text\autocite{garaud:gatine} block\autocite{leo:madonna}
+with\autocite{schubert:muellerin} a\autocite{mchugh:wake}
+series\autocite{euripides:orestes} of\autocite{clark:mesopot}
+footnotes\autocite{ashbrook:brain} chosen\autocite{contrib:contrib}
+randomly.\autocite{frede:inproc}
+
+\section{Short notes on the same page}
+\label{sec:two}
+
+New\autocite{chicago:manual} text\autocite{garaud:gatine}
+block\autocite{leo:madonna} with\autocite{schubert:muellerin}
+a\autocite{mchugh:wake}
+series\footnote{\shortrefcite{euripides:orestes}.
+  \textcolor{DarkSlateBlue}{<--- \cmd{shortrefcite} produced this
+    \texttt{noteref} where by default one wouldn't have appeared.}}
+of\autocite{clark:mesopot} footnotes\autocite{ashbrook:brain}
+chosen\autocite{contrib:contrib} randomly.\autocite{frede:inproc}
+
+\mylittlespace Short notes on the same page, or in the same double-page
+spread when in \texttt{twoside} mode, won't by default have a
+\texttt{noteref} printed, though you can in fact alter this on a
+note-by-note basis by using \cmd{shortrefcite} or
+\cmd{shorthandrefcite} instead of your usual citation command, as I've
+done with the Euripides example below.
+
+\clearpage
+
+\section{Short notes on a new page}
+\label{sec:three}
+
+New\autocite{chicago:manual} text\autocite{garaud:gatine}
+block\autocite{leo:madonna} with\autocite{schubert:muellerin}
+a\autocite{mchugh:wake}
+series\footnote{\shortcite*{euripides:orestes}.
+  \textcolor{DarkSlateBlue}{<--- \cmd{shortcite*} suppressed the
+    \texttt{noteref} where by default one would have appeared.}}
+of\autocite{clark:mesopot} footnotes\autocite{ashbrook:brain}
+chosen\autocite{contrib:contrib} randomly.\autocite{frede:inproc}
+
+\mylittlespace Here \cmssecref[Zero Sections]{cms-sec:zero} all of the
+short notes will, by default, have a \texttt{noteref}.  The first note
+on this page refers back to a long note that occurred \emph{before}
+section~1, technically therefore in section~0, which is what would
+appear without further intervention.  The intervention I have made is
+the option \verb+noterefintro=introduction+, which tells
+\textsf{biblatex-chicago} to print \cmd{bibstring\{introduc\-tion\}}
+instead of \verb+\bibstring{section}+.  The problem of section numbers
+containing zero can be complicated, so once again the murky details
+are in \textsf{biblatex-chicago.pdf}.
+
+\mylittlespace The main \texttt{noteref} option has six possible
+values, four of which are, I would guess, those most likely to prove
+useful: \texttt{none} (the default), \texttt{page}, \texttt{chapter},
+and \texttt{section}, with \texttt{subsection} and \texttt{part} as
+additional possibilities.  The names of the options correspond to the
+\LaTeX\ counter tracked by that option in addition to the note number
+itself, so that \texttt{none} produces a \texttt{noteref} that just
+provides the note number, while \texttt{page} provides page and note
+number, \texttt{chapter} gives chapter and note number, and so on.
+Here, with \texttt{section} being the top-level division in the
+\texttt{article} class, I've used that option.
+
+\mylittlespace You can suppress the appearance of a \texttt{noteref}
+by using the \cmd{shortcite*} or \cmd{shorthandcite*} commands, as
+I've shown with the Euripides citation below.  You can also set the
+\texttt{noterefin\-terval} option to a number greater than zero if you
+want to make sure that a certain number of references have intervened
+before printing a \texttt{noteref}, even if the short note is on a new
+page.  Because this mechanism tracks the \texttt{instcount} counter,
+which is incremented by more things than just new citations, you may
+have to experiment to find a value that suits your document.
+
+\section{A few extra subtleties}
+\label{sec:four}
+
+Another\autocite{jackson:paulina:letter} new\autocite{holiday:fool}
+text\autocite{garaud:gatine} block\autocite{leo:madonna}
+with\autocite{schubert:muellerin} a\autocite{mchugh:wake}
+series\footnote{\cite{euripides:orestes}.
+  \textcolor{DarkSlateBlue}{<--- The \texttt{noteref} does appear
+    here, following its suppression above.}}
+of\autocite{clark:mesopot} footnotes\autocite{ashbrook:brain}
+chosen\autocite{contrib:contrib} randomly.\autocite{frede:inproc}
+
+\mylittlespace When a \texttt{noteref} for a particular source has
+already appeared on a page (or a double-page spread) then another
+won't be printed after subsequent citations of the same source that
+appear on that same page.  With the second Euripides note below, the
+\texttt{noteref} \emph{does} appear because it was suppressed after
+the first reference.
+
+\clearpage
+
+Another\footnote{\cite{jackson:paulina:letter}.
+  \textcolor{DarkSlateBlue}{<--- The form of this \texttt{noteref} and
+    the next indicates that the short notes are in the same section as
+    the long notes to which they refer. Set \texttt{fullnoterefs=true}
+    to get the long form everywhere.}} new\autocite{holiday:fool}
+text\autocite{garaud:gatine} block\autocite{leo:madonna}
+with\autocite{schubert:muellerin} a\autocite{mchugh:wake}
+series\autocite{euripides:orestes} of\autocite{clark:mesopot}
+footnotes\autocite{ashbrook:brain} chosen\autocite{contrib:contrib}
+randomly.\autocite{frede:inproc}
+
+\mylittlespace Once again, after a page break, the \texttt{noterefs}
+appear after all of these short notes.  Because the section number
+hasn't changed, however, the first two footnotes on the page, which
+refer back to long footnotes in the same section, have
+\texttt{noterefs} containing only the note number.  This more
+compact form is the default, but you can set \texttt{fullnoterefs} to
+\texttt{true} when loading \textsf{biblatex-chicago} to see the longer
+form everywhere.
+% and should be unambiguous unless you restart footnote
+% numbering inside the section rather than at section boundaries.
+
+\section{Endnotes}
+\label{cms:endnotes}\citereset
+
+Things are \cmssecref[Endnotes]{cms-sec:endnoterefs}
+slightly more complicated when you are using endnotes instead of
+footnotes, but in standard cases it's still fairly straightforward.
+In this document I have added the line:
+\begin{verbatim}
+\usepackage[split=section]{cmsendnotes}
+\end{verbatim}
+to the preamble \emph{after} loading \textsf{biblatex-chicago} (with
+the options shown on page~\pageref{cms:top}), then printed the
+endnotes below with \textsf{cmsendnotes'}
+\begin{verbatim}
+\theendnotesbypart
+\end{verbatim}
+command.  As this shows you can, as usual with \textsf{biblatex}, mix
+foot- and endnotes in the same document, but if \texttt{noterefs} are
+going to appear in both sorts of note --- surely this situation is
+highly unlikely --- then you need to be careful that they refer back
+\emph{only} to long references in the \emph{same} sort of note.  A
+\texttt{noteref} from an endnote to a long citation in a footnote will
+be inaccurate, so careful use of the \cmd{citereset} command (as here)
+or perhaps of the \textsf{biblatex} \texttt{citereset} option should
+allow you to keep the two sorts of note distinct.
+
+\mylittlespace Text\endnote{\autocite{garaud:gatine}.}
+block\endnote{\autocite{leo:madonna}.}
+with\endnote{\autocite{schubert:muellerin}.}
+a\endnote{\autocite{mchugh:wake}.}
+series\endnote{\autocite{euripides:orestes}.}
+of\endnote{\autocite{clark:mesopot}.}
+endnotes\endnote{\autocite{ashbrook:brain}.}
+chosen\endnote{\autocite{contrib:contrib}.}
+randomly.\endnote{\autocite{frede:inproc}.}
+
+\section{More endnotes}
+\label{sec:moreen}
+
+Text\endnote{\global\toggletrue{cms@forcenoteref}\autocite{garaud:gatine}.
+  \textcolor{DarkSlateBlue}{<--- Page \enquote{break} before this note.}}
+block\endnote{\autocite{leo:madonna}.}
+with\endnote{\autocite{schubert:muellerin}.}
+a\endnote{\autocite{mchugh:wake}.}
+series\endnote{\autocite{euripides:orestes}.}
+of\endnote{\autocite{clark:mesopot}.}
+endnotes\endnote{\autocite{ashbrook:brain}.}
+chosen\endnote{\autocite{contrib:contrib}.}
+randomly.\endnote{\autocite{frede:inproc}.}
+
+\mylittlespace When you peruse the endnotes on the next page, please
+remember that I've simulated a page change in between the two
+sections, thus allowing all the \texttt{noterefs} to appear as they
+do.  The rules about them appearing (or not) on the same page as the
+long reference to which they point are the same as for footnotes, so
+long as you keep in mind that the pages under consideration here are
+those in the endnotes section itself, \emph{not} in the main text.
+Also, in this case the standard \cmd{notesname} command provides
+alternative text for the general header, but \textsf{cmsendnotes.sty}
+organizes the subheaders and facilitates the \texttt{noterefs}, all
+without further intervention from you beyond the single option already
+given to that package.
+
+\mylittlespace I hope that this short demonstration is enough to get
+you started using the \texttt{noteref} functionality.  I admit that
+the processing time for documents using it is somewhat increased, so
+if you have a long document it may require some extra patience.  If
+something doesn't work properly for you, and the main documentation
+doesn't clear up the issue, please let me know.
+
+\def\notesname{Endnotes to \S\S~5--6}
+\theendnotesbypart
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: xetex
+%%% End:

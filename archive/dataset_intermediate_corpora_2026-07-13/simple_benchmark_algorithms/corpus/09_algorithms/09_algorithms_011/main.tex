@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 11}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\Statex \textbf{Input:} $\phi$, $\theta$, initial episodes $K_{\mathrm{init}}$, total budget of episodes $K_{\mathrm{E}}$,
+\Statex \textbf{Init:} $\phi' \gets \phi$, $\theta' \gets \theta$, $\mathcal{D} \gets \emptyset$
+\For{each initial episode $1,\dots,K_{\mathrm{init}}$}
+\State Sample a batch $\mathcal{T}$ of $M$ sequences using pre-trained policy $\pi_\theta$
+\State Score each sequence in $\mathcal{T}$
+\State Add unique, valid sequences to replay memory $\mathcal{D}$
+\EndFor
+\For{each episode $K_{\mathrm{init}}+1,\dots,K_{\mathrm{E}}$}
+\State Sample a batch $\mathcal{T}$ of $M$ sequences using current policy $\pi_\theta$
+\State Score each sequence in $\mathcal{T}$
+\State Add unique, valid sequences to replay memory $\mathcal{D}$
+\State $\phi \gets \phi - \lambda_Q \hat{\nabla}_\phi J_Q (\phi \vert \mathcal{T})$ \Comment{On-policy update of Q-function parameters}
+\State $\theta \gets \theta - \lambda_\pi \hat{\nabla}_\theta J_\pi (\theta\vert \mathcal{T})$ \Comment{On-policy update of policy parameters}
+\State $\alpha \gets \alpha - \lambda_\alpha \hat{\nabla}_\alpha J_\alpha (\alpha \vert \mathcal{T})$ \Comment{On-policy update of temperature}
+\State $\phi' \gets \tau \phi' + (1-\tau) \phi$ \Comment{Update target parameters}
+\State $\theta' \gets \tau \theta' + (1-\tau) \theta$ \Comment{Update average policy parameters}
+\For{each off-policy update}
+\State $\phi \gets \phi - \lambda_Q \hat{\nabla}_\phi J_Q (\phi \vert \mathcal{D})$
+\State $\theta \gets \theta - \lambda_\pi \hat{\nabla}_\theta J_\pi (\theta\vert \mathcal{D})$
+\State $\alpha \gets \alpha - \lambda_\alpha \hat{\nabla}_\alpha J_a (\alpha \vert \mathcal{D})$
+\State $\phi' \gets \tau \phi' + (1-\tau) \phi$
+\State $\theta' \gets \tau \theta' + (1-\tau) \theta$
+\EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{document}

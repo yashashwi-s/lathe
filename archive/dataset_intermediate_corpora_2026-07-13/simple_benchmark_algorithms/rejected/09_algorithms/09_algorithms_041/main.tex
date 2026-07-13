@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 41}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+\caption{The Queue Shuffle } \begin{algorithmic}[1]
+\Require $\mathcal{T}$ \Comment{Current Tree}
+\Require $\mathcal{N} = \{\nu_0,\nu_1,...\}$ \Comment{set of all non-root nodes}
+\State $Q = [\nu_0,\nu_1]$ \Comment{"queue" of nodes to process}
+\State $L = \{\nu_0 : 0, \nu_1 : 1\}$ \Comment{node:label mapping}
+\State $l_{\text{next}} = 2$\Comment{next available label}
+\State $P = []$ \Comment{processed nodes}
+\While{$Q \neq []$}
+\State $\nu = Q[0]$ \Comment{node to process}
+\State Q = Q[1:] \Comment{$\nu$ will be processed}
+\State $\text{append}(P,\nu)$ \Comment{$\nu$ will be processed}
+\If{$\text{isLeaf}(\nu)$}
+\State \textbf{continue} \Comment{move to next node}
+\EndIf
+\State $a,b = \text{randChildren}(\nu)$ \Comment{get \textbf{randomly ordered} children of $\nu$}
+\State $L[a] = L[\nu]$ \Comment{label $a$ with $\nu$'s label}
+\State $L[b] = l_{\text{next}}$ \Comment{give $b$ next available label}
+\State $l_{\text{next}} = l_{\text{next}} +1$
+\State append($Q,a$) \Comment{add $a$ to the queue}
+\State append$(Q,b)$ \Comment{add $b$ to the queue}
+\EndWhile
+\State \text{{Return }} $L$ \Comment{Ordering determined by values of $L$ for leaf nodes}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

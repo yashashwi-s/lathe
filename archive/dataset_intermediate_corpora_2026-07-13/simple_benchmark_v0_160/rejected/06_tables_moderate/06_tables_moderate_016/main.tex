@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02801\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{cccccccccccc}
+				\toprule
+				\toprule
+				Model 1 &  &  &  & Model 2 &  &  &  & Model 3 &  &  &  \\
+				\midrule
+				Parameter & Dimension & Predicted Bound or Value & Expected Bound & Parameter & Dimension & Predicted Bound or Value & Expected Bound & Parameter & Dimension & Predicted Bound or Value & Expected Bound \\
+				\specialrule{1.5pt}{1pt}{1pt}
+				$A_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [32.0,89.25] & [$10^{-6}$,$10^{3}$] & $A_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [19.347.33.6] & [$10^{-6}$,$10^{3}$] & $A_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [40.85,88.20] & [$10^{-6}$,$10^{3}$] \\
+				$\alpha$ & & [0.075,0.15] & [0,0.2] & $\alpha$ & & [0.12,0.13] & [0,0.2] &  $\alpha$ &  & 0.12 & [0,0.2] \\
+				$B_0$ & $\textrm{GeV}^{-2}$ & [4.20,6.25] & [2,30] & $a_1$ & & [1.0,1.5] & [0,10] & $f$ & & 1.1 & [0,1.5] \\
+				$\beta$ & $\textrm{GeV}^{-2}$ & 0.4 & [0,1.0] &  $B_1^{(0)}$ & $\textrm{GeV}^{-2}$ & [4.2,7.0] & [2,30] & $B_1^{(0)}$ & $\textrm{GeV}^{-2}$ & [4.2,6.3] & [2,30] \\
+				$\epsilon_0$ & & [0.08,0.8] & [0,1.0] & $a_2$ & & [1,1.1] & [0,10] &  $B_2^{(0)}$ & $\textrm{GeV}^{-2}$ & [4.3,5.08] & [2,30] \\
+				$t_d$ & $\textrm{GeV}^{2}$ & [-0.8,-0.2] & [-1.2,-0.2] & $B_2^{(0)}$ & $\textrm{GeV}^{-2}$ & [4.4,7.55] & [2,30] & $\beta$ & $\textrm{GeV}^{-2}$  & 0.4 & [0,1.0] \\
+				$\Delta$ & $\textrm{GeV}^{2}$ & [0.2,0.5] & [0.01,2] & $\beta$ & $\textrm{GeV}^{-2}$ & 0.4 & [0,1.0] & $\epsilon_0$ &  & 0.045 & [0,1.0] \\
+				$O_O$ & $\text{mb}/\textrm{GeV}^{2}$ & [0.04,0.2] & [$10^{-8}$,10] & $O_O$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.04 & [$10^{-8}$,10] & $t_d$ & $\textrm{GeV}^{2}$ & -0.1 & [-0.1,-0.2] \\
+				$\delta_O$ & & [0.1,0.125] & [-0.1,1] & $\delta_O$ & & [0.06,0.14] & [-0.1,1] & $\Delta$ & $\textrm{GeV}^{2}$ & 0.2 & [0.01,2] \\
+				$D_O$ & $\textrm{GeV}^{-2}$ & [0.65,2.74] & [0.1,25] & $D_O$ & $\textrm{GeV}^{-2}$ & [0.65,2.75] & [0.1,25] & $O_O$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.04 & [$10^{-8}$,10] \\
+				$I_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [0.06,0.42] & [$10^{-8}$,10] & $I_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [0.04,0.06] & [$10^{-8}$,10] & $\delta_O$ & & 0.14 & [-0.1,1] \\
+				$\delta_I$ & & [0.1,0.125] & [-0.1,1] & $\delta_I$ &  & [0.06,0.14] & [-0.1,1] & $D_O$ & $\textrm{GeV}^{-2}$ & [0.6,2.75] & [0.1,25] \\
+				$E_0$ & $\textrm{GeV}^{-2}$ &  [2.9,3.0] & [0.1,25] & $E_0$ & $\textrm{GeV}^{-2}$ & [2.75,3.0] & [0.1,25] & $I_0$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.06 & [$10^{-8}$,10] \\
+				$\mu$ & & [0.009,0.09] & [0,1] & $\mu$ & & [0.001,0.008] & [0,1] & $\delta_I$ & & 0.14 & [-0.1,1] \\
+				& & & & & & & & $E_0$ & $\textrm{GeV}^{-2}$ & 3.0 & [0.1,25] \\
+				& & & & & & & & $\mu$ & & [0.0001,0.008] & [0,1] \\
+				\midrule
+				Model 4  &  &  & & Model 5 &  &  &  &  &  &  & \\
+				\midrule
+				Parameter & Dimension & Predicted Bound or Value & Expected Bound & Parameter & Dimension & Predicted Bound or Value & Expected Bound &  &  &  &  \\
+				\specialrule{1.65pt}{1pt}{1pt}
+				$A_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [52.8,145] & [$10^{-6}$,$10^{3}$] & $A_0$ & $\text{mb}/\textrm{GeV}^{2}$ & [211,561.7] & [$10^{-6}$,$10^{3}$] &  &  &  &  \\
+				$\alpha$ &  & 0.18 & [0,0.2] & $\alpha$ &  & [0.12,0.16] & [0,0.2] &  &  & & \\
+				$B_0$ & $\textrm{GeV}^{-2}$ & [4.2,6.4] & [2,30] & $B_0$ & $\textrm{GeV}^{-2}$ & [4.2,6.4] & [2,30] &  &  &  & \\
+				$\beta$ & $\textrm{GeV}^{-2}$ & 0.4 & [0,1.0] & $\beta$ & $\textrm{GeV}^{-2}$ & [0.3,0.4] & [0,1.0] &  &  &  & \\
+				$B_1$ & $\textrm{GeV}^{-2}$ & 0.1 & [0,5] & $\epsilon_0$ &  & [0.75,0.92] & [0,1.0] &  &  &  &    \\
+				$t_0$ & $\textrm{GeV}^{2}$ & 10 & [0.1,10] & $t_d$ & $\textrm{GeV}^{2}$ & -0.1 & [-1.2,-0.2] &  &  &  &  \\
+				$\epsilon_0$ &  & 0.5 & [0,1.0] & $\Delta$ & $\textrm{GeV}^{2}$ & 0.1 & [0.01,2] &  &  &  & \\
+				$t_d$ & $\textrm{GeV}^{2}$ & -0.1 & [-1.2,-0.2] & $O_O$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.04 & [$10^{-8}$,10] &  &  &  & \\
+				$\Delta$ & $\textrm{GeV}^{2}$ & 0.2 & [0.01,2] & $\delta_O$ & & [0.02,0.14] & [-0.1,1] &  &  &  &  \\
+				$O_O$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.04 & [$10^{-8}$,10] & $D_O$ & $\textrm{GeV}^{-2}$ & [0.425,2.60] & [0.1,25] &  &  &  &  \\
+				$\delta_O$ &  & 0.14 & [-0.1,1] & $\gamma$ & $\textrm{GeV}^{-2}$ & [0.5,1.0] & [0.01,5.0] &  &  &  & \\
+				$D_O$ & $\textrm{GeV}^{-2}$ &  [0.65,2.75] & [0.1,25] & $I_0$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.06 & [$10^{-8}$,10] &  &  &  & \\
+				$I_0$ & $\text{mb}/\textrm{GeV}^{2}$ & 0.06 & [$10^{-8}$,10] & $\delta_I$ &  & [0.02,0.14] & [-0.1,1] &  &  &  &  \\
+				$\delta_I$ &  & 0.14 & [-0.1,1] & $E_0$ & $\textrm{GeV}^{-2}$ & 3.0 & [0.1,25] &  &  &  &  \\
+				$E_0$ & $\textrm{GeV}^{-2}$ & 3.0 & [0.1,25] & $\mu$ & & [0.001,0.008] & [0,1] &  &  &  &    \\
+				$\mu$ &  & [0.001,0.008] &  [0,1] &  &  &  &  &  &  &  &  \\
+				\bottomrule
+				\bottomrule
+			\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04770\_table\_7}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}l|l|c|c|c|c@{}}
+    \toprule
+     & \textbf{Platform} & \textbf{Year} & \textbf{Agent} & \textbf{Differentiable} & \textbf{Link} \\
+    \midrule
+
+    % ================== Sim (sorted by Year, ascending) ==================
+    %\multirow{29}{*}{\rotatebox[origin=c]{90}{\textbf{Simulated Platforms}}}
+      & SOFA & 2015 & Soft  & No & {[link]} \\
+      & VoxCAD & 2015 & Soft  & No & {[link]} \\
+      & ChainQueen & 2018 & Soft  & Yes & {[link]} \\
+      & DART & 2018 & Rigid  & No & {[link]} \\
+      & Webots & 2018 & Mixed  & No & {[link]} \\
+      & DiffTaichi & 2019 & Mixed  & Yes & {[link]} \\
+      & Revolve & 2019 & Soft  & No & {[link]} \\
+      & Habitat-Sim & 2019 & Mixed  & No & {[link]} \\
+      & SAPIEN & 2020 & Rigid & No & {[link]} \\
+      & 2D-VSR-Sim & 2020 & Soft & No & {[link]} \\
+      & TDS & 2020 & Rigid & Yes & {[link]} \\
+      & Brax & 2021 & Rigid & Yes & {[link]} \\
+      & MuJoCo & 2021 & Mixed & No & {[link]} \\
+      & PyBullet & 2021 & Mixed & No & {[link]} \\
+      & Isaac Gym & 2021 & Mixed & No & {[link]} \\
+      & Evolution Gym & 2021 & Soft & No & {[link]} \\
+      & Nimble Physics & 2021 & Rigid & Yes & {[link]} \\
+      & DiffHand & 2021 & Rigid & Yes & {[link]} \\
+      & DiffAqua & 2021 & Soft & Yes & {[link]} \\
+      & AI2-THOR & 2021 & Mixed & No & {[link]} \\
+      & iGibson & 2021 & Mixed & No & {[link]} \\
+      & Modular EvoGym & 2022 & Soft & No & {[link]} \\
+      & 2D-MR-Sim & 2022 & Soft & No & {[link]} \\
+      & 2D-Robot-Evolution & 2022 & Soft & No & {[link]} \\
+      & Rostok & 2022 & Mixed & No & {[link]} \\
+      & Dojo & 2022 & Rigid & Yes & {[link]} \\
+      & EMR & 2023 & Modular & No & {[link]} \\
+      & SoftZoo & 2023 & Soft & Yes & {[link]} \\
+      & LIBERO & 2023 & Rigid & No & {[link]} \\
+      & RoboGen & 2024 & Mixed & No & {[link]} \\
+      & Revolve2 & 2024 & Mixed & No & {[link]} \\
+      & Genesis & 2024 & Mixed & Yes & {[link]} \\
+      & Sorotoki & 2024 & Soft& No & {[link]} \\
+      & SDRS & 2024 & Soft & Yes & {[link]} \\
+   % \midrule
+ %    % ================== Real (sorted by Year, ascending) ==================
+ %    \multirow{13}{*}{\rotatebox[origin=c]{90}{\textbf{ECD in Real World}}}
+ %      & ANYmal + Co-Design Extensions & 2016 & Rigid & No & \href{https://www.anybotics.com/robotics/anymal/}{[link]} \\
+ %      & Real-World Evolution of Robot Morphologies & 2017 & Modular & No & \href{https://pubmed.ncbi.nlm.nih.gov/28513201/}{[link]} \\
+ %      & Revolve & 2019 & Soft & No & \href{https://github.com/ci-group/revolve}{[link]} \\
+ %      & DyRET & 2020 & Modular & No & \href{https://arxiv.org/abs/2003.13254}{[link]} \\
+ %      & EMERGE (modular robot) & 2021 & Modular & No & \href{https://www.frontiersin.org/articles/10.3389/frobt.2021.699814/full}{[link]} \\
+ %      & Automated Soft Gripper Testbed & 2024 & Soft & No & \href{https://arxiv.org/abs/2407.07591}{[link]} \\
+ %      & Wow Orin Platform (lightweight biped) & 2024 & Rigid & No & \href{https://arxiv.org/abs/2408.15632}{[link]} \\
+ %      & Pneumatic SoRo platform & 2024 & Soft & No & \href{https://www.science.org/doi/10.1126/sciadv.adn6129}{[link]} \\
+ % \href{https://arxiv.org/abs/2409.11113}{[link]} \\
+    \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+\end{document}

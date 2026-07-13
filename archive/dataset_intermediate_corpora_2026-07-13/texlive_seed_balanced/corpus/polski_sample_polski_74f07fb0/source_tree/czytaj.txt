@@ -1,0 +1,223 @@
+**********************************************************************
+*                                                                    *
+*                Pakiet Polski czyli LaTeX2e po polsku               *
+*                                                                    *
+*                                                                    *
+*                                                                    *
+*  Copyright (C) 1994 by Mariusz Olko.                               *
+*  Copyright (C) 1997 by Mariusz Olko and Marcin Woli\'nski.         *
+*  Copyright (C) 2000,2002,2003,2007,2017,2021 by Marcin Woli\'nski. *
+*                                                                    *
+**********************************************************************
+
+
+——— Informacje ogólne
+
+Pakiet ‹Polski› dostarcza narzędzi potrzebnych do składu dokumentów
+w języku polskim LaTeXem 2e.  Główne cechy pakietu
+
+• umożliwia skład „czcionkami PL” pochodzącymi z pakietu MeX
+• umożliwia skład czcionkami w ukladzie T1 (europejskim)
+• umożliwia skład czcionkami w ukladzie QX, w szczególności krojami
+  TeX Gyre (dawniej Quasi) tworzonymi przez JNS Team 
+• umożliwia skompilowanie dokumentu nawet wtedy, gdy dostępne są
+  jedynie oryginalne czcionki Computer Modern
+• wykorzystuje polskie wzorce przenoszenia
+• działa z _formatem_ Babel z polskimi wzorcami przenoszenia
+• wspomaga prace z różnymi wejściowymi stronami kodowymi
+• wspomaga „notację ciachową” polskich znaków
+• posiada tryb 99.99% zgodności z LaMeXem (polską adaptacją LaTeXa 2.09)
+
+Dodatkowo dołączone są dwa pakiety, które pozwolą posłużyć się
+LaTeXem 2e w najbardziej nawet nieprzyjaznym otoczeniu:
+
+• pakiet plprefix pozwala na uzyskanie polskich liter przy pomocy
+  notacji prefiksowej z dowolnie wybranym prefiksem (pomocny
+  np. do robienia wydrukow z CWEBa).
+• pakiet OT1patch dorabia ogonki wg najlepszych znanych standardów do
+  oryginalnych czcionek CM (kod Leszka Holenderskiego).
+
+Nie zachęcamy do stosowania tych pakietow, poza szczególnymi
+przypadkami.  Sądzimy, że powody do ich stosowania znikły w
+większości systemów komputerowych co najmniej 10 lat temu.
+
+  Obecnie nie ma powodów ze strony samego TeXa żeby nie używać dla
+polskich znaków naturalnej notacji ośmiobitowej.  Notacja prefiksowa
+jest w dzisiejszych czasach nienaturalnym dziwactwem.  Wyjątek
+stanowią jeszcze pewne nieprzyjazne środowiska obliczeniowe, w których
+nie sposób wyświetlić polskich znaków.  Na tę okoliczność polski.sty
+oferuje notację ciachową (polecenie \prefixing).
+
+  Polskie znaki obecne w fontach zawsze będą dawać lepsze efekty niż
+stosowanie protez zawartych w OT1patch.  Poza tym używanie OT1patch
+nie pozwala na pełne zastosowanie polskich wzorców przenoszenia.
+
+——— Licencja
+
+‹Polski› stanowi oprogramowanie swobodne, może być dystrybuowany w
+zgodzie z licencją LaTeX Project Public License (zob. plik lppl.txt w
+dystrybucji LaTeXa; CTAN:macros/latex/base/lppl.txt).
+
+——— Pliki wchodzace w skład pakietu
+
+W skład pakietu wchodzi kilka plików zawierających udokumentowane 
+(w większosci :-) źródła makr.
+
+• polski.dtx — zawiera źródła pakietu polski
+• polski.ins — główny skrypt instalacyjny
+• strony.dtx — plik z wejściowymi stronami kodowymi dla LaTeXa oraz
+  definicją układu czcionek OT4
+• plfonts.fdd — definicje czcionek PL do wykorzystania w LaTeXu
+• plprefix.dtx — zawiera źródła pakietu pozwalającego na uzyskiwanie
+  polskich liter za pomocą „notacji prefiksowej”
+• plprefix.ins — skrypt instalacyjny dla plprefix.sty
+• ot1patch.dtx — zawiera źródła pakietu dorabiającego ogonki
+  do oryginalnych czcionek Computer Modern
+• ot1patch.ins — skrypt instalacyjny dla ot1patch.sty
+• czytaj.txt — ten plik
+• readme.txt — opis instalacji po angielsku
+• conowego.txt — lista zmian w pakiecie
+• sample-polski.tex — przykładowy dokument
+• sample-rysunek{.mp,1.mps} — rysunek do przykładowego dokumentu
+
+——— Instalacja pakietu
+
+Po rozpakowaniu archiwum należy wygenerować wszystkie potrzebne pliki
+uruchamiając skrypt polski.ins
+
+      tex polski.ins 
+
+Skrypt wygeneruje na początek podstawowe pliki, tzn. pakiet polski.sty
+oraz opisy wejsciowych stron kodowych.  Następnie generowane są pliki
+opisujące fonty Computer Modern w polskim układzie OT4 (tzw. „fonty
+PL”). Na zakończenie należy skopiować pliki *.fd *.sty *.def *.cfg do
+katalogu czytanego przez TeXa.
+
+Do poprawnego składu po polsku konieczna jest obecność polskich
+wzorców przenoszenia wyrazów w tzw. formacie LaTeXa.  Zestaw wzorców
+przenoszenia wbudowany w format zależy od zawartości pliku
+language.dat (zob. dokumentację LaTeXa).  Współczesne implementacje
+TeXa zawierają pomocnicze narzędzia automatyzujące generowanie
+formatów.  Zwykle więc wystarczy w narzędziu konfiguracyjnym wybrać
+część zatytułowaną „Języki” i zaznaczyć odpowiednie wzorce
+przenoszenia.
+W systemie emTeX (pod MS DOS-em) do generowania formatu należało użyć
+polecenia:
+	tex386  /i/o/r/8 /mt13000 latex.ltx
+
+
+——— Dokumentacja
+
+Pliki dtx zawierają teksty makr wraz z dokumentacją.  Są one gotowe
+do wydruku po przetworzeniu przez LaTeXa.  Instrukcję posługiwania się
+pakietem polski można uzyskać uruchamiając
+    latex polski.dtx
+a dalej używając swojego ulubionego programu do podglądu.
+
+
+——— Osmiobitowe wprowadzanie polskich liter
+
+Aby złożyć w TeXu dokument zapisany w tzw. stronie kodowej trzeba
+wskazać TeXowi, w jakiej stronie dokument jest zapisany.  Możliwe są
+dwa sposoby:
+
+• Posłużenie się mechanizmem przekodowywania znaków na postać
+wewnętrzną przez samego TeXa.  W chwili obecnej stosowne wsparcie jest
+obecne co najmniej w web2c, teTeXu, TeXlive, fpTeXu, mikTeXu i emTeXu.
+
+• Zastosowanie standardowego pakietu inputenc.
+
+Przekodowywanie nie pozwala na pracę z kilkoma wejściowymi stronami
+kodowymi w jednym dokumencie ani fontami o różnych układach polskich
+znaków.  Jest za to bardziej bezpieczne ze wzgledu na współpracę z
+programami zewnętrznymi (np. MakeIndex).  Należy również zwrócić
+uwagę, że przekodowanie na poziomie implementacji jest zależne od
+układu stosowanych fontów.  Definicje przekodowania przygotowane dla
+fontów PL z konieczności mapują tylko „polskie znaki”.  Dla
+kontrastu definicje stron kodowych pakietu inputenc (np. cp1250 czy
+cp852) obejmują wszystkie znaki strony kodowej (włącznie ze znakami
+nieliterowymi).  Pakiet inputenc pozwala również przetwarzać dokumenty
+zakodowane w Unikodzie zapisanym w formie UTF-8 (opcja utf8).
+
+Oto szczegóły specyficzne dla implementacji:
+
+—————— web2c, teTeX, TeXlive, fpTeX, mikTeX
+
+W tych implementacjach kodowanie dokumentu zadaje się za pomocą opcji
+--translate-file wskazującej plik definiujący przekodowanie.  Na
+przykład
+
+	latex --translate-file=il2-pl dokument.tex
+
+przetwarza dokument z polskimi znakami zapisanymi w kodzie ISO
+Latin-2.  Można również, i jest to rozwiązanie zalecane, zadać kod w
+pierwszej linii dokumentu za pomocą następującego „magicznego”
+komentarza:
+
+%&latex --translate-file=il2-pl
+
+W tym przypadku do przetwarzania dokumentu wystarczy
+
+	latex dokument.tex
+
+W standardowej dystrybucji zawarta jest spora garść plików
+definiujących przekodowanie.  Pliki te mają rozszerzenie .tcx i
+rezydują w podkatalogu texmf/web2c korzenia instalacji.  Są to pliki
+tekstowe, o realizowanym przekodowaniu można dowiedzieć się z
+komentarza w pierwszych liniach pliku.
+
+—————— emTeX
+
+W przypadku pracy z emTeXem przekodowanie musi zostać „zaszyte” w plik
+formatu.  Jeżeli ma się do czynienia z dokumentami w różnych stronach
+kodowych, konieczny jest oddzielny plik formatu dla każdej strony.
+
+Pliki przekodowań dla polskich znaków dla emTeXa dostarczane są z
+MeXem.  Na przykład poniższe polecenie generuje format LaTeX z
+kodowaniem Mazovii:
+
+    tex386  /i/o/r /cmaz2pl /mt13000 latex.ltx
+
+
+—————— implementacje nie zapewniające przekodowania
+
+W przypadku korzystania z takiej implementacji (lub chęci użycia w
+jednym dokumencie różnie zakodowanych fragmentów) należy do preambuły
+dokumentu dodać wywołanie pakietu inputenc z opcją wskazującą stronę
+kodową, np.
+    \documentclass{article}
+    \usepackage{polski}
+    \usepackage[mazovia]{inputenc}
+
+Podczas instalacji pakietu Polski tworzone sa pliki ze stronami kodowymi:
+
+mazovia     — dla popularnej (kiedyś) strony kodowej na PCetach.
+amigapl     — dla polskiej strony kodowej używanej na Amidze
+
+Ponadto w dystrybucji LaTeXa zawarte są następujące strony
+interesujące dla polskiego użytkownika:
+
+cp1250      — dla Windowsowej strony centralnoeuropejskiej CP1250
+latin2      — kodowanie ISO 8859-2 (Latin-2)
+cp852       — dla DOS-owej strony CP852 (tzw. IBM Latin-2)
+macce       — dla strony centralnoeuropejskiej na komputerach Macintosh
+utf8        — kodowanie UTF-8 (Unikod; to w zasadzie nie jest strona
+              kodowa, ale zasada użycia jest ta sama)
+
+Większość instalacji TeXowych czyta osmiobitowe znaki zawarte w
+dokumentach.  Niektóre starsze implementacje wymagają użycia do tego
+specjalnej opcji podczas generowania formatu.
+
+——— Podziękowania
+
+• Marek Ryćko i Bogusław Jackowski stworzyli MeXa i LaMeXa
+• Robert Ramiega przysłał tablicę kodową używaną na Amidze
+• Staszek Wawrykiewicz napisał dokument przykładowy i, co ważniejsze,
+  zanurzył całość w kontekst TeXlive
+
+
+
+
+**********************************************************************
+ Marcin Woli\'nski                         mailto:wolinski@gust.org.pl
+**********************************************************************

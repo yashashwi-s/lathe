@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{guitarchordschemes}
+\thispagestyle{empty}
+
+\begin{document}
+
+% general parameters
+\setchordscheme{
+  rotate=-90,
+  x-unit=2.5mm,                % chord size, x
+  y-unit=3mm,                  % chord size, y
+  name-format=\bfseries,       % chord name font
+  finger-format=\bfseries%
+    \footnotesize              % fingering font
+}
+
+\newsavebox{\Gstd}
+\savebox{\Gstd}{
+\chordscheme[        % define the chord
+  name = G (Sol),    % chord name
+  position = 1,      % first fret position
+  finger = {2/5:2} , % fret, string, finger
+  finger = {3/6:3} , % fret, string, finger
+  finger = {3/1:4} , % fret, string, finger
+  ring = {2,3,4}     % open strings
+]}
+
+\newsavebox{\Gbarre}
+\savebox{\Gbarre}{
+\chordscheme[
+  name = G (Sol) barre,
+  position = 3,
+  barre = 1/1-6,     % fret, string range
+  finger = {2/3:2},
+  finger = {3/5:3},
+  finger = {3/4:4}
+]}
+
+\usebox{\Gstd}\usebox{\Gbarre}
+
+\end{document}

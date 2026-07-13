@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.04868\_table\_16}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Operation} & \textbf{S-based Query Syntax} \\
+\hline
+single & x1 \\
+& (OR x1 x2) \\
+& (DISTINCT x1) \\
+& (DIFF x1 x2) \\
+& *(GROUP\_COUNT x1) \\
+& *(GROUP\_SUM (GROUP\_COUNT x1) (GROUP\_COUNT x2)) \\
+\hline
+verify & (ALL x1) \\
+& (ALL x1 x2) \\
+& (ALL x1 x2 x3) \\
+& ... \\
+\hline
+count & (COUNT x1) \\
+& (COUNT (DISTINCT x1)) \\
+& (COUNT (DISTINCT (OR x1 x2))) \\
+& *(COUNT (GROUP\_COUNT x1)) \\
+& *(COUNT (GROUP\_SUM (GROUP\_COUNT x1))) \\
+& (GROUP\_COUNT x2) \\
+\hline
+compare & (compare (GROUP\_COUNT x1) number) \\
+& (compare (GROUP\_COUNT x1 x2)) \\
+& (compare (GROUP\_SUM (GROUP\_COUNT x1))) \\
+& (GROUP\_COUNT x2) number) \\
+& (compare (GROUP\_SUM (GROUP\_COUNT x1))) \\
+& (GROUP\_COUNT x2) (OR x3 x4)) \\
+\hline
+compare\_and\_count & (COUNT (compare (GROUP\_COUNT x1) number)) \\
+& (COUNT (compare (GROUP\_COUNT x1) x2)) \\
+& (COUNT (compare (GROUP\_SUM))) \\
+& (GROUP\_COUNT x1 (GROUP\_COUNT x2) number)) \\
+& (COUNT (compare (GROUP\_SUM))) \\
+& (GROUP\_COUNT x1 (GROUP\_COUNT x2) (OR x3 x4))) \\
+\hline
+optimize & (optimize (GROUP\_COUNT x1)) \\
+& (optimize (GROUP\_SUM (GROUP\_COUNT x1))) \\
+& (GROUP\_COUNT x2)) \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.04178\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ccccccccccc}
+\hline
+Galaxy & M$_\mathrm{BH}$ (10$^9$ M$_\odot$) & $\mathrm{r}_{\mathrm{c}}$ (kpc) & $\mathrm{r}_\mathrm{SOI}$ (kpc) & $\sigma$ (km s$^{-1}$) & $\rho_\mathrm{core}$ (10$^9$ M$_\odot$ kpc$^{-3}$) & M$_\mathrm{gal,2D}$ (10$^{11}$ M$_\odot$) & M$_\mathrm{gal,Sersic}$ (10$^{11}$ M$_\odot$) & M$_\mathrm{def}$ (10$^{9}$ M$_\odot$) \\
+\hline
+%A150   & - & 1.28 & 2.00 & - \\
+A160   & $13.2 \pm 3.7$ & 0.921 $\pm$ 0.060 & 1.50 $\pm$ 0.13 & 302.3 $\pm$ 7.3 & 1.380 $\pm$ 0.069 & 25.4 $\pm$ 2.3 & 13.5 $\pm$ 1.2 & 23.5 $\pm$ 3.5\\
+A240   & $9.2 \pm 2.6$ & 0.678 $\pm$ 0.053 & 1.26 $\pm$ 0.13 & 258.2 $\pm$ 4.3 & 2.09 $\pm$ 0.10 & 10.9 $\pm$ 1.1 & 10.0 $\pm$ 1.0 & 4.09 $\pm$ 0.61 \\
+%A262   & $(1.00 \pm 0.28) \times 10^{10}$ & 0.75 $\pm$ 0.10 & 0.687 & 0.85 $\pm$ 0.13 & 241.6 $\pm$ 8.1 \\
+A292   & $13.8 \pm 3.9 $ & 1.25 $\pm$ 0.12$^{\ast\ast}$ & 1.06 $\pm$ 0.13 & 311.0 $\pm$ 7.3 & 2.34 $\pm$ 0.12 & 33.3 $\pm$ 2.3 & 55.3 $\pm$ 3.9 & - \\
+A399   & $7.2 \pm 2.0$ & 1.50 $\pm$ 0.21 & 1.64 $\pm$ 0.13 & 289 $\pm$ 10 & 0.389 $\pm$ 0.019 & 100 $\pm$ 11 & 118 $\pm$ 13 &  5.03 $\pm$ 0.74 \\
+A592   & $8.6 \pm 2.4$  & 0.57 $\pm$ 0.24 & 1.26 $\pm$ 0.13 & 278.3 $\pm$ 5.1 & 1.318 $\pm$ 0.066 & 55.8 $\pm$ 3.7 & 92.8 $\pm$ 6.1 &  0.91 $\pm$ 0.14\\
+A634   & $5.6 \pm 1.3$  & 0.249 $\pm$ 0.088 & 0.367 $\pm$ 0.063 & 266.9 $\pm$ 4.1 & 37.2 $\pm$ 1.9 & 8.07 $\pm$ 0.90 & 13.4 $\pm$ 1.5 & 69.6 $\pm$ 7.1\\
+%A688   & - & 0.435 & 0.435 & - \\
+A1185  & $11.2 \pm 3.1$ & 1.05 $\pm$ 0.10$^{\ast\ast}$ & 1.50 $\pm$ 0.13 & 301.9 $\pm$ 6.4 & 1.072 $\pm$ 0.054 & 12.8 $\pm$ 1.1 & 14.4 $\pm$ 1.2 & - \\
+A1314  & $5.3 \pm 3.0$ & 0.619 $\pm$ 0.035 & 0.54 $\pm$ 0.15 & 277.3 $\pm$ 5.6 & 7.94 $\pm$ 0.40 & 9.75 $\pm$ 0.34 & 6.35 $\pm$ 0.22 & 4.85 $\pm$ 0.39 \\
+A1749  & $10.5 \pm 2.9$  & 0.84 $\pm$ 0.10 & 0.8404 $\pm$ 0.0040 & 286.7 $\pm$ 3.7 & 5.25 $\pm$ 0.37 & 14.25 $\pm$ 0.87 & 15.86 $\pm$ 0.97 & 48 $\pm$ 10 \\
+A1775  & $15.1 \pm 3.3$ & 2.133 $\pm$ 0.088 & 2.14 $\pm$ 0.20 & 336 $\pm$ 11 & 0.331 $\pm$ 0.030 & 76.0 $\pm$ 4.0 & 30.3 $\pm$ 1.6 & 39.17 $\pm$ 0.38\\
+A2107  & $22.4 \pm 3.3$ & - & 1.04 $\pm$ 0.19 & 373.1 $\pm$ 8.1 & 14.45 $\pm$ 0.87 & 55.9 $\pm$ 2.5 & 43.97 $\pm$ 2.0 & -\\
+A2147  & $16.21 \pm 0.90$ & 0.80 $\pm$ 0.13 & 1.38 $\pm$ 0.12 & 266.3 $\pm$ 6.1 & 2.34 $\pm$ 0.12 & 13.9 $\pm$ 2.3 & 2.66 $\pm$ 0.44 & 4.06 $\pm$ 0.70 \\
+%A2255 & - & 0.794 & 0.994 & - \\
+A2256  & $24.7 \pm 6.9$ & 2.29 $\pm$ 0.12 & 1.86 $\pm$ 0.13 & 320.3 $\pm$ 8.1 & 0.890 $\pm$ 0.027 & 62.5 $\pm$ 2.2 & 42.78 $\pm$ 1.5 & 170 $\pm$ 26\\
+A2319  & $8.0 \pm 2.3$ & 0.360 $\pm$ 0.058 & 0.994 $\pm$ 0.13 & 386.0 $\pm$ 9.3 & 2.09 $\pm$ 0.10 & 95.2 $\pm$ 2.6 & 32.81 $\pm$ 0.91 & 0.78 $\pm$ 0.12\\
+A2388  & $9.6 \pm 1.0$ & 1.00 $\pm$ 0.087 & 0.876 $\pm$ 0.050 & 234.1 $\pm$ 5.1 & 2.69 $\pm$ 0.11 & 48.5 $\pm$ 2.4 & 41.0 $\pm$ 2.0 & 16.61 $\pm$ 0.25\\
+A2506 & $2.8 \pm 1.1$  & 0.359 $\pm$ 0.051 & 0.324 $\pm$ 0.042 & 235.1 $\pm$ 5.6 & 19.50 $\pm$ 0.39 & 9.01 $\pm$ 0.54 & 14.11 $\pm$ 0.85 & 1.21 $\pm$ 0.11\\
+%A2665   & - & 0.744 & 0.631 & - \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

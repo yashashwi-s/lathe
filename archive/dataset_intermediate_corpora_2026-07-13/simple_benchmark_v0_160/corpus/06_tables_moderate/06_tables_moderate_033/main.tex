@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01111\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ m{1.4cm}  m{1.5cm} m{1.1cm} m{2cm}  m{4.5cm} m{4.5cm}}
+\toprule
+ \textbf{Design (Name/Gender)} & \textbf{Personality} & \textbf{Role} & \makecell{\textbf{Interaction} \\\textbf{Modalities}}   & \textbf{Features} & \textbf{Ethical Considerations} \\
+\midrule
+\centering Bimo (Gender-Neutral)  &  \makecell[l]{Friendly\\Gentle\\ Firm\\Reactive} & \makecell[l]{Smart Friend\\ Mentor} & \makecell[l]{Speech \\Light Indicators \\Visually via Tablet } & Warm lamp light with built-in speaker; Tablet for content display; rotatable head; Integrates with student's work ecosystem; Monitors screen for careless mistakes; AI-powered feedback on student work; Helps organize and prioritize tasks; Monitors stress and exhaustion via camera & Saves  videos to a student-accessible SD card; Deletes monitored videos after 2 days; Requires manual on/off for student control; Always asks permission before accessing third-party applications; Detects critical health issues (e.g., heart attacks) and alerts authorities promptly \\
+\midrule
+\centering Max (Gender-Neutral) & \makecell[l]{Friendly\\ Assertive\\ Motivating\\ Strict with\\ deadlines} & \makecell[l]{Assistant\\ Friend\\ Mentor\\Proactive} & \makecell[l]{Speech \\Light Indicators \\Gestures \\Facial Expressions \\Physical Touch}   & Plays study music; Offers effective study tips; Helps with task organization; Comes with wheels for easy portability & Requires manual on/off for student control; Does not store user data; Respects the laws and customs of the region \\
+\midrule
+\centering Roberto (Gender-Neutral) & \makecell[l]{Friendly\\ Funny\\ Kind\\ Calm\\ Encouraging\\Proactive} & Coach & \makecell[l]{Speech \\Visually via Screen\\ Vibrations }  & Screen for content display; Helps with task organization and prioritization; Monitors for distractions via camera; Offers task feedback; Uses alarms and vibrations to dis-incentivize students from getting distracted & Does not store any monitoring videos \\
+\midrule
+\centering Bammy (Customizable) &  \makecell[l]{Friendly\\ Organized\\ Nice\\ Straightforward\\ Honest\\Reactive \& Proactive} & Mentor Motivator & \makecell[l]{Speech\\ Visually via screen\\ Visually via watch } & Screen for content display; AI-powered for task organization; Integrates with student’s workflow; Dedicated app; Monitors stress and health via smartwatch; Provides emotional support; Remembers user preferences; Accesses quality research sources; Supports language flexibility & No camera for privacy; Identifies users to protect others' personal information; Accessibility features for individuals with special needs\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00231\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Model & Top-5 $\uparrow$ & Top-10 $\uparrow$ & Recall@20\% $\uparrow$ & Effort@20\% $\downarrow$ & IFA $\downarrow$\\
+\hline
+\makecell{JIT-Smart\\\textsubscript{ATTN}} & \makecell{\textbf{0.691} \\ ($\sigma \pm 0.03$)}& \makecell{\textbf{0.811} \\ ($\sigma \pm 0.03$)}& \makecell{\textbf{0.337} \\ ($\sigma \pm 0.05$)}& \makecell{0.248 \\ ($\sigma \pm 0.02$)}& \makecell{\textbf{5.360} \\ ($\sigma \pm 3.00$)}\\\hline
+GPT-5 & \makecell{0.616 \\ ($\sigma \pm 0.01$)} & \makecell{0.759 \\ ($\sigma \pm 0.02$)} & \makecell{0.318 \\ ($\sigma \pm 0.01$)} & \makecell{\textbf{0.234} \\ ($\sigma \pm 0.01$)} & \makecell{10.711 \\ ($\sigma \pm 0.92$)} \\\hline
+\makecell{Gemini\\2.5 Pro} & 0.543 & 0.683 & 0.291 & 0.251 & 12.317 \\\hline
+UniXCoder & \makecell{0.522 \\ ($\sigma \pm 0.01$)} & \makecell{0.657 \\ ($\sigma \pm 0.01$)} & \makecell{0.278 \\ ($\sigma \pm 0.01$)} & \makecell{0.271 \\ ($\sigma \approx 0$)} & \makecell{13.280\\ ($\sigma \pm 0.36$)} \\\hline
+\makecell{Claude\\Sonnet\\4.5} & 0.529 & 0.701 & 0.273 & 0.265 & 12.520 \\\hline
+%UniXCoder & 0.176 & 0.171 & 0.231 & 0.298 & 14.457 \\\hline
+%JIT-CF & 0.229 & 0.239 & 0.213 & 0.318 & 10.300 \\\hline
+%CodeT5+ & 0.168 & 0.175 & 0.163 & 0.392 & 16.407 \\\hline
+JITFine & \makecell{0.511\\ ($\sigma \pm 0.03$)} & \makecell{0.683\\ ($\sigma \pm 0.02$)} & \makecell{0.217\\ ($\sigma \pm 0.02$)} & \makecell{0.322\\ ($\sigma \pm 0.02$)} & \makecell{12.185\\ ($\sigma \pm 1.21$)} \\\hline
+CodeT5+ & \makecell{0.465\\ ($\sigma \pm 0.04$)} & \makecell{0.631\\ ($\sigma \pm 0.04$)} & \makecell{0.150\\ ($\sigma \pm 0.04$)} & \makecell{0.388\\ ($\sigma \pm 0.05$)} & \makecell{15.048\\ ($\sigma \pm 2.43$)} \\\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

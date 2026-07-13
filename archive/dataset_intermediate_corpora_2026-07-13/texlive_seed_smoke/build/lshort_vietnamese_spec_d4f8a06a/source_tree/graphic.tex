@@ -1,0 +1,524 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{4}
+\newcommand{\graphicscompanion}{\emph{The \LaTeX{} Graphics Companion}~\cite{graphicscompanion}} 
+\newcommand{\hobby}{\emph{A User's Manual for MetaPost}~\cite{metapost}}
+\newcommand{\hoenig}{\emph{\TeX{} Unbound}~\cite{unbound}}
+\newcommand{\graphicsinlatex}{\emph{Graphics in \LaTeXe{}}~\cite{ursoswald}}
+
+\chapter{Biên soạn hình ảnh toán học}
+
+\begin{intro}
+Hiện nay rất nhiều người dùng \LaTeX{} để biên soạn tài liệu. Bên cạnh việc hỗ trợ biên soạn các tài liệu thông thường, \LaTeX{} còn hỗ trợ biên soạn hình ảnh dựa trên những mô tả thuần văn bản. Ban đầu, tính năng này có phần bị hạn chế nhưng theo thời gian, một số lượng lớn các gói mở rộng của \LaTeX{} đã khiến tác vụ này trở nên đơn giản, góp phần khắc phục những hạn chế trước đây. Trong chương này, bạn sẽ làm quen với một vài gói tiêu biểu.
+\end{intro}
+
+\section{Tổng quan}
+
+Môi trường \ei{picture} cho phép chúng ta dùng \LaTeX{} để biên soạn trực tiếp các hình ảnh. Bạn có thể tham khảo trong \manual\ để biết thêm chi tiết. Một mặt, môi trường này vẫn còn một số hạn chế lớn như hệ số góc của các đoạn thẳng cũng như bán kính của đường trọn bị giới hạn trong một số ít các giá trị lựa chọn. Mặt khác, môi trường \ei{picture} trong \LaTeXe{} có lệnh \ci{qbezier}, ``\texttt{q}'' có nghĩa là ``bậc hai' (quadratic)'. Các đường cong thường dùng như đường tròn, ellipse hay các đường cong liên tiếp nhau có thể được thay thế bằng đường cong B\'ezier bậc hai, tuy nhiên, điều này đòi hỏi chúng ta phải thực hiện các tính toán toán học không đơn giản. Nếu bạn sử dụng ngôn ngữ lập trình như Java để tạo ra tập tin nhập liệu của \LaTeX{} chứa các lệnh \ci{qbezier} thì sức mạnh của  gói \ei{picture} sẽ tăng lên rất nhiều.
+
+Mặc dù việc lập trình để xuất ra hình ảnh một cách trực tiếp với \LaTeX\ là một công việc không đơn giản, mệt nhọc và gặp phải những hạn chế nhất định nhưng chúng ta có lý do để thực hiện việc này: tài liệu của chúng ta sẽ chiếm rất ít bộ nhớ cũng như chúng ta không phải lo lắng việc chép thiếu tập tin hình ảnh minh hoạ khi mang tài liệu từ nơi này đến nơi khác.
+
+Các gói như \pai{epic} và \pai{eepic} (được mô tả trong tài liệu \companion) hay \pai{pstricks} sẽ giúp chúng tra vượt qua những hạn chế của gói \ei{picture} và mở rộng sức mạnh soạn thảo hình ảnh của \LaTeX.
+
+Trong khi hai gói \pai{epic} và \pai{eepic} chỉ mở rộng môi trường \ei{picture}, gói \pai{pstricks} có riêng môi trường vẽ của mình là \ei{pspicture}. Gói \pai{pstricks} có được sức mạnh này nhờ vào việc sử dụng rất nhiều ngôn ngữ \PSi{}. Ngoài ra, một số lượng lớn các gói đã được thiết kế nhằm phục vụ cho các mục đích nhất định. Một trong số đó là \texorpdfstring{\Xy}{Xy}-pic, được mô tả ở cuối chương này. Hầu hết các gói này đều được giới thiệu trong \graphicscompanion{} (bạn không nên nhầm lẫn giữa tài liệu này và \companion).
+
+Có lẽ công cụ đồ hoạ mạnh nhất của \LaTeX\ là \texttt{MetaPost}, người anh em song sinh với \texttt{METAFONT} của Donald E. Knuth. \texttt{MetaPost} có ngôn ngữ lập trình rất tinh tế, linh hoạt của \texttt{METAFONT}. Tuy nhiên \texttt{METAFONT} tạo ra tập tin ảnh dạng bitmap còn \texttt{MetaPost} tạo ra ảnh dạng \PSi{} để thêm thêm vào trong tài liệu. Để biết thêm thông tin bạn có thể tham khảo ở \hobby hay \cite{ursowald}.
+
+Các cách sử dụng hình ảnh (font chữ) trong \LaTeX{} và \TeX{} được thảo luận chi tiết trong \hoenig.
+
+\section{Môi trường \texttt{picture}}
+\secby{Urs Oswald}{osurs@bluewin.ch}
+
+\subsection{Các lệnh cơ bản}
+
+Môi trường \ei{picture}\footnote{Môi trường picture hoạt động độc lập, không cần thêm bất kỳ một gói nào khác ngoài trừ \LaTeXe{} chuẩn} được tạo ra bởi một trong hai lệnh sau
+\begin{lscommand}
+\ci{begin}\verb|{picture}(|$x,y$\verb|)|\ldots\ci{end}\verb|{picture}|
+\end{lscommand}
+\noindent hay
+\begin{lscommand}
+\ci{begin}\verb|{picture}(|$x,y$\verb|)(|$x_0,y_0$\verb|)|\ldots\ci{end}\verb|{picture}|
+\end{lscommand}
+Các giá trị $x,\,y,\,x_0,\,y_0$ sẽ dựa vào \ci{unitlength}, bạn có thể gán lại giá trị này vào bất kỳ lúc nào (bên ngoài môi trường \ei{picture}) với lệnh như sau
+\begin{lscommand}
+\ci{setlength}\verb|{|\ci{unitlength}\verb|}{1.2cm}|
+\end{lscommand}
+Giá trị mặc định của \ci{unitlength} là \texttt{1pt}. Cặp giá trị đầu tiên, $(x,y)$ là toạ độ bắt đầu, bên trong tài liệu, của hình chữ nhật bao quanh hình. Cặp giá trị tùy chọn thứ hai, $(x_0, y_0)$, là toạ độ góc dưới bên trái của hình chữ nhật này.
+
+Hầu hết các lệnh vẽ có hai dạng
+\begin{lscommand}
+\ci{put}\verb|(|$x,y$\verb|){|\emph{đối tượng}\verb|}|
+\end{lscommand}
+\noindent hay
+\begin{lscommand}
+\ci{multiput}\verb|(|$x,y$\verb|)(|$\Delta x,\Delta y$\verb|){|$n$\verb|}{|\emph{đối tượng}\verb|}|\end{lscommand}
+Đường cong B\'ezier là một ngoại lệ. Các đường cong này được vẽ với lệnh
+\begin{lscommand}
+\ci{qbezier}\verb|(|$x_1,y_1$\verb|)(|$x_2,y_2$\verb|)(|$x_3,y_3$\verb|)|
+\end{lscommand}
+
+\subsection{Các đoạn thẳng}
+
+\begin{example}
+\setlength{\unitlength}{5cm}
+\begin{picture}(1,1)
+  \put(0,0){\line(0,1){1}}
+  \put(0,0){\line(1,0){1}}  
+  \put(0,0){\line(1,1){1}}  
+  \put(0,0){\line(1,2){.5}}
+  \put(0,0){\line(1,3){.3333}}
+  \put(0,0){\line(1,4){.25}}  
+  \put(0,0){\line(1,5){.2}}
+  \put(0,0){\line(1,6){.1667}}
+  \put(0,0){\line(2,1){1}}
+  \put(0,0){\line(2,3){.6667}}
+  \put(0,0){\line(2,5){.4}}
+  \put(0,0){\line(3,1){1}}  
+  \put(0,0){\line(3,2){1}}
+  \put(0,0){\line(3,4){.75}}
+  \put(0,0){\line(3,5){.6}}
+  \put(0,0){\line(4,1){1}}
+  \put(0,0){\line(4,3){1}}  
+  \put(0,0){\line(4,5){.8}}
+  \put(0,0){\line(5,1){1}}
+  \put(0,0){\line(5,2){1}}
+  \put(0,0){\line(5,3){1}}
+  \put(0,0){\line(5,4){1}}
+  \put(0,0){\line(5,6){.8333}}
+  \put(0,0){\line(6,1){1}}
+  \put(0,0){\line(6,5){1}}
+\end{picture}
+\end{example}
+Các đoạn thẳng được vẽ thông qua lệnh
+\begin{lscommand}
+\ci{put}\verb|(|$x,y$\verb|){|\ci{line}\verb|(|$x_1,y_1$\verb|){|$length$\verb|}}|
+\end{lscommand}
+Lệnh \ci{line} có hai tham số:
+\begin{enumerate}
+  \item vector chỉ phương,
+  \item độ dài.
+\end{enumerate}
+Các thành phần của vector chỉ phương phải là các số nguyên
+\[
+  -6,\,-5,\,\ldots,\,5,\,6,
+\]
+\noindent nguyên tố cùng nhau (không có ước chung trừ số 1). Hình vừa rồi minh họa 25 giá trị hệ số góc khác nhau trong gốc phần tư thứ nhất. Chiều dài của đoạn thẳng phụ thuộc vào giá trị của \ci{unitlength}.
+
+
+\subsection{Mũi tên}
+
+\begin{example}
+\setlength{\unitlength}{1mm}
+\begin{picture}(60,40)
+  \put(30,20){\vector(1,0){30}}
+  \put(30,20){\vector(4,1){20}}
+  \put(30,20){\vector(3,1){25}}
+  \put(30,20){\vector(2,1){30}}
+  \put(30,20){\vector(1,2){10}}
+  \thicklines
+  \put(30,20){\vector(-4,1){30}}
+  \put(30,20){\vector(-1,4){5}}
+  \thinlines
+  \put(30,20){\vector(-1,-1){5}}
+  \put(30,20){\vector(-1,-4){5}}
+\end{picture}
+\end{example}
+Các dấu mũi tên được vẽ thông qua lệnh
+\begin{lscommand}
+\ci{put}\verb|(|$x,y$\verb|){|\ci{vector}\verb|(|$x_1,y_1$\verb|){|$length$\verb|}}|
+\end{lscommand}
+Đối với mũi tên, các thành phần của vectơ chỉ phương bị giới hạn nhiều hơn so với đoạn thẳng, chúng phải là các số nguyên
+\[
+  -4,\,-3,\,\ldots,\,3,\,4.
+\]
+\noindent nguyên tố cùng nhau (không có ước chung ngoại trừ 1). Bạn cần chú ý đến tác động của lệnh \ci{thicklines} đến hai mũi tên hướng lên góc trên bên trái.
+
+\subsection{Đường tròn}
+
+\begin{example}
+\setlength{\unitlength}{1mm}
+\begin{picture}(60, 40)
+  \put(20,30){\circle{1}}
+  \put(20,30){\circle{2}}
+  \put(20,30){\circle{4}}
+  \put(20,30){\circle{8}}
+  \put(20,30){\circle{16}}
+  \put(20,30){\circle{32}}
+  
+  \put(40,30){\circle{1}}
+  \put(40,30){\circle{2}}
+  \put(40,30){\circle{3}}
+  \put(40,30){\circle{4}}
+  \put(40,30){\circle{5}}
+  \put(40,30){\circle{6}}
+  \put(40,30){\circle{7}}
+  \put(40,30){\circle{8}}
+  \put(40,30){\circle{9}}
+  \put(40,30){\circle{10}}
+  \put(40,30){\circle{11}}
+  \put(40,30){\circle{12}}
+  \put(40,30){\circle{13}}
+  \put(40,30){\circle{14}}
+  
+  \put(15,10){\circle*{1}}
+  \put(20,10){\circle*{2}}
+  \put(25,10){\circle*{3}}
+  \put(30,10){\circle*{4}}
+  \put(35,10){\circle*{5}}
+\end{picture}
+\end{example}
+Lệnh
+\begin{lscommand}
+  \ci{put}\verb|(|$x,y$\verb|){|\ci{circle}\verb|{|\emph{đường kính}\verb|}}|
+\end{lscommand}
+\noindent vẽ đường tròn có tâm là $(x,y)$ và đường kính (không phải bán kính) là \emph{đường kính}.
+Môi trường \ei{picture} chỉ chấp nhận giá trị đường kính tối đa là 14\,mm; tuy nhiên, trong một số trường hợp dù giá trị đường kính nhỏ hơn giới hạn nhưng vẫn không được chấp nhận. Lệnh \ci{circle*} được dùng để vẽ hình tròn.
+
+Khi vẽ các đoạn thẳng, đôi khi ta cần phải sử dụng thêm các gói như \pai{eepic} hay \pai{pstricks}. Bạn có thể tham khảo thêm \graphicscompanion\ để biết thêm thông tin chi tiết.
+
+Trong môi trường \pai{picture}, nếu bạn không ngại tính toán (hay dùng phần mềm hỗ trợ để tính), bạn có thể thay thế việc vẽ các đường tròn và ellipse bằng các đường cong B\'ezier. Xem thêm ví dụ trong \graphicsinlatex\ để biết thêm chi tiết.
+
+\subsection{Văn bản và công thức}
+
+\begin{example}
+\setlength{\unitlength}{1cm}
+\begin{picture}(6,5)
+  \thicklines
+  \put(1,0.5){\line(2,1){3}}
+  \put(4,2){\line(-2,1){2}}
+  \put(2,3){\line(-2,-5){1}}
+  \put(0.7,0.3){$A$}
+  \put(4.05,1.9){$B$}
+  \put(1.7,2.95){$C$}
+  \put(3.1,2.5){$a$}
+  \put(1.3,1.7){$b$}
+  \put(2.5,1.05){$c$}
+  \put(0.3,4){$F=
+    \sqrt{s(s-a)(s-b)(s-c)}$}  
+  \put(3.5,0.4){$\displaystyle
+    s:=\frac{a+b+c}{2}$}
+\end{picture}
+\end{example}
+Thông qua ví dụ trên, bạn có thể thấy rằng văn bản và các công thức có thể được đặt vào môi trường \ei{picture} với lệnh \ci{put} như bình thường.
+
+\subsection{Lệnh \ci{multiput} và \ci{linethickness}}
+
+\begin{example}
+\setlength{\unitlength}{2mm}
+\begin{picture}(30,20)
+  \linethickness{0.075mm}
+  \multiput(0,0)(1,0){31}%
+    {\line(0,1){20}}
+  \multiput(0,0)(0,1){21}%
+    {\line(1,0){30}}
+  \linethickness{0.15mm}    
+  \multiput(0,0)(5,0){7}%
+    {\line(0,1){20}}
+  \multiput(0,0)(0,5){5}%
+    {\line(1,0){30}}
+  \linethickness{0.3mm}    
+  \multiput(5,0)(10,0){3}%
+    {\line(0,1){20}}
+  \multiput(0,5)(0,10){2}%
+    {\line(1,0){30}}
+\end{picture}
+\end{example}
+Lệnh
+\begin{lscommand}
+  \ci{multiput}\verb|(|$x,y$\verb|)(|$\Delta x,\Delta y$\verb|){|$n$\verb|}{|\emph{đối tượng}\verb|}|
+\end{lscommand}
+\noindent có 4 tham số: điểm bắt đầu, vectơ tịnh tiến từ đối tượng này đến đối tượng tiếp theo, số đối tượng và đối tượng cần vẽ. Lệnh \ci{linethickness} áp dụng cho các đoạn thẳng nằm ngang hay thẳng đứng nhưng không có tác dụng đối với các đoạn xiên hay đường tròn. Tuy nhiên lệnh này có tác dụng với các đường cong B\'ezier!
+
+\subsection{Hình oval. Lệnh \ci{thinlines} và \ci{thicklines}}
+
+\begin{example}
+\setlength{\unitlength}{1cm}
+\begin{picture}(6,4)
+  \linethickness{0.075mm}
+  \multiput(0,0)(1,0){7}%
+    {\line(0,1){4}}
+  \multiput(0,0)(0,1){5}%
+    {\line(1,0){6}}
+  \thicklines
+  \put(2,3){\oval(3,1.8)} 
+  \thinlines
+  \put(3,2){\oval(3,1.8)} 
+  \thicklines
+  \put(2,1){\oval(3,1.8)[tl]} 
+  \put(4,1){\oval(3,1.8)[b]} 
+  \put(4,3){\oval(3,1.8)[r]} 
+  \put(3,1.5){\oval(1.8,0.4)}     
+\end{picture}
+\end{example}
+Lệnh
+\begin{lscommand}
+  \ci{put}\verb|(|$x,y$\verb|){|\ci{oval}\verb|(|$w,h$\verb|)}|
+\end{lscommand}
+\noindent hay
+\begin{lscommand}
+  \ci{put}\verb|(|$x,y$\verb|){|\ci{oval}\verb|(|$w,h$\verb|)[|\emph{vị trí}\verb|]}|
+\end{lscommand}
+\noindent xuất ra một hình oval tại $(x,y)$, có độ rộng $w$ và chiều cao $h$. Tham số vị trí là \texttt{b}, \texttt{t}, \texttt{l}, \texttt{r} tương ứng với ``cuối trang'', ``đầu trang'', ``bên trái'', ``bên phải''. Bạn có thể kết hợp các tham số vị trí này lại với nhau.
+
+Độ dày của hàng có thể được điều khiển bởi hai lệnh:\\
+\ci{linethickness}\verb|{|\emph{length}\verb|}|, \ci{thinlines} và \ci{thicklines}. Lệnh \ci{linethickness}\verb|{|\emph{length}\verb|}|
+chỉ có tác dụng với các đường thẳng nằm ngang hay thẳng đứng (và các đường cong B\'ezier) còn lệnh \ci{thinlines} và \ci{thicklines} có tác dụng với các đường thẳng nằm xiên cũng như đối với đường tròn và oval.
+
+\subsection{Các cách sử dụng các khung hình được định nghĩa trước}
+
+\begin{example}
+\setlength{\unitlength}{0.5mm}
+\begin{picture}(120,168)
+\newsavebox{\foldera}% declaration
+\savebox{\foldera}
+  (40,32)[bl]{% definition 
+  \multiput(0,0)(0,28){2}
+    {\line(1,0){40}}
+  \multiput(0,0)(40,0){2}
+    {\line(0,1){28}}
+  \put(1,28){\oval(2,2)[tl]}
+  \put(1,29){\line(1,0){5}}
+  \put(9,29){\oval(6,6)[tl]}
+  \put(9,32){\line(1,0){8}}
+  \put(17,29){\oval(6,6)[tr]}
+  \put(20,29){\line(1,0){19}}
+  \put(39,28){\oval(2,2)[tr]}  
+}
+\newsavebox{\folderb}% declaration
+\savebox{\folderb}
+  (40,32)[l]{%         definition 
+  \put(0,14){\line(1,0){8}}
+  \put(8,0){\usebox{\foldera}}
+}
+\put(34,26){\line(0,1){102}} 
+\put(14,128){\usebox{\foldera}}
+\multiput(34,86)(0,-37){3}
+  {\usebox{\folderb}} 
+\end{picture}
+\end{example}
+Một khung hình (picture box) có thể được \emph{khai báo} thông qua lệnh
+\begin{lscommand}
+  \ci{newsavebox}\verb|{|\emph{tên}\verb|}|
+\end{lscommand}
+\noindent sau đó \emph{định nghĩa} bởi lệnh
+\begin{lscommand}
+  \ci{savebox}\verb|{|\emph{tên}\verb|}(|\emph{chiều rộng,chiều cao}\verb|)[|\emph{vị trí}\verb|]{|\emph{nội dung}\verb|}|
+\end{lscommand}
+\noindent và cuối cùng được \emph{vẽ} ra với lệnh
+\begin{lscommand}
+  \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{tên}\verb|}|
+\end{lscommand}
+
+Tham số \emph{vị trí} có tác dụng xác định `điểm mốc' của khung (savebox). Trong ví dụ trên, chúng ta đã sử dụng tham số là \texttt{bl} để đặt điểm mốc ở góc dưới bên trái của khung. Các tham số khác là \texttt{t} -- ở trên, \texttt{r} -- bên phải.
+
+Các khung hình có thể được lồng vào nhau: trong ví dụ trên, ta thấy khung \ci{foldera} được dùng bên trong định nghĩa của khung \ci{folderb}
+
+Lệnh \ci{oval} được sử dụng như lệnh \ci{line} sẽ không có tác dụng nếu kích thước của đoạn thẳng nhỏ hơn 3\,mm.
+
+\subsection{Các đường cong B\'ezier}
+
+\begin{example}
+\setlength{\unitlength}{1cm}
+\begin{picture}(6,4)
+  \linethickness{0.075mm}
+  \multiput(0,0)(1,0){7}
+    {\line(0,1){4}}
+  \multiput(0,0)(0,1){5}
+    {\line(1,0){6}}
+  \thicklines
+  \put(0.5,0.5){\line(1,5){0.5}}    
+  \put(1,3){\line(4,1){2}} 
+  \qbezier(0.5,0.5)(1,3)(3,3.5)
+  \thinlines   
+  \put(2.5,2){\line(2,-1){3}}
+  \put(5.5,0.5){\line(-1,5){0.5}}
+  \linethickness{1mm}
+  \qbezier(2.5,2)(5.5,0.5)(5,3)
+  \thinlines
+  \qbezier(4,2)(4,3)(3,3)
+  \qbezier(3,3)(2,3)(2,2)
+  \qbezier(2,2)(2,1)(3,1)
+  \qbezier(3,1)(4,1)(4,2)
+\end{picture}
+\end{example}
+Trong ví dụ trên, việc chia đường tròn thành 4 đường cong B\'ezier là không thoả đáng, chúng ta cần ít nhất là 8 đường cong. Hình minh hoạ cũng cho thấy tác dụng của lệnh \ci{linethickness} đối với các đường thẳng nằm ngang và nằm thẳng đứng, lệnh \ci{thicklines} đối với các đướng thẳng nằm xiên. Ngoài ra chúng ta cũng thấy được tác dụng của các lệnh này đối với các đường cong B\'ezier. Bạn cần lưu ý rằng lệnh nằm sau sẽ có tác dụng.
+
+Đặt $P_1=(x_1,\,y_1),\,P_2=(x_2,\,y_2)$ là các điểm cuối và $m_1,\,m_2$ là các hệ số góc tương ứng của đường cong B\'ezier. Điểm giữa điều khiển $S=(x,\,y)$ sẽ được xác định bởi
+\begin{equation} \label{zwischenpunkt}
+  \left\{
+    \begin{array}{rcl}
+      x & = & \displaystyle \frac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
+      y & = & y_i+m_i(x-x_i)\qquad (i=1,\,2).
+    \end{array}
+  \right.
+\end{equation}
+\noindent Xem \graphicsinlatex\ để biết thêm thông tin về chương trình Java hỗ trợ việc tạo các đường cong B\'ezier từ lệnh.
+
+\subsection{Catenary}
+
+\begin{example}
+\setlength{\unitlength}{1.3cm}
+\begin{picture}(4.3,3.6)(-2.5,-0.25)
+  \put(-2,0){\vector(1,0){4.4}}
+  \put(2.45,-.05){$x$}
+  \put(0,0){\vector(0,1){3.2}}
+  \put(0,3.35){\makebox(0,0){$y$}}
+  \qbezier(0.0,0.0)(1.2384,0.0)
+    (2.0,2.7622) 
+  \qbezier(0.0,0.0)(-1.2384,0.0)
+    (-2.0,2.7622)
+  \linethickness{.075mm}
+  \multiput(-2,0)(1,0){5}
+    {\line(0,1){3}}
+  \multiput(-2,0)(0,1){4}
+    {\line(1,0){4}}
+  \linethickness{.2mm}
+  \put( .3,.12763){\line(1,0){.4}}
+  \put(.5,-.07237){\line(0,1){.4}}
+  \put(-.7,.12763){\line(1,0){.4}}
+  \put(-.5,-.07237){\line(0,1){.4}}
+  \put(.8,.54308){\line(1,0){.4}}
+  \put(1,.34308){\line(0,1){.4}}
+  \put(-1.2,.54308){\line(1,0){.4}}
+  \put(-1,.34308){\line(0,1){.4}}
+  \put(1.3,1.35241){\line(1,0){.4}}
+  \put(1.5,1.15241){\line(0,1){.4}}
+  \put(-1.7,1.35241){\line(1,0){.4}}
+  \put(-1.5,1.15241){\line(0,1){.4}}
+  \put(-2.5,-0.25){\circle*{0.2}}
+\end{picture}
+\end{example}
+
+Trong hình trên, các nữa đối xứng nhau của đồ thị hàm số $y = \cosh x - 1$ được sắp xỉ bởi đường cong B\'ezier. Phần nữa bên phải của đường cong kết thúc bởi điểm \((2,\,2.7622)\), hệ số góc là \(m=3.6269\). Sử dụng phương trình (\ref{zwischenpunkt}), ta có thể tính được điểm điều khiển giữa là $(1.2384,\,0)$ và $(-1.2384,\,0)$. Độ sai lệch là rất thấp và thường nhỏ hơn một phần trăm.
+
+Ví dụ này cũng cho ta thấy được cách sử dụng tham số tuỳ chọn của lệnh \verb|\begin{picture}|.
+Hình ảnh sẽ được định nghĩa một dựa vào các hệ trục ``toán học'' dựa vào lệnh
+\begin{lscommand} 
+  \ci{begin}\verb|{picture}(4.3,3.6)(-2.5,-0.25)|
+\end{lscommand}
+\noindent góc dưới bên trái (đánh dấu bởi hình tròn màu đen) được xác định toạ độ là $(-2.5,-0.25)$. 
+
+\subsection{Tốc độ trong thuyết tương đối đặc biệt}
+
+\begin{example}
+\setlength{\unitlength}{1cm}
+\begin{picture}(6,4)(-3,-2)
+  \put(-2.5,0){\vector(1,0){5}}
+  \put(2.7,-0.1){$\chi$}
+  \put(0,-1.5){\vector(0,1){3}}
+  \multiput(-2.5,1)(0.4,0){13}
+    {\line(1,0){0.2}}
+  \multiput(-2.5,-1)(0.4,0){13}
+    {\line(1,0){0.2}}
+  \put(0.2,1.4)
+    {$\beta=v/c=\tanh\chi$}
+  \qbezier(0,0)(0.8853,0.8853)
+    (2,0.9640)
+  \qbezier(0,0)(-0.8853,-0.8853)
+    (-2,-0.9640)
+  \put(-3,-2){\circle*{0.2}}
+\end{picture}
+\end{example}
+Điểm điều khiển của hai đường cong B\'ezier được tính bởi công thức (\ref{zwischenpunkt}). Nhánh dương được xác định bởi $P_1=(0,\,0),\,m_1 = 1$ và $P_2 = (2,\,\tanh 2),\, m_2 = 1/\cosh^2 2$. Khi này toạ độ của góc dưới bên trái được xác định là $(-3,-2)$ (hình tròn màu đen).
+
+\section{\texorpdfstring{\Xy}{Xy}-pic}
+\secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
+Gói \pai{xy} là một gói đặc biệt để vẽ các biểu đồ. Để sử dụng gói này, bạn chỉ việc thêm vào các hàng lệnh sau trong phần tựa đề của tài liệu:
+\begin{lscommand}
+\verb|\usepackage[|\emph{tùy chọn}\verb|]{xy}|
+\end{lscommand}
+Với \emph{tùy chọn} là một danh sách các hàm của \Xy-pic mà bạn muốn nạp vào. Tôi đề nghị bạn đưa vào mục chọn \verb!all! để \LaTeX{} nạp tất cả các lệnh của \Xy.
+
+Các biểu đồ của \Xy-pic được vẽ dựa trên mô hình của các ma trận trong đó mỗi phần tử của biểu đồ được đặt trong một ô của ma trận:
+\begin{example}
+\begin{displaymath}
+\xymatrix{A & B \\
+          C & D }
+\end{displaymath}
+\end{example}
+Lệnh \ci{xymatrix} phải được sử dụng trong chế độ toán học. Trong ví dụ trên, chúng ta có hai hàng và hai cột. Để tạo biểu đồ này, chúng ta chỉ cần thêm vào các muỗi tên tương ứng với lệnh
+\ci{ar}.
+\begin{example}
+\begin{displaymath}
+\xymatrix{ A \ar[r] & B \ar[d] \\
+           D \ar[u] & C \ar[l] }
+\end{displaymath}
+\end{example}
+Lệnh vẽ mũi tên được đặt ở ô gốc. Các tham số ở đây là hướng trỏ đến của các mũi tên. (\texttt{u}: mũi tên hướng lên, \texttt{d}: mũi tên hướng xuống, \texttt{r}: mũi tên hướng sang phải và \texttt{l}: mũi tên hướng sang trái).
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[d] \ar[dr] \ar[r] & B \\
+  D                       & C }
+\end{displaymath}
+\end{example}
+Để tạo ra các mũi tên theo đường chéo, bạn chỉ cần sử dụng tham số là tổ hợp của các hướng. Để có mũi tên đậm hơn, bạn có thể lặp lại các tham số về hướng.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[d] \ar[dr] \ar[drr] & & \\
+  B                      & C & D }
+\end{displaymath}
+\end{example}
+Bạn có thể vẽ các biểu đồ ``hấp dẫn'' bằng cách thêm vào phía trên dấu mũi tên các nhãn. Để làm điều này, bạn có thể sử dụng các toán tử viết lên trên hay viết xuống dưới.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[r]^f \ar[d]_g &
+             B \ar[d]^{g'} \\
+  D \ar[r]_{f'}       & C }
+\end{displaymath}
+\end{example}
+Như đã thấy, bạn sử dụng các toán tử này trong chế độ toán học. Sự khác biệt duy nhất là việc viết văn bản lên trên được hiểu là ``viết lên phía trên của mũi tên'' còn viết văn bản ở dưới nghĩa là ``ở dưới dấu mũi tên''. Ngoài ra chúng ta còn có toán tử thứ ba là: \verb+|+. Lệnh đặt nội dung lên trên mũi tên.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[r]|f \ar[d]|g &
+             B \ar[d]|{g'} \\
+  D \ar[r]|{f'}       & C }
+\end{displaymath}
+\end{example}
+
+Để vẽ các mũi tên có khoảng trống ở giữa, bạn có thể sử dụng lệnh \verb!\ar[...]|\hole!.
+
+Trong một số tình huống, việc phân biệt các kiểu mũi tên khác nhau là quan trọng, khi này, bạn có thể đặt các nhãn lên các dẫu mũi tên hay thay đổi kiểu hiển thị của nó:
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet\ar@{->}[rr] && \bullet\\
+ \bullet\ar@{.<}[rr] && \bullet\\
+ \bullet\ar@{~)}[rr] && \bullet\\
+ \bullet\ar@{=(}[rr] && \bullet\\
+ \bullet\ar@{~/}[rr]  && \bullet\\
+ \bullet\ar@{=+}[rr]   && \bullet
+}
+\end{displaymath}
+\end{example}
+
+Bạn hãy chú ý sự khác biệt giữa hai biểu đồ dưới đây:
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet \ar[r]
+         \ar@{.>}[r] &
+ \bullet
+}
+\end{displaymath}
+\end{example}
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet \ar@/^/[r]
+         \ar@/_/@{.>}[r] &
+ \bullet
+}
+\end{displaymath}
+\end{example}
+
+Từ bổ sung thêm vào giữa hai dấu gách chéo /~/ xác định cách các đường cong được vẽ. Ngoài ra, \Xy-pic cung cấp nhiều cách khác nhau để tác động đến việc vẽ các đường cong. Để biết thêm chi tiết, bạn có thể tham khảo thêm tài liệu của \Xy-pic.
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% coding: utf-8
+% End:

@@ -1,0 +1,26 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_010/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_010/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_010/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unexpected hat
+   ┌─ tylax.typ:26:279
+   │
+26 │ $ mat(delim: #none, cal(L) =, frac(1, g^(2))integral lr((- 1/4 F_(m n) F^(m n) + 1/2D_(m)Phi^(a b) D^(m) Phi_(a b) + 1/4 {Phi^(a b),Phi^(c d)}_(*) {Phi_(a b),Phi_(c d)}_(*)) + ;, lr(+ i lambda_(a) sigma^(m) D_(m)overline(lambda)^(a) + i {lambda_(a),lambda_(b)}_(*) Phi^(a b)+ i {^(a),^(b)}_(*) Phi_(a b))) thin .)  $
+   │                                                                                                                                                                                                                                                                                        ^
+
+error: unclosed delimiter
+   ┌─ tylax.typ:40:5
+   │
+40 │ $ mat(delim: #none, lr({ mat(delim: #none, delta^((1)) A_(mu) = i overline(epsilon) sigma_(mu)psi ;delta^((1)) psi = i/2([A_(mu),A_(nu) ] - i alpha epsilon_(mu nu lambda)A_(lambda))sigma^(mu nu)epsilon)), "," lr({ mat(delim: #none, delta A_(mu)^((2)) = 0 ;delta^((2))psi = xi .)))  $
+   │      ^
+
+error: unclosed delimiter
+   ┌─ tylax.typ:40:22
+   │
+40 │ $ mat(delim: #none, lr({ mat(delim: #none, delta^((1)) A_(mu) = i overline(epsilon) sigma_(mu)psi ;delta^((1)) psi = i/2([A_(mu),A_(nu) ] - i alpha epsilon_(mu nu lambda)A_(lambda))sigma^(mu nu)epsilon)), "," lr({ mat(delim: #none, delta A_(mu)^((2)) = 0 ;delta^((2))psi = xi .)))  $
+   │                       ^
+

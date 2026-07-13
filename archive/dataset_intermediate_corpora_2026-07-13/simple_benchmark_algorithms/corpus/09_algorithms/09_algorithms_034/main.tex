@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 34}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithmic}[1]
+\Procedure{AdaptiveEstimation}{$n$, $p_0$, $N$, $a_{LW}$, $t_{RS}$}
+\State draw $\lbrace x_k \rbrace$ from $p_0(x)$
+\State $\lbrace \omega_k \rbrace \gets \lbrace 1/K \rbrace$
+\For{$i \in 1.. N$}
+\State $\hat{T}_{\chi} \gets \sum_j \omega_k \cdot x_k$
+\State $\tau \gets \xi \cdot \hat{T}_{\chi}$
+\For{$j \in 1.. R$}
+\State $m_j \gets \mbox{EXPERIMENT} (\tau)$
+\EndFor
+\State $r_i \gets \sum_{j=1}^R m_j$
+\State $\lbrace \omega_k \rbrace \gets \lbrace \omega_k \cdot p \left(r_i|T_{\chi}, R \right) \rbrace$
+\State $\lbrace \omega_k \rbrace \gets \lbrace \omega_k/\left(\sum_k \omega_k\right) \rbrace$
+\If {$1/ \sum \omega_k^2 < n \cdot t_{RS}$}
+\State $\lbrace x_k \rbrace \gets \mbox{RESAMPLE} (\lbrace x_k \rbrace, \lbrace \omega_k \rbrace, a_{LW})$
+\State $\lbrace \omega_k \rbrace \gets \lbrace 1/K \rbrace$
+\EndIf
+\EndFor
+\\
+\Return $\hat{T}_{\chi}$
+\EndProcedure
+\\
+\Procedure{RESAMPLE}{$\lbrace x_k \rbrace$, $\lbrace \omega_k \rbrace$, $a_{LW}$}
+\State $\mu \gets \sum_k x_k \cdot \omega_k$
+\State $\sigma^2 \gets \sum_k x_k^2 \cdot \omega_k - \mu^2$
+\State $\mu' \gets a_{LW} \cdot x_k + (1-a_{LW})\cdot \mu$
+\State $\lbrace x_k \rbrace \gets \mbox{NORMAL} (\mu', \sigma^2)$
+\\
+\Return $\lbrace x_k \rbrace$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{document}

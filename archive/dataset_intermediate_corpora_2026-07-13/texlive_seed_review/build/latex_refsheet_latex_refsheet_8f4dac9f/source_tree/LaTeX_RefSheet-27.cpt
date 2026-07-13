@@ -1,0 +1,26 @@
+
+\subsection{Figures with \texttt{graphicx}}\label{sec:figure}
+Load: \lstinline+\usepackage{graphicx}+\\
+Use: \lstinline+\includegraphics[+\textit{opt}\lstinline+]{+\textit{file}\lstinline+}+ (png, jpg, pdf)\\[2pt]
+With `figure' the environment to place a graphic is meant. The figure caption is printed where the caption command is placed in the input.  Extra vertical space is controlled by the KOMAoption \lstinline+captions+ (see~\ref{sec:options}).\\
+Use: \lstinline+\begin{figure}[+\textit{pos}\lstinline+] ..\caption{..}\label{fig:x}+ \lstinline+\end{figure}+\\
+Parameter: \textit{pos} is a suggestion for placing, it can be ignored by \TeX{}. Possible values are combinations of \lstinline+t+ (top), \lstinline+h+ (here), \lstinline+b+ (bottom), \lstinline+!+ (try  harder), \lstinline+p+ (separate page).\\
+Hint: Define a path to the graphic files (no blanks in folder names; no special characters in file names)
+\lstinline+\graphicspath{ {+\textit{folder}\lstinline+/}{+\textit{folder}\lstinline+/}+\dots\lstinline+ }+
+\begin{mylatex}
+\graphicspath{ {img/} } %subfolder for images; set in preambel
+\begin{figure}\centering
+ \includegraphics[width=.8\columnwidth]{pic.jpg}
+ \caption[Short title]{Long title}\label{fig:ff}
+\end{figure}
+\end{mylatex}
+\begin{itemize}
+\item
+Numbering throughout the whole document (scrbook) with package \lstinline+chngcntr+:
+\lstinline+\counterwithout{figure}{chapter}+ (same for table)
+\item
+Figure name:
+\lstinline+\renewcaptionname{+\textit{language}\lstinline+}{\figurename}{+\textit{text}\lstinline+}+\\
+\lstinline+\renewcaptionname{+\textit{language}\lstinline+}{\figureautorefname}{+\textit{text}\lstinline+}+
+\end{itemize}
+^^E^^L 

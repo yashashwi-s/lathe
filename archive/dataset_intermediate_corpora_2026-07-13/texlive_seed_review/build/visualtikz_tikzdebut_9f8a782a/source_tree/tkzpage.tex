@@ -1,0 +1,55 @@
+
+\begin{tikzpicture}[remember picture,overlay,red]
+\fill(current page.north) circle (5pt) node[below left=4mm] {\Huge north} ;
+\fill(current page.north east) circle (5pt) node[below left=4mm] {\Huge north east} ;
+\fill(current page.north west) circle (5pt) node[below right=4mm] {\Huge north west} ;
+\fill(current page.east) circle (5pt) node[above left=4mm] {\Huge east} ;
+\fill(current page.center) circle (5pt) node[above left=4mm] {\Huge center} ;
+\fill(current page.west) circle (5pt) node[above right=4mm] {\Huge west} ;
+\fill(current page.south) circle (5pt) node[above right=4mm] {\Huge south} ;
+\fill(current page.south west) circle (5pt) node[above right=4mm] {\Huge south west} ;
+\fill(current page.south east) circle (5pt) node[above left=4mm] {\Huge south east} ;
+\end{tikzpicture}
+
+\begin{tabular}{|l|} \hline
+\BS{begin}\AC{tikzpicture}[remember picture,overlay]\\
+\BS{fill}(\RDD{current page.north}) circle (5pt) node[below left=4mm] {\BS{Huge} north} ; \\
+\BS{fill}(\RDD{current page.north east}) circle (5pt) node[below left=4mm] {\BS{Huge} north east} ;\\
+\BS{fill}(\RDD{current page.north west}) circle (5pt) node[below right=4mm] {\BS{Huge} north west} ;\\
+\BS{fill}(\RDD{current page.east}) circle (5pt) node[above left=4mm] {\BS{Huge} east} ;\\
+\BS{fill}(\RDD{current page.center}) circle (5pt) node[above left=4mm] {\BS{Huge}center} ;\\
+\BS{fill}(\RDD{current page.west}) circle (5pt) node[above right=4mm] {\BS{Huge} west} ;\\
+\BS{fill}(\RDD{current page.south}) circle (5pt) node[above right=4mm] {\BS{Huge} south} ;\\
+\BS{fill}(\RDD{current page.south west}) circle (5pt) node[above right=4mm] {\BS{Huge} south west} ;\\
+\BS{fill}(\RDD{current page.south east}) circle (5pt) node[above left=4mm] {\BS{Huge} south east} ;\\
+\BS{end}\AC{tikzpicture} \\
+\hline 
+\end{tabular} 
+
+ \begin{tikzpicture}[remember picture,overlay,red]
+ \node  [opacity=.15] at (current page.center) {\includegraphics[width=8cm]{tiger} };
+ \end{tikzpicture} 
+\bigskip
+
+\begin{tabular}{|l|} \hline
+\BS{begin}\AC{tikzpicture}[remember picture,overlay]\\
+ \BS{node}  [opacity=.15] at (\RDD{current page.center}) \AC{\BS{includegraphics}[width=8cm]\AC{tiger} };\\
+\BS{end}\AC{tikzpicture} \\
+\hline 
+\end{tabular}
+
+
+ \begin{tikzpicture}[remember picture,overlay,red]
+\draw[dotted,opacity=.4] (current page.south west) -- (current page.north east)  node[near start] {\Huge TIKZ} ;
+ \end{tikzpicture} 
+
+\bigskip
+\begin{tabular}{|l|} \hline
+\BS{begin}\AC{tikzpicture}[remember picture,overlay]\\
+\BS{draw}[dotted,opacity=.4] (\RDD{current page.south west}) - - (\RDD{current page.north east}) \\
+\hspace{1cm}  node[near start] \AC{\BS{Huge} TIKZ} ;\\
+\BS{end}\AC{tikzpicture} \\
+\hline 
+\end{tabular}
+
+\newpage

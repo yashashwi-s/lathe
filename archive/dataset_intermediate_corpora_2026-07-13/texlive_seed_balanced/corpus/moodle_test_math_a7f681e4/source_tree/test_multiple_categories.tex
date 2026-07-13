@@ -1,0 +1,27 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = xelatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifxetex % FOR XELATEX
+	\usepackage{fontspec}
+\else %% FOR PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\fi
+\begin{document}
+\begin{quiz}{Category 1}
+\begin{multi}{Q1}
+Text 1
+\item* A
+\item B
+\end{multi}
+\end{quiz}
+\begin{quiz}{Category 2}
+\begin{multi}{Q2}
+Text 2
+\item* C
+\item D
+\end{multi}
+\end{quiz}
+\end{document}

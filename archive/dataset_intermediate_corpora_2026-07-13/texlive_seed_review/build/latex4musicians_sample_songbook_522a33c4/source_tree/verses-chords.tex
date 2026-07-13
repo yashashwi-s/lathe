@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{guitar}
+\usepackage{gchords}
+\thispagestyle{empty}
+
+\newcommand{\C}{\hspace{-0.8em}\chord{t}{n,p3,p2,n,p1,n}{C}}
+\newcommand{\CmajVII}{\hspace{-0.8em}\chord{t}{n,p3,p2,n,n,n}{Cmaj7}}
+\newcommand{\F}{\hspace{-0.8em}\chord{t1}{n,p2,p2,p1,n,n}{F}}
+
+\def\chordsize{1.5mm}
+\def\numfrets{3}
+\def\namefont{\it}
+
+\begin{document}
+
+\noindent
+We can typeset verses and guitar chord grids in a \texttt{guitar}
+environment:
+
+\bigskip
+
+\begin{minipage}[c]{\linewidth} % to avoid indentation
+  \begin{guitar}
+  
+    \textbf{Imagine (John Lennon)}
+    \emph{Intro, $\times$ 2}
+    [\C] \hspace{2em} [\CmajVII] \hspace{2em} [\F] \hspace{2em}
+    [\C]Imagine there's [\CmajVII|]{no} ~ [\F]heaven
+    [\C]It's easy if [\CmajVII|]{you} ~ [\F]try
+  
+  \end{guitar}
+\end{minipage}
+
+\noindent
+{\ldots}and so on. But we could just use the \verb|\upchord| command,
+provided by \texttt{gchords}:
+
+\begin{verse}
+
+  \upchord{\C}Imagine there's \upchord{\CmajVII}no \qquad
+  \upchord{\F}heaven
+  
+  \upchord{\C}It's easy if \upchord{\CmajVII}you \qquad
+  \upchord{\F}try
+
+\end{verse}
+
+
+\end{document}

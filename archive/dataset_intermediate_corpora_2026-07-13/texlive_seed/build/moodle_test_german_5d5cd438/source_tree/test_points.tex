@@ -1,0 +1,33 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+\begin{quiz}{Ifnum}
+\begin{multi}{MWE}
+\item* A
+\item B
+\end{multi}
+\begin{multi}[points=.5]{MWE}
+\item* A
+\item B
+\end{multi}
+\begin{multi}[points=3.2]{MWE}
+\item* A
+\item B
+\end{multi}
+\begin{cloze}{The question}
+\begin{shortanswer}[points=3]\item abc\end{shortanswer}
+\begin{shortanswer}[points=-0.49]\item abc\end{shortanswer}
+\begin{numerical}[points=1.49]\item 0\end{numerical}
+\begin{multi}[default grade=1.51]\item* A\item B\end{multi}
+\end{cloze}
+\end{quiz}
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=LaTeX.dlrg.de,
+    module={Paketbeschreibung,Tabellen}
+]{dlrg}
+\usepackage{listings}
+\usepackage{standalone}
+\usepackage[
+    language=ngerman,
+    backend=biber,
+    sortlocale=de_DE,%.UTF-8
+    style=authoryear,
+    bibencoding=UTF8,
+    block=space,
+    autocite=inline % \autocite[..][..]{..} erzeugt Literaturverweise mit runden Klammern
+]{biblatex}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Tabellen}
+\author{Johannes Pieper}
+
+\begin{document}
+    Mit dem Paket \pkg{tabularray} gibt es in \LaTeX 3 eine umfassende Möglichkeit zur Gestaltung von Tabellen. Dieses wird automatisch mit dem Modul \module{Tabellen} eingebunden. Dadurch entfällt die Einbindung von \pkg{tabu}, was nicht mehr weiterentwickelt wird. Dieses war bis zur Version 0.2 über den Dokumentty \pkg{pub} für Publikationen eingebunden.
+
+    Das Handbuch Corporate Design (\cite{DLRG_CD2024}) geht nicht näher darauf ein, wie Tabellen in Publikationen zu setzen sind. In verschiedenen Publikationen, die in der sogenannten Dokumenten-App im Internet-Service-Center zu finden sind, hat sich das Layout durchgesetzt, dass Tabellen mit schwarzen Rahmen umfasst sind und die Überschriften der Zeilen mit grauem Hintergrund belegt sind. Es folgt dafür ein passendes Beispiel.
+
+    \begin{example}[gobble=8]
+        \begin{tblr}{
+            colspec={XXX[2]},
+            vlines,hlines,
+            row{1}={font=\bfseries,bg=gray!50}
+        }
+            Spalte 1 & Spalte 2 & Spalte 3 \\
+            Inhalte & mehr Inhalte & Noch mehr Inhalte, die mehr sind \\
+            Inhalt & wenig Inhalt & kurzer Inhalt \\
+        \end{tblr}
+    \end{example}
+
+    Zur Vereinfachung für solche Tabellen ist die Umgebung \verb|dlrgTblr| geschaffen worden. Durch Optionen an diese Umgebung lassen sich auch Tabellen mit roten Linien und Überschriften erzeugen, wobei letztere dann zur Farbwahl der Linien passen. Zusätzlich zu den speziellen Optionen können auch optional äußere Einstellungen und die obligatorisch inneren Einstellungen, wie die Spaltenanzahl und Spaltenausrichtung mitgegeben werden, wie es aus dem \pkg{tabularray}-Paket bekannt ist.
+
+    \begin{environments}
+        \environment{dlrgTblr}[\oarg{Äußere Einsellungen}\marg{Innere Einsellungen} \oarg{Optionen}]
+            Liefert eine auf \verbcode|tblr| basierende Tabelle im passenden DLRG-Layout. Entsprechend können alle Möglichkeiten davon genutzt werden. Diese Tabelle können zusätzlich über folgende Optionen angepasst werden:
+            \begin{options}
+                \keychoice*{layout}{grauSchwarz,rot}\Default{grauSchwarz}
+                    Die DLRG Tabelle wird in zwei verschiedenen Layouttypen angeboten, wobei die Farbgebung sich auf die Kopfzeilen und Linienfarbe bezieht.
+                \opt*{ueberschrift} Zeichnet die erste Zeile der Tabelle als Überschrift mit passender Hinterlegung und in fetter Schriftart.
+                \opt*{noVlines} Verhindert das Zeichnen der vordefinierten vertikalen Linen recht und links an jeder Spalte in der Tabelle. Sie können aber immer noch auf normalem Wege gesetzt werden.
+                \opt*{noHlines} Verhindert das Zeichnen der vordefinierten horizontalen Linien über und unter jeder Zeile. Sie können aber immer noch mit \verb|\hline| erzeugt werden.
+                \opt*{long}
+                    Macht aus der Tabelle eine Tabelle, die über mehrere Seiten gehen kann und dann passend getrennt wird.
+            \end{options}
+    \end{environments}
+
+    Im folgenden ist die gleiche Tabelle wie oben mit diesen Optionen dargestellt.
+
+    \begin{example}[gobble=8]
+        \begin{dlrgTblr}{colspec={XXX[2]}}[ueberschrift]
+            Spalte 1 & Spalte 2 & Spalte 3 \\
+            Inhalte & mehr Inhalte & Noch mehr Inhalte, die mehr sind \\
+            Inhalt & wenig Inhalt & kurzer Inhalt \\
+        \end{dlrgTblr}
+    \end{example}
+
+    Auch mit der roten Variante soll diese Tabelle hier dargestellt werden.
+    \begin{example}[gobble=8]
+        \begin{dlrgTblr}{colspec={XXX[2]}}[ueberschrift,layout=rot]
+            Spalte 1 & Spalte 2 & Spalte 3 \\
+            Inhalte & mehr Inhalte & Noch mehr Inhalte, die mehr sind \\
+            Inhalt & wenig Inhalt & kurzer Inhalt \\
+        \end{dlrgTblr}
+    \end{example}
+
+    Neben der Tabelle wird auch noch ein Befehl zur Verfügung gestellt.
+    \begin{commands}
+        \command{tabellenZwischenueberschrift}[\marg{Spaltenanzahl}]
+            Setzt eine Zwischenüberschrift über die angegebene Spaltenzahl als Zeile in eine DLRG-Tabelle. Der Inhalt der Zelle ist dann fett formatiert und linksbündig ausgerichtet.
+    \end{commands}
+
+    \subsubsection{Aufzählungen}
+    Sollen in Tabellen Aufzählungen genutzt werden, so nehmen diese in der Regel sehr viel Raum ein und sprengen das Layout daher gibt es für Tabellen eine extra Möglichkeit für Aufzählungen, die daran angepasst sind.
+
+    \begin{environments}
+        \environment{tabellenItemize}
+            Eine Aufzählungsumgebung, die innerhalb einer Tabelle genutzt werden kann und dabei möglichst kleine Abstände hat.
+    \end{environments}
+\end{document}

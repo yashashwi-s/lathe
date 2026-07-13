@@ -1,0 +1,47 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage[turkish]{babel}
+
+\ifPDFTeX
+  \def\myquestiontext{ \underline{Pangramm} :}
+  \def\pangramme{Pijamal\i\ hasta ya\u{g}\i z \c{s}of\"ore \c{c}abucak 
+  g\"uvendi.}
+  \def\pangrammeother{Saf ve haydut k\i z \c{c}ocu\u{g}u bin plaj 
+  g\"orm\"u\c{s}.}
+  \def\myfeedback{}
+\else % assuming XELATEX or LUALATEX
+  \def\myquestiontext{ \underline{Pangramm} :}
+  \def\pangramme{Pijamalı hasta yağız şoföre çabucak güvendi.}
+  \def\pangrammeother{Saf ve haydut kız çocuğu bin plaj görmüş.}
+  \def\myfeedback{}
+\fi
+\htmlregister{\myquestiontext}
+\htmlregister{\pangramme}
+\htmlregister{\pangrammeother}
+\htmlregister{\myfeedback}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the \texttt{babel} package 
+with option \texttt{turkish} that causes problems during \texttt{pdfLaTeX} 
+compilation, due to shorthands.
+
+\begin{quiz}[points=1]{Turkish Issues}
+\shorthandoff{=:!}% this preserves compilation (pdflatex, xelatex, lualatex)
+\begin{multi}[feedback={}]{Test Turkish}
+\myquestiontext
+\item[feedback={\myfeedback}]* \pangramme
+\item \pangrammeother
+\end{multi}
+\end{quiz}
+\end{document}

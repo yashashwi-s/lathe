@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 51}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[H]
+\caption{\text{Compute expected utility}}
+\textbf{Input:} ${\bf c}$, $s_0$, $t_0$, $\alpha$, $\beta$, $a$, $M$,
+$\rho$, {\em mcost}, {\em icost}
+\begin{algorithmic}[1]
+\State Compute $tmcost$ and $ticost$
+\State $ancost = tmcost + ticost$
+\State $util=0$
+\For{$ i \in \{1, \ldots , M \}$}
+\If{$(c(i) = 1)$ OR $(c(i) = 2)$}
+\State $s_0 = s_0 \times \exp\big(-\alpha(i)\big)$
+\State $t_{0} = t_{0} + \beta(i)$
+\EndIf
+\EndFor
+\State $s = 1 - s_0$
+\State $t = t_0$
+\For{ $i = 1, \ldots, M$ } \State Generate $u\sim U(0,1)$
+\If{$u<s$}
+\State $cost(i) = 0$
+\Else
+\State $cost(i)\sim Gamma(a,t)$
+\EndIf
+\State $cost(i)=cost(i)+ancost$
+\State $util=util + (1- \exp\big(\rho \times cost(i)\big) ) $ \EndFor
+\State \textbf{Return:} $util/M$
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

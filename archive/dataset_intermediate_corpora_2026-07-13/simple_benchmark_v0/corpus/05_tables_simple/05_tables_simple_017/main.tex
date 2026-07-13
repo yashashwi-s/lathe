@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00501\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llr}
+\hline\hline
+Quantity & Value & Ref. \\
+\hline $M_\psi$ & $3096.900(6)~\mathrm{MeV}$ &  \\
+$\Gamma_\psi$ & $92.6(1.7)~\mathrm{keV}$ &  \\
+$\mathcal{BR}(J / \psi \to\pi^{+} \pi^{-} \pi^0)$ & $2.00(7)\%$ &  \\
+$\mathcal{BR}(J / \psi \to \pi^0 \gamma)$ & $3.39(8)\times 10^{-5}$ &  \\
+$\epsilon_{\rho\omega}$ & $1.99(2)$ &  \\
+$M_\omega$ & $782.66(13)~\mathrm{MeV}$ &  \\
+$\Gamma_\omega$ & $8.68(13)~\mathrm{MeV}$ &  \\
+$\mathcal{BR}\left(\omega \rightarrow e^{+} e^{-}\right)$ & $7.41(19)\times 10^{-5}$ &  \\
+$\mathcal{BR}(J/\psi\to\omega\pi^0)$ & $4.5(5)\times 10^{-4}$ &  \\
+$M_\phi$ & $1019.460(16)~\mathrm{MeV}$ &  \\
+$\Gamma_\phi$ & $4.249(13)~\mathrm{MeV}$ &  \\
+$\mathcal{BR}\left(\phi \rightarrow e^{+} e^{-}\right)$ & $2.964(33)\times 10^{-4}$ &  \\
+$\mathcal{BR}(J/\psi\to\phi\pi^0)$ & $3\times 10^{-6}$ or $1\times 10^{-7}$ &  \\
+$M_\rho$ & $775.11(34)~\mathrm{MeV}$ &  \\
+$M_{\rho^\prime}$ & $1465(25)~\mathrm{MeV}$ &  \\
+$\Gamma_{\rho^\prime}$ & $400(60)~\mathrm{MeV}$ &  \\
+$\mathcal{B R}\left(J / \psi \rightarrow \rho^{\prime} \pi\right) \mathcal{B R}\left(\rho^{\prime} \rightarrow 2 \pi\right)$ & $2.2(1.1)\times 10^{-4}$ &  \\
+$\mathcal{B R}\left(\rho^{\prime} \rightarrow 2 \pi\right)$ & $6\%$ &  \\
+\hline\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00006\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|>{\centering\arraybackslash}p{2.3cm}|
+                    >{\centering\arraybackslash}p{1.2cm}|
+                    >{\centering\arraybackslash}p{0.6cm}|
+                    >{\centering\arraybackslash}p{0.6cm}|
+                    >{\centering\arraybackslash}p{0.6cm}|
+                    >{\centering\arraybackslash}p{0.6cm}|
+                   }
+        \hline
+        HLS & Max Freq (MHz) & LUT & FF & DSP & BRAM\\
+        \hline
+        MAC 16 & 776 & 108 & 77 & 4 & 0\\
+        \hline
+        MAC 16 U & 776 & 108 & 77 & 4 & 0\\
+        \hline
+        MAC 16 P & 362 & 198 & 234 & 8 & 0\\
+        \hline
+        FFT 32 & 259 & 122 & 142 & 8 & 0\\
+        \hline
+        FFT 32 U & 259 & 122 & 142 & 8 & 0\\
+        \hline
+        FFT 32 P & 109 & 9720 & 977 & 12 & 0\\
+        \hline
+        Demodulation & 195 & 705 & 279 & 15 & 0\\
+        \hline
+        Demodulation U& 205 & 184 & 139 & 4 & 0\\
+        \hline
+        Demodulation P & 504 & 201 & 166 & 0 & 0\\
+        \hline
+        Modulation & 178 & 677 & 323 & 7 & 0\\
+        \hline
+        Modulation U & 307 & 249 & 194 & 0 & 0\\
+        \hline
+        
+        Modulation P & 1818 & 16 & 6 & 0 & 0\\
+        \hline
+        Back Propagation & 149 & 647 & 604 & 8 & 0\\
+        \hline
+        Back Propagation U & 149 & 647 & 604 & 8 & 0\\
+        \hline
+        Back Propagation P & 174 & 498 & 155 & 8 & 0\\
+\hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

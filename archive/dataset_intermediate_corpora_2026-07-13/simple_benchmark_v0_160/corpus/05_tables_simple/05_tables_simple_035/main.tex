@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02566\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll|ll}
+\hline
+\textbf{Label} & \textbf{Pct} & \textbf{Label} & \textbf{Pct} \\
+\hline
+plot & 0.2392039961 & bar plot & 0.1150651605 \\
+line plot & 0.0731292006 & scientific illustration & 0.0560098810 \\
+2D chemical reaction & 0.0410442131 & microscopy & 0.0392800450 \\
+diagram & 0.0284265115 & signal plot & 0.0271832018 \\
+2D chemical structure & 0.0268386763 & light microscopy & 0.0218300065 \\
+table & 0.0216904796 & immunohistochemistry & 0.0211481985 \\
+flowchart & 0.0179900438 & immunoblot & 0.0178245154 \\
+scatter plot & 0.0139932794 & matrix plot & 0.0127300424 \\
+natural image & 0.0121686572 & forest plot & 0.0120581146 \\
+map & 0.0120131838 & 3D chemical structure & 0.0106260247 \\
+computerized tomography & 0.0106139191 & signaling pathway & 0.0103486139 \\
+graph & 0.0095768316 & lab equipment & 0.0093916710 \\
+fluorescence microscopy & 0.0093163344 & confocal microscopy & 0.0092534491 \\
+3D plot & 0.0088056319 & electron microscopy & 0.0078804112 \\
+box plot & 0.0074682040 & 3D protein structure & 0.0069536449 \\
+heatmap plot & 0.0067048960 & clinical imaging & 0.0065234831 \\
+laboratory specimen & 0.0055550288 & pie chart & 0.0053961494 \\
+x-ray radiography & 0.0053488378 & assay & 0.0051444683 \\
+specimen & 0.0045556989 & insects & 0.0040846959 \\
+venn diagram & 0.0038361605 & cohort selection flowchart & 0.0037718538 \\
+brain & 0.0033478943 & ambiguous & 0.0032435385 \\
+skin lesion & 0.0030236729 & face & 0.0028432698 \\
+ultrasound & 0.0028265426 & scanning electron microscopy & 0.0028222899 \\
+surgical procedure & 0.0026714498 & histogram & 0.0026000397 \\
+bacterial culture & 0.0023106903 & phylogenetic tree & 0.0021169777 \\
+sequence plot & 0.0019832298 & nature & 0.0019563777 \\
+endoscopy & 0.0018649276 & network & 0.0017417046 \\
+electronic circuit & 0.0017399841 & epifluorescence microscopy & 0.0017307059 \\
+tree & 0.0016858721 & angiography & 0.0016805242 \\
+gel electrophoresis & 0.0016659331 & electrocardiography & 0.0016465339 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00609\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c c c} 
+\hline
+\vspace{0.05cm}
+Paper  & \begin{tabular}[c]{@{}c@{}} NOMA \\ System \end{tabular}   & \begin{tabular}[c]{@{}c@{}} Fading \\ Environment \end{tabular}  & \begin{tabular}[c]{@{}c@{}} Transmission \\ Diversity \end{tabular} & \begin{tabular}[c]{@{}c@{}} Reception \\ Diversity \end{tabular} & \begin{tabular}[c]{@{}c@{}} Imperfect \\ SIC \end{tabular} & OP Analysis   \\ \hline
+\vspace{0.05cm} 
+ & Downlink & Rayleigh & TAS & NO & NO & Exact  \\
+\vspace{0.05cm} 
+ & Downlink & Rayleigh & BF & NO & NO & NO   \\
+\vspace{0.05cm} 
+  & Coop.Downlink &  Rayleigh & TAS & NO & YES & Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Coop. Downlink & Rayleigh & TAS & NO & YES &  NO \\
+\vspace{0.05cm} 
+ & Downlink & Weibull & TAS & EGC & NO &  Exact/Asymptotic  \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & NO & NO & YES & NO  \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & NO & NO & YES &  Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & TAS & MRC & NO &  Exact\\
+\vspace{0.05cm} 
+ & Coop. Downlink & Nakagami-$m$ & TAS & MRC & NO & Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Uplink &  MoG (approx.) & NO & NO & YES  & Approximated/Asymptotic \\
+\vspace{0.05cm} 
+ & Uplink/Downlink &  MoG (approx.) & NO & NO & NO & Approximated/Asymptotic \\
+\vspace{0.05cm} 
+  & Downlink & Double Rayleigh & NO & NO & NO & Exact \\
+\vspace{0.05cm} 
+ & Downlink & Double Nakagami-$m$ & TAS & NO & NO & Exact/Asymptotic \\
+\vspace{0.05cm} 
+, & Downlink & Shadowed-Rician & TAS & NO & YES  &  Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Downlink & $\kappa$-$\mu$ Shadowed & NO & NO &  NO & Exact  \\
+ \vspace{0.05cm} 
+ & Downlink & $\eta$-$\mu$ and $\kappa$-$\mu$ & NO & NO & NO & Exact \\
+\vspace{0.05cm} 
+& Downlink & $\kappa$-$\mu$ & NO & NO &  YES & NO  \\
+\vspace{0.05cm} 
+ & Downlink & $\alpha$-$\mu$ & NO & NO & NO & NO  \\
+\vspace{0.05cm} 
+  & Coop. Downlink & $\alpha$-$\mu$ & NO & NO & YES &   Exact/Asymptotic \\
+\vspace{0.05cm} 
+  & Downlink & $\alpha$-$\mu$ & NO &  NO & YES & Exact and asymptotic  \\
+\vspace{0.05cm} 
+ & Downlink & $\alpha$-$\mu$ & NO & NO & NO & Exact  \\
+\vspace{0.05cm} 
+\textbf{This paper} & \textbf{Downlink} &  $\alpha$-$\mu$ & \textbf{TAS} & \textbf{EGC/MRC} & \textbf{YES} & \textbf{Exact and asymptotic}  \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

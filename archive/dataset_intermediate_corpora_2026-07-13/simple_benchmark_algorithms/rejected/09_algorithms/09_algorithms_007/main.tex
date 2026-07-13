@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 7}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[h]
+\caption{Randomized for Decentralized Min-Max (RDMM)}
+\hspace*{\algorithmicindent} {\bf Parameters:} stepsize $\gamma$, probability $p$, probability $\rho$\\
+\hspace*{\algorithmicindent} {\bf Initialization:} choose $ x^0,y^0$, $x^0_m = x^0$, $y^0_m = y^0$ for all $m$
+\begin{algorithmic}[1]
+\For {$k=0,1, 2, \ldots$ }
+\Statex \textcolor{blue}{\textbf{Local updates}} for all clients:
+\State $\bar x_m^k = (1 - \rho) x_m^k + \rho u^k_{x_m}$, \ \ $\bar y_m^k = (1 - \rho) y_m^k + \rho u^k_{y_m}$
+\Statex All devices \textcolor{red}{\textbf{communicate}} to locally compute:
+\State $\bar u_{x_m}^k = \lambda\sum_{i=1}^M w_{m,i} u_{x_m}^k$, \ \ $\bar u_{y_m}^k = \lambda\sum_{i=1}^M w_{m,i} u_{x_m}^k$
+\Statex \textcolor{blue}{\textbf{Local updates}} for all clients:
+\State $x_m^{k+\frac{1}{2}} = \bar x_m^k - \eta (\nabla_x f(u^k_{x_m}, u^k_{y_m}) + \bar u_{x_m}^k)$,
+\State $y_m^{k+\frac{1}{2}} = \bar y_m^k - \eta ( - \nabla_y f(u^k_{x_m}, u^k_{y_m}) + \bar u_{y_m}^k) $
+\Statex Generate $\xi^k = \begin{cases}
+1,& \text{with probability} ~~ 1 - p \\
+0 ,& \text{with probability} ~~ p
+\end{cases},$
+\Statex If $\xi^k = 0$ all devices \textcolor{red}{\textbf{communicate}} and compute: \State \ \ \ $g_{x_m}^k = \frac{\lambda}{p}\sum_{i=1}^M w_{m,i} \left(x^{k+\frac{1}{2}}_{m} - u_{x_m}^k\right)$, \ \ \ $g_{y_m}^k = \frac{\lambda}{p}\sum_{i=1}^M w_{m,i} \left(y^{k+\frac{1}{2}}_{m} - u_{y_m}^k\right)$
+\Statex If $\xi^k = 1$ all devices make \textcolor{blue}{\textbf{local computations}}: \Statex \ \ \ Generate an vector of indexes $\hat{\xi}^k_m$ according to distribution $Q$
+\State \ \ \ $g_{x_m}^k = \frac{1}{1-p}\left(\nabla_x f_{\hat{\xi}_m^k}\left(x_m^{k+\frac{1}{2}}, y_m^{k+\frac{1}{2}}\right) - \nabla_x f_{\hat{\xi}_m^k}(u_{x_m}^{k}, u_{y_m}^{k})\right)$
+\State \ \ \ $g_{y_m}^k = - \frac{1}{1-p}\left(\nabla_
+y f_{\hat{\xi}_m^k}\left(x_m^{k+\frac{1}{2}}, y_m^{k+\frac{1}{2}}\right) - \nabla_y f_{\hat{\xi}_m^k}(u_{x_m}^{k}, u_{y_m}^{k})\right)$
+\Statex \textcolor{blue}{\textbf{Local updates}} for all clients:
+\State $x_m^{k+1} = \bar x_m^k - \eta \left( g_{x_m}^k + \nabla_{x} f(u^k_{x_m}, u^k_{y_m})+ \bar u^k_{x_m}\right)$,
+\State $y_m^{k+1} = \bar y_m^k - \eta \left(g
+_{y_m}^k - \nabla_y f(u^k_{x_m}, u^k_{y_m}) + \bar u^k_{y_m}\right)$
+\Statex Generate $\delta^{k}= \begin{cases}
+1,& \text{with probability} ~~ 1 - \rho \\
+0 ,& \text{with probability} ~~ \rho
+\end{cases},$
+\State $u^{k+1}_{x_m} = \delta^{k} u^k_{x_m} + (1 - \delta^{k}) x_m^{k+1}$, \ \ \ $u^{k+1}_{y_m} = \delta^{k} u^k_{y_m} + (1 - \delta^{k}) y_m^{k+1}$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

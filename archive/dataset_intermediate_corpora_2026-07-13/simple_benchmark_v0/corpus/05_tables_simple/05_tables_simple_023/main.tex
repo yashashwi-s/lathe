@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00509\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|p{.32\columnwidth}|p{.12\columnwidth}|p{.2\columnwidth}|p{.17\columnwidth}|}
+\hline
+\textbf{Model Parameter}                   & \textbf{Values}       & \textbf{Model Parameter}     & \textbf{Values}                \\ \hline
+Number of Cells                   & 1            & Total Time Steps    & 10,000                \\ \hline
+Max Transmission Power            & 43 dBm       & Phased Time Steps   & 120                   \\ \hline
+Bandwidth                         & 5 MHz        & Prediction Steps    & 20                    \\ \hline
+Carrier Frequency                 & 2GHz         & LSTM and GRU Layers & \{128, 64\}, 32       \\ \hline
+Path Loss Exponent                & 3.76         & Dropout Rate        & 0.2, 0.3              \\ \hline
+Shadowing Standard Deviation      & 10 dB        & Batch Normalization & After each layer      \\ \hline
+Noise Spectral Density            & -174 dBm     & Dense Layer         & 50                    \\ \hline
+Noise Figure                      & 7 dB         & Output Layer        & 20, Linear Activation \\ \hline
+Min Distance BS to User           & 10 meters    & Optimize            & Adam                  \\ \hline
+Number of Simulation Trials       & 10,000       & Learning rate       & 0.0008                \\ \hline
+Signal-to-Noise Ratio (SNR) Range & -15 to 25 dB & Loss Function       & Mean Squared Error    \\ \hline
+Distance from BS to near user     & 20           & Batch Size          & 32                    \\ \hline
+Distance from BS to far user      & 50           & Epochs              & 15                    \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00129\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lp{1.3cm}p{1.0cm}p{1.5cm}p{1.2cm}}
+\textbf{Model} & \textbf{Parameters (M)} & \textbf{FLOPs (G)} & 
+\textbf{Feature Extraction Time (s)} & \textbf{Total Inference Time (s)} \\
+\hline
+ResNet18       & 11.7 & 1.8  & 175.6  & 199.21 \\
+ResNet34       & 21.8 & 3.6  & 283.2  & 354.12 \\
+ResNet50       & 25.6 & 4.1  & 335.07 & 335.79 \\
+ResNet101      & 44.5 & 7.9  & 581.67 & 606.28 \\
+ResNet152      & 60.2 & 11.6 & 826.25 & 859.8  \\
+VGG16          & 138.4& 15.5 & 975.27 & 1065.13\\
+VGG19          & 143.7& 19.6 & 1254.71& 1208.39\\
+Inception v3   & 23.9 & 5.7  & 314.41 & 272.49 \\
+DenseNet121    & 8.0  & 2.9  & 277.63 & 240.58 \\
+DenseNet169    & 14.1 & 3.4  & 333.6  & 286.28 \\
+EfficientNet-b0& 5.3  & 0.39 & 98.35  & 134.07 \\
+EfficientNet-b7& 66 & 37 & 692.12 & 823.02 \\
+\hline
+Mean           & 49.93& 9.46 & 512.08 & 529.58 \\
+Median         & 24.75& 4.9  & 334.35 & 344.96 \\
+\end{tabular}
+}
+\end{table}
+
+\end{document}

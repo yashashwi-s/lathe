@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02482\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l p{10.6cm}}
+\hline
+Method & One-line description \\
+\hline
+EndoGS~ & Early deformable Gaussian splatting for endoscopy using depth and mask supervision; reports Pulling/Cutting performance. \\
+
+EndoGaussian~ & Real-time 3DGS pipeline with holistic Gaussian initialization and spatio-temporal tracking \\%; evaluated on EndoNeRF Pulling. \\
+
+Endo-4DGS~ & 4D Gaussian Splatting with depth-prior initialization and confidence-guided updates\\ %; includes explicit Pulling/Cutting tables. \\
+
+Deform3DGS~ & Flexible per-Gaussian deformation bases with dense initialization\\%; reports full Pulling metrics. \\
+
+LGS~ & Lightweight 4DGS with Gaussian pruning and deformation-aware attribute reduction\\%; validated on EndoNeRF Pulling. \\
+
+HFGS~ & High-frequency spatial–temporal reconstruction using optical-flow priors\\%; evaluated on Pulling. \\
+
+SDFPlane~ & Combines explicit SDF planes with Gaussian splats for deformable tissue surfaces\\%; reports Pulling qualitative and quantitative scores. \\
+
+DESR~ & SPIE framework for dynamic endoscopic reconstruction with GS\\%; reports Pulling and Cutting performance. \\
+
+ST-Endo4DGS~ & Unbiased spatio-temporal 4DGS formulation with improved regularization\\%; includes Pulling evaluations. \\
+
+T-GS~ & MICCAI’25 method for comprehensive dynamic reconstruction using GS\\%; reports Pulling/Cutting metrics. \\
+
+Rational-Wavelet 4DGS~ & Wavelet-regularized 4D Gaussian Splatting with EnodNerf Pulling ablation studies highlighting improved detail recovery. \\
+
+SAGS~ & Self-adaptive alias-free Gaussian splatting reducing temporal flicker and splat artifacts\\%; evaluated on EndoNeRF Pulling. \\
+
+EndoWave~ & Rational-wavelet dynamic modeling for 4DGS \\% with explicit Pulling/temporal ablations. \\
+
+SurgicalGaussian~ & Deformable 3D Gaussians with tool masking and motion decoders\\%; tested on EndoNeRF Pulling. \\
+
+Surgical Gaussian Surfels~ & Surface-aligned surfel-Gaussians with fused deformation networks\\%; validated on Pulling. \\
+
+EndoSparse~ & Sparse-view Gaussian splatting reconstruction for endoscopy\\%; includes benchmarks on EndoNeRF Pulling. \\
+
+ACCV-GS (Consecutive Frames)~ & GS-based reconstruction from frame-to-frame correspondences\\%; reports Pulling performance. \\
+
+EndoPlanar~ & Planar-based deformable GS model for soft tissue motion\\%; evaluated on Pulling. \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00291\_table\_14}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll@{\hspace{1em}}ll}
+$\leqq$ & \verb"\leqq" &
+$\geqq$ & \verb"\geqq" \\
+$\leqslant$ & \verb"\leqslant" &
+$\geqslant$ & \verb"\geqslant" \\
+$\eqslantless$ & \verb"\eqslantless" &
+$\eqslantgtr$ & \verb"\eqslantgtr" \\
+$\lesssim$ & \verb"\lesssim" &
+$\gtrsim$ & \verb"\gtrsim" \\
+$\lessapprox$ & \verb"\lessapprox" &
+$\gtrapprox$ & \verb"\gtrapprox" \\
+$\approxeq$ & \verb"\approxeq" &
+$\eqsim$ & \verb"\eqsim" \\
+$\lessdot$ & \verb"\lessdot" &
+$\gtrdot$ & \verb"\gtrdot" \\
+$\lll$ & \verb"\lll", \verb"\llless" &
+$\ggg$ & \verb"\ggg", \verb"\gggtr" \\
+$\lessgtr$ & \verb"\lessgtr" &
+$\gtrless$ & \verb"\gtrless" \\
+$\lesseqgtr$ & \verb"\lesseqgtr" &
+$\gtreqless$ & \verb"\gtreqless" \\
+$\lesseqqgtr$ & \verb"\lesseqqgtr" &
+$\gtreqqless$ & \verb"\gtreqqless" \\
+$\doteqdot$ & \verb"\doteqdot", \verb"\Doteq" &
+$\eqcirc$ & \verb"\eqcirc" \\
+$\risingdotseq$ & \verb"\risingdotseq" &
+$\circeq$ & \verb"\circeq" \\
+$\fallingdotseq$ & \verb"\fallingdotseq" &
+$\triangleq$ & \verb"\triangleq" \\
+$\backsim$ & \verb"\backsim" &
+$\thicksim$ & \verb"\thicksim" \\
+$\backsimeq$ & \verb"\backsimeq" &
+$\thickapprox$ & \verb"\thickapprox" \\
+$\subseteqq$ & \verb"\subseteqq" &
+$\supseteqq$ & \verb"\supseteqq" \\
+$\Subset$ & \verb"\Subset" &
+$\Supset$ & \verb"\Supset" \\
+$\sqsubset$ & \verb"\sqsubset" &
+$\sqsupset$ & \verb"\sqsupset" \\
+$\preccurlyeq$ & \verb"\preccurlyeq" &
+$\succcurlyeq$ & \verb"\succcurlyeq" \\
+$\curlyeqprec$ & \verb"\curlyeqprec" &
+$\curlyeqsucc$ & \verb"\curlyeqsucc" \\
+$\precsim$ & \verb"\precsim" &
+$\succsim$ & \verb"\succsim" \\
+$\precapprox$ & \verb"\precapprox" &
+$\succapprox$ & \verb"\succapprox" \\
+$\vartriangleleft$ & \verb"\vartriangleleft" &
+$\vartriangleright$ & \verb"\vartriangleright" \\
+$\trianglelefteq$ & \verb"\trianglelefteq" &
+$\trianglerighteq$ & \verb"\trianglerighteq" \\
+$\vDash$ & \verb"\vDash" &
+$\Vdash$ & \verb"\Vdash" \\
+$\Vvdash$ & \verb"\Vvdash" &
+\\
+$\smallsmile$ & \verb"\smallsmile" &
+$\shortmid$ & \verb"\shortmid" \\
+$\smallfrown$ & \verb"\smallfrown" &
+$\shortparallel$ & \verb"\shortparallel" \\
+$\bumpeq$ & \verb"\bumpeq" &
+$\between$ & \verb"\between" \\
+$\Bumpeq$ & \verb"\Bumpeq" &
+$\pitchfork$ & \verb"\pitchfork" \\
+$\varpropto$ & \verb"\varpropto" &
+$\backepsilon$ & \verb"\backepsilon" \\
+$\blacktriangleleft$ & \verb"\blacktriangleleft" &
+$\blacktriangleright$ & \verb"\blacktriangleright" \\
+$\therefore$ & \verb"\therefore" &
+$\because$ & \verb"\because" \\
+\end{tabular}
+}
+\end{table}
+
+\end{document}

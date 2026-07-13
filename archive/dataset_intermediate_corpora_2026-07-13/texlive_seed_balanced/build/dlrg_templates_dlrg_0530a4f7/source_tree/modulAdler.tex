@@ -1,0 +1,34 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Adler}
+\author{Johannes Pieper}
+
+\begin{document}
+    Das Modul \module{Adler} dient zur Darstellung des angeschnittenen Adlers. Dabei ist darauf zu achten, dass dieser immer nur von rechts blickend dargestellt werden darf. Außerdem darf nur die linken 50\,\% zu sehen, sowie die unteren 10\,\% müssen verdeckt sein.
+
+    \begin{commands}
+        \command{freigestellterAdlerWasserzeichen}[\oarg{TikZ-Optionen}\darg{Verschiebung}] Zeichnet den angeschnittenen Adler als Wasserzeichen passend auf ein DIN-A4-Blatt an die untere rechte Ecke. Bei der Verwendung von anderen Formaten kann die Verschiebung angepasst werden, so dass die Regeln bezüglich des Anschnitts gewährleistet sind. Es können optional weitere TikZ-Optionen übergeben werden.
+        \command{freigestellterAdlerZeichnen}[\oarg{TikZ-Optionen}\darg{Verschiebung}\oarg{Farbe}] Zeichnet den kompletten Adler ohne Oval. Als ersten optionalen Parameter können TikZ-Optionen übergeben werden. Die Verschiebung muss angegeben werden, wobei der Adler mittig ausgerichtet ist. Der dritte Parameter ermöglicht eine andere Farbe, abweichend von schwarz. Das Anschneiden des Adlers muss selbstständig vorgenommen werden.
+        \begin{example}[gobble=12]
+            \begin{tikzpicture}[scale=0.2]
+                \clip(0,-12) rectangle(-30,17);
+                \freigestellterAdlerZeichnen[opacity=.2](0,0)[red]
+            \end{tikzpicture}
+        \end{example}
+    \end{commands}
+\end{document}

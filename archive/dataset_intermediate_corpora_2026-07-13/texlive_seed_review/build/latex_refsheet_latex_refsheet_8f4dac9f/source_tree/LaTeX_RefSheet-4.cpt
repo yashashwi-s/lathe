@@ -1,0 +1,27 @@
+
+\subsection{Documentclass (necessary)}\label{sec:options}
+Use: \lstinline+\documentclass[+\textit{opt,opt,\dots}\lstinline+]{+\textit{class}\lstinline+}+\\
+Recommended classes: \lstinline+scrartcl+, \lstinline+scrreprt+, \lstinline+scrbook+, \lstinline+scrlttr2+\\ Non-\KOMAScript{} classes: \lstinline+beamer+, \lstinline+koma-moderncvclassic+\\[2pt]
+\begin{tabular}{@{}ll@{}} \toprule
+Common options with default  & Values available (subtotal) \\   \midrule
+\lstinline+fontsize=11pt+     & \lstinline+10pt+ | \lstinline+12pt+ (e.g. 12.5pt also valid)\\
+\lstinline+paper=a4+, \lstinline+paper=portrait+  & \lstinline+a3+ | \lstinline+a5+ | \lstinline+b4+ | \lstinline+letter+, \lstinline+landscape+ \\
+\lstinline+parskip=no+        & \lstinline+half+ | \lstinline+full+\\
+\lstinline+headings=big+      & \lstinline+small+ | \lstinline+normal+\\
+\lstinline+chapterprefix=false+ & \lstinline+true+\\		
+\lstinline+open=right+ (scrbook)& \lstinline+any+ (scrartcl, scrreprt) | \lstinline+left+\\
+\lstinline+captions=oneline+    & \lstinline+nooneline+\\
+\lstinline+captions=tablebelow+,\lstinline+figurebelow+ & \lstinline+tableabove+, \lstinline+figureabove+\\
+\lstinline+toc=nolistof+      & \lstinline+listof+ | \lstinline+listofnumbered+\\
+\lstinline+bibliography=totoc+ | \lstinline+totocnumbered+ & \lstinline+nottotoc+ \\
+\lstinline+twoside=true+ (scrbook)  & \lstinline+false+ (scrartcl, scrreprt)\\
+\lstinline+twocolumn=false+   & \lstinline+true+  \\
+\lstinline+draft=false+       & \lstinline+true+ (show overfull boxes)\\   \bottomrule
+\end{tabular}
+\begin{itemize}
+\item
+Options of document class are passed to every loaded package.
+\item
+Set or change options later in file, e.g. \lstinline+\KOMAoptions{twoside=true}+
+\end{itemize}
+^^E^^L 

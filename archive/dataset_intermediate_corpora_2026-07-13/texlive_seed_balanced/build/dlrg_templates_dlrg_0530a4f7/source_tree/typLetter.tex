@@ -1,0 +1,59 @@
+\documentclass[
+    a4paper,
+    12pt,
+    parskip=half,
+]{scrartcl}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    typ=pub,
+    link=dlrg.net,
+    module={Paketbeschreibung}
+]{dlrg}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{standalone}
+
+\title{\LaTeX{}-Paket für die DLRG}
+\subtitle{Abschnitt Brief}
+\author{Johannes Pieper}
+
+\begin{document}
+    Zur Darstellung eines Briefs im Layout der DLRG dient der Typ \verbcode|letter| als Vorlage. Die Angaben für den Briefkopf und Fuß werden über verschiedene Befehle getätigt. Als Dokumentenklasse muss \verbcode|scrlttr2| gewählt werden.
+
+    \subsubsection{Briefkopf}
+        Der Briefkopf besteht aus der Rücksendeadresse über dem Empfänger und der kompletten Adresszeile. Bei beiden werden der Gliederungsname, die Adresse und der Ort mit angegeben. Beim Gliederungsnamen ist es möglich, für die Rücksendeadresse eine Version anzugeben, bei der die Gliederungsbezeichnung abgekürzt wird.
+
+        \begin{commands}
+            \command{gliederungName}[\oarg{Kurzversion}\marg{Glederungsname}] Der Gliederungsname mit Bezeichnung wie "`Ortsgruppe Muster"'. Optional läst sich der Gliederungsname oberhalb der Empfängeradresse auch abkürzen zu "`OG Muster"'.
+            \command{funktionsbezeichnung}[\marg{Funktion}] Angabe der Funktion in der Gliederung, wie "`Leiter Einsatz"'.
+            \command{ansprechpartner}[\marg{ansprechpartner}] Name des Ansprechpartners in der angegebenen Funktion.
+            \command{adresseZusatz}[\marg{Adresszusatz}] Angabe eines Zusatzes über der Adresse. Dieses könnte die Angabe Geschäftsstelle oder Hauptwache sein.
+            \command{adresse}[\marg{Adresse}] Adresse aus Straße und Hausnummer.
+            \command{ort}[\marg{Ort}] Angabe der Postleitzahl mit dem Ort.
+            \command{telefon}[\marg{Telefonnummer}] Angabe der Telefonnummer. Am besten im Format "`+49 (0) 123 4567"'.
+            \command{telefax}[\marg{Telefax}] Angabe einer Telefaxnummer. Format wie beim Telefon.
+            \command{email}[\marg{email}] Die E-Mail-Adresse sollte komplett klein angeben werden.
+            \command{webseite}[\marg{Internetadresse}] Die Angabe der Internetadresse sollte \textbf{ohne} führendes www. angegeben werden.
+        \end{commands}
+
+    \subsubsection{Betreff und und weiteres}
+        Der eigentliche Inhalt des Briefs wird direkt im Dokument als Fließtext angegeben. Für den Betreff steht ein passender Befehl zur Verfügung. Unter der Grußformel wird automatisch die Signatur aus Ansprechpartner und seiner Funktionsbezeichnung ergänzt. Soll diese anders lauten, kann auch dieses abgeändert werden.
+
+        \begin{commands}
+            \command{betreff}[\marg{Betreff}] Der Betreffs des Briefes.
+            \command{signatur}[\marg{Signatur}] Alternative Signatur, wenn diese nicht mit dem Ansprechpartner und seiner Funktionsbezeichnung übereinstimmt.
+        \end{commands}
+
+    \subsubsection{Fußzeile}
+        Die ausführliche Fußzeile wird nur auf der ersten Seite des Briefes angegeben. Sollte der Brief aus mehreren Seiten bestehen, so haben alle folgenden Seiten nur die Seitenzahl in der Fußzeile stehen. Für die Angaben in der Fußzeile stehen folgende Befehle zur Verfügung:
+
+        \begin{commands}
+            \command{bankverbindung}[\marg{Bank}] Angaben zur Bankverbindung.
+            \command{rechtsform}[\marg{Rechtsform}] Angabe zur Rechtsform der Gliederung.
+            \command{gericht}[\marg{Gerichtsort und Nummer}] Angabe des Gerichts, bei dem die Gliederung registriert ist.
+            \command{bgbVorstand}[\marg{Vorstand}] Angabe des Vorstandes nach §\,26 BGB. Die einzelnen Personen sollten durch Zeilenumbruch getrennt werden.
+            \command{bankverbindung}[\marg{Bankverbindung}] Die Angabe der Bankverbindung. IBAN und Bankname sollte durch Zeilenumbruch getrennt werden.
+        \end{commands}
+
+\end{document}

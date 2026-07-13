@@ -1,0 +1,29 @@
+
+\subsection{Headings}
+\begin{tabular}{@{}l@{\qquad}l@{\qquad}l@{}}  \toprule
+\lstinline+\part{+\textit{title}\lstinline+}+
+  & \lstinline+\chapter{+\textit{title}\lstinline+}+ \\
+\lstinline+\section{+\textit{title}\lstinline+}+
+  & \lstinline+\subsection{+\textit{title}\lstinline+}+
+  & \lstinline+\subsubsection{+\textit{title}\lstinline+}+ \\
+\lstinline+\paragraph{+\textit{title}\lstinline+}+
+  & \lstinline+\subparagraph{+\textit{title}\lstinline+}+  \\ \bottomrule
+\end{tabular}
+\begin{itemize}
+\item
+\lstinline+\chapter+ only valid in documentclass \lstinline+scrbook+ and \lstinline+scrreprt+\\
+\item
+Use \lstinline+*+ variants for headings without numbering, no change in counter and no entry in table of contents.
+\item
+Use the optional parameter for short titles in headings and table of contents, e.g.
+\lstinline+\section[+\textit{short title}\lstinline+]{+\textit{title}\lstinline+}+
+\item
+Use \lstinline+\addpart+, \lstinline+\addchap+ or \lstinline+\addsec+ for unnumbered headings, but with
+running heading and entry in table of contents.\\
+The \lstinline+*+ variants delete the running heading.
+\item
+Layout of paragraph and subpargraph similar to other headings:\\
+\lstinline+\RedeclareSectionCommands[afterskip=1sp]{paragraph,subparagraph}+\\
+\lstinline+\setcounter{secnumdepth}{\subparagraphnumdepth}+\\
+\lstinline+\setcounter{tocdepth}{\subparagraphtocdepth}+
+\end{itemize}^^E^^L 

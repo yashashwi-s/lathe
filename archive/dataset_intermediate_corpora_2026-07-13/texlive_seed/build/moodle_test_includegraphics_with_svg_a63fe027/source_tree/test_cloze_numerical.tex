@@ -1,0 +1,35 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of numerical questions 
+embedded in cloze questions.
+
+\begin{quiz}{Close Numerical}
+
+\begin{cloze}{Cloze}
+\begin{numerical}
+Enter an integer $n$ such that $0< n\leq 2$.
+\item[tolerance=0.001,fraction={10.4999},feedback={study difference between $<$ 
+and $\leq$}] 0
+\item[tolerance=0.01,feedback={good!}] 1
+\item[tolerance=0.1,feedback={OK}] 2
+\item[tolerance=0,feedback={No!},fraction=-.4999] 3
+\end{numerical}
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

@@ -1,0 +1,52 @@
+% arara: pdflatex
+% arara: makeglossaries
+% arara: pdflatex
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks]{hyperref}
+\usepackage{glossaries-extra}
+
+\makeglossaries
+
+\setabbreviationstyle{long-short-sc}
+
+\newabbreviation{ssi}{ssi}{server side includes}
+\newabbreviation{html}{html}{hypertext markup language}
+
+% If sentence-case is required for the following, ensure that you have glossaries
+% v4.50+ and mfirstuc v2.08+
+\newabbreviation{shtml}{shtml}{\gls{ssi} enabled \gls{html}}
+
+% Alternatively
+%\newabbreviation{shtml}{shtml}{\glsxtrshort{ssi} enabled \glsxtrshort{html}}
+
+% Or
+%\newabbreviation{shtml}{shtml}{\glsps{ssi} enabled \glsps{html}}
+% (optional) enable indexing when \glsps occurs in glossary:
+%\renewcommand{\glossxtrsetpopts}{\glsxtrsetpopts{noindex=false}}
+
+\begin{document}
+
+This is a sample document testing nested link text.
+The \texttt{glossaries-extra} package temporarily modifies
+commands like \verb|\gls| or \verb|\glsxtrshort| that occur
+in fields, when any of those field is accessed through linking
+commands.
+
+\section{\Glsxtrp{long}{html}}
+
+Make sure you have glossaries.sty v4.50+ and mfirstuc.sty v2.08+ for
+improved sentence-casing.
+
+First use: \gls{shtml}.
+
+\newpage
+
+Next use: \gls{shtml}.
+
+\newpage
+
+\printglossaries
+
+\end{document}

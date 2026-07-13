@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt,twoside,parskip=half,listof=totoc]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    typ=pub,
+    titelbild=turm,
+    titelbildcaption={Symbolbild einer Strandwache)},
+    contentLayout=footline, %Alternativ: bauchbinde
+    link={LaTeX.dlrg.de}
+]{dlrg}
+\usepackage{lipsum}
+
+\title{Muster für eine Publikation}
+\author{Johannes Pieper}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Erster Bereich}
+
+\lipsum[1-2]
+
+\begin{dlrgTblr}[long]{colspec={XXX},rowhead = 1}[ueberschrift]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 1 \begin{tabellenItemize} \item Item 1 \item Item2 \end{tabellenItemize} Mehr Inhalt & \begin{tabellenItemize} \item Item 1 \item Item2 \end{tabellenItemize} & Inhalt 9\\
+    \begin{tabellenItemize} \item Item 1 \item Item2 \end{tabellenItemize} & Inhalt 11 & Inhalt 12 \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+\end{dlrgTblr}
+
+\lipsum[3]
+
+\begin{dlrgTblr}{colspec={XXX}, width=0.8\linewidth}[layout=rot,ueberschrift]
+    Feld1 & Feld2 & Feld3 \\
+    Inhalt 1 & Inhalt 2 & Ein viel längerer Inhalt als die anderen Elemente \\
+    Inhalt 4 & Inhalt 5 & Inhalt 6\\
+    Inhalt 1 \begin{tabellenItemize} \item Item 1 \item Item2 \end{tabellenItemize} Mehr Inhalt & \begin{tabellenItemize} \item Item 1 \item Item2 \end{tabellenItemize} & Inhalt 9\\
+    \begin{tabellenItemize} \item Item 1 etwas länger als eine Zeile \item Item2 auch etwas länger als eine Zeile\end{tabellenItemize} & Inhalt 11 & Inhalt 12 \\
+\end{dlrgTblr}
+
+\lipsum[4-5]
+
+\subsection{Unterbereich}
+
+\lipsum[6-11]
+
+\section{Weiterer Bereich}
+
+\lipsum[12-20]
+
+\subsection{Unterbereich}
+
+\lipsum[4-8]
+
+\listoffigures
+
+\end{document}

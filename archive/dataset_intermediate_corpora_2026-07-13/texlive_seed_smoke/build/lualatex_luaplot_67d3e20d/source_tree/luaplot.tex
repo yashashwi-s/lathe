@@ -1,0 +1,264 @@
+\documentclass{article}
+\usepackage{listings,color,parskip,booktabs,longtable,array,hyperref,luaplot}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\hypersetup{colorlinks,urlcolor=blue}
+\lstset{frame=none,
+	language=[LaTeX]{TeX},
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=1
+}
+\usepackage{microtype,graphicx,amsmath,amssymb,float}
+\usepackage[backend=bibtex]{biblatex}
+\setlength\bibitemsep{\baselineskip}
+\addbibresource{luaplot}
+\begin{document}
+\title{The luaplot package in LaTeX}
+\author{Chetan Shirore\thanks{Email id: mathsbeauty@gmail.com} \space  and Ajit Kumar}
+\maketitle
+
+\section{Introduction} 
+The \verb|luaplot| package is developed using Lua to plot graphs of real-valued functions of a real variable in LaTeX. It is developed with the  \verb|MetaPost| system  \cite{online.metapost} and \verb|luamplib|  \cite{online.luamplib} and \verb|luacode|  \cite{online.luacode} packages. It provides an easy way for plotting graphs of standard mathematical functions and their finite combinations. There is no particular environment in the package for plotting graphs. It also works inside floating environments of LaTeX like tables and figures. The compilation time to plot several graphs in LaTeX using the luaplot package is significantly less with LuaLaTeX engine.
+
+The package is based on the core idea of loading mathematical functions inside Lua and determining plot points using different methods available in Lua. After determining plot points in Lua, two different approaches are used:
+\begin{itemize}
+\item parse plot points to the MetaPost system via  \verb|luampblib|.
+\item parse plot points to the  \verb|tikz| package.
+\end{itemize}
+
+The MetaPost system is based on the Metafont to produce precise technical illustrations. Donald Knuth designed Metafont for TeX. John Hobby designed the MetaPost system to produce scalable PostScript or scalable vector graphics. The output from MetaPost can be directly included with LaTeX. The first approach thus offers a native way of plotting graphs inside LaTeX using Lua and MetaPost.
+
+Tikz is designed by Till Tantau for producing vector graphics from different expressions. Drawing lines, arrows, paths, geometric shapes, etcetera is possible using Tikz \cite{online.pgf}. Tikz commands can be considered TeX macros, but Tikz itself is a language. LaTeX users widely use Tikz to produce different graphics. The second approach combines Lua and Tikz to plot graphs inside LaTeX.
+
+\section{Installation and License}
+
+The installation of \verb|luaplot| package is similar to plain latex package, where the \texttt{.sty} file is in LaTeX directory of texmf tree. The package can be included with \verb|\usepackage{luaplot}| command in the preamble of the LaTeX document. A TeX file is to be compiled using the LuaLaTeX engine.
+
+The \verb|luaplot| package is released under the LaTeX Project Public License v1.3c or later. The complete license text is available at \url{http://www.latex-project.org/lppl.txt}. It is developed in Lua.  Lua is available as a certified open-source software. Its license is simple and liberal, which is compatible with GPL.
+
+\section{The luaplot command}
+The \verb|luaplot| command plots graph of a real valued function of a real variable in LaTeX using Lua and the MetaPost system. The plot points are exclusively determined using Lua. The algorithm is quite efficient to calculate coordinates of points for plotting in the MetaPost. It is deliberately written in Lua. The graphing is done using the MetaPost system. The \verb|luaplot| command has the following syntax. It uses \verb|xkeyval| package \cite{online.xkeyval} for dealing with optional parameters. 
+\begin{center}
+\begin{lstlisting}[caption={[]}]
+\luaplot[optional parameters]{function(s)}
+\end{lstlisting}
+\end{center}
+The only compulsory argument is the function(s).  Multiple functions can be given as input separated by a comma. The standard functions available from mathematics library are \emph{abs, acos, asin, atan, ceil, cos, exp, floor, log, sin, sqrt, tan,}  etcetera. The custom functions can easily be defined inside the luacode package.  Table \ref{tbl:paraluaplot} lists optional parameters in the \verb|luaplot| command with their brief description.
+\begin{center}
+\begin{longtable}{lm{11.3cm}}
+\toprule
+\multicolumn{1}{l}{\textcolor{blue}{Optional Parameter}} & \multicolumn{1}{c}{\textcolor{blue}{Description}}  \\
+\toprule
+\begin{lstlisting}[caption={[]}]
+xmin
+\end{lstlisting}
+ & Specifies the minimum value of \(x \) coordinate used for calculating plot points. The default value of xmin is \(0 \). \\
+\midrule
+\begin{lstlisting}[caption={[]}]
+xmax
+\end{lstlisting}
+ & Specifies the maximum value of \(x \) coordinate used for calculating plot points.  The default value of xmax is \(5 \).\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+ymin
+\end{lstlisting}
+ & Specifies the minimum value of \(y \) coordinate used for calculating plot points. If not specified, it is determined by values of xmin and xmax. \\
+\midrule
+\begin{lstlisting}[caption={[]}]
+ymax
+\end{lstlisting}
+ & Specifies the maximum value of \(y \) coordinate used for calculating plot points.  If not specified, it is determined by values of xmin and xmax.\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+plotpts
+\end{lstlisting}
+ & Specifies the number of plot points used to plot graphs of functions. The default value of \texttt{noofpoints} is 100.\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+hor
+\end{lstlisting}
+ & Specifies the width of plotting window. The default value of width is 5cm. It can be specified in any unit that LaTeX accepts: \emph{pt}(point), \emph{pc}(pica), \emph{in}(inch), \emph{cm}(centimeter), \emph{mm}(millimeter), etcetera.\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+ver
+\end{lstlisting}
+ & Specifies the height of plotting window. The default value of height is 3cm. It can be specified in any unit that LaTeX accepts: \emph{pt}(point), \emph{pc}(pica),\emph{in}(inch), \emph{cm}(centimeter), \emph{mm}(millimeter), etcetera.\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+plotsty
+\end{lstlisting}
+ & Specifies plotting styles of curves. Styles for different curves are to be given in curly braces separated by comma.   The basic syntax is \begin{lstlisting}[caption={[]}]
+withpen<pen expression> | dashed<picture expression>
+\end{lstlisting} It can be scaled also. For all possible styles, the MetaPost package \cite{online.metapost} can be referred.\\
+\midrule
+\begin{lstlisting}[caption={[]}]
+clr
+\end{lstlisting}
+ & Specifies colors for plotting. Colors for different curves are to be given in curly braces separated by semicolon.   The default color is black. Colors can be specified in a variety of ways. Standard colours can be specified by using names such as ``red"; ``blue"; ``green" etcetera. The RGB format (r,g,b) can also be used. \\ 
+\midrule
+\begin{lstlisting}[caption={[]}]
+plotoptions
+\end{lstlisting}
+ & Specifies different options for plotting. The input is to be in curly braces. If the expression is a big string and multi-line then it can be enclosed in two square brackets (string in Lua). The different plot options include grids, labels, legends, axes styles, point markings on axes, framing styles etcetera. For all possible options, the MetaPost package documentation  \cite{online.metapost}  and guide  \cite{article.hobby} can be referred. \\
+\bottomrule \\
+\caption{Optional parameters in the luaplot command}
+\label{tbl:paraluaplot}
+\end{longtable}
+\end{center}
+
+\section{The luatikzpath command}
+The \verb|luatikzpath| command produces a sequence of points for plotting that can be used inside tikz. The best feature is that all plotting options in tikz remain with the user. The all custom formatting can be done with draw options, node options, tikz styles etcetera in tikz. The sequence of points is entirely determined using Lua. The  \verb|luatikzpath| command in luaplot package has the following syntax.
+\begin{center}
+\begin{lstlisting}[caption={[]}]
+\luaplot{function}{xmin}{xmax}{plot points}
+\end{lstlisting}
+\end{center}
+The first compulsory argument is the function.  The standard functions available from mathematics library: \emph{abs, acos, asin, atan, ceil, cos, exp, floor, log, sin, sqrt, tan,}  etcetera can be input. The second and third compulsory arguments are \verb|xmin| and \verb|xmax|. These specify the beginning and end values of \(x\) coordinate. The last compulsory argument is the number of points used for plotting. 
+
+
+\section{Plotting graphs with the luaplot command}
+Table \ref{tbl:luaplotex} illustrates plotting graphs of functions with the \verb|luaplot| command. 
+\begin{center}
+\begin{longtable}{m{6cm}m{10cm}}
+\toprule
+\multicolumn{1}{l}{\textcolor{blue}{LaTeX Input}} & \multicolumn{1}{l}{\textcolor{blue}{Graph Produced}}  \\
+\toprule
+\begin{lstlisting}[caption={[]}]
+\luaplot{exp(x)}
+\end{lstlisting} & \newline \luaplot{exp(x)} \\ \midrule
+\begin{lstlisting}[caption={[]}]
+\luaplot[
+    xmin=-1, xmax=11,
+    clr={ 'blue' },
+    plotsty={'dashed evenly'}
+]{cos(x)}
+\end{lstlisting} & \newline \luaplot[
+    xmin=-1, xmax=11,
+    clr={ 'blue' },
+    plotsty={'dashed evenly'}
+]{cos(x)} \\ \midrule
+\begin{lstlisting}[caption={[]}]
+\luaplot[
+    xmin=-1, xmax=11,
+    ymin=-2, ymax=2,
+   plotpts=1000,
+    clr={ 'red; blue' }
+]{cos(x),sin(x)}
+\end{lstlisting} & \newline \luaplot[
+    xmin=-1, xmax=11,
+    ymin=-2, ymax=2,
+   plotpts=1000,
+    clr={ 'red; blue' }
+]{cos(x),sin(x)} \\ \midrule
+
+\begin{lstlisting}[caption={[]}]
+\luaplot[
+clr={ 'red; green;
+ (0.58,0.2,0.62)' },
+xmin=-10,xmax=10,
+ymin=-10,ymax=10]
+{x^3,-x^3,x}
+\end{lstlisting} & \newline
+\luaplot[
+clr={ 'red; green; (0.58,0.2,0.62)' },
+xmin=-10,xmax=10,ymin=-10,ymax=10]
+{x^3,-x^3,x} \\  \midrule
+\begin{lstlisting}[caption={[]}]
+\luaplot[xmin=-5,xmax=5,
+clr={'red; blue'}]
+{(2*(x^2)-1)/(x^2-1),1/x}
+\end{lstlisting} & \newline \luaplot[xmin=-5,xmax=5,
+clr={'red; blue'}]
+{(2*(x^2)-1)/(x^2-1),1/x} \\ 
+\bottomrule \\
+\caption{Plotting graphs with the luaplot command}
+\label{tbl:luaplotex}
+\end{longtable}
+\end{center}
+
+Listing \ref{code:luaplotopt} illustrates the use of optional argument \verb|plotoptions| in the \verb|luaplot| command. It generates  graphs shown in Figure \ref{fig:luaplot2}.
+\begin{lstlisting}[label={code:luaplotopt}, caption={Plotting with the luaplot command}]
+\luaplot[
+xmin=-10,
+xmax=20,
+plotpts=300,
+hor='6cm',
+ver='5cm',
+clr={'red; blue'},
+plotsty={'dashed evenly'},
+plotoptions={
+[[
+glabel(btex ${sin(x)+x}$ etex,(7,11.5)); 
+glabel(btex ${cos(x)}$ etex,(12,2));
+glabel.bot(btex Some Graphs etex, OUT);
+autogrid(grid.bot,) withcolor .85white;
+autogrid(grid.lft,) withcolor .85white;
+frame.dashed evenly;
+]]
+}
+]
+{sin(x)+x,cos(x)}
+\end{lstlisting}
+
+\begin{figure}
+\hspace{4cm}
+\luaplot[
+xmin=-10,
+xmax=20,
+plotpts=300,
+hor='6cm',
+ver='5cm',
+clr={'red; blue'},
+plotsty={'dashed evenly'},
+plotoptions={
+[[
+glabel(btex ${sin(x)+x}$ etex,(7,11.5)); 
+glabel(btex ${cos(x)}$ etex,(12,2));
+glabel.bot(btex Some Graphs etex, OUT);
+autogrid(grid.bot,) withcolor .85white;
+autogrid(grid.lft,) withcolor .85white;
+frame.dashed evenly;
+]]
+}
+]
+{sin(x)+x,cos(x)}
+\caption{Plotting graphs with the luaplot package}
+\label{fig:luaplot2}
+\end{figure}
+
+\section{Plotting graphs with the luatikzpath command}
+Listing \ref{code:luatikzpath} illustrates plotting graph of a function with the \verb|luatikzpath| command. Multiple graphs can be plotted in a single picture environment.
+\begin{lstlisting}[label={code:luatikzpath}, caption={Plotting with the luatikzpath command}]
+\begin{tikzpicture}
+\draw[thin,->] (-4.2,0)--(5,0)node[right]{$x$};
+\draw[thin,->] (0,-3)--(0,2.5)node[above]{$y$};
+\draw[red] \luatikzpath{sin(x^2)}{-4}{4}{100} node at (1,1.3) {$y=\sin(x^2)$};
+\draw[blue] \luatikzpath{log(x)}{0.1}{4.5}{100} node at (4,1.7) {$y=\log(x)$};
+\end{tikzpicture}
+\end{lstlisting}
+
+Listing \ref{code:luatikzpath} generates graphs shown in Figure \ref{fig:luatikzpath}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw[thin,->] (-4.2,0)--(5,0)node[right]{$x$};
+\draw[thin,->] (0,-3)--(0,2.5)node[above]{$y$};
+\draw[red] \luatikzpath{sin(x^2)}{-4}{4}{100} node at (1,1.3) {$y=\sin(x^2)$};
+\draw[blue] \luatikzpath{log(x)}{0.1}{4.5}{100} node at (4,1.7) {$y=\log(x)$};
+\end{tikzpicture}
+\caption{Plotting with the luatikzpath command}
+ \label{fig:luatikzpath}
+\end{figure}
+\section{Known issues and limitations} 
+The package does not use any external library supporting arbitrary precision arithmetic. The luaplot package can handle big and small numbers within the range of Lua that it supports. However, the MetaPost system does not support numbers in scientific notation. The coordinates of plot points produced in scientific notation are rounded off to 12 significant decimal places within the package. This may cause slight deviations from actual values. The same issue is not faced while parsing points to tikz as it supports input in scientific notation.  
+\printbibliography
+\end{document}

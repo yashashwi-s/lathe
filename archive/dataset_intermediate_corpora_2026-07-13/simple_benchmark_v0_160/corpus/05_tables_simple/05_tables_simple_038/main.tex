@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00843\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|r|r|r|r} \hline \hline
+        & Ansatz~ & Ansatz~ & Ansatz~ & Ansatz~ \\
+        & 18 parameters & 10 parameters & 8 parameters & 14 parameters \\ \hline
+        $\Omega_0 T$        & 11.80271325 & 12.42032121 & 14.14222223 & 15.64882230 \\
+        $\Delta_0/\Omega_0$ & -0.13332200 & 0.09371255  & 0.16954382  & 0.62344592  \\
+        $A_1$               & 0.66983248  & 1.02359835  & 0.31647908  & -1.21309950 \\
+        $\alpha_1$          & 1.31476492  & -0.99945357 & -0.75670150 & 0.30395321  \\
+        $B_1$               & 2.81147759  &             &             & \\
+        $\beta_1$           & -1.58457206 &             &             & \\
+        $A_2$               & -0.36210033 & 1.96361795  & 0.39053196  & 3.65589621  \\
+        $\alpha_2$          & -1.57467284 & -0.80000698 & 1.30626162  & 0.07086844  \\
+        $B_2$               & -2.17781176 &             &             & \\
+        $\beta_2$           & 1.09432979  &             &             & \\
+        $A_3$               & 0.41649028  & 0.74691915  & 0.80503678  & -0.90823921 \\
+        $\alpha_3$          & -0.64527764 & -0.18123922 & 0.57628361  & -2.60857295 \\
+        $B_3$               & 0.47012471  &             &             & \\
+        $\beta_3$           & 0.19164886  &             &             & \\
+        $A_4$               & 0.14593750  & 0.70514304  &             & -0.12491227 \\
+        $\alpha_4$          & 0.51086808  & 0.32656123  &             & 0.98704073  \\
+        $B_4$               & 1.08196100  &             &             & \\
+        $\beta_4$           & -0.06506773 &             &             & \\
+        $A_5$               &             &             &             & 0.31508103  \\
+        $\alpha_5$          &             &             &             & 0.34077972  \\
+        $B_5$               &             &             &             & \\
+        $\beta_5$           &             &             &             & \\
+        $A_6$               &             &             &             & -0.35948449 \\
+        $\alpha_6$          &             &             &             & -0.80274892 \\ \hline
+        $\Omega_0 T_R$      & 5.494       & 4.925       & 6.407       & 4.755       \\
+        $1-F$               & $5\times10^{-8}$ & $1\times10^{-8}$ & $2\times10^{-8}$ & $5\times10^{-6}$ \\ \hline \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03605\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+ \hline
+ Initial Condition & Value & Unit\\
+ \hline
+ $\omega(0)$ & $0_{3\times 1}$ & (rad/s)\\
+ $R(0)$ & $I_{3}$ & \\
+ $x(0)$ & $0_{3\times 1}$ & (m)\\
+ $v(0)$ & $0_{3\times 1}$ & (m/s) \\
+ $\psi_{d}(0)$ & $\pi /4$ & (rad) \\
+ $\dot{\psi}_{d}(0)$& $0$ & (rad/s)\\
+ $e_{f}(0)$ &$0_{3\times 1}$ & \\
+ $\bar{b}(0)$ &$0_{3\times 1}$& \\
+ \hline \hline 
+ Parameter & Value & Unit \\\hline
+ $M$ & $\mathrm{diag}\{8.28,8.28,15.7\}\times 10^{-3}$& Kgm$^{2}$\\
+ $m$ & $0.467$ & Kg\\
+ $b$ & $[0.2,0.1,-0.1]^{T}$ & (rad/s) \\
+ \hline
+ Inertial Vectors & & \\
+ \hline
+ $r_{1}$ & $[0,0,1]^{T}$ & \\
+ $r_{2}$ & $(1/\sqrt{3})[1,1,1]^{T}$ & \\
+ $r_{3}$ & $r_{1}^\wedge r_{2}/ \|r_{1}^\wedge r_{2}\|$ & \\
+ $k_{i}$ & $0.1$ & \\
+ \hline
+ Position Controller  & & \\
+ \hline
+ $k$ & $4$ & \\
+ $k_{x}$ & $0.1$ & \\
+ $K_{f}$ & $I_{3}$ & \\
+ \hline
+ Attitude Controller & & \\
+ \hline
+ $K_{c}$ & $I_{3}$ & \\
+ $\lambda_{c}$ & $1$ & \\
+ $\alpha_{1}$ & $1$ & \\
+ $\alpha_{2}$ & $0.01$ & \\
+ \hline
+ Bias Observer & & \\
+ \hline
+ $\Lambda_{i}$ & $10 I_{3}$ & \\
+ $\gamma_{f}$ & $10000$ & \\
+ \hline
+ Filter & & \\
+ \hline
+ $A$ & $20$ & \\
+ \hline
+ \end{tabular}
+}
+\end{table}
+
+\end{document}

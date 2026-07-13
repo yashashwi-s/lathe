@@ -1,0 +1,14 @@
+
+\subsection{Colors with \texttt{xcolor}}
+\begin{mylatex}
+\usepackage{xcolor}	
+\definecolor{DarkBlue}{RGB}{0, 115, 207}
+\colorlet{col_section}{DarkBlue}
+\textcolor{red}{text in red} or {\color{red}text}
+\colorbox{gray!25}{color gray faded by 25\%}
+\end{mylatex}
+Predefined colors:\\
+\texttt{\colorbox{gray!25}{\textcolor{white}{white}} \textcolor{gray}{gray} black \textcolor{red}{red} \textcolor{green}{green} \textcolor{blue}{blue} \textcolor{cyan}{cyan} \textcolor{magenta}{magenta} \textcolor{yellow}{yellow}}\\
+Fade a color with \textit{color}\lstinline+!+\textit{value} between 0 and 100\\
+Headings in color: \lstinline+\setkomafont{disposition}{\color{+\textit{color}\lstinline+}}+
+^^E^^L 

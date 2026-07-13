@@ -1,0 +1,137 @@
+
+%TODO problème avec "$\alpha$"
+
+
+\SbSSCT{Images prédéfinies : Marquage des angles}{Drawing angles}
+\begin{center}
+\RRR{39}
+\end{center}
+
+ \maboite{\BS{usetikzlibrary}\AC{angles} }
+\label{lib-angles}
+
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{\BS{tikz} \BS{draw} (2,0) coordinate (A) - - (0,0) coordinate (B) }\\
+\multicolumn{2}{|c|}{ - - (1,1) coordinate (C)   \RDD{pic} [draw] \AC{angle};}  \\ \hline 
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [draw] {angle};
+&  
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [fill] {angle};
+\\ \hline  
+pic [{\color{red}  draw}] \AC{angle}
+&  
+pic [{\color{red}  fill}] \AC{angle}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{\BS{tikz} \BS{draw} (2,0) coordinate (X) - - (0,0) coordinate (Y) }\\
+\multicolumn{2}{|c|}{ - - (1,1) coordinate (Z)  pic [draw] \AC{\RDD{angle}= X- -Y- -Z};}  \\ \hline 
+\tikz \draw (2,0) coordinate (X) -- (0,0) coordinate (Y) -- (1,1) coordinate (Z) pic [draw] {angle= X--Y--Z};
+&  
+\tikz \draw (2,0) coordinate (X) -- (0,0) coordinate (Y) -- (1,1) coordinate (Z) pic [draw] {angle= Z--Y--X};
+\\ \hline  
+pic [{\color{red}  draw}] \AC{angle= X- -Y- -Z}
+&  
+pic [{\color{red}  fill}] \AC{angle = Z- -Y- -X}
+\\ \hline
+\multicolumn{2}{|c|}{\dft{} :  angle= A- -B- -C }
+\\ \hline
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{\BS{tikz} \BS{draw} (2,0) coordinate (A) - - (0,0) coordinate (B) }\\
+\multicolumn{2}{|c|}{ - - (1,1) coordinate (C)   pic [draw,->] \AC{angle};}  \\ \hline 
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [draw=red,->] {angle};
+&  
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [fill=red!50] {angle};
+\\ \hline  
+pic [draw,{\color{red}  ->}] \AC{angle}
+&  
+pic [fill,{\color{red}  fill=red!50}] \AC{angle}
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{\BS{tikz} \BS{draw} (2,0) coordinate (A) - - (0,0) coordinate (B) }\\
+\multicolumn{2}{|c|}{ - - (1,1) coordinate (C)   pic [draw,\RDD{angle radius}=1cm] \AC{angle};}  \\ \hline 
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [draw,angle radius=1cm] {angle};
+&  
+\tikz \draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic [fill,angle radius=1cm] {angle};
+\\ \hline  
+pic [draw,{\color{red}  angle radius=1cm}] \AC{angle}
+&  
+pic [fill,{\color{red}  angle radius=1cm}] \AC{angle}
+\\ \hline 
+\multicolumn{2}{|c|}{\dft{} :  angle radius=5mm }
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\maboite{\BS{usetikzlibrary}\AC{quotes}}
+\label{quotes}
+
+\begin{tabular}{|c|} \hline  
+\BS{tikz} \BS{draw} (3,0) coordinate (A)
+- - (0,1) coordinate (B)
+- - (1,2) coordinate (C) \\
+pic [draw,{\color{red}\verb|"|\$\BS{alpha}\$ \verb|"|}] \AC{angle};
+\\ \hline  
+\tikz \draw (3,0) coordinate (A)
+-- (0,1) coordinate (B)
+-- (1,2) coordinate (C)
+pic [draw, "$\alpha$"] {angle};
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|l|} \hline  
+\BS{tikz} \BS{draw} (2,0) coordinate (A) \\ -  - (0,0) coordinate (B)
+- - (1,2) coordinate (C)
+\\ 
+pic [draw, \verb|"| \$\BS{alpha}\$\verb|"|, {\color{red}angle eccentricity}=1]] \AC{angle};
+
+\\ \hline 
+\end{tabular} 
+\begin{tabular}{|l|c|c|} \hline   
+ \tikz \draw (2,0) coordinate (A)
+-- (0,0) coordinate (B)
+-- (1,2) coordinate (C)
+pic ["$\alpha$", draw, angle eccentricity=1] {angle};
+&
+\tikz \draw (2,0) coordinate (A)
+-- (0,0) coordinate (B)
+-- (1,2) coordinate (C)
+pic ["$\alpha$", draw, angle eccentricity=1.5] {angle};
+
+\\ \hline 
+\RDD{angle eccentricity}=1 & \RDD{angle eccentricity}=1.5
+\\ \hline
+ \multicolumn{2}{|c|}{ \dft{} : angle eccentricity= 0.6  } 
+ \\ \hline
+\end{tabular} 
+
+\bigskip
+
+ \begin{tabular}{|c|}  \hline  
+ \BS{tikz} \{ \BS{draw} (2,0) coordinate (A)
+ - - (0,0) coordinate (B)
+ - - (1,2) coordinate (C) \\
+ pic {\color{red}(xxx)} [draw,\verb|"|\$\BS{alpha}\$\verb|"|,angle radius= 1cm ] \AC{angle};\\
+\BS{draw} {\color{red}(xxx)}circle [radius=5pt] ; \} 
+ \\  \hline  
+\tikz {
+\draw (2,0) coordinate (A) -- (0,0) coordinate (B) -- (1,1) coordinate (C) pic (xxx) ["$\alpha$", draw,angle radius= 1cm ] {angle};
+\draw (xxx) circle [radius=5pt];
+} 
+ \\  \hline 
+ \end{tabular} 

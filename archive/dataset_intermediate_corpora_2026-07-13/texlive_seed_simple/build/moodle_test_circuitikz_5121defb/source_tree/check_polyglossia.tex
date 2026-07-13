@@ -1,0 +1,71 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp,draft]{moodle}
+\usepackage{fontspec}% works only with XeTeX and LuaTeX
+\usepackage{polyglossia}% works only with XeTeX and LuaTeX
+\def\FullSupportList{british,french,ngerman,german,italian,spanish}%
+\def\PartialSupportList{catalan,croatian,czech,danish,dutch,%
+estonian,finnish,hungarian,icelandic,lithuanian,norsk,polish,portuguese,%
+romanian,swedish,turkish}
+\def\do#1{\setmainlanguage{#1}\let\do=\setotherlanguage}
+\expandafter\docsvlist\expandafter{\FullSupportList}
+\expandafter\docsvlist\expandafter{\PartialSupportList}
+%\usepackage{translations} % overides "translator"
+%\AfterEndPreamble{
+%  \DeclareTranslation{foobar}{True}{Foo}%
+%  \DeclareTranslation{foobar}{False}{Bar}%
+%}
+\begin{document}
+\section*{Introduction}
+This document is intended to check the support of 
+internationalization with \textsf{polyglossia}. This 
+package requires the languages to be specified in the 
+preamble.
+
+Internationalization only matters for the PDF typesetting. 
+It has no impact on the XML file generated.
+
+\def\do#1{
+\begin{#1}
+\begin{abstract}#1/\languagename\end{abstract}
+\begin{quiz}{#1}
+\begin{description}[tags={#1}]{Description}Text\end{description}
+\begin{cloze}{Cloze}
+\begin{multi}[shuffle]{Multichoice}?\item* A\item B\end{multi}
+\begin{multi}[multiple,shuffle=false]{Multianswer}?\item* A\item B\end{multi}
+\begin{numerical}{Numerical}?\item0\end{numerical}
+\begin{shortanswer}[usecase]{Shortanswer}?\item0\end{shortanswer}
+\begin{shortanswer}[usecase=false]{Shortanswer}?\item0\end{shortanswer}
+\end{cloze}
+\begin{essay}[template={Default}]{Essay}Text\item Info\end{essay}
+\begin{essay}[response format=html+file]{Essay}Text\end{essay}
+\begin{essay}[response format=text]{Essay}Text\end{essay}
+\begin{essay}[response format=monospaced]{Essay}Text\end{essay}
+\begin{essay}[response format=file]{Essay}Text\end{essay}
+\begin{matching}[dd]{Matching}?\item A\answer1\item B\answer2\item 
+C\answer3\end{matching}
+\begin{multi}[shuffle]{Multichoice}?\item* A\item B\end{multi}
+\begin{multi}[multiple,shuffle=false]{Multianswer}?\item* A\item B\end{multi}
+\begin{multi}[allornothing]{All-or-nothing}?\item* A\item B\end{multi}
+\begin{numerical}{Numerical}?\item0\end{numerical}
+\begin{shortanswer}[usecase]{Shortanswer}?\item0\end{shortanswer}
+\begin{shortanswer}[usecase=false]{Shortanswer}?\item0\end{shortanswer}
+\begin{truefalse}{Truefalse}?\item*\end{truefalse}
+\end{quiz}
+\end{#1}
+}
+\expandafter\docsvlist\expandafter{\FullSupportList}
+
+\def\do#1{
+\begin{#1}
+\begin{abstract}#1/\languagename\end{abstract}
+\begin{quiz}{True/False in  #1}
+\begin{truefalse}{#1}?\item*\end{truefalse}
+\end{quiz}
+\end{#1}
+}
+\expandafter\docsvlist\expandafter{\PartialSupportList}
+
+\end{document}

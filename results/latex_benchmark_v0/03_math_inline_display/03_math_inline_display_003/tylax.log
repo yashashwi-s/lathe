@@ -1,0 +1,17 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_003/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_003/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/03_math_inline_display/03_math_inline_display_003/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unknown variable: chifrac
+   ┌─ tylax.typ:26:130
+   │
+26 │ $ frac(1, sqrt(- g^(prime)))partial_(mu)(sqrt(- g^(prime))g^(prime mu nu)partial_(nu)phi.alt)+ 1/chi[ frac(d V_(1), d phi.alt)- 1/chifrac(d V_(2), d phi.alt)+ frac(alpha, M_(p))P(phi)e^(alpha phi.alt /M_(p)) ] = - frac(h gamma, sqrt(2)M_(p))overline(Psi)^(prime)Psi^(prime) phi frac(e^(gamma phi.alt /M_(p)), chi^(3 /2));  $
+   │                                                                                                                                   ^^^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `c h i f r a c`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"chifrac"`
+

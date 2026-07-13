@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01775\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\toprule
+Expression & Pattern & Expression & Pattern \\ \hline
+$(A \times B) \times (C+D)$ & $(A+B) \times C \times D$ & $(A \times B) \times (C-D)$ & $(A-B) \times C \times D$  \\ \hline
+$(A \times B) \times (C \times D)$ & $A \times B \times C \times D$ & $(A \times B) \times (C/D)$ & $A \times B \times C/D$  \\ \hline
+$(A/B) \times (C+D)$ & $(A+B) \times C/D$ & $(A/B) \times (C-D)$ & $(A-B) \times C/D$  \\ \hline
+$(A/B) \times (C \times D)$ & $A \times B \times C/D$ & $(A/B) \times (C/D)$ & $A \times B/C/D$  \\ \hline
+$(A+B)/(C+D)$ & $(A+B)/(C+D)$ & $(A+B)/(C-D)$ & $(A+B)/(C-D)$  \\ \hline
+$(A+B)/(C \times D)$ & $(A+B)/C/D$ & $(A+B)/(C/D)$ & $(A+B) \times C/D$  \\ \hline
+$(A-B)/(C+D)$ & $(A-B)/(C+D)$ & $(A-B)/(C-D)$ & $(A-B)/(C-D)$  \\ \hline
+$(A-B)/(C \times D)$ & $(A-B)/C/D$ & $(A-B)/(C/D)$ & $(A-B) \times C/D$  \\ \hline
+$(A \times B)/(C+D)$ & $A \times B/(C+D)$ & $(A \times B)/(C-D)$ & $A \times B/(C-D)$  \\ \hline
+$(A \times B)/(C \times D)$ & $A \times B/C/D$ & $(A \times B)/(C/D)$ & $A \times B \times C/D$  \\ \hline
+$(A/B)/(C+D)$ & $A/(B+C)/D$ & $(A/B)/(C-D)$ & $A/(B-C)/D$  \\ \hline
+$(A/B)/(C \times D)$ & $A/B/C/D$ & $(A/B)/(C/D)$ & $A \times B/C/D$  \\ \hline
+$(A+(B+C))+D$ & $A+B+C+D$ & $(A+(B-C))+D$ & $A+B+C-D$  \\ \hline
+$(A+(B \times C))+D$ & $A \times B+C+D$ & $(A+(B/C))+D$ & $A/B+C+D$  \\ \hline
+$(A-(B+C))+D$ & $A+B-C-D$ & $(A-(B-C))+D$ & $A+B+C-D$  \\ \hline
+$(A-(B \times C))+D$ & $A+B-C \times D$ & $(A-(B/C))+D$ & $A+B-C/D$  \\ \hline
+$(A \times (B+C))+D$ & $(A+B) \times C+D$ & $(A \times (B-C))+D$ & $(A-B) \times C+D$  \\ \hline
+$(A \times (B \times C))+D$ & $A \times B \times C+D$ & $(A \times (B/C))+D$ & $A \times B/C+D$  \\ \hline
+$(A/(B+C))+D$ & $A/(B+C)+D$ & $(A/(B-C))+D$ & $A/(B-C)+D$  \\ \hline
+$(A/(B \times C))+D$ & $A/B/C+D$ & $(A/(B/C))+D$ & $A \times B/C+D$  \\ \hline
+$(A+(B+C))-D$ & $A+B+C-D$ & $(A+(B-C))-D$ & $A+B-C-D$  \\ \hline
+$(A+(B \times C))-D$ & $A \times B+C-D$ & $(A+(B/C))-D$ & $A/B+C-D$  \\ \hline
+$(A-(B+C))-D$ & $A-B-C-D$ & $(A-(B-C))-D$ & $A+B-C-D$  \\ \hline
+$(A-(B \times C))-D$ & $A-B \times C-D$ & $(A-(B/C))-D$ & $A-B/C-D$  \\ \hline
+$(A \times (B+C))-D$ & $(A+B) \times C-D$ & $(A \times (B-C))-D$ & $(A-B) \times C-D$  \\ \hline
+$(A \times (B \times C))-D$ & $A \times B \times C-D$ & $(A \times (B/C))-D$ & $A \times B/C-D$  \\ \hline
+$(A/(B+C))-D$ & $A/(B+C)-D$ & $(A/(B-C))-D$ & $A/(B-C)-D$  \\ \hline
+$(A/(B \times C))-D$ & $A/B/C-D$ & $(A/(B/C))-D$ & $A \times B/C-D$  \\ \hline
+$(A+(B+C)) \times D$ & $(A+B+C) \times D$ & $(A+(B-C)) \times D$ & $(A+B-C) \times D$  \\ \hline
+$(A+(B \times C)) \times D$ & $(A \times B+C) \times D$ & $(A+(B/C)) \times D$ & $(A/B+C) \times D$  \\ \hline
+$(A-(B+C)) \times D$ & $(A-B-C) \times D$ & $(A-(B-C)) \times D$ & $(A+B-C) \times D$  \\ \hline
+$(A-(B \times C)) \times D$ & $(A-B \times C) \times D$ & $(A-(B/C)) \times D$ & $(A-B/C) \times D$  \\ \hline
+$(A \times (B+C)) \times D$ & $(A+B) \times C \times D$ & $(A \times (B-C)) \times D$ & $(A-B) \times C \times D$  \\ \hline
+$(A \times (B \times C)) \times D$ & $A \times B \times C \times D$ & $(A \times (B/C)) \times D$ & $A \times B \times C/D$  \\ \hline
+$(A/(B+C)) \times D$ & $A \times B/(C+D)$ & $(A/(B-C)) \times D$ & $A \times B/(C-D)$  \\ \hline
+$(A/(B \times C)) \times D$ & $A \times B/C/D$ & $(A/(B/C)) \times D$ & $A \times B \times C/D$  \\ \hline
+$(A+(B+C))/D$ & $(A+B+C)/D$ & $(A+(B-C))/D$ & $(A+B-C)/D$  \\ \hline
+$(A+(B \times C))/D$ & $(A \times B+C)/D$ & $(A+(B/C))/D$ & $(A/B+C)/D$  \\ \hline
+$(A-(B+C))/D$ & $(A-B-C)/D$ & $(A-(B-C))/D$ & $(A+B-C)/D$  \\ \hline
+$(A-(B \times C))/D$ & $(A-B \times C)/D$ & $(A-(B/C))/D$ & $(A-B/C)/D$  \\ \hline
+$(A \times (B+C))/D$ & $(A+B) \times C/D$ & $(A \times (B-C))/D$ & $(A-B) \times C/D$  \\ \hline
+$(A \times (B \times C))/D$ & $A \times B \times C/D$ & $(A \times (B/C))/D$ & $A \times B/C/D$  \\ \hline
+$(A/(B+C))/D$ & $A/(B+C)/D$ & $(A/(B-C))/D$ & $A/(B-C)/D$  \\ \hline
+$(A/(B \times C))/D$ & $A/B/C/D$ & $(A/(B/C))/D$ & $A \times B/C/D$  \\ \hline
+$((A+B)+C)+D$ & $A+B+C+D$ & $((A-B)+C)+D$ & $A+B+C-D$  \\ \hline
+$((A \times B)+C)+D$ & $A \times B+C+D$ & $((A/B)+C)+D$ & $A/B+C+D$  \\ \hline
+$((A+B)-C)+D$ & $A+B+C-D$ & $((A-B)-C)+D$ & $A+B-C-D$  \\ \hline
+$((A \times B)-C)+D$ & $A \times B+C-D$ & $((A/B)-C)+D$ & $A/B+C-D$  \\ \hline
+$((A+B) \times C)+D$ & $(A+B) \times C+D$ & $((A-B) \times C)+D$ & $(A-B) \times C+D$  \\ \hline
+$((A \times B) \times C)+D$ & $A \times B \times C+D$ & $((A/B) \times C)+D$ & $A \times B/C+D$  \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01775\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\toprule
+Expression & Pattern & Expression & Pattern \\ \hline
+$A+((B+C)-D)$ & $A+B+C-D$ & $A+((B-C)-D)$ & $A+B-C-D$  \\ \hline
+$A+((B \times C)-D)$ & $A \times B+C-D$ & $A+((B/C)-D)$ & $A/B+C-D$  \\ \hline
+$A+((B+C) \times D)$ & $(A+B) \times C+D$ & $A+((B-C) \times D)$ & $(A-B) \times C+D$  \\ \hline
+$A+((B \times C) \times D)$ & $A \times B \times C+D$ & $A+((B/C) \times D)$ & $A \times B/C+D$  \\ \hline
+$A+((B+C)/D)$ & $(A+B)/C+D$ & $A+((B-C)/D)$ & $(A-B)/C+D$  \\ \hline
+$A+((B \times C)/D)$ & $A \times B/C+D$ & $A+((B/C)/D)$ & $A/B/C+D$  \\ \hline
+$A-((B+C)+D)$ & $A-B-C-D$ & $A-((B-C)+D)$ & $A+B-C-D$  \\ \hline
+$A-((B \times C)+D)$ & $A-B \times C-D$ & $A-((B/C)+D)$ & $A-B/C-D$  \\ \hline
+$A-((B+C)-D)$ & $A+B-C-D$ & $A-((B-C)-D)$ & $A+B+C-D$  \\ \hline
+$A-((B \times C)-D)$ & $A+B-C \times D$ & $A-((B/C)-D)$ & $A+B-C/D$  \\ \hline
+$A-((B+C) \times D)$ & $A-(B+C) \times D$ & $A-((B-C) \times D)$ & $A-(B-C) \times D$  \\ \hline
+$A-((B \times C) \times D)$ & $A-B \times C \times D$ & $A-((B/C) \times D)$ & $A-B \times C/D$  \\ \hline
+$A-((B+C)/D)$ & $A-(B+C)/D$ & $A-((B-C)/D)$ & $A-(B-C)/D$  \\ \hline
+$A-((B \times C)/D)$ & $A-B \times C/D$ & $A-((B/C)/D)$ & $A-B/C/D$  \\ \hline
+$A \times ((B+C)+D)$ & $(A+B+C) \times D$ & $A \times ((B-C)+D)$ & $(A+B-C) \times D$  \\ \hline
+$A \times ((B \times C)+D)$ & $(A \times B+C) \times D$ & $A \times ((B/C)+D)$ & $(A/B+C) \times D$  \\ \hline
+$A \times ((B+C)-D)$ & $(A+B-C) \times D$ & $A \times ((B-C)-D)$ & $(A-B-C) \times D$  \\ \hline
+$A \times ((B \times C)-D)$ & $(A \times B-C) \times D$ & $A \times ((B/C)-D)$ & $(A/B-C) \times D$  \\ \hline
+$A \times ((B+C) \times D)$ & $(A+B) \times C \times D$ & $A \times ((B-C) \times D)$ & $(A-B) \times C \times D$  \\ \hline
+$A \times ((B \times C) \times D)$ & $A \times B \times C \times D$ & $A \times ((B/C) \times D)$ & $A \times B \times C/D$  \\ \hline
+$A \times ((B+C)/D)$ & $(A+B) \times C/D$ & $A \times ((B-C)/D)$ & $(A-B) \times C/D$  \\ \hline
+$A \times ((B \times C)/D)$ & $A \times B \times C/D$ & $A \times ((B/C)/D)$ & $A \times B/C/D$  \\ \hline
+$A/((B+C)+D)$ & $A/(B+C+D)$ & $A/((B-C)+D)$ & $A/(B+C-D)$  \\ \hline
+$A/((B \times C)+D)$ & $A/(B \times C+D)$ & $A/((B/C)+D)$ & $A/(B/C+D)$  \\ \hline
+$A/((B+C)-D)$ & $A/(B+C-D)$ & $A/((B-C)-D)$ & $A/(B-C-D)$  \\ \hline
+$A/((B \times C)-D)$ & $A/(B \times C-D)$ & $A/((B/C)-D)$ & $A/(B/C-D)$  \\ \hline
+$A/((B+C) \times D)$ & $A/(B+C)/D$ & $A/((B-C) \times D)$ & $A/(B-C)/D$  \\ \hline
+$A/((B \times C) \times D)$ & $A/B/C/D$ & $A/((B/C) \times D)$ & $A \times B/C/D$  \\ \hline
+$A/((B+C)/D)$ & $A \times B/(C+D)$ & $A/((B-C)/D)$ & $A \times B/(C-D)$  \\ \hline
+$A/((B \times C)/D)$ & $A \times B/C/D$ & $A/((B/C)/D)$ & $A \times B \times C/D$  \\ \hline
+$(A+B)+(C+D)$ & $A+B+C+D$ & $(A+B)+(C-D)$ & $A+B+C-D$  \\ \hline
+$(A+B)+(C \times D)$ & $A \times B+C+D$ & $(A+B)+(C/D)$ & $A/B+C+D$  \\ \hline
+$(A-B)+(C+D)$ & $A+B+C-D$ & $(A-B)+(C-D)$ & $A+B-C-D$  \\ \hline
+$(A-B)+(C \times D)$ & $A \times B+C-D$ & $(A-B)+(C/D)$ & $A/B+C-D$  \\ \hline
+$(A \times B)+(C+D)$ & $A \times B+C+D$ & $(A \times B)+(C-D)$ & $A \times B+C-D$  \\ \hline
+$(A \times B)+(C \times D)$ & $A \times B+C \times D$ & $(A \times B)+(C/D)$ & $A \times B+C/D$  \\ \hline
+$(A/B)+(C+D)$ & $A/B+C+D$ & $(A/B)+(C-D)$ & $A/B+C-D$  \\ \hline
+$(A/B)+(C \times D)$ & $A \times B+C/D$ & $(A/B)+(C/D)$ & $A/B+C/D$  \\ \hline
+$(A+B)-(C+D)$ & $A+B-C-D$ & $(A+B)-(C-D)$ & $A+B+C-D$  \\ \hline
+$(A+B)-(C \times D)$ & $A+B-C \times D$ & $(A+B)-(C/D)$ & $A+B-C/D$  \\ \hline
+$(A-B)-(C+D)$ & $A-B-C-D$ & $(A-B)-(C-D)$ & $A+B-C-D$  \\ \hline
+$(A-B)-(C \times D)$ & $A-B \times C-D$ & $(A-B)-(C/D)$ & $A-B/C-D$  \\ \hline
+$(A \times B)-(C+D)$ & $A \times B-C-D$ & $(A \times B)-(C-D)$ & $A \times B+C-D$  \\ \hline
+$(A \times B)-(C \times D)$ & $A \times B-C \times D$ & $(A \times B)-(C/D)$ & $A \times B-C/D$  \\ \hline
+$(A/B)-(C+D)$ & $A/B-C-D$ & $(A/B)-(C-D)$ & $A/B+C-D$  \\ \hline
+$(A/B)-(C \times D)$ & $A/B-C \times D$ & $(A/B)-(C/D)$ & $A/B-C/D$  \\ \hline
+$(A+B) \times (C+D)$ & $(A+B) \times (C+D)$ & $(A+B) \times (C-D)$ & $(A+B) \times (C-D)$  \\ \hline
+$(A+B) \times (C \times D)$ & $(A+B) \times C \times D$ & $(A+B) \times (C/D)$ & $(A+B) \times C/D$  \\ \hline
+$(A-B) \times (C+D)$ & $(A+B) \times (C-D)$ & $(A-B) \times (C-D)$ & $(A-B) \times (C-D)$  \\ \hline
+$(A-B) \times (C \times D)$ & $(A-B) \times C \times D$ & $(A-B) \times (C/D)$ & $(A-B) \times C/D$  \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{array,booktabs,enumitem,graphicx,xcolor,hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Towards a Classification of Fusion Rule Algebras in Rational Conformal
+  Field Theories}
+\author{Source-backed arXiv sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Extracted Lists}
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+\begin{itemize}
+\item In the first one, quantum groups are proposed as the underlying
+      algebraic structure of RCFT's~\cite{qgroups}, and this approach is
+      particularly successfull in the case of WZW models, although
+      its extension to general RCFT's is still unclear. In particular this
+      line of thougth, when applied toward any classification program,
+      shows severe limitations due to the fact
+      that the classification of quantum groups themselves is still an
+      open problem.
+\item The second approach exploits the relationships between
+      RCFT's and three-dimensional Chern-Simons theories~\cite{c-s};
+      in particular the
+      Hilbert space associated to a constant time slice with charges in the
+      three dimensional theories is related to the space of conformal blocks
+      of corresponding RCFT's.
+\end{itemize}
+
+\begin{itemize}
+\item[{\bf P1}:]
+     $\cF$ {\em is commutative}: $N_{ij}^k=N_{ji}^k$. This follows from the
+     isomorphism (called $\Omega$ in~\cite{ms}) between $V_{ij}^k$ and
+     $V_{ji}^k$.
+\item[{\bf P2}:]
+     $\cF$ {\em is associative}:
+     \[
+     \sum_m N_{ij}^m N_{km}^l = \sum_m N_{ik}^m N_{jm}^l
+     \]
+     This follows from existence of the {\em Fusion matrix} isomorphism
+     \[
+     F\left[\begin{array}{cc}i&k\\j&l\end{array}\right]~:~
+     \bigoplus_m V_{im}^j \otimes V_{kl}^m \cong
+     \bigoplus_m V_{ml}^j \otimes V_{ik}^m
+     \]
+     which is related to the assumption of duality.
+\item[{\bf P3}:]
+     {\em Identity}: there exists in $\Xi$ a vector $\phi_0$ called the
+     identity such that for all $i,j\in X$: $N_{0i}^j=\delta_i^j$. The vector
+     $\phi_0$ is the one in 1 to 1 correspondence with the HWR $\cH_0$.
+\item[{\bf P4}:]
+     {\em Charge conjugation}: there exists a one to one map of $X$, say
+     $C:i\mapsto \ih$, such that $\hat{\ih}=i$ and $\cF$ is invariant under
+     $C$, i.e. $N_{ij}^k=N_{\ih\jh}^{\hat{k}}$ and $N_{ij}^0=\delta_{i\jh}$.
+     The matrix $C_{ij}\equiv N_{ij}^0$ uppers and lowers indices in
+     $\cF$, and from {\bf P1,P2}, $N_{ijk}$ is totally symmetric in its
+     indices.
+\item[{\bf P5}:]
+     {\em Integrality of structure constants}: $N_{ij}^k\in \bN$. This
+     follows from the trivial fact that the dimension of a vector space
+     like $V_{ij}^k$ is a non-negative integer.
+\end{itemize}
+\end{document}

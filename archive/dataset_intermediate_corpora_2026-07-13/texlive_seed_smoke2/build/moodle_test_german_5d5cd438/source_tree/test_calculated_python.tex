@@ -1,0 +1,52 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\usepackage{hyperref}
+\usepackage{python}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the possibility of generating 
+pseudo-calculated questions with the help of Python scripts.
+
+Inspired by
+\url{https://github.com/avohns/python-latex-moodle-quiz/blob/master/simple-examples-eng/example1_arithmetic.tex}
+
+\begin{quiz}[tags={calculated}]{Example Quiz}
+% the following syntax is Python 3
+% on Ubuntu 20.10, I had to force python to default to python 3
+% https://stackoverflow.com/a/50331137
+\begin{python}
+def clozenum_print(pair,op,result):
+  print(rf"""\begin{{numerical}}
+${pair[0]} {op} {pair[1]} =$\item {result} 
+\end{{numerical}}""")
+def cloze_print(pair,points):
+  print(rf"""\begin{{cloze}}[points={points}]{{Arithmetic Quiz 
+  {(pair[0],pair[1])}}}Solve the following tasks!\\""")
+  clozenum_print([x,y],"+",x+y)
+  clozenum_print([x,y],"-",x-y)
+  clozenum_print([x,y],"*",x*y)
+  if pair[0]/pair[1] == pair[0]//pair[1]:
+    clozenum_print([x,y],":",x//y)
+  print("\end{cloze}")
+for x in range(2,5):
+  for y in range(2,5):
+    if x > y:
+      if x/y == x//y:
+        points=1
+      else:
+        points=2  
+      cloze_print([x,y],points)
+\end{python}
+\end{quiz}
+\end{document}

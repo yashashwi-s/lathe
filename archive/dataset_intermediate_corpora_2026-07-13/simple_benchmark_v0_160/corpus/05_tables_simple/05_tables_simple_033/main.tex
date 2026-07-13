@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02131\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|| ccccc ||}
+                \hline
+                Molecule & Basis & Multiplicity & Relative error & Relative error$^*$ \\ [0.5ex] 
+                \hline\hline
+                H$_3^+$ & 3-21g & singlet & 2.87e-05 & 0.00014 \\ [0.5ex] \hline
+                H$_4$ & sto-3g & singlet & 0.000292 & 0.000306 \\ [0.5ex] \hline
+                H$_2$ & 3-21g & singlet & 0.000106 & 0.000682 \\ [0.5ex] \hline
+                H$_2$ & 6-31g & singlet & 0.000113 & 0.000741 \\ [0.5ex] \hline
+                HeH$^+$ & 3-21g & singlet & 0.000484 & 0.00166 \\ [0.5ex] \hline
+                Li & sto-3g & doublet & 0.000541 & 0.000464 \\ [0.5ex] \hline
+                Be & sto-3g & singlet & 0.000188 & 0.000214 \\ [0.5ex] \hline
+                B$^+$ & sto-3g & singlet & 0.000177 & 0.000391 \\ [0.5ex] \hline
+                B & sto-3g & doublet & 0.000171 & 0.000385 \\ [0.5ex] \hline
+                C & sto-3g & triplet & 0.000139 & 0.000461 \\ [0.5ex] \hline
+                N & sto-3g & quartet & 1.19e-05 & 0.000513 \\ [0.5ex] \hline
+                O & sto-3g & triplet & - & 0.000454 \\ [0.5ex] \hline
+                LiH & sto-3g & singlet & 0.000168 & 0.000399 \\ [0.5ex] \hline
+                BeH$^+$ & sto-3g & singlet & 0.000185 & 0.00048 \\ [0.5ex] \hline
+                BH & sto-3g & singlet & 0.000187 & 0.000313 \\ [0.5ex] \hline
+                CH$^+$ & sto-3g & singlet & 0.00014 & 0.000245 \\ [0.5ex] \hline
+                NH & sto-3g & singlet & 0.000127 & 0.000353 \\ [0.5ex] \hline
+                OH$^-$ & sto-3g & singlet & 9.77e-05 & 0.000522 \\ [0.5ex] \hline
+                HF & sto-3g & singlet & 0.000112 & 0.000515 \\ [0.5ex] \hline
+                NeH$^+$ & sto-3g & singlet & 0.00349 & 0.000496 \\ [0.5ex] \hline
+                H$_3^+$ & sto-3g & singlet & 0.000836 & 0.00155 \\ [0.5ex] \hline
+                H$_2$ & 6-311g & singlet & 4.13e-05 & 0.000171 \\ [0.5ex] \hline
+                H$_6$ & sto-3g & singlet & 9.08e-05 & 0.000754 \\ [0.5ex] \hline
+                HeH$^+$ & 6-311g & singlet & 0.000178 & 0.000543 \\ [0.5ex] \hline
+                BeH$_2$ & sto-3g & singlet & 0.000128 & 0.000202 \\ [0.5ex] \hline
+                BH$_2^+$ & sto-3g & singlet & 0.000185 & 0.000358 \\ [0.5ex] \hline
+                CH$_2$ & sto-3g & triplet & 0.000155 & 0.000241 \\ [0.5ex] \hline
+                NH$_2^-$ & sto-3g & singlet & 0.000114 & 0.000495 \\ [0.5ex] \hline
+                H$_2$O & sto-3g & singlet & 0.000128 & 0.000537 \\ [0.5ex] \hline
+            \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01688\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c ||c| c| c ||c |c |c} \hline
+                                            &RN in our method &RN in  &RN in  &Hayward in our method &Hayward in   &Hayward in   \\ \hline
+ $b_\mathrm{m}/M$                           &$3\sqrt{6}/2$    &$3\sqrt{6}/2$               &$3\sqrt{6}/2$                  &$25\sqrt{5}/12$       &$25\sqrt{5}/12$                  &$25\sqrt{5}/12$   \\
+ $2\theta_{\infty}$ [$\mu$as]               &36.4727          &36.4727                     &36.4727                        &46.2429               &46.2429                          &46.2429           \\  \hline                  
+ $\bar{c}_+$                                &6.67748          &6.67748                     &5.49892                        &6.01322               &6.01316                          &4.95196           \\ 
+ $\bar{d}_+$                                &-5.59011         &-5.59108                    &-5.59108                       &-5.60584              &-                                &-5.62607          \\ 
+ $2\theta_{\mathrm{E}1+}$ [$\mu$as]         &37.6267          &37.6262                     &36.8324                        &47.0170               &-                                &46.4819           \\ 
+ $2\theta_{\mathrm{E}2+}$ [$\mu$as]         &36.5629          &36.5629                     &36.5008                        &46.3036               &-                                &46.2617           \\ 
+ $2\theta_{\mathrm{E}3+}$ [$\mu$as]         &36.4879          &36.4879                     &36.4774                        &46.2531               &-                                &46.2460           \\ 
+ $\bar{s}_+$ [$\mu$as]                      &0.57701          &0.57673                     &0.17987                        &0.38706               &-                                &0.11950           \\ 
+ $\mu_{1\mathrm{tot}+} (\phi) \times 10^{19}$ &1063.82        &1063.19                     &324.595                        &890.522               &-                                &271.347           \\ 
+ $\mu_{2\mathrm{tot}+} (\phi) \times 10^{19}$ &52.8675        &52.8477                     &16.4542                        &44.996                &-                                &13.9129           \\ 
+ $\mu_{3\mathrm{tot}+} (\phi) \times 10^{19}$ &6.58948        &6.58765                     &2.05397                        &5.62252               &-                                &1.7433            \\ 
+ $\bar{r}_+$		                    &17.3389          &17.3350                     &16.9947                        &17.0469               &-                                &16.7917           \\ \hline
+ $\bar{c}_-$                                &11.5658          &11.5657                     &-                              &10.4155               &-                                &-                 \\ 
+ $\bar{d}_-$                                &-5.64071         &-5.59108                    &-                              &-5.69675              &-                                &-                 \\ 
+ $2\theta_{\mathrm{E}1-}$ [$\mu$as]         &6.09793          &5.32981                     &-                              &26.2719               &-                                &-                 \\ 
+ $2\theta_{\mathrm{E}2-}$ [$\mu$as]         &34.0762          &34.0367                     &-                              &44.6518               &-                                &-                 \\ 
+ $2\theta_{\mathrm{E}3-}$ [$\mu$as]         &36.0681          &36.0631                     &-                              &45.9730               &-                                &-                 \\ 
+ $\bar{s}_-$ [$\mu$as]                      &-15.187          &-15.571                     &-                              &-9.9855               &-                                &-                 \\ 
+ $\mu_{1\mathrm{tot}-} (\phi) \times 10^{19}$ &4518.59        &4066.21                     &-                              &12739.8               &-                                &-                 \\ 
+ $\mu_{2\mathrm{tot}-} (\phi) \times 10^{19}$ &1304.72        &1328.28                     &-                              &1131.53               &-                                &-                 \\ 
+ $\mu_{3\mathrm{tot}-} (\phi) \times 10^{19}$ &173.347        &175.793                     &-                              &147.045               &-                                &-                 \\ 
+ $\bar{r}_-$		                    &2.95597          &2.61464                     &-                              &9.64064               &-                                &-                 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

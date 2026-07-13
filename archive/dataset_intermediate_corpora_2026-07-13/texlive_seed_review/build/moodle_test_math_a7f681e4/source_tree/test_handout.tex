@@ -1,0 +1,159 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp,handout]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+%\RLsetrandomseed{3}
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the package option 
+\texttt{handout}. With this option, the PDF file is clean from teacher-only 
+information (answers, points, penalty, feedback, tags) and, hence, can be given 
+to students for classroom work. In particular, as would Moodle do, 
+answers in \texttt{matching} questions are shuffled and the option 
+\texttt{shuffle} triggers the shuffling of choices offered (\texttt{multi} and 
+\texttt{matching}). The XML file is generated as usual.
+
+\begin{quiz}[points=1,tags={tag},feedback={General feedback},shuffle]{ Option 
+Handout}
+
+\begin{description}{Description}
+Description text
+\end{description}
+
+\begin{essay}{Essay}
+Question text
+\item A
+\item B
+\item C
+\end{essay}
+
+\begin{multi}[shuffle=false]{Multi Single}
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[multiple]{Multi Multiple}
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB}] B
+\item[feedback={CCC}]* C
+\item[feedback={DDD}] D
+\end{multi}
+
+\begin{truefalse}{True/False 1}
+Question text
+\item[feedback={AAA}]
+\item[feedback={BBB}]*
+\end{truefalse}
+
+\begin{truefalse}{True/False 2}
+Question text
+\item*
+\end{truefalse}
+
+\begin{truefalse}{True/False 3}
+Question text
+\item
+\item*
+\end{truefalse}
+
+\begin{numerical}[tolerance=1]{Numerical}
+Question text
+\item[feedback={1}] 1
+\item[feedback={3},fraction=0] 3
+\end{numerical}
+
+\begin{shortanswer}[tolerance=1]{Short Answer}
+Question text
+\item[feedback={1}] aaa
+\item[feedback={3},fraction=0] bbb
+\end{shortanswer}
+
+\begin{matching}[dd]{Matching}
+Question text
+\item A \answer 1
+\item B \answer 2
+\item C \answer 3
+\item   \answer 4
+\end{matching}
+
+\begin{matching}[shuffle=false]{Matching}
+Question text
+\item A \answer 1
+\item B \answer 2
+\item C \answer 3
+\item   \answer 4
+\end{matching}
+
+\begin{cloze}{Cloze}
+
+\begin{multi}[horizontal,shuffle=false]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[vertical,shuffle=false]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[inline,shuffle=false]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[horizontal]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[vertical]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{multi}[inline]
+Question text
+\item[feedback={AAA}]* A
+\item[feedback={BBB},fraction=10] B
+\item[feedback={CCC}] C
+\end{multi}
+
+\begin{numerical}[tolerance=1]
+Question text
+\item[feedback={1}] 1
+\item[feedback={3},fraction=0] 3
+\end{numerical}
+
+\begin{shortanswer}[tolerance=1]
+Question text
+\item[feedback={1}] aaa
+\item[feedback={3},fraction=0] bbb
+\end{shortanswer}
+
+\end{cloze}
+
+\end{quiz}
+
+\end{document}

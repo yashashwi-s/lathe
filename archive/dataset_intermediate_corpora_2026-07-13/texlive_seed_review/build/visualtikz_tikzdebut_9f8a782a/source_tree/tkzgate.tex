@@ -1,0 +1,404 @@
+\label{lib-gate}
+International Electrotechnical Commission :
+\maboite{\BS{usepackage}\AC{circuits.logic.IEC}}
+
+American logic gates  :
+\maboite{\BS{usepackage}\AC{circuits.logic.US}}
+
+logic symbols used in A. Croft, R. Davidson, and M.
+Hargreaves (1992), Engineering Mathematics, Addison-Wesley, 82–95 :
+
+\maboite{\BS{usepackage}\AC{circuits.logic.CDH}}
+
+%\usetikzlibrary{circuits.logic.IEC}
+%\usetikzlibrary[circuits.logic.US]
+%\usetikzlibrary{circuits.logic.CDH}
+
+\begin{tabular}{|c|c|c|} \hline
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Composants de base}{Basic Elements}}  }\\ 
+\hline  
+\multicolumn{3}{|c|}{\BS{node}  [\blll{circuit logic IEC}]  at (1,.5) [\RDD{and gate} ] \AC{A} ;   }\\ 
+%\hline
+\multicolumn{3}{|c|}{\RRR{47-3-2} }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture} 
+\\ \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+
+\RDD{and gate}& \RDD{and gate} & \RDD{and gate} 
+\\ \hline 
+
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [nand gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [nand gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [nand gate] {} ;  
+\end{tikzpicture} 
+\\   \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{nand gate}& \RDD{nand gate} & \RDD{nand gate} 
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [or gate] {} ;
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [or gate] {} ;
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [or gate] {} ; 
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{or gate}& \RDD{or gate} & \RDD{or gate} 
+
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [nor gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [nor gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [nor gate] {} ; 
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{nor gate}& \RDD{nor gate} & \RDD{nor gate} 
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [xor gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [xor gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [xor gate] {} ;
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{xor gate}& \RDD{xor gate} & \RDD{xor gate} 
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [xnor gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [xnor gate] {} ;
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [xnor gate] {} ; 
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{xnor gate}& \RDD{xnor gate} & \RDD{xnor gate} 
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [not gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [not gate] {} ;
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [not gate] {} ;
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{not gate}& \RDD{not gate} & \RDD{not gate} 
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [buffer gate] {} ;
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);;
+\node[circuit logic US]  at (1,.5) [buffer gate] {} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [buffer gate] {} ;
+\end{tikzpicture} 
+\\   \hline
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] \\
+\RDD{buffer gate}& \RDD{buffer gate} & \RDD{buffer gate} 
+
+\\ \hline 
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Avec etiquette}{Labelled}}  }\\ 
+\hline  
+\multicolumn{3}{|c|}{\BS{node}  [\blll{circuit logic IEC}]  at (1,.5) [and gate] \rouge{\AC{A}} ;   }\\ 
+%\hline
+\multicolumn{3}{|c|}{\RRR{47-3-1} }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [and gate] {$A$} ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [and gate] {$A$} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [and gate] {$A$} ; 
+\end{tikzpicture} 
+\\ \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] 
+\\ \hline 
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Orientation}{Orientation}  }}
+\\  \hline 
+\multicolumn{3}{|c|}{\RRR{47-3-1} }
+\\ \hline 
+\multicolumn{3}{|c|}{\BS{node}  [\blll{circuit logic IEC}]  at (1,.5) [and gate,\RDD{point down}] \AC{A} ;   }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [and gate,point down] {$A$} ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [and gate,point down] {$A$} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [and gate,point down] {$A$} ; 
+\end{tikzpicture} 
+\\ \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] 
+\\ \hline  \hline 
+
+\multicolumn{3}{|c|}{\BS{node}  [\blll{circuit logic IEC}]  at (1,.5) [and gate,\RDD{point up}] \AC{A} ;   }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [and gate,point up] {$A$} ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [and gate,point up] {$A$} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [and gate,point up] {$A$} ; 
+\end{tikzpicture} 
+\\ \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] 
+\\ \hline 
+\multicolumn{3}{|c|}{\BS{node}  [\blll{circuit logic IEC}]  at (1,.5) [and gate,\RDD{point left}] \AC{A} ;   }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC]  at (1,.5) [and gate,point left] {$A$} ; 
+\end{tikzpicture}  
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic US]  at (1,.5) [and gate,point left] {$A$} ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic CDH]  at (1,.5) [and gate,point left] {$A$} ; 
+\end{tikzpicture} 
+\\ \hline 
+[\blll{circuit logic IEC}] & [\blll{circuit logic US}]  & [\blll{circuit logic CDH}] 
+\\ \hline 
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|}\hline 
+\multicolumn{2}{|c|}{\textbf{\TFRGB{Entrées sortie}{inputs exit}}}  \\ \hline 
+\multicolumn{2}{|c|}{ \RRR{47-3-3} }
+\\ \hline
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[and gate IEC, draw, logic gate inputs={inverted, normal, inverted}] at (1,.5)  (A) {};
+\draw [red] (A.input 1) -| (0,0.5);
+\draw[green] (A.input 2) -| (0,0.5);
+\draw[cyan] (A.input 3) -| (0,0.5);
+\draw (A.output) -| (2,0.5);
+\end{tikzpicture}
+&  
+\parbox[c]{10cm}{
+\BS{node} [and gate IEC, draw, \\
+\RDD{logic gate inputs}=\{\RDDX{inverted}{gate},\RDDX{normal}{gate} , \RDDX{inverted}{gate}\}] at (1,.5)  (A) \AC{}; \\
+\BS{draw} [red] (A.\DDD{input} 1) -| (0,0.5); \\
+\BS{draw}[green] (A.\DDD{input} 2) -| (0,0.5); \\
+\BS{draw}[cyan] (A.\DDD{input} 3) -| (0,0.5); \\ 
+\BS{draw} (A.\DDD{output}) -| (2,0.5);}
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[and gate IEC, draw, logic gate inputs={ini}] at (1,.5)  (A) {};
+\draw[red] (A.input 1) -| (0,0.5);
+\draw[green] (A.input 2) -| (0,0.5);
+\draw[cyan] (A.input 3) -| (0,0.5);
+\draw (A.output) -| (2,0.5);
+\end{tikzpicture}
+&  
+\parbox[c]{10cm}{
+\BS{node} [and gate IEC, draw, \\
+\RDD{logic gate inputs}=\AC{\rouge{ini}}] at (1,.5)  (A) \AC{}; \\
+\BS{draw} [red] (A.\DDD{input} 1) -| (0,0.5); \\
+\BS{draw}[green] (A.\DDD{input} 2) -| (0,0.5); \\
+\BS{draw}[cyan] (A.\DDD{input} 3) -| (0,0.5); \\ 
+\BS{draw} (A.\DDD{output}) -| (2,0.5);}
+\\  \hline 
+\end{tabular}
+
+\bigskip
+ 
+\begin{tabular}{|c|c|}\hline 
+\multicolumn{2}{|c|}{\textbf{\TFRGB{Paramètres des entrées}{input parameter}}}  \\ \hline 
+\multicolumn{2}{|c|}{\BS{node} [and gate IEC, draw, 
+logic gate inputs={ini},\RDD{logic gate inverted radius}=4pt ]} \\
+\multicolumn{2}{|c|}{ at (1,.5)  (A) \AC{}; }\\ 
+\multicolumn{2}{|c|}{ \RRR{47-3-3} }
+
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-1.2) grid (2.2,2.2);
+\node[and gate IEC, draw, logic gate inputs={ini},logic gate inverted radius=4pt] at (1,.5)  (A) {};
+\draw (A.input 1) -| (0,0.5);
+\draw (A.input 2) -| (0,0.5);
+\draw (A.input 3) -| (0,0.5);
+\draw (A.output) -| (2,0.5);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-1.2) grid (2.2,2.2);
+\node[and gate IEC, draw, logic gate inputs={ini},logic gate input sep=0.5cm] at (1,.5)  (A) {};
+\draw (A.input 1) -| (0,0.5);
+\draw (A.input 2) -| (0,0.5);
+\draw (A.input 3) -| (0,0.5);
+\draw (A.output) -| (2,0.5);
+\end{tikzpicture}
+\\ \hline 
+\RDD{logic gate inverted radius}=4pt &  \RDD{logic gate input sep}=0.5cm\\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Paramètres des symboles}{symbol parameter}}}  \\ \hline 
+\multicolumn{3}{|c|}{\BS{node} [circuit logic IEC,\RDD{and gate IEC symbol}=AND ] at (1,.5) [and gate] \AC{} } \\
+\multicolumn{3}{|c|}{ \RRR{47-3-5} }
+\\ \hline 
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,and gate IEC symbol=AND ]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,logic gate IEC symbol color=red ]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,logic gate IEC symbol align={bottom, right}]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+\\ \hline 
+\RDD{and gate IEC symbol}& \RDD{logic gate IEC symbol color}& \RDD{logic gate IEC symbol align}\\ 
+=AND  & =red  & =\AC{bottom, right} 
+\\
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{\textbf{\TFRGB{Paramètres des composants}{Composant parameter}}}  \\ \hline 
+\multicolumn{3}{|c|}{\BS{node} [circuit logic IEC,\rouge{very thick} ] at (1,.5) [and gate] \AC{} } \\
+\multicolumn{3}{|c|}{ \RRR{47-3-5} }
+\\ \hline  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,very thick]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,
+fill=blue!10]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[blue]
+\useasboundingbox (-.2,-.2) grid (2.2,1.2);
+\node[circuit logic IEC,logic gate IEC symbol color=black,
+fill=blue!10]  at (1,.5) [and gate] {} ; 
+\end{tikzpicture}
+\\ \hline 
+\rouge{very thick} & \rouge{fill}=blue!10 & \rouge{fill}=blue!10, \\ 
+& & logic gate IEC symbol color=black 
+\\ \hline 
+\end{tabular} 
+
+
+
+

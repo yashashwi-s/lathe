@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.01067\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|r|}
+        \hline
+        \textbf{Step Size} & \textbf{Avg \texttt{Dq}} \\
+        \hline
+        0.001 & 12.38\\
+        0.005 &  9.88\\
+        0.007 &  9.15\\
+        0.009 & 8.61 \\
+        0.011 & 8.23 \\
+        0.013 & 7.90 \\
+        0.015 & 7.63 \\
+        0.017 & 7.46 \\
+        0.019 & 7.29 \\
+        0.021 & 7.16 \\
+        0.025 & 6.90 \\
+        0.029 & 6.71 \\
+        0.033 & 6.49 \\
+        0.037 & 6.35 \\
+        0.039 & 6.27 \\
+        0.045 & 6.05 \\
+        0.049 & 5.91 \\
+        0.063 & 5.42 \\
+        0.067 & 5.38 \\
+        0.071 & 5.33 \\
+        0.073 & 5.34 \\
+        0.075 & 5.33 \\
+        0.077 & 5.32 \\
+        0.079 & 5.37 \\
+        0.081 & 5.41 \\
+        0.083 & 5.40 \\
+        0.085 & 5.40 \\
+        0.087 & 5.45 \\
+        0.091 & 5.35 \\
+        0.095 & 5.37 \\
+        0.15 & 9.18 \\
+        0.25 & 20.46 \\
+        \hline
+    \end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.03110\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\textbf{Name} & \textbf{Type} & \textbf{Importance} \\
+\hline
+Exercise tolerance & function & 5 \\
+Mortality & function & 5 \\
+FEV1 & objective sign & 5 \\
+General adverse effects, serious & safty & 5 \\
+Fatigue & symptom & 5 \\
+Appetite & symptom & 5 \\
+CRISS & validated score & 5 \\
+Anxiety/ depression scales & validated score & 5 \\
+Oxygen saturation & objective sign & 4 \\
+Weight & objective sign & 4 \\
+General adverse effects, others & safty & 4 \\
+Quality of life/well-being score & validated score & 4 \\
+CF RSD & validated score & 4 \\
+CAT score/ questionnaire & validated score & 4 \\
+CRP & biomarker &  \\
+Ability to return to school/work & function &  \\
+Eradication of infection & micro &  \\
+Microbiological response & micro &  \\
+Xray & radiology &  \\
+CT scan & radiology &  \\
+resolution of auscultatory findings & sign &  \\
+Cough no longer productive & symptom &  \\
+Severity of exacerbation & symptom &  \\
+Wonders of sputum & symptom &  \\
+Anxiety/ depression & symptom &  \\
+Resolution of haemoptysis & symptom &  \\
+Sleep quality & symptom &  \\
+Number of community exacerbation & treatment &  \\
+Time to next exacerbation & treatment &  \\
+Time to home/ days in hospital & treatment &  \\
+Need/ number of adjunctive therapies & treatment & 
+\end{tabular}
+}
+\end{table}
+
+\end{document}

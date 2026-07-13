@@ -1,0 +1,14 @@
+
+\subsection{Math mode (Standard \LaTeX{})}
+Textstyle: \lstinline:\(x^2 + 4\): $\leadsto$ \(x^2 + 4\) as part of the text.\\
+Displaystyle: \lstinline:\[ x^2 + 4 \]: $\leadsto$ separat line, centered\\
+Equation: \lstinline+\begin{equation}+ \dots{} \lstinline+\end{equation}\label{+\textit{name}\lstinline+}+
+\begin{equation}
+\lambda := \lim\limits_{x_1 \rightarrow \infty}    \int\limits_{x_0}^{x_1} \frac{ f\left(\frac{t}{2}\right) }{ \sqrt[n]{t^2 + \sin^2(t) } } \; \mathrm{d}t \stackrel{!}\le 1
+\end{equation}
+\begin{itemize}
+\item Use \lstinline+*+ variant for unnumbered equation (without label).
+\item Package option for equation position: \lstinline+fleqn+  fixed indent from the left margin instead of centered.
+\item Options for positions of equation number: \lstinline+leqno+ or \lstinline+reqno+.
+\end{itemize}
+^^E^^L 

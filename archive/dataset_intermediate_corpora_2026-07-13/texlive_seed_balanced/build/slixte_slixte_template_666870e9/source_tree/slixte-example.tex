@@ -1,0 +1,244 @@
+\documentclass{slixte}
+
+\title{Using the Slixte class}
+\subtitle{a step-by-step guide}
+\author{Beno{\^i}t Corsini}
+\info{\url{https://ctan.org/pkg/slixte}}
+
+\addsection{A standard section}
+\addsection[$\times$]{A section symbolized by a cross}
+
+\addref{Y}{You}{yesterday}{Math?}{online}
+\addref{Me}{Me}{today}{Math!}{in-class}
+
+\begin{document}
+
+\titleslide
+\author{Someone Else}
+\titleslide
+\titlepage
+\maketitle
+
+\tableofcontents
+\toc
+
+\finalslide
+\finalpage
+\makefinal
+
+\begin{slide}[A slide]
+    The text within the slide.
+\end{slide}
+
+\begin{tikzslide}[A tikzslide]
+    \foreach \n in {1,...,9}{
+        \node[draw, circle, first] at (\n, \n){};
+    }
+    \content{
+        Some text inside the tikzslide.
+    }
+\end{tikzslide}
+
+\section
+
+\begin{slide}[A standard slide]
+    You can directly go to \tosection{1} or \tosection{2}.
+    
+    \spacing
+    
+    You can also try to go to \tosection{0} or \tosection{10}.
+    
+    \spacing[2]
+    
+    Finally, we can also go to \tosection{}.
+\end{slide}
+
+\section
+
+\begin{slide}[A slide from the cross section]
+    You can directly go to \tosection{1} or \tosection{2}.
+    
+    \spacing
+    
+    You can also try to go to \tosection{0} or \tosection{10}.
+    
+    \spacing[2]
+    
+    Finally, we can also go to \tosection{}.
+\end{slide}
+
+\section
+
+\begin{slide}[An unclear slide]
+    You can directly go to \tosection{1} or \tosection{2}.
+    
+    \spacing
+    
+    You can also try to go to \tosection{0} or \tosection{10}.
+    
+    \spacing[2]
+    
+    Finally, we can also go to \tosection{}.
+\end{slide}
+
+\begin{slide}
+    \begin{itemize}
+        \fillitem A filled bullet.
+        \emptyitem[second] An empty circle.
+        \citem[third]{3.} A custom item.
+    \end{itemize}
+
+    \begin{question}A question worth asking?\end{question}
+    \begin{remark}[Answer]
+        A remark that is actually an answer.
+    \end{remark}
+\end{slide}
+
+\begin{slide}
+    \begin{result}{Quotation}{}
+        ‘‘You can create your own result box.’’ - Beno{\^i}t
+    \end{result}
+
+    \begin{result}{Quotation}{Beno{\^i}t, Now}
+        You can create your own result box.
+    \end{result}
+\end{slide}
+
+\begin{slide}
+    \begin{definition}
+        A general definition that everyone should know.
+    \end{definition}
+
+    \begin{definition}[Math]
+        A math definition that some people should know.
+    \end{definition}
+\end{slide}
+
+\begin{slide}
+    You said something yesterday\citeref{Y},
+    and I only replied now\citeref{Me}.
+
+    A text on every slide.
+    \break
+    Some text appearing on the second slide.
+    
+    \showon[3]{A line only shown on the third slide.}
+    
+    \makeon[4]{A line only made on the fourth slide.}
+    
+    A final line differentiating show and make.
+\end{slide}
+\refslide
+\refpage
+\makeref
+
+\logo{background.png}
+\definecolor{titlepage}{RGB}{0, 100, 255}
+\colorlet{author}{first}
+\titleslide
+\hidelogo
+\def\backgroundanchor{south west}
+\def\backgroundwidth{2cm}
+\def\backgroundheight{0.5\paperheight}
+\titleslide
+
+\def\titlepageopacity{1}
+\colorlet{titlepagetext}{third}
+\setfontsizesubtitle{2.5cm}
+\def\titlex{0cm}
+\def\titley{\paperheight}
+\def\titleanchor{north west}
+\def\authorwidth{\paperwidth}
+\def\authoralign{left}
+\titleslide
+
+\def\banneropacity{1}
+\def\topbannerheight{0.5\paperheight}
+\setfontsizetopbanner{2cm}
+\colorlet{bottombanner}{second}
+\def\bottombannery{1cm}
+\def\bannerheaderalign{right}
+\showbannernumber
+\def\bannernumberalign{0.75}
+\begin{slide}[The bannerheader element]\end{slide}
+
+\def\tocheight{2cm}
+\def\sectionx{0.5\paperwidth}
+\def\sectionanchor{center}
+\setfontsizesymbol{2cm}
+\toc[My Table of Contents]
+\hidesymbol
+\section
+\hidesection
+\toc
+
+\def\contentopacity{0.9}
+\begin{slide}
+\begin{theorem}Some theorem.\end{theorem}
+\def\framingwidth{0.5\paperwidth}
+\def\framingmargin{0cm}
+\colorlet{framingbox}{third}
+\def\framingboxheight{-1cm}
+\begin{theorem}Some theorem.\end{theorem}
+\end{slide}
+
+\renewcommand{\backpage}{
+    \node[third, scale=5] at (15, 10){Background};
+}
+\renewcommand{\frontpage}{
+    \node[scale=5] at (15, 5){Foreground};
+    \node{\includegraphics[height=5cm]{background.png}};
+}
+\begin{page}\end{page}
+\begin{slide}\end{slide}
+
+\begin{page}
+    \drawbackground
+    \drawbanner
+    \drawcontent
+    \drawprogress
+    \drawbannerheader{Slide Header}
+    \drawbannertext
+    \content{The slide content.}
+\end{page}
+
+\begin{page}
+    \drawbackground
+    \drawoverlay{0.5}{red}
+    \drawbannerheader{Slide Header}
+    \showbannernumber
+    \drawbannernumber
+    \content{The slide content.}
+\end{page}
+
+\renewcommand{\drawbannerheader}[1]{
+    \node[first, scale=5]
+    at (\paperwidth/2, \paperheight/2){#1};
+}
+\renewcommand{\drawbannernumber}{
+    \drawtopbannertext[yellow]{right}
+    {page \insertpagenumber\ out of \insertdocumentendpage}
+}
+\begin{slide}[Title]Some slide\end{slide}
+
+\renewcommand{\drawframingbox}{
+    \draw[line width=0.1cm] (framing.north) -- (framing.south);
+    \draw[line width=0.1cm] (framing.west) -- (framing.east);
+    \draw[red, fill=red, opacity=0.2, line width=0cm]
+        (framing.north east) rectangle (framing.south west);
+}
+\begin{slide}
+    \begin{theorem}Some theorem.\end{theorem}
+\end{slide}
+
+\renewcommand{\drawref}[5]{
+    \hyperlink{#1}{\textbf{#4}}
+    \hfill\textcolor{text!10!page}{#1}
+    \begin{itemize}
+        \emptyitem Written by #2 in #3.
+        \emptyitem Published in \textit{#5}.
+    \end{itemize}
+}
+\refslide
+
+\end{document}

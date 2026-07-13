@@ -1,0 +1,986 @@
+% biblatex-juradiss documentation 2012/07/17 v0.1f
+%
+% Copyright (c) 2012 Tobias Schwan <tobias.schwan(aat)gmx.de>
+%               2020 Herbert Voß hvoss@tug.org
+\begin{filecontents}[force,noheader]{\jobname.bib}
+@ARTICLE{Mustermann1999,
+  author = {Mustermann, Michael},
+  title = {Gestaltungsmöglichkeiten bei Anreizsystemen},
+  journal = {NZG},
+  year = {1999},
+  pages = {797-900},
+  gender = {sm},
+}
+
+@BOOK{Bruemmerhoff2007,
+  author = {Brümmerhoff, Dieter},
+  gender = {sm},
+  title = {Finanzwissenschaft},
+  edition = {9},
+  location = {München u.a.},
+  year = {2007},
+  stand = {ok},
+  version = {1}
+}
+
+@BOOK{Birk2008,
+  author = {Birk, Dieter},
+  gender = {sm},
+  title = {Steuerrecht},
+  edition = {12},
+  location = {Heidelberg},
+  year = {2009},
+  stand = {ok},
+  version = {1}
+}
+
+@BOOK{Birk1994,
+  author = {Birk, Dieter},
+  gender = {sm},
+  title = {Allgemeines Steuerrecht},
+  shorttitle = {Allg. Steuerrecht},
+  edition = {2},
+  location = {München},
+  year = {1994},
+  version = {1}
+}
+
+@BOOK{Hausmann1998,
+  author = {Hausmann, Benedikt},
+  gender = {sm},
+  title = {Notwendige Erwerbsaufwendungen},
+  location = {Berlin},
+  year = {1998},
+  addendum = {zugl.: Diss. jur. Univ. Münster 1997},
+}
+
+@COMMENTARY{Duck2009,
+  editor = {Duck, Dietmar},
+  gender = {sm},
+  title = {Spannendesgesetz, Kommentar},
+  edition = {2},
+  location = {München},
+  year = {2009},
+}
+
+@COMMENTARY{Gans2002,
+  editor = {Gans, Dietmar},
+  editora = {Pantoffel, Frank},
+  editoratype = {founder},
+  gender = {pm},
+  title = {Handbuch des Rechts, des sonstigen Rechts und übriger Gesetze, Kommentar},
+  shorthand = {Handbuch des Rechts},
+  edition = {2},
+  location = {München},
+  year = {2002},
+}
+
+@INCOLLECTION{Schwaiger2004,
+  author = {Schwaiger, Gregor},
+  editor = {Grundmann, Stefanie and Haar, Brigitte and Merkt, Hans and Mülbert,
+	Peter and Wellenhof, Marina},
+  title = {Aufsichtsrat und Autonomie},
+  pages = {337},
+  booktitle = {Unternehmen und Verantwortung, Festschrift für Klaus J. Hauptmann},
+  location = {Berlin},
+  year = {2004},
+  stand = {ok},
+  shorttitle = {FS Hauptmann},
+}
+
+@PERIODICAL{Lutz1995,
+  author = {Lutz, Martin},
+  gender = {sm},
+  title = {Möglichkeiten der Verbesserung},
+  journal = {ZHR},
+  year = {1995},
+  volume = {159},
+  pages = {287},
+}
+
+@ARTICLE{Oldag2011,
+  author = {Oldag, Andreas},
+  title = {Wenn Teenies Banker spielen},
+  journal = {SZ},
+  pages = {30},
+  gender = {sm},
+  entrysubtype = {newspaper},
+  volume = {208},
+  date = {2011-09-09},
+}
+
+@ONLINE{Hirte2009,
+  author = {Hirte, Heribert},
+  title = {Stellungnahme zum Fraktionsentwurf eines Gesetzes zur Angemessenheit
+	der Vorstandsvergütung (VorstAG) für den Deutschen Bundestag},
+  url = {http://www.uni-augsburg.de/de/jura/fakultaet/lehrende/moellers/materialien/materialdateien/040_deutsche_gesetzgebungsgeschichte/gesetz_angemessenheit_vorstandsverguetung/pdf/stellungnahme_3.pdf},
+  urldate = {2011-04-03}
+}
+
+@JURISDICTION{bverfg:jubilaeum,
+  author = {BVerfG},
+  gender = {sn},
+  title = {Jubiläumsrückstellung},
+  decision = {Beschluss},
+  date = {2009-05-12},
+  sign = {2 BvL 1/00},
+  officialvolume = {BVerfGE 123},
+  officialpages = {111},
+  journaltitle = {FR},
+  journalyear = {2009},
+  pages = {873},
+  decisionname = {Jubiläumsrückstellung},
+}
+
+@LEGAL{bt16-12278,
+  journalsubtitle = {16/12278},
+  journaltitle = {BT-Drs.},
+  title = {BT-Drucksache 16/12278}
+}
+
+@ARTICLE{Kirchhof2000,
+  author = {Kirchhof, Ferdinand},
+  title = {Die Tauglichkeit von Abgaben zur Lenkung des Verhaltens},
+  journal = {DVBl},
+  year = {2000},
+  pages = {1166},
+  gender = {sm},
+}
+
+@ARTICLE{Kirchhof2006,
+  author = {Kirchhof, Paul},
+  title = {Die freiheitsrechtliche Struktur der Steuerrechtsordnung},
+  journal = {StuW},
+  year = {2006},
+  pages = {3},
+  gender = {sm},
+}
+\end{filecontents}
+
+
+\documentclass[toc=graduated,parskip=half-,DIV=13,fontsize=11pt,paper=a4]{scrartcl}
+
+\usepackage{eurosym}	% Damit das Euro-Symbol dargestellt werden kann
+\usepackage{libertinus-otf} 		% Damit LaTex Umlaute usw. erkennt
+\setmonofont[Scale=MatchLowercase,FakeStretch=0.9]{AnonymousPro}
+\usepackage[ngerman]{babel}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\usepackage{dtk-logos}
+\usepackage{enumitem}
+\setlist{nosep}
+%\raggedbottom 				% Abstaende zwischen Absaetzen nicht zu gross werden lassen
+
+\usepackage[babel,german=guillemets]{csquotes}
+%%% 
+%%% Hier werden die package-Optionen fuer biblatex gesetzt:
+%%%
+\usepackage[%
+    uniquename=true,% Kommt ein Nachname eines Autors mehrfach vor, so wird dieser mit Initialen zitiert.
+    singletitle=true,
+    sorting=nyvt,% Sortierreihenfolge im LitVerz: Zuerst nach Name, beim gleichen Autor nach Jahr, Volume und Titel
+    sortcites=true,
+    maxnames=3,
+    idemtracker=constrict,%
+    style=biblatex-juradiss,% Nutzung des biblatex-Stils biblatex-juradiss
+    ibidtracker=false,% Kein ebenda
+    datezeros=false,% Keine führende Null vor Datumsziffern: 9. 2. 1982 statt 09.02.1988
+    date=short,% Datum als Ziffern, keine ausgeschriebenen Monatsnamen
+]{biblatex} 
+
+\usepackage{xurl}
+
+\usepackage{xspace}
+\addbibresource{\jobname.bib}
+
+\defbibheading{subbib}{\addsubsec{#1}}
+
+%%% Kategorien für die einzelnen Literaturverzeichnisbeispiele
+%%% zum Darstellen der LitVerz-Ausgabe beim jew. Beispiel
+\DeclareBibliographyCategory{1}
+\addtocategory{1}{Mustermann1999}
+
+\DeclareBibliographyCategory{2}
+\addtocategory{2}{Bruemmerhoff2007}
+
+\DeclareBibliographyCategory{3}
+\addtocategory{3}{Hausmann1998}
+
+\DeclareBibliographyCategory{4}
+\addtocategory{4}{Birk2008,Birk1994}
+
+\DeclareBibliographyCategory{5}
+\addtocategory{5}{Duck2009}
+
+\DeclareBibliographyCategory{6}
+\addtocategory{6}{Gans2002}
+
+\DeclareBibliographyCategory{7}
+\addtocategory{7}{Schwaiger2004}
+
+\DeclareBibliographyCategory{8}
+\addtocategory{8}{Lutz1995}
+
+\DeclareBibliographyCategory{9}
+\addtocategory{9}{Oldag2011}
+
+\DeclareBibliographyCategory{10}
+\addtocategory{10}{Hirte2009}
+
+\def\bibj{\texttt{biblatex-juradiss}\xspace}
+\def\bib{\texttt{biblatex}\xspace}
+\def\cs#1{\texttt{\textbackslash#1}}
+
+\usepackage{mdframed,xcolor}
+\def\showbib#1{%
+\begin{mdframed}[
+  leftmargin=0pt,
+  rightmargin=0pt,
+  linecolor=black, 
+  backgroundcolor=black!10]
+\vspace{-\normalbaselineskip}
+\printbibliography[category=#1]
+\end{mdframed}}
+
+\usepackage[colorlinks,linktocpage]{hyperref}
+
+\makeatletter
+\newcommand\addsubsec{\SecDef\@addsubsec\@saddsubsec}
+\newcommand*{\@addsubsec}{}
+\def\@addsubsec[#1]#2{%
+  \edef\reserved@a{%
+    \unexpanded{%
+      \subsection[{#1}]{#2}%
+      \c@secnumdepth=
+    }\the\c@secnumdepth\relax
+  }%
+  \c@secnumdepth=\numexpr \sectionnumdepth-1\relax
+  \reserved@a
+}
+\newcommand*{\@saddsubsec}[1]{%
+  \subsection*{#1}\addsubsecmark{}%
+}
+\makeatother
+
+
+
+\begin{document}
+
+%%%%%
+% Frontmatter
+%%%%%
+
+\title{biblatex-juradiss}
+\subtitle{Ver. 0.23}
+\author{Tobias Schwan \and Herbert Voß}
+
+\maketitle
+
+\vfill
+Danke an Moritz Wemheuer;
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\section{Einleitung}
+
+
+Diese Dokumentation erklärt in kurzen Worten die Anpassungen des Stils \bibj und wie man sie 
+nutzen kann. Indirekt werden dabei auch einige Funktionen von \bib erläutert, auf das 
+aufsetzt. Grundsätzlich sollte man bei Fragen zu den Funktionen von \bib die sehr gute und 
+ausführliche Dokumentation von \bib konsultieren. Ohne zumindest das Überfliegen des 
+User-Guide in der Dokumentation zu \bib\ lässt sich \bib und \bibj nicht sinnvoll verwenden. 
+Inzwischen gibt es auch eine deutsche Fassung.
+
+Zum Schnelleinstieg werden im folgenden Abschnitt »Kurzanleitung« die Voraussetzungen zur Verwendung von \bibj 
+kurz erläutert. Danach erfolgt die Darstellung der Zitierstile der unterschiedlichen Dokumentenarten 
+mit Beispielen.
+
+
+\section{Kurzanleitung}
+
+
+Anleitung zur Installation von \texttt{biblatex-juradiss} (unter Windows), falls man keine offizielle
+Installation von \MiKTeX oder \TeXLive hat; dann wäre ohnehin alles vorhanden:
+
+1. Installation von Mik\TeX/\TeX Live
+
+2. Installation von packages über den PackageManager:
+\begin{itemize}
+\item \texttt{biblatex}
+\item \texttt{biblatex-dw}
+\item \texttt{etoolbox}
+\item \texttt{logreq}
+\item \texttt{csquotes}
+\item \texttt{juramisc} (wenn man die Dokumentenklasse hiervon benutzen möchte)
+\end{itemize}
+
+
+\section{Installation}
+
+\bibj setzt auf den Paketen \bib und biblatex-dw auf. Grund hierfür ist, dass \bib alle 
+Funktionen erst bereitstellt, die es ermöglichen individuelle Zitierstile zu entwickeln. Die Zitierweise 
+deutscher Juristen ist allerdings so speziell im Vergleich zu dem sonst üblichen, dass es noch 
+zusätzlich weiterer Funktionen bedarf, diese vollständig abzubilden. Diese finden sich in 
+\texttt{biblatex-dw}. 
+Zwar hätte man diese auch aus dem Paket herausnehmen und in \bibj integrieren können, aber der 
+Aufwand hierfür erschien mir zu groß. Zudem ist mit dem gut gepflegten Paket \texttt{biblatex-dw} 
+sichergestellt, dass die von diesem bereitgestellten Funktionen auch trotz der sehr schnellen 
+Entwicklung von \bib zuverlässig erhalten und kompatibel bleiben.
+
+Dies führt dazu, dass zur Verwendung von \bibj auch das Paket \texttt{biblatex-dw} vorhanden sein 
+muss. 
+Dessen Funktionen werden über \bibj direkt eingebunden, es muss nicht erst per Paketoption über 
+\bib geladen werden.
+
+Um \bibj zu verwenden muss dieses als Paketoption von \bib eingebunden werden. Dies geschieht 
+durch die Anweisung 
+
+\cs{usepackage[style=biblatex-juradiss]\{biblatex\}}
+
+Sofern man die Dateien nicht über eine \TeX"=Distribution, wie \TeXLive oder Mik\TeX\ installiert, 
+kopiert man die Dateien \texttt{biblatex-juradiss.cbx} und \texttt{biblatex-juradiss.bbx} in das
+Verzeichnis
+
+\texttt{<TEXMFLOCAL>/tex/latex/biblatex-juradiss}
+
+wobei 
+\texttt{<TEXMFLOCAL>} der Wurzelpfad der \TeX"=Installation ist. Danach muss man die Dateiliste 
+bei \MiKTeX über das Menü oder allgemein durch Ausführen von \texttt{texhash} 
+aktualisieren.
+
+
+\section{Dokumentenklasse}
+
+
+Für die Erstellung einer Doktorarbeit wurde die Dokumentenklasse \texttt{jurabook} aus dem 
+Paket \texttt{juramisc} verwendet. Das Paket bietet viele nützliche Optionen und integriert bereits die 
+von Juristen verwendete Bezeichnung der Gliederungsebenen (A., I., 1., a), aa), aaa), (1), (a)).
+
+Leider wird das Paket seit einiger Zeit nicht mehr gepflegt, weshalb es inzwischen vielleicht nicht mehr uneingeschränkt zu empfehlen ist.
+
+Eine Alternative ist die Verwendung der Dokumentenklasse \texttt{book} und die individuelle 
+Anpassung des Inhaltsverzeichnisses. Gerade mit dem Paket \texttt{titletoc} ist das keine große 
+Kunst. Will man seine Doktorarbeit später in einem Verlag veröffentlichen empfielt sich das ohnehin. 
+Denn dieser hat oftmals seine eigene \LaTeX-Vorlage, die Fragen wie Fußnotenumbruch und 
+Formatierung der Kopfzeilen selbst regelt. Hier kann die Umstellung von \texttt{jurabook} auf die 
+verlagsspezifische Vorlage umständlicher sein, als wenn man das zuvor selbst angepasst hat (so war 
+es jedenfalls bei mir), denn dann kann man die eigenen Anpassungen durch die des Verlags ersetzen.
+%bei \texttt{jurabook} wusste ich im Nachhinein nicht mehr, welche Anpassung auf \texttt{jurabook} 
+%abzielte und welche auf generelle Dinge, wie den Fußnotenumbruch.
+
+
+\section{Verhältnis zu \texttt{biblatex-jura}}
+
+
+\texttt{biblatex-jura} hat ebenso wie dieses Paket das Ziel das Schreiben juristischer Texte mit 
+\LaTeX{} zu 
+ermöglichen. 
+%Dementsprechend hatte ich zu Beginn auch dieses Paket verwendet und versucht, es für 
+%meine Bedürfnisse anzupassen. Mit der Zeit musste ich allerdings feststellen, dass es mit der 
+%weiteren Entwicklung von \bib nicht Schritt hält. Irgendwann hatte ich es soweit modifiziert, dass es 
+%sinnvoller wurde, die eigenen Anpassungen direkt auf Basis von \bib zu schreiben.
+
+%Eine Mithilfe bei \texttt{biblatex-jura} schien ebenfalls nicht sinnvoll, da dieses sich an den 
+%Zitiervorgaben 
+%des Nomos-Verlags orientiert, mein Stil aber meinen Vorstellungen einer Doktorarbeit entsprechen 
+%sollte. Außerdem verwendet \texttt{biblatex-jura} teilweise interne Funktionen von \bib, die nicht 
+%dafür 
+%da sind, durch externe Pakete verwendet oder geändert zu werden. Das führte in der Vergangenheit 
+%zu Inkompatibilitäten von \texttt{biblatex-jura} zu neueren Versionen von \bib. Bei meinem Stil setze 
+%ich 
+%(nahezu) ausschließlich auf Funktionen von \bib auf, die dieses hierfür anbietet, was die 
+%Kompatibilität langfristig erhalten sollte.
+
+
+\section{Einzelne Eintragstypen}
+
+
+%Hier stelle ich anhand von Beispielen die einzelnen Eintragstypen vor, die ich für meinen Stil angepasst habe:
+
+
+\subsection{Eintragstyp \texttt{article}}
+
+
+Zeitschriftenartikel werden als Fußnote\footcite[800]{Mustermann1999}, im laufenden Text als
+\cite[800]{Mustermann1999} oder am Ende so ausgegeben.~\parencite[800]{Mustermann1999}
+
+\begin{lstlisting}[frame=single,xleftmargin=\fboxsep,xrightmargin=\fboxsep]
+Zeitschriftenartikel werden als Fußnote\footcite[800]{Mustermann1999}, im 
+laufenden Text als \cite[800]{Mustermann1999} oder am Ende so 
+ausgegeben.~\parencite[800]{Mustermann1999}
+\end{lstlisting}
+ 
+Es gibt zwar auch die Möglichkeit die konkrete Fundstelle (hier in runden Klammern) einfach nur 
+durch ein Komma zu trennen, aber gerade wenn man mehrere Zitate hintereinander setzt, helfen die 
+runden Klammern m.E. beim Trennen der einzelnen Zitate. Die kursive Schrift von Personen fördert 
+bei Fußnoten mit vielen Belegen zudem die Lesbarkeit.
+
+Der Literaturverzeichniseintrag sieht so aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=1]
+%\hrulefill
+\showbib{1}
+
+Teilweise wird inzwischen empfohlen im Literaturverzeichnis nicht nur die Anfangs-, sondern auch 
+die Endseite eines Beitrags anzugeben, um zu zeigen, dass man nicht lediglich blind zitiert hat, 
+sondern den Beitrag zumindest mal selbst in der Hand hatte. Im naturwissenschaftlichen Bereich ist 
+das wohl üblicher. Ich finde die Idee nicht schlecht, jedenfalls unterstützt \bibj das auch seit Version 
+0.1f.
+
+
+\subsection{Eintragssubtyp \texttt{newsletter}}
+
+
+Nicht oft, aber manchmal kommt es durchaus vor, dass man in juristischen Texten auch 
+Tageszeitungen zitiert (zB die SZ oder die FAZ, in Dissertationen kommt auch schon mal die TAZ vor..)
+
+Für Tageszeitungen sieht \bib keinen eigenen Stil vor. Es besteht aber die Möglichkeit eigene Stile für 
+Unterarten von Eintragstypen zu definieren. Ein Eintrag wird einem bestimmten \texttt{entrysubtitle} 
+zugeordnet, indem man dem jeweiligen Eintrag in der Literaturdatenbank das Feld 
+\texttt{entrysubtype} 
+hinzufügt und in diesem den entsprechenden Subtyp angibt.
+
+Für Tageszeitungen habe ich das über den Typ \texttt{newsletter} gemacht. In diesem gibt man bei 
+Tageszeitungen neben dem Autor und dem Namen der Zeitschrift das Datum der Ausgabe (Feld 
+\texttt{date}, Format: \texttt{JJJJ-MM-TT}), sowie deren Nummer (Feld \texttt{volume}) an.
+
+
+Beispielseintrag:
+
+\begin{lstlisting}
+@ARTICLE{Oldag2011,
+  author = {Oldag, Andreas},
+  gender = {sm},
+  title = {Wenn Teenies Banker spielen},
+  journal = {SZ},
+  pages = {30},
+  entrysubtype = {newspaper},
+  volume = {208},
+  date = {2011-09-09},
+}
+\end{lstlisting}
+
+Ausgabe als Fußnote\footcite{Oldag2011}, im laufenden Text als
+\cite{Oldag2011} oder am Ende so ausgegeben.~\parencite{Oldag2011}
+
+Literaturverzeichniseintrag:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=9]
+%\hrulefill
+\showbib{9}
+
+
+\subsection{Eintragstyp \texttt{book}}
+
+
+Monografien, also beispielsweise Lehrbücher oder Dissertationen  
+als Fußnote\footcite[55]{Bruemmerhoff2007}, im laufenden Text als
+\cite[55]{Bruemmerhoff2007} oder am Ende so ausgegeben.~\parencite[55]{Bruemmerhoff2007}
+
+Der Literaturverzeichniseintrag sieht so aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=2]
+%\hrulefill
+
+\showbib{2}
+
+Disserationen sehen in der Fußnote\footcite[231]{Hausmann1998}, im laufenden Text
+\cite[231]{Hausmann1998} und am Ende wie normale Bücher aus.~\parencite[231]{Hausmann1998}
+
+Nur im Literaturverzeichnis füge ich die Universität der Dissertation usw. in das Feld 
+\texttt{addendum} ein:
+
+\begin{lstlisting}
+@BOOK{Hausmann1998,
+  author = {Hausmann, Benedikt},
+  gender = {sm},
+  title = {Notwendige Erwerbsaufwendungen},
+  location = {Berlin},
+  year = {1998},
+  addendum = {zugl.: Diss. jur. Univ. Münster 1997},
+}
+\end{lstlisting}
+
+Das wird dann im LitVerz-Eintrag einfach hinten angefügt:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=3]
+%\hrulefill
+\showbib{3}
+
+
+Gibt es vom gleichen Autor mehrere Einträge, wird in die Fußnote zur Unterscheidung der Titel des Buchs 
+geschrieben, wenn die Fußnote sonst nicht eindeutig ist. 
+
+Ist bei Monografien das Feld \texttt{shorttitle} definiert, so wird dessen Inhalt genommen, was in der 
+Regel besser aussieht. 
+
+Keine Zuordnungsprobleme bestehen, wenn der weitere Eintrag ein Zeitschriften- oder 
+Festschriftenbeitrag ist, denn diese sind über den Namen der Zeitschrift oder der Festschrift, der in 
+der Fußnote stets mit zitiert wird, bereits eindeutig unterscheidbar.
+
+Beispiel für eine Fußnote von zwei Monografien eines 
+Autors\footcites[231]{Birk2008}[34]{Birk1994}, im laufenden Text als \cites[231]{Birk2008}[34]{Birk1994} 
+und am Ende.~\parencites[231]{Birk2008}[34]{Birk1994}
+
+\begin{lstlisting}[frame=single,xleftmargin=\fboxsep,xrightmargin=\fboxsep]
+Beispiel für eine Fußnote von zwei Monografien eines 
+Autors\footcites[231]{Birk2008}[34]{Birk1994}, im laufenden Text als
+\cites[231]{Birk2008}[34]{Birk1994} und am 
+Ende.~\parencites[231]{Birk2008}[34]{Birk1994}
+\end{lstlisting}
+Im Literaturverzeichnis wird entsprechend angegeben, wie das jeweilige Werk zitiert wird, der Zusatz 
+»zitiert als« erscheint bei Zeitschriften nie, bei Festschriften immer: 
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=4]
+%\hrulefill
+\showbib{4}
+
+
+\subsection{Eintragstyp \texttt{commentary}}
+
+
+Die Zitation von juristischen Kommentaren ist die größte Herausforderung für meinen Stil gewesen.
+Zitiert wird ein Kommentar, indem das \texttt{prenote}-Feld genutzt wird. Der \cs{cite}-Befehl von 
+\bib kennt ein 
+\texttt{prenote} und ein \texttt{postnote}-Feld. Bei dem Befehl \cs{cite[50]\{bibtexkey\}} wird das 
+\texttt{postnote}-Feld mit dem Inhalt der eckigen Klammer gefüllt (hier die 50). Dessen Inhalt kommt 
+an das 
+Ende des jeweiligen Zitats (deshalb POSTnote-Feld). Das \texttt{prenote}-Feld wird mit dem Inhalt 
+der ersten 
+eckigen Klammer gefüllt, wenn man dem \texttt{bibtex}-Schlüssel im \cs{cite}-Befehl zwei eckige 
+Klammern voranstellt:  \cs{cite[\emph{Bearbeiter}][50]\{bibtexkey\}}.\footnote{Mehr zu der 
+Funktionsweise von \texttt{prenote} und \texttt{postnote}-Feldern ist in der Dokumentation von \bib 
+zu finden.}
+
+Wird bei Kommentaren die Auflagenzahl angegeben, so wird diese als kleine hochgestellte Zahl 
+hinter den Herausgeber, oder den Kommentarnamen geschrieben. So lassen sich Zitate von 
+Kommentar"=Bearbeitern aus unterschiedlichen Auflagen recht einfach voneinander unterscheiden.
+
+Das Zitat eines juristischen Kommentars als Fußnote\footcite[Donald][§~4 Rn.~443]{Duck2009},
+im laufenden Text als \cite[Donald][§~4 Rn.~443]{Duck2009} oder am Ende.~\parencite[Donald][§~4 Rn.~443]{Duck2009}
+
+% Hier habe ich den Code manuell eingegeben, da die Darstellung des Stils danach differenziert, 
+%ob er sich in einer Fußnote befindet oder nicht, das ist hier bei der Doku halt nicht der Fall. 
+%Für diesen Sonderfall wollte ich aber nicht den Stil nochmal umbasteln...
+%\emph{Donald}, in: \emph{Duck\textsuperscript{\tiny{2}}}, §~4 Rn.~443
+
+Im Literaturverzeichnis sieht dieser wie folgt aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=5]
+%\hrulefill
+\showbib{5}
+
+Kommentare werden üblicherweise mit den Namen der Herausgeber zitiert, genauso üblich ist es 
+aber auch, den Namen eines alten Herausgebers als Zitat zu verwenden, oder einen Eigennamen. 
+Hierfür ist das Feld \texttt{shorthand} da. Ist es nicht leer, so wird dessen Inhalt statt die Namen der 
+Herausgeber für das Fußnotenzitat verwendet. Will man einem oder mehreren Herausgebern oder 
+Autoren eine bestimmte Eigenschaft zuordnen z.\,B. Begründer oder Fortführer, so kann man dies, 
+indem man dem Eintrag in der Literaturdatenbank das Feld \texttt{editortype} hinzufügt und in 
+dieses 
+beispielsweise \texttt{founder} schreibt. Unterschiedliche Arten kann man unterscheiden, indem man 
+diese 
+dann in das Feld \texttt{editora} (mit \texttt{editoratype}) usw. einträgt.\footnote{Mehr hierzu ist in 
+der 
+Dokumentation von \bib zu finden.} Bei Autoren geht das genauso, nur dass es hier kein 
+\texttt{authora} gibt, 
+sondern stattdessen \texttt{namea} usw.
+
+Hier ein Kommentar, bei dem ein Herausgeber zugleich Begründer des Werks war. Außerdem ist es bei 
+diesem üblich, ihn mit einem Eigennamen, statt den Herausgebern zu zitieren.
+
+Der Beispieleintrag sieht dann so aus:
+
+\begin{lstlisting}
+@COMMENTARY{Gans2002,
+  editor = {Gans, Dietmar},
+  editora = {Pantoffel, Frank},
+  editoratype = {founder},
+  gender = {pm},
+  title = {Handbuch des Rechts, des sonstigen Rechts und übriger
+  Gesetze, Kommentar},
+  shorthand = {Handbuch des Rechts},
+  edition = {2},
+  location = {München},
+  year = {2002},
+}
+\end{lstlisting}
+
+Der Eintrag als Fußnote\footcite[Schneider][§~4 Rn.~443]{Gans2002}, oder im laufenden
+Text als \cite[Schneider][§~4 Rn.~443]{Gans2002}, beziehungsweise ganz am Ende.~\parencite[Schneider][§~4 Rn.~443]{Gans2002}
+
+% Hier habe ich den Code manuell eingegeben, da die Darstellung des Stils danach differenziert, 
+%ob er sich in einer Fußnote befindet oder nicht, das ist hier bei der Doku halt nicht der Fall. 
+%Für diesen Sonderfall wollte ich aber nicht den Stil nochmal umbasteln...
+%\emph{Schneider}, in: \emph{Handbuch des Rechts\textsuperscript{\tiny{2}}}, §~4 Rn.~443.
+
+Im Literaturverzeichnis sieht dieser wie folgt aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=6]
+%\hrulefill
+\showbib{6}
+
+
+\subsection{Eintragstyp \texttt{incollection}}
+
+
+Festschriften haben folgende notwendige Felder im Literaturdatenbank-Eintrag:
+
+\texttt{author} = Name des Festschriftautors\\
+\texttt{title} = Titel der Festschrift\\
+\texttt{pages} = Seitenzahl, an der der Beitrag beginnt\\
+\texttt{editor} = Name des Herausgebers der Festschrift\\
+\texttt{booktitle} = Name der Festschrift\\
+\texttt{shorttitle} = Abkürzung für die Fußnote (zB FS Lutter)
+
+Optional (wie bei allen Monografien), zB:\\
+\texttt{location} = Erscheinungsort der Festschrift\\
+\texttt{year} = Erscheinungsjahr
+
+Hat eine Festschrift viele Herausgeber, kann man einstellen, dass im Literaturverzeichnis nur der 
+erste mit dem Zusatz u.a. genannt wird. Die Anzahl, bis zu der alle Herausgeber genannt werden 
+sollen definiert man über die Paketoption von \bib maxnames (ich verwende \texttt{maxnames=3}).
+
+So sieht es als Fußnote\footcite{Schwaiger2004}, so im laufenden Text \cite{Schwaiger2004} und
+so am Ende eines Satzes.~\parencite{Schwaiger2004}
+
+%\cite{Schwaiger2004}
+
+Im Literaturverzeichnis sieht der Eintrag einer Festschrift mit fünf Herausgebern wie folgt aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=7]
+%\hrulefill
+\showbib{7}
+
+
+\subsection{Eintragstyp \texttt{periodical}}
+
+
+Der Eintragstyp \texttt{periodical} ist an sich eine Abwandlung des Eintragstyps \texttt{article}. Er ist 
+gedacht für Archivzeitschriften, die neben dem Jahrgang auch zusätzlich eine laufende Nummer für 
+das jeweilige Jahr verwenden (zB AöR, AcP, ZHR, und für den Steuerrechtler: DStJG). Die 
+Jahrgangsnummer wird in das Feld \texttt{volume} eingetragen.
+
+Als Fußnote\footcite{Lutz1995}, im laufenden Text als \cite{Lutz1995} und am Ende eines Satzes.~\parencite{Lutz1995}
+
+Literaturverzeichniseintrag:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=8]
+%\hrulefill
+\showbib{8}
+
+
+\subsection{Eintragstyp \texttt{online}}
+
+
+Dieser Eintragstyp ist für Dokumente, die nur online zugänglich sind, z.\,B. Pressemitteilungen oder 
+Stellungnahmen von Verbänden oder Professoren zu Gesetzesvorhaben etc.
+
+Derzeit sieht dieser Eintragstyp lediglich die Felder \texttt{author}, \texttt{title}, \texttt{shorttitle}, 
+sowie \texttt{url} und \texttt{urldate} vor. Die URL wird nur im LitVerz angezeigt, zusammen mit dem 
+Datum des letzten Abrufs (\texttt{urldate}, Format: \texttt{JJJJ-MM-TT}). Wenn ein \texttt{shorttitle} 
+eingetragen wird, so wird dieser auch in der Fußnote aufgeführt.
+
+Ausgabe als Fußnote\footcite[3]{Hirte2009}, im laufenden Text als \cite[3]{Hirte2009} oder am Ende
+eines Satzes.~\parencite[3]{Hirte2009}
+
+%\cite[3]{Hirte2009}
+
+Der Eintrag im Literaturverzeichnis sieht so aus:
+
+%\hrulefill\vspace{-\normalbaselineskip}
+%\printbibliography[category=10]
+%\hrulefill
+\showbib{10}
+
+
+\subsection{Eintragstyp \texttt{jurisdiction}}
+
+
+Ein kleines Alleinstellungsmerkmal dieses Stils ist die Unterstützung eines Verweisstils für 
+juristische Literatur UND für Gerichtsurteile, sowie offizielle Dokumente. Hierfür gibt es zwar auch 
+das Paket \texttt{jurarsp}. Es wurde aber in den letzten Jahren nicht mehr weiterentwickelt. In seiner 
+Funktionsvielfalt ist es meinem Stil zwar in vielen Bereichen überlegen und auch den ein oder 
+anderen Darstellungsfehler wegen inzwischen eingetretener Inkompatibilität konnte ich durch 
+Änderung der Paketdateien erreichen. Aber \bib und \texttt{jurarsp} arbeiten nicht zusammen. So 
+sieht \bib 
+nicht, dass zwischen zwei Literaturzitaten ein Rechtsprechungszitat ist und wendet die 
+idem-Funktion an. Auch in die \cs{cite}-Befehle kann man die Rechtsprechungszitate nicht 
+integrieren. Außerdem musste man \texttt{bibtex} immer einmal separat über die 
+Rechtsprechungs"=Bibdatei laufen lassen. Diese Nachteile haben mich veranlasst einen eigenen Stil 
+für Rechtsprechungszitate zu schreiben. Dafür dient der Eintragstyp \texttt{jurisdiction}. Genauso wie 
+der 
+Eintragstyp legal ist er von \bib zwar vorgesehen, enthält aber keine Zitiervorgaben. 
+
+Der Eintragstyp jurisdiction hat folgende Felder:
+
+\begin{itemize}
+
+\item \texttt{author} = Name des Gerichts (zB BFH, BVerfG, BGH etc.)
+\item \texttt{gender} = Für die idem-Funktion (zB dass. bei Eintrag: "'sn"', zB für das BVerfG, oder 
+ders., dann Eintrag: "'sm"', zB für den BGH)\footnote{Ausführliche Erklärung zu \texttt{gender} in der 
+\bib"=Dokumentation.}
+\item \texttt{date} = Urteilsdatum in der Form JJJJ-MM-TT
+\item \texttt{decision} = für Art der Entscheidung, zB Urteil oder Beschluss
+\item \texttt{sign} = Aktenzeichen
+\item \texttt{officialvolume} = Name der Entscheidungssammlung oder der Zeitschrift der primären 
+Fundstelle inkl. Band oder Jahrgang (zB BGHZ 31 oder BVerfGE 13, aber auch NJW 2011 oder juris 
+(nv)) Die primäre Fundstelle ist oftmals eine Entscheidungssammlung. Hier ist es dann manchmal 
+üblich, eine weitere Fundstelle in einer juristischen Zeitschrift anzugeben. Zu diesem Zweck gibt es 
+die Möglichkeit die zweite Fundstelle als sekundäre Fundstelle anzugeben. Das ist aber optional. 
+\item \texttt{officialpages} = Erste Seite der Entscheidung in der primären Fundstelle
+\item \texttt{pages} = Erste Seite des Urteils in der sekundären Fundstelle 
+\item \texttt{journaltitle} = Zeitschriftenname in der sekundären Fundstelle
+\item \texttt{journalyear} = Zeitschriftenjahrgang in der sekundären Fundstelle
+\item \texttt{decisionname} = Entscheidungsname (zB. Centros oder Herrenreiter)
+\end{itemize}
+
+Will man die obigen Feldnamen (also \texttt{decision} und \texttt{sign} usw.) in seiner 
+Literaturdatenbank verwenden, 
+so muss man \bib zwingend mit \texttt{biber} benutzen und nicht mit \texttt{bibtex}. Denn \bib 
+bringt zwar von 
+Hause aus den Eintragstyp \texttt{jurisdiction} mit, aber keine Felder die speziell für diesen 
+Eintragstyp 
+benötigt werden, also Felder für das Aktenzeichen, die primäre und sekundäre Fundstelle usw. 
+Diese Felder werden alle durch \texttt{biblatex-juradiss} definiert.
+%Um 
+%benutzerdefinierte Felder verwenden zu können bietet \bib nur die Möglichkeit die Felder user[a-f] 
+%zu verwenden. 
+
+%Da der Typ \texttt{jurisdiction} fast nur aus benutzerdefinierten Feldern besteht, 
+%würde das 
+%die Eingabe von Einträgen in die Literaturdatenbank schwierig machen. 
+%\texttt{biber} bietet dafür die 
+%Möglichkeit in der Literaturdatenbank eigene Feldnamen zu verwenden, die dann bei Erstellung des 
+%\LaTeX"=Dokuments in die internen Feldnamen von \bib umbenannt werden. Intern arbeitet mein Stil 
+%daher mit user[a-f], in der Literaturdatenbank können aber die aussagekräftigen Namen verwendet 
+%werden.
+
+%Die Festlegung erfolgt durch:
+
+%\begin{lstlisting}
+%  \maps[datatype=bibtex]{%
+%    \map{
+%      \step[fieldsource=decision,       fieldtarget=usera]
+%      \step[fieldsource=sign,           fieldtarget=userb]
+%      \step[fieldsource=officialvolume, fieldtarget=userc]
+%      \step[fieldsource=officialpages,  fieldtarget=userd]
+%      \step[fieldsource=journalyear,    fieldtarget=usere]
+%      \step[fieldsource=decisionname,   fieldtarget=userf]
+%    }
+%  }
+%\end{lstlisting}
+
+Ausgabe als Fußnote\footcite[3]{bverfg:jubilaeum}, im laufenden Text als \cite[3]{bverfg:jubilaeum}
+oder am Ende eines Satzes.~\parencite[3]{bverfg:jubilaeum}
+
+Einen Eintrag für das Literaturverzeichnis kann ich derzeit noch nicht präsentieren. Bisher habe ich nicht vor, 
+ein eigenes Rechtsprechungsverzeichnis in meiner Promotion anzugeben. Daher habe ich bisher auch noch keine 
+Energie in die Erstellung eines solchen Verzeichnisses investiert. 
+
+\label{nichtinslitverz}
+Damit die Rechtsprechungszitate nicht doch in komischer Form im Literaturverzeichnis auftauchen 
+sollte man diese beim Aufruf des Literaturverzeichnisses durch die Option 
+\texttt{nottype=jurisdiction} außen vor lassen. Das gleiche gilt für den Eintragstyp \texttt{legal}:
+
+Beispiel: 
+\begin{lstlisting}
+\printbibliography[nottype=jurisdiction,nottype=legal]
+\end{lstlisting}
+
+\begin{mdframed}[
+  leftmargin=0pt,
+  rightmargin=0pt,
+  linecolor=black, 
+  backgroundcolor=black!10]
+\vspace{-\normalbaselineskip}
+\printbibliography[nottype=jurisdiction,nottype=legal]
+\end{mdframed}
+
+\subsection{Eintragstyp \texttt{legal}}
+
+
+Zuletzt soll noch der Eintragstyp \texttt{legal} vorgestellt werden. Für diesen gilt das gleiche, wie 
+zum Eintragstyp \texttt{jurisdiction}. Nur eigene Feldnamen müssen hier nicht konvertiert werden, da 
+ich hier in -- wie ich finde gerade noch vertretbarer Weise -- bestehende Felder verwende.
+
+Das Feld \texttt{journaltitle} enthält dabei die Bezeichnung der jeweiligen Veröffentlichung, zB 
+BT-Drs., oder BMF-Schreiben. Das Feld \texttt{journalsubtitle} enthält dann die Bezeichnung des 
+konkreten Dokuments, zB 16/12278 oder v.~5.~5.~2011.
+
+Ein Eintrag in der Literaturdatenbank sieht dann beispielsweise so aus:
+
+\begin{lstlisting}
+@LEGAL{bt16-12278,
+  journalsubtitle = {16/12278},
+  journaltitle = {BT-Drs.},
+  title = {BT-Drucksache 16/12278}
+}
+\end{lstlisting}
+
+Da es das besondere von offiziellen Dokumenten ist, dass man keinen Autor angibt (denn dieser ergibt sich aus dem Namen des 
+Dokuments) ist dieser auch nicht vorgesehen.
+
+Ausgabe als Fußnote\footcite[3]{bt16-12278}, im laufenden Text als \cite[3]{bt16-12278} oder
+am Ende eines Satzes.~\parencite[3]{bt16-12278}
+
+Ein Verzeichnis der offiziellen Dokumente habe ich derzeit ebenfalls nicht für meine Promotion geplant, dementsprechend gibt 
+es hierfür auch noch keinen Stil.
+
+Auch hier ist zu beachten, dass der Eintragstyp beim Darstellen des Literaturverzeichnisses außen vor gelassen werden 
+sollte.\footnote{Vgl. oben \qverweis{nichtinslitverz}.}
+
+
+\section{Anleitung zur Anpassung der Stilvorgaben}
+
+
+Nun ist der Stil der Zitate sehr an meinen Vorstellungen orientiert. Hier spielt der individuelle Geschmack auch immer eine Rolle. Dieser Stil soll damit zunächst alles mitbringen, um \LaTeX{} für juristische Texte verwenden zu können und der konkrete Stil soll hierfür als Beispiel dienen, was man damit machen kann. Gerade die Optik der Zitate und der Darstellung des Literaturverzeichnisses lässt sich aber mit sehr einfachen Mitteln anpassen.
+
+Hier ein kleines Beispiel:
+
+Möchte man beispielsweise, dass auch bei Zeitschriften stets ein in: zwischen Autor und 
+Zeitschriftenname steht, so kopiert man den bisherigen Code für die Darstellung von 
+Zeitschriftenartikeln in die Präambel des eigenen Dokuments und passt diesen den eigenen 
+Vorstellungen an:
+
+Schritt 1: Kopieren des entsprechenden Codes aus der biblatex-juradiss.cbx (die cbx-Dateien 
+enthalten Code für Zitate, die bbx-Dateien enthalten Code für das Literaturverzeichnis)
+
+Schritt 2: Einfügen des Codes zwischen \cs{documentclass} und \cs{begin\{document\}}:
+
+\begin{lstlisting}
+\DeclareBibliographyDriver{cite:article}{%
+  \printfield{journaltitle}
+  \printfield{year}%
+  \iffieldundef{postnote}%
+    {\addcomma\space%
+    \printfield{pages}}%
+    {}%
+}
+\end{lstlisting}
+
+Schritt 3: Anpassen des Codes. Hier fügen wir einfach nur das in: vor dem Zeitschriftennamen ein. Da 
+es hierfür bereits ein Bibmacro von \bib gibt, verwenden wir dieses:
+
+\begin{lstlisting}
+\DeclareBibliographyDriver{cite:article}{%
+  \usebibmacro{in:}%		<---
+  \printfield{journaltitle}
+  \printfield{year}%
+  \iffieldundef{postnote}%
+    {\addcomma\space%
+    \printfield{pages}}%
+    {}%
+}
+\end{lstlisting}
+
+Das war es auch schon. Um Näheres über die Möglichkeiten zu erfahren, wie man die Darstellung von 
+Zitaten und des Literaturverzeichnisses anpassen kann, empfehle ich die Dokumentation von \bib.
+
+Weitere Beispiele werde ich möglicherweise in einer weiteren Version dieser Doku zeigen. Wenn sich 
+Mitstreiter für dieses Projekt finden, sollte es in späteren Versionen möglich sein, Optionen in das 
+Paket einzubauen, mit denen man die Darstellung steuern kann, ohne den Code händisch anpassen zu müssen.
+
+
+\section{Weitere Anpassungen}
+
+
+Neben der Anpassung und Neuentwicklung von Zitierstilen habe ich einige weitere Anpassungen vorgenommen. 
+Die ich hier nun kurz darstellen will.
+
+
+\subsection{Darstellung mehrerer Personen mit gleichem Nachnamen}
+
+Zitiert man verschiedene Personen mit gleichem Nachnamen, so wird derjenige automatisch mit Initialien zitiert. 
+Diese sind, wie alle Eigennamen kursiv gedruckt. Außerdem habe ich den Abstand zwischen den Initialen und dem Nachnamen ein wenig verkleinert.
+
+Beispiel: Wenn man Werke von Ferdinand und Paul Kirchhof zitiert, geht das als Fußnote\footcites[1167]{Kirchhof2000}[5]{Kirchhof2006},
+im laufenden Text als \cites[1167]{Kirchhof2000}[5]{Kirchhof2006} oder am Ende eines Satzes.~\parencites[1167]{Kirchhof2000}[5]{Kirchhof2006}
+
+\begin{lstlisting}[frame=single,xleftmargin=\fboxsep,xrightmargin=\fboxsep]
+Wenn man Werke von Ferdinand und Paul Kirchhof zitiert, geht das als 
+Fußnote\footcites[1167]{Kirchhof2000}[5]{Kirchhof2006}, im laufenden Text als 
+\cites[1167]{Kirchhof2000}[5]{Kirchhof2006} oder am Ende eines 
+Satzes.~\parencites[1167]{Kirchhof2000}[5]{Kirchhof2006}
+\end{lstlisting}
+
+
+
+Die Darstellung im Literaturverzeichnis ändert sich nicht.
+
+
+\subsection{Querverweis}
+\label{querverweis}
+
+
+Zudem habe ich einen Kurzbefehl eingeführt, den ich recht nützlich finde. Mit \cs{qverweis\{\}} kann 
+man auf eine andere Stelle im Dokument verweisen. Die Stelle wird mit \cs{label\{Name\}} markiert. 
+Der Befehl \cs{qverweis\{Name\}} fügt an der Stelle dann stets den jeweiligen Gliederungspunkt und 
+die Seite ein, auf der sich die Markierung befindet.\footnote{Z.B. vgl. hierzu die das derzeitige Kapitel 
+Querverweis, unter \qverweis{querverweis}.}
+
+
+\addsec{Quellen -- Beispielverzeichnisse}
+
+Die folgenden Quellenverzeichnisse sind Beispiele, die über die Definition
+
+\verb|\defbibheading{subbib}{\addsubsec{#1}}|
+
+als nichtnummerierte \verb|\subsection| ausgegeben, aber ins TOC eingefügt werden.
+Für die Dokumentenklasse \texttt{scrartcl} wurde dazu \verb|\addsubsec| definiert
+
+\begin{lstlisting}
+\makeatletter
+\newcommand\addsubsec{\SecDef\@addsubsec\@saddsubsec}
+\newcommand*{\@addsubsec}{}
+\def\@addsubsec[#1]#2{%
+  \edef\reserved@a{%
+    \unexpanded{%
+      \subsection[{#1}]{#2}%
+      \c@secnumdepth=
+    }\the\c@secnumdepth\relax
+  }%
+  \c@secnumdepth=\numexpr \sectionnumdepth-1\relax
+  \reserved@a
+}
+\newcommand*{\@saddsubsec}[1]{\subsection*{#1}\addsubsecmark{}}
+\makeatother
+\end{lstlisting}
+
+Die Ausgabe der Teilquellenverzeichnisse für die benutzte Literaturdatenbank erfolgte mit:
+
+\begin{lstlisting}
+\printbibliography[heading=subbib,category=1,title=Kategorie 1]
+
+\printbibliography[heading=subbib,type=article,title=Artikel]
+
+\printbibliography[heading=subbib,type=commentary,title=Kommentare]
+
+\printbibliography[heading=subbib,nottype=article,nottype=commentary,title=Allgemeine Quellen]
+\end{lstlisting}
+
+
+\nocite{*}
+\printbibliography[heading=subbib,category=1,title=Kategorie 1]
+
+\printbibliography[heading=subbib,type=article,title=Artikel]
+
+\printbibliography[heading=subbib,type=commentary,title=Kommentare]
+
+\printbibliography[heading=subbib,nottype=article,nottype=commentary,title=Allgemeine Quellen]
+
+
+
+\end{document}
+

@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 43}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[t]
+\caption{Procedure of the component-specific aggregation for Micro-disentanglement}
+\footnotesize
+\begin{algorithmic}[1]
+\Require $\left \{ \mathbf{x}_i \in \mathbb{R}^f\right \} $: the set of node feature vectors, $i \in \tilde{\mathbf{N}}\left ( u \right )$;
+\Ensure $\mathbf{h}_u$, $\mathbf{c}_u$;
+\renewcommand{\algorithmicensure}{\textbf{trainable paramters:}}
+\Ensure \textcolor{black}{$\mathbf{W}$: projection matrices.}
+\textcolor{black}{$\alpha, \beta$: coefficients of component-specific aggregation.}
+\renewcommand{\algorithmicensure}{\textbf{Hyper-paramters:}}
+\Ensure $K$: number of component.
+$\tilde{T}$: iterations of dynamic assignment.
+\For{$i\in \tilde{\mathbf{N}}\left( u \right)$}
+\For{$k=1$ to $K$}
+\State $\mathbf{c}^{k}_i \leftarrow \sigma \left ( \mathbf{W}_k \mathbf{x}_i \right )$
+\State $\mathbf{c}^{k}_i \leftarrow \frac{\mathbf{c}^k_i}{\left \| \mathbf{c}^k_i \right \|_{2}} $
+\EndFor
+\EndFor
+\State initialize $\tilde{\mathbf{h}}^{k}_{u} = \mathbf{c}^k_u$
+\For{iteration $\tilde{t}=1$ to $\tilde{T}$}
+\For{$v \in \mathbf{N} \left( u \right)$}
+\State $s^k_v(u) \leftarrow \cos(\mathbf{h}^{k}_{u}, \mathbf{c}^{k}_{v})$, $\forall k = 1, \cdots, K$.
+\State Calculate $p^k_{u\to v}$ and $q^k_{v \to u}$ by Eq.$\left( \ref{p} \right)$
+\EndFor
+\For{$k=1$ to $K$ do}
+\State $ {\mathbf{h}^{k}_{u}}= \tilde{\mathbf{h}}^{k}_{u} + \alpha \sum_{v \in \mathbf{N}(u)}q^{k}_{v\to u}\mathbf{c}^{k}_{v} + \beta \sum_{v \in \mathbf{N}(u)}p^{k}_{u \to v}\mathbf{c}^{k}_{v}$
+\State $\mathbf{h}^{k}_{u} =\frac{{\mathbf{h}}^{k}_{u}}{\left \| {\mathbf{h}}^{k}_{u} \right \|_{2}} $
+\State $\tilde{\mathbf{h}}^{k}_{u} \leftarrow \mathbf{h}^{k}_{u}$
+\EndFor
+\EndFor
+\State $\mathbf{c}_{u} \leftarrow $ $\textrm{concat}(\mathbf{c}^{1}_{u},\mathbf{c}^{2}_{u},\cdots,\mathbf{c}^{K}_{u} )$
+\State \textcolor{black}{$\mathbf{h}_{u} \leftarrow \textrm{concat}(\mathbf{h}^{1}_{u},\mathbf{h}^{2}_{u},\cdots,\mathbf{h}^{K}_{u} )$}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

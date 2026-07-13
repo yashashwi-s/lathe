@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[nomentbl,stdsubgroups]{nomencl}
+\usepackage{setspace}
+\makenomenclature
+\begin{document}
+\section*{Main equations}
+Here an equation
+    \begin{equation}\label{eq:heatflux}
+        \dot{Q} = k \cdot A \cdot \Delta T
+    \end{equation}%
+    \nomenclature[aQ]{$\dot{Q}$}{heat flux}{W}{}%
+    \nomenclature[ak]{$k$}{overall heat transfer
+      coefficient}{\watt\per(\square\meter\kelvin)}{see
+      eq.~(\ref{eq:ohtc})}%
+    \nomenclature[aA]{$A$}{area}{\square\meter}{}%
+    \nomenclature[aL]{$L$}{length}{\meter}{SI base quantity}%
+    \nomenclature[aT]{$T$}{temperature}{\kelvin}{SI base quantity}%
+    \nomenclature[aT]{$\Delta T$}{temperature difference}{\kelvin}{SI base quantity}%
+or another one
+    \begin{equation}\label{eq:ohtc}
+        \frac{1}{k} = \left[\frac{1}{\alpha _{\mathrm{i}}\,r_{\mathrm{i}}} +
+        \sum^n_{j=1}\frac{1}{\lambda _j}\,
+        \ln \frac{r_{\mathrm{a},j}}{r_{\mathrm{i},j}} +
+        \frac{1}{\alpha _{\mathrm{a}}\,
+          r_{\mathrm{a}}}\right] \cdot r_{\mathrm{reference}}
+    \end{equation}%
+    \nomenclature[ga]{$\alpha$}{convection heat transfer
+      coefficient}{\watt\per(\square\meter\kelvin)}{}%
+    \nomenclature[zi]{i}{in}{}{}%
+    \nomenclature[gl]{$\lambda$}{thermal conductivity}{\watt\per\kelvin}{}%
+    \nomenclature[za]{a}{out}{}{}%
+    \nomenclature[zn]{$n$}{number of walls}{}{}%
+    \nomenclature[zj]{$j$}{running parameter}{}{}%
+
+\onehalfspacing
+\printnomenclature
+\end{document}

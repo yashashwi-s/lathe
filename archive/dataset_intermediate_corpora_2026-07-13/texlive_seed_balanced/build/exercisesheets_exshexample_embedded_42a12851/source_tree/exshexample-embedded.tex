@@ -1,0 +1,116 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Berlin}
+\usefonttheme{professionalfonts}
+\useoutertheme{infolines}
+\useinnertheme{rounded}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamercolor{item projected}{bg=black}
+\setbeamercolor{item}{fg=black}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}[frame number]
+
+\setbeamercolor{block title}{bg=black}
+\setbeamercolor{section in toc}{fg=red,bg=white}
+
+\AtBeginSection[]{
+\begin{frame}
+\begin{block}{Overview}
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/hide/hide]
+\end{block}
+\end{frame}
+}
+
+\AtBeginSubsection[]{
+\begin{frame}[allowframebreaks]
+\begin{block}{Overview}
+\tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+\end{block}
+\end{frame}
+}
+
+
+\author{Example Author}
+\title{Embedding Exercises}
+\subtitle{a never-ending journey}
+\makeatletter
+\date{compilation date: \the\year-\two@digits{\the\month}-\two@digits{\the\day}}
+\makeatother
+
+
+
+\newenvironment<>{stlist}[1][]{%
+  \setbeamertemplate{enumerate items}{\alph{enumi})}
+  \setbeamertemplate{enumerate subitem}{\arabic{enumii}.}
+  \setbeamertemplate{enumerate subsubitem}{\arabic{enumii}.}
+  \begin{enumerate}[#1]
+}{\end{enumerate}}
+
+%embedded already sets a lot of values, see documentation
+%in non-embedded mode, exercisesheets clears beamers headline
+%and footline if non of the beamerwith...line arguments are used.
+\usepackage[embedded]{exercisesheets}
+\makeatletter
+\exshset{
+  strings/sheet={Missions},
+  exercisespath=exercises,
+  subtask environment=stlist,
+  task restate font={\color{gray}},
+  imp/.style={pointsinfo=important},
+  vi/.style={pointsinfo=very important},
+}
+\makeatother
+
+\parindent 0pt
+\setlength{\parskip}{\baselineskip}
+
+
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+  Let me tell you everything \pause\textbf{about embedding exercises}.
+\end{frame}
+
+\section{Examples}
+
+\subsection{without a sheet environment}
+
+  \begin{frame}
+    \begin{block}{}
+      Since our exercises are already in a dedicated subsection,\pause
+      we do not need an extra sheet environment.
+    \end{block}
+  \end{frame}
+
+  \includeexercise*[imp]{exshexample-ex1}
+  \includeLexercise*[vi]{exshexample-ex2}
+
+\subsection{with a sheet environment}
+
+\begin{sheet}[note={The exercises are within a separated sheet
+  environment.}]
+  \includeexercise*[imp,solutions]{exshexample-ex1}
+\end{sheet}
+
+\begingroup
+\def\sheetfancy[#1]#2{\textcolor{red}{#2}}%nope, nothing happens
+\exshset{sheet sectioning cmd=\sheetfancy}
+
+\begin{sheet}[note={This sheet header looks exactly like the first one, because \texttt{sheet sectioning cmd} is only used for
+non-beamer documents.}]
+  \includeLexercise*[imp,solutions]{exshexample-ex2}
+\end{sheet}
+\endgroup
+
+
+\end{document}
+
+

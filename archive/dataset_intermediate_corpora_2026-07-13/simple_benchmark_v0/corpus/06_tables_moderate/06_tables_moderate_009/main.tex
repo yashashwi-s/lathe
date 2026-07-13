@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00290\_table\_12}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llp{4.8cm}llr}
+\toprule
+\textbf{Level} & \textbf{ID} & \textbf{Task} & \textbf{Metrics} & \textbf{Data Source} & \textbf{Test Set} \\
+\midrule
+Memory & 1-1 & Primary Formula Recall & Accuracy & Primary Exams & 400 \\
+       & 1-2 & Junior Knowledge Recall & Accuracy & Exam Papers & 500 \\
+       & 1-3 & Senior Concept Recall & Accuracy & High School Exams & 500 \\
+\midrule
+Understanding
+              & 2-1 & Primary  Understanding & Accuracy & Primary Tests & 1000 \\
+               & 2-2 & Junior  Understanding & Accuracy & Middle School Tests & 1000 \\
+              & 2-3 & Senior  Understanding & Accuracy & Senior Tests & 1000 \\
+              & 2-4 & Poetry Appreciation & Rouge-L & Textbook & 100 \\
+              & 2-5 & Reading Comprehension & Rouge-L & Reading Bank & 100 \\
+\midrule
+Application & 3-1 & Classroom Dialogue Classification & Accuracy & Dialogue Corpus & 1000 \\
+            & 3-2 & Primary Problem Solving & Accuracy & Primary Assignments & 500 \\
+            & 3-3 & Junior  Problem Solving & Accuracy & Mock Exams & 500 \\
+            & 3-4& Senior  Problem Solving & Accuracy & Primary Assignments & 500 \\
+            & 3-5 & Essay Scoring & RMSE & Annotated Essays & 100 \\
+\midrule
+Reasoning & 4-1 & General Logical Inference & Accuracy & Logic Tasks & 500 \\
+          & 4-2 & Primary  Reasoning & Accuracy & Primary Logic Tests & 500 \\
+          & 4-3 & Junior  Reasoning & Accuracy & Math Puzzles & 500 \\
+          & 4-4 & Senior  Reasoning & Accuracy & Senior Logic Tasks & 500 \\
+\midrule
+Creativity & 5-1 & Question Generation & GPT-based & Expert Annotation & 100 \\
+           & 5-2 & Teaching Design & GPT-based & Expert Annotation & 50 \\
+           & 5-3 & Text Writing & GPT-based & Expert Annotation & 50 \\
+\midrule
+Ethics & 6-1 & Primary Moral  & Accuracy & Expert Annotation & 250 \\
+       & 6-2 & Junior Ethics Scenario & Accuracy & Expert Annotation & 500 \\
+       & 6-3 & Senior Ethics Scenario & Accuracy & Expert Annotation & 500 \\
+       & 6-4 & Educational Ethics Judgment & Accuracy & Expert Annotation & 500 \\
+
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00524\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|ccccccc}
+    \toprule
+    Methods
+    & Zoo & Iris & Wine & Br. Cancer & OpticalDigits & Spambase & PenDigits
+    \\
+    % \cmidrule(r){2-7}
+    %  & \# Points & \multicolumn{1}{c}{101} & \multicolumn{1}{c}{150} 
+    %  %& 178 
+    %  & \multicolumn{1}{c}{214} & 2310 & \multicolumn{1}{c}{4601} 
+    %  \\
+     % & \# Clusters & 7 & 3 & 6 & 7 & 2     \\
+     % \cmidrule(r){3-16}
+     % & DP$\uparrow$ & SE$\downarrow$ & DP$\uparrow$ & SE$\downarrow$ & DP$\uparrow$ & SE$\downarrow$ & DP$\uparrow$ & SE$\downarrow$ & DP$\uparrow$ & SE$\downarrow$  & DP$\uparrow$ & SE$\downarrow$ & DP$\uparrow$ & SE$\downarrow$  \\
+    \midrule 
+    SingleLinkage & 4499.992 & 45380.796 & 67920.236 & 1224116.656 & 345332.736 & 70302109.781 & 76567530.892 \\
+    BKM &     7849.072 & 54788.642 & 54693.242 & 693561.766 & 745491.549 & 41204923.569 & \underline{40284225.153} \\
+    HDBSCAN & 5571.228 & 60452.402 & 95907.829 & 1491110.118 & 748313.231 & 80716545.145 & 132350602.149 \\
+    HCSE & \underline{4175.671} & 41380.998 & 58347.563 & 592273.513 & 310539.268 & 45263227.036 & 59508491.488 \\
+    SpecWRSC & 6144.790 & 35099.430 & \underline{47293.848} & \underline{537871.384} & \underline{257737.166} & 101118252.200 & 92647589.507 \\
+    DPClusterHSBM & 6524.713 & \underline{30035.403} & 51149.127 & 660334.272 & 287088.373 & \textbf{34261369.825} & not converge \\
+     % & Louvain \\
+    \midrule
+    UFit &  7901.511 & 35457.013 & 56666.424 & 714959.470 & 451331.653 & 59850887.347 & 69377079.903 \\
+    % gHHC & - & & - & & 46.3 & & - & &    \\ tensorflow 1.12.0 unable to install.
+    % & CoHiClust & \\
+    % & HypHC & \textbf{98.7} & & 77.3 & & 49.2 & & 55.9 & &     \\
+    HypHC & 4499.059 & 41591.450 & 50855.890 & 914908.598 & 1271341.559 & 79220674.974 & 676405500.194 \\
+    FPH   & 4264.423 & 31349.853 & \textbf{43690.747} & \textbf{463823.612} & 321385.930 & \underline{40420419.233} & 47413933.365 \\
+    HypCSE & \textbf{3897.084} & \textbf{29281.880} & 47499.454 & 615481.751 & \textbf{184393.801} & 48662062.993 & \textbf{28164085.133} \\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

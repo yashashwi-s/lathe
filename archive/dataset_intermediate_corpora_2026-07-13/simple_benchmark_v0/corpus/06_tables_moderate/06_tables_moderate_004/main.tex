@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00598\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable}          & \textbf{Description} & \textbf{Detail}                      \\ 
+\midrule
+\textbf{Patient Information}        &                                                                    &                                         \\
+\midrule
+Age                     & Patient age at time of admission & $50.7 \pm 1.3$ years \\
+Sex                     & Patient gender & Most frequent: Male (58.1\%) \\
+Height                  & Patient height in centimeters & $170.4 \pm 10.9$ cm \\
+Weight                  & Patient weight in kilograms & $82.0 \pm 20.8$ kg \\
+Surgery Time            & Surgery start time & --- \\
+Anesthesia Time         & Duration of anesthesia in hours & --- \\
+ASA Status              & ASA physical status classification & Most frequent: Severe Systemic Disease (63.5\%) \\
+Discharge Disposition   & Discharge location (e.g., home, rehab, ICU) & Most frequent: Home Routine (50.3\%) \\
+
+\midrule
+\textbf{Patient Medications} & & \\
+\midrule
+Medication Name        & Name of the prescribed medication & Unique Medications: 1979 \\
+Medication Dose        & Dosage of the prescribed medication & Range: (min, max) not provided \\
+Medication Route       & Route of administration (e.g., oral, IV) & Example: IV, Oral, Topical \\
+Time of Administration & Time when the medication was administered & --- \\
+
+\midrule
+\textbf{Patient Lines, Drains, and Airway Devices (LDA)} & & \\
+\midrule
+Line Type             & Type of line (e.g., central venous line, arterial line) & Unique Lines/Drains: 31 \\
+Drain Type            & Type of drain (e.g., chest drain, Foley catheter) & Included in Lines/Drains \\
+Airway Device         & Airway device used (e.g., endotracheal tube, LMA) & Unique Airway Devices: 4 \\
+Time of Placement     & Time of placement of line, drain, or device & --- \\
+Time of Removal       & Time of removal of line, drain, or device & --- \\
+Location of Placement & Anatomical location of line, drain, or device & Examples: Abdomen, Antecubital \\
+
+\midrule
+\textbf{Patient Labs} & & \\
+\midrule
+Lab Test Name       & Name of the laboratory test ordered & Unique Labs: 549 \\
+Lab Result          & Observed measurement or result & --- \\
+Time of Lab Result  & Time when the lab result was recorded & --- \\
+Reference Range     & Reference range for lab values & Abnormal flag present \\
+
+\midrule
+\textbf{Patient Postoperative Complications} & & \\
+\midrule
+Complication Type        & Type of postoperative complication & Unique Types: 10 \\
+Complication Description & Detailed description or free-text notes & --- \\
+ICU Admission            & Whether admitted to ICU postoperatively & --- \\
+Mortality                & Whether patient died postoperatively & --- \\
+
+\midrule
+\textbf{Patient Procedure Events} & & \\
+\midrule
+Preoperative Events  & Procedures or events before surgery & --- \\
+Perioperative Events & Events during surgery & --- \\
+Postoperative Events & Procedures or events after surgery & --- \\
+
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00479\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{rrccc}
+    \toprule
+    Model & Prompt & LOS & Mortality & Readmission \\
+    \midrule
+    Qwen3-8B& Dropped & 1 & 11 & 3 \\
+     & Instruction & 7 & 12 & 14 \\
+     & Indicator & 1 & 14 & 11 \\
+     & Indicator + Inst. & 0 & 1 & 2 \\
+    \cline{1-5}
+    Qwen3-14B& Dropped & 26 & 0 & 0 \\
+     & Instruction & 5 & 1 & 0 \\
+     & Indicator & 21 & 0 & 0 \\
+     & Indicator + Inst. & 0 & 0 & 0 \\
+    \cline{1-5}
+    Qwen3-32B& Dropped & 1 & 0 & 1 \\
+     & Instruction & 2 & 0 & 1 \\
+     & Indicator & 0 & 4 & 1 \\
+     & Indicator + Inst. & 0 & 0 & 1 \\
+    \cline{1-5}
+    GPT-OSS-20b& Dropped & 20 & 15 & 18 \\
+     & Instruction & 95 & 73 & 92 \\
+     & Indicator & 21 & 92 & 7 \\
+     & Indicator + Inst. & 74 & 80 & 107 \\
+    \cline{1-5}
+    GPT-OSS-120b& Dropped & 3 & 10 & 3 \\
+     & Instruction & 3 & 4 & 0 \\
+     & Indicator & 0 & 9 & 1 \\
+     & Indicator + Inst. & 0 & 15 & 4 \\
+    \cline{1-5}
+    Llama-3.1-8B-Instruct& Dropped & 279 & 177 & 32 \\
+     & Instruction & 445 & 353 & 470 \\
+     & Indicator & 209 & 98 & 49 \\
+     & Indicator + Inst. & 1067 & 435 & 703 \\
+    \cline{1-5}
+    Llama-3.1-70B-Instruct& Dropped & 0 & 2 & 1 \\
+     & Instruction & 203 & 575 & 624 \\
+     & Indicator & 0 & 1 & 1 \\
+     & Indicator + Inst. & 3 & 220 & 620 \\
+    \cline{1-5}
+    Mistral-Small-3.1-24B-Instruct-2503& Dropped & 1 & 7 & 0 \\
+     & Instruction & 0 & 0 & 0 \\
+     & Indicator & 1 & 7 & 0 \\
+     & Indicator + Inst. & 0 & 0 & 0 \\
+    \cline{1-5}
+    Medgemma-27b-text-it& Dropped & 2 & 0 & 0 \\
+     & Instruction & 67 & 21 & 61 \\
+     & Indicator & 9 & 0 & 1 \\
+     & Indicator + Inst. & 131 & 55 & 85 \\
+    \cline{1-5}
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

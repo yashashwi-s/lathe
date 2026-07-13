@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00291\_table\_14}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ll@{\hspace{1em}}ll}
+$\leqq$ & \verb"\leqq" &
+$\geqq$ & \verb"\geqq" \\
+$\leqslant$ & \verb"\leqslant" &
+$\geqslant$ & \verb"\geqslant" \\
+$\eqslantless$ & \verb"\eqslantless" &
+$\eqslantgtr$ & \verb"\eqslantgtr" \\
+$\lesssim$ & \verb"\lesssim" &
+$\gtrsim$ & \verb"\gtrsim" \\
+$\lessapprox$ & \verb"\lessapprox" &
+$\gtrapprox$ & \verb"\gtrapprox" \\
+$\approxeq$ & \verb"\approxeq" &
+$\eqsim$ & \verb"\eqsim" \\
+$\lessdot$ & \verb"\lessdot" &
+$\gtrdot$ & \verb"\gtrdot" \\
+$\lll$ & \verb"\lll", \verb"\llless" &
+$\ggg$ & \verb"\ggg", \verb"\gggtr" \\
+$\lessgtr$ & \verb"\lessgtr" &
+$\gtrless$ & \verb"\gtrless" \\
+$\lesseqgtr$ & \verb"\lesseqgtr" &
+$\gtreqless$ & \verb"\gtreqless" \\
+$\lesseqqgtr$ & \verb"\lesseqqgtr" &
+$\gtreqqless$ & \verb"\gtreqqless" \\
+$\doteqdot$ & \verb"\doteqdot", \verb"\Doteq" &
+$\eqcirc$ & \verb"\eqcirc" \\
+$\risingdotseq$ & \verb"\risingdotseq" &
+$\circeq$ & \verb"\circeq" \\
+$\fallingdotseq$ & \verb"\fallingdotseq" &
+$\triangleq$ & \verb"\triangleq" \\
+$\backsim$ & \verb"\backsim" &
+$\thicksim$ & \verb"\thicksim" \\
+$\backsimeq$ & \verb"\backsimeq" &
+$\thickapprox$ & \verb"\thickapprox" \\
+$\subseteqq$ & \verb"\subseteqq" &
+$\supseteqq$ & \verb"\supseteqq" \\
+$\Subset$ & \verb"\Subset" &
+$\Supset$ & \verb"\Supset" \\
+$\sqsubset$ & \verb"\sqsubset" &
+$\sqsupset$ & \verb"\sqsupset" \\
+$\preccurlyeq$ & \verb"\preccurlyeq" &
+$\succcurlyeq$ & \verb"\succcurlyeq" \\
+$\curlyeqprec$ & \verb"\curlyeqprec" &
+$\curlyeqsucc$ & \verb"\curlyeqsucc" \\
+$\precsim$ & \verb"\precsim" &
+$\succsim$ & \verb"\succsim" \\
+$\precapprox$ & \verb"\precapprox" &
+$\succapprox$ & \verb"\succapprox" \\
+$\vartriangleleft$ & \verb"\vartriangleleft" &
+$\vartriangleright$ & \verb"\vartriangleright" \\
+$\trianglelefteq$ & \verb"\trianglelefteq" &
+$\trianglerighteq$ & \verb"\trianglerighteq" \\
+$\vDash$ & \verb"\vDash" &
+$\Vdash$ & \verb"\Vdash" \\
+$\Vvdash$ & \verb"\Vvdash" &
+\\
+$\smallsmile$ & \verb"\smallsmile" &
+$\shortmid$ & \verb"\shortmid" \\
+$\smallfrown$ & \verb"\smallfrown" &
+$\shortparallel$ & \verb"\shortparallel" \\
+$\bumpeq$ & \verb"\bumpeq" &
+$\between$ & \verb"\between" \\
+$\Bumpeq$ & \verb"\Bumpeq" &
+$\pitchfork$ & \verb"\pitchfork" \\
+$\varpropto$ & \verb"\varpropto" &
+$\backepsilon$ & \verb"\backepsilon" \\
+$\blacktriangleleft$ & \verb"\blacktriangleleft" &
+$\blacktriangleright$ & \verb"\blacktriangleright" \\
+$\therefore$ & \verb"\therefore" &
+$\because$ & \verb"\because" \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00609\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c c c} 
+\hline
+\vspace{0.05cm}
+Paper  & \begin{tabular}[c]{@{}c@{}} NOMA \\ System \end{tabular}   & \begin{tabular}[c]{@{}c@{}} Fading \\ Environment \end{tabular}  & \begin{tabular}[c]{@{}c@{}} Transmission \\ Diversity \end{tabular} & \begin{tabular}[c]{@{}c@{}} Reception \\ Diversity \end{tabular} & \begin{tabular}[c]{@{}c@{}} Imperfect \\ SIC \end{tabular} & OP Analysis   \\ \hline
+\vspace{0.05cm} 
+ & Downlink & Rayleigh & TAS & NO & NO & Exact  \\
+\vspace{0.05cm} 
+ & Downlink & Rayleigh & BF & NO & NO & NO   \\
+\vspace{0.05cm} 
+  & Coop.Downlink &  Rayleigh & TAS & NO & YES & Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Coop. Downlink & Rayleigh & TAS & NO & YES &  NO \\
+\vspace{0.05cm} 
+ & Downlink & Weibull & TAS & EGC & NO &  Exact/Asymptotic  \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & NO & NO & YES & NO  \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & NO & NO & YES &  Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Downlink & Nakagami-$m$ & TAS & MRC & NO &  Exact\\
+\vspace{0.05cm} 
+ & Coop. Downlink & Nakagami-$m$ & TAS & MRC & NO & Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Uplink &  MoG (approx.) & NO & NO & YES  & Approximated/Asymptotic \\
+\vspace{0.05cm} 
+ & Uplink/Downlink &  MoG (approx.) & NO & NO & NO & Approximated/Asymptotic \\
+\vspace{0.05cm} 
+  & Downlink & Double Rayleigh & NO & NO & NO & Exact \\
+\vspace{0.05cm} 
+ & Downlink & Double Nakagami-$m$ & TAS & NO & NO & Exact/Asymptotic \\
+\vspace{0.05cm} 
+, & Downlink & Shadowed-Rician & TAS & NO & YES  &  Exact/Asymptotic \\
+\vspace{0.05cm} 
+ & Downlink & $\kappa$-$\mu$ Shadowed & NO & NO &  NO & Exact  \\
+ \vspace{0.05cm} 
+ & Downlink & $\eta$-$\mu$ and $\kappa$-$\mu$ & NO & NO & NO & Exact \\
+\vspace{0.05cm} 
+& Downlink & $\kappa$-$\mu$ & NO & NO &  YES & NO  \\
+\vspace{0.05cm} 
+ & Downlink & $\alpha$-$\mu$ & NO & NO & NO & NO  \\
+\vspace{0.05cm} 
+  & Coop. Downlink & $\alpha$-$\mu$ & NO & NO & YES &   Exact/Asymptotic \\
+\vspace{0.05cm} 
+  & Downlink & $\alpha$-$\mu$ & NO &  NO & YES & Exact and asymptotic  \\
+\vspace{0.05cm} 
+ & Downlink & $\alpha$-$\mu$ & NO & NO & NO & Exact  \\
+\vspace{0.05cm} 
+\textbf{This paper} & \textbf{Downlink} &  $\alpha$-$\mu$ & \textbf{TAS} & \textbf{EGC/MRC} & \textbf{YES} & \textbf{Exact and asymptotic}  \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

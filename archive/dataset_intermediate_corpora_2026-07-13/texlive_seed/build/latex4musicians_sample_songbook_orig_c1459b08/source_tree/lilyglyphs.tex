@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{lilyglyphs}
+\thispagestyle{empty}
+
+\begin{document}
+
+Lilyglyphs makes the music symbol font provided by LilyPond available
+as text font and then uses it to define a number of symbols, some
+\clefGInline\ of which \clefCInline\ can be used \clefFInline\ inline:
+
+clefs:~ \clefG\ \clefC\ \clefF\ ~time signatures:~
+\lilyTimeC\ \lilyTimeCHalf\ \lilyTimeSignature{7}{8}\
+~accidentals:~ \sharp\ \flat\ \natural\ \doublesharp\ \flatflat\ 
+~rests:~ \wholeNoteRest\ \halfNoteRest\ \crotchetRest\ 
+~notes:~ \wholeNote\  \halfNote\ \halfNoteDown\ \quarterNote\ 
+\quarterNoteDotted\ 
+~and much, much more.
+
+
+\end{document}

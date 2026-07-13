@@ -1,0 +1,46 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp,svg]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check picture inclusion using 
+\verb|\includegraphics| together with the \texttt{svg} package option.
+When this option is used, vector graphics will be converted to SVG rather than 
+being rasterized. The picture inclusion using \verb|\includegraphics| is mostly 
+unchanged. If SVG files are included, they are converted on-the-fly to PDF.
+Conversions from and to SVG are performed using \textsf{Inkscape}. The 
+\textsf{Scour} utility is used to perform an optimization on intermediate SVG 
+files, before inclusion to the XML.
+
+\begin{quiz}{Scalable Vector Graphics}
+
+\begin{multi}{Picture}
+\includegraphics{fig/NoodlE_logo.SVG}
+\item[feedback={\includegraphics{fig/2 2.pdf}}]* \includegraphics{fig/3.gif}
+\item[feedback={\includegraphics{fig/4.jpg}}] \includegraphics{fig/5.jpeg}
+\end{multi}
+
+\graphicspath{{./fig/}}
+
+\begin{matching}[dd]{Picture}
+\includegraphics[width=2cm]{NoodlE_logo.SVG}
+% on Linux, if .SVG is omitted moodle tries to manipulate "NoodlE_logo.svg"
+\item \includegraphics{2 2} \answer \includegraphics{3}
+\item \includegraphics{4} \answer \includegraphics{5}
+\item \includegraphics{3} \answer \includegraphics[width=2em]{2 2}
+\end{matching}
+
+\end{quiz}
+
+\end{document}

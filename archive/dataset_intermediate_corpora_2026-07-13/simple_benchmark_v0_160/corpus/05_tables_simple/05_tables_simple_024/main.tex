@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02195\_table\_8}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}llll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 1025 \\
+2. & \textit{niet} (‘not’) & 633 \\
+3. & \textit{dat} (‘that’) & 631 \\
+4. & \textit{om} (‘to’) & 451 \\
+5. & \textit{geen} (‘no’) & 304 \\
+6. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 292 \\
+7. & \textit{er} (‘there’) & 261 \\
+8. & \textit{ieder} (‘every’, \textsc{neut}) & 253 \\
+9. & \textit{elk} (‘every’, \textsc{neut}) & 237 \\
+10. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 231 \\
+11. & \textit{elke} (‘every’, \textsc{masc/fem}) & 224 \\
+12. & \textit{of} (‘or’, ‘whether’) & 215 \\
+13. & \textit{een} (‘a’, ‘one’) & 203 \\
+14. & \textit{alle} (‘all’) & 200 \\
+15. & \textit{massa's} (‘masses’) & 194 \\
+16. & \textit{ik} (‘I’) & 193 \\
+17. & \textit{op} (‘on’) & 178 \\
+18. & \textit{aan} (‘to’, \textsc{prep}) & 173 \\
+19. & \textit{deze} (‘this’, \textsc{masc/fem}) & 172 \\
+20. & \textit{het} (‘the’, \textsc{neut:sg}) & 167 \\
+21. & \textit{veel} (‘a lot of’) & 162 \\
+22. & \textit{weinig} (‘a few’) & 160 \\
+23. & \textit{voor} (‘for’) & 145 \\
+24. & \textit{hier} (‘here’) & 143 \\
+25. & \textit{die} (‘that’, \textsc{masc/fem}) & 135 \\
+26. & \textit{menige} (‘many’, \textsc{pl}) & 131 \\
+27. & \textit{door} (‘by’) & 130 \\
+28. & \textit{zijn} (‘are’, ‘be’, ‘his’) & 130 \\
+29. & \textit{dit} (‘this’, \textsc{neut}) & 121 \\
+30. & \textit{in} (‘in’) & 120 \\
+31. & \textit{daar} (‘there’) & 114 \\
+32. & \textit{menig} (‘many’, \textsc{sg}) & 114 \\
+33. & \textit{je} (‘you’, \textsc{inform}) & 109 \\
+34. & \textit{drie} (‘three’) & 102 \\
+35. & \textit{twee} (‘two’) & 89 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02195\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}lll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 92 \\
+2. & \textit{dat} (‘that’) & 62 \\
+3. & \textit{niet} (‘not’) & 60 \\
+4. & \textit{om} (‘to’) & 49 \\
+5. & \textit{geen} (‘no’) & 33 \\
+6. & \textit{er} (‘there’) & 32 \\
+7. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 25 \\
+8. & \textit{elke} (‘every’, \textsc{masc/fem}) & 25 \\
+9. & \textit{een} (‘a’, ‘one’) & 24 \\
+10. & \textit{het} (‘the’, \textsc{neut:sg}) & 24 \\
+11. & \textit{op} (‘on’) & 23 \\
+12. & \textit{ieder} (‘every’, \textsc{neut}) & 21 \\
+13. & \textit{ik} (‘I’) & 21 \\
+14. & \textit{die} (‘that’, \textsc{masc/fem}) & 20 \\
+15. & \textit{elk} (‘every’, \textsc{neut}) & 20 \\
+16. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 20 \\
+17. & \textit{veel} (‘a lot of’) & 20 \\
+18. & \textit{alle} (‘all’) & 19 \\
+19. & \textit{daar} (‘there’) & 18 \\
+20. & \textit{deze} (‘this’, \textsc{masc/fem}) & 17 \\
+21. & \textit{hier} (‘here’) & 17 \\
+22. & \textit{of} (‘or’, ‘whether’) & 17 \\
+23. & \textit{voor} (‘for’) & 17 \\
+24. & \textit{aan} (‘to’, \textsc{prep}) & 16 \\
+25. & \textit{massa's} (‘masses’) & 15 \\
+26. & \textit{van} (‘of’) & 14 \\
+27. & \textit{vier} (‘four’) & 14 \\
+28. & \textit{weinig} (‘a few’) & 14 \\
+29. & \textit{dit} (‘this’, \textsc{neut}) & 12 \\
+30. & \textit{menig} (‘many’, \textsc{sg}) & 12 \\
+31. & \textit{negenennegentig} (‘ninetynine’) & 12 \\
+32. & \textit{blijkt} (‘turns out’) & 11 \\
+33. & \textit{naar} (‘to’, \textsc{prep}, ‘unpleasant’) & 11 \\
+34. & \textit{twaalf} (‘twelve’) & 11 \\
+35. & \textit{vijf} (‘five’) & 11 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

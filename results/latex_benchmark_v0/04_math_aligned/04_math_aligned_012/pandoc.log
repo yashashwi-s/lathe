@@ -1,0 +1,23 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_012/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_012/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  \begin{array}{lll}V^{(1)}&=&\displaystyle{1 \over 4!} f\varphi^4+{1 \over 48} (\beta_f -4f \gamma_{\varphi}) \varphi^4\left( \log {\varphi^2 \over \mu^2 } - {25 \over 6} \right) \\&&\displaystyle-{1 \over 2}\xi R \varphi^2-{1 \over 4} (\beta_{\xi} -2\xi \gamma_{\varphi}) R \varphi^2\left( \log {\varphi^2 \over \mu^2 } -3 \right),\end{array}
+  \end{align*}, rendering as TeX:
+  splaystyle{1 \over 4!} f\varphi^4+{1 \ov
+                     ^
+  unexpected control sequence \over
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+error: unknown variable: mpsi
+   ┌─ pandoc.typ:36:95
+   │
+36 │  & lt.eq integral_(b in U_n) f_n\(b\)#scale(x: 180%, y: 180%)[\(] integral\|Delta\(b^(- 1) a\)^mpsi\(g_1 b^(- 1) a\,dots.h.c\,g_m b^(- 1) a\)- psi\(g_1\,g_2\,dots.h.c\,g_m\)\|d g_1 dots.h.c d g_m #scale(x: 180%, y: 180%)[\)] d b\
+   │                                                                                                ^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `m p s i`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"mpsi"`
+

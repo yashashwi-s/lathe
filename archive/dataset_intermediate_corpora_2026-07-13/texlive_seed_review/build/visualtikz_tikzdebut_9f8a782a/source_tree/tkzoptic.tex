@@ -1,0 +1,1361 @@
+\label{optics}
+
+
+ \maboite{\BS{usepackage}\AC{optics}  \cite {optics}}
+ 
+\begin{tabular}{|c|c|}\hline  
+\begin{tikzpicture}[blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.5,-1.2) rectangle (1.5,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[use optics,lens] (L) at (0,0) {}; 
+\end{tikzpicture}
+&  
+\parbox{10cm}{
+\BS{begin}\AC{tikzpicture}[blue,line width=2pt] \\
+\BS{draw}[help lines] (-1,-1) grid (1,1); \\
+\BS{node}[\RDD{use optics},lens] (L) at (0,0) {}; \\
+\BS{end}\AC{tikzpicture}
+}
+\\ \hline 
+\end{tabular}
+ 
+%\subsection{Eléments optiques}
+\SbSSCT{Éléments optiques}{Optic components } 
+
+\SbSbSSCT{Éléments optiques disponibles}{Components available}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|} \hline
+\multicolumn{5}{|c|}{Éléments optiques}
+\\  \hline 
+\multicolumn{5}{|c|}{ \BS{tikz}[use optics,blue] \BS{node}[\RDD{lens}] (L) at (0,0) \AC{};  }
+\\  \hline   
+\multicolumn{2}{|c|}{ 
+\tikz[use optics,blue] \node[lens] (L) at (0,0) {}; 
+}
+&  
+\tikz[use optics,blue] \node[slit] (S) at (0,0) {};
+&  
+\tikz[use optics,blue]  \node[double slit] (S) at (0,0) {};
+&  
+\tikz[use optics,blue] \node[mirror] (S) at (0,0) {};
+\\  \hline 
+\multicolumn{2}{|c|}{ \RDD{lens} } & \RDD{slit} & \RDD{double slit}  & \RDD{mirror} 
+\\ \hline 
+
+\tikz[use optics,blue] \node[convex mirror] at (0cm,0) {};
+&
+\tikz[use optics,blue] \node[concave mirror] at (4cm,0) {};
+&
+\tikz[use optics,blue] \node[polarizer] (S) at (0,0) {};
+&
+\tikz[use optics,blue] \node[beam splitter] at (0,0) {};
+&
+\tikz[use optics,blue]  \node[double amici prism] (PVD) at (0,0) {};
+\\ \hline
+\RDD{convex mirror} & \RDD{concave mirror} & \RDD{polarizer} & \RDD{beam splitter} & \RDD{double amici prism}
+\\ \hline 
+\multicolumn{2}{|c|}{ \tikz[use optics,scale=.5,blue] 
+\node[thin optics element] (S) at (0,0) {};
+}
+&
+\tikz[use optics,blue]  \node[thick optics element] at (0,0) {};
+&
+\tikz[use optics,blue] \node[heat filter] (S) at (0,0) {};
+&
+\tikz[use optics,blue] \node[screen] (S) at (0,0) {};
+\\ \hline
+\multicolumn{2}{|c|}{ \RDD{thin optics element} } & \RDD{thick optics element} & \RDD{heat filter} &  \RDD{screen}
+\\ \hline
+\multicolumn{2}{|c|}{ \tikz[use optics,scale=.5,blue] 
+\node[diffraction grating] (S) at (0,0) {};
+}
+&
+\tikz[use optics,blue] \node[grid] (S) at (0,0) {};
+&
+\tikz[use optics,blue] \node[semi-transparent mirror] (S) at (0,0) {};
+&
+\tikz[use optics,blue] \node[diaphragm] (S) at (0,0) {};
+\\ \hline
+\multicolumn{2}{|c|}{ \RDD{diffraction grating} } & \RDD{grid} & \RDD{semi-transparent mirror} & \RDD{diaphragm}
+\\ \hline 
+\end{tabular} 
+
+\SbSbSSCT{Paramètres}{Parameters}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|} \hline 
+%\multicolumn{4}{|c|}{ \textbf{Lens parameters} }
+%\\ \hline 
+\multicolumn{4}{|c|}{ \BS{node}[lens,\RDD{object height}=1cm] (L) at (0,0) \AC{}; }
+\\ \hline 
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[lens,object height=1cm] (L) at (0,0) {}; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[lens,draw focal points] (L) at (0,0) {}; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[lens,draw focal points, focal length=1.5cm] (L) at (0,0) {}; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[lens,lens height=.5] (L) at (0,0) {};
+\draw (L.lens north) to[thin,short dim arrow={label=$50\%$,label near middle}] (L.lens south);
+% \draw[line width =5pt,red] (L.lens north) -- (L.lens south) ;
+\end{tikzpicture}
+\\ \hline 
+\RDD{object height}=1cm & \RDD{draw focal points} & \RDD{focal length}=1.5cm & \RDD{focal height}=0.5
+\\
+\dft{ 2cm} & \dft{ empty} &  \dft{ 1cm} & \dft{ 0.8} (80\%)
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|}\hline  
+\multicolumn{2}{|c|}{ \textbf{Lens type} }
+\\ \hline 
+\multicolumn{2}{|c|}{ \BS{node}[lens,\RDD{lens type}=converging] (L) at (0,0) \AC{}; }
+\\ \hline 
+\begin{tikzpicture}[use optics,scale=.5,blue,line width=2pt]
+\useasboundingbox (-.5,-2.5) rectangle (.5,2.5);
+\node[lens,lens type=converging] (L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,scale=.5,blue,line width=2pt]
+\useasboundingbox (-.5,-2.5) rectangle (.5,2.5);
+\node[lens,lens type=diverging] (L) at (0,0) {};
+\end{tikzpicture}
+\\ 
+\hline  \RDD{lens type}=converging & \RDD{lens type}=diverging \\ 
+\hline 
+\end{tabular} 
+\hspace{1cm}
+\begin{tabular}{|c|c|} \hline 
+\multicolumn{2}{|c|}{ \textbf{slit parameters}}
+\\ \hline 
+\multicolumn{2}{|c|}{ \BS{node}[slit,\RDD{slit height}=0.5] (L) at (0,0) \AC{}; }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[slit, slit height=0.5 ](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=2.5mm] (-1,-1) grid (1,1); 
+\node[slit, slit height=0.5cm](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+ \RDD{slit height}=0.5 &   \RDD{slit height}=0.5cm 
+\\ \hline 
+\multicolumn{2}{|c|}{ \dft{ 0.075} (7.5\%  )}
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+\begin{tabular}{|c|c|c|c|} \hline
+\multicolumn{4}{|c|}{ \textbf{Double slit parameters}}
+\\ \hline 
+\multicolumn{4}{|c|}{ \BS{node}[double slit,\RDD{slit height}=0.15] (L) at (0,0) \AC{}; }
+\\ \hline   
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=1.25mm] (-1,-1) grid (1,1); 
+%\node[double slit,red,line width=1pt ](L) at (0,0) {};
+\node[double slit, slit height=0.15 ](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=1.25mm] (-1,-1) grid (1,1); 
+%\node[double slit,red,line width=1pt ](L) at (0,0) {};
+\node[double slit, slit height=0.25cm](L) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[double slit, slit separation=0.5 ](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[double slit, slit separation=1cm](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+\RDD{slit height}=0.15 & \RDD{slit height}=0.25cm  &  \RDD{slit separation}=0.5 &  double slit, \RDD{slit separation}=1cm 
+\\ \hline 
+\multicolumn{2}{|c|}{ \dft{ 0.075} (7.5\%  x 2cm = 1.5 mm)} & \multicolumn{2}{|c|}{ \dft{ 0.2} (20\% x 2cm = 4mm)}
+\\ \hline 
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|} \hline
+\multicolumn{2}{|c|}{ \textbf{mirror parameters}}
+\\ \hline 
+\multicolumn{2}{|c|}{ \BS{node}[mirror,\RDD{mirror decoration separation}=0.25] (L) at (0,0) \AC{}; }
+\\ \hline   
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[mirror,mirror decoration separation=0.25 ](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[mirror,mirror decoration separation=0.5cm](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{mirror decoration separation}=0.25 & \RDD{mirror decoration separation}=0.5cm 
+\\ \hline 
+\multicolumn{2}{|c|}{ \dft{ 0.15cm} } 
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.5) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[mirror,mirror decoration amplitude=0.25 ](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[mirror,mirror decoration amplitude=.5cm](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline \hline
+ \RDD{mirror decoration amplitude}=0.25 & \RDD{mirror decoration amplitude}=1cm 
+\\ \hline 
+ \multicolumn{2}{|c|}{ \dft{ 0.125cm} }
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+
+\bigskip\begin{tabular}{|c|c|} \hline 
+ \multicolumn{2}{|c|}{ \textbf{spherical mirror type} }
+\\ \hline 
+ \multicolumn{2}{|c|}{\BS{node}[\RDD{convex mirror}](L) at (0,0) \AC{}; }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[convex mirror](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[concave mirror](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline \RDD{convex mirror} & \RDD{concave mirror} 
+\\ \hline 
+spherical mirror, \RDD{spherical mirror type}=\BDD{convex} &
+spherical mirror, \RDD{spherical mirror type}=\BDD{concave} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline  
+ \multicolumn{2}{|c|}{ \textbf{spherical mirror orientation } }
+\\ \hline 
+ \multicolumn{2}{|c|}{ \BS{node}[convex mirror, \RDD{spherical mirror orientation}=\BDD{ltr}](L) at (0,0) \AC{};  }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[convex mirror, spherical mirror orientation=ltr](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[convex mirror, spherical mirror orientation=rtl](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline
+convex mirror, & convex mirror, \\
+\RDD{spherical mirror orientation}=\BDD{ltr} & \RDD{spherical mirror orientation}=\BDD{rtl} 
+\\ \hline
+
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[concave mirror, spherical mirror orientation=ltr](L) at (0,0) {};
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[concave mirror, spherical mirror orientation=rtl](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+concave mirror & concave mirror, \\
+ \RDD{spherical mirror orientation}=\BDD{ltr} &  \RDD{spherical mirror orientation}=\BDD{rtl}
+\\ \hline 
+\end{tabular} 
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline 
+ \multicolumn{3}{|c|}{ \BS{node}[spherical mirror, \RDD{spherical mirror angle}=240](L) at (0,0) \AC{};  }
+\\ \hline  
+
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.5) rectangle (1.2,1.5);
+\draw[help lines] (-1,-1) grid (1,1); 
+\node[spherical mirror, spherical mirror angle=240](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.5) rectangle (1.2,1.5);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[spherical mirror, mirror decoration separation=0.25](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.5) rectangle (1.2,1.5);
+\draw[help lines,ystep=5mm] (-1,-1) grid (1,1); 
+\node[spherical mirror,mirror decoration amplitude=.5cm](L) at (0,0) {};
+\end{tikzpicture} 
+
+\\ \hline 
+\RDD{spherical mirror angle}=240 & \RDD{mirror decoration separation}=0.25 &  \RDD{mirror decoration amplitude}=0.5cm  
+\\ \hline 
+\dft{ 150} & \dft{ 0.15cm}  & \dft{ 0.125cm} 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|} \hline  
+\BS{node}[spherical mirror,
+spherical mirror angle=from\_radius(2cm)](L) at (0,0) \AC{}; 
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-2,-1) grid (1,1); 
+\node[spherical mirror,
+spherical mirror angle=from_radius(2cm)] (M) {M};
+\draw[red,fill] (M.mirror center)   circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{node}[polarizer, \RDD{object height}=1.5cm](L) at (0,0) \AC{};  }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[polarizer, object height=1.5cm](L) at (0,0) {};
+\end{tikzpicture}  
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[polarizer, object aspect ratio=.5](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines,ystep=5mm]  (-2,-1) grid (2,1); 
+\node[polarizer, object aspect ratio=2](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{object height}=1.5cm
+&  
+\RDD{object aspect ratio}=0.5
+&  
+\RDD{object aspect ratio}=2
+\\ \hline 
+\dft{ 2cm} & \dft{ 0.2} &
+\\ \hline
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{node}[beam splitter,\RDD{object height}=1.5cm](L) at (0,0) \AC{};  }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[beam splitter,object height=1.5cm](L) at (0,0) {};
+\end{tikzpicture}  
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[beam splitter, object aspect ratio=.5](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[beam splitter, object aspect ratio=2](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{object height}=1.5cm
+&  
+\RDD{object aspect ratio}=.5
+&  
+\RDD{object aspect ratio}=2
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|}\hline
+ \multicolumn{2}{|c|}{ \BS{node}[double amici prism,\RDD{prism height}=1cm](L) at (0,0) \AC{};  }
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines,ystep=5mm] (-2,-1) grid (2,1); 
+\node[double amici prism,prism height=1cm](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines,ystep=5mm] (-2,-1) grid (2,1); 
+\node[double amici prism, prism apex angle=90](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+\RDD{prism height}=1cm & \RDD{prism apex angle}=90   
+\\ \hline 
+\dft{ 1.5cm } & \dft{ 60 } 
+\\ \hline 
+\end{tabular} 
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{node}[thick optics element,\RDD{object height}=1.5cm](L) at (0,0) \AC{};  }
+\\ \hline  
+
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[thick optics element,object height=1.5cm]  (L) at (0,0) {};
+\end{tikzpicture}  
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-1.2,-1.2) rectangle (1.2,1.2);
+\draw[help lines,ystep=5mm]  (-1,-1) grid (1,1); 
+\node[thick optics element, object aspect ratio=.5](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines,ystep=5mm](-2,-1) grid (2,1); 
+\node[thick optics element, object aspect ratio=1.5](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{object height}=1.5cm
+&  
+\RDD{object aspect ratio}=0.5
+&  
+\RDD{object aspect ratio}=1.5
+\\ \hline 
+\end{tabular} 
+
+
+
+
+\SbSbSSCT{Ancres}{Anchors}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+\multicolumn{5}{|c|}{\BS{node}[lens] (\blll{L}) at (0,0) \AC{} ;} \\
+\multicolumn{5}{|c|}{\BS{node}[red,fill] (\blll{L}.\RDD{lens north})   circle (2pt) ;}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[lens] (L) at (0,0) {} ;
+\draw[red,fill] (L.lens north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[lens] (L) at (0,0) {} ;
+\draw[red,fill] (L.lens south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[lens] (L) at (0,0) {} ;
+\draw[red,fill] (L.east focus)  circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[lens] (L) at (0,0) {} ;
+\draw[red,fill] (L.west focus)  circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[lens] (L) at (0,0) {} ;
+\draw[red,fill] (L.center)  circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+(\blll{L}.\RDD{lens north}) & (\blll{L}.\RDD{lens south})  & (\blll{L}.\RDD{east focus}) & (\blll{L}.\RDD{west focus}) & (\blll{L}.\RDD{center}) \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|c|}{\BS{node}[slit, slit height=0.5] (\blll{L}) at (0,0) \AC{} ;} \\
+\multicolumn{3}{|c|}{\BS{node}[red,fill] (\blll{L}.\RDD{slit north})   circle (2pt) ;}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[slit, slit height=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[slit, slit height=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[slit, slit height=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit center)  circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+(\blll{L}.\RDD{slit north}) & (\blll{L}.\RDD{slit south})  & (\blll{L}.\RDD{slit center})  \\ 
+\hline 
+\end{tabular}
+
+
+\bigskip
+\begin{tabular}{|c|c|c||c|c|c|} \hline 
+\multicolumn{6}{|c|}{\BS{node}[double slit,slit height=0.2,slit separation=0.5] (\blll{L}) at (0,0) \AC{} ;} \\
+\multicolumn{6}{|c|}{\BS{node}[red,fill] (\blll{L}.\RDD{slit 1 north})   circle (2pt) ;}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 1 north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 1 south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5]  (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 1 center)  circle (2pt) ;
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 2 north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5] (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 2 south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[double slit,slit height=0.2,slit separation=0.5]  (L) at (0,0) {} ;
+\draw[red,fill] (L.slit 2 center)  circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+(\blll{L}.\RDD{slit 1 north}) & (\blll{L}.\RDD{slit 1 south})  & (\blll{L}.\RDD{slit 1 center})& (\blll{L}.\RDD{slit 2 north}) & (\blll{L}.\RDD{slit 2 south})  & (\blll{L}.\RDD{slit 2 center})  \\ 
+\hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline 
+\multicolumn{7}{|c|}{\BS{node}[spherical mirror] (\blll{L}) at (0,0) \AC{} ;} \\
+\multicolumn{7}{|c|}{\BS{node}[red,fill] (\blll{L}.\RDD{mirror center})   circle (2pt) ;}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.mirror center)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.focus)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.arc start)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.arc center)   circle (2pt) ;
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.arc end)   circle (2pt) ;
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.45)   circle (2pt) ;
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[spherical mirror] (L) at (0,0) {} ;
+\draw[red,fill] (L.-45)   circle (2pt) ;
+\end{tikzpicture}
+\\ \hline  
+\blll{L}.\RDD{mirror center} & \blll{L}.\RDD{focus} & \blll{L}.\RDD{arc start} &  \blll{L}.\RDD{arc center}
+& \blll{L}.\RDD{arc end} & \blll{L}.\rouge{45} & \blll{L}.\rouge{-45}
+\\ \hline 
+%\begin{tikzpicture}[use optics,blue]
+%\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+%\node[spherical mirror] (L) at (0,0) {} ;
+%\draw[red,fill] (L.arc end)   circle (2pt) ;
+%\end{tikzpicture}
+%&
+%\begin{tikzpicture}[use optics,blue]
+%\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+%\node[spherical mirror] (L) at (0,0) {} ;
+%\draw[red,fill] (L.45)   circle (2pt) ;
+%\end{tikzpicture}
+%&
+%\begin{tikzpicture}[use optics,blue]
+%\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+%\node[spherical mirror] (L) at (0,0) {} ;
+%\draw[red,fill] (L.-45)   circle (2pt) ;
+%\end{tikzpicture}
+%&
+%
+%\\ \hline 
+%\blll{L}.\RDD{arc end} & \blll{L}.\rouge{45} & \blll{L}.\rouge{-45} &
+%\\ \hline 
+\end{tabular} 
+
+
+
+\SbSSCT{Lampes et capteurs}{Lights and sensors}
+
+
+
+\SbSbSSCT{Disponibles}{Available}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|}\hline 
+%\multicolumn{4}{|c|}{ Lampes et capteurs }
+%\\  \hline  
+\multicolumn{4}{|c|}{ \BS{tikz}[use optics,scale=.5,blue] \BS{node}[\RDD{generic optics io}] (L) at (0,0) \AC{};  }
+\\  \hline  
+\tikz[use optics,scale=.5,blue]  \node[generic optics io] (S) at (0,0) {};
+&  
+\tikz[use optics,scale=.5,blue] \node[sensor line] (S) at (0,0) {};
+&  
+\tikz[use optics,scale=.5,blue] \node[generic sensor] (S) at (0,0) {};
+&  
+\tikz[use optics,scale=.5,blue] \node[generic lamp] (S) at (0,0) {};
+\\ 
+\hline 
+\RDD{generic optics io} & \RDD{sensor line} & \RDD{generic sensor}  & \RDD{generic lamp} 
+\\ \hline 
+\tikz[use optics,scale=.5,blue] \node[halogen lamp] (S) at (0,0) {};
+%\node[halogen lamp] (S) at (5cm,0) {QI};
+&
+\tikz[use optics,scale=.5,blue] \node[spectral lamp] (S) at (0,0) {};
+%\node[spectral lamp] (S) at (5cm,0) {{Hg} \\ BP};
+&
+\tikz[use optics,scale=.5,blue] \node[laser] (S) at (0,0) {};
+%\node[laser] (S) at (5cm,0) {{HeNe}}
+;
+&
+\tikz[use optics,scale=.5,blue] \node[laser'] (S) at (0,0) {};
+\\ \hline
+\RDD{halogen lamp} & \RDD{spectral lamp } & \RDD{laser} & \RDD{laser'}
+\\ \hline 
+\end{tabular}
+ 
+\SbSbSSCT{Paramètres}{Parameters}
+
+\noindent
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{\BS{node}[\blll{generic optics io}, \RDD{io body height}=1.5cm](L) at (0,0) \AC{};}
+\\ \hline 
+\multicolumn{3}{|c|}{ \TFRGB{Paramètres applicables pour}{Same parameters for } \blll{generic sensor} , \blll{generic lamp} , \blll{halogen lamp} , \blll{spectral lamp},\blll{laser} }
+\\ \hline
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io, io body height=1.5cm](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io, io body aspect ratio=4](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io body width=4](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{io body height}=1.5cm & \RDD{io body aspect ratio}=4 &  \RDD{io body width}=4 \\ 
+\hline 
+\dft{ 0.75cm} & \dft{ 2} & 
+\\ \hline   \hline 
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io body width=3cm](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io aperture width=1](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io aperture width=1cm](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+\\ \hline  
+\RDD{io body width}=3cm  & \RDD{io aperture width}=1  & \RDD{io aperture width}=1cm
+\\ \hline 
+ & \multicolumn{2}{|c|}{\dft{ 0.33} }
+\\ \hline  \hline 
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io aperture height=2](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io aperture height=1cm](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io aperture shift=0.25](L) at (0,0) {};
+\node[generic optics io,dotted,thick](A) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+\RDD{io aperture height}=2 & \RDD{io aperture height}=1cm & \RDD{io aperture shift}=0.25
+\\ \hline 
+\multicolumn{2}{|c|}{\dft{ 0.66} }  & \dft{ 0}
+\\ \hline 
+%\end{tabular} 
+%
+%\bigskip
+%
+%\begin{tabular}{|c|c|}\hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io orientation=ltr](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[generic optics io,io orientation=rtl](L) at (0,0) {};
+\end{tikzpicture}
+&
+\\ \hline \RDD{io orientation}=ltr &  \RDD{io orientation}=rtl &
+\\ \hline 
+\multicolumn{2}{|c|}{\dft{ ltr} } & 
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline 
+\multicolumn{3}{|c|}{\BS{node}[sensor line, \RDD{sensor line height}=1.5cm](L) at (0,0) \AC{};}
+\\ \hline  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line, sensor line height=1.5cm](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line, sensor line aspect ratio=0.5](L) at (0,0) {};
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line, sensor line pixel number=10](L) at (0,0) {};
+\end{tikzpicture}
+\\ \hline 
+\RDD{sensor line height}=1.5cm & \RDD{sensor line aspect ratio}=0.5 &  \RDD{sensor line pixel number}=10 
+\\ \hline
+\dft{ 2cm} & \dft{ 0.2} & \dft{ 5} 
+\\ \hline
+ 
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line,sensor line pixel width=0.8](L) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line,sensor line pixel width=0.2cm](L) at (0,0) {};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue,line width=2pt,baseline=0pt]
+\useasboundingbox (-2.2,-1.2) rectangle (2.2,1.2);
+\draw[help lines] (-2,-1) grid (2,1); 
+\node[sensor line,sensor line inner ysep=0.2](L) at (0,0) {};
+\end{tikzpicture}
+
+\\ \hline 
+\RDD{sensor line pixel width}=0.8 & \RDD{sensor line pixel width}=0.2cm  & \RDD{sensor line inner ysep}=0.2 
+\\ \hline 
+\multicolumn{2}{|c|}{\dft{0.4} }  & \dft{ 0.05 } 
+\\ \hline 
+\end{tabular} 
+
+
+\SbSbSSCT{Points d'ancrages}{Anchors}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|} \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body center)   circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+s.body north & s.body south & s.body east & s.body west & s.body center
+\\ \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body north east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body north west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body south east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.body south west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+
+\\ \hline 
+s.body north east & s.body north west & s.body south east & s.body south west &
+\\ \hline 
+%\end{tabular} 
+%
+%\begin{tabular}{|c|c|c|c|c|} \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture south)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture center)   circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+s.aperture north & s.aperture south & s.aperture east & s.aperture west & s.aperture center
+\\ \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture north east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture north west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture south east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[generic optics io,name=s] {};
+\draw[red,fill] (s.aperture south west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+
+\\ \hline 
+s.aperture north east & s.aperture north west & s.aperture south east & s.aperture south west &
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 1 center)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 2 center)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 center)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 4 center)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 5 center)   circle (2pt) ;
+\end{tikzpicture}
+\\ \hline 
+s.pixel 1 center & s.pixel 2 center & s.pixel 3 center & s.pixel 4 center & s.pixel 5 center
+\\ \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 south)  circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 north)   circle (2pt) ;
+\end{tikzpicture}
+&  
+
+\\ \hline 
+s.pixel 3 east & s.pixel 3 west & s.pixel 3 south &  s.pixel 3 north &
+\\ \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 north east)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 north west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 south east)  circle (2pt) ;
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-.5,-1.5) rectangle (.5,1.5);
+\node[sensor line,name=s,sensor line aspect ratio= .5] {};
+\draw[red,fill] (s.pixel 3 south west)   circle (2pt) ;
+\end{tikzpicture}
+&  
+
+\\ \hline 
+s.pixel 3 north east & s.pixel 3 north west & s.pixel 3 south east &  s.pixel 3 south west &
+\\ \hline 
+\end{tabular}
+
+\SbSSCT{Outils}{Tools}
+
+
+\SbSbSSCT{Marquer des rayons}{Marks on the ray}
+
+\noindent
+
+\begin{tabular}{|c|c|c|c|c|c|}\hline 
+\multicolumn{6}{|c|}{\BS{draw} [\rouge{->-}] (0,0) -- (1.5,1;}
+\\  \hline   
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[->-] (0,0) -- (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[-<-] (0,0) -- (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[->>-] (0,0) -- (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[->n-={n=4}] (0,0) -- (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[->n-={n=5,at=0.25}] (0,0) -- (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue,line width=1pt,baseline=0pt]
+\draw[->>-={at=0.25}, ->-={at=0.75}] (0,0) -- (1.5cm,1.1cm);
+\end{tikzpicture}
+\\ \hline 
+[\rouge{->-}] & [\rouge{-<-}] & [\rouge{-> >-}]   & [->\rouge{n}-=\AC{\RDD{n}=4}] & [->n=\AC{n=5,\RDD{at}=0.25}] & [-> >-={\RDD{at}=0.25}, ->-=\AC{\RDD{at}=0.75}]
+\\ 
+\hline 
+\end{tabular} 
+ 
+
+\bigskip
+
+\noindent
+\begin{tabular}{|c|c|c|c|} \hline
+\multicolumn{4}{|c|}{\BS{draw} [\RDD{put arrow}] (0,0) to[bend left=120] (2,0);}
+\\  \hline    
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow] (0,0) to[bend left=120] (1.5,1);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow={arrow'}] (0,0) to[bend left=120](1.5cm,1cm);
+\end{tikzpicture}
+& 
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow={at=0.2}] (0,0) to[bend left=120] (1.5cm,1cm);
+\end{tikzpicture}
+& 
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow={style=red}] (0,0) to[bend left=120] (1.5cm,1cm);
+\end{tikzpicture}
+\\ \hline 
+[\RDD{put arrow}] & [put arrow=\AC{\RDD{arrow'}}] & [put arrow=\AC{\RDD{at}=0.2}]& [put arrow=\AC{\RDD{style}=red}] \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline  
+\begin{tikzpicture}[use optics,blue]
+\draw[red,put arrow={arrow=latex}](0,0) to[bend left=120] (1.5cm,1cm);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow={arrow'=Kite}](0,0) to[bend left=120] (1.5cm,1cm);
+\end{tikzpicture}
+& 
+\begin{tikzpicture}[use optics,blue]
+\draw[put arrow={pos=.25}](0,0) to[bend left=120] (1.5cm,1cm);
+\end{tikzpicture}
+\\ \hline 
+[red,put arrow=\AC{\RDD{arrow}=latex}] & [put arrow=\AC{\RDD{arrow'}=Kite}] &   [put arrow=\AC{\RDD{pos}=.25}]
+\\ \hline 
+& & \dft{ pos=0.5}
+\\ \hline 
+\end{tabular}
+
+
+\bigskip
+
+\begin{tabular}{|c|} \hline  
+\BS{draw}[red, put arrow/\RDD{every arrow}/.style=\AC{blue},
+put arrow=\AC{at=0.2},\\ put arrow=\AC{at=0.5}, put arrow=\AC{at=0.8}]
+(0,0) -- (5,0);
+\\ \hline  
+\begin{tikzpicture}[use optics]
+\useasboundingbox (-0.5,-1.2) rectangle (5.5,1.2);
+\draw[help lines] (0,-1) grid (5,1);
+\draw[red, put arrow/every arrow/.style={blue},
+put arrow={at=0.2}, put arrow={at=0.5}, put arrow={at=0.8}]
+(0,0) -- (5,0);
+\end{tikzpicture}
+\\ \hline 
+\end{tabular} 
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline  
+\begin{tikzpicture}[use optics,baseline=0pt,blue]
+\draw[put coordinate=A at 0.1,put coordinate=B at 0.9] (0,0) -- (1.5cm,1cm) -- (3cm, 0) -- (4.5cm,1cm);
+\draw[red] (A) -- (B);
+\fill(A) circle (2pt) node[above] {A} ;
+\fill(B) circle (2pt) node[above] {B} ;
+\end{tikzpicture}
+&  
+\parbox{10cm}{
+\BS{begin}\AC{tikzpicture}[use optics,blue] \\
+\BS{draw}[\RDD{put coordinate}=\blll{A} at 0.1,\RDD{put coordinate}=\blll{B} at 0.9] \\ (0,0) - - (1.5,1) - - (3, 0) - - (4.5,1); \\
+\BS{draw}[red] (\blll{A}) - - (\blll{B});\\
+\BS{fill}(A) circle (2pt) node[above] \AC{\blll{A}} ;\\
+\BS{fill}(B) circle (2pt) node[above] \AC{\blll{B}} ;\\
+\BS{end}\AC{tikzpicture}
+}
+\\  \hline  
+& Point A à 10\% , point B à 90\%
+\\ \hline 
+\end{tabular} 
+
+\bigskip
+
+
+\begin{tabular}{|c|c|}\hline  
+\begin{tikzpicture}[use optics,baseline=0pt]
+\node[halogen lamp] (quartz iode) at (0,0) {Q.I.};
+\node[heat filter,right=0.5cm of quartz iode.aperture east] (AC) {};
+\node[slit,right=0.75cm of AC] (fente) {};
+\node[lens,right=2cm of fente] (L) {};
+\node[screen,right=3cm of fente] (screen) {};
+\end{tikzpicture}
+&  
+\parbox{10.5cm}{
+\BS{begin}\AC{tikzpicture}[use optics] \\
+\BS{node}[halogen lamp] (\blll{quartz iode}) at (0,0) \AC{Q.I.};\\
+\BS{node}[heat filter,\RDD{right}=0.5cm \rouge{of} \blll{quartz iode}.aperture east] (\blll{AC}) \AC{};\\
+\BS{node}[slit,\RDD{right}=0.75cm \rouge{of} \blll{AC}] (\blll{fente}) \AC{};\\
+\BS{node}[lens,\RDD{right}=2cm  \rouge{of}  \blll{fente}] (L) \AC{};\\
+\BS{node}[screen,\RDD{right}=3cm  \rouge{of}  \blll{fente}] (screen) \AC{};\\
+\BS{end}\AC{tikzpicture}
+}
+\\ \hline 
+\end{tabular} 
+
+
+
+
+\SbSbSSCT{Cotation}{Dimensions indicating}
+
+\noindent
+
+\begin{tabular}{|c|c|c|}\hline 
+\multicolumn{3}{|c|}{\BS{draw} (0,0) to[\RDD{short dim arrow}=\AC{\RDD{label}=2cm}] (2,0);}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow={label=2cm}] (2,0);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow={label'=2cm}] (2,0);
+\end{tikzpicture}
+&  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow={label=2cm,label style/.append style=red}] (2,0);
+\end{tikzpicture}  
+
+\\ \hline
+[\RDD{dim arrow}=\AC{\RDD{label}=2cm}] & to[dim arrow=\AC{\RDD{label'}=2cm}] & [dim arrow=\{label=2cm, \\
+ & & \RDD{label style}/.append style=red\}]
+\\ \hline
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,2.2);
+\draw[help lines] (-1,-1) grid (3,2);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow={label=2cm,raise=1cm}] (2,0);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,2.2);
+\draw[help lines] (-1,-1) grid (3,2);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow={label=2cm,no raise},red] (2,0);
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,2.2);
+\draw[help lines] (-1,-1) grid (3,2);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[dim arrow'={label=2cm}] (2,0);
+\end{tikzpicture}
+\\ \hline
+[dim arrow=\AC{label=2cm,\RDD{raise}=1cm}] & [dim arrow=\AC{label=2cm,\RDD{no raise}},red] & [\RDD{dim arrow'}=\AC{label=2cm}]
+\\ \hline
+\dft{ raise = 0.5cm} & & 
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|}\hline 
+\multicolumn{2}{|c|}{\BS{draw} (0,0) to[\RDD{short dim arrow}=\AC{label=2cm}] (2,0);}
+\\  \hline  
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[short dim arrow={label=2cm}] (2,0);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[short dim arrow={label=2cm,arrow length=1cm}] (2,0);
+\end{tikzpicture}
+\\ \hline
+[\RDD{short dim arrow}=\AC{label=2cm}] & 
+[short dim arrow=\AC{label=2cm,\RDD{arrow length}=1cm}]
+\\ \hline
+& \dft{ arrow length= 5mm}
+\\ \hline
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[short dim arrow={label=2cm,label near end}] (2,0);
+\end{tikzpicture}
+&
+\begin{tikzpicture}[use optics,blue]
+\useasboundingbox (-1.5,-1.2) rectangle (3.5,1.2);
+\draw[help lines] (-1,-1) grid (3,1);
+\draw[line width=2pt,dashed] (0,0) -- (2,0);
+\draw (0,0) to[short dim arrow={label=2cm,label near middle}] (2,0);
+\end{tikzpicture}
+
+\\ \hline
+[short dim arrow=\AC{label=2cm,\RDD{label near end}}] & [short dim arrow=\AC{label=2cm,\RDD{label near middle}}]
+\\ \hline
+\multicolumn{2}{|c|}{\dft{ label near start}}
+\\ \hline
+\end{tabular} 

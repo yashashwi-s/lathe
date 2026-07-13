@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Algorithmic Pseudocode Sample 42}
+\author{Source-backed Image2Struct algorithm sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Algorithm}
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+\begin{algorithm}[htbp]
+\caption{Source-backed algorithmic procedure}
+\begin{algorithm}
+[t]
+\caption{Successive elimination procedure for a static bandit with source data}
+\begin{algorithmic}[1]
+\State{\textbf{Input:} state $s$, set of arms $\mathcal{I}$, source data $\mathcal{D}^{P}$.}
+\State{Set $n_{k}^{P}(s)$ and $\overline{Y}_{k}^{P}(s)$ as in (\ref{eq:n-k-B-Pdata-tabular}) and (\ref{eq:Y-bar-k-B-Pdata-tabular}), respectively, $\forall k\in\mathcal{I}$.}
+\State{Set $n_{k}^{P} \gets n_{k}^{P}(s)$ and $\overline{Y}_{k} \gets \overline{Y}_{k}^{P}(s)$, $\forall k\in\mathcal{I}$.}
+\State{Initialize $t\gets0$.}
+\State{Initialize $\tau_{k} \gets 0, \forall k\in\mathcal{I}$.}
+\Comment{initialize pull counts}
+\State{Initialize $\underline{Y}^{\star}\gets\max_{k\in\mathcal{I}}\big\{\overline{Y}_{k}-U_{k}(0,s)\big\}$.}
+\Comment{initialize largest reward lower bound}
+\Loop
+\For{$k\in\mathcal{I}$}
+\If{$\overline{Y}_{k}+ U_{k}(\tau_{k},s) \geq\underline{Y}^{\star}$}
+\Comment{eliminate arm s.t.~reward upper bound is smaller than largest reward lower bound}
+\State{Set $t \gets t+1$.}
+\State{Select arm $\widetilde{\pi}_{t}\gets k$ and receive reward $Y^{Q,(k)}$.}
+\State{Set $\tau_{k}\gets\tau_{k} + 1$.}
+\Comment{update pull count}
+\State{Set $\overline{Y}_{k}\gets\frac{1}{n_{k}^{P}+\tau_{k}}\big(Y^{Q,(k)}+(n_{k}^{P}+\tau_{k}-1)\overline{Y}_{k}\big)$.}
+\Comment{update estimated reward}
+\State{Set $\underline{Y}^{\star}\gets\max_{k\in\mathcal{I}}\big\{\overline{Y}_{k}-U_{k}(\tau_{k},s)\big\}$.}
+\Comment{update largest reward lower bound}
+\Else \State{Eliminate arm $k$ from active arm set: $\mathcal{I} \gets\mathcal{I}\setminus\{k\}$.}
+\EndIf
+\EndFor
+\EndLoop
+\State{\textbf{Output:} policy $\{\widetilde{\pi}_{t}\}_{t\geq1}$.}
+\end{algorithmic}
+\end{algorithm}
+\end{algorithm}
+\end{document}

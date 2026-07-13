@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00061\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[width=\linewidth]{|l|c| c| c|c|}
+ %inserts double horizontal lines
+ \hline
+\textbf{Model} & \textbf{CIFAR-100} & \textbf{CIFAR-10} & \textbf{SVHN} & \textbf{FMNIST} \\ [0.5ex] % inserts Table
+%heading
+\hline % inserts single horizontal line
+
+DenseNet  & 82.4\%/15.3M & 96.40\%/15.3M & 98.41\%/15.3M & 95.40\%/15.3M  \\ [1ex] % inserting body of the Table
+RS-CNN  & 61.14\%/2.8M & 90.15\%/2.7M & 95.56\%/2.7M & 93.34\%/2.7M \\ [1ex]
+BiT-M  & 92.17\%/928M & 98.91\%/928M & - & - \\ [1ex]
+% https://arxiv.org/pdf/1912.11370v3.pdf
+\hline
+DA-CapsNet  & - & 85.47\%/- & 94.82\%/- & 93.98\%/- \\ [1ex]
+
+CapsNet (7-ens)  & - & 89.40\%/11.7M & 95.70\%/11.7M & - \\ [1ex] 
+Cv-CapsNet++  & - & 86.70\%/2.7M & - & 94.40\%/2.5M \\ [1ex]
+CFC-CapsNet   & - & 73.15\%/5.9M & 93.29\%/5.9M & 92.86\%/5.7M \\ [1ex]
+HitNet  & - & 73.30\%/8.9M & 94.50\%/8.9M & 92.30\%/8.9M \\ [1ex]
+% WR-CapsNet \cite{Fuchs2020} & 70.39\% & 93.43\% & 96.46\% & - \\ [1ex]
+RS-CapsNet  & 64.14\%/16.8M & 91.32\%/5M & 97.08\%/5M & 94.08\%/5M \\ [1ex]
+DCN-UN MDR  & 60.56\%/4.8M & 90.42\%/1.4M & - & 93.33\%/- \\ [1ex]
+Gabor CapsNet  & 68.17\%/22.6M & 85.24\%/10.4M & - & 94.78\%/- \\[1ex]
+AC-CapsNet  & 66.09\%/4.12M & 92.02\%/1.26M & 96.86\%/1.26M & - \\[1ex]
+DeepCaps (7-ens)  & - & 92.74\%/13.4M & 97.56\%/13.4M & 94.73\%8.5M \\ [1ex]
+\hline
+DL-CapsNet & 63.73\%/11.2M & 89.06\%/6.8M & 95.82\%/6.8M & 94.21\%/6.4M \\ [1ex]
+DL-CapsNet (7-ens) & 68.36\%/11.2M & 91.29\%/6.8M & 97.09\%/6.8M & 94.72\%/6.4M \\ 
+
+
+% adds vertical space
+\hline %inserts single line
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00671\_table\_4}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l| >{\centering\arraybackslash}p{1.0cm} | >{\centering\arraybackslash}p{1.0cm} | >{\centering\arraybackslash}p{1.3cm} | >{\centering\arraybackslash}p{1.0cm} | >{\centering\arraybackslash}p{1.0cm} | >{\centering\arraybackslash}p{1.0cm} | >{\centering\arraybackslash}p{1.0cm}}
+        & $\frac{\Lambda_c^+}{D^0}$
+        & $\frac{\Sigma_c}{D^0}$
+        & $\frac{\Lambda_c^+(\leftarrow\Sigma_c)}{\Lambda_c^+}$ & $\frac{\Xi_c^0}{D^0}$ & $\frac{\Xi_c^+}{D^0}$ & $\frac{\Xi_c^0}{\Lambda_c^+}$ & $\frac{\Xi_c^{0,+}}{\Sigma_c}$ \\[3pt]
+        \hline
+        Monash                     & \cellcolor[HTML]{000000} \textcolor{white}{41.53}
+                                   & \cellcolor[HTML]{B92D5D} \textcolor{white}{19.83}
+                                   & \cellcolor[HTML]{F78220} 7.72
+                                   & \cellcolor[HTML]{F78220} 8.67
+                                   & \cellcolor[HTML]{FDCD06} 3.14
+                                   & \cellcolor[HTML]{FDCD06} 3.19
+                                   & \cellcolor[HTML]{56BB46} 0.40 \\
+
+        QCD CR ($m_\tau = 2$)      & \cellcolor[HTML]{81C342} 1.69
+                                   & \cellcolor[HTML]{6CBD45} 0.50
+                                   & \cellcolor[HTML]{6CBD45} 0.64
+                                   & \cellcolor[HTML]{F79717} 6.06
+                                   & \cellcolor[HTML]{BDCD30} 2.19
+                                   & \cellcolor[HTML]{FDB314} 5.43
+                                   & \cellcolor[HTML]{FDB314} 4.00 \\
+
+        Rope Hadronization         & \cellcolor[HTML]{81C342} 1.46
+                                   & \cellcolor[HTML]{56BB46} 0.16
+                                   & \cellcolor[HTML]{56BB46} 0.42
+                                   & \cellcolor[HTML]{FDB314} 5.40
+                                   & \cellcolor[HTML]{BDCD30} 2.20
+                                   & \cellcolor[HTML]{FDB314} 5.11
+                                   & \cellcolor[HTML]{FDCD06} 3.86 \\
+
+        Closepacking (T1)          & \cellcolor[HTML]{81C342} 1.66
+                                   & \cellcolor[HTML]{6CBD45} 0.97
+                                   & \cellcolor[HTML]{56BB46} 0.13
+                                   & \cellcolor[HTML]{FDB314} 4.54
+                                   & \cellcolor[HTML]{BDCD30} 2.07
+                                   & \cellcolor[HTML]{FDB314} 4.01
+                                   & \cellcolor[HTML]{BDCD30} 2.67 \\
+
+        Closepacking (T2)          & \cellcolor[HTML]{81C342} 1.75
+                                   & \cellcolor[HTML]{6CBD45} 0.54
+                                   & \cellcolor[HTML]{56BB46} 0.16
+                                   & \cellcolor[HTML]{FDB314} 5.18
+                                   & \cellcolor[HTML]{BDCD30} 2.22
+                                   & \cellcolor[HTML]{FDB314} 4.97
+                                   & \cellcolor[HTML]{FDCD06} 3.65 \\
+
+        Closepacking (simple)      & \cellcolor[HTML]{BDCD30} 2.67
+                                   & \cellcolor[HTML]{6CBD45} 0.70
+                                   & \cellcolor[HTML]{56BB46} 0.40
+                                   & \cellcolor[HTML]{FDB314} 5.31
+                                   & \cellcolor[HTML]{FDCD06} 2.84
+                                   & \cellcolor[HTML]{FDB314} 4.36
+                                   & \cellcolor[HTML]{FDCD06} 3.72 \\
+
+        Strange Junctions          & \cellcolor[HTML]{EF4A24} 11.26
+                                   & \cellcolor[HTML]{F79717} 6.11
+                                   & \cellcolor[HTML]{6CBD45} 0.79
+                                   & \cellcolor[HTML]{F79717} 6.79
+                                   & \cellcolor[HTML]{FDCD06} 3.05
+                                   & \cellcolor[HTML]{FDCD06} 3.87
+                                   & \cellcolor[HTML]{BDCD30} 2.58 \\
+
+        Strange Junctions (max.)   & \cellcolor[HTML]{EF4A24} 12.21
+                                   & \cellcolor[HTML]{FDCD06} 3.67
+                                   & \cellcolor[HTML]{56BB46} 0.36
+                                   & \cellcolor[HTML]{F79717} 6.15
+                                   & \cellcolor[HTML]{BDCD30} 2.60
+                                   & \cellcolor[HTML]{FDCD06} 3.35
+                                   & \cellcolor[HTML]{BDCD30} 2.49 \\
+                                   \hline
+    \end{tabular}
+}
+\end{table}
+
+\end{document}

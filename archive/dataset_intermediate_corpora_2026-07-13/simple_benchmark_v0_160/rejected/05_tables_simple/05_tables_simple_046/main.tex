@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.02370\_table\_3}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}\hline	
+				\textbf{\begin{tabular}{c}Variables\end{tabular} } &\textbf{\begin{tabular}{c}Variable\\ elements\end{tabular}} & \textbf{\begin{tabular}{c}Physical\\ meanings\end{tabular}} & \textbf{Examples} \\\hline
+				$\mathbb{Q}$ & $\{X_{i}, Y_{i}, Z_{i}| i \in \mathcal{M}\}$ & \begin{tabular}{c}Positions\\ of UAVs.\end{tabular} &\begin{tabular}{c} $(X_{1}, Y_{1}, Z_{1}) = (10, 20, 30)$ \\indicates that the position\\ of $\mathcal{M}_1$ is $(10, 20, 30)$.\end{tabular} \\\hline
+				$\mathbb{P}$ & $\{p_{j}| j \in \mathcal{K}\}$ & \begin{tabular}{c}Transmission\\ power of SNs.\end{tabular}  &\begin{tabular}{c} $p_2 =0.3$ indicates that\\ the transmission power\\ of $\mathcal{K}_2$ is $0.3$ W.\end{tabular}\\\hline
+				$\mathbb{F}$ &$\{f_{\text{U}, ij}|i \in \mathcal{M}, j \in \mathcal{K}\}$ & \begin{tabular}{c}Computing\\ resource \\ allocation.\end{tabular} &\begin{tabular}{c} $f_{\text{U}, 34} = 0.7$ indicates that\\ the computing resource of $\mathcal{M}_3$\\ allocated to $\mathcal{K}_4$ is $0.7$ GHz.\end{tabular}\\\hline
+				$\mathbb{C}$ & $\{Ca_{\text{U}, j}| j \in \mathcal{K}\}$ & \begin{tabular}{c}Size of\\ computation\\ tasks processed\\ by UAVs. \end{tabular}& \begin{tabular}{c} $Ca_{\text{U}, 5} = 2^{20}$ indicates that\\ the size of computation\\ tasks of $\mathcal{K}_5$ processed\\ by the UAV is $2^{20}$ bits.\end{tabular}\\\hline
+				$\mathbb{A}$ &$\{a_{ij}|i \in \mathcal{M}, j \in \mathcal{K}\}$ & \begin{tabular}{c} Assignment\\ between \\ UAVs and SNs. \end{tabular}&  \begin{tabular}{c}	$a_{67} = 1$ indicates that \\ $\mathcal{K}_6$ will offload its\\ computation tasks to $\mathcal{M}_7$.\end{tabular}
+				\\\hline
+		\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02049\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\hline
+Model                & Parameter          & Value               \\ \hline
+MeshGraphNet          & Processor depth    & 15                  \\
+                     & Latent dimension   & 128                 \\ \hline
+Point Transformer V3  & Grid Size          & 0.2                 \\
+                     & Latent dimensions  & (64, 128, 256, 512) \\
+                     & Window sizes        & (512, 512, 512)     \\
+                     & Encoder depths      & (2, 2, 2, 6)        \\
+                     & Encoder heads      & (4, 8, 16, 32)      \\
+                     & Encoder patch size & 1024                \\
+                     & Decoder depths      & (2, 2, 2)           \\
+                     & Decoder heads      & (4, 8, 16)          \\
+                     & Decoder patch size & 1024                \\
+                     & Stride            & 2                   \\ \hline
+Transolver            & Latent dimension   & 256                 \\
+                     & Number of layers   & 8                   \\
+                     & MPL ratio          & 4                   \\ \hline
+Transolver++          & Latent dimension   & 256                 \\
+                     & Number of layers   & 8                   \\
+                     & MPL ratio          & 4                   \\ \hline
+Erwin                 & MPNN dim.          & 64                  \\
+                     & Latent dimensions  & (64, 128, 256)      \\
+                     & Window sizes        & (512, 512, 512)     \\
+                     & Encoder depths      & (2, 2, 6)           \\
+                     & Encoder heads      & (4, 8, 16)          \\
+                     & Decoder depths      & (2, 2)              \\
+                     & Decoder heads      & (4, 8)              \\
+                     & Stride            & 2                   \\
+                     & Distance-based attention bias            & Enabled \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}

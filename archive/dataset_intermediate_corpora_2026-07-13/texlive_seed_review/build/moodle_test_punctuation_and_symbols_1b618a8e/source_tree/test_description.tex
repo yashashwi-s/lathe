@@ -1,0 +1,41 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+% !TEX TS-program = lualatex
+\documentclass{article}
+\usepackage[nostamp]{moodle}
+\ifPDFTeX % FOR LATEX and PDFLATEX
+	\usepackage[utf8]{inputenc} % necessary
+	\usepackage[T1]{fontenc} % necessary
+\else % assuming XELATEX or LUALATEX
+	\usepackage{fontspec}
+\fi
+\begin{document}
+
+\section*{Introduction}
+
+This document is intended to check the support of the description 
+question type.
+
+\begin{description}
+\item Foo
+\item Bar
+\end{description}
+
+\begin{quiz}{Example Quiz}
+\begin{description}[tags={descr},feedback={here is a feedback}]{Requirements}
+This is a description. Not really a question. We can include environments and 
+math. 
+\begin{itemize}
+\item This
+\item That
+\end{itemize}
+\[\mathrm{e}^{2\mathrm{i}\pi}+1=0.\]
+\end{description}
+\end{quiz}
+
+\begin{description}
+\item Foo
+\item Bar
+\end{description}
+
+\end{document}

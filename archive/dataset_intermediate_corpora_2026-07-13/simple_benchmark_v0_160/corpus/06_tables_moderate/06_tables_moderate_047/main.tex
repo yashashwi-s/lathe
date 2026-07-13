@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.04072\_table\_18}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l|c|c|c|c|c|c}
+\toprule
+ subject                                 &   \rotatebox{45}{Meta-Llama 2 7b} &   \rotatebox{45}{Mistral 7b} &   \rotatebox{45}{Meta-Llama 3.1 8b} &   \rotatebox{45}{Meta-Llama 3.1 70b} &   \rotatebox{45}{Gemma 2 9b} &   \rotatebox{45}{Phi-3 Small 8k} \\
+\midrule
+ hyperbaton                              &              10.4 &         -4.8 &                 8.8 &                -20.8 &          2.8 &             -8.8 \\
+ logical\_deduction\_three\_objects         &              -4.8 &         -8.4 &                19.6 &                -10.4 &          0.4 &              5.6 \\
+tracking\_shuffled\_objects\_seven\_objects &               6   &         -0.4 &                40   &                 12.4 &         66   &             40.8 \\
+ date\_understanding                      &               4.8 &          3.2 &                23.6 &                 73.2 &         62   &              8.4 \\
+ruin\_names                              &               7.7 &          3.2 &                -4.4 &                 -3.2 &         -2.4 &              0.8 \\
+dyck\_languages                          &             -14.8 &         -9.2 &               -12   &                  0.4 &          7.6 &             -2.4 \\
+temporal\_sequences                      &              21.2 &          6.4 &                16   &                 46.8 &         78.4 &             -1.2 \\
+boolean\_expressions                     &               1.2 &        -22   &                 9.6 &                -10.4 &          9.2 &              0   \\
+multistep\_arithmetic\_two                &               3.2 &          1.6 &                73.2 &                 26.4 &          5.6 &             81.2 \\
+reasoning\_about\_colored\_objects         &              -2   &         -0.4 &                20.8 &                 -2   &         10.8 &             14   \\
+tracking\_shuffled\_objects\_five\_objects  &              11.2 &         -4.8 &                39.2 &                  9.6 &         63.6 &             47.6 \\
+penguins\_in\_a\_table                     &              -2.1 &         13.7 &                36.3 &                 47.3 &         49.3 &             18.5 \\
+ navigate                                &              14.8 &         -2.8 &                28   &                  0.4 &          2   &             -8.4 \\
+geometric\_shapes                        &              -4   &         -3.6 &                12.8 &                  4   &         19.2 &             -2   \\
+snarks                                  &             -12.4 &         -4.5 &                12.9 &                 -8.4 &          3.4 &            -10.7 \\
+word\_sorting                            &               0   &          0   &                 0.4 &                  4   &          2   &             -1.6 \\
+movie\_recommendation                    &             -18.1 &        -21.3 &                -2   &                -17.7 &         -6.8 &            -16.1 \\
+object\_counting                         &               7.6 &         -7.2 &                19.6 &                  8   &          5.6 &              6.4 \\
+web\_of\_lies                             &               5.6 &          0.4 &                38   &                 28   &         42.8 &             11.6 \\
+logical\_deduction\_seven\_objects         &               7.2 &          0.4 &                 0.4 &                  2   &         -3.2 &             -5.2 \\
+formal\_fallacies                        &             -12.4 &          1.2 &                 1.6 &                -27.6 &         -6.8 &             -4.8 \\
+tracking\_shuffled\_objects\_three\_objects &             -11.2 &          4   &                48.4 &                  2.8 &         50.8 &             37.2 \\
+logical\_deduction\_five\_objects          &               6.8 &          6   &                15.6 &                 -1.2 &          8   &             -0.4 \\
+disambiguation\_qa                       &             -12.4 &         -6   &                 0   &                -10   &         -5.6 &             -3.6 \\
+salient\_translation\_error\_detection     &              30.4 &         -1.2 &                 4   &                -12.8 &         -8   &             -6.8 \\
+ causal\_judgement                        &              -0.5 &          2.7 &                -0.5 &                -33.2 &        -12.3 &            -16   \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02867\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllllllcl} 
+\toprule
+\textbf{Dataset} & \textbf{Years} & \makecell[c]{\textbf{Age} \\ \textbf{Range}} & \textbf{Patients} & \makecell[c]{\textbf{Volumes} \\ \textbf{(A / woA)}} & \textbf{Slices} & \makecell[c]{\textbf{Num of} \\ \textbf{Teeth}} & \makecell[c]{\textbf{Annotator}} & \makecell[c]{\textbf{Volumes} \\ \textbf{(pixels)}} \\
+\midrule
+% --- CjData Added ---
+% \makecell[l]{CjData~\cite{cui2019toothnet}} 
+%            & 2019 & - & 154 & \makecell[c]{154 \\ (154 / 0)} & - & $\approx$ 3,900 & 1 & \makecell[c]{$400\times400\times300$} \\
+
+\makecell[l]{Clinical dental \\ CBCT~}
+           & 2020 & 10-49      & 25  & \makecell[c]{25 \\ (25 / 0)}             & 9400   & $\approx$ 770   & 1  & \makecell[c]{$110\times145\times280$} \\
+
+CTooth+                       & 2022 & 10--15 & 22  & \makecell[c]{168 \\ (22 / 146)} & 31380  & $\approx$ 5040  & 15  & \makecell[c]{$266\times266\times266$} \\
+
+\makecell[l]{Mandibular Canal \\ CBCT~}
+  & 2022 & 10-100      & 347   & \makecell[c]{347 \\ (347 / 0)}           & 88832       & $\approx$ 17220 & -  & \makecell[c]{$178\times423\times463$} \\
+
+\makecell[l]{Multi-modal \\ dataset~}
+             & 2023 & 18-89      & 169   & \makecell[c]{188 \\ (188 / 188)} & 16203    & $\approx$ 5401  & 13 & \makecell[c]{$640\times640\times200$} \\
+
+STS2023~ & 2023 & 7--70  & 584 & \makecell[c]{584 \\ (84 / 500)}& 88500  & $\approx$ 17520  & 30 & \makecell[c]{$640\times640\times399$} \\
+ToothFairy2 & 2023 & 16-100 & 530 & \makecell[c]{530\\(480/50)} & 80000 & $\approx$ 71400 & 5 & \textbf{\makecell[c]{$170\times272\times345$\\$298\times512\times512$}} \\
+
+STS2024 & 2024 & 7--70  & 330 & \makecell[c]{330 \\ (30 / 300)} & 69960  & $\approx$ 9900  & 30 & \makecell[c]{$266\times266\times200$\\$512\times512\times332$} \\
+
+ToothFairy3 & 2024 & 16-100 & 532 & \makecell[c]{532\\(532/0)} & 80000 & $\approx$ 17024 & 5 & \textbf{\makecell[c]{$170\times272\times345$\\$298\times512\times512$}} \\
+
+% --- STS2025 Added (Highlighted) ---
+\textbf{STS2025 (Ours)} & \textbf{2025} & \textbf{7--70}  & \textbf{370} & \makecell[c]{\textbf{370} \\ \textbf{(70 / 300)}} & - & - & \textbf{30+} & \makecell[c]{\textbf{Multi-resolution}} \\
+
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}

@@ -1,0 +1,1876 @@
+\subsubsection{\og library arrow.meta \fg}
+
+ \maboite{\BS{usetikzlibrary}\AC{arrows.meta}}
+\label{lib-arrows.meta}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[ \FDD{-Arc Barb},line width=.2cm,blue ] (0,0) - - (1.5,1) ;}
+ \\ \hline
+\tikz \draw[-Arc Barb,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw[-Bar,line width=.2cm,blue] (0,0) - - (1.5,1);
+ &
+ \tikz \draw[-Bracket,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-Hooks,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+  \tikz \draw[-Stealth,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline  
+\FDD{-Arc Barb} & \FDD{-Bar} & \FDD{-Bracket} & \FDD{-Hooks} & \FDD{-Stealth} 
+ \\ \hline  
+\tikz \draw [-Parenthesis,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-Straight Barb,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-Tee Barb,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-Classical TikZ Rightarrow,line width=.2cm,blue] (0,0) - - (1.5,1);
+ &
+  \tikz \draw[-Square,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+\FDD{-Parenthesis} & \FDD{-Straight Barb} &\FDD{-Tee Barb} & \FDD{-Classical TikZ Rightarrow} & \FDD{-Square}
+ \\ \hline
+ 
+ \tikz \draw[-Circle,line width=.2cm,blue] (0,0) - - (1.5,1) ;   
+
+ &  
+\tikz \draw [-Implies,double,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+\tikz \draw [-Rectangle,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+\tikz \draw [-Computer Modern Rightarrow,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+ \tikz \draw[-Turned Square,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+ \FDD{-Circle}  & \FDD{-Implies}, double & \FDD{-Rectangle}  & \FDD{-Computer Modern Rightarrow} &  \FDD{-Turned Square}
+ \\ \hline
+   & & & [\FDD{-To}] 
+ \\ \hline   
+\tikz \draw [-Diamond,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-Ellipse,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-Kite,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-Latex,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw [-Triangle,line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+\FDD{-Diamond} & \FDD{-Ellipse} &\FDD{-Kite} & [\FDD{-Latex}]  &  \FDD{-Triangle}
+ \\ \hline
+
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[\FDD{-Butt Cap},line width=.2cm,blue] (0,0) - - (1.5,1) ;}
+ \\ \hline
+\tikz \draw [-Butt Cap,line width=.5cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-Fast Round,line width=.5cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-Fast Triangle,line width=.5cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-Round Cap,line width=.5cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-Triangle Cap,line width=.5cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline 
+\FDD{-Butt Cap} &\FDD{-Fast Round}  & \FDD{-Fast Triangle} & \FDD{-Round Cap}  & \FDD{-Triangle Cap}  
+ \\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline 
+ \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[{\color{red} Triangle-Circle},line width=.2cm,blue] (0,0) - - (3.5,1) ;}
+ \\ \hline
+\tikz \draw[Triangle-Circle,line width=.2cm,blue] (0,0) - - (3.5,1);
+&
+\tikz \draw[-{Circle[] Triangle[]},line width=.2cm,blue] (0,0) - - (3.5,1);
+& 
+\tikz \draw[-{Circle[] . Triangle[] Triangle[] },line width=.2cm,blue] (0,0) - - (3.5,1);
+\\ \hline
+{\color{red} Triangle-Circle }& {\color{red} \AC{Circle[] Triangle[]}} & {\color{red}\AC{Circle[] . Triangle[] Triangle[] } }
+\\ \hline 
+\end{tabular}
+\bigskip
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[\FDD{-Rays}],line width=.1cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw [-Rays,line width=.1cm,blue] (0,0) - -(1.5,1) ;
+ &  
+\tikz \draw [-{Rays[n=2]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Rays[n=3]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-{Rays[n=4]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Rays[n=5]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline 
+Rays & \AC{Rays[n=2]} & \AC{Rays[n=3]} & \AC{Rays[n=4]} & \AC{Rays[n=5]}
+ \\ \hline
+ 
+\tikz \draw [-{Rays[n=6]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-{Rays[n=7]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Rays[n=8]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+  &  
+\tikz \draw[-{Rays[n=9]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Rays[n=10]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+\AC{Rays[n=6]} &\AC{Rays[n=7]} & \AC{Rays[n=8]}  & \AC{Rays[n=9]} &  \AC{Rays[n=10]}
+ \\ \hline    
+\end{tabular}
+
+
+
+
+\bigskip
+
+\Par{Paramètre sep}{Parameter sep}
+
+\RRR{16-4-2}
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline 
+ \multicolumn{6}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{sep}=.25cm]  Arc Barb[ ]},line width=.1cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[sep=.25cm] Arc Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Bracket[sep=.25cm]  Bracket[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Hooks[sep=.25cm] Hooks[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-{Parenthesis[sep=.25cm] Parenthesis[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Classical TikZ Rightarrow[sep=.25cm] Classical TikZ Rightarrow[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+& 
+\tikz \draw[-{Rays[sep=.25cm] Rays[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+\\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Classical TikZ Rightarrow & Rays
+ \\ \hline
+ 
+\tikz \draw[-{Straight Barb[sep=.25cm] Straight Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+& 
+\tikz \draw [-{Tee Barb[sep=.25cm] Tee Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+
+&  
+\tikz \draw[-{Circle[sep=.25cm] Circle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Ellipse[sep=.25cm] Ellipse[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Computer Modern Rightarrow[sep=.25cm] Computer Modern Rightarrow[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Triangle[sep=.25cm] Triangle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+Straight Barb & Tee Barb  & Circle &  Ellipse & Computer Modern Rightarrow & Triangle
+ \\ \hline 
+ 
+\tikz \draw[-{Latex[sep=.25cm] Latex[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Kite[sep=.25cm] Kite[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Rectangle[sep=.25cm] Rectangle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Square[sep=.25cm] Square[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Stealth[sep=.25cm] Stealth[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Turned Square[sep=.25cm] Turned Square[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline
+Latex  & Kite & Rectangle & Square  & Stealth & Turned Square
+ \\ \hline 
+\end{tabular}
+
+\bigskip
+
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline 
+ \multicolumn{6}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[sep=.25cm] \tikz \fill[red] circle(2pt); Arc Barb[ ]},line width=.1cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[sep=.25cm]. Arc Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Bracket[sep=.25cm] . Bracket[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Hooks[sep=.25cm]. Hooks[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-{Parenthesis[sep=.25cm]. Parenthesis[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Classical TikZ Rightarrow[sep=.25cm]. Classical TikZ Rightarrow[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+& 
+\tikz \draw[-{Rays[sep=.25cm]. Rays[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+\\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Classical TikZ Rightarrow & Rays
+ \\ \hline
+ 
+\tikz \draw[-{Straight Barb[sep=.25cm]. Straight Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+& 
+\tikz \draw [-{Tee Barb[sep=.25cm]. Tee Barb[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+
+&  
+\tikz \draw[-{Circle[sep=.25cm]. Circle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Ellipse[sep=.25cm]. Ellipse[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Computer Modern Rightarrow[sep=.25cm]. Computer Modern Rightarrow[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Triangle[sep=.25cm]. Triangle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+Straight Barb & Tee Barb  & Circle &  Ellipse & Computer Modern Rightarrow & Triangle
+ \\ \hline 
+ 
+\tikz \draw[-{Latex[sep=.25cm]. Latex[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Kite[sep=.25cm]. Kite[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Rectangle[sep=.25cm]. Rectangle[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Square[sep=.25cm]. Square[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Stealth[sep=.25cm]. Stealth[]},line width=.1cm,blue] (0,0) - - (1.5,1) ; 
+&
+\tikz \draw[-{Turned Square[sep=.25cm]. Turned Square[]},line width=.1cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline
+Latex  & Kite & Rectangle & Square  & Stealth & Turned Square
+ \\ \hline 
+\end{tabular}
+
+
+
+
+
+
+\newpage
+
+\Par{Paramètre length}{Parameter length}
+
+\RRR{16-3-1}
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline 
+ \multicolumn{6}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{length}=1cm]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0.5,-2) grid (2,2); 
+ \draw [-{Arc Barb[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture}
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0.5,-2) grid (2,2); 
+\draw [-{Hooks[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0.5,-2) grid (2,2); 
+\draw[-{Straight Barb[length=1cm]},line width=.2cm,blue] (0.5,0) - -  (2,0) ; 
+\end{tikzpicture} 
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0.5,-2) grid (2,2); 
+\draw[-{Tee Barb[length=1cm]},line width=.2cm,blue] (0.5,0) - -(2,0) ; 
+\end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0.5,-2) grid (2,2); 
+\draw[-{Latex[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0.5,-2) grid (2,2); 
+\draw[-{Classical TikZ Rightarrow[length=1cm]},line width=.2cm,blue] (0.5,0) - -(2,0) ; 
+\end{tikzpicture}
+\\ \hline 
+Arc Barb & Hooks & Straight Barb & Tee Barb & Latex & Classical TikZ Rightarrow
+ \\ \hline
+
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0.5,-2) grid (2,2); 
+\draw [-{Straight Barb[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+  \end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0.5,-2) grid (2,2); 
+\draw [-{Diamond[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+\end{tikzpicture}   
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0.5,-2) grid (2,2); 
+ \draw[-{Ellipse[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0.5,-2) grid (2,2); 
+\draw[-{Kite[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture}    
+
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0.5,-2) grid (2,2); 
+ \draw[-{Circle[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture} 
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0.5,-2) grid (2,2); 
+ \draw[-{Computer Modern Rightarrow[length=1cm]},line width=.2cm,blue] (0.5,0) - - (2,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+Straight Barb & Diamond & Ellipse & Kite  & Circle & Computer Modern Rightarrow
+ \\ \hline 
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[length={\color{green} 0cm} {\color{red} 10}]},line width={\color{blue}.1cm},blue] (0,0) - - (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[length=0cm 10]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[length=.5cm 5]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+[length={\color{green} 0cm} {\color{red} 10}] & [length={\color{green}.5cm} {\color{red} 5 }]
+\\ \hline 
+{\color{green} 0cm} + {\color{red} 10} x {\color{blue}.1cm} = 1cm & {\color{green}.5cm} + {\color{red} 5 }x {\color{blue}.1cm} = 1cm
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline   
+  \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[length={\color{green} 0cm} {\color{red} 5 }]},line width={\color{blue}.1cm},blue,double,double distance = {\color{magenta}2 mm}] (0,0) - - (3,1);}
+  \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[length=0cm 5 ]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[length=0cm 5 .6 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline  
+ [length={\color{green} 0cm}{\color{red} 5 } ] 
+ &
+ [length={\color{green} 0cm} {\color{red} 5 } {\color{orange} .6} ]
+\\ \hline  
+{\color{green} 0cm} + {\color{red} 5 } x ({\color{blue}.1cm} + {\color{magenta}2 mm} + {\color{blue}.1cm} ) = 2cm 
+&
+{\color{green} 0cm} + {\color{red} 5 } x (.6 x {\color{blue}.1cm}+ (1-{\color{orange} .6})({\color{blue}.1cm}+ {\color{magenta}2 mm}+{\color{blue}.1cm}) =  11 mm\\ 
+\hline 
+\end{tabular} 
+
+ 
+   
+\newpage
+\Par{Paramètre width}{Parameter width}
+
+\RRR{16-3-1}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{width}=2cm]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (2,2); 
+ \draw [-{Arc Barb[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Hooks[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Straight Barb[width=2cm]},line width=.2cm,blue] (0,0) - -  (2,0) ; 
+\end{tikzpicture} 
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Tee Barb[width=2cm]},line width=.2cm,blue] (0,0) - -(2,0) ; 
+\end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Classical TikZ Rightarrow[width=2cm]},line width=.2cm,blue] (0,0) - -(2,0) ; 
+\end{tikzpicture}
+\\ \hline 
+Arc Barb & Hooks & Straight Barb & Tee Barb &  Classical TikZ Rightarrow
+ \\ \hline
+
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Straight Barb[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Diamond[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture}   
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-2) grid (2,2); 
+ \draw[-{Ellipse[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Kite[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}    
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-2) grid (2,2); 
+ \draw[-{Computer Modern Rightarrow[width=2cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+Straight Barb & Diamond & Ellipse & Kite &  Computer Modern Rightarrow
+ \\ \hline    
+\end{tabular}
+ 
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[width={\color{green} 0cm} {\color{red} 10}]},line width={\color{blue}.1cm},blue] (0,0) - - (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[width=0cm 10]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[width=.5cm 5]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+[width={\color{green} 0cm} {\color{red} 10}] & [width={\color{green}.5cm} {\color{red} 5 }]
+\\ \hline 
+{\color{green} 0cm} + {\color{red} 10} x {\color{blue}.1cm} = 1cm & {\color{green}.5cm} + {\color{red} 5 }x {\color{blue}.1cm} = 1cm
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline   
+  \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[width={\color{green} 0cm} {\color{red} 5 }]},line width={\color{blue}.1cm},blue,double,double distance = {\color{magenta}2 mm}] (0,0) - - (3,1);}
+  \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[width=0cm 5 ]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[width=0cm 5 .6 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline  
+ [width={\color{green} 0cm}{\color{red} 5 } ] 
+ &
+ [width={\color{green} 0cm} {\color{red} 5 } {\color{orange} .6} ]
+\\ \hline  
+{\color{green} 0cm} + {\color{red} 5 } x ({\color{blue}.1cm} + {\color{magenta}2 mm} + {\color{blue}.1cm} ) = 2cm 
+&
+{\color{green} 0cm} + {\color{red} 5 } x (.6 x {\color{blue}.1cm}+ (1-{\color{orange} .6})({\color{blue}.1cm}+ {\color{magenta}2 mm}+{\color{blue}=.1cm}) =  11 mm\\ 
+\hline 
+\end{tabular}  
+ 
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[length={\color{blue}1cm},width={\color{green} 0cm} {\color{red} 1.5}]},line width'=.1cm,blue] (0,0) - - (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[length=1cm,width'=0cm 1.5]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[length=1cm,width'=.5cm .5]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+[width'={\color{green} 0cm} {\color{red} 1.5}] & [width'={\color{green}.5cm} {\color{red} .5 }]
+\\ \hline 
+{\color{green} 0cm} + {\color{red} 1.5} x {\color{blue} 1cm} = 1.5cm & 
+{\color{green}.5cm} + {\color{red} .5 }x {\color{blue}1cm} = 1cm
+\\ \hline 
+\end{tabular}
+
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline   
+  \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[length={\color{blue}1cm},width'={\color{green} 0cm} {\color{red} 1.5 }]},line width=.1cm,blue,double,double distance = {\color{magenta}2 mm}] (0,0) - - (3,1);}
+  \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[length=1cm,width'=0cm 1.5 ]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[length=1cm,width'=0cm 1.5 .6 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline  
+ [width'={\color{green} 0cm} {\color{red} 1.5 } ] 
+ &
+ [width'={\color{green} 0cm} {\color{red} 1.5 } {\color{orange} .6} ]
+\\ \hline  
+{\color{green} 0cm} + \color{red} 1.5  x {\color{blue}1cm}  = 1.5cm 
+&
+{\color{green} 0cm} + {\color{red} 1.5 } x (.6 x {\color{blue} 1cm}+ (1-{\color{orange} .6})({\color{blue} 1cm}+ {\color{magenta}2 mm}+{\color{blue} 1cm}) =  11 mm\\ 
+\hline 
+\end{tabular} 
+
+% % A VOIR
+%  
+%\bigskip
+%
+% \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+%  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+% \draw [-{Arc Barb[length=1cm,width'=0cm 2 0 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+% \end{tikzpicture}
+% \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+%  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+% \draw [-{Arc Barb[length=1cm,width'=0cm 2 .5 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+% \end{tikzpicture}
+% \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+%  \draw[help lines,step=.5cm] (0,-2) grid (3,2); 
+% \draw [-{Arc Barb[length=1cm,width'=0cm 1 5 ]},line width=.1cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+% \end{tikzpicture}
+ 
+ \bigskip
+ \Par{Paramètre inset}{Parameter inset}
+ 
+ \RRR{16-3-1}
+ 
+ \begin{tabular}{|c|c|c|} \hline 
+  \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Tee Barb[\RDD{inset}=0pt]},line width=.2cm,blue] (0,0) - - (1,1);}
+  \\ \hline
+  \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+   \draw[help lines] (0,-1) grid (2,1); 
+  \draw [-{Tee Barb[inset=0pt]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture}
+ &
+  \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (2,1); 
+  \draw [-{Kite[inset=0pt]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture}
+ &
+  \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (2,1);
+  \draw [-{Stealth[inset=0pt]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture}
+  \\ \hline
+ Tee Barb[inset=0pt] & Kite[inset=0pt] & Stealth[inset=0pt]  
+  \\ \hline 
+   \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+    \draw[help lines] (0,-1) grid (2,1); 
+   \draw [-{Tee Barb[inset=1cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+   \end{tikzpicture}
+ &
+  \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+   \draw[help lines] (0,-1) grid (2,1); 
+  \draw [-{Kite[inset=1cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture}
+ &
+  \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+   \draw[help lines] (0,-1) grid (2,1); 
+  \draw [-{Stealth[inset=.5cm]},line width=.2cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture}
+ \\ \hline 
+ Tee Barb[inset=1cm] & Kite[inset=1cm] & Stealth[inset=.5cm] 
+  \\ \hline     
+ \end{tabular}
+ 
+ \bigskip
+ 
+ \begin{tabular}{|c|c|c|c|} \hline 
+  \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Fast Round[inset=1cm]},line width=.2cm,blue] (0,0) - - (1,1);}
+  \\ \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Fast Round[inset=1cm]},line width=.5cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Fast Round[inset=2cm]},line width=.5cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Fast Triangle[inset=1cm]},line width=.5cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Fast Triangle[inset=2cm]},line width=.5cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+ \\ \hline
+ Fast Round[inset=1cm] & Fast Round[inset=2cm] &  Fast Triangle[inset=1cm] & Fast Triangle[inset=2cm]
+ \\ \hline    
+ \end{tabular}
+ 
+ \bigskip
+ 
+ \begin{tabular}{|c|c|c|c|} \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=1cm 1]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}  
+ %\tikz \draw[-{Kite[inset=1cm 1]},line width=.2cm,blue] (0,0) - - (3,1) ;
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=1cm 2]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=1cm 4]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=1cm .2]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+ \\ \hline inset=1cm 1 & inset=1cm 2 &  inset=1cm 4 &  inset=1cm .2 \\ 
+ \hline 
+ \end{tabular} 
+ 
+ 
+ \bigskip
+ 
+ \begin{tabular}{|c|c|c|c|} \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=0cm 1]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}  
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=0cm 2]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=0cm 4]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw [-{Kite[inset=1cm .2]},line width=.2cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+ \\ \hline inset=0cm 1 & inset=0cm 2 &  inset=0cm 4 &  inset=0cm .2 \\ 
+ \hline 
+ \end{tabular} 
+ 
+ 
+ \bigskip
+ 
+ \begin{tabular}{|c|c|c|c|} \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=1cm .2]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}  
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=1cm .2 2]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=1cm .2 10]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}    
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=1cm 2 .5]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+ \\ \hline
+ inset=0cm .2 & inset=0cm .2 2 &  inset=0cm .2 10 &  inset=0cm 2 .5 \\ 
+ \hline 
+ \end{tabular} 
+ \bigskip
+ 
+ 
+ \begin{tabular}{|c|c|c|c|} \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=0cm .2]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}  
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=0cm .2 2]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}   
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=0cm .2 10]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}    
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1) grid (3,1); 
+ \draw[-{Kite[inset=0cm 2 .5]},line width=.1cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+ \\ \hline
+ inset=0cm .2 & inset=0cm .2 2 &  inset=0cm .2 10 &  inset=0cm 2 .5 \\ 
+ \hline 
+ \end{tabular}
+ 
+\bigskip
+
+\Par{Paramètre angle}{Parameter angle}
+
+\RRR{16-3-1}
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Straight Barb[\RDD{angle}=60:.5cm 1]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+ 
+\tikz \draw[-{Straight Barb[angle=60:.5cm 1]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Straight Barb[angle=60:.5cm 5]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Straight Barb[angle=60:.5cm 20]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Straight Barb[angle=60:.5cm 5]},line width=3pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Straight Barb[angle=90:.5cm 5]},line width=3pt,blue] (0,0) - - (1,1) ;
+\\ 
+\hline 
+[angle=60:.5cm 1] & [angle=60:.5cm 1] & [angle=60:.5cm 20] & [angle=60:.5cm 5] & [angle=90:.5cm 5] \\ 
+\hline 
+\end{tabular} 
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Triangle[angle=60:.5cm 1]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+ 
+\tikz \draw[-{Triangle[angle=60:.5cm 1]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Triangle[angle=60:.5cm 5]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Triangle[angle=60:.5cm 20]},line width=1pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Triangle[angle=60:.5cm 5]},line width=3pt,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Triangle[angle=90:.5cm 5]},line width=3pt,blue] (0,0) - - (1,1) ;
+\\ 
+\hline 
+[angle=60:.5cm 1] & [angle=60:.5cm 1] & [angle=60:.5cm 20] & [angle=60:.5cm 5] & [angle=90:.5cm 5] \\ 
+\hline 
+\end{tabular} 
+ 
+\Par{Paramètre scale}{Parameter scale}
+\RRR{16-3-2}
+
+
+\begin{tabular}{|c|c|c|} \hline 
+  \multicolumn{3}{|c|}{\BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{scale}=4]},li ne width=.1cm,blue] (0,0) - - (3,0) ; }
+  \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[scale=4]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[scale length=4]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+& 
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines,step=.5cm] (0,-1) grid (3,1); 
+ \draw [-{Arc Barb[scale width=4]},line width=.1cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture} 
+\\ \hline  
+\RDD{scale}=4 & \RDD{scale length}=4 & \RDD{scale width}=4 \\ 
+\hline 
+\end{tabular}   
+
+\bigskip
+
+\Par{Paramètre arc}{Parameter arc}
+\RRR{16-3-3}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{arc}=270]},line width=.2cm,blue] (0,0) - - (3,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[arc=270]},line width=.2cm,blue] (0,0) - - (3,1) ;
+ & 
+ 
+ \tikz \draw [-{Arc Barb[arc=360]},line width=.2cm,blue] (0,0) - - (3,1) ;
+  &  
+\tikz \draw [-{Hooks[arc=270]},line width=.2cm,blue] (0,0) - - (3,1) ;
+  &  
+\tikz \draw [-{Hooks[arc=360]},line width=.2cm,blue] (0,0) - - (3,1) ;
+ \\ \hline 
+Arc Barb[arc=270] & Arc Barb[arc=360] & Hooks[arc=270] & Hooks[arc=360] 
+ \\ \hline
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre slant}{Parameter slant}
+\RRR{16-3-4}
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{slant}=.3]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[slant=0]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Arc Barb[slant=.3]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Arc Barb[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Arc Barb[slant=.8]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Arc Barb[slant=1
+]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline  
+slant=0 & slant=0.3 & slant=0.5 & slant=0.8 & slant=1 
+ \\ \hline    
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Parenthesis[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Classical TikZ Rightarrow 
+ \\ \hline
+\tikz \draw [-{Straight Barb[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw [-{Tee Barb[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Circle[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Diamond[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline 
+Straight Barb & Tee Barb & Circle  & Diamond & Ellipse 
+\\ \hline
+ 
+\tikz \draw[-{Kite[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Stealth[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+\\ \hline 
+Kite & Latex & Rectangle & Square & Stealth 
+\\ \hline
+
+\tikz \draw[-{Turned Square[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Fast Round[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Fast Triangle[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Round Cap[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Triangle Cap[slant=.5]},line width=.2cm,blue] (0,0) - - (1,1) ;
+\\ \hline 
+Turned Square & Fast Round & Fast Triangle & Round Cap & Triangle Cap 
+\\ \hline    
+\end{tabular}
+
+\Par{Paramètre reversed}{Parameter reversed}
+\RRR{16-3-5}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{reversed}},line width=.2cm,blue] (0,0) - - (2,1) ;}
+ \\ \hline
+\tikz \draw [-{Arc Barb[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+
+ &
+ \tikz \draw[-{Bracket[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+  &  
+ \tikz \draw [-{Hooks[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+
+&
+\tikz \draw[-{Classical TikZ Rightarrow[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks  & Classical TikZ Rightarrow
+ \\ \hline
+\tikz \draw [-{Straight Barb[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+ &  
+\tikz \draw [-{Tee Barb[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+  &  
+\tikz \draw[-{Parenthesis[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+ &
+\tikz \draw[-{Computer Modern Rightarrow[reversed]},line width=.2cm,blue] (0,0) - - (2,1) ;
+ \\ \hline 
+Straight Barb & Tee Barb & Parenthesis &  Computer Modern Rightarrow
+ \\ \hline
+\end{tabular}
+
+
+\bigskip
+
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Fast Round[reversed]},line width=.5cm,blue] (0,0) - - (2,1);}
+ \\ \hline 
+ \tikz \draw[-{Fast Round[reversed]},line width=.5cm,blue] (0,0) - - (2,1) ;
+  &  
+\tikz \draw[-{Fast Triangle[reversed]},line width=.5cm,blue] (0,0) - - (2,1) ;
+& 
+\tikz \draw[-{Round Cap[reversed]},line width=.5cm,blue] (0,0) - - (2,1) ;
+& 
+\tikz \draw[-{Triangle Cap[reversed]},line width=.5cm,blue] (0,0) - - (2,1) ;
+\\ \hline
+ Fast Round  & Fast Triangle & Round Cap & Triangle Cap  
+ \\ \hline    
+\end{tabular}
+
+\newpage
+
+\Par{Paramètre left}{Parameter left}
+\RRR{16-3-5}
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline 
+ \multicolumn{6}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{left}]},line width=.2cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Bracket[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-{Hooks[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Triangle[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Classical TikZ Rightarrow  & Triangle  
+ \\ \hline
+
+\tikz \draw [-{Straight Barb[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Tee Barb[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Circle[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw[-{Diamond[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Ellipse[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Turned Square[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+\\ \hline 
+Straight Barb & Tee Barb & Circle  & Diamond & Ellipse & Turned Square
+ \\ \hline
+ 
+\tikz \draw[-{Kite[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;  
+&
+\tikz \draw[-{Latex[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;  
+& 
+\tikz \draw[-{Rectangle[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Square[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Stealth[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Rays[left]},line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+\\ \hline
+Kite & Latex & Rectangle & Square & Stealth & Rays
+\\ \hline
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre right}{Parameter right}
+\RRR{16-3-5}
+
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline 
+ \multicolumn{6}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{right}]},line width=.2cm,blue] (0,0) - - (1.5,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Bracket[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-{Hooks[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Triangle[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Classical TikZ Rightarrow  & Triangle  
+ \\ \hline
+
+\tikz \draw [-{Straight Barb[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw [-{Tee Barb[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Circle[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&  
+\tikz \draw[-{Diamond[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Ellipse[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Turned Square[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+\\ \hline 
+Straight Barb & Tee Barb & Circle  & Diamond & Ellipse & Turned Square
+ \\ \hline
+ 
+\tikz \draw[-{Kite[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;  
+&
+\tikz \draw[-{Latex[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;  
+& 
+\tikz \draw[-{Rectangle[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Square[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Stealth[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Rays[right]},line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+\\ \hline
+Kite & Latex & Rectangle & Square & Stealth & Rays
+\\ \hline
+\end{tabular}
+
+\Par{Paramètre harpoon}{Parameter harpoon}
+\RRR{16-3-5}
+
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{7}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{harpoon}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Parenthesis[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Straight Barb[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[harpoon]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket& Hooks & Parenthesis & Classical TikZ Rightarrow & Straight Barb & Tee Barb
+\\ \hline
+\end{tabular}
+
+\bigskip
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{7}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[harpoon,\RDD{swap}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Parenthesis[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw [-{Straight Barb[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[harpoon,swap]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket& Hooks & Parenthesis & Classical TikZ Rightarrow & Straight Barb & Tee Barb
+\\ \hline
+\end{tabular}
+
+\newpage
+
+\Par{Paramètre color}{Parameter color}
+\RRR{16-3-6}
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{color}=red},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline  
+\tikz \draw[-{Bracket[color=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Bracket[color=green]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Bracket[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+\\ \hline 
+Bracket[color=red] & Bracket[color=green] &Bracket[red]  \\ 
+\hline 
+\end{tabular} 
+
+
+\bigskip
+
+
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{red}},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw[-{Parenthesis[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Classical TikZ Rightarrow[red]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis &  Classical TikZ Rightarrow
+ \\ \hline
+ 
+\tikz \draw [-{Straight Barb[red][open]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  
+\tikz \draw [-{Tee Barb[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Circle[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Diamond[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline 
+Straight Barb & Tee Barb & Circle  & Diamond & Ellipse 
+ \\ \hline 
+ 
+\tikz \draw[-{Kite[red]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+&
+\tikz \draw[-{Latex[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+& 
+\tikz \draw[-{Square[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+& 
+\tikz \draw[-{Stealth[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline 
+ Kite & Latex & Rectangle & Square & Stealth
+ \\ \hline 
+ 
+\tikz \draw[-{Triangle[red]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+&
+\tikz \draw[-{Turned Square[red]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+&
+\tikz \draw[-{Rays[red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&  &  
+ \\ \hline
+Triangle & Turned Square & Rays & &
+  \\ \hline     
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre fill}{Parameter fill}
+\RRR{16-3-6}
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Circle[\RDD{fill}=red]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Circle[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Diamond[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Ellipse[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+ \tikz \draw[-{Kite[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Triangle[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Circle & Diamond & Ellipse & Kite & Triangle 
+ \\ \hline
+ 
+\tikz \draw [-{Latex[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Rectangle[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Square[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Stealth[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Turned Square[fill=red]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline 
+Latex & Rectangle & Square  & Stealth &  Turned Square
+ \\ \hline    
+\end{tabular}
+
+
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Circle[\RDD{fill}=none]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Circle[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Diamond[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Ellipse[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+ \tikz \draw[-{Kite[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Triangle[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Circle & Diamond & Ellipse & Kite & Triangle 
+ \\ \hline
+ 
+\tikz \draw [-{Latex[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Rectangle[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Square[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+  &  
+\tikz \draw[-{Stealth[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Turned Square[fill=none]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ \\ \hline 
+Latex & Rectangle & Square  & Stealth &  Turned Square
+ \\ \hline    
+\end{tabular}
+
+\newpage
+
+\Par{Paramètre open}{Parameter open}
+\RRR{16-3-6}
+
+\begin{tabular}{|c|c|c|c|c|} \hline 
+ \multicolumn{5}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Circle[\RDD{open}]},line width=.2cm,blue] (0,0) - - (1.5,1) ;}
+ \\ \hline
+\tikz \draw [-{Circle[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-{Diamond[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Ellipse[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+ \tikz \draw[-{Kite[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Triangle[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ; 
+ \\ \hline 
+Circle & Diamond & Ellipse & Kite & Triangle 
+ \\ \hline
+ 
+\tikz \draw [-{Latex[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &  
+\tikz \draw [-{Rectangle[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ &
+ \tikz \draw[-{Square[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+  &  
+\tikz \draw[-{Stealth[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+&
+\tikz \draw[-{Turned Square[open]},line width=.2cm,blue] (0,0) - - (1.5,1) ;
+ \\ \hline 
+Latex & Rectangle & Square  & Stealth &  Turned Square
+ \\ \hline    
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre line cap : round or butt}{Parameter line cap : round or butt}
+\RRR{16-3-7}
+
+
+
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{8}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line cap}=\RDDX{butt}{line cap}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Stealth[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Ellipse 
+& Rectangle & Square & Stealth 
+\\ \hline
+ 
+\tikz \draw [-{Straight Barb[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Diamond[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw[-{Kite[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ 
+&
+\tikz \draw[-{Triangle[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+&   
+\tikz \draw[-{Turned Square[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Rays[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+\\ \hline 
+Straight Barb & Tee Barb  & Diamond  & Kite  & Latex 
+ & Triangle & Turned Square & Rays
+ \\ \hline     
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{8}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line cap}=\RDDX{round}{line cap}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Stealth[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Ellipse 
+& Rectangle & Square & Stealth 
+\\ \hline
+ 
+\tikz \draw [-{Straight Barb[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Diamond[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw[-{Kite[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ 
+&
+\tikz \draw[-{Triangle[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+&   
+\tikz \draw[-{Turned Square[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Rays[line cap=round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+\\ \hline 
+Straight Barb & Tee Barb  & Diamond  & Kite  & Latex 
+ & Triangle & Turned Square & Rays
+ \\ \hline     
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre line join : round or miter }{Parameter line join :  round or miter}
+\RRR{16-3-7}
+
+
+
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{8}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line join}=\RDDX{miter}{line join}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Stealth[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Ellipse 
+& Rectangle & Square & Stealth 
+\\ \hline
+ 
+\tikz \draw [-{Straight Barb[line cap=butt]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Diamond[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw[-{Kite[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ 
+&
+\tikz \draw[-{Triangle[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+&   
+\tikz \draw[-{Turned Square[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Rays[line join=miter]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+\\ \hline 
+Straight Barb & Tee Barb  & Diamond  & Kite  & Latex 
+ & Triangle & Turned Square & Rays
+ \\ \hline     
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{8}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line cap}=\RDDX{round}{line cap}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Stealth[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Ellipse 
+& Rectangle & Square & Stealth 
+\\ \hline
+ 
+\tikz \draw [-{Straight Barb[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Diamond[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw[-{Kite[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ 
+&
+\tikz \draw[-{Triangle[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+&   
+\tikz \draw[-{Turned Square[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Rays[line join=round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+\\ \hline 
+Straight Barb & Tee Barb  & Diamond  & Kite  & Latex 
+ & Triangle & Turned Square & Rays
+ \\ \hline     
+\end{tabular}
+
+\Par{Paramètre round}{Parameter round}
+\RRR{16-3-7}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline 
+ \multicolumn{8}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{round}]},line width=.2cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+\tikz \draw [-{Arc Barb[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+\tikz \draw[-{Bracket[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Hooks[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+
+  &  
+\tikz \draw[-{Parenthesis[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Ellipse[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Rectangle[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Square[round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Stealth[round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+ \\ \hline 
+Arc Barb & Bracket & Hooks & Parenthesis & Ellipse 
+& Rectangle & Square & Stealth 
+\\ \hline
+ 
+\tikz \draw [-{Straight Barb[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw [-{Tee Barb[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &
+ \tikz \draw[-{Diamond[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ &  
+\tikz \draw[-{Kite[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+&
+\tikz \draw[-{Latex[round]},line width=.2cm,blue] (0,0) - - (1,1) ;
+ 
+&
+\tikz \draw[-{Triangle[round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+&   
+\tikz \draw[-{Turned Square[round]},line width=.2cm,blue] (0,0) - - (1,1) ;  
+& 
+\tikz \draw[-{Rays[round]},line width=.2cm,blue] (0,0) - - (1,1) ; 
+\\ \hline 
+Straight Barb & Tee Barb  & Diamond  & Kite  & Latex 
+ & Triangle & Turned Square & Rays
+ \\ \hline     
+\end{tabular}
+
+\Par{Paramètre sharp}{Parameter sharp}
+\RRR{16-3-7}
+
+\begin{tabular}{|c|c||c|c|} \hline
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Classical TikZ Rightarrow[\RDD{sharp}]},line width=.2cm,blue] (0,0) - - (2,0)) ;}
+ \\ \hline
+ \multicolumn{2}{|c||}{ -\AC{Classical TikZ Rightarrow[\RDD{sharp}]}} &
+ \multicolumn{2}{|c|}{ -\AC{Computer Modern Rightarrow[\RDD{sharp}]}} 
+ \\ \hline  
+\tikz \draw[-{Classical TikZ Rightarrow[sharp]},line width=.5cm,blue] (0,0) - - (2,0) ;
+&  
+\tikz \draw[-{Classical TikZ Rightarrow[]},line width=.5cm,blue] (0,0) - - (2,0) ;
+&  
+\tikz \draw[-{Computer Modern Rightarrow[sharp]},line width=.5cm,blue] (0,0) - - (2,0) ;
+&  
+\tikz \draw[-{Computer Modern Rightarrow[]},line width=.5cm,blue] (0,0) - - (2,0) ;
+\\ 
+\hline \RDD{sharp} & \color{red}{[  ]} & \RDD{sharp} & \color{red}{[  ]} \\ 
+\hline 
+\end{tabular} 
+
+\newpage
+
+\Par{Paramètre line width}{Parameter line width}
+\RRR{16-3-7}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line width}=.2cm]},line width=.4cm,blue] (0,0) - - (2,0);}
+ \\ \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1.5) grid (2,1.5); 
+ \draw [-{Arc Barb[line width=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-1.5) grid (2,1.5); 
+\draw [-{Hooks[line width=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture} 
+
+ 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-1.5) grid (2,1.5); 
+\draw[-{Classical TikZ Rightarrow[line width=.2cm]},line width=.4cm,blue] (0,0) - -(2,0) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-1.5) grid (2,1.5); 
+\draw[-{Straight Barb[line width=.2cm]},line width=.4cm,blue] (0,0) - -  (2,0) ; 
+\end{tikzpicture} 
+\\ \hline 
+Arc Barb & Hooks  &   Classical TikZ Rightarrow& Straight Barb
+ \\ \hline
+
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1.5) grid (2,1.5); 
+\draw [-{Straight Barb[line width=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-1.5) grid (2,1.5); 
+\draw [-{Tee Barb[line width=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture}       
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-1.5) grid (2,1.5); 
+ \draw[-{Computer Modern Rightarrow[line width=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+ &
+\\ \hline 
+Straight Barb & Tee Bar &  Computer Modern Rightarrow &
+ \\ \hline    
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[line width={\color{green} 0cm} {\color{red} 10}]},line width={\color{blue}.1cm},blue] (0,0) - - (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1.5) grid (3,1.5); 
+ \draw [-{Arc Barb[line width=0cm .5]},line width=.4cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1.5) grid (3,1.5); 
+ \draw [-{Arc Barb[line width=.1cm .5]},line width=.4cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+[length={\color{green} 0cm} {\color{red} 10}] & [length={\color{green}.5cm} {\color{red} 5 }]
+\\ \hline 
+{\color{green} 0cm} + {\color{red} 10} x {\color{blue}.1cm} = 1cm & {\color{green}.5cm} + {\color{red} 5 }x {\color{blue}.1cm} = 1cm
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|} \hline   
+  \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[length={\color{green} 0cm} {\color{red} 5 }]},line width={\color{blue}.1cm},blue,double,double distance = {\color{magenta}2 mm}] (0,0) - - (3,1);}
+  \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[line width=0cm 2 ]},line width=.4cm,blue,double,double distance =2mm] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[line width=0cm 2 .6 ]},line width=.4cm,blue,double,double distance =2mm ] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline  
+ [length={\color{green} 0cm}{\color{red} 5 } ] 
+ &
+ [length={\color{green} 0cm} {\color{red} 5 } {\color{orange} .6} ]
+\\ \hline  
+{\color{green} 0cm} + {\color{red} 5 } x ({\color{blue}.1cm} + {\color{magenta}2 mm} + {\color{blue}.1cm} ) = 2cm 
+&
+{\color{green} 0cm} + {\color{red} 5 } x (.6 x {\color{blue}.1cm}+ (1-{\color{orange} .6})({\color{blue}.1cm}+ {\color{magenta}2 mm}+{\color{blue}.1cm}) =  11 mm\\ 
+\hline 
+\end{tabular} 
+
+\newpage
+
+\Par{Paramètre line width'}{Parameter line width'}
+\RRR{16-3-7}
+
+\begin{tabular}{|c|c|c|c|} \hline 
+ \multicolumn{4}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[\RDD{line width'}=.2cm]},line width=.4cm,blue] (0,0) - - (1,1);}
+ \\ \hline
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (2,2); 
+ \draw [-{Arc Barb[line width'=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+& 
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Hooks[line width'=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture} 
+ 
+ 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Classical TikZ Rightarrow[line width'=.2cm]},line width=.4cm,blue] (0,0) - -(2,0) ; 
+\end{tikzpicture}
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw[-{Straight Barb[line width'=.2cm]},line width=.4cm,blue] (0,0) - -  (2,0) ; 
+\end{tikzpicture}
+\\ \hline 
+Arc Barb & Hooks  &   Classical TikZ Rightarrow & Straight Barb
+ \\ \hline
+
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Straight Barb[line width'=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+  \end{tikzpicture} 
+&
+\begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+\draw[help lines] (0,-2) grid (2,2); 
+\draw [-{Tee Barb[line width'=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+\end{tikzpicture}   
+
+
+    
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+ \draw[help lines] (0,-2) grid (2,2); 
+ \draw[-{Computer Modern Rightarrow[line width'=.2cm]},line width=.4cm,blue] (0,0) - - (2,0) ; 
+ \end{tikzpicture}
+ &
+\\ \hline 
+Straight Barb & Tee Bar  &  Computer Modern Rightarrow &
+ \\ \hline    
+\end{tabular}
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Arc Barb[line width={\color{green} 0cm} {\color{red} 10}]},line width'={\color{blue}.1cm},blue] (0,0) - - (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[line width'=0cm .5]},line width=.4cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+&
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-2) grid (3,2); 
+ \draw [-{Arc Barb[line width'=.1cm .5]},line width=.4cm,blue] (0,0) - - (3,0) ; 
+ \end{tikzpicture}
+\\ \hline 
+[length={\color{green} 0cm} {\color{red} 10}] & [length={\color{green}.5cm} {\color{red} 5 }]
+\\ \hline 
+{\color{green} 0cm} + {\color{red} 10} x {\color{blue}.1cm} = 1cm & {\color{green}.5cm} + {\color{red} 5 }x {\color{blue}.1cm} = 1cm
+\\ \hline 
+\end{tabular}
+
+\bigskip
+
+\Par{Paramètre quick}{Parameter quick}
+\RRR{16-3-8}
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Stealth[length=1cm,open,\RDD{quick}]}]
+ (0,0) .. controls (1,-1) and (2,1) .. (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,quick]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+  \\ \hline
+[-{Stealth[length=1cm,open,\RDD{quick}]}]
+ & 
+ [-{Stealth[length=1cm,open]}] 
+   \\ \hline 
+\end{tabular}
+
+\newpage
+
+\Par{Paramètre bending}{Parameter bending}
+\RRR{16-3-8}
+
+ \maboite{\BS{usetikzlibrary}\AC{bending}}
+\label{lib-bending}
+
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Stealth[length=1cm,open,\RDD{flex}=0]}]
+ (0,0) .. controls (1,-1) and (2,1) .. (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex=0]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex=.5]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex=1]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ \\ \hline  
+flex=0 & flex=0.5 & flex=1
+  \\ \hline  
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|c|} \hline
+ \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Stealth[length=1cm,open,\RDD{flex'}=0]}]
+ (0,0) .. controls (1,-1) and (2,1) .. (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex'=0]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex'=.5]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,flex'=1]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ \\ \hline  
+flex'=0 & flex'=0.5 & flex'=1
+  \\ \hline  
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{|c|c|} \hline
+ \multicolumn{2}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Stealth[length=1cm,open,\RDD{bend}]}]
+ (0,0) .. controls (1,-1) and (2,1) .. (3,1);}
+ \\ \hline  
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,bend]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[blue,line width=2pt,baseline=.5cm]
+  \draw[help lines] (0,-1) grid (3,2); 
+\draw [-{Stealth[length=1cm,open,bend]Stealth[length=1cm,open,bend,sep]}]
+(0,0) .. controls (1,-1) and (2,1) .. (3,1);
+ \end{tikzpicture} 
+ \\ \hline  
+[-\AC{Stealth[length=1cm,open,\RDD{bend}]}] & 
+[-{Stealth[length=1cm,open,bend]Stealth[length=1cm,open,bend,sep]}] 
+ \\ \hline   
+\end{tabular}
+
+\Par{Paramètre cap angle}{Parameter cap angle}
+\RRR{16-5-4}
+
+\begin{tabular}{|c|c|c|} \hline 
+ \multicolumn{3}{|c|}{ \BS{tikz} \BS{draw}[-\AC{Fast Round[\RDD{cap angle}=60]},line width=.2cm,blue] (0,0) - - (3,1);}
+ \\ \hline
+\tikz \draw[-{Fast Round[cap angle=20]},line width=.5cm,blue] (0,0) - - (3,1) ;
+&
+\tikz \draw[-{Fast Round[cap angle=60]},line width=.5cm,blue] (0,0) - - (3,1) ;
+&
+\tikz \draw[-{Fast Round[cap angle=90]},line width=.5cm,blue] (0,0) - - (3,1) ;
+\\ \hline 
+Fast Round[cap angle=20] & Fast Round[cap angle=60] & Fast Round[cap angle=90]
+\\ \hline 
+\tikz \draw[-{Fast Triangle[cap angle=20]},line width=.5cm,blue] (0,0) - - (3,1) ;
+&
+\tikz \draw[-{Fast Triangle[cap angle=60]},line width=.5cm,blue] (0,0) - - (3,1) ;
+&
+\tikz \draw[-{Fast Triangle[cap angle=90]},line width=.5cm,blue] (0,0) - - (3,1) ;
+\\ \hline
+Fast Triangle[cap angle=20] & Fast Triangle[cap angle=60] & Fast Triangle[cap angle=90] 
+\\ \hline    
+\end{tabular}

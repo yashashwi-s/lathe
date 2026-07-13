@@ -1,0 +1,30 @@
+COMMAND:
+pandoc -f latex -t typst /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_008/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/04_math_aligned/04_math_aligned_008/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{align*}
+  {1\over2} \left\{ \left[ \begin{array}{c} Q_\alpha \\ \tilde Q_\alpha \end{array}\right] , \left[ Q_\beta\ \tilde Q_\beta \right] \right\}= \left[ \begin{array}{cc} 1&0 \\ 0&1 \end{array} \right] M\delta_{\alpha\beta} +\left[ \begin{array}{cc} p&q/g_s \\ q/g_s&-p \end{array} \right]{{L (\Gamma^0 \Gamma^1)}_{\alpha\beta}\over{2\pi{\alpha^\prime}}}\ .
+  \end{align*}, rendering as TeX:
+  {1\over2} \left\{ \left[ \begin{array}{c
+         ^
+  unexpected control sequence \over
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{align*}
+  R_{ij}^{(\ell)}(\Lambda_1,\dots,\Lambda_i,\dots,\Lambda_j,\dots,\Lambda_{N})=\left\{\begin{array}{ll}(\Lambda_1,\dots,\Lambda_i-\ell,\dots,\Lambda_j+\ell,\dots,\Lambda_{N}) &{\rm{if }} \, \, \Lambda_i > \Lambda_j\,, \cr(\Lambda_1,\dots,\Lambda_i+\ell,\dots,\Lambda_j-\ell,\dots,\Lambda_{N}) &{\rm{if }} \, \, \Lambda_j > \Lambda_i\,.\end{array}\right.
+  \end{align*}, rendering as TeX:
+  ,\Lambda_{N}) &{\rm{if }} \, \, \Lambda_
+                     ^
+  unexpected control sequence \rm
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+error: unknown variable: alphazws
+   ┌─ pandoc.typ:33:53
+   │
+33 │ $ delta Psi_alpha = 1 / 8 omega^(m n)\(Gamma_(m n)\)_alphazws^beta Psi_beta\, & Gamma_(m n) equiv Gamma_m tilde(Gamma)_n - Gamma_n tilde(Gamma)_m\,\
+   │                                                      ^^^^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `a l p h a z w s`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"alphazws"`
+

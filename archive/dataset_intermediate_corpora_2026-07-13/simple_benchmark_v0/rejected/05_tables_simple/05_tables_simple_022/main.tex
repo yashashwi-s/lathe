@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.00129\_table\_2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lp{1.2cm}p{1.2cm}p{1.2cm}p{1.2cm}}
+\
+\textbf{Model} & \textbf{In-Domain Acc (\%)} & \textbf{OOD-Test1 Acc (\%)} & 
+\textbf{OOD-Test2 Acc (\%)} & \textbf{Composite Score} \\
+\hline
+ResNet18       & 100   & 100    & 81    &  0.77 \\
+ResNet34       & 100   & 99.73  & 66.67 &  0.74 \\
+ResNet50       & 97.06 & 100    & 100   &  0.79 \\
+ResNet101      & 91.18 & 100    & 100   &  0.77 \\
+ResNet152      & 88.24 & 100    & 100   &  0.76 \\
+VGG16          & 88.24 & 100    & 47.62 &  0.70 \\
+VGG19          & 100   & 100    & 52.38 &  0.45 \\
+Inception v3   & 100   & 100    & 100   &  0.77 \\
+DenseNet121    & 100   & 100    & 85.71 &  0.79 \\
+DenseNet169    & 100   & 100    & 95.24 &  0.72 \\
+EfficientNet-b0& 76.47 & 100    & 100   &  0.72 \\
+EfficientNet-b7& 85.29 & 100    & 80.95 &  0.71 \\
+\hline
+Mean           & 87.75 & 99.98  & 83.73 &  0.72 \\
+Median         & 98.53 & 100    & 88.12 &  0.75 \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.00291\_table\_11}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{clcl}
+$\leftarrow$          & \verb"\leftarrow" &
+$\longleftarrow$      & \verb"\longleftarrow" \\
+$\Leftarrow$          & \verb"\Leftarrow" &
+$\Longleftarrow$      & \verb"\Longleftarrow" \\
+$\rightarrow$         & \verb"\rightarrow" &
+$\longrightarrow$     & \verb"\longrightarrow" \\
+$\Rightarrow$         & \verb"\Rightarrow" &
+$\Longrightarrow$     & \verb"\Longrightarrow" \\
+$\leftrightarrow$     & \verb"\leftrightarrow" &
+$\longleftrightarrow$ & \verb"\longleftrightarrow" \\
+$\Leftrightarrow$     & \verb"\Leftrightarrow" &
+$\Longleftrightarrow$ & \verb"\Longleftrightarrow" \\
+$\mapsto$             & \verb"\mapsto" &
+$\longmapsto$         & \verb"\longmapsto" \\
+$\hookleftarrow$      & \verb"\hookleftarrow" &
+$\hookrightarrow$     & \verb"\hookrightarrow" \\
+$\leftharpoonup$      & \verb"\leftharpoonup" &
+$\rightharpoonup$     & \verb"\rightharpoonup" \\
+$\leftharpoondown$    & \verb"\leftharpoondown" &
+$\rightharpoondown$   & \verb"\rightharpoondown" \\
+$\rightleftharpoons$  & \verb"\rightleftharpoons" &
+$\leadsto$            & \verb"\leadsto" \\
+$\uparrow$            & \verb"\uparrow" &
+$\Updownarrow$        & \verb"\Updownarrow" \\
+$\Uparrow$            & \verb"\Uparrow" &
+$\nearrow$            & \verb"\nearrow" \\
+$\downarrow$          & \verb"\downarrow" &
+$\searrow$            & \verb"\searrow" \\
+$\Downarrow$          & \verb"\Downarrow" &
+$\swarrow$            & \verb"\swarrow" \\
+$\updownarrow$        & \verb"\updownarrow" &
+$\nwarrow$            & \verb"\nwarrow"
+\end{tabular}
+}
+\end{table}
+
+\end{document}

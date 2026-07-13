@@ -1,0 +1,286 @@
+\long\def\ifbeamer#1#2{#2}
+\ifbeamer{\documentclass{beamer}}{\documentclass[a5paper]{article}}
+
+%navigation symbols and the title collide if
+%beamerwithheadline is set
+\ifbeamer{
+  \setbeamertemplate{navigation symbols}{}
+}{}
+
+%patchenumerate is the deafault
+\usepackage[patchenumerate=true,beamerwithheadline,
+  %when directly messing with page breaks
+  %and the sheet start page actio (as we do below)
+  %using exercisesheets' page numer redefinitions per
+  %sheet do not make much sense
+  patchpagenumbers=false,
+  beamerwithfootline,
+  beamercompatibility,
+  exercisespath=exercises]%
+  {exercisesheets}
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\exshset{solutions=true,
+task restate font={\color{black!60}},
+only={1-3,5-},
+}
+
+%solutions may be printed out on paper -> a4
+%exercises are read on (smartphone) screen -> a5
+\ifsolutions{
+  \usepackage[left=1cm,right=1cm,top=1cm,bottom=1.5cm,a4paper]{geometry}
+  }{
+  \usepackage[left=0.7cm,right=0.7cm,top=1cm,bottom=1.5cm]{geometry}
+}
+
+%Usually the person responsible for the entire course:
+\author{Exampleauthor}
+\date{Example term/semester}
+\title{Introduction to Exercise Sheets Creation}
+\subject{Introduction to Exercise Sheets Creation}
+%Only used for beamer at the moment:
+\exshset{exauthor={Author of exercises}}
+
+\ifbeamer{\exshset{beameruseblocks=false}}{}
+
+
+
+
+
+\begin{document}
+
+%1
+\begin{sheet}[note={Learn how to create nice exercise sheets.},
+  date={Novanuar 42, -2022},title={First Sheet}]
+
+  \includeexercise*{exshexample-ex1}
+  \includeLexercise*{exshexample-ex2}
+
+  \begin{exercise}[points={many, many},firstline={Read the manual.}]
+  \end{exercise}
+
+  \begin{exercise}[points={sum},firstline={After you read the manual:}]
+    Play around with this example. You might want to read further manuals like:
+    \begin{enumerate}
+      %pointsfloatright should be usually set globally
+      \item\points[pointsfloatright]{2}pgf (for pgfkeys)
+      \item enumitem and similar \points[abbrev,bonus]{1}
+      \begin{enumerate}
+        \item paralist \thesubex
+        \item
+          \begin{enumerate}
+            \item varioref
+          \end{enumerate}
+      \end{enumerate}
+      \item all the others \points[inplace]{3} (why not?)
+      \label{subex:man2}
+    \end{enumerate}
+  \end{exercise}
+\end{sheet}
+
+\begingroup
+\ifbeamer{}{
+  \exshset{
+    %default is \clearpage
+    sheet start page action={\pagebreak[3]\hrule},
+    sheet end page action={\vspace{4mm}\hrule\vspace{2cm}},
+  }
+}
+
+%2
+\begin{sheet}[date={Novanuar 35, -2022}]
+  \begin{exercise}[points={many, many},
+    firstline={Read the manual.}]
+  \end{exercise}
+  \begin{solution}[framed,fragile]
+    Oh no, it's quite long.
+    \newframe
+    Really long, but please \verb|\relax|.
+    Ok, but my brain feels like:
+    \begin{verbatim}
+%
+ x
+	$	t
+&
+
+
+\
+#
+    \end{verbatim}
+    And yours?
+  \end{solution}
+\end{sheet}
+
+%3
+\begin{sheet}[date={Novanuar 28, -2022},title={Third Sheet},
+  number within sheet]
+  \begin{exercise}[points={many, many},
+    firstline={Read the manual.}]
+    \begin{solution}
+      OK, done.
+      \newpage
+      still done.
+    \end{solution}
+  \end{exercise}
+\end{sheet}
+
+\endgroup
+
+%4
+\begin{sheet}
+  \begin{Lexercise}
+    task  = [[
+      This exercise will be skipped.
+    ]],
+  \end{Lexercise}
+  \begin{Lexercise}
+    task  = [[
+      \label{ex:skiplex}%
+      This exercise will be skipped, but it has a reference.
+    ]],
+    subexercises = {[[\label{subex:skiplexOne} first]]},
+  \end{Lexercise}
+  \begin{exercise}[points={many, many},%savetasks,
+    main task font={\tiny},subtask font={\itshape}
+  ]
+    \begin{maintask}
+      \label{ex:skipex} This exercise will be skipped.
+      Furt
+    \end{maintask}
+    \begin{subtasks}
+      \item {first \label{subex:skipexOneOne}} This is an \string\item\space inside a subtasks environment. If
+      \verb|subtask environment| is set to enumerate/itemize etc.,
+      this works with some caveats (font settings for substaks are not used).
+      \subtask{second}
+    \end{subtasks}
+    \begin{enumerate}
+      \setcounter{enumi}{2}
+      \subtask {first \label{subex:skipexOne}}
+      This is a \string\subtask{} without the susbtasks
+      environment, which is unsupported and a bad example!
+      \item {\label{subex:skipexTwo}} {12345}
+    \end{enumerate}
+  \end{exercise}
+\end{sheet}
+
+%5
+\begin{sheet}[date={Novanuar 21, -2022}]
+  \begin{exercise}[points={many, many},
+    firstline={Read the manual.}]
+    \begin{solution}[framed]
+      OK, done (again).
+      \newframe
+      Otherwise, I wouldn't know  \textbackslash newframe now which
+      does not exist in beamer.
+    \end{solution}
+  \end{exercise}
+
+  Loading varioref enables you to refer to sub-exercises, like
+  this: Did you do \ref{subex:man2}? It is the subexercise
+  \subexnref{subex:man2} and has label \subexlref{subex:man2}.
+
+
+  \begin{exercise}[points={many, many},
+  firstline={Play around with the options.}]
+    Some exercise, there are far too few.
+    \begin{solution}[defersolutiontitle]
+      \begin{frame}
+        This is a dual-use solution with explicit
+        beamer frames (and no framed).
+        \solutiontitle
+        Note, that we can freely place the title, because of
+        defersolutiontitle.
+      \end{frame}
+    \end{solution}
+  \end{exercise}
+
+  \begin{exercise}[points={many, many},beamersolution,
+  firstline={Play around with the options.}]
+    \begin{solution}
+      This solution is only shown if using the non-beamer version, because the option beamersolution was used. Otherwise both
+      solutions would be shown. You can set
+      the option beamersolution for individual (normal) solutions
+      to ignore some but not all solutions of an exercise.
+    \end{solution}
+    \begin{beamersolution}[defersolutiontitle]
+      \begin{frame}[t]
+      \solutiontitle
+      This beamersolution is only shown if using the beamer
+      version.
+      \end{frame}
+    \end{beamersolution}
+  \end{exercise}
+
+
+
+  \begin{exercise}[points={many, many},savetasks,
+    main task font={\tiny},subtask font={\itshape}
+  ]
+    \begin{maintask}
+      The exercise task can be saved and restated.
+    \end{maintask}
+    \begin{subtasks}
+      \subtask{first}
+      \begin{solution}[framed]
+        None (yet).
+      \end{solution}
+      \subtask{second}
+    \end{subtasks}
+    I forgot all the tasks!
+    \restatetask
+    Yeah, but what about the subtasks? I forgot the \restatetask[1] and the \restatetask[2] one. Or did I?
+  \end{exercise}
+
+  \begin{Lexercise}
+    --use [[]] if you need \ or escape it: "\\"
+    firstline = [[Assume $\pi=4$.]],
+    points=10,
+    name="Pragmatic",
+    options=[[main task font={\itshape}]],
+    task  = [[
+      This is the main task specified via the Lua
+      interface, like subexercise \ref{subex:skiplexOne} in \ref{ex:skiplex}, whereas \ref{subex:skipexOne}
+      and \ref{subex:skipexTwo} in
+      \ref{ex:skipex} use the \LaTeX~interface.
+    ]],
+    solution=[[
+      This is a solution for the main task.
+    ]],
+    altsolutions={
+      {
+        name="Alternative Solution",
+        text="This is also a solution."
+      },{
+        idea=true,
+        text="This is also a solution."
+      }
+    },
+  \end{Lexercise}
+
+  \begin{Lexercise}
+    firstline = "Assume $e=3$.",
+    points="sum",
+    task  = [[
+      This exercise has some subexercises. The Lua interface
+      computes point sums in a single pass.
+    ]],
+    subexercises = {
+      {
+        task = "First things first.",
+        bonuspoints = 4,
+        pointoptions = "abbrev",--passed to LaTeX interface
+        solution = [[None.]],
+      },{
+        task = "Second things afterwards.",
+        points = 16,
+        altsolutions = { [[None.]],[[Yet.]] },
+      }
+    }
+  \end{Lexercise}
+
+\end{sheet}
+
+\end{document}
+
