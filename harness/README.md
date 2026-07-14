@@ -85,8 +85,14 @@ PDFs; keep summaries/transcripts as needed).
 - `make_results.py`, `make_report.py` — tables/plots/deck generators
 - `results/` — frozen snapshot: score tables, one-shot baseline CSV,
   raster_v0.2 baseline rescoring, cost-vs-score scatter
-- Development history (all runs, transcripts, queue logs) lives outside the
-  repo in the workspace `harness_baseline/` folder.
+- `runs/` — the actual paid-run artifacts: per run, the model's final
+  `output.typ` (and `best_checkpoint.typ` for v2/v3), the exact prompt,
+  `summary.json` (scores, cost, turns, iterations), `raster_v2.json`, and the
+  full step-by-step `claude_transcript.jsonl` (stored via git LFS).
+  **`runs/MANIFEST.csv` maps every run dir to its leaderboard row**
+  (model / effort / feedback / harness / sample) plus scores under both
+  metric revisions, cost, and the path of its `.typ` output. Rendered
+  PDFs/diagnostics are gitignored (regenerable: `typst compile` the `.typ`).
 
 ## Next steps
 
