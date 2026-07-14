@@ -1,0 +1,63 @@
+You are converting a LaTeX document to Typst with maximum visual fidelity.
+
+Files in this directory:
+- main.tex        : the LaTeX source (ground truth content)
+- reference.pdf   : the pdfLaTeX render you must visually match (do not read the PDF bytes directly; use feedback/reference_pages/*.png instead)
+- output.typ      : YOUR deliverable. Write/overwrite this Typst file.
+- ./score.sh      : run it any time; it compiles output.typ with typst and prints
+                    fidelity scores (0-100) vs the reference: overall, visual,
+                    content, plus components in feedback/metrics.json.
+
+Scoring (deterministic, same as final grading):
+overall = content^0.35 * visual^0.65;
+visual = pagination^0.10 * layout^0.40 * typography^0.20 * raster^0.30.
+Raster comparison is UNREGISTERED: paper size, margins, font size, and line
+spacing must match the reference closely or raster craters. Page count and the
+page each word lands on matter (pagination). The one-shot LLM baseline for
+this sample scored overall=30.9, and its weakest components were
+raster=3.6 and layout=23.8.
+
+Visual feedback is ENABLED. After each ./score.sh run, the directory
+feedback/diagnostics/ contains labeled diff images (reference word boxes,
+candidate word boxes, raster diff). READ these images with your Read tool to
+see exactly where the candidate diverges (red = missing content, blue = extra
+content, yellow/orange = displaced). feedback/reference_pages/ has PNG renders
+of the reference PDF pages. Use them to match margins, paper size, spacing,
+fonts, and pagination.
+
+Extra v2 tooling in this directory:
+- ./score.sh now prints FINE-GRAINED feedback: every content/layout/typography
+  subcomponent, pagination split into page-count vs same-page-word parts, and a
+  PER-PAGE line (layout geometry, displaced/missing/extra word counts, raster
+  ink/edge/ssim, and a "registered raster" diagnostic = same raster metric
+  after best global shift). If registered raster is much higher than raster,
+  fix margins/paper size; if not, raster is at its font floor - stop chasing it.
+- ./score.sh AUTO-CHECKPOINTS: whenever overall improves, output.typ is copied
+  to feedback/best/output.typ. Your best version is never lost; the final
+  grade uses the best checkpoint. Feel free to experiment aggressively.
+- ./sweep.sh 'margin=1.5cm,2cm,2.5cm' 'fontsize=9pt,10pt,11pt' grid-searches
+  typst --input values and prints the ranked results (max 60 combos). To use
+  it, write output.typ so tunables read sys.inputs with defaults, e.g.:
+    #let margin = sys.inputs.at("margin", default: "2.5cm")
+    #set page(margin: eval(margin))
+  Then bake the winning values in as the defaults. Use this INSTEAD of
+  manually nudging numbers one score-run at a time.
+
+v3 metric note: the raster component you are scored on is raster_v0.2 =
+0.70*ink_f1(+-4px) + 0.30*exp(-edge_dist/10). It is tolerant to ~4px drift but
+still UNREGISTERED: paper size, margins, font size and leading must match.
+Each per-page line also shows "registered raster" (same v0.2 metric after the
+best global shift). Play strategy:
+- registered >> raster  -> a global offset/margin/paper-size problem; fix
+  page setup, cheap points.
+- registered ~= raster and both low -> the page genuinely renders differently
+  (table sized/wrapped differently, wrong leading/font size). Fix the layout;
+  do NOT shrink fonts globally just to squeeze pagination - match each
+  block's true size from the reference.
+- registered ~= raster and both high -> at the engine floor; move on to
+  layout/content.
+
+Procedure: write a first output.typ, run ./score.sh, then iterate to maximize
+the overall score. Prioritize: (1) compiles, (2) page count matches reference,
+(3) token recall/precision >= 0.95, (4) layout and raster as high as possible.
+Stop when improvements plateau. Your final output.typ is what gets graded.

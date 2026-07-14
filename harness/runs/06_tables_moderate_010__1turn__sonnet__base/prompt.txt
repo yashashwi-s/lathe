@@ -1,0 +1,98 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Moderate Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03369\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|ccccccccc}
+\Xhline{2\arrayrulewidth} % Bold top line
+\textbf{Dataset} & \textbf{Coverage} & \textbf{Task} & \textbf{\makecell{Spa. \\ Reso.}} & \textbf{\makecell{Temp. \\ Reos.}} & \textbf{\makecell{Areas\\(km\textsuperscript{2})}} & \textbf{Period} & \textbf{Fig/Video} & \textbf{Device} & \textbf{Mod.} \\ \Xhline{2\arrayrulewidth} % Bold top line
+Sim2Real-Fire~ & Worldwide & \makecell{Fire Mask Forecast\\ Fire Mask Backtrack} & 30 m & 1 hour & 20,000,000 & 2013-2023 &  Fig & Satellite & 5 \\ \hline
+FireSpreadTS~ & USA &\makecell{Fire Mask Forecast\\ Fire Mask Backtrack} & 375 m & 1 day & 9,834,000 & 2018-2021 & Fig & Satellite & 4 \\ \hline
+Mesogeos~ & Mediterranean & \makecell{Fire Mask Forecast\\ Danger Forecast} & 1000 m & 1 day & 9,000,999 & 2006-2022 & Fig & Satellite & 4 \\ \hline
+FireDB~& USA & Fire Intensity Forecast & 375 m & 1 day & 9,834,000 & 2012-2017 & Fig & Satellite & 4 \\ \hline
+Next Day fire~& USA & Fire Mask Forecast & 1 km & 1 day & 9,834,000 & 2012-2020 &   Fig & Satellite & 4 \\ \hline
+SeasFire Cube~& Worldwide & Fire Behavior & 500 m & 1 day & 149,000,000 & 2001-2017 &   Fig & Satellite & 4 \\ \hline
+CFSDS~& Canada & Fire Behavior & 180 m & 1 day & 9,985,000 & 2002–2021 &   Fig & Satellite & 4 \\ \hline
+BA-ONFIRE~ & Worldwide & Fire Behavior & 111 km & 1 month & 149,000,000 & 1950-2021 & Fig & Satellite & 1 \\ \hline
+GlobFire~ & Worldwide & Fire Behavior & 500 m & 1 day & 149,000,000 & 2001-2017 & Fig & Satellite & 1 \\ \hline
+Re-FWI~ & Canada & Fire Behavior & 80 km & 1 day & 9,985,000 & 1980-2018 &   Fig & Satellite & 7 \\ \hline
+GFBS~ & Worldwide & Fire Behavior & 30 m & 16 days & 149,000,000 & 2003-2016 & Fig & Satellite & 1 \\ \hline
+FPA FOD-A~ & USA & Fire Behavior & 4 km & 1 day & 9,834,000 & 1992-2020 &   Fig & Satellite & 4 \\ \hline
+GFED5~ & Worldwide & Fire Behavior & 500 m & 1 month & 149,000,000 & 1997-2020 & Fig & Satellite & 1 \\ \hline
+CloCAB~ & Worldwide & Fire Behavior & 27.7 km & 1 month & 149,000,000 & 2002-2020 & Fig & Satellite & 3 \\ \hline
+PT-FireSprd~ & Portugal & \makecell{Fire Behavior\\ Fire Mask Forecast\\ Danger Forecast} & 4 km & 14 hours & 92,150 & 2015-2021 & Fig & Satellite & 1 \\ \hline
+NSMC-H8~ & China & Fire Monitoring & 3 km & 1 hour & 9,597,000 & 2019-2021 & Fig & Satellite & 1 \\ \hline
+WCU-US~ & Western USA & Danger Forecast & 250 m & 5 weeks & 4,200,000 & 2005-2017 & Fig & Satellite & 1 \\ \hline
+ECUF~ & Regions in South Korea & \makecell{Danger Forecast\\ Casualty Prediction} & 1 km & 1 month & 605 & 2017-2021 &   Fig & Satellite & 5 \\ \hline
+LCLQ~ & Regions in China & Danger Forecast & 500 m & 12 hour & 16,411 & 2015-2020 &   Fig & Satellite & 4 \\ \hline
+CaBuAr~ & Regions in USA & Fire Mask Forecast & 20 m & 1 year & 450,000 & 2015-2022 & Fig & Satellite & 1 \\ \hline
+GABAM~ & Worldwide & Fire Behavior & 30 m & 1 year & 149,000,000 & 1990-2021 & Fig & Satellite & 1 \\ \hline
+Fire Atlas~ & Worldwide & Fire Behavior & 500 m & 1 day & 149,000,000 & 2003-2016 & Fig & Satellite & 1 \\ \hline
+MODIS~ & Worldwide & \makecell{Fire Mask Forecast\\ Danger Forecast} & 1 km & 1 day & 149,000,000 & 2000-2024 &   Fig & Satellite & 3 \\ \hline
+VIIRS~ & Worldwide & \makecell{Fire Mask Forecast\\ Danger Forecast} & 375 m & 12 hours & 149,000,000 & 2012-2024 &   Fig & Satellite & 3 \\ \hline
+NOAA HMS Fire~ & North America & Danger Forecast & 2 km & 1 day & 24,710,000 & 2003-2024 &   Fig & Satellite & 3 \\ \hline
+NOAA HMS Smoke~ & North America & Danger Forecast & 2 km & 1 day & 24,710,000 & 2005-2024 & Fig & Satellite & 1 \\ \hline
+GOES fire~ & Western Hemisphere & \makecell{Fire Mask Forecast\\ Danger Forecast} & 2 km & 5 mins & 61,000,000 & 2017-2024 &   Fig & Satellite & 4 \\ \hline
+NIFC WP~ & USA & Fire Mask Forecast & 2 km & 5 mins & 9,834,000 & 2000-2024 & Fig & Satellite & 1 \\ \hline
+FRY~ & Worldwide & Fire Behavior & 500 m & 1 day & 149,000,000 & 2005-2011 & Fig & Satellite & 1 \\ \hline
+FireCanada~ & Canada & Fire Behavior & 1 km & 1 day & 61 & 2014.8 &   Fig & Satellite & 3 \\ \Xhline{2\arrayrulewidth}
+\textbf{FireSentry} & Regions in China & \makecell{Fire Video Prediction\\ Infrared Video Prediction} & \textbf{0.5 m} & \textbf{1 s} & 0.7 & 2025.2 & \textbf{Video} & \textbf{Drone} & 4 \\ 
+\Xhline{2\arrayrulewidth} % Bold top line
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.01188\_table\_1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+\makecell{Task \\ Platform} & \makecell{Target Obs.\\Privileged Obs.} & \makecell{Reward\\Demos} & \makecell{Offline Steps\\Online Steps} & \makecell{Description} \\
+\midrule
+\makecell{Camouflage Pick\\Sim. Koch} & \makecell{Side Cam \\ True Obj. Pos} & \makecell{Sparse \\ 100 suboptimal} & \makecell{20K \\ 80K} & \makecell{Pick up barely\\visible object} \\
+\addlinespace
+\makecell{Fully Obs. Pick \\ Sim. xArm} & \makecell{Side Cam \\ True Obj. Pos} & \makecell{Sparse \\ 100 suboptimal} & \makecell{20K \\ 20K} & \makecell{Pick up fully\\visible object} \\
+\addlinespace
+\makecell{AP Koch \\ Sim. Koch} & \makecell{Wrist Cam \\ True Obj. Pos} & \makecell{Sparse \\ 100 suboptimal} & \makecell{100K \\ 900K} & \makecell{Locate then pick\\up object} \\
+\addlinespace
+\makecell{Blind Pick \\ Real Koch} & \makecell{Joints, Init Obj. Pos \\ Obj. Pos Estimate} & \makecell{Dense \\ 100 suboptimal} & \makecell{20K \\ 1.2K} & \makecell{Pick object from\\ proprioception} \\
+\addlinespace
+\makecell{Bookshelf-P \\ Real Franka} & \makecell{Wrist Cam, Joints \\ Bbox, Mask} & \makecell{Dense \\ $\sim$150 suboptimal} & \makecell{100K \\ 0} & \makecell{Look for object \&\\switch to $\pi_0$} \\
+\addlinespace
+\makecell{Bookshelf-D \\ Real Franka} & \makecell{Wrist Cam, Joints \\ Bbox, Mask} & \makecell{Dense \\ $\sim$100 suboptimal} & \makecell{100K \\ 0} & \makecell{Look for object \&\\switch to $\pi_0$} \\
+\addlinespace
+\makecell{Shelf-Cabinet \\ Real Franka} & \makecell{Wrist Cam, Joints \\ Bbox, Mask} & \makecell{Dense \\ $\sim$30 suboptimal} & \makecell{100K \\ 0} & \makecell{Look for object \&\\switch to $\pi_0$} \\
+\addlinespace
+\makecell{Complex \\ Real Franka} & \makecell{Wrist Cam, Joints \\ Bbox, Mask} & \makecell{Dense \\ $\sim$50 expert} & \makecell{100K \\ 0} & \makecell{Look for object \&\\switch to $\pi_0$} \\
+%
+%
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\end{document}
+
+```

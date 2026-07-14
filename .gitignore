@@ -13,7 +13,17 @@ data/reference_pdfs/**/*.snm
 data/reference_pdfs/**/*.toc
 results/**/*.pdf
 results/**/*.png
-harness/runs/
+# harness runs: keep model .typ outputs, prompts, and score summaries;
+# ignore renders, diagnostics, and bulky CLI transcripts/logs
+harness/runs/**/*.pdf
+harness/runs/**/*.png
+harness/runs/**/*.jpg
+harness/runs/**/claude_transcript.jsonl
+harness/runs/**/claude_stdout*
+harness/runs/**/claude_stderr*
+harness/runs/**/feedback/
+harness/runs/**/final_diagnostics*/
+harness/runs/**/final_compile*.log
 ai_api/**/*.pdf
 ai_api/**/*.png
 logs/*.log

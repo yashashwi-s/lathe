@@ -1,0 +1,31 @@
+You are converting a LaTeX document to Typst with maximum visual fidelity.
+
+Files in this directory:
+- main.tex        : the LaTeX source (ground truth content)
+- reference.pdf   : the pdfLaTeX render you must visually match (do not read the PDF bytes directly; use feedback/reference_pages/*.png instead)
+- output.typ      : YOUR deliverable. Write/overwrite this Typst file.
+- ./score.sh      : run it any time; it compiles output.typ with typst and prints
+                    fidelity scores (0-100) vs the reference: overall, visual,
+                    content, plus components in feedback/metrics.json.
+
+Scoring (deterministic, same as final grading):
+overall = content^0.35 * visual^0.65;
+visual = pagination^0.10 * layout^0.40 * typography^0.20 * raster^0.30.
+Raster comparison is UNREGISTERED: paper size, margins, font size, and line
+spacing must match the reference closely or raster craters. Page count and the
+page each word lands on matter (pagination). The one-shot LLM baseline for
+this sample scored overall=38.4, and its weakest components were
+raster=2.6 and layout=54.5.
+
+Visual feedback is ENABLED. After each ./score.sh run, the directory
+feedback/diagnostics/ contains labeled diff images (reference word boxes,
+candidate word boxes, raster diff). READ these images with your Read tool to
+see exactly where the candidate diverges (red = missing content, blue = extra
+content, yellow/orange = displaced). feedback/reference_pages/ has PNG renders
+of the reference PDF pages. Use them to match margins, paper size, spacing,
+fonts, and pagination.
+
+Procedure: write a first output.typ, run ./score.sh, then iterate to maximize
+the overall score. Prioritize: (1) compiles, (2) page count matches reference,
+(3) token recall/precision >= 0.95, (4) layout and raster as high as possible.
+Stop when improvements plateau. Your final output.typ is what gets graded.
