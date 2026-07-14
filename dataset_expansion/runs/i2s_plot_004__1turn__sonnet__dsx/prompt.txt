@@ -1,0 +1,138 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\title{Plot Sample 4}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Visualization}
+The figure below is a TikZ/pgfplots drawing drawn from a source-backed image-to-LaTeX benchmark.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw (73,178) -- (107.5,133.37) ;
+\draw [shift={(109.33,131)}, rotate = 127.71] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (73,178) -- (107.52,223.61) ;
+\draw [shift={(109.33,226)}, rotate = 232.88] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (207,225) -- (240.33,225) ;
+\draw [shift={(243.33,225)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (207,132) -- (240.33,132) ;
+\draw [shift={(243.33,132)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw [fill={rgb, 255:red, 74; green, 144; blue, 226 } ,fill opacity=0.33 ] (345.33,126) .. controls (345.33,116.06) and (353.39,108) .. (363.33,108) -- (417.33,108) .. controls (427.27,108) and (435.33,116.06) .. (435.33,126) -- (435.33,228) .. controls (435.33,237.94) and (427.27,246) .. (417.33,246) -- (363.33,246) .. controls (353.39,246) and (345.33,237.94) .. (345.33,228) -- cycle ;
+\draw (308,226) -- (341.29,226.26) ;
+\draw [shift={(344.29,226.29)}, rotate = 180.45] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (308,133) -- (341.29,133.26) ;
+\draw [shift={(344.29,133.29)}, rotate = 180.45] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (345.33,160) -- (435.33,160) ;
+\draw (345.33,193) -- (435.33,193) ;
+\draw (437,225) -- (470.33,225) ;
+\draw [shift={(473.33,225)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (437,132) -- (470.33,132) ;
+\draw [shift={(473.33,132)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 } ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 } ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}] (308,177) -- (341.29,177.26) ;
+\draw [shift={(344.29,177.29)}, rotate = 180.45] [fill={rgb, 255:red, 128; green, 128; blue, 128 } ,fill opacity=1 ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 } ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}] (160.29,154.86) -- (185.89,174.19) ;
+\draw [shift={(188.29,176)}, rotate = 217.06] [fill={rgb, 255:red, 128; green, 128; blue, 128 } ,fill opacity=1 ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 } ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}] (160.29,199.86) -- (186,177.95) ;
+\draw [shift={(188.29,176)}, rotate = 139.57] [fill={rgb, 255:red, 128; green, 128; blue, 128 } ,fill opacity=1 ][line width=0.08] [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle ;
+\draw (25,68) node [anchor=north west][inner sep=0.75pt] [align=left] {$\displaystyle t=1$};
+\draw (-15,155) -- (72,155) -- (72,200) -- (-15,200) -- cycle ;
+\draw (-15,159) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{62.72pt}\setlength\topsep{0pt}
+\begin{center}
+passive LPs\\[-0.15\baselineskip]deposit
+\end{center}
+\end{minipage}};
+\draw (110,108) -- (206,108) -- (206,153) -- (110,153) -- cycle ;
+\draw (114.5,112) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{62.81pt}\setlength\topsep{0pt}
+\begin{center}
+informed\\[-0.15\baselineskip]trader arrives
+\end{center}
+\end{minipage}};
+\draw (110,201) -- (206,201) -- (206,246) -- (110,246) -- cycle ;
+\draw (114.5,205) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{62.81pt}\setlength\topsep{0pt}
+\begin{center}
+uninformed\\[-0.15\baselineskip]trader arrives
+\end{center}
+\end{minipage}};
+\draw (244,201) -- (307,201) -- (307,246) -- (244,246) -- cycle ;
+\draw (247,205) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{40.72pt}\setlength\topsep{0pt}
+\begin{center}
+JIT LP\\[-0.15\baselineskip]deposits
+\end{center}
+\end{minipage}};
+\draw (365.33,116) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{36.91pt}\setlength\topsep{0pt}
+\begin{center}
+{\small JIT LP}\\[-0.15\baselineskip]{\small deposits}\\
+\end{center}
+\end{minipage}};
+\draw (360,202) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{43.53pt}\setlength\topsep{0pt}
+\begin{center}
+{\small JIT LP}\\[-0.15\baselineskip]{\small withdraws}
+\end{center}
+\end{minipage}};
+\draw (371,172) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{26.53pt}\setlength\topsep{0pt}
+\begin{center}
+swap
+\end{center}
+\end{minipage}};
+\draw (244,108) -- (307,108) -- (307,153) -- (244,153) -- cycle ;
+\draw (247,112) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{40.72pt}\setlength\topsep{0pt}
+\begin{center}
+JIT LP\\[-0.15\baselineskip]deposits
+\end{center}
+\end{minipage}};
+\draw (474,108) -- (529,108) -- (529,153) -- (474,153) -- cycle ;
+\draw (477,112) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{35.04pt}\setlength\topsep{0pt}
+\begin{center}
+price\\[-0.15\baselineskip]shock
+\end{center}
+\end{minipage}};
+\draw (474,201) -- (531,201) -- (531,246) -- (474,246) -- cycle ;
+\draw (476.5,208) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{36.73pt}\setlength\topsep{0pt}
+\begin{center}
+reverse\\[-0.15\baselineskip]trade
+\end{center}
+\end{minipage}};
+\draw (139,68) node [anchor=north west][inner sep=0.75pt] [align=left] {$\displaystyle t=2$};
+\draw (257,68) node [anchor=north west][inner sep=0.75pt] [align=left] {$\displaystyle t=3$};
+\draw (372,68) node [anchor=north west][inner sep=0.75pt] [align=left] {$\displaystyle t=4$};
+\draw (483,68) node [anchor=north west][inner sep=0.75pt] [align=left] {$\displaystyle t=5$};
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 } ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}] (190,165) -- (307,165) -- (307,189) -- (190,189) -- cycle ;
+\draw (195,170) node [anchor=north west][inner sep=0.75pt] [align=left] {\begin{minipage}[lt]
+{77.2pt}\setlength\topsep{0pt}
+\begin{center}
+{\small \textcolor[rgb]{0.5,0.5,0.5}{to public mempool}}
+\end{center}
+\end{minipage}};
+\end{tikzpicture} \vspace{0.5cm}
+\caption{Source-backed plot.}
+\end{figure}
+
+\end{document}
+
+```

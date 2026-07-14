@@ -1,0 +1,22 @@
+downloading @preview/cetz:0.3.1
+
+  0 B /  72.5 KiB (  0 %), 724.9 KiB/s, ETA: 0 s
+ 55.5 KiB /  72.5 KiB ( 77 %), 554.6 KiB/s, ETA: 0 s
+ 72.5 KiB /  72.5 KiB (100 %), 554.6 KiB/s, ETA: 0 s
+downloading @preview/oxifmt:0.2.0
+
+  0 B /  11.3 KiB (  0 %), 113.1 KiB/s, ETA: 0 s
+ 11.3 KiB /  11.3 KiB (100 %), 113.1 KiB/s, ETA: 0 s
+error: panicked with: Failed to resolve coordinate: (54.75, -133.5)
+    ┌─ @preview/cetz:0.3.1/src/coordinate.typ:300:4
+    │
+300 │     panic("Failed to resolve coordinate: " + repr(c))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  while calling `map` at @preview/cetz:0.3.1/src/draw/shapes.typ:510:19
+    pts.map(coordinate.resolve-system)
+  while calling `line` at dataset_expansion/runs/i2s_plot_004__1turn__sonnet__dsx/work/output.typ:63:8
+    line(t(x1, y1), (ex, ey))
+  while calling `arrow-line` at dataset_expansion/runs/i2s_plot_004__1turn__sonnet__dsx/work/output.typ:89:6
+    arrow-line(73, 178, 109.33, 131)
+

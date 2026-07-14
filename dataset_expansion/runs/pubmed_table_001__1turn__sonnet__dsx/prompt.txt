@@ -1,0 +1,120 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\usepackage{makecell,longtable,threeparttable,siunitx}
+\title{Clinical Table Sample 1}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Patient Data}
+The table below is a medical-literature table reproduced verbatim from a PubMed-derived dataset.
+
+\begin{table}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+\textbf{Year City} & \textbf{\textbf{\textbf{\textbf{2}}}001} & \textbf{\textbf{\textbf{\textbf{2}}}00\textbf{\textbf{\textbf{2}}}} & \textbf{\textbf{\textbf{\textbf{2}}}00\textbf{3}} & \textbf{\textbf{\textbf{\textbf{2}}}004} & \textbf{\textbf{\textbf{\textbf{2}}}005} & \textbf{\textbf{\textbf{\textbf{2}}}006} & \textbf{\textbf{\textbf{\textbf{2}}}00\textbf{7}} & \textbf{Total} \\
+\hline
+\textbf{Kazerun} & \textbf{-} & \textbf{3} & \textbf{\textbf{\textbf{2}}} & \textbf{\textbf{\textbf{2}}} & \textbf{7} & \textbf{10} & \textbf{\textbf{\textbf{2}}} & \textbf{\textbf{\textbf{2}}}6 \\
+\hline
+Noor abad & 1 & 1 & 5 & 5 & \textbf{7} & 5 & \textbf{-} & \textbf{\textbf{\textbf{2}}}4 \\
+\hline
+Lamerd & 1 & \textbf{\textbf{\textbf{2}}} & 1 & \textbf{-} & 9 & 6 & 1 & 19 \\
+\hline
+Darab & 1 & \textbf{\textbf{\textbf{2}}} & 1 & 1 & \textbf{\textbf{\textbf{2}}} & 6 & 1 & 14 \\
+\hline
+Khonj & 1 & \textbf{-} & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{3} & 6 & \textbf{\textbf{\textbf{2}}} & 14 \\
+\hline
+Fasa & \textbf{-} & 1 & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{\textbf{\textbf{2}}} & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{7} \\
+\hline
+Gerash & \textbf{-} & 1 & 1 & \textbf{\textbf{\textbf{2}}} & 1 & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{7} \\
+\hline
+Firuzabad & \textbf{-} & \textbf{\textbf{\textbf{2}}} & 1 & \textbf{-} & \textbf{-} & 1 & \textbf{\textbf{\textbf{2}}} & 6 \\
+\hline
+Maharlu & 1 & \textbf{-} & \textbf{\textbf{\textbf{2}}} & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{-} & \textbf{-} & 6 \\
+\hline
+Abaadeh & \textbf{-} & \textbf{-} & 1 & \textbf{-} & 1 & \textbf{3} & \textbf{-} & 5 \\
+\hline
+Lar & 1 & \textbf{\textbf{\textbf{2}}} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 4 \\
+\hline
+Marvdasht & \textbf{-} & 1 & \textbf{\textbf{\textbf{2}}} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 4 \\
+\hline
+Sarvestan & \textbf{-} & \textbf{-} & \textbf{3} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 4 \\
+\hline
+Bavanat & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{3} & 1 & \textbf{-} & 4 \\
+\hline
+Abolhayat & \textbf{-} & \textbf{-} & 1 & 1 & 1 & \textbf{-} & \textbf{-} & \textbf{3} \\
+\hline
+Dashte\textbf{-}arjan & \textbf{-} & \textbf{-} & \textbf{\textbf{\textbf{2}}} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{3} \\
+\hline
+Eghlid & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{3} & \textbf{3} \\
+\hline
+Khorambid & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{\textbf{\textbf{2}}} & 1 & \textbf{-} & \textbf{-} & \textbf{3} \\
+\hline
+Arsanjan & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{-} & \textbf{\textbf{\textbf{2}}} \\
+\hline
+Sepidan & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{\textbf{\textbf{2}}} \\
+\hline
+Zarghan & \textbf{\textbf{\textbf{2}}} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{\textbf{\textbf{2}}} \\
+\hline
+Saadat\textbf{-}Shahr & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Polekhan & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Sivande Jadid & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Gardane Ghader Abad & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Estahban & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Fasa Entrance & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Gardanea Shul & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Ashkanan & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & 1 \\
+\hline
+Beyza & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Neyriz & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Evaz & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+yasuj & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & 1 & \textbf{-} & \textbf{\textbf{\textbf{2}}} \\
+\hline
+Sirjan & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Gardane Bajgah & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Ghalat mountains & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & 1 \\
+\hline
+Bushehr & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & 1 & \textbf{\textbf{\textbf{2}}} \\
+\hline
+Kuhe Derak & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & 1 \\
+\hline
+Golestan & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & 1 \\
+\hline
+Asalooye & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & \textbf{-} & 1 \\
+\hline
+Jahrom & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 & 1 \\
+\hline
+Meydane Tarebar & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+Bid\textbf{-}Zard & \textbf{-} & \textbf{-} & 1 & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{-} & 1 \\
+\hline
+\textbf{Total} & 9 & 19 & \textbf{\textbf{\textbf{2}}}6 & \textbf{\textbf{\textbf{2}}}1 & 48 & 48 & 14 & 185 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
+
+```

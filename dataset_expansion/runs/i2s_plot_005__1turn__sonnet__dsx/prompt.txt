@@ -1,0 +1,92 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\title{Plot Sample 5}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Visualization}
+The figure below is a TikZ/pgfplots drawing drawn from a source-backed image-to-LaTeX benchmark.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
+\draw [line width=1.5] (46,49.17) -- (71,47.17) ;
+\draw [line width=1.5] (71,47.17) -- (96.5,71.67) ;
+\draw [line width=1.5] (81.72,127.45) -- (95,106.17) ;
+\draw [line width=1.5] (96.5,71.67) -- (125,58.67) ;
+\draw [line width=1.5] (108.72,126.95) -- (95,106.17) ;
+\draw [line width=1.5] (96.5,71.67) -- (95,106.17) ;
+\draw [line width=1.5] (219.57,50.17) -- (239.06,62.77) ;
+\draw [line width=1.5] (239.06,62.77) -- (286.44,62.77) ;
+\draw [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (239.06,62.77) -- (262.18,106.61) ;
+\draw [shift={(263.58,109.26)}, rotate = 242.19] [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28) ;
+\draw [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (286.44,62.77) -- (264.91,106.57) ;
+\draw [shift={(263.58,109.26)}, rotate = 296.18] [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28) ;
+\draw [line width=1.5] (286.44,62.77) -- (307.3,51.04) ;
+\draw [line width=1.5] (263.58,109.26) -- (264,131.96) ;
+\draw [line width=1.5] (58,24.67) -- (71,47.17) ;
+\draw [line width=1.5] (307.3,51.04) -- (318,33.67) ;
+\draw [line width=1.5] (307.3,51.04) -- (325,59.67) ;
+\draw [line width=1.5] (219.57,50.17) -- (207,33.17) ;
+\draw [line width=1.5] (200.5,55.17) -- (219.57,50.17) ;
+\draw [line width=1.5] (420.57,50.17) -- (440.06,62.77) ;
+\draw [line width=1.5] (440.06,62.77) -- (487.44,62.77) ;
+\draw [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (440.06,62.77) -- (463.18,106.61) ;
+\draw [shift={(464.58,109.26)}, rotate = 242.19] [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28) ;
+\draw [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (487.44,62.77) -- (465.91,106.57) ;
+\draw [shift={(464.58,109.26)}, rotate = 296.18] [color={rgb, 255:red, 182; green, 5; blue, 60 } ,draw opacity=1 ][line width=1.5] (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28) ;
+\draw [line width=1.5] (487.44,62.77) -- (508.3,51.04) ;
+\draw [line width=1.5] (464.58,109.26) -- (465,131.96) ;
+\draw [line width=1.5] (420.57,50.17) -- (408,33.17) ;
+\draw [line width=1.5] (401.5,55.17) -- (420.57,50.17) ;
+\draw [line width=1.5] (465,131.96) -- (448.5,147.67) ;
+\draw [line width=1.5] (465,131.96) -- (480.5,148.17) ;
+\draw (30.33,44.93) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{1}$};
+\draw (69.74,129.69) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$a_{1}$};
+\draw (128.24,49.69) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$c$};
+\draw (105.24,129.19) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$a_{2}$};
+\draw (99.8,83.3) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 } ,opacity=1 ] {$\ell _{1}$};
+\draw (319.83,20.22) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{1}$};
+\draw (184.24,48.98) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$a_{1}$};
+\draw (259.24,133.98) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$c$};
+\draw (327,53.07) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{2}$};
+\draw (252.2,74.99) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 182; green, 5; blue, 60 } ,opacity=1 ] {$\gamma $};
+\draw (226.1,41.29) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 } ,opacity=1 ] {$\ell _{1}$};
+\draw (293.8,59.59) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 } ,opacity=1 ] {$\ell _{2}$};
+\draw (258.2,49.99) node [anchor=north west][inner sep=0.75pt] [font=\small] {$x$};
+\draw (41.33,7.93) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{2}$};
+\draw (82.8,43.8) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 } ,opacity=1 ] {$\ell _{2}$};
+\draw (188.24,22.48) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$a_{2}$};
+\draw (384.33,45.72) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{1}$};
+\draw (437.74,150.48) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$a_{1}$};
+\draw (392,16.57) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$b_{2}$};
+\draw (455.2,74.99) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 182; green, 5; blue, 60 } ,opacity=1 ] {$\gamma $};
+\draw (466.6,114.29) node [anchor=north west][inner sep=0.75pt] [font=\small] {$\ell _{1}$};
+\draw (428.3,39.09) node [anchor=north west][inner sep=0.75pt] [font=\small] {$\ell _{2}$};
+\draw (459.2,47.99) node [anchor=north west][inner sep=0.75pt] [font=\small] {$x$};
+\draw (476.24,150.48) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {{$a_{2}$}};
+\draw (511.24,41.98) node [anchor=north west][inner sep=0.75pt] [font=\normalsize,color={rgb, 255:red, 6; green, 79; blue, 97 } ,opacity=1 ] {$c$};
+\draw (481.8,77.59) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 108; green, 4; blue, 35 } ,opacity=1 ] {$h_{2}$};
+\draw (433.3,78.09) node [anchor=north west][inner sep=0.75pt] [font=\small,color={rgb, 255:red, 108; green, 4; blue, 35 } ,opacity=1 ] {$h_{1}$};
+\end{tikzpicture}
+\caption{Source-backed plot.}
+\end{figure}
+
+\end{document}
+
+```
