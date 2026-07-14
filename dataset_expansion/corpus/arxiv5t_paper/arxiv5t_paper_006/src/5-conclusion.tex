@@ -1,0 +1,18 @@
+\section{Conclusion}
+This paper introduces a novel two-stage approach for leveraging professional networks in Person-Job Fit, including the formation of the Workplace Heterogeneous Information Network (WHIN). WHIN encompasses various entities such as members, jobs, skills, companies, and schools, with an emphasis on the professional connections among members. By employing heterogeneous graph pre-training techniques, the approach acquires representations that integrate professional connections and other diverse information for different entities. These representations are subsequently applied to the CSAGNN model, helping to filter out social noise.
+
+Experimental results show that professional connections provide valuable job-specific insights. The WHIN pre-training method is also promising for applications like skill completion and professional connection recommendations, opening new research avenues. Furthermore, for large-scale applications of CSAGNN, a key area of future work involves reducing the model's computational overhead \cite{lin2020pagraph, li2020compression, li2021trace}.
+
+\begin{acks}
+Thanks to Yihan Cao and Yushu Du for their insightful discussion. Thanks to Sriram Vasudevan and Peide Zhong for their comprehensive review feedback.
+\end{acks}
+
+\section*{Ethical Considerations}
+
+The integration of professional networks into Person-Job Fit models offers significant potential for enriching recommendations. However, we must recognize and address two vital ethical considerations that may lead to adverse societal implications:
+
+Firstly, the core of our approach involves accessing members' professional connections and corresponding profiles, which raises privacy concerns. In our research, we ensured that the data collection and processing respected privacy by adhering to proper consent mechanisms and limiting access to pertinent information. Future users should follow suit, being mindful of the need for clear and voluntary consent from members and carefully controlling access to connection information.
+
+Additionally, connections often exhibit demographic clustering, which could introduce biases favoring certain groups within networks. The models might infer sensitive attributes like race, gender, or age. Future users should conduct audits to ensure demographic equity and prohibit direct utilization of protected class information.
+
+In summary, while the enhancement of Person-Job Fit models through professional network data brings advancements, it also introduces risks concerning privacy and fairness. These ethical challenges call for a concerted effort from platforms to resolve, ensuring that the innovations foster an environment that is both respectful of individual rights and free from discriminatory biases.

@@ -1,0 +1,22 @@
+\begin{algorithm}[H]
+\caption{Flash Attention-2 via online softmax (Dao 2024)}
+\label{alg:flashattention}
+Given $\mathbf{Q}, \mathbf{K}, \mathbf{V} \in \R^{L\times d}$, $T_c$, $T_r$ row blocks of size $B_r$, $T_c$ column blocks of size $B_c$.
+
+\begin{algorithmic}[1]
+\For{$i = 1$ to $T_r$}
+    \State Load $\mathbf{Q}_i$ from HBM to SRAM
+    \State $\mathbf{O}_0 = \mathbf{0}_{B_r\times d}, l_0 = \mathbf{0}_{B_r}, m_0 = -\mathbf{\infty}_{B_r}$
+    \For {$j=1$ to $T_c$}
+        \State Load $\mathbf{K}_j$, $\mathbf{V}_j$ from HBM to SRAM.
+        \State On chip, compute $\mathbf{S}_i^{(j)} = \mathbf{Q}_i\mathbf{K}_j^T$
+        \State On chip, compute $m_i^{(j)} = \max\left(m_i^{(j-1)}, \textrm{rowmax}\left(\mathbf{S}_i^{(j)}\right)\right)$, $\tilde{\mathbf{P}}_i^{(j)} = \exp\left(\mathbf{S}_i^{(j)} - m_i^{(j)}\right)$, $l_i^{(j)}=e^{m_i^{(j-1)}-m_i^{(j)}}l_i^{(j-1)} + \textrm{rowsum}\left(\tilde{\mathbf{P}}_i^{(j)}\right)$
+
+        \State On chip, compute $\mathbf{O}_i^{(j)}=\textrm{diag}\left(e^{m_i^{(j-1)}-m_i^{(j)}}\right)^{-1}\mathbf{O}_i^{(j-1)} + \tilde{\mathbf{P}}_i^{(j)}\mathbf{V}_j$
+    \EndFor
+    \State On chip, compute $\mathbf {O}_i=\textrm{diag}\left(l_i^{(T_c)}\right)^{-1}\mathbf {O}_i^{(T_c)}$
+    \State Write $\mathbf{O}_i$ to HBM as $i$th block of $\mathbf{O}$
+\EndFor
+\State Return $\mathbf{O}$
+\end{algorithmic}
+\end{algorithm}

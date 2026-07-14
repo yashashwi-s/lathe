@@ -1,0 +1,131 @@
+\section{Introduction}
+% Imagine yourself traveling, would you seize the opportunity to capture the breathtaking landscapes unfolding before you? 
+% %
+% Upon returning home, do you yearn to revisit and immerse yourself in those vivid experiences again? 
+% %
+% Recently, immersive vision has garnered increasing attention as it provides a more realistic experience. 
+% %
+% However, 360-degree visual media is often captured by expensive professional equipment, \ie 360 cameras, making the creation of panoramic content challenging.
+% %
+% In this paper, we fill this gap by extending the perspective videos captured by portable devices, \eg mobile phones, to immersive panoramic videos, bringing you back to the memory through the videos on your phone.
+% %
+
+% Previous studies leverage powerful diffusion models to explore 360-degree video generation by representing panoramas using Equirectangular Projection (ERP), which uniformly maps pixels from a spherical surface to a planar rectangle. 
+% %
+% Despite providing benefits of spatial continuity, this format also introduces severe distortion, particularly at the poles.
+% %
+% Additionally, the representation of ERP has a modality gap with VAEs and pre-trained diffusion models, as the training data for these models are mostly in monocular views.
+% %
+% An alternative is Cubemap Projection (CP), which projects panoramas to six cube faces with the field-of-view (FoV) of 90$^\circ$. 
+% %
+% CP offers six high-quality perspectives, not only avoiding spatial distortion but also fitting well with modern diffusion schemes.
+% %
+% However, the spatial continuity is limited due to the natural gap between Spherical space and Euclidean space.
+% %
+
+% To overcome the shortcomings mentioned above, we propose a new paradigm named \method, which combines the advantages of ERP and CP.
+% %
+% Specifically, we first project the panoramic views to six cube faces with a FoV of 90$^\circ$ for each face, following the Cubemap format. 
+% %
+% This representation ensures that each face is naturally suited for pre-trained diffusion schemes.
+% %
+% Nevertheless, CP struggles with spatial continuity due to the ordering of each cube face, as an unfolded cardboard box has at most one face that is surrounded by four adjacent faces, thereby limiting the neural network's ability to model spatial consistency.
+% %
+% To mitigate this limitation, we propose a pseudo-perspective view by selecting one face as the central face (assuming the side length of $r$), then diagonally dividing each of the four adjacent faces into four parts, as shown in Figure 1, and combining them into a new square with the side length of $\sqrt{2} r$.
+%
+% This design makes the central face more spatially continuous with the four adjacent faces. 
+%
+% Specifically, when modeling videos, it offers advantages in temporal consistency, as objects appearing on the central face either remain on the central face or move to an adjacent face over time.
+%
+% Inspired by IC-LoRA, which demonstrates that diffusion models inherit in-context learning capability across the spatial dimension, we concatenate the four pseudo-perspective views centered on the left, front, right, and back respectively, in raster order.
+% We then concatenate the four pseudo-perspective views centered on the left, front, right, and back respectively, in raster order.
+% %
+% The result is not only spatially consistent within each pseudo-perspective region but also connects the entire cube space along the diagonals.
+% %
+
+% After forming these representations, we use the powerful Wan2.1 video model as the base model to train \method. 
+% %
+% To maintain global consistency while extracting fine-grained local details, we propose a Pano-Regional attention mechanism.
+% %
+% Specifically, we divide the attention layers of the base model into two groups: Pano layers and Regional layers. 
+% %
+% Pano layers focus on overall spatial-temporal consistency, while Regional layers concentrate on visual details.
+% %
+
+
+
+% 1) We introduce a novel representation for 360-degree content aimed at improving spatial continuity and reducing distortion while leveraging the power of diffusion models to generate 360-degree videos through the proposed format.
+% %
+
+% 2) We design a global-local attention mechanism, enabling the model to simultaneously maintain global spatial continuity across the entire panorama and significantly enhance the preservation of fine-grained details and motion.
+% %
+
+% 3) Both qualitative and quantitative experiments demonstrate the effectiveness of our method.
+
+% \zh{
+% background
+% 360 degree video unlocks immersive AR/VR, virtual travel, and telepresence experiences, yet most consumers only capture narrow-FOV clips on smartphones. Enabling these perspective recordings to become full panoramas would democratize spherical media, letting anyone relive or share memories in true 360 degree form.
+
+% drawbacks of recent methods
+% Achieving this conversion is non-trivial due to fundamental representation gaps between perspective and panorama domains. A straightforward approach is to adopt the widely-used equirectangular projection (ERP) for panoramas, which maps the spherical view onto a rectangular image.
+%
+% Unfortunately, this format introduces severe distortions, especially near the poles, stretching and squashing content unnaturally. More critically, equirectangular images lie outside the distribution of typical training data for modern generative models. Diffusion models and VAEs are predominantly trained on perspective imagery, so without significant adaptation they struggle to produce high-quality results in the warped ERP space.
+%
+ % On the other hand, one could represent the panorama as multiple perspective projections. A common choice is the cubemap (CP) format, which unfolds the sphere into six faces (each a 90° FOV perspective view). The CP representation avoids polar distortions and yields locally planar patches well-aligned with the priors of convolutional and diffusion networks.
+%
+% However, a naive cubemap suffers from spatial discontinuities at the borders of the faces. The six faces are disjoint on a 2D grid, making it difficult for a neural model to capture cross-face consistency. 
+%
+% In short, existing representations force a trade-off between continuity and distortion: ERP offers end-to-end continuity but distorts the content, whereas CP preserves local fidelity but fragments the panoramic space. Neither is ideal for generative video modeling, especially when temporal consistency is also required.
+
+% our method
+
+% In this paper, we address these issues by introducing ViewPoint, a novel 360° video representation and generation framework that bridges the strengths of ERP and CP. 
+%
+% At the core of ViewPoint is a spatially-aware pseudo-stitching scheme that reprojects and rearranges the scene into an overlapping set of perspective views with greatly improved continuity.
+%
+% We first convert the panorama into six cubemap faces—each a distortion-free perspective view—and then merge them into a small number of overlapping “pseudo-perspective” panels. Because these panels share content along their boundaries, they eliminate the hard seams of a standard cubemap while remaining fully compatible with existing 2D diffusion models.
+% On this representation, our Pano-Regional attention delivers two key benefits: Global coherence: (1) Pano-attention layers span the entire stitched map (and time), ensuring that opposite directions align and the scene stays consistent. (2) Local fidelity: Regional-attention layers focus on each panel’s neighborhood, preserving fine texture, color, and motion detail.
+% }
+
+% final version 5.12
+Imagine you're traveling—would you seize the chance to capture the breathtaking landscapes that unfold before you? When you return home, do you long to relive and immerse yourself in those vivid experiences once more?
+%
+Recently, omnidirectional vision has garnered increasing attention as it unlocks immersive AR/VR, virtual travel, and telepresence experiences.
+%
+However, recording 360-degree videos requires expensive professional devices, \ie 360 cameras, making the creation of panoramic content challenging, and most consumers capture only narrow field-of-view (FoV) clips on portable monocular cameras, \eg smartphones.
+%
+Enabling these perspective recordings to become full panoramas would democratize spherical media, letting anyone relive or share memories in true 360-degree form.
+%
+
+Achieving this conversion is non-trivial due to fundamental representation gaps between perspective and panorama domains. A straightforward approach is to adopt the widely-used Equirectangular Projection (ERP) for panoramas, which maps the spherical view onto a rectangular image.
+%
+Unfortunately, this format introduces severe distortions, especially near the poles, stretching and squashing content unnaturally. More critically, equirectangular images lie outside the distribution of typical training data for modern generative models. Diffusion models~\cite{ho2020denoising, rombach2022high,song2021denoising} and VAEs~\cite{kingma2013auto} are predominantly trained on perspective imagery, so without significant adaptation they struggle to produce high-quality results in the warped ERP space.
+%
+On the other hand, one could represent the panorama as multiple perspective projections. A common choice is the Cubemap Projection(CP) format, which unfolds the sphere into six faces (each a 90° FOV perspective view). The CP representation avoids polar distortions and yields locally planar patches well-aligned with the priors of convolutional and diffusion networks.
+%
+However, a naive cubemap suffers from spatial discontinuities at the borders of the faces. The six faces are disjoint on a 2D grid, making it difficult for a neural model to capture cross-face consistency. 
+%
+In short, existing representations force a trade-off between continuity and distortion: ERP offers end-to-end continuity but distorts the content, whereas CP preserves local fidelity but fragments the panoramic space. Neither is ideal for generative video modeling, especially when temporal consistency is also required.
+
+% our method
+In this paper, we address the above-mentioned issues by introducing ViewPoint, a novel 360° video representation and generation framework that bridges the strengths of ERP and CP. 
+%
+At the core of ViewPoint is a spatially-aware pseudo-stitching scheme that reprojects and rearranges the scene into an overlapping set of perspective views with greatly improved continuity.
+%
+Specifically, we first convert the panorama into six cube faces—each a distortion-free perspective view—and then merge them into a small number of overlapping ``pseudo-perspective" panels. 
+%
+Because these panels share content along their boundaries, they eliminate the hard seams of a standard cubemap while remaining fully compatible with existing 2D diffusion models.
+%
+On this representation, the proposed Pano-Perspective attention delivers two key benefits: (1) Global coherence: Pano-attention blocks span the entire stitched map (and time), ensuring that opposite directions align and the scene stays consistent. (2) Local fidelity: Perspective-attention blocks focus on each panel’s neighborhood, preserving fine texture, color, and motion details.
+%
+With this attention mechanism, we take full advantage of the generative capabilities of diffusion models and adapt them to the task of panoramic video generation, where high-quality data is scarce.
+
+In summary, our contributions are as follows: 
+%
+\begin{itemize}[leftmargin=*]
+\item We introduce a novel representation for 360-degree content aimed at improving spatial continuity and reducing distortion while leveraging the power of diffusion models to generate 360-degree videos through the proposed format.
+%
+\item We design a Pano-Perspective attention mechanism, enabling the model to simultaneously maintain global spatial continuity across the entire panorama and significantly enhance the preservation of fine-grained details and motion.
+%
+\item Extensive experiments demonstrate that our method can generate high-quality 360-degree videos and achieve state-of-the-art performance, outperforming previous approaches.
+\end{itemize}
