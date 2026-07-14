@@ -1,21 +1,41 @@
 # Prompt-development split
 
-This directory contains the frozen development split used to improve the
-LaTeX-to-Typst system prompt before the held-out benchmark is run.
+This directory contains the frozen development split used to improve the LaTeX-to-Typst system prompt before the held-out benchmark is run.
 
 ## Split contract
 
-- Total samples: 33
-- Categories: 11
-- Samples per category: 3
-- Complexity bands: low=11, medium=11, high=11
+- Clean samples after visual-corruption cleanup: 30
+- Original target before cleanup: 33 samples, 11 categories, 3 samples per category
 - AI outputs are not used during selection.
-- These samples are development data and must not contribute to final held-out
-  benchmark claims.
+- These samples are development data and must not contribute to final held-out benchmark claims.
+
+## Current category counts
+
+| Category | Samples |
+|---|---:|
+| `01_prose_sections` | 2 |
+| `02_lists_formatting` | 3 |
+| `03_math_inline_display` | 3 |
+| `04_math_aligned` | 3 |
+| `05_tables_simple` | 3 |
+| `06_tables_moderate` | 3 |
+| `07_figures_captions` | 3 |
+| `08_crossrefs_citations` | 3 |
+| `09_algorithms` | 3 |
+| `10_compact_papers` | 1 |
+| `11_forms_cv_letters` | 3 |
+
+## Complexity bands
+
+| Band | Samples |
+|---|---:|
+| `low` | 10 |
+| `medium` | 10 |
+| `high` | 10 |
 
 ## Selection method
 
-Samples are ranked within each category using a documented complexity score:
+Samples were originally ranked within each category using a documented complexity score:
 
 | Component | Weight |
 |---|---:|
@@ -25,8 +45,6 @@ Samples are ranked within each category using a documented complexity score:
 | Reference page count | 0.15 |
 | Failed deterministic Typst engines | 0.15 |
 
-The selected rows are closest to the 15th, 50th, and 85th percentile rank in
-each category. The score is only meaningful within a category.
+Rows with visually corrupted reference PDFs were removed after review rather than replaced, so this split remains an audit of the original prompt-development run with invalid references filtered out.
 
-`prompt_dev_33.csv` is the canonical ordered manifest. Rebuilding it with the
-same dataset and deterministic engine manifest must produce the same rows.
+`prompt_dev_33.csv` is retained as the filename for continuity, but it now contains only clean rows.

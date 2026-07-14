@@ -1,0 +1,34 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Algorithmic Pseudocode Sample 21
+
+Source-backed Image2Struct algorithm sample
+
+= Algorithm
+
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+Algorithm: Source-backed algorithmic procedure
+
+1. Require:
+2. `\tau`: Scale of coordinate noise
+3. `GNN_{\theta}`: Graph Neural Network with parameter `\theta`
+4. `{\rm NoiseHead}_{\theta_{n}}`: Network module with parameter `\theta_{n}` for prediction of node-level noise of each atom
+5. `{\rm LabelHead}_{\theta_{l}}`: Network module with parameter `\theta_{l}` for prediction of graph-level label of `x_{i}`
+6. `X`: Training dataset
+7. `x_i`: Input conformation
+8. `y_i`: Label of `x_i`
+9. `T`: Training steps
+10. `\mathcal N`: Gaussian distribution
+11. `\lambda_{p}`: Loss weight of property prediction loss
+12. `\lambda_{n}`: Loss weight of Noisy Nodes loss
+13. While `T \neq 0`:
+14. `x_i, y_i` = dataloader(`X`) // random sample `x_i` and corresponding label `y_i` from `X`
+15. `\tilde{x} = x_{i} + \Delta{x_i}` , where `\Delta{x_i} \sim \mathcal{N}(0, {\tau}^2I_{3N})`, `N` is atom number of `x_i`
+16. `y_{i}^{pred}={\rm LabelHead}_{\theta_{l}}(GNN_{\theta}(\tilde{x}))`
+17. `\Delta{x_i}^{pred}={\rm NoiseHead}_{\theta_{n}}(GNN_{\theta}(\tilde{x}))`
+18. Loss = `\lambda_{p}`PropertyPredictionLoss(`y_{i}^{pred}, y_i`)+`\lambda_{n}||\Delta{x_i}^{pred} - \Delta{x_i}||_{2}^{2}`
+19. Optimise(Loss)
+20. `T = T - 1`
+21. EndWhile

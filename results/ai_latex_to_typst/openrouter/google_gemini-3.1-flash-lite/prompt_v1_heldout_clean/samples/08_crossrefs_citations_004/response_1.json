@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950220-lOkjc1m0BP79HyNQlZY0",
+  "object": "chat.completion",
+  "created": 1783950220,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[String Theory and the Donaldson Polynomial]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#block(inset: (x: 2em))[\n  #text(weight: \"bold\")[Abstract]\n  #v(0.5em)\n  It is shown that the scattering of spacetime axions with fivebrane solitons of heterotic string theory at zero momentum is proportional to the Donaldson polynomial.\n]\n\n= References And Citations <sec:refs>\n\nThis sample cites source keys [teinep] and [STR.55]. Section #link(<sec:refs>)[1] and Equation #link(<eq:source-demo>)[1] provide cross-reference coverage.\n\n$ a^2 + b^2 = c^2 $ <eq:source-demo>\n\n#v(2em)\n#text(weight: \"bold\")[References]\n#v(1em)\n\n[teinep] Source bibliography entry 1 extracted from arXiv metadata/source key `teinep`.\n\n[STR.55] Source bibliography entry 2 extracted from arXiv metadata/source key `STR.55`.\n\n[strb] Source bibliography entry 3 extracted from arXiv metadata/source key `strb`.\n\n[donref] Source bibliography entry 4 extracted from arXiv metadata/source key `donref`.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18hCmYjP7BBLLBpli/lCyYlOBBcmxfAe9Fj2f6nU4Akq1EpTjeLvZHOk6BK6hI=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1100,
+    "completion_tokens": 350,
+    "total_tokens": 1450,
+    "cost": 0.0008,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008,
+      "upstream_inference_prompt_cost": 0.000275,
+      "upstream_inference_completions_cost": 0.000525
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

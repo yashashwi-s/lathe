@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[The renormalization group flow in 2D N=2 SUSY Landau-Ginsburg models]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em))[
+  *Abstract*\
+  We investigate the renormalization of N=2 SUSY L-G models with central charge $c=3p/(2+p)$ perturbed by an almost marginal chiral operator. We calculate the renormalization of the chiral fields up to $g g^*$ order and of nonchiral fields up to $g(g^*)$ order. We propose a formulation of the nonrenormalization theorem and show that it holds in the lowest nontrivial order. It turns out that, in this approximation, the chiral fields can not get renormalized $Phi^k = Phi^k_0$. The $beta$ function then remains unchanged $beta = epsilon g r$.
+]
+
+= References And Citations <sec:refs>
+
+This sample cites source keys [rg:fl1] and [rg:fl2]. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+
+$ a^2 + b^2 = c^2 $ <eq:source-demo>
+
+#heading(level: 1, numbering: none)[References]
+
+[rg:fl1] Source bibliography entry 1 extracted from arXiv metadata/source key `rg:fl1`.
+
+[rg:fl2] Source bibliography entry 2 extracted from arXiv metadata/source key `rg:fl2`.
+
+[rg:fl3] Source bibliography entry 3 extracted from arXiv metadata/source key `rg:fl3`.
+
+[rg:fl4] Source bibliography entry 4 extracted from arXiv metadata/source key `rg:fl4`.

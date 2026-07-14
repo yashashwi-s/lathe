@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950489-q0RfiKq5qmWnl2BHIsoI",
+  "object": "chat.completion",
+  "created": 1783950489,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"a4\", margin: (top: 1.27cm, left: 1cm, right: 1cm, bottom: 2cm))\n#set text(font: \"New Computer Modern\", size: 10pt)\n\n#let cv_item(label, content) = {\n  grid(\n    columns: (3cm, 1fr),\n    column-gutter: 1em,\n    strong(label),\n    content\n  )\n  v(0.5em)\n}\n\n#align(center, text(size: 18pt, weight: \"bold\")[Name, Surname])\n\n#v(1em)\n\n#grid(\n  columns: (1fr, 1fr),\n  [\n    Address: (Remove if not relevant) \\\n    Telephone: (Remove if not relevant) \\\n    Fax: (Remove if not relevant)\n  ],\n  [\n    Email: #link(\"mailto:email@email.com\")[email\\@email.com] \\\n    Professional: #link(\"mailto:email@email.it\")[email\\@email.it] \\\n    PEC: #link(\"mailto:emailo@pec.it\")[emailo\\@pec.it] \\\n    Homepage: #link(\"http://www.homepage.com\")[www.homepage.com]\n  ]\n)\n\n#v(1em)\n\n#cv_item([Desired employment], [* (Remove if not relevant) *])\n\n= Work experience\n#cv_item(\"Dates\", [Add separate entries for each relevant post occupied, starting from the most recent. (Remove if not relevant).])\n#cv_item(\"Occupation\", [...])\n#cv_item(\"Main activities\", [...])\n#cv_item(\"Employer\", [...])\n#cv_item(\"Sector\", [...])\n\n= Education and training\n#cv_item(\"Dates\", [Add separate entries for each relevant course you have completed, starting from the most recent. (Remove if not relevant).])\n#cv_item(\"Qualification\", [...])\n#cv_item(\"Skills\", [...])\n#cv_item(\"Organization\", [...])\n#cv_item(\"Level\", [...])\n\n= Academic appointments\n#cv_item(\"Dates\", [*Associate Professor* at University of XX, YY, Department of ZZ.])\n\n= Professional and scientific appointments\n#cv_item(\"Dates\", [*IEEE Senior Membership* obtained from Institute of Electrical and Electronics Engineers.])\n\n= Research areas\n#cv_item(\"\", [Autonomous systems; distributed control and optimization over networks; nonsmooth systems; piecewise quadratic stability.])\n\n= Personal skills and competences\n#cv_item(\"Mother tongue\", [Specify mother tongue])\n#cv_item(\"Other language(s)\", [Language])\n\n#v(1em)\n#cv_item(\"Social skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Organisational skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Technical skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Computer skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Artistic skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Other skills\", [Replace this text by a description of these competences and indicate where they were acquired.])\n#cv_item(\"Driving licence(s)\", [State here whether you hold a driving licence and if so for which categories of vehicle.])\n\n= Additional information\n#cv_item(\"\", [Include here any other information that may be relevant.])\n#cv_item(\"\", [*Personal interests*])\n#cv_item(\"\", [...])\n\n= Research projects and collaborations\n#cv_item(\"\", [Participation and operative responsibility within the XX European research project YY, project number 012345. Title \"*The title of the project*\". January XX - December YY. Project amount: 999 kEuros.])\n\n= Research visits\n#cv_item(\"Dates\", [_University of YY_, the state [Italy], Prof. [name of the professor].])\n\n= Invited talks\n#cv_item(\"Dates\", [The name of the talk, Place.])\n\n= Scientific and editorial activity\n#cv_item(\"Editorial Board\", [*Editorial Board*])\n#cv_item(\"Books\", [*Editor of edited books*])\n\n= Conferences services\n#cv_item(\"Committees\", [*Program committees*])\n#cv_item(\"Associate editor\", [*Associate editor*])\n\n= Teaching activity\n#cv_item(\"Academics Years\", [Graduate course \"Title of the course\", number of credits, when e where.])\n\n= Annexes\n#cv_item(\"\", [List any item attached to the CV])\n\n= References\n#cv_item(\"\", [List of references])\n\n= Research activities\n#cv_item(\"\", [*Stability of piecewise-linear systems*])\n#cv_item(\"\", [Something related to the piecewise-linear systems.])\n\n= Publications\n#cv_item(\"Proceedings\", [*Refereed conference proceedings*])\n#cv_item(\"\", [Details related to the conference paper])\n#cv_item(\"\", [Details related to the conference paper])\n#cv_item(\"\", [Details related to the conference paper])\n\n#v(5cm)\n\n#grid(\n  columns: (1fr, 1fr),\n  [Place (Province), #datetime.today().display()],\n  []\n)\n#v(0.5em)\n#grid(\n  columns: (1fr, 1fr),\n  column-gutter: 2em,\n  line(length: 100%),\n  line(length: 100%)\n)\n#grid(\n  columns: (1fr, 1fr),\n  column-gutter: 2em,\n  [Place and date],\n  [Name Surname]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19W5N7+/P1OikbP4MeApFPwYIbqY3SABXc05a2dqyyS+gtkFEzRTG6XLH1PzKc=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2938,
+    "completion_tokens": 1326,
+    "total_tokens": 4264,
+    "cost": 0.0027235,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0027235,
+      "upstream_inference_prompt_cost": 0.0007345,
+      "upstream_inference_completions_cost": 0.001989
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

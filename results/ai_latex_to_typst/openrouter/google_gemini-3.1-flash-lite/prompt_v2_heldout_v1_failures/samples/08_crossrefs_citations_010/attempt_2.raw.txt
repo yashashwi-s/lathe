@@ -1,0 +1,33 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[W3 Constructions on Affine Lie Algebras]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em), [
+  *Abstract*
+
+  We use an argument of Romans showing that every Virasoro construction leads to realizations of W3, to construct W3 realizations on arbitrary affine Lie algebras. Solutions are presented for generic values of the level as well as for specific values of the level but with arbitrary parameters. We give a detailed discussion of the aff(su)(2)_ell-case. Finally, we discuss possible applications of these realizations to the construction of W-strings.
+])
+
+= References And Citations <sec:refs>
+
+This sample cites source keys [halpkit] and [moretal]. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+
+$ a^2 + b^2 = c^2 $ <eq-source-demo>
+
+#v(2em)
+
+*References*
+
+[halpkit] Source bibliography entry 1 extracted from arXiv metadata/source key `halpkit`.
+
+[moretal] Source bibliography entry 2 extracted from arXiv metadata/source key `moretal`.
+
+[irrcons] Source bibliography entry 3 extracted from arXiv metadata/source key `irrcons`.
+
+[schratro] Source bibliography entry 4 extracted from arXiv metadata/source key `schratro`.

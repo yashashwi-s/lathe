@@ -1,0 +1,23 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.44em, weight: "bold")[From factorizable S-matrices to conformal invariance]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+= Figure Captions
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.4pt),
+  caption: [Mapping from $s$- to $t$-plane, showing the position of cuts and bound-state poles.],
+) <fig:source-1>
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.4pt),
+  caption: [Diagrams responsible for poles in the direct and crossed channel.],
+) <fig:source-2>
+
+Figures @fig:source-1 through @fig:source-2 preserve source-backed captions while replacing external graphics with deterministic placeholders.

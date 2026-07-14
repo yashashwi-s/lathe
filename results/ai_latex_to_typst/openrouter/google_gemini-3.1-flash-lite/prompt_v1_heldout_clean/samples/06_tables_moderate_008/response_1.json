@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949588-vef4tebVhdGklqJPvYmF",
+  "object": "chat.completion",
+  "created": 1783949588,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.01775_table_3],\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: 0.5pt,\n    table.header([Expression], [Pattern], [Expression], [Pattern]),\n    $ (A times B) times (C+D) $, $ (A+B) times C times D $, $ (A times B) times (C-D) $, $ (A-B) times C times D $,\n    $ (A times B) times (C times D) $, $ A times B times C times D $, $ (A times B) times (C/D) $, $ A times B times C/D $,\n    $ (A/B) times (C+D) $, $ (A+B) times C/D $, $ (A/B) times (C-D) $, $ (A-B) times C/D $,\n    $ (A/B) times (C times D) $, $ A times B times C/D $, $ (A/B) times (C/D) $, $ A times B/C/D $,\n    $ (A+B)/(C+D) $, $ (A+B)/(C+D) $, $ (A+B)/(C-D) $, $ (A+B)/(C-D) $,\n    $ (A+B)/(C times D) $, $ (A+B)/C/D $, $ (A+B)/(C/D) $, $ (A+B) times C/D $,\n    $ (A-B)/(C+D) $, $ (A-B)/(C+D) $, $ (A-B)/(C-D) $, $ (A-B)/(C-D) $,\n    $ (A-B)/(C times D) $, $ (A-B)/C/D $, $ (A-B)/(C/D) $, $ (A-B) times C/D $,\n    $ (A times B)/(C+D) $, $ A times B/(C+D) $, $ (A times B)/(C-D) $, $ A times B/(C-D) $,\n    $ (A times B)/(C times D) $, $ A times B/C/D $, $ (A times B)/(C/D) $, $ A times B times C/D $,\n    $ (A/B)/(C+D) $, $ A/(B+C)/D $, $ (A/B)/(C-D) $, $ A/(B-C)/D $,\n    $ (A/B)/(C times D) $, $ A/B/C/D $, $ (A/B)/(C/D) $, $ A times B/C/D $,\n    $ (A+(B+C))+D $, $ A+B+C+D $, $ (A+(B-C))+D $, $ A+B+C-D $,\n    $ (A+(B times C))+D $, $ A times B+C+D $, $ (A+(B/C))+D $, $ A/B+C+D $,\n    $ (A-(B+C))+D $, $ A+B-C-D $, $ (A-(B-C))+D $, $ A+B+C-D $,\n    $ (A-(B times C))+D $, $ A+B-C times D $, $ (A-(B/C))+D $, $ A+B-C/D $,\n    $ (A times (B+C))+D $, $ (A+B) times C+D $, $ (A times (B-C))+D $, $ (A-B) times C+D $,\n    $ (A times (B times C))+D $, $ A times B times C+D $, $ (A times (B/C))+D $, $ A times B/C+D $,\n    $ (A/(B+C))+D $, $ A/(B+C)+D $, $ (A/(B-C))+D $, $ A/(B-C)+D $,\n    $ (A/(B times C))+D $, $ A/B/C+D $, $ (A/(B/C))+D $, $ A times B/C+D $,\n    $ (A+(B+C))-D $, $ A+B+C-D $, $ (A+(B-C))-D $, $ A+B-C-D $,\n    $ (A+(B times C))-D $, $ A times B+C-D $, $ (A+(B/C))-D $, $ A/B+C-D $,\n    $ (A-(B+C))-D $, $ A-B-C-D $, $ (A-(B-C))-D $, $ A+B-C-D $,\n    $ (A-(B times C))-D $, $ A-B times C-D $, $ (A-(B/C))-D $, $ A-B/C-D $,\n    $ (A times (B+C))-D $, $ (A+B) times C-D $, $ (A times (B-C))-D $, $ (A-B) times C-D $,\n    $ (A times (B times C))-D $, $ A times B times C-D $, $ (A times (B/C))-D $, $ A times B/C-D $,\n    $ (A/(B+C))-D $, $ A/(B+C)-D $, $ (A/(B-C))-D $, $ A/(B-C)-D $,\n    $ (A/(B times C))-D $, $ A/B/C-D $, $ (A/(B/C))-D $, $ A times B/C-D $,\n    $ (A+(B+C)) times D $, $ (A+B+C) times D $, $ (A+(B-C)) times D $, $ (A+B-C) times D $,\n    $ (A+(B times C)) times D $, $ (A times B+C) times D $, $ (A+(B/C)) times D $, $ (A/B+C) times D $,\n    $ (A-(B+C)) times D $, $ (A-B-C) times D $, $ (A-(B-C)) times D $, $ (A+B-C) times D $,\n    $ (A-(B times C)) times D $, $ (A-B times C) times D $, $ (A-(B/C)) times D $, $ (A-B/C) times D $,\n    $ (A times (B+C)) times D $, $ (A+B) times C times D $, $ (A times (B-C)) times D $, $ (A-B) times C times D $,\n    $ (A times (B times C)) times D $, $ A times B times C times D $, $ (A times (B/C)) times D $, $ A times B times C/D $,\n    $ (A/(B+C)) times D $, $ A times B/(C+D) $, $ (A/(B-C)) times D $, $ A times B/(C-D) $,\n    $ (A/(B times C)) times D $, $ A times B/C/D $, $ (A/(B/C)) times D $, $ A times B times C/D $,\n    $ (A+(B+C))/D $, $ (A+B+C)/D $, $ (A+(B-C))/D $, $ (A+B-C)/D $,\n    $ (A+(B times C))/D $, $ (A times B+C)/D $, $ (A+(B/C))/D $, $ (A/B+C)/D $,\n    $ (A-(B+C))/D $, $ (A-B-C)/D $, $ (A-(B-C))/D $, $ (A+B-C)/D $,\n    $ (A-(B times C))/D $, $ (A-B times C)/D $, $ (A-(B/C))/D $, $ (A-B/C)/D $,\n    $ (A times (B+C))/D $, $ (A+B) times C/D $, $ (A times (B-C))/D $, $ (A-B) times C/D $,\n    $ (A times (B times C))/D $, $ A times B times C/D $, $ (A times (B/C))/D $, $ A times B/C/D $,\n    $ (A/(B+C))/D $, $ A/(B+C)/D $, $ (A/(B-C))/D $, $ A/(B-C)/D $,\n    $ (A/(B times C))/D $, $ A/B/C/D $, $ (A/(B/C))/D $, $ A times B/C/D $,\n    $ ((A+B)+C)+D $, $ A+B+C+D $, $ ((A-B)+C)+D $, $ A+B+C-D $,\n    $ ((A times B)+C)+D $, $ A times B+C+D $, $ ((A/B)+C)+D $, $ A/B+C+D $,\n    $ ((A+B)-C)+D $, $ A+B+C-D $, $ ((A-B)-C)+D $, $ A+B-C-D $,\n    $ ((A times B)-C)+D $, $ A times B+C-D $, $ ((A/B)-C)+D $, $ A/B+C-D $,\n    $ ((A+B) times C)+D $, $ (A+B) times C+D $, $ ((A-B) times C)+D $, $ (A-B) times C+D $,\n    $ ((A times B) times C)+D $, $ A times B times C+D $, $ ((A/B) times C)+D $, $ A times B/C+D $\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01775_table_2],\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: 0.5pt,\n    table.header([Expression], [Pattern], [Expression], [Pattern]),\n    $ A+((B+C)-D) $, $ A+B+C-D $, $ A+((B-C)-D) $, $ A+B-C-D $,\n    $ A+((B times C)-D) $, $ A times B+C-D $, $ A+((B/C)-D) $, $ A/B+C-D $,\n    $ A+((B+C) times D) $, $ (A+B) times C+D $, $ A+((B-C) times D) $, $ (A-B) times C+D $,\n    $ A+((B times C) times D) $, $ A times B times C+D $, $ A+((B/C) times D) $, $ A times B/C+D $,\n    $ A+((B+C)/D) $, $ (A+B)/C+D $, $ A+((B-C)/D) $, $ (A-B)/C+D $,\n    $ A+((B times C)/D) $, $ A times B/C+D $, $ A+((B/C)/D) $, $ A/B/C+D $,\n    $ A-((B+C)+D) $, $ A-B-C-D $, $ A-((B-C)+D) $, $ A+B-C-D $,\n    $ A-((B times C)+D) $, $ A-B times C-D $, $ A-((B/C)+D) $, $ A-B/C-D $,\n    $ A-((B+C)-D) $, $ A+B-C-D $, $ A-((B-C)-D) $, $ A+B+C-D $,\n    $ A-((B times C)-D) $, $ A+B-C times D $, $ A-((B/C)-D) $, $ A+B-C/D $,\n    $ A-((B+C) times D) $, $ A-(B+C) times D $, $ A-((B-C) times D) $, $ A-(B-C) times D $,\n    $ A-((B times C) times D) $, $ A-B times C times D $, $ A-((B/C) times D) $, $ A-B times C/D $,\n    $ A-((B+C)/D) $, $ A-(B+C)/D $, $ A-((B-C)/D) $, $ A-(B-C)/D $,\n    $ A-((B times C)/D) $, $ A-B times C/D $, $ A-((B/C)/D) $, $ A-B/C/D $,\n    $ A times ((B+C)+D) $, $ (A+B+C) times D $, $ A times ((B-C)+D) $, $ (A+B-C) times D $,\n    $ A times ((B times C)+D) $, $ (A times B+C) times D $, $ A times ((B/C)+D) $, $ (A/B+C) times D $,\n    $ A times ((B+C)-D) $, $ (A+B-C) times D $, $ A times ((B-C)-D) $, $ (A-B-C) times D $,\n    $ A times ((B times C)-D) $, $ (A times B-C) times D $, $ A times ((B/C)-D) $, $ (A/B-C) times D $,\n    $ A times ((B+C) times D) $, $ (A+B) times C times D $, $ A times ((B-C) times D) $, $ (A-B) times C times D $,\n    $ A times ((B times C) times D) $, $ A times B times C times D $, $ A times ((B/C) times D) $, $ A times B times C/D $,\n    $ A times ((B+C)/D) $, $ (A+B) times C/D $, $ A times ((B-C)/D) $, $ (A-B) times C/D $,\n    $ A times ((B times C)/D) $, $ A times B times C/D $, $ A times ((B/C)/D) $, $ A times B/C/D $,\n    $ A/((B+C)+D) $, $ A/(B+C+D) $, $ A/((B-C)+D) $, $ A/(B+C-D) $,\n    $ A/((B times C)+D) $, $ A/(B times C+D) $, $ A/((B/C)+D) $, $ A/(B/C+D) $,\n    $ A/((B+C)-D) $, $ A/(B+C-D) $, $ A/((B-C)-D) $, $ A/(B-C-D) $,\n    $ A/((B times C)-D) $, $ A/(B times C-D) $, $ A/((B/C)-D) $, $ A/(B/C-D) $,\n    $ A/((B+C) times D) $, $ A/(B+C)/D $, $ A/((B-C) times D) $, $ A/(B-C)/D $,\n    $ A/((B times C) times D) $, $ A/B/C/D $, $ A/((B/C) times D) $, $ A times B/C/D $,\n    $ A/((B+C)/D) $, $ A times B/(C+D) $, $ A/((B-C)/D) $, $ A times B/(C-D) $,\n    $ A/((B times C)/D) $, $ A times B/C/D $, $ A/((B/C)/D) $, $ A times B times C/D $,\n    $ (A+B)+(C+D) $, $ A+B+C+D $, $ (A+B)+(C-D) $, $ A+B+C-D $,\n    $ (A+B)+(C times D) $, $ A times B+C+D $, $ (A+B)+(C/D) $, $ A/B+C+D $,\n    $ (A-B)+(C+D) $, $ A+B+C-D $, $ (A-B)+(C-D) $, $ A+B-C-D $,\n    $ (A-B)+(C times D) $, $ A times B+C-D $, $ (A-B)+(C/D) $, $ A/B+C-D $,\n    $ (A times B)+(C+D) $, $ A times B+C+D $, $ (A times B)+(C-D) $, $ A times B+C-D $,\n    $ (A times B)+(C times D) $, $ A times B+C times D $, $ (A times B)+(C/D) $, $ A times B+C/D $,\n    $ (A/B)+(C+D) $, $ A/B+C+D $, $ (A/B)+(C-D) $, $ A/B+C-D $,\n    $ (A/B)+(C times D) $, $ A times B+C/D $, $ (A/B)+(C/D) $, $ A/B+C/D $,\n    $ (A+B)-(C+D) $, $ A+B-C-D $, $ (A+B)-(C-D) $, $ A+B+C-D $,\n    $ (A+B)-(C times D) $, $ A+B-C times D $, $ (A+B)-(C/D) $, $ A+B-C/D $,\n    $ (A-B)-(C+D) $, $ A-B-C-D $, $ (A-B)-(C-D) $, $ A+B-C-D $,\n    $ (A-B)-(C times D) $, $ A-B times C-D $, $ (A-B)-(C/D) $, $ A-B/C-D $,\n    $ (A times B)-(C+D) $, $ A times B-C-D $, $ (A times B)-(C-D) $, $ A times B+C-D $,\n    $ (A times B)-(C times D) $, $ A times B-C times D $, $ (A times B)-(C/D) $, $ A times B-C/D $,\n    $ (A/B)-(C+D) $, $ A/B-C-D $, $ (A/B)-(C-D) $, $ A/B+C-D $,\n    $ (A/B)-(C times D) $, $ A/B-C times D $, $ (A/B)-(C/D) $, $ A/B-C/D $,\n    $ (A+B) times (C+D) $, $ (A+B) times (C+D) $, $ (A+B) times (C-D) $, $ (A+B) times (C-D) $,\n    $ (A+B) times (C times D) $, $ (A+B) times C times D $, $ (A+B) times (C/D) $, $ (A+B) times C/D $,\n    $ (A-B) times (C+D) $, $ (A+B) times (C-D) $, $ (A-B) times (C-D) $, $ (A-B) times (C-D) $,\n    $ (A-B) times (C times D) $, $ (A-B) times C times D $, $ (A-B) times (C/D) $, $ (A-B) times C/D $\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/TVt8K6P5UfJU8D6ruFiigEY/U3/bb0qGVuL5rXQOV4yFhsFZ51NQf1D4kI58=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5957,
+    "completion_tokens": 4601,
+    "total_tokens": 10558,
+    "cost": 0.00839075,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00839075,
+      "upstream_inference_prompt_cost": 0.00148925,
+      "upstream_inference_completions_cost": 0.0069015
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

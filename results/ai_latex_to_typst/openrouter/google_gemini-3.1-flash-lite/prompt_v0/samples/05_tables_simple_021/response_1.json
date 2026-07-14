@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945666-0UvCEX7vHhrwfwN72zTe",
+  "object": "chat.completion",
+  "created": 1783945666,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"Linux Libertine\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Simple Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.04438_table_2],\n  table(\n    columns: (auto, auto),\n    stroke: 0.5pt,\n    align: (left, left),\n    table.header([*Alg.*], [*Non-trivial Lie brackets*]),\n    [$L_1$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -x_1, [x_2, x_7] = 2x_2, [x_3, x_7] = x_3, [x_5, x_6] = -x_5, [x_6, x_7] = x_4$],\n    [$L_2$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -x_1, [x_2, x_6] = -x_2, [x_3, x_6] = -x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -x_4, [x_4, x_7] = -2x_4, [x_6, x_7] = x_5$],\n    [$L_3^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -a x_1, [x_2, x_6] = -x_2, [x_3, x_6] = -x_3, [x_3, x_7] = -a x_3, [x_4, x_6] = -x_4, [x_4, x_7] = -2a x_4, [x_5, x_7] = -x_5 (a != 0)$],\n    [$L_4^(a b)$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_6] = -x_1, [x_2, x_6] = -a x_2, [x_2, x_7] = -b x_2, [x_3, x_6] = -(1+a)x_3, [x_3, x_7] = -b x_3, [x_4, x_6] = -(2+a)x_4, [x_4, x_7] = -b x_4, [x_5, x_7] = -x_5 (b != 0)$],\n    [$L_5^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_6] = -x_1, [x_1, x_7] = -x_2, [x_2, x_6] = -x_2, [x_3, x_6] = 2x_3, [x_4, x_6] = -3x_4, [x_5, x_6] = -a x_5, [x_5, x_7] = -x_5$],\n    [$L_6$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -x_1 - x_5, [x_2, x_6] = -x_2, [x_3, x_6] = -x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -x_4, [x_4, x_7] = -2x_4, [x_5, x_7] = -x_5$],\n    [$L_7^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_6] = -x_1, [x_1, x_7] = -x_5, [x_2, x_6] = -a x_2, [x_2, x_7] = -x_2, [x_6, x_3] = (1+a)x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -(2+a)x_4, [x_4, x_7] = -x_4, [x_5, x_6] = -x_5$],\n    [$L_8^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_2, x_6] = -x_2, [x_2, x_7] = -x_4, [x_3, x_6] = -x_3, [x_4, x_6] = -x_4, [x_5, x_6] = -a x_5, [x_5, x_7] = -x_5$],\n    [$L_9$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -x_1, [x_2, x_6] = -x_2, [x_2, x_7] = -x_5, [x_3, x_6] = -x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -x_4, [x_4, x_7] = -2x_4, [x_5, x_6] = -x_5$],\n    [$L_(10)^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_6] = -x_1, [x_2, x_6] = -a x_2, [x_2, x_7] = -x_2 - x_5, [x_3, x_6] = -(1+a)x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -(2+a)x_4, [x_4, x_7] = -x_4, [x_6, x_5] = a x_5, [x_7, x_5] = x_5$],\n    [$L_(11)$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_7] = -x_1, [x_2, x_6] = -x_2, [x_3, x_6] = -x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -x_4, [x_4, x_7] = -2x_4, [x_5, x_6] = -x_5, [x_5, x_7] = -x_4 - 2x_5$],\n    [$L_(12)^a$], [$[x_1, x_2] = x_3, [x_1, x_3] = x_4, [x_1, x_6] = -x_1, [x_2, x_6] = -a x_2, [x_2, x_7] = -x_2, [x_3, x_6] = -(1+a)x_3, [x_3, x_7] = -x_3, [x_4, x_6] = -(2+a)x_4, [x_4, x_7] = -x_4, [x_5, x_6] = -(2+a)x_5, [x_5, x_7] = -x_4 - x_5$]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.00750_table_1],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto),\n    stroke: 0.5pt,\n    align: (left, center, center, center, center, center, center),\n    table.header(\n      [Instrument], [Energy band], [Obs. Id], [Start time], [Stop time], [Exposure time], [Mean count rate],\n      [], [(keV)], [], [YYYY-MM-DD HH:MM:SS], [YYYY-MM-DD HH:MM:SS], [(sec)], [(counts/s)]\n    ),\n    [], [], [9000001276], [2017-06-06 15:36:34], [2017-06-06 21:06:10], [2803], [0.357 $plus.minus$ 0.012],\n    [], [], [9000001368], [2017-07-09 08:33:18], [2017-07-09 16:32:50], [9565], [0.718 $plus.minus$ 0.009],\n    [], [], [9000001438], [2017-08-07 05:41:13], [2017-08-07 13:32:51], [8837], [0.428 $plus.minus$ 0.007],\n    [], [], [9000001524], [2017-09-07 18:46:48], [2017-09-08 03:35:55], [5316], [0.247 $plus.minus$ 0.007],\n    [], [], [9000001632], [2017-10-21 22:03:13], [2017-10-22 07:52:31], [4591], [0.277 $plus.minus$ 0.008],\n    [*SXT*], [0.5 -- 7.0], [9000001710], [2017-11-22 01:44:24], [2017-11-22 05:53:31], [3031], [0.212 $plus.minus$ 0.009],\n    [], [], [9000001754], [2017-12-07 22:11:13], [2017-12-08 06:50:15], [3595], [0.247 $plus.minus$ 0.009],\n    [], [], [9000002266], [2018-08-01 17:31:24], [2018-08-01 23:03:30], [7063], [0.514 $plus.minus$ 0.009],\n    [], [], [9000002356], [2018-09-11 18:01:33], [2018-09-12 02:05:12], [8345], [0.452 $plus.minus$ 0.008],\n    [], [], [9000004598], [2021-07-28 01:52:16], [2021-07-31 01:54:59], [61920], [0.257 $plus.minus$ 0.002],\n    [], [], [9000004626], [2021-08-05 15:09:14], [2021-08-07 01:21:42], [41190], [0.156 $plus.minus$ 0.002],\n    [], [], [9000001276], [2017-06-06 15:36:34], [2017-06-06 21:06:09], [10590], [2.633 $plus.minus$ 0.045],\n    [], [], [9000001368], [2017-07-09 08:50:51], [2017-07-09 16:32:50], [11940], [5.169 $plus.minus$ 0.046],\n    [], [], [9000001438], [2017-08-07 09:39:31], [2017-08-07 13:32:51], [10730], [2.629 $plus.minus$ 0.045],\n    [], [], [9000001524], [2017-09-07 19:49:41], [2017-09-08 03:35:56], [11300], [5.255 $plus.minus$ 0.048],\n    [], [], [9000001632], [2017-10-21 22:50:42], [2017-10-22 07:52:31], [9616], [1.404 $plus.minus$ 0.048],\n    [*LAXPC*], [3.0 -- 20.0], [9000001710], [2017-11-22 00:27:27], [2017-11-22 05:53:33], [11680], [2.492 $plus.minus$ 0.045],\n    [], [], [9000001754], [2017-12-07 23:34:44], [2017-12-08 06:50:13], [12960], [1.661 $plus.minus$ 0.043],\n    [], [], [9000002266], [2018-08-01 19:08:21], [2018-08-01 23:03:30], [12670], [3.490 $plus.minus$ 0.044],\n    [], [], [9000002356], [2018-09-11 19:13:45], [2018-09-12 02:05:12], [12060], [2.077 $plus.minus$ 0.046],\n    [], [], [9000004598], [2021-07-28 01:46:56], [2021-07-31 01:55:00], [102600], [1.496 $plus.minus$ 0.022],\n    [], [], [9000004626], [2021-08-05 15:09:13], [2021-08-07 01:21:42], [55860], [1.127 $plus.minus$ 0.025],\n    [], [], [00035031184 & 00081310002], [2020-07-22 02:01:19], [2020-07-23 23:02:52], [9660], [0.379 $plus.minus$ 0.006],\n    [*Swift-XRT*], [0.5 -- 7.0], [], [], [], [], [],\n    [], [], [00035031241], [2022-08-06 03:58:51], [2022-08-06 04:24:53], [1556], [0.356 $plus.minus$ 0.015],\n    [], [], [00035031184 & 00081310002], [2020-07-22 02:01:19], [2020-07-23 23:02:52], [8002], [--],\n    [*Swift-UVOT*], [--], [], [], [], [], [],\n    [], [], [00035031241], [2022-08-06 03:58:51], [2022-08-06 04:24:53], [1535], [--],\n    [*NuSTAR*], [3.0 -- 20.0], [60160836002], [2020-07-22 19:26:09], [2020-07-23 07:11:09], [20880], [0.127 $plus.minus$ 0.003],\n    [], [], [80801650002], [2022-08-05 18:26:09], [2022-08-06 07:11:09], [22910], [0.075 $plus.minus$ 0.002]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a189urPGiegMYz00Sx+86xMAdi4ZwrTaDct4qeezz7FD3SU8OBJyuansp/tkbx4=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5280,
+    "completion_tokens": 4640,
+    "total_tokens": 9920,
+    "cost": 0.00828,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00828,
+      "upstream_inference_prompt_cost": 0.00132,
+      "upstream_inference_completions_cost": 0.00696
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

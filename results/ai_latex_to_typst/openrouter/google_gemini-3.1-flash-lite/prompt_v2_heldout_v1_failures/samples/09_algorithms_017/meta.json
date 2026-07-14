@@ -1,0 +1,101 @@
+{
+  "sample_id": "09_algorithms_017",
+  "category": "09_algorithms",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T14:03:11+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 2106,
+  "completion_tokens": 367,
+  "total_tokens": 2473,
+  "reported_cost_usd": 0.001077,
+  "estimated_cost_usd": 0.0010769999999999998,
+  "accounted_cost_usd": 0.001077,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783951401-8svlN4fWAglkIsNNkkNQ",
+  "source_path": "data/latex_benchmark_v0/corpus/09_algorithms/09_algorithms_017/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/09_algorithms/09_algorithms_017/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783951391-uzyyecHlAMMzHHH0e99F",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "error",
+      "call_seconds": 9.395,
+      "compile_seconds": 0.109,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: expected expression"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783951401-8svlN4fWAglkIsNNkkNQ",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 10.341,
+      "compile_seconds": 0.643,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 2106,
+        "completion_tokens": 367,
+        "total_tokens": 2473,
+        "cost": 0.001077,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001077,
+          "upstream_inference_prompt_cost": 0.0005265,
+          "upstream_inference_completions_cost": 0.0005505
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 20.52,
+  "finished_at": "2026-07-13T14:03:32+00:00"
+}

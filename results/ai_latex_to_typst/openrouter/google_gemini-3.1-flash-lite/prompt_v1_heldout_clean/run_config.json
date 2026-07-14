@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-07-13T13:17:08+00:00",
+  "model": "google/gemini-3.1-flash-lite",
+  "split_path": "data/latex_benchmark_v0/splits/heldout_clean_127.csv",
+  "split_sha256": "bdf928c6a69745477523f25a83cec89d417c875ce6edf910f19a2364a467f1cc",
+  "split_count": 127,
+  "split_snapshot": "split_manifest.csv",
+  "prompt_path": "prompts/latex_to_typst/system_v1.txt",
+  "retry_prompt_path": "prompts/latex_to_typst/retry_v1.txt",
+  "system_prompt_sha256": "0877384cc89636ecbb3cf27b41de3201d9d9a483d8a6aba120a771cb8b4af08d",
+  "retry_prompt_sha256": "38d57dc85d8fa8584db69e6712e9eec87228d199519ef6ac351507b0d295679e",
+  "temperature": 0,
+  "max_completion_tokens": 10000,
+  "max_repairs": 1,
+  "max_cost_usd": 2.0,
+  "source_only": true,
+  "reference_images_supplied": false,
+  "normalization": "remove outer Markdown code fences only",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  },
+  "typst_version": "typst 0.14.2 (unknown hash)"
+}

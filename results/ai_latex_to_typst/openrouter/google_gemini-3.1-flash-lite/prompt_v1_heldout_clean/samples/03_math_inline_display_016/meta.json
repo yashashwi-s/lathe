@@ -1,0 +1,101 @@
+{
+  "sample_id": "03_math_inline_display_016",
+  "category": "03_math_inline_display",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:20:33+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 4582,
+  "completion_tokens": 1334,
+  "total_tokens": 5916,
+  "reported_cost_usd": 0.0031465,
+  "estimated_cost_usd": 0.0031465,
+  "accounted_cost_usd": 0.0031465,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783948837-Hwrya5lrJ6LLDAb0ILDB",
+  "source_path": "data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_016/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_016/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783948834-ZNWmb5hmsT3V7vPr8UHy",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 3.44,
+      "compile_seconds": 0.098,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1581,
+        "completion_tokens": 667,
+        "total_tokens": 2248,
+        "cost": 0.00139575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00139575,
+          "upstream_inference_prompt_cost": 0.00039525,
+          "upstream_inference_completions_cost": 0.0010005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: `angle.l` is deprecated, use `chevron.l` instead"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783948837-Hwrya5lrJ6LLDAb0ILDB",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.069,
+      "compile_seconds": 0.109,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 3001,
+        "completion_tokens": 667,
+        "total_tokens": 3668,
+        "cost": 0.00175075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00175075,
+          "upstream_inference_prompt_cost": 0.00075025,
+          "upstream_inference_completions_cost": 0.0010005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: varpi"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: varpi",
+  "duration_seconds": 7.724,
+  "finished_at": "2026-07-13T13:20:41+00:00"
+}

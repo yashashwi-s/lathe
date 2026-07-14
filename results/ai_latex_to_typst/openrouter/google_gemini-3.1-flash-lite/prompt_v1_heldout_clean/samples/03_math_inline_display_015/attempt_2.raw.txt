@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ alpha = omega (p+1)/p + chi_infinity (floor(1/2 + S/(p+1) + omega/pi) - floor(1/2 + S/(p+1) - omega/pi)) $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ integral d bold(k) (|bold(k)|)/(k_0^"eff") Psi(bold(k), bold(q); omega) = alpha / (1 - (g^2 / 4 pi) (xi + 1) integral (d bold(k)') / (k_0^"eff")' * (bold(k)')^2 / ((k_0^"eff")'^2 - omega^2/4 + i epsilon)) $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(L) = -1/12 (partial_mu A_(nu lambda) + partial_lambda A_(mu nu) + partial_nu A_(lambda mu))^2 + m^2/4 A_(mu nu)^2 - overline(psi)(gamma_mu partial^mu + M)psi - 1/2 g epsilon_(mu nu lambda rho) overline(psi) gamma^nu psi partial^mu A^(lambda rho) $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ 8/kappa V_(mu nu, alpha beta)^"ghost"(k_1, k_2; p_1, p_2) = -4 p_(1 mu) p_(2 nu) eta_(alpha beta) + 8 p_(1 beta) p_(2 nu) eta_(alpha mu) - 2 p_1 dot p_2 eta_(alpha mu) eta_(beta nu) + p_1 dot p_2 eta_(alpha beta) eta_(mu nu) $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ integral_0^t d t' integral d^2 xi' K_(xi xi')^(t-t') e^(-phi(xi)) (-1/2 (xi' - xi)^a (xi' - xi)^b (partial_a phi(xi) partial_b phi(xi) - partial_a partial_b phi(xi))) Delta' K_(xi' xi)^(t') $

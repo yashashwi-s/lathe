@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945809-9htp0n2X4iqlvsZqgOGa",
+  "object": "chat.completion",
+  "created": 1783945809,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 3] \\\n  Source-backed Image2Struct algorithm sample \\\n  #v(1em)\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#figure(\n  block(stroke: 0.5pt + black, inset: 10pt)[\n    #set align(left)\n    #let comment(c) = h(1fr) + text(fill: gray)[// #c]\n    #let indent = h(2em)\n\n    *for* $t in {-1, dots.h, -T^\"traceback\"}$ #comment(\"Retrieve the values of \" + $P_(u,t)$) \\\n    #indent $P_(u,t) arrow.l \"Power.GetValue\"(t)$ \\\n    *end for* \\\n    *for* $t in {-1, dots.h, -T^\"traceback\"}$ #comment(\"Initial conditions on the state variables\") \\\n    #indent *if* $P_(u,t) > \"MinimumPower.GetValue\"(t)$ \\\n    #indent #indent $S_(u,t)^\"OFF\" arrow.l 0$ \\\n    #indent #indent $S_(u,t)^\"STOP\" arrow.l 0$ \\\n    #indent #indent $S_(u,t)^\"START\" arrow.l 0$ \\\n    #indent #indent *if* $P_(u,t) < P_(u,t-1)$ #comment(\"Exact initialization required only if the FLAT state is defined.\") \\\n    #indent #indent #indent $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_DOWN\" arrow.l 1$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent #indent *else if* $P_(u,t) > P_(u,t-1)$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_UP\" arrow.l 1$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent #indent *else if* $P_(u,t) = P_(u,t-1)$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent #indent #indent $S_(t-1)^\"ON_FLAT\" arrow.l 1$ \\\n    #indent #indent *end if* \\\n    #indent *else if* $P_(u,t) > 0$ #comment(\"Reconstruct the startups and shutdowns\") \\\n    #indent #indent *if* $P_(u,t) < P_(u,t-1)$ \\\n    #indent #indent #indent $S_t^\"STOP\" arrow.l 1$ \\\n    #indent #indent #indent $S_t^\"START\" arrow.l 0$ \\\n    #indent #indent *else* \\\n    #indent #indent #indent $S_t^\"STOP\" arrow.l 0$ \\\n    #indent #indent #indent $S_t^\"START\" arrow.l 1$ \\\n    #indent #indent *end if* \\\n    #indent *else* #comment(\"Final possibility: the unit is OFF.\") \\\n    #indent #indent $S_(u,t)^\"OFF\" arrow.l 1$ \\\n    #indent #indent $S_(u,t)^\"STOP\" arrow.l 0$ \\\n    #indent #indent $S_(u,t)^\"START\" arrow.l 0$ \\\n    #indent #indent $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent #indent $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent #indent $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent *end if* \\\n    *end for*\n  ],\n  caption: [Initialization of the control and state variables]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+zJlV54wVCDM4VAOOIxaM/igrJnF5aMz09lJUDfzrycnyO8IPmJ1h/bcLRLvs=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2758,
+    "completion_tokens": 1094,
+    "total_tokens": 3852,
+    "cost": 0.0023305,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0023305,
+      "upstream_inference_prompt_cost": 0.0006895,
+      "upstream_inference_completions_cost": 0.001641
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

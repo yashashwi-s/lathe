@@ -1,0 +1,28 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.44em, weight: "bold")[Classical Dynamics of Point Particles in 2+1 Gravity]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+= Figure Captions
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [(a) Minkowski space with excised region, and (b) its tail representation in the \\CS solution. The trajectory of a test particle is also indicated.],
+) <fig:source-1>
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [The particle exchange operation $sigma_12$],
+) <fig:source-2>
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [Sequence of exchanges for the Yang-Baxter equation.],
+) <fig:source-3>
+
+Figures @fig:source-1 through @fig:source-3 preserve source-backed captions while replacing external graphics with deterministic placeholders.

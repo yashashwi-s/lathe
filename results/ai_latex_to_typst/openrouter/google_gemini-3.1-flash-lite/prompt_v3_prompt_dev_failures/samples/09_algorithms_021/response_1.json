@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783952194-yINoSBNNuwgsPP6nZuBF",
+  "object": "chat.completion",
+  "created": 1783952194,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Algorithmic Pseudocode Sample 21\n\nSource-backed Image2Struct algorithm sample\n\n= Algorithm\n\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\nAlgorithm: Source-backed algorithmic procedure\n\n1. Require:\n2. `\\tau`: Scale of coordinate noise\n3. `GNN_{\\theta}`: Graph Neural Network with parameter `\\theta`\n4. `{\\rm NoiseHead}_{\\theta_{n}}`: Network module with parameter `\\theta_{n}` for prediction of node-level noise of each atom\n5. `{\\rm LabelHead}_{\\theta_{l}}`: Network module with parameter `\\theta_{l}` for prediction of graph-level label of `x_{i}`\n6. `X`: Training dataset\n7. `x_i`: Input conformation\n8. `y_i`: Label of `x_i`\n9. `T`: Training steps\n10. `\\mathcal N`: Gaussian distribution\n11. `\\lambda_{p}`: Loss weight of property prediction loss\n12. `\\lambda_{n}`: Loss weight of Noisy Nodes loss\n13. While `T \\neq 0`:\n14. `x_i, y_i` = dataloader(`X`) // random sample `x_i` and corresponding label `y_i` from `X`\n15. `\\tilde{x} = x_{i} + \\Delta{x_i}` , where `\\Delta{x_i} \\sim \\mathcal{N}(0, {\\tau}^2I_{3N})`, `N` is atom number of `x_i`\n16. `y_{i}^{pred}={\\rm LabelHead}_{\\theta_{l}}(GNN_{\\theta}(\\tilde{x}))`\n17. `\\Delta{x_i}^{pred}={\\rm NoiseHead}_{\\theta_{n}}(GNN_{\\theta}(\\tilde{x}))`\n18. Loss = `\\lambda_{p}`PropertyPredictionLoss(`y_{i}^{pred}, y_i`)+`\\lambda_{n}||\\Delta{x_i}^{pred} - \\Delta{x_i}||_{2}^{2}`\n19. Optimise(Loss)\n20. `T = T - 1`\n21. EndWhile",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+8hS3sAUlSwosi18ERX/yTYd5NALaZ3QvD2o17MsVbkH4xBnQpZeizSn/lItY=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1326,
+    "completion_tokens": 536,
+    "total_tokens": 1862,
+    "cost": 0.0011355,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0011355,
+      "upstream_inference_prompt_cost": 0.0003315,
+      "upstream_inference_completions_cost": 0.000804
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

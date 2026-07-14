@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945613-VjJJpQ6OxkHbqDPeM7S6",
+  "object": "chat.completion",
+  "created": 1783945613,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Aligned Mathematical Structures] \\\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n#par(hanging-indent: 0pt)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]\n\n$ cal(J)_(\"D\")(delta) = inf_(lambda in RR_(\"+\")^L, space psi_ell > - infinity, (psi_ell)_(ell in [L]) in product_(ell in [L]) L^1(mu_ell)) { chevron.l lambda, delta chevron.r + sum_(ell=1)^L integral psi_ell d mu_ell : sum_(ell=1)^L psi_ell(s_ell) >= g_(lambda, [L])(s), forall s } $\n\n#par(hanging-indent: 0pt)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]\n\n$ C_n(x) = cases(\n  K - v x + G_n(x + B) & s_(k-1) < x <= hat(S)_(k) - B quad k=1, dots, w-1,\n  K - v x + G_n(hat(S)_k) & hat(S)_(k) - B < x <= s_(k) quad k=1, dots, w-1,\n  K - v x + G_n(x + B) & s_(w-1) < x <= S_m - B,\n  K - v x + G_n(S_m) & S_m - B < x <= s_m,\n  -v x + G_n(x) & x > s_m\n) $\n\n#par(hanging-indent: 0pt)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]\n\n$ stack(\n  1/2 mat(1, 0; 0, 1),\n  plus.minus 1/2 mat(1, 0; 0, -1) \" or \" plus.minus 1/2 mat(0, 1; 1, 0) \" or \" plus.minus (q_i)/2 mat(0, 1; -1, 0)\n) $\n\n#par(hanging-indent: 0pt)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]\n\n$ & |phi_n(alpha_a(E_psi)) - chi(E_psi)| \\\n& = | phi_n(alpha_a(E_psi)) - chi(E_(f_n) E_psi)| \\\n& <= integral_(b in U_n) f_n(b) (integral |Delta(b^(-1) a)^m psi(g_1 b^(-1) a, dots, g_m b^(-1) a) - psi(g_1, g_2, dots, g_m)| d g_1 dots d g_m) d b \\\n& <= epsilon integral_(b in U_n) f_n(b) \\\n& <= epsilon $\n\n#par(hanging-indent: 0pt)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]\n\n$ V^((1)) = 1/(4!) f phi^4 + 1/48 (beta_f - 4 f gamma_phi) phi^4 (log (phi^2)/(mu^2) - 25/6) \\\n  - 1/2 xi R phi^2 - 1/4 (beta_xi - 2 xi gamma_phi) R phi^2 (log (phi^2)/(mu^2) - 3) $",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+gZGcFU3tOUIBLrP7VxGxox7hWCMIUiTr6epnvXbl+PFLvv6SDS4Jq3LEYzy0=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3094,
+    "completion_tokens": 872,
+    "total_tokens": 3966,
+    "cost": 0.0020815,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0020815,
+      "upstream_inference_prompt_cost": 0.0007735,
+      "upstream_inference_completions_cost": 0.001308
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

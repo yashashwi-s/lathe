@@ -1,0 +1,101 @@
+{
+  "sample_id": "06_tables_moderate_031",
+  "category": "06_tables_moderate",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:37:59+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "general_syntax",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 6971,
+  "completion_tokens": 5978,
+  "total_tokens": 12949,
+  "reported_cost_usd": 0.01070975,
+  "estimated_cost_usd": 0.010709749999999999,
+  "accounted_cost_usd": 0.01070975,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783949896-uyGAvMko5xtGSL9RasrY",
+  "source_path": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_031/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_031/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783949879-1V5skkKlsYWoLS9rg2LR",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 16.332,
+      "compile_seconds": 0.194,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 6971,
+        "completion_tokens": 5978,
+        "total_tokens": 12949,
+        "cost": 0.01070975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01070975,
+          "upstream_inference_prompt_cost": 0.00174275,
+          "upstream_inference_completions_cost": 0.008967
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: expected auto, relative length, or fraction, found integer"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783949896-uyGAvMko5xtGSL9RasrY",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "error",
+      "call_seconds": 11.874,
+      "compile_seconds": 0.15,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unclosed delimiter"
+    }
+  ],
+  "final_error_summary": "error: unclosed delimiter",
+  "duration_seconds": 28.563,
+  "finished_at": "2026-07-13T13:38:27+00:00"
+}

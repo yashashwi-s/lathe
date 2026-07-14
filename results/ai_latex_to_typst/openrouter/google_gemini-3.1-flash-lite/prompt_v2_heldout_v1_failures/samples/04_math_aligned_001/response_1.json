@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950670-m9ydSzCeQkjsKyYofgOB",
+  "object": "chat.completion",
+  "created": 1783950670,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Aligned Mathematical Structures\n\nSource-backed grouped formula sample\n\n== Expressions\n\n#par[Expression 1. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"D=1: chi_y(E)=0\")\n\n#text(\"D=2: chi_y(E)=2(1+10y+y^2)(1-y)^(r-2)\")\n\n#text(\"D=3: chi_y(E)=-chi(E)y(1+y)(1-y)^(r-3)\")\n\n#text(\"D=4: chi_y(E)=(2+(2r-8-chi(E))y + (8r+12-4chi(E))y^2+(2r-8-chi(E))y^3+2y^4)(1-y)^(r-4)\")\n\n#text(\"D=5: chi_y(E)=-chi(E)y(1+y)(1+10y+y^2)(1-y)^(r-5)\")\n\n#par[Expression 2. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"I_D(eta_0, delta) - I_D(eta, 0) = I_D(eta_0, delta) - I_D(eta, delta) + I_D(eta, delta) - I_D(eta, 0)\")\n\n#text(\"<= Psi(eta_0-eta, 0) + Psi(0, delta) = Psi(|eta_0-eta|, 0) + Psi(0, delta)\")\n\n#par[Expression 3. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"phi_lambda(v, s') = f(s') - lambda_1 d_S1(s_1, s_1')^p1 - lambda_2 d_S2(s_2, s_2')^p2\")\n\n#text(\">= B + (B - lambda_1) d_S1(s_1, s_1')^p1 + (B - lambda_2) d_S2(s_2, s_2')^p2 >= B\")\n\n#par[Expression 4. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"S_IIB = -T_M2 l integral d^2xi sqrt(|g_ij - 1/k^2 (partial_i rho + B_i)(partial_j rho + B_j)|)\")\n\n#text(\"- T_M2 l / 2 integral d^2xi epsilon^ij [B_ij + 2 partial_i rho (A_i + m pi alpha' b_j)]\")\n\n#par[Expression 5. The following expression is taken from a source-backed formula corpus.]\n\n#table(\n  columns: 3,\n  [< q_i0 - Q_i0 >], [=], [0],\n  [< dot(q)_i0 >], [=], [0],\n  [m omega_i omega_j < (q_i0 - Q_i0)(q_j0 - Q_j0) >], [=], [k_B T delta_ij],\n  [m < dot(q)_i0 dot(q)_j0 >], [=], [k_B T delta_ij],\n  [< dot(q)_i0 (q_j0 - Q_j0) >], [=], [0]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18Aa/8830yo6tiCXnup3zly6vtKQhU9qvgKdNRGYoFt8AD6B084sG7UBp6wdcE=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2141,
+    "completion_tokens": 812,
+    "total_tokens": 2953,
+    "cost": 0.00175325,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00175325,
+      "upstream_inference_prompt_cost": 0.00053525,
+      "upstream_inference_completions_cost": 0.001218
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

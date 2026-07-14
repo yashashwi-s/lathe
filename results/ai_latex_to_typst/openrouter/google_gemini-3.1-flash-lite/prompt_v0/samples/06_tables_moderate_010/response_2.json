@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945704-4qbgPUtx1BMWp7S3Edaf",
+  "object": "chat.completion",
+  "created": 1783945704,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"Linux Libertine\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.03369_table_1],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: (x, y) => (\n      top: if y <= 1 { 1.5pt } else { 0.5pt },\n      bottom: if y == 31 { 1.5pt } else if y == 30 { 1.5pt } else { 0pt },\n    ),\n    align: center + horizon,\n    [*Dataset*], [*Coverage*], [*Task*], [*Spa. \\ Reso.*], [*Temp. \\ Reos.*], [*Areas \\ (km$^2$)*], [*Period*], [*Fig/Video*], [*Device*], [*Mod.*],\n    [Sim2Real-Fire~], [Worldwide], [Fire Mask Forecast \\ Fire Mask Backtrack], [30 m], [1 hour], [20,000,000], [2013-2023], [Fig], [Satellite], [5],\n    [FireSpreadTS~], [USA], [Fire Mask Forecast \\ Fire Mask Backtrack], [375 m], [1 day], [9,834,000], [2018-2021], [Fig], [Satellite], [4],\n    [Mesogeos~], [Mediterranean], [Fire Mask Forecast \\ Danger Forecast], [1000 m], [1 day], [9,000,999], [2006-2022], [Fig], [Satellite], [4],\n    [FireDB~], [USA], [Fire Intensity Forecast], [375 m], [1 day], [9,834,000], [2012-2017], [Fig], [Satellite], [4],\n    [Next Day fire~], [USA], [Fire Mask Forecast], [1 km], [1 day], [9,834,000], [2012-2020], [Fig], [Satellite], [4],\n    [SeasFire Cube~], [Worldwide], [Fire Behavior], [500 m], [1 day], [149,000,000], [2001-2017], [Fig], [Satellite], [4],\n    [CFSDS~], [Canada], [Fire Behavior], [180 m], [1 day], [9,985,000], [2002\u20132021], [Fig], [Satellite], [4],\n    [BA-ONFIRE~], [Worldwide], [Fire Behavior], [111 km], [1 month], [149,000,000], [1950-2021], [Fig], [Satellite], [1],\n    [GlobFire~], [Worldwide], [Fire Behavior], [500 m], [1 day], [149,000,000], [2001-2017], [Fig], [Satellite], [1],\n    [Re-FWI~], [Canada], [Fire Behavior], [80 km], [1 day], [9,985,000], [1980-2018], [Fig], [Satellite], [7],\n    [GFBS~], [Worldwide], [Fire Behavior], [30 m], [16 days], [149,000,000], [2003-2016], [Fig], [Satellite], [1],\n    [FPA FOD-A~], [USA], [Fire Behavior], [4 km], [1 day], [9,834,000], [1992-2020], [Fig], [Satellite], [4],\n    [GFED5~], [Worldwide], [Fire Behavior], [500 m], [1 month], [149,000,000], [1997-2020], [Fig], [Satellite], [1],\n    [CloCAB~], [Worldwide], [Fire Behavior], [27.7 km], [1 month], [149,000,000], [2002-2020], [Fig], [Satellite], [3],\n    [PT-FireSprd~], [Portugal], [Fire Behavior \\ Fire Mask Forecast \\ Danger Forecast], [4 km], [14 hours], [92,150], [2015-2021], [Fig], [Satellite], [1],\n    [NSMC-H8~], [China], [Fire Monitoring], [3 km], [1 hour], [9,597,000], [2019-2021], [Fig], [Satellite], [1],\n    [WCU-US~], [Western USA], [Danger Forecast], [250 m], [5 weeks], [4,200,000], [2005-2017], [Fig], [Satellite], [1],\n    [ECUF~], [Regions in South Korea], [Danger Forecast \\ Casualty Prediction], [1 km], [1 month], [605], [2017-2021], [Fig], [Satellite], [5],\n    [LCLQ~], [Regions in China], [Danger Forecast], [500 m], [12 hour], [16,411], [2015-2020], [Fig], [Satellite], [4],\n    [CaBuAr~], [Regions in USA], [Fire Mask Forecast], [20 m], [1 year], [450,000], [2015-2022], [Fig], [Satellite], [1],\n    [GABAM~], [Worldwide], [Fire Behavior], [30 m], [1 year], [149,000,000], [1990-2021], [Fig], [Satellite], [1],\n    [Fire Atlas~], [Worldwide], [Fire Behavior], [500 m], [1 day], [149,000,000], [2003-2016], [Fig], [Satellite], [1],\n    [MODIS~], [Worldwide], [Fire Mask Forecast \\ Danger Forecast], [1 km], [1 day], [149,000,000], [2000-2024], [Fig], [Satellite], [3],\n    [VIIRS~], [Worldwide], [Fire Mask Forecast \\ Danger Forecast], [375 m], [12 hours], [149,000,000], [2012-2024], [Fig], [Satellite], [3],\n    [NOAA HMS Fire~], [North America], [Danger Forecast], [2 km], [1 day], [24,710,000], [2003-2024], [Fig], [Satellite], [3],\n    [NOAA HMS Smoke~], [North America], [Danger Forecast], [2 km], [1 day], [24,710,000], [2005-2024], [Fig], [Satellite], [1],\n    [GOES fire~], [Western Hemisphere], [Fire Mask Forecast \\ Danger Forecast], [2 km], [5 mins], [61,000,000], [2017-2024], [Fig], [Satellite], [4],\n    [NIFC WP~], [USA], [Fire Mask Forecast], [2 km], [5 mins], [9,834,000], [2000-2024], [Fig], [Satellite], [1],\n    [FRY~], [Worldwide], [Fire Behavior], [500 m], [1 day], [149,000,000], [2005-2011], [Fig], [Satellite], [1],\n    [FireCanada~], [Canada], [Fire Behavior], [1 km], [1 day], [61], [2014.8], [Fig], [Satellite], [3],\n    [*FireSentry*], [Regions in China], [Fire Video Prediction \\ Infrared Video Prediction], [*0.5 m*], [*1 s*], [0.7], [2025.2], [*Video*], [*Drone*], [4]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01188_table_1],\n  table(\n    columns: (auto, auto, auto, auto, auto),\n    stroke: (x, y) => (\n      top: if y == 0 or y == 1 { 1pt } else { 0pt },\n      bottom: if y == 0 { 1pt } else if y == 9 { 1pt } else { 0pt },\n    ),\n    align: left + horizon,\n    [Task \\ Platform], [Target Obs. \\ Privileged Obs.], [Reward \\ Demos], [Offline Steps \\ Online Steps], [Description],\n    [Camouflage Pick \\ Sim. Koch], [Side Cam \\ True Obj. Pos], [Sparse \\ 100 suboptimal], [20K \\ 80K], [Pick up barely \\ visible object],\n    [Fully Obs. Pick \\ Sim. xArm], [Side Cam \\ True Obj. Pos], [Sparse \\ 100 suboptimal], [20K \\ 20K], [Pick up fully \\ visible object],\n    [AP Koch \\ Sim. Koch], [Wrist Cam \\ True Obj. Pos], [Sparse \\ 100 suboptimal], [100K \\ 900K], [Locate then pick \\ up object],\n    [Blind Pick \\ Real Koch], [Joints, Init Obj. Pos \\ Obj. Pos Estimate], [Dense \\ 100 suboptimal], [20K \\ 1.2K], [Pick object from \\ proprioception],\n    [Bookshelf-P \\ Real Franka], [Wrist Cam, Joints \\ Bbox, Mask], [Dense \\ $\\sim$150 suboptimal], [100K \\ 0], [Look for object \\& \\ switch to $\\pi_0$],\n    [Bookshelf-D \\ Real Franka], [Wrist Cam, Joints \\ Bbox, Mask], [Dense \\ $\\sim$100 suboptimal], [100K \\ 0], [Look for object \\& \\ switch to $\\pi_0$],\n    [Shelf-Cabinet \\ Real Franka], [Wrist Cam, Joints \\ Bbox, Mask], [Dense \\ $\\sim$30 suboptimal], [100K \\ 0], [Look for object \\& \\ switch to $\\pi_0$],\n    [Complex \\ Real Franka], [Wrist Cam, Joints \\ Bbox, Mask], [Dense \\ $\\sim$50 expert], [100K \\ 0], [Look for object \\& \\ switch to $\\pi_0$]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18epRZMmSMEF6Hnub2lgsNMVQS5mIIR7pA5z9IvGKmQsd6DpIF69J/vIlN3EtI=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6160,
+    "completion_tokens": 2662,
+    "total_tokens": 8822,
+    "cost": 0.005533,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005533,
+      "upstream_inference_prompt_cost": 0.00154,
+      "upstream_inference_completions_cost": 0.003993
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

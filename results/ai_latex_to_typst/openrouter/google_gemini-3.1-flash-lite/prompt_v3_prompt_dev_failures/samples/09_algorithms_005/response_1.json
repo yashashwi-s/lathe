@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783952201-HcsuqJ8YWoit3EBvvQcZ",
+  "object": "chat.completion",
+  "created": 1783952201,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Algorithmic Pseudocode Sample 5\n\nSource-backed Image2Struct algorithm sample\n\n= Algorithm\n\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\nAlgorithm: Source-backed algorithmic procedure\n\n1. data structure LSH\n2. members\n3. `d,n \\in \\mathbb{N}_+` (d is dimension, n is number of data points)\n4. `K,L\\in \\mathbb{N}_+` (K is amplification factor, L is number of repetition for hashing)\n5. `p_{\\mathrm{near}},p_{\\mathrm{far}}\\in (0,1)` (Collision probability)\n6. For `l \\in L`, `\\mathcal{T}_l:=[n]` (Hashtable recording data points hashed by `\\mathcal{H}_l`)\n7. `\\mathcal{R}:=[n]` (retrieved points)\n8. `\\mathcal{H}:=\\{f\\in\\mathcal{H}:\\mathbb{R}^{d}\\rightarrow[M]\\}` (M is number of buckets for hashing family `\\mathcal{H}`)\n9. For `l \\in [L]`, `\\mathcal{H}_{l} \\in \\mathcal{H}^K` (Family of amplified hash functions with at most `M^K` non-empty buckets)\n10. For `b \\in [M^K]`, `\\mathcal{S}_b:=` AVL tree (Use AVL tree to store points in bucket)\n11. end members\n12. public\n13. Procedure Initialize(`\\{x_i\\}_{i\\in[n]}\\subset \\mathbb{R}^d, k,L\\in \\mathbb{N}_+`)\n14. ChooseHashFunc(k,L)\n15. ConstructHashTable(`\\{x_i\\}_{i\\in[n]}`)\n16. EndProcedure\n17. Procedure Recover(`q\\in\\mathbb{R}^d`)\n18. `\\mathcal{R} \\leftarrow 0`\n19. For `l\\in[L]`\n20. `\\mathcal{R}\\leftarrow \\mathcal{R} \\cup \\mathcal{T}_{l}`.Retrieve(`\\mathcal{H}_{l}(q)`) (Find the bucket `\\mathcal{H}_{l}(q)` in `\\mathcal{T}_l` and retrieve all points)\n21. EndFor\n22. EndProcedure\n23. Procedure UpdateHashTable(`z\\in\\mathbb{R}^d, i\\in[n]`)\n24. For `l\\in [L]`\n25. `\\mathcal{H}_{l}(z)`.Insert(z) (`\\mathcal{H}_{l}(z)` denotes the bucket that z is mapped to)\n26. `\\mathcal{H}_{l}(x_i)`.Delete(`x_i`)\n27. EndFor\n28. EndProcedure\n29. end data structure",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1922piJmS1h7UlPU2uIkP0u9DCyqQuib+hTMxmNrYRrAAdw5phFx1DssdgaOQg=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1574,
+    "completion_tokens": 686,
+    "total_tokens": 2260,
+    "cost": 0.0014225,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0014225,
+      "upstream_inference_prompt_cost": 0.0003935,
+      "upstream_inference_completions_cost": 0.001029
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

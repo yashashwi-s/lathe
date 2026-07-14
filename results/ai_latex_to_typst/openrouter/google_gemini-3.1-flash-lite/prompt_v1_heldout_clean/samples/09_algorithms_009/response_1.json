@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949995-PuLPWQt4MOFrMQhz8hKW",
+  "object": "chat.completion",
+  "created": 1783949995,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 9] \\\n  Source-backed Image2Struct algorithm sample\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#figure(\n  block(inset: 10pt, stroke: 0.5pt, [\n    #set enum(numbering: \"1.\")\n    #let indent = h(2em)\n    + $t arrow.l 1; m_1 arrow.l 1_bar(C); alpha arrow.l 1$ #h(1fr) // Step t = 1\n    + #for e in range(1, 2) [for $e arrow.l 1, ..., E$]\n      #indent FBP() #h(1fr) // Algorithm @FBP:alg\n    + $bar(s)_1 arrow.l \"mean of\" tilde(s) \"across data\"$\n    + #for t in range(2, 3) [for $t arrow.l 2, ..., T$] #h(1fr) // Steps $t >= 2$\n      #indent // Phase 1\n      #indent $bar(s)_t arrow.l bar(s)_(t-1); alpha arrow.l 1/2; m_t arrow.l m_(t-1)$\n      #indent #for e in range(1, 2) [for $e arrow.l 1, ..., E_1$]\n        #indent #indent FBP()\n      #indent $bar(s) arrow.l \"mean of\" tilde(s) \"on data\"$ #h(1fr) // Phase 2\n      #indent $bar(s)_t arrow.l 1/2(bar(s)_t + bar(s))$\n      #indent #for e in range(1, 2) [for $e arrow.l E_1 + 1, ..., E_2$]\n        #indent #indent $alpha arrow.l max {alpha - 1/(2(E_2 - E_1)), 0}$\n        #indent #indent FBP()\n      #indent // Indices that sort an array; Phase 3\n      #indent $R = \"argsort\" { bar(s)_t[i] : m_t[i] = 1 }$\n      #indent $D_t arrow.l {R[0], ..., R[C_(t-1) - C_t]}$\n      #indent #for e in range(1, 2) [for $e arrow.l E_2 + 1, ..., E_3$]\n        #indent #indent $m_t arrow.l max {m_t - (I[i]_(i in D_t)) / (E_3 - E_2), 0_bar(C)}$\n        #indent #indent FBP()\n      #indent #for e in range(1, 2) [for $e arrow.l E_3 + 1, ..., E$] #h(1fr) // Phase 4\n        #indent #indent FBP()\n      #indent Cache $cal(T)_t, m_t, bar(s)_t$ for equation @Outer_Loop:eq\n  ]),\n  caption: [Source-backed algorithmic procedure]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18NvPm4MrkzM79q9ZrPw9lU7+iiGWQQGib9ZPFhAqnWei0BYdDhOxyk+qH5nX4=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1549,
+    "completion_tokens": 807,
+    "total_tokens": 2356,
+    "cost": 0.00159775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00159775,
+      "upstream_inference_prompt_cost": 0.00038725,
+      "upstream_inference_completions_cost": 0.0012105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

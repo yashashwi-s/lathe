@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949870-2Jms7jsB1ZfSiZCHiLos",
+  "object": "chat.completion",
+  "created": 1783949870,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.01406_table_4],\n  table(\n    columns: 11,\n    stroke: none,\n    table.header(\n      [], [$beta_0$], [$beta_1$], [$beta_2$], [$beta_3$], [$beta_4$], [], [], [$Delta$ Deviance], [*p*-value], [*p*ID],\n      table.hline(stroke: 0.5pt)\n    ),\n    [*LDLPFC*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [135.4024], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [-47.5876], [17.1508], [], [], [], [], [], [35.3980], [0], [*],\n    [$M_2$], [-64.2313], [17.8882], [19.8370], [], [], [], [], [1.2189], [0.2696], [],\n    [$M_3$], [-63.9616], [17.8613], [19.1087], [0.0792], [], [], [], [0.0002], [0.9892], [],\n    [$M_4$], [-63.9616], [17.8613], [19.1087], [0.0792], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*V1*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [4565.0240], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [1441.5150], [278.2914], [], [], [], [], [], [43.4969], [0], [*],\n    [$M_2$], [1033.0679], [298.1980], [426.0099], [], [], [], [], [2.4011], [0.1212], [],\n    [$M_3$], [1096.0157], [292.7513], [277.5181], [14.2642], [], [], [], [0.0259], [0.8722], [],\n    [$M_4$], [1096.0157], [292.7513], [277.5181], [14.2642], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*Thalamus*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [1770.8828], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [807.3178], [85.0972], [], [], [], [], [], [16.5751], [0], [*],\n    [$M_2$], [559.6070], [97.3195], [259.8068], [], [], [], [], [3.6170], [0.0572], [],\n    [$M_3$], [669.1027], [87.9975], [-8.8046], [25.5267], [], [], [], [0.3292], [0.5661], [],\n    [$M_4$], [669.1027], [87.9975], [-8.8046], [25.5267], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*Pallidum*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [842.6963], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [352.8506], [43.3598], [], [], [], [], [], [13.1615], [0.0003], [*],\n    [$M_2$], [230.1719], [49.3938], [129.6019], [], [], [], [], [2.7562], [0.0969], [],\n    [$M_3$], [279.2402], [45.1921], [8.0332], [11.6171], [], [], [], [0.2090], [0.6475], [],\n    [$M_4$], [279.2402], [45.1921], [8.0332], [11.6171], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*Mean*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [672.1490], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [76.2744], [53.8206], [], [], [], [], [], [29.5094], [0], [*],\n    [$M_2$], [2.5834], [57.3390], [79.6957], [], [], [], [], [1.5446], [0.2139], [],\n    [$M_3$], [26.3171], [55.2181], [21.7991], [5.7500], [], [], [], [0.0775], [0.7808], [],\n    [$M_4$], [26.3171], [55.2181], [21.7991], [5.7500], [0], [], [], [0], [1], []\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01970_table_6],\n  table(\n    columns: (auto, auto, auto),\n    stroke: none,\n    table.header(\n      [*Relation*], [*Statement Template*], [*Question Template*],\n      table.hline(stroke: 0.5pt)\n    ),\n    [address], [{e1} resides at {e2}.], [What is {e1}'s address?],\n    [awards], [{e1} won the {e2} award.], [What awards has {e1} won?],\n    [best_friend], [{e1}'s best friend is {e2}.], [Who is {e1}'s closest friend?],\n    [birth_date], [{e1} was born on {e2}.], [When was {e1} born?],\n    [birth_place], [{e1} hails from {e2}.], [Where was {e1} born?],\n    [boss], [{e1} works under {e2}.], [Who is {e1}'s boss?],\n    [boss_of], [{e1} manages {e2}.], [Who works under {e1}?],\n    [child], [{e2} is the child of {e1}.], [Who is {e1}'s child?],\n    [classmate], [{e1} studied alongside {e2}.], [Who attended school with {e1}?],\n    [colleague], [{e1} works alongside {e2}.], [Who are {e1}'s colleagues?],\n    [died_in], [{e1} passed away in {e2}.], [Where did {e1} die?],\n    [died_on], [{e1} died on {e2}.], [When did {e1} pass away?],\n    [email], [You can reach {e1} at {e2}.], [What is {e1}'s email address?],\n    [favorite_food], [{e1}'s favorite dish was {e2}.], [What food does {e1} enjoy the most?],\n    [first_language], [{e1}'s native language was {e2}.], [What is {e1}'s first language?],\n    [hobby], [A favorite activity of {e1} is {e2}.], [What does {e1} enjoy doing?],\n    [influence], [{e1} shaped the career of {e2}.], [Who was influenced by {e1}?],\n    [influenced_by], [{e1} looked up to {e2}.], [Who inspired {e1}?],\n    [known_for], [{e1} gained recognition for {e2}.], [What is {e1} famous for?],\n    [leader_of], [{e1} was the leader of {e2}.], [Which group was {e1} in charge of?],\n    [lived_in], [{e1} resided in {e2}.], [Where has {e1} lived?],\n    [major], [{e1} majored in {e2}.], [What did {e1} specialize in?],\n    [mentored_by], [{e1} received guidance from {e2}.], [Who mentored {e1}?],\n    [mentoring], [{e2} is a student of {e1}.], [Who does {e1} mentor?],\n    [nationality], [{e1} is a citizen of {e2}.], [What is {e1}'s nationality?],\n    [neighbor], [{e1} lives next to {e2}.], [Who resides beside {e1}?],\n    [occupation], [{e1} is employed as {e2}.], [What does {e1} do for a living?],\n    [parent], [{e1}'s parent is {e2}.], [Who is the parent of {e1}?],\n    [pet], [{e1} owns a pet called {e2}.], [What is the name of {e1}'s pet?],\n    [philanthropy], [{e1} donated to {e2}.], [Which causes did {e1} support?],\n    [phone], [{e1} can be reached at {e2}.], [What is {e1}'s phone number?],\n    [rival], [{e1} had a rivalry with {e2}.], [Who did {e1} compete with?],\n    [roommate], [{e1} shared a room with {e2}.], [Who lived with {e1}?],\n    [service], [{e1} was a member of {e2}.], [Which organization did {e1} serve in?],\n    [sibling], [{e1} and {e2} are siblings.], [Who are {e1}'s siblings?],\n    [spouse], [{e1} is married to {e2}.], [Who is {e1}'s spouse?],\n    [university], [{e1} went to {e2}.], [Which university did {e1} attend?],\n    [worked_at], [{e1} held a position at {e2}.], [Where did {e1} work?],\n    [wrote], [{e1} authored the book {e2}.], [Which book did {e1} write?],\n    table.hline(stroke: 0.5pt)\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+IucJ33+kTIqUaS8EunJghwHWdP3rg0kiiZEnkWKXs3IpIbTw+vyJTepmwSXA=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5319,
+    "completion_tokens": 2861,
+    "total_tokens": 8180,
+    "cost": 0.00562125,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00562125,
+      "upstream_inference_prompt_cost": 0.00132975,
+      "upstream_inference_completions_cost": 0.0042915
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949019-9tKpuEDpaL6eLPjCnM99",
+  "object": "chat.completion",
+  "created": 1783949019,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Aligned Mathematical Structures] \\\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n#par(hanging-indent: 0pt)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]\n\n$\n  B &:= A^* union (A^* + c) \\\n  C &:= (A^* + 7c - d) union (A^* + 8c - d) \\\n  D &:= (A^* + 10c - d) union (A^* + 11c - d) \\\n  E &:= (A^* + 17c - 2d) union (A^* + 18c - 2d) \\\n  F &:= (A^* + 30c - 3d) union (A^* + 31c - 3d) \\\n  G &:= (A^* + 37c - 4d) union (A^* + 38c - 4d) \\\n  H &:= (A^* + 40c - 4d) union (A^* + 41c - 4d) \\\n  I &:= (A^* + 47c - 5d) union (A^* + 48c - 5d) \\\n  J &:= B union C union D union E union F union G union H union I\n$\n\n#par(hanging-indent: 0pt)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]\n\n$\n  &Delta_((n+1 l-1))^((0))(x_1, dots.c, x_m | z_1, dots.c, z_(n+1) | z_(n+2), dots.c, z_N) \\\n  =& sum_(k=1)^(n+1) (product_(i=n+2)^(N) (z_i - z_k q^(-2))) / (product_(j=1, j != k)^(n+1) (z_k - z_j)q^(-1)) Delta^((n l))(x_1, dots.c, x_m | z_1, hat(dots.c)^k, z_(n+1) | z_k, z_(n+2), dots.c, z_N)\n$\n\n#par(hanging-indent: 0pt)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]\n\n$\n  &| ||phi_(n,t)(b)||^2 - ||b||^2 | = | ||phi_(n,t)(b)^* phi_(n,t)(b)|| - ||b^* b|| | \\\n  &<= | ||phi_(n,t^(-1))(b^*) phi_(n,t)(b)|| - ||phi_(n,e)(b^* b)|| | + | ||phi_(n,e)(b^* b)|| - ||b^* b|| | \\\n  &<= | ||phi_(n,t^(-1))(b^*) phi_(n,t)(b) - phi_(n,e)(b^* b)|| | + | ||phi_(n,e)(b^* b)|| - ||b^* b|| |\n$\n\n#par(hanging-indent: 0pt)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]\n\n$\n  [ M_i , p_j ] &= i epsilon_(ijk) p_k , quad [ M_i , p_0 ] = 0 , \\\n  [ N_i , p_0 ] &= i p_i , quad [ p_mu , p_nu ] = 0 , \\\n  [ N_i , p_j ] &= i delta_(ij) [ kappa c sinh(p_0 / (kappa c)) e^(-p_0 / (kappa c)) + 1/2 (1 / (kappa c)) (vec(p))^2 ] - i / (kappa c) p_i p_j\n$\n\n#par(hanging-indent: 0pt)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]\n\n$\n  X_1 &:= { w in W_(\"per\")^(1,r)(cal(S)) : w = 0 \"on\" { zeta = -1 } } \\\n  X_2 &:= L^infinity([-1,0]) \\\n  Y &:= { u in (W_(\"per\")^(1,r')(cal(S)))^* : u = cal(A) + partial_xi cal(B)_1 + partial_zeta cal(B)_2, \"for\" cal(A) , cal(B)_1, cal(B)_2 in L^r(cal(S)) }\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a197f3JDVVGJAkTIu40p0sJmcZhXDx2VHnf41G6hE+sztLihOA2iU+vn5ZOjsls=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1876,
+    "completion_tokens": 1116,
+    "total_tokens": 2992,
+    "cost": 0.002143,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002143,
+      "upstream_inference_prompt_cost": 0.000469,
+      "upstream_inference_completions_cost": 0.001674
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

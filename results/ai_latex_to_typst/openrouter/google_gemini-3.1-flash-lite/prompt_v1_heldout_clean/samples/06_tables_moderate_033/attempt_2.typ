@@ -1,0 +1,43 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Moderate Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.01111\_table\_2],
+  table(
+    columns: (1.4cm, 1.5cm, 1.1cm, 2cm, 4.5cm, 4.5cm),
+    stroke: (x, y) => (
+      top: if y <= 1 { 1pt } else { 0pt },
+      bottom: if y == 0 or y == 4 { 1pt } else { 0pt },
+    ),
+    align: (col, row) => if row > 0 and col == 0 { center } else { left },
+    [*Design (Name/Gender)*], [*Personality*], [*Role*], [*Interaction\ Modalities*], [*Features*], [*Ethical Considerations*],
+    [Bimo (Gender-Neutral)], [Friendly\ Gentle\ Firm\ Reactive], [Smart Friend\ Mentor], [Speech\ Light Indicators\ Visually via Tablet], [Warm lamp light with built-in speaker; Tablet for content display; rotatable head; Integrates with student's work ecosystem; Monitors screen for careless mistakes; AI-powered feedback on student work; Helps organize and prioritize tasks; Monitors stress and exhaustion via camera], [Saves videos to a student-accessible SD card; Deletes monitored videos after 2 days; Requires manual on/off for student control; Always asks permission before accessing third-party applications; Detects critical health issues (e.g., heart attacks) and alerts authorities promptly],
+    [Max (Gender-Neutral)], [Friendly\ Assertive\ Motivating\ Strict with\ deadlines], [Assistant\ Friend\ Mentor\ Proactive], [Speech\ Light Indicators\ Gestures\ Facial Expressions\ Physical Touch], [Plays study music; Offers effective study tips; Helps with task organization; Comes with wheels for easy portability], [Requires manual on/off for student control; Does not store user data; Respects the laws and customs of the region],
+    [Roberto (Gender-Neutral)], [Friendly\ Funny\ Kind\ Calm\ Encouraging\ Proactive], [Coach], [Speech\ Visually via Screen\ Vibrations], [Screen for content display; Helps with task organization and prioritization; Monitors for distractions via camera; Offers task feedback; Uses alarms and vibrations to dis-incentivize students from getting distracted], [Does not store any monitoring videos],
+    [Bammy (Customizable)], [Friendly\ Organized\ Nice\ Straightforward\ Honest\ Reactive & Proactive], [Mentor Motivator], [Speech\ Visually via screen\ Visually via watch], [Screen for content display; AI-powered for task organization; Integrates with student’s workflow; Dedicated app; Monitors stress and health via smartwatch; Provides emotional support; Remembers user preferences; Accesses quality research sources; Supports language flexibility], [No camera for privacy; Identifies users to protect others' personal information; Accessibility features for individuals with special needs]
+  )
+)
+
+#figure(
+  caption: [Source table 2: 2512.00231\_table\_5],
+  table(
+    columns: (auto, auto, auto, auto, auto, auto),
+    stroke: 0.5pt,
+    [*Model*], [*Top-5 $up$*], [*Top-10 $up$*], [*Recall@20% $up$*], [*Effort@20% $down$*], [*IFA $down$*],
+    [JIT-Smart\ #text(size: 0.8em)[ATTN]], [*0.691* \ ($sigma plus.minus 0.03$)], [*0.811* \ ($sigma plus.minus 0.03$)], [*0.337* \ ($sigma plus.minus 0.05$)], [0.248 \ ($sigma plus.minus 0.02$)], [*5.360* \ ($sigma plus.minus 3.00$)],
+    [GPT-5], [0.616 \ ($sigma plus.minus 0.01$)], [0.759 \ ($sigma plus.minus 0.02$)], [0.318 \ ($sigma plus.minus 0.01$)], [*0.234* \ ($sigma plus.minus 0.01$)], [10.711 \ ($sigma plus.minus 0.92$)],
+    [Gemini\ 2.5 Pro], [0.543], [0.683], [0.291], [0.251], [12.317],
+    [UniXCoder], [0.522 \ ($sigma plus.minus 0.01$)], [0.657 \ ($sigma plus.minus 0.01$)], [0.278 \ ($sigma plus.minus 0.01$)], [0.271 \ ($sigma approx 0$)], [13.280\ ($sigma plus.minus 0.36$)],
+    [Claude\ Sonnet\ 4.5], [0.529], [0.701], [0.273], [0.265], [12.520],
+    [JITFine], [0.511\ ($sigma plus.minus 0.03$)], [0.683\ ($sigma plus.minus 0.02$)], [0.217\ ($sigma plus.minus 0.02$)], [0.322\ ($sigma plus.minus 0.02$)], [12.185\ ($sigma plus.minus 1.21$)],
+    [CodeT5+], [0.465\ ($sigma plus.minus 0.04$)], [0.631\ ($sigma plus.minus 0.04$)], [0.150\ ($sigma plus.minus 0.04$)], [0.388\ ($sigma plus.minus 0.05$)], [15.048\ ($sigma plus.minus 2.43$)]
+  )
+)

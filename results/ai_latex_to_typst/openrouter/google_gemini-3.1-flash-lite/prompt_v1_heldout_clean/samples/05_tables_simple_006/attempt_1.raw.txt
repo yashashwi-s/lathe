@@ -1,0 +1,38 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Simple Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.01543_table_6],
+  table(
+    columns: (auto, auto, auto, auto, 5.5cm),
+    stroke: (y: (x, y) => if y == 0 or y == 1 or y == 48 { 0.5pt } else { none }),
+    align: (center, center, center, center, left),
+    table.header([Wavelength ($mu$m)], [Flux ($10^(-8)$ erg/s/cm$^2$)], [Flux error ($10^(-8)$ erg/s/cm$^2$)], [Filter], [Catalog]),
+    [0.444], [0.1600], [0.0027], [Johnson:B], [GSC2.3, SPM4, UCAC4-RPM, AAVSO],
+    [0.482], [0.2737], [-], [SDSS:g], [Gaia DR3 synphot],
+    [0.504], [0.4733], [0.0030], [GAIA/GAIA3:Gbp], [Gaia EDR3/DR3],
+    [0.554], [0.5070], [-], [Johnson:V], [SPM4, HYP/TYC, UCAC4-RPM],
+    [0.582], [0.9371], [0.0051], [GAIA/GAIA3:G], [Gaia DR3/EDR3],
+    [0.625], [0.8206], [-], [SDSS:r], [Gaia DR3 synphot],
+    [0.647], [1.0334], [-], [Cousins:R], [Gaia DR3 synphot],
+    [0.762], [2.1676], [0.0197], [GAIA/GAIA3:Grp], [Gaia DR3/EDR3],
+    [0.763], [2.6858], [-], [SDSS:i], [Gaia DR3 synphot],
+    [0.789], [2.1517], [-], [Cousins:I], [Gaia DR3 synphot],
+    [1.239], [6.5954], [1.2098], [2MASS:J], [2MASS, IRAS, UCAC4, HSOY, MDFC, PPMXL, WISE, NOMAD, ASCC, UCAC5, ATLAS-REFCAT2, SPM4],
+    [1.250], [6.6593], [1.2391], [Johnson:J], [Tycho-2, JSDC, 2MASS],
+    [1.630], [8.1170], [1.5695], [Johnson:H], [JSDC, 2MASS, Tycho-2],
+    [1.649], [8.0712], [1.5656], [2MASS:H], [2MASS, WISE, ATLAS-REFACT2, NOMAD, HSOY, UCAC4, IRAS, ASCC, SPM4, UCAC5, MDFC, PPMXL],
+    [2.164], [6.0581], [1.3356], [2MASS:Ks], [2MASS, ASCC, MDFC, PPMXL, SPM4, WISE, UCAC4, IRAS],
+    [2.190], [5.8041], [1.2776], [Johnson:K], [2MASS, Tycho-2, JSDC],
+    [2.776], [2.6022], [0.0002], [IS0_SW4], [ISO SWS],
+    [3.042], [2.3349], [0.0002], [IS0_SW7], [ISO SWS],
+    [3.302], [2.0181], [0.0002], [IS0_SW2], [ISO SWS],
+    [3.350], [1.8860],

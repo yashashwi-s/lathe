@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ overline(Xi)^lambda_1_lambda_2 times l^dot(I)_dot(J) times 1 ( overline(phi)^rho_1 times s^dot(K) times phi^rho_2 ) = delta^rho_1_lambda_2 sum_(dot(K)_1 dot(K)_2 = dot(K)) delta^dot(K)_1_dot(J) overline(phi)^lambda_1 times s^dot(I) dot(K)_2 times phi^rho_2. $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ Omega = 2 i ( 1 - 1/2 (1 + z overline(z)) / zeta theta overline(theta) ) (d z wedge d overline(z)) / zeta^2 + i ( (d theta wedge d overline(theta)) / zeta - (overline(z) theta) / zeta^2 d z wedge d overline(theta) - (z overline(theta)) / zeta^2 d overline(z) wedge d theta ). $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ s(Gamma) equiv integral ( (delta Gamma) / (delta rho) (delta Gamma) / (delta A) + B (delta Gamma) / (delta overline(c)) + (delta Gamma) / (delta sigma) (delta Gamma) / (delta c) + (delta Gamma) / (delta overline(Y)) (delta Gamma) / (delta psi) + (delta Gamma) / (delta overline(psi)) (delta Gamma) / (delta Y) ) = 0 $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ {f, g} = ( (partial f) / (partial x_i) (partial g) / (partial p_i) - (partial g) / (partial x_i) (partial f) / (partial p_i) ) + theta ( (partial f) / (partial x_1) (partial g) / (partial x_2) - (partial g) / (partial x_1) (partial f) / (partial x_2) ). $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ (d / d lambda) S_(omega, bold(c))(Phi^lambda) |_(lambda=1) = sum_(j=1)^3 angle.l (D_j S_(omega, bold(c)))(Phi^lambda), (d / d lambda) Phi^lambda angle.r |_(lambda=1) = sum_(j=1)^3 angle.l D_j S_(omega, bold(c))(Phi), d/2 Phi + nabla dot Phi angle.r. $

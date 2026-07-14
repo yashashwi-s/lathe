@@ -1,0 +1,101 @@
+{
+  "sample_id": "04_math_aligned_015",
+  "category": "04_math_aligned",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:52:20+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 2,
+  "candidate_pages": 1,
+  "page_count_match": false,
+  "prompt_tokens": 5333,
+  "completion_tokens": 1674,
+  "total_tokens": 7007,
+  "reported_cost_usd": 0.0038442500000000004,
+  "estimated_cost_usd": 0.00384425,
+  "accounted_cost_usd": 0.0038442500000000004,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950753-6iRiSYIPoijD8TMOXKYV",
+  "source_path": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_015/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_015/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950740-wxSTd8mMxepewFqKTdwR",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 13.097,
+      "compile_seconds": 0.154,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 2087,
+        "completion_tokens": 842,
+        "total_tokens": 2929,
+        "cost": 0.00178475,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00178475,
+          "upstream_inference_prompt_cost": 0.00052175,
+          "upstream_inference_completions_cost": 0.001263
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: paragraph"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950753-6iRiSYIPoijD8TMOXKYV",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.318,
+      "compile_seconds": 0.122,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 3246,
+        "completion_tokens": 832,
+        "total_tokens": 4078,
+        "cost": 0.0020595,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0020595,
+          "upstream_inference_prompt_cost": 0.0008115,
+          "upstream_inference_completions_cost": 0.001248
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 21.701,
+  "finished_at": "2026-07-13T13:52:42+00:00"
+}

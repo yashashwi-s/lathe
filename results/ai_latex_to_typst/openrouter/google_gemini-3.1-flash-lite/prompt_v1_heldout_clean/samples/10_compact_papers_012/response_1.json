@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950157-RHpgruv0XkPv0hSSsXci",
+  "object": "chat.completion",
+  "created": 1783950157,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Twisted Black p-Brane Solutions in String Theory]\n  #v(1em)\n  Ashoke Sen\n  #v(1em)\n])\n\n#block(inset: (x: 2em), [\n  #text(weight: \"bold\")[Abstract]\n  #v(0.5em)\n  It has been shown that given a classical background in string theory which is independent of $d$ of the space-time coordinates, we can generate other classical backgrounds by $O(d) \\otimes O(d)$ transformation on the solution. We study the effect of this transformation on the known black $p$-brane solutions in string theory, and show how these transformations produce new classical solutions labelled by extra continuous parameters and containing background antisymmetric tensor field.\n])\n\n= Introduction\n\nIt has been shown that given a classical background in string theory which is independent of $d$ of the space-time coordinates, we can generate other classical backgrounds by $O(d) \\otimes O(d)$ transformation on the solution. We study the effect of this transformation on the known black $p$-brane solutions in string theory, and show how these transformations produce new classical solutions labelled by extra continuous parameters and containing background antisymmetric tensor field.\n\n= Method\n\n$G_{mu nu}$, $\\phi$ and $B_{mu nu}$ where $G_{mu nu}$, $\\phi$ and $B_{mu nu}$ denote the graviton, the dilaton, and the antisymmetric tensor fields respectively, $R +$ cyclic permutations, $R$ denotes the $D$ dimensional Ricci scalar, and $\\Lambda$ is the cosmological constant equal to $0$ for bosonic string and $-1$ for fermionic string. (For simplicity we have set the other background massless fields, which appear in fermionic string theories, to zero.) Let us now split the coordinates $x^M$ into two sets $x^mu$ and $y^i$ ($mu = 0, \\dots, D-d-1$, $i = 1, \\dots, d$) and consider backgrounds independent of $y^i$. Let us further concentrate on backgrounds where $B_{mu i} = 0$, i.e. to backgrounds of the form $G_{mu nu}, G_{ij}, B_{ij}, \\phi$. In this case, after an integration by parts, the action $S$ can be shown to take the form: $S = \\int d^{D-d} x \\sqrt{-G} e^{-2\\phi} \\dots$\n\n#set math.equation(numbering: \"(1)\")\n$ L(theta) = sum_(i=1)^n ell(x_i, theta) $ <compact>\n\nEquation @compact is included to keep the sample paper-like while remaining small.\n\n= Conclusion\n\nIf the coordinates $y^i$ are all of Euclidean signature, this action is invariant under an $O(d, d)$ transformation on $G_{ij}$, $B_{ij}$ and $\\phi$, given by, $M^T \\eta M = \\eta$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19GU+I6zgOFqQZZhEFDHsrkPMe4g+NEU9FtVWxtQS1XKNPMFI5dGqdc37LmwpA=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1366,
+    "completion_tokens": 701,
+    "total_tokens": 2067,
+    "cost": 0.001393,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001393,
+      "upstream_inference_prompt_cost": 0.0003415,
+      "upstream_inference_completions_cost": 0.0010515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

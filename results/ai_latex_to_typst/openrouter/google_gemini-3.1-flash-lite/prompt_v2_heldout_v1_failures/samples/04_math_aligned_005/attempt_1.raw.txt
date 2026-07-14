@@ -1,0 +1,53 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, text(size: 1.5em)[Aligned Mathematical Structures])
+#align(center, [Source-backed grouped formula sample])
+
+= Expressions
+
+#par[Expression 1.] The following expression is taken from a source-backed formula corpus.
+
+#text("$\delta r_+ = \delta(M + \sqrt{M^2 - a^2 - Q^2})$")
+
+#text("$= \delta M + 1/2 (M^2 - a^2 - Q^2)^{-1/2} 2(M \delta M - a \delta a)$")
+
+#text("$= \delta M + (r_+ - M)^{-1} (M \delta M - a \delta a)$")
+
+#text("$a \delta a = a \delta(J/M) = a/M \delta J - a^2/M \delta M$")
+
+#par[Expression 2.] The following expression is taken from a source-backed formula corpus.
+
+#text("$A \circ_X B = (AX)(X^{\\dagger}B)$")
+
+#text("$= (AX^{2/3}X^{1/3})(X^{-1/3}X^{-2/3}B)$")
+
+#text("$= X^{1/3}[(X^{-1/3}AX^{2/3})(X^{-2/3}B)]$")
+
+#text("$= X^{1/3}[(X^{-1/3}AX^{1/3}X^{1/3})(X^{-1/3}X^{-1/3}B)]$")
+
+#text("$= X^{1/3}\{[(X^{-1/3}AX^{1/3})(X^{-1/3}BX^{1/3})]X^{-1/3}\}$")
+
+#text("$= X^{1/3}[(X^{-1/3}AX^{1/3})(X^{-1/3}BX^{1/3})]X^{-1/3}$")
+
+#par[Expression 3.] The following expression is taken from a source-backed formula corpus.
+
+#text("$F^{(L)}_{p;r}(q) = q^{-r(r-1)} \\times \\{ F^{(L)}_{p-2} [ Q_{r,1} / 0 ](e_r | q) \\text{ if } L \\not\\equiv r-1 \\text{ mod } 2, F^{(L)}_{p-2} [ Q_{p-r,p} / 0 ](e_{p-r} | q) \\text{ if } L \\equiv r-1 \\text{ mod } 2 \\}$")
+
+#par[Expression 4.] The following expression is taken from a source-backed formula corpus.
+
+#text("$u(\\tau) = e^{\\sqrt{\\gamma^2 + m^2/2} \\tau} [ u_0 \\cosh(\\gamma \\tau) - (u_0 \\sqrt{\\gamma^2 + m^2/2} - \\dot{u}_0) 1/\\gamma \\sinh(\\gamma \\tau) ]$")
+
+#text("$v(\\tau) = e^{-\\sqrt{\\gamma^2 + m^2/2} \\tau} [ v_0 \\cosh(\\gamma \\tau) + (v_0 \\sqrt{\\gamma^2 + m^2/2} + \\dot{v}_0) 1/\\gamma \\sinh(\\gamma \\tau) ]$")
+
+#par[Expression 5.] The following expression is taken from a source-backed formula corpus.
+
+#text("$^*f_{\\mu \\nu}(x) = - \\frac{e_0}{4 \\pi \\varepsilon_0 c} [ \\partial_\\mu \\vec{n}(x) \\wedge \\partial_\\nu \\vec{n}(x) ] \\vec{n}(x)$")
+
+#table(
+  columns: 4,
+  [0], [$B_x$], [$B_y$], [$B_z$],
+  [$-B_x$], [0], [$E_z/c$], [$-E_y/c$],
+  [$-B_y$], [$-E_z/c$], [0], [$E_x/c$],
+  [$-B_z$], [$E_y/c$], [$-E_x/c$], [0]
+)

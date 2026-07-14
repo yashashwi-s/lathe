@@ -1,0 +1,26 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Collective Field Representation of Nonrelativistic Fermions in (1+1) Dimensions]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em))[
+  #text(weight: "bold")[Abstract]
+  #par(justify: true)[
+    A collective field formalism for nonrelativistic fermions in (1+1) dimensions is presented. Applications to the D=1 hermitian matrix model and the system of one-dimensional fermions in the presence of a weak electromagnetic field are discussed.
+  ]
+]
+
+= Source Metadata
+This sample is based on arXiv record #raw("hep-th/9109013"). Authors: Dimitra Karabali.
+
+= Extracted Prose 1
+A collective field formalism for nonrelativistic fermions in (1+1) dimensions is presented. The quantum mechanical fermionic problem is bosonized and converted to a second quantized Schrödinger field theory. A formulation in terms of current and density variables gives rise to the collective field representation. Applications to the math expression hermitian matrix model and the system of one-dimensional fermions in the presence of a weak electromagnetic field are discussed. =0
+
+= Extracted Prose 2
+#v(12pt)
+A collective field formalism for nonrelativistic fermions in (1+1) dimensions is presented. The quantum mechanical fermionic problem is bosonized and converted to a second quantized Schrödinger field theory. A formulation in terms of current and density variables gives rise to the collective field representation. Applications to the math expression hermitian matrix model and the system of one-dimensional fermions in the presence of a weak electromagnetic field are discussed.

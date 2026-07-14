@@ -1,0 +1,101 @@
+{
+  "sample_id": "08_crossrefs_citations_005",
+  "category": "08_crossrefs_citations",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:44:12+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 2948,
+  "completion_tokens": 817,
+  "total_tokens": 3765,
+  "reported_cost_usd": 0.0019625,
+  "estimated_cost_usd": 0.0019625,
+  "accounted_cost_usd": 0.0019625,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950255-nrjWJzK0ReJJvyz5CR4A",
+  "source_path": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_005/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_005/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950253-i7knEKtIZxFfuhHJ8kx4",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 3.006,
+      "compile_seconds": 0.098,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 1147,
+        "completion_tokens": 402,
+        "total_tokens": 1549,
+        "cost": 0.00088975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00088975,
+          "upstream_inference_prompt_cost": 0.00028675,
+          "upstream_inference_completions_cost": 0.000603
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: cannot reference equation without numbering"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950255-nrjWJzK0ReJJvyz5CR4A",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.41,
+      "compile_seconds": 1.039,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 1801,
+        "completion_tokens": 415,
+        "total_tokens": 2216,
+        "cost": 0.00107275,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00107275,
+          "upstream_inference_prompt_cost": 0.00045025,
+          "upstream_inference_completions_cost": 0.0006225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 6.603,
+  "finished_at": "2026-07-13T13:44:19+00:00"
+}

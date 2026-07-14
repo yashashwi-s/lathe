@@ -1,0 +1,32 @@
+#set page(margin: 1in)
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Inline and Display Mathematics
+
+#align(center)[
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample
+]
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ I_D(0, delta_2) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda_2 in R_+) [lambda_2 delta_2 + integral_V g_(lambda, 2) d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in R^2_+) [angle.l lambda, (0, delta_2) angle.r + integral_V g_lambda d pi] $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+#text("$\\gamma_{1}=\\left\\langle\\sum_{X_i\\in ({\\it G}_1)_{X'_{i'}}} \\sum_{\\stackrel{i_{\\alpha_{1}}< j_{\\alpha_{1}}}{\\{i_{\\alpha_{1}},j_{\\alpha_{1}}\\}\\in J_{X_{i}}}} t_{i_{\\alpha_{1}}}t_{j_{\alpha_{1}}}{\\bf 1}_{(w(t_{i_{\\alpha_{1}}})=w(t_{j_{\\alpha_{1}}}))}\\chi\\left(\\left(i_{\\alpha_{1}},j_{\\alpha_{1}}\\right)\\in i'_{\\alpha_{1}}\\right)\\right\\rangle ^{l.c.}_{w'}\\;\\text{ and}$")
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+#text("$\\frac{\\int\\limits_{S}\\sum\\limits^\\infty_{n_{1}=1}\\left|\\sum\\limits_{\\gamma\\in\\Gamma^{2}_{\\infty}\\backslash\\Gamma^{2}_{1}}\\nabla_{\\tau}\\phi^0_{n_{1}}(\\tau)\\big|_{\\gamma\\circ\\tau}\\right|^2 dV}{\\int\\limits_S\\sum\\limits^\\infty_{n=1}\\left|\\sum\\limits_{\\gamma\\in\\Gamma^{2}_{\\infty}\\backslash\\Gamma^{2}_{1}}\\phi^0_{n_{1}}(\\tau)\\big|_{\\gamma\\circ\\tau}\\right|^2 dV} < 10 \\lambda.$")
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+#text("$\\tilde{\\hat{\\Omega}}_{\\underline{x}}{}^{(0)\\hat{a}\\hat{b}} =-\\hat{\\Omega}_{\\underline{x}}{}^{(0)\\hat{a}\\hat{b}} /\\hat{G}_{\\underline{xx}}^{(0)}\\, ,\\hspace{.5cm}\\tilde{\\hat{\\Omega}}_{\\mu}{}^{(0)\\hat{a}\\hat{b}} =\\hat{\\Omega}_{\\mu}{}^{(0)\\hat{a}\\hat{b}}-\\hat{\\Omega}_{\\underline{x}}{}^{(0)\\hat{a}\\hat{b}}\\hat{G}_{\\underline{x}\\mu}^{(0)}/\\hat{G}^{(0)}_{\\underline{xx}}\\, ,$")
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ I_D(delta) = inf_(lambda in R^2_+) sup_(pi in Pi(mu_1, mu_2)) [angle.l lambda, delta angle.r + integral_V g_lambda d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in R^2_+) [angle.l lambda, delta angle.r + integral_V g_lambda d pi] $

@@ -1,0 +1,101 @@
+{
+  "sample_id": "05_tables_simple_015",
+  "category": "05_tables_simple",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:28:38+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 3,
+  "candidate_pages": 3,
+  "page_count_match": true,
+  "prompt_tokens": 8984,
+  "completion_tokens": 4577,
+  "total_tokens": 13561,
+  "reported_cost_usd": 0.0091115,
+  "estimated_cost_usd": 0.0091115,
+  "accounted_cost_usd": 0.0091115,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783949329-kwlY02aDZQzHQD9dbwwB",
+  "source_path": "data/latex_benchmark_v0/corpus/05_tables_simple/05_tables_simple_015/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/05_tables_simple/05_tables_simple_015/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783949319-P26Px0IEjg2QZTkRlEt1",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.058,
+      "compile_seconds": 0.149,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 3085,
+        "completion_tokens": 2302,
+        "total_tokens": 5387,
+        "cost": 0.00422425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00422425,
+          "upstream_inference_prompt_cost": 0.00077125,
+          "upstream_inference_completions_cost": 0.003453
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected hat"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783949329-kwlY02aDZQzHQD9dbwwB",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 22.016,
+      "compile_seconds": 0.269,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 5899,
+        "completion_tokens": 2275,
+        "total_tokens": 8174,
+        "cost": 0.00488725,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00488725,
+          "upstream_inference_prompt_cost": 0.00147475,
+          "upstream_inference_completions_cost": 0.0034125
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 30.524,
+  "finished_at": "2026-07-13T13:29:09+00:00"
+}

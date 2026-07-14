@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783951472-KTYWC3dXeRnHYXEx4lMY",
+  "object": "chat.completion",
+  "created": 1783951472,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[String Theory in Two Dimensions]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#block(inset: (x: 2em))[\n  *Abstract*\n\n  I review some of the recent progress in two-dimensional string theory, which is formulated as a sum over surfaces embedded in one dimension.\n]\n\n= Source Metadata\n\nThis sample is based on arXiv record hep-th/9108019. Authors: Igor R. Klebanov.\n\n= Extracted Prose 1\n\n@t @x @ @ @t3:4; @t1:1; @ @t3:5; @t4:5; @ by 5 by 4 @t#1:#2; = by #1 by #2 = by #1 by #2 = by #1 by #2 = by #1 by #2 = by #1 by #2 = = by #1 by #2 = by by 2 = by #1 by #2 = by 2 = by 4\n\n= Extracted Prose 2\n\n@ver#1 255 = @= @ 255 =3001 @= @twidth 255 =1251 @= @twidth @ - @ -0.83 @ #1 = 255 @ver#1 @x #1 @ver math expression 0= #1 @ver ^ 2mu #1 =0 =0 =0 = @x = @x = = = = =8pt plus 3pt minus 3pt =15pc =10pc =15pc @ @true @@ @@false",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/I402qzZmekgTastkGf7K0ZCZicor028hD1oIoyBot8y+RdBCYIE0c84hSePQ=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1447,
+    "completion_tokens": 422,
+    "total_tokens": 1869,
+    "cost": 0.00099475,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00099475,
+      "upstream_inference_prompt_cost": 0.00036175,
+      "upstream_inference_completions_cost": 0.000633
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

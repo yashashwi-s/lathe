@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950456-jsRxMSoDp3RNKABhmhSB",
+  "object": "chat.completion",
+  "created": 1783950456,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[QCD Hadron Spectroscopy with Staggered Dynamical Quarks at $beta = 5.6$]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#set heading(numbering: none)\n\n= Figure Captions\n\n#figure(\n  rect(width: 78%, height: 1.15in, stroke: 0.5pt),\n  caption: [Pion effective masses for $\"ma\" = 0.01$ on the old, doubled ($diamond$) and the new undoubled lattices with 'even-odd' source ($times$) and 'corner' source ($circ$).],\n) <fig:source-1>\n\n#figure(\n  rect(width: 78%, height: 1.15in, stroke: 0.5pt),\n  caption: [Comparison of Kogut-Susskind meson masses],\n) <fig:source-2>\n\n#figure(\n  rect(width: 78%, height: 1.15in, stroke: 0.5pt),\n  caption: [Nucleon effective masses with new and old source and from the old run, all with $\"ma\" = 0.01$.],\n) <fig:source-3>\n\nFigures @fig:source-1 through @fig:source-3 preserve source-backed captions while replacing external graphics with deterministic placeholders.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18GeuSWmBHEgQTF9dNqn5/yoZrdw742s4AgQz+hDuuSWIvdUotjlNl0bfLLYLM=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1829,
+    "completion_tokens": 366,
+    "total_tokens": 2195,
+    "cost": 0.00100625,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00100625,
+      "upstream_inference_prompt_cost": 0.00045725,
+      "upstream_inference_completions_cost": 0.000549
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

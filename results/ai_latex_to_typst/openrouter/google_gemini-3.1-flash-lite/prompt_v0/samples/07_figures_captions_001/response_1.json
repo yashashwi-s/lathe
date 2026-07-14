@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945746-HlzrInrXeVFJ8dcVw4Zg",
+  "object": "chat.completion",
+  "created": 1783945746,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(size: 11pt, font: \"New Computer Modern\")\n\n#set heading(numbering: none)\n\n#align(center, [\n  #text(size: 1.44em, weight: \"bold\")[Real Forms of Complex Quantum Anti de Sitter Algebra $U_q (Sp(4,C))$ and their Contraction Schemes]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#heading(level: 1)[Figure Captions]\n\n#figure(\n  rect(width: 78%, height: 1.15in, stroke: 1pt + black),\n  caption: [DESCRIPTION OF REAL STRUCTURES AND CONTRACTIONS OF $U_q$],\n) <fig:source-1>\n\nFigures @fig:source-1 through @fig:source-1 preserve source-backed captions while replacing external graphics with deterministic placeholders.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19KdoCW/yo4j+TPzqv5qkCog2EHHQYyQyrzsM5c/QLQJfUOadsPE4Tahw/UNhA=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 733,
+    "completion_tokens": 219,
+    "total_tokens": 952,
+    "cost": 0.00051175,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00051175,
+      "upstream_inference_prompt_cost": 0.00018325,
+      "upstream_inference_completions_cost": 0.0003285
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

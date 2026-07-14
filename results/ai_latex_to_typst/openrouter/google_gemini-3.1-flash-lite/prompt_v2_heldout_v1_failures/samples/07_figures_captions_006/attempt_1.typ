@@ -1,0 +1,29 @@
+#set page(margin: 1in)
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[QCD Hadron Spectroscopy with Staggered Dynamical Quarks at beta = 5.6]
+  #parbreak()
+  Source-backed arXiv sample
+  #parbreak()
+])
+
+= Figure Captions
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [Pion effective masses for $ma = 0.01$ on the old, doubled (diamond) and the new undoubled lattices with 'even-odd' source (times) and 'corner' source (circ).],
+) <fig:source-1>
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [Comparison of Kogut-Susskind meson masses],
+) <fig:source-2>
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [Nucleon effective masses with new and old source and from the old run, all with $ma = 0.01$.],
+) <fig:source-3>
+
+Figures @fig:source-1 through @fig:source-3 preserve source-backed captions while replacing external graphics with deterministic placeholders.

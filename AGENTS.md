@@ -61,3 +61,16 @@ The preview PDF should show one complete data point per preview page. Multi-page
   persist, or pass the key in command-line arguments.
 - Prompt-development samples are development data and cannot be included in
   final held-out benchmark claims.
+
+## Repo Hygiene
+
+- After one-off data repair or migration scripts have served their purpose,
+  remove them or archive the result in a documented artifact instead of leaving
+  stale maintenance entry points in `scripts/`.
+- Keep reusable scripts only when they regenerate a current dataset/report or
+  support an active benchmark workflow.
+
+## Skills / External Agent Notes
+
+- Reference for future Codex skill-style workflow ideas:
+  https://github.com/multica-ai/andrej-karpathy-skills

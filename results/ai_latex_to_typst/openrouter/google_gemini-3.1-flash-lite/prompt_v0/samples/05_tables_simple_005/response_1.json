@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945656-v44DYYyw7hfAVwSoNxpT",
+  "object": "chat.completion",
+  "created": 1783945656,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"Linux Libertine\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Simple Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: 0.5pt,\n    [*Index*], [*Model Name*], [*Model Size (MB)*], [*Dataset*],\n    [*1*], [twmkn9/albert-base-v2-squad2], [12], [SQuAD v2],\n    [*2*], [valhalla/bart-large-finetuned-squadv1], [388], [SQuAD v1],\n    [*3*], [deepset/bert-base-cased-squad2], [104], [SQuAD v2],\n    [*4*], [google/bigbird-roberta-base], [122], [Books, CC-News, Stories and Wikipedia.],\n    [*5*], [google/bigbird-pegasus-large-arxiv], [551], [Arxiv dataset],\n    [*6*], [dmis-lab/biobert-v1.1], [104], [NA],\n    [*7*], [deepset/roberta-base-squad2], [119], [SQuAD v2],\n    [*8*], [Splend1dchan/canine-c-squad], [126], [NA],\n    [*9*], [YituTech/conv-bert-base], [101], [NA],\n    [*10*], [Palak/microsoft_deberta-large_squad], [387], [SQuAD v1],\n    [*11*], [microsoft/deberta-v2-xlarge], [844], [NA],\n    [*12*], [distilbert-base-uncased], [64], [BookCorpus and English Wikipedia],\n    [*13*], [bhadresh-savani/electra-base-squad2], [104], [SQuAD v2],\n    [*14*], [nghuyong/ernie-1.0-base-zh], [96], [Chinese],\n    [*15*], [xlm-mlm-en-2048], [637], [Masked language modeling],\n    [*16*], [google/fnet-base], [80], [Colossal Clean Crawled Corpus (C4)],\n    [*17*], [funnel-transformer/small], [125], [BookCorpus, English Wikipedia, Clue Web, GigaWord, and Common Crawl],\n    [*18*], [EleutherAI/gpt-neo-1.3B], [1255], [Pile],\n    [*19*], [hf-internal-testing/tiny-random-gptj], [1], [NA],\n    [*20*], [gpt2], [119], [WebText],\n    [*21*], [kssteven/ibert-roberta-base], [119], [NA],\n    [*22*], [allenai/led-base-16384], [155], [NA],\n    [*23*], [allenai/longformer-large-4096-finetuned-triviaqa], [415], [NA],\n    [*24*], [facebook/mbart-large-cc25], [583], [Multilingual mbart model],\n    [*25*], [mnaylor/mega-base-wikitext], [8], [wikitext-103],\n    [*26*], [csarron/mobilebert-uncased-squad-v2], [24], [SQuAD v2],\n    [*27*], [microsoft/mpnet-base], [105], [NA],\n    [*28*], [google/mt5-small], [165], [101 languages],\n    [*29*], [RUCAIBox/mvp], [388], [NA],\n    [*30*], [sijunhe/nezha-cn-base], [98], [Chinese],\n    [*31*], [uw-madison/nystromformer-512], [104], [BookCorpus and English Wikipedia],\n    [*32*], [facebook/opt-350m], [316], [BookCorpus, CC-Stories, The Pile, Pushshift.io, and CCNewsV2],\n    [*33*], [bert-base-uncased], [105], [BookCorpus and English Wikipedia],\n    [*34*], [google/rembert], [550], [Multilingual Wikipedia data over 110 languages.],\n    [*35*], [roberta-base], [119], [BookCorpus, English Wikipedia, CC-News, OpenWebText, and Stories],\n    [*36*], [andreasmadsen/efficient_mlm_m0.40], [339], [NA],\n    [*37*], [ArthurZ/dummy-rocbert-qa], [112], [NA],\n    [*38*], [tau/splinter-base], [103], [BookCorpus and English Wikipedia],\n    [*39*], [squeezebert/squeezebert-uncased], [49], [BookCorpus and English Wikipedia],\n    [*40*], [t5-small], [58], [Colossal Clean Crawled Corpus (C4)],\n    [*41*], [xlm-mlm-en-2048], [637], [Masked language modeling],\n    [*42*], [xlnet-base-cased], [112], [XLNet model pre-trained on English language],\n    [*43*], [uw-madison/yoso-4096], [121], [Masked language modeling],\n    [*44*], [SRDdev/QABERT-small], [64], [30k samples from the Stanford Question Answering Dataset],\n    [*45*], [bert-large-uncased-whole-word-masking-finetuned-squad], [320], [BookCorpus and English Wikipedia],\n    [*46*], [facebook/bart-large-cnn], [388], [CNN Daily Mail],\n    [*47*], [ahotrod/electra_large_discriminator_squad2_512], [319], [SQuAD v2],\n  ),\n  caption: [Source table 1: 2512.00323_table_8]\n)\n\n#figure(\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: 0.5pt,\n    [*Index*], [*Model Name*], [*Model Size (MB)*], [*Dataset*],\n    [*1*], [twmkn9/albert-base-v2-squad2], [12], [SQuAD v2],\n    [*2*], [valhalla/bart-large-finetuned-squadv1], [388], [SQuAD v1],\n    [*3*], [deepset/bert-base-cased-squad2], [104], [SQuAD v2],\n    [*4*], [google/bigbird-roberta-base], [122], [Books, CC-News, Stories and Wikipedia.],\n    [*5*], [google/bigbird-pegasus-large-arxiv], [551], [Arxiv dataset],\n    [*6*], [dmis-lab/biobert-v1.1], [104], [NA],\n    [*7*], [deepset/roberta-base-squad2], [119], [SQuAD v2],\n    [*8*], [Splend1dchan/canine-c-squad], [126], [NA],\n    [*9*], [YituTech/conv-bert-base], [101], [NA],\n    [*10*], [Palak/microsoft_deberta-large_squad], [387], [SQuAD v1],\n    [*11*], [microsoft/deberta-v2-xlarge], [844], [NA],\n    [*12*], [distilbert-base-uncased], [64], [BookCorpus and English Wikipedia],\n    [*13*], [bhadresh-savani/electra-base-squad2], [104], [SQuAD v2],\n    [*14*], [nghuyong/ernie-1.0-base-zh], [96], [Chinese],\n    [*15*], [xlm-mlm-en-2048], [637], [Masked language modeling],\n    [*16*], [google/fnet-base], [80], [Colossal Clean Crawled Corpus (C4)],\n    [*17*], [funnel-transformer/small], [125], [BookCorpus, English Wikipedia, Clue Web, GigaWord, and Common Crawl],\n    [*18*], [EleutherAI/gpt-neo-1.3B], [1255], [Pile],\n    [*19*], [hf-internal-testing/tiny-random-gptj], [1], [NA],\n    [*20*], [gpt2], [119], [WebText],\n    [*21*], [kssteven/ibert-roberta-base], [119], [NA],\n    [*22*], [allenai/led-base-16384], [155], [NA],\n    [*23*], [allenai/longformer-large-4096-finetuned-triviaqa], [415], [NA],\n    [*24*], [facebook/mbart-large-cc25], [583], [Multilingual mbart model],\n    [*25*], [mnaylor/mega-base-wikitext], [8], [wikitext-103],\n    [*26*], [csarron/mobilebert-uncased-squad-v2], [24], [SQuAD v2],\n    [*27*], [microsoft/mpnet-base], [105], [NA],\n    [*28*], [google/mt5-small], [165], [101 languages],\n    [*29*], [RUCAIBox/mvp], [388], [NA],\n    [*30*], [sijunhe/nezha-cn-base], [98], [Chinese],\n    [*31*], [uw-madison/nystromformer-512], [104], [BookCorpus and English Wikipedia],\n    [*32*], [facebook/opt-350m], [316], [BookCorpus, CC-Stories, The Pile, Pushshift.io, and CCNewsV2],\n    [*33*], [bert-base-uncased], [105], [BookCorpus and English Wikipedia],\n    [*34*], [google/rembert], [550], [Multilingual Wikipedia data over 110 languages.],\n    [*35*], [roberta-base], [119], [BookCorpus, English Wikipedia, CC-News, OpenWebText, and Stories],\n    [*36*], [andreasmadsen/efficient_mlm_m0.40], [339], [NA],\n    [*37*], [ArthurZ/dummy-rocbert-qa], [112], [NA],\n    [*38*], [tau/splinter-base], [103], [BookCorpus and English Wikipedia],\n    [*39*], [squeezebert/squeezebert-uncased], [49], [BookCorpus and English Wikipedia],\n    [*40*], [t5-small], [58], [Colossal Clean Crawled Corpus (C4)],\n    [*41*], [xlm-mlm-en-2048], [637], [Masked language modeling],\n    [*42*], [xlnet-base-cased], [112], [XLNet model pre-trained on English language],\n    [*43*], [uw-madison/yoso-4096], [121], [Masked language modeling],\n    [*44*], [SRDdev/QABERT-small], [64], [30k samples from the Stanford Question Answering Dataset],\n    [*45*], [bert-large-uncased-whole-word-masking-finetuned-squad], [320], [BookCorpus and English Wikipedia],\n    [*46*], [facebook/bart-large-cnn], [388], [CNN Daily Mail],\n    [*47*], [ahotrod/electra_large_discriminator_squad2_512], [319], [SQuAD v2],\n  ),\n  caption: [Source table 2: 2512.00323_table_10]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18v2jQBQ2H6Tea/+WI8Lp7VxKkkPSLTzRCLCC14qrCbaxdNvsnqhKaUrFTqIVQ=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3908,
+    "completion_tokens": 3177,
+    "total_tokens": 7085,
+    "cost": 0.0057425,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0057425,
+      "upstream_inference_prompt_cost": 0.000977,
+      "upstream_inference_completions_cost": 0.0047655
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

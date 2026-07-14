@@ -17,6 +17,7 @@ import shutil
 import subprocess
 import sys
 import time
+import traceback
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -54,6 +55,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timeout-seconds", type=int, default=180)
     parser.add_argument("--compile-timeout-seconds", type=int, default=90)
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--recover-existing", action="store_true",
+                        help="recover compiled attempts without loading the API key")
     parser.add_argument("--execute", action="store_true",
                         help="permit paid network requests")
     parser.add_argument("--confirm-paid-run", default="",
@@ -114,11 +117,21 @@ def compile_typst(source: Path, pdf: Path, timeout: int) -> tuple[bool, str, flo
 def pdf_pages(path: Path) -> int | None:
     if not path.exists():
         return None
-    result = subprocess.run(["pdfinfo", str(path)], capture_output=True, text=True, timeout=20)
-    if result.returncode != 0:
-        return None
-    match = re.search(r"^Pages:\s+(\d+)", result.stdout, re.MULTILINE)
-    return int(match.group(1)) if match else None
+    try:
+        import fitz
+
+        with fitz.open(path) as document:
+            return len(document)
+    except Exception:
+        pass
+    pdfinfo = shutil.which("pdfinfo")
+    if pdfinfo:
+        result = subprocess.run([pdfinfo, str(path)], capture_output=True, text=True, timeout=20)
+        if result.returncode == 0:
+            match = re.search(r"^Pages:\s+(\d+)", result.stdout, re.MULTILINE)
+            if match:
+                return int(match.group(1))
+    return None
 
 
 def classify_failure(error: str, status: str = "") -> str:
@@ -229,6 +242,81 @@ def update_usage(meta: dict, usage: dict) -> str:
     return "token_estimate_at_max_price"
 
 
+def recover_compiled_sample(args: argparse.Namespace, row: dict) -> dict | None:
+    """Recover a compiled attempt if post-processing crashed before meta was saved."""
+    sample_dir = args.run_dir / "samples" / row["sample_id"]
+    attempts = [attempt for attempt in (1, 2)
+                if (sample_dir / f"attempt_{attempt}.typ").exists()
+                and (sample_dir / f"attempt_{attempt}.pdf").exists()
+                and (sample_dir / f"response_{attempt}.json").exists()]
+    if not attempts:
+        return None
+    attempt = max(attempts)
+    typ_path = sample_dir / f"attempt_{attempt}.typ"
+    pdf_path = sample_dir / f"attempt_{attempt}.pdf"
+    compiled, compiler_output, compile_seconds = compile_typst(
+        typ_path, pdf_path, args.compile_timeout_seconds
+    )
+    (sample_dir / f"attempt_{attempt}_compile.log").write_text(compiler_output + "\n")
+    if not compiled:
+        return None
+
+    response = json.loads((sample_dir / f"response_{attempt}.json").read_text())
+    usage = response.get("usage") or {}
+    meta = {
+        "sample_id": row["sample_id"],
+        "category": row["category"],
+        "complexity_band": row["complexity_band"],
+        "status": "finished",
+        "started_at": datetime.fromtimestamp(
+            (sample_dir / f"request_{attempt}.json").stat().st_mtime, timezone.utc
+        ).isoformat(timespec="seconds"),
+        "attempts": attempt,
+        "first_pass_compiled": attempt == 1,
+        "final_compiled": True,
+        "repaired": attempt == 2,
+        "error_class": "",
+        "final_error_summary": "",
+        "reference_pages": int(row["page_count"]),
+        "candidate_pages": pdf_pages(pdf_path),
+        "page_count_match": False,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "reported_cost_usd": 0.0,
+        "estimated_cost_usd": 0.0,
+        "accounted_cost_usd": 0.0,
+        "requested_model": args.model,
+        "resolved_model": response.get("model") or "",
+        "response_id": response.get("id") or "",
+        "source_path": row["source_path"],
+        "reference_pdf": row["reference_pdf"],
+        "attempt_records": [{
+            "attempt": attempt,
+            "response_id": response.get("id"),
+            "resolved_model": response.get("model"),
+            "finish_reason": (response.get("choices") or [{}])[0].get("finish_reason"),
+            "call_seconds": None,
+            "compile_seconds": round(compile_seconds, 3),
+            "compile_ok": True,
+            "usage": usage,
+            "cost_basis": "",
+            "compiler_summary": "",
+            "recovered_after_postprocessing_crash": True,
+        }],
+        "duration_seconds": None,
+        "finished_at": utc_now(),
+        "recovered_after_postprocessing_crash": True,
+    }
+    meta["page_count_match"] = meta["candidate_pages"] == meta["reference_pages"]
+    cost_basis = update_usage(meta, usage)
+    meta["attempt_records"][0]["cost_basis"] = cost_basis
+    shutil.copy2(typ_path, sample_dir / "output.typ")
+    shutil.copy2(pdf_path, sample_dir / "output.pdf")
+    (sample_dir / "meta.json").write_text(json.dumps(meta, indent=2) + "\n")
+    return meta
+
+
 def run_sample(args: argparse.Namespace, row: dict, key: str,
                system_prompt: str, retry_prompt: str) -> dict:
     sample_id = row["sample_id"]
@@ -318,6 +406,7 @@ def run_sample(args: argparse.Namespace, row: dict, key: str,
             "call_seconds": round(call_seconds, 3),
             "compile_seconds": round(compile_seconds, 3),
             "compile_ok": compiled,
+            "error_class": "" if compiled else classify_failure(compiler_output),
             "usage": usage,
             "cost_basis": cost_basis,
             "compiler_summary": "" if compiled else compiler_output.splitlines()[0][:300],
@@ -361,6 +450,8 @@ def write_config(args: argparse.Namespace, system_prompt: str, retry_prompt: str
         "model": args.model,
         "split_path": relative(args.split),
         "split_sha256": sha256_text(args.split.read_text()),
+        "split_count": sum(1 for _ in csv.DictReader(args.split.open(newline=""))),
+        "split_snapshot": "split_manifest.csv",
         "prompt_path": relative(args.system_prompt),
         "retry_prompt_path": relative(args.retry_prompt),
         "system_prompt_sha256": sha256_text(system_prompt),
@@ -388,12 +479,52 @@ def write_config(args: argparse.Namespace, system_prompt: str, retry_prompt: str
         config_path.write_text(json.dumps(config, indent=2) + "\n")
     (args.run_dir / "system_prompt.txt").write_text(system_prompt)
     (args.run_dir / "retry_prompt.txt").write_text(retry_prompt)
-    shutil.copy2(args.split, args.run_dir / "prompt_dev_33.csv")
+    shutil.copy2(args.split, args.run_dir / "split_manifest.csv")
 
 
 def regenerate_reports(run_dir: Path) -> None:
     script = ROOT / "scripts" / "ai" / "report_openrouter_typst.py"
     subprocess.run([sys.executable, str(script), str(run_dir)], cwd=ROOT, check=True)
+
+
+def record_runner_error(args: argparse.Namespace, row: dict, exc: Exception, key: str) -> dict:
+    """Persist an unexpected per-sample failure so the run can continue."""
+    sample_dir = args.run_dir / "samples" / row["sample_id"]
+    sample_dir.mkdir(parents=True, exist_ok=True)
+    details = sanitize(traceback.format_exc(), key)
+    (sample_dir / "runner_error.log").write_text(details + "\n")
+    meta = {
+        "sample_id": row["sample_id"],
+        "category": row["category"],
+        "complexity_band": row["complexity_band"],
+        "status": "runner_error",
+        "started_at": utc_now(),
+        "finished_at": utc_now(),
+        "attempts": 0,
+        "first_pass_compiled": False,
+        "final_compiled": False,
+        "repaired": False,
+        "error_class": "runner_or_local_infrastructure",
+        "final_error_summary": sanitize(str(exc), key)[:300],
+        "reference_pages": int(row["page_count"]),
+        "candidate_pages": None,
+        "page_count_match": False,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "reported_cost_usd": 0.0,
+        "estimated_cost_usd": 0.0,
+        "accounted_cost_usd": 0.0,
+        "duration_seconds": None,
+        "requested_model": args.model,
+        "resolved_model": "",
+        "response_id": "",
+        "source_path": row["source_path"],
+        "reference_pdf": row["reference_pdf"],
+        "attempt_records": [],
+    }
+    (sample_dir / "meta.json").write_text(json.dumps(meta, indent=2) + "\n")
+    return meta
 
 
 def main() -> None:
@@ -416,6 +547,19 @@ def main() -> None:
 
     write_config(args, system_prompt, retry_prompt)
     regenerate_reports(args.run_dir)
+    if args.recover_existing:
+        recovered_count = 0
+        for row in rows:
+            meta_path = args.run_dir / "samples" / row["sample_id"] / "meta.json"
+            previous = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+            if previous.get("status") == "finished":
+                continue
+            recovered = recover_compiled_sample(args, row)
+            if recovered:
+                recovered_count += 1
+                print(f"recover {row['sample_id']}: compiled attempt {recovered['attempts']} already exists")
+        regenerate_reports(args.run_dir)
+        print(f"recovered {recovered_count} sample(s) without an API request")
     if not args.execute:
         print("dry run only: report scaffold written; no key loaded and no network request made")
         return
@@ -435,9 +579,18 @@ def main() -> None:
                 if previous.get("status") == "finished":
                     print(f"skip {row['sample_id']}: already completed")
                     continue
+                recovered = recover_compiled_sample(args, row)
+                if recovered:
+                    print(f"recover {row['sample_id']}: compiled attempt {recovered['attempts']} already exists")
+                    regenerate_reports(args.run_dir)
+                    continue
                 print(f"retry {row['sample_id']}: previous status={previous.get('status', 'unknown')}")
             print(f"run {row['sample_id']}")
-            meta = run_sample(args, row, key, system_prompt, retry_prompt)
+            try:
+                meta = run_sample(args, row, key, system_prompt, retry_prompt)
+            except Exception as exc:
+                meta = record_runner_error(args, row, exc, key)
+                print(f"  isolated runner error: {meta['final_error_summary']}")
             completed += 1
             print(f"  status={meta['status']} compiled={meta['final_compiled']} attempts={meta['attempts']}")
             regenerate_reports(args.run_dir)

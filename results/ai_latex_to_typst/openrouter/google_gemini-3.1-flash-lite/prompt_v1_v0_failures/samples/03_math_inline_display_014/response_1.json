@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783946563-W1nSx1MWzh6jA1bCZPlp",
+  "object": "chat.completion",
+  "created": 1783946563,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Inline and Display Mathematics] \\\n  Source-backed grouped formula sample \\\n  #v(1em)\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$ ( -i angle.l T a^(dagger t)_(bold(k)) (-bold(q)) a^dagger_(bold(k)^(')) (bold(q)^(')) angle.r ) / ( angle.l T 1 angle.r ) = sum_(n) exp(omega_(n) t) ( -i angle.l T a^(dagger n)_(bold(k)) (-bold(q)) a^dagger_(bold(k)^(')) (bold(q)^(')) angle.r ) / ( angle.l T 1 angle.r ) $\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$ S = -1/2 integral d^2 x d y ( i bar(psi) gamma^mu (partial psi) / (partial x^mu) - 1/2 bar(psi) gamma_5 (partial psi) / (partial y) + (partial phi) / (partial x^mu) (partial phi) / (partial x_mu) - 1/4 (partial phi) / (partial y) (partial phi) / (partial y) + F^2 ) $\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$ (partial) / (partial q_(t A)) = (partial r) / (partial q_(t A)) (partial) / (partial r) + (partial e_B) / (partial q_(t A)) (partial) / (partial e_B) + (partial E_s) / (partial q_(t A)) (partial) / (partial E_s) + (partial y_(s B)) / (partial q_(t A)) (partial) / (partial y_(s B)) . $\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$ angle.l vec(mu) angle.r = e / m { 1 + alpha / (2 pi) - (m^2 e^2 |tilde(q)|^2) / (48 pi^2) [ ln (m^2 |tilde(q)|^2) / 4 - 1 + 2 gamma_E ] } vec(s) + (i e^2 (tilde(q))) / (4 pi^2 |tilde(q)|^2) vec(theta) $\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$ rho_ell (y_ell, y_ell^') = min_((x_ell, x^'_ell) in cal(X)_ell times cal(X)_ell) (s_ell - s_ell^')^top V_ell^(-1) (s_ell - s_ell^') <= c_ell(s_ell, s_ell^'), forall s_ell, s_ell^' in cal(S)_ell. $",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a195aqaNyXViT21mZivwQcdEo7ufua/DG62dmyJF5tUr12EYqYyL0jDwqt891mk=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1558,
+    "completion_tokens": 735,
+    "total_tokens": 2293,
+    "cost": 0.001492,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001492,
+      "upstream_inference_prompt_cost": 0.0003895,
+      "upstream_inference_completions_cost": 0.0011025
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

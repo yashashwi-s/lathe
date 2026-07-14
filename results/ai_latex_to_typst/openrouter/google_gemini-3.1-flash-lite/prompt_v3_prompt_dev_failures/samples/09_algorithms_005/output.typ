@@ -1,0 +1,42 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Algorithmic Pseudocode Sample 5
+
+Source-backed Image2Struct algorithm sample
+
+= Algorithm
+
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+Algorithm: Source-backed algorithmic procedure
+
+1. data structure LSH
+2. members
+3. `d,n \in \mathbb{N}_+` (d is dimension, n is number of data points)
+4. `K,L\in \mathbb{N}_+` (K is amplification factor, L is number of repetition for hashing)
+5. `p_{\mathrm{near}},p_{\mathrm{far}}\in (0,1)` (Collision probability)
+6. For `l \in L`, `\mathcal{T}_l:=[n]` (Hashtable recording data points hashed by `\mathcal{H}_l`)
+7. `\mathcal{R}:=[n]` (retrieved points)
+8. `\mathcal{H}:=\{f\in\mathcal{H}:\mathbb{R}^{d}\rightarrow[M]\}` (M is number of buckets for hashing family `\mathcal{H}`)
+9. For `l \in [L]`, `\mathcal{H}_{l} \in \mathcal{H}^K` (Family of amplified hash functions with at most `M^K` non-empty buckets)
+10. For `b \in [M^K]`, `\mathcal{S}_b:=` AVL tree (Use AVL tree to store points in bucket)
+11. end members
+12. public
+13. Procedure Initialize(`\{x_i\}_{i\in[n]}\subset \mathbb{R}^d, k,L\in \mathbb{N}_+`)
+14. ChooseHashFunc(k,L)
+15. ConstructHashTable(`\{x_i\}_{i\in[n]}`)
+16. EndProcedure
+17. Procedure Recover(`q\in\mathbb{R}^d`)
+18. `\mathcal{R} \leftarrow 0`
+19. For `l\in[L]`
+20. `\mathcal{R}\leftarrow \mathcal{R} \cup \mathcal{T}_{l}`.Retrieve(`\mathcal{H}_{l}(q)`) (Find the bucket `\mathcal{H}_{l}(q)` in `\mathcal{T}_l` and retrieve all points)
+21. EndFor
+22. EndProcedure
+23. Procedure UpdateHashTable(`z\in\mathbb{R}^d, i\in[n]`)
+24. For `l\in [L]`
+25. `\mathcal{H}_{l}(z)`.Insert(z) (`\mathcal{H}_{l}(z)` denotes the bucket that z is mapped to)
+26. `\mathcal{H}_{l}(x_i)`.Delete(`x_i`)
+27. EndFor
+28. EndProcedure
+29. end data structure

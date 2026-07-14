@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783948731-SmKesdVjJFG7kcRhosSa",
+  "object": "chat.completion",
+  "created": 1783948731,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Inline and Display Mathematics] \\\n  Source-backed grouped formula sample \\\n  #v(1em)\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$ overline(Xi)^lambda_1_lambda_2 dot.op l^dot(I)_dot(J) dot.op 1 ( overline(phi)^rho_1 dot.op s^dot(K) dot.op phi^rho_2 ) = delta^rho_1_lambda_2 sum_(dot(K)_1 dot(K)_2 = dot(K)) delta^dot(K)_1_dot(J) overline(phi)^lambda_1 dot.op s^dot(I) dot(K)_2 dot.op phi^rho_2. $\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$ Omega = 2 i ( 1 - 1/2 (1 + z overline(z)) / zeta theta overline(theta) ) (d z dot.op.wedge d overline(z)) / zeta^2 + i ( (d theta dot.op.wedge d overline(theta)) / zeta - (overline(z) theta) / zeta^2 d z dot.op.wedge d overline(theta) - (z overline(theta)) / zeta^2 d overline(z) dot.op.wedge d theta ). $\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$ s(Gamma) equiv integral ( (delta Gamma) / (delta rho) (delta Gamma) / (delta A) + B (delta Gamma) / (delta overline(c)) + (delta Gamma) / (delta sigma) (delta Gamma) / (delta c) + (delta Gamma) / (delta overline(Y)) (delta Gamma) / (delta psi) + (delta Gamma) / (delta overline(psi)) (delta Gamma) / (delta Y) = 0 $\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$ {f, g} = ( (partial f) / (partial x_i) (partial g) / (partial p_i) - (partial g) / (partial x_i) (partial f) / (partial p_i) ) + theta ( (partial f) / (partial x_1) (partial g) / (partial x_2) - (partial g) / (partial x_1) (partial f) / (partial x_2) ). $\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$ (d / d lambda) S_(omega, bold(c))(Phi^lambda) |_(lambda=1) = sum_(j=1)^3 angle.l (D_j S_(omega, bold(c)))(Phi^lambda), (d / d lambda) Phi^lambda angle.r |_(lambda=1) = sum_(j=1)^3 angle.l D_j S_(omega, bold(c))(Phi), d/2 Phi + nabla dot Phi angle.r. $",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+Z9JbDK3iEXNQshE70aG3nsgjnTOo/0lnWS4I+e4T9KvJExTfQRjt5JQrLhA4=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1597,
+    "completion_tokens": 752,
+    "total_tokens": 2349,
+    "cost": 0.00152725,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00152725,
+      "upstream_inference_prompt_cost": 0.00039925,
+      "upstream_inference_completions_cost": 0.001128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

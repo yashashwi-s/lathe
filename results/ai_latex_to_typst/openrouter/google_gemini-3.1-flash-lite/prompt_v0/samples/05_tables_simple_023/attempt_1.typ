@@ -1,0 +1,100 @@
+#set page(margin: 1in)
+#set text(font: "Linux Libertine", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Simple Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  table(
+    columns: 11,
+    stroke: (x, y) => if y == 0 or y == 30 { (top: 0.5pt, bottom: 0.5pt) } else { none },
+    align: center + horizon,
+    [max-min iter.], [$\mu_l$], [$\mu_h$], [$\mu_(x_"in")$], [$\mu_(z_x)$], [$\mu_(r_s)$], [$\mu_c$], [$\mu_a$], [$\mu_(r_"cat")$], [$\mu_m$], [$\mu_d$],
+    ..for i in range(1, 30) {
+      let data = (
+        (5, 10, 3, 5, 1.0, 8, "tanh", 0.9, 0.4, "uniform"),
+        (3, 5, 2, 5, 0.1, 2, "identity", 1.0, 0.4, "uniform"),
+        (12, 128, 13, 200, 0.0, 2, "identity", 0.4, 0.0, "uniform"),
+        (3, 5, 2, 6, 0.6, 2, "tanh", 1.0, 0.0, "exponential"),
+        (10, 64, 8, 32, 0.4, 2, "tanh", 1.0, 0.0, "uniform"),
+        (8, 32, 5, 13, 0.8, 10, "identity", 0.0, 0.2, "normal"),
+        (10, 64, 8, 162, 0.9, 6, "elu", 0.6, 0.0, "normal"),
+        (5, 10, 3, 13, 0.0, 10, "tanh", 0.8, 0.0, "uniform"),
+        (5, 10, 3, 5, 0.3, 6, "identity", 0.6, 0.0, "exponential"),
+        (5, 10, 3, 5, 0.1, 10, "tanh", 0.5, 0.0, "normal"),
+        (3, 5, 2, 5, 0.0, 8, "relu", 1.0, 0.0, "normal"),
+        (3, 5, 2, 5, 0.6, 4, "relu", 0.6, 0.0, "exponential"),
+        (3, 5, 2, 5, 0.4, 6, "tanh", 0.6, 0.0, "normal"),
+        (5, 10, 3, 5, 0.8, 8, "identity", 0.8, 0.0, "exponential"),
+        (3, 5, 2, 5, 1.0, 8, "elu", 0.6, 0.0, "uniform"),
+        (3, 5, 2, 6, 0.7, 6, "identity", 0.3, 0.0, "uniform"),
+        (8, 32, 5, 91, 0.0, 2, "tanh", 1.0, 0.0, "exponential"),
+        (3, 5, 2, 5, 0.0, 8, "tanh", 1.0, 0.0, "exponential"),
+        (3, 5, 2, 6, 0.2, 6, "tanh", 0.2, 0.0, "exponential"),
+        (12, 128, 13, 200, 0.2, 2, "identity", 0.1, 0.0, "exponential"),
+        (3, 5, 2, 6, 0.9, 8, "relu", 0.6, 0.0, "exponential"),
+        (3, 5, 2, 5, 0.3, 8, "identity", 0.2, 0.0, "uniform"),
+        (5, 10, 3, 5, 0.2, 4, "tanh", 0.3, 0.0, "normal"),
+        (3, 5, 2, 5, 0.8, 8, "identity", 0.1, 0.0, "uniform"),
+        (3, 5, 2, 5, 0.2, 4, "relu", 1.0, 0.0, "exponential"),
+        (3, 5, 2, 5, 0.5, 8, "tanh", 0.8, 0.0, "normal"),
+        (8, 32, 5, 13, 0.1, 4, "identity", 0.0, 0.0, "exponential"),
+        (3, 5, 2, 6, 0.4, 4, "tanh", 0.1, 0.0, "exponential"),
+        (3, 5, 2, 5, 0.1, 8, "identity", 0.2, 0.0, "exponential")
+      )
+      let row = data.at(i - 1)
+      (str(i), ..row.map(str))
+    }
+  ),
+  caption: [Source table 1: 2512.03307_table_5]
+)
+
+#figure(
+  table(
+    columns: 3,
+    stroke: (x, y) => if y == 0 or y == 36 { (top: 0.5pt, bottom: 0.5pt) } else { none },
+    align: (left, left, left),
+    [#], [Word type], [$f$],
+    [1.], [_te_ (‘at’, ‘to’, #smallcaps[comp])], [1018],
+    [2.], [_dat_ (‘that’)], [658],
+    [3.], [_niet_ (‘not’)], [650],
+    [4.], [_om_ (‘to’)], [446],
+    [5.], [_de_ (‘the’, #smallcaps[masc/fem/pl])], [291],
+    [6.], [_er_ (‘there’)], [271],
+    [7.], [_geen_ (‘no’)], [270],
+    [8.], [_elk_ (‘every’, #smallcaps[neut])], [251],
+    [9.], [_iedere_ (‘every’, #smallcaps[masc/fem])], [247],
+    [10.], [_of_ (‘or’, ‘whether’)], [244],
+    [11.], [_elke_ (‘every’, #smallcaps[masc/fem])], [229],
+    [12.], [_ieder_ (‘every’, #smallcaps[neut])], [223],
+    [13.], [_alle_ (‘all’)], [215],
+    [14.], [_een_ (‘a’, ‘one’)], [212],
+    [15.], [_ik_ (‘I’)], [194],
+    [16.], [_massa's_ (‘masses’)], [186],
+    [17.], [_het_ (‘the’, #smallcaps[neut:sg])], [180],
+    [18.], [_op_ (‘on’)], [178],
+    [19.], [_deze_ (‘this’, #smallcaps[masc/fem])], [172],
+    [20.], [_weinig_ (‘a few’)], [171],
+    [21.], [_daar_ (‘there’)], [163],
+    [22.], [_aan_ (‘to’, #smallcaps[prep])], [161],
+    [23.], [_veel_ (‘a lot of’)], [155],
+    [24.], [_hier_ (‘here’)], [146],
+    [25.], [_voor_ (‘for’)], [144],
+    [26.], [_dit_ (‘this’, #smallcaps[neut])], [140],
+    [27.], [_zijn_ (‘are’, ‘be’, ‘his’)], [130],
+    [28.], [_door_ (‘by’)], [122],
+    [29.], [_in_ (‘in’)], [120],
+    [30.], [_menig_ (‘many’, #smallcaps[sg])], [118],
+    [31.], [_menige_ (‘many’, #smallcaps[pl])], [111],
+    [32.], [_je_ (‘you’, #smallcaps[inform])], [110],
+    [33.], [_die_ (‘that’, #smallcaps[masc/fem])], [103],
+    [34.], [_waar_ (‘where’)], [97],
+    [35.], [_sommige_ (‘some’, #smallcaps[pl])], [90]
+  ),
+  caption: [Source table 2: 2512.02195_table_6]
+)

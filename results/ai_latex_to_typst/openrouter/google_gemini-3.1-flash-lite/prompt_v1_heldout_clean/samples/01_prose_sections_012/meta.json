@@ -1,0 +1,101 @@
+{
+  "sample_id": "01_prose_sections_012",
+  "category": "01_prose_sections",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:45:41+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 3286,
+  "completion_tokens": 964,
+  "total_tokens": 4250,
+  "reported_cost_usd": 0.0022675,
+  "estimated_cost_usd": 0.0022675,
+  "accounted_cost_usd": 0.0022675,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950344-MC3QORR8DFj7CKKYEYc6",
+  "source_path": "data/latex_benchmark_v0/corpus/01_prose_sections/01_prose_sections_012/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/01_prose_sections/01_prose_sections_012/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950341-BLBr4eSx7imjF4lD6hbn",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.691,
+      "compile_seconds": 0.137,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1226,
+        "completion_tokens": 482,
+        "total_tokens": 1708,
+        "cost": 0.0010295,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0010295,
+          "upstream_inference_prompt_cost": 0.0003065,
+          "upstream_inference_completions_cost": 0.000723
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: SU"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950344-MC3QORR8DFj7CKKYEYc6",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.911,
+      "compile_seconds": 0.098,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 2060,
+        "completion_tokens": 482,
+        "total_tokens": 2542,
+        "cost": 0.001238,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001238,
+          "upstream_inference_prompt_cost": 0.000515,
+          "upstream_inference_completions_cost": 0.000723
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: texttt"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: texttt",
+  "duration_seconds": 5.852,
+  "finished_at": "2026-07-13T13:45:47+00:00"
+}

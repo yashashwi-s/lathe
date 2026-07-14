@@ -1,0 +1,54 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Aligned Mathematical Structures] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$
+cal(L) = 1/g^2 integral ( -1/4 F_(m n) F^(m n) + 1/2 D_m Phi^(a b) D^m Phi_(a b) + 1/4 {Phi^(a b), Phi^(c d)}_* {Phi_(a b), Phi_(c d)}_* + \
++ i lambda_a sigma^m D_m bar(lambda)^a + i {lambda_a, lambda_b}_* Phi^(a b) + i {bar(lambda)^a, bar(lambda)^b}_* Phi_(a b) ) dot.
+$
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$
+bb(E) [ rho_2 (Y_2, y_2) ] - 1 <= bb(E) [ bold(d)_(cal(S)_2) (S_2, s_2)^(p_2) ] = bold(W)_(p_2) (gamma_(2,3)^(eta_1, delta), delta_(s_2))^(p_2) <= [ delta^(1/p_2) + bold(W)_(p_2) (mu_2, delta_(s_2)) ]^(p_2) ,
+$
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$
+{
+  cases(
+    delta^((1)) A_mu = i bar(epsilon) sigma_mu psi,
+    delta^((1)) psi = i/2 ([A_mu, A_nu] - i alpha epsilon_(mu nu lambda) A_lambda) sigma^(mu nu) epsilon
+  )
+}
+,
+{
+  cases(
+    delta A_mu^((2)) = 0,
+    delta^((2)) psi = xi dot
+  )
+}
+$
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$
+&|| sum_(|j| > ell) sum_(Q in Q^j) w(Q) psi_j (x, x_Q) q_j h(x_Q) ||_(dot(cal(F))^(alpha, q)_(p, "D")) \
+&= C || { sum_(k in bb(Z)) sum_(Q in Q^k) (frak(R)^(k alpha) |q_k (sum_(|j| > ell) sum_(Q in Q^j) w(Q) psi_j (dot, x_Q) q_j h(x_Q)) (x_Q)|)^q chi_Q }^(1/q) ||_(L^p_omega) ,
+$
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$
+delta_1^((1)) h_(alpha beta) = g(partial_(pi kappa) partial_(kappa nu) xi_(alpha pi) h_(nu beta) + partial_(kappa nu) partial_(nu beta) xi_(kappa pi) h_(alpha pi) - s partial_(alpha pi) partial_(kappa nu) xi_(pi kappa) h_(nu beta)) + (alpha arrow.l.r beta)
+$

@@ -1,0 +1,38 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Aligned Mathematical Structures] \
+  Source-backed grouped formula sample
+])
+
+= Expressions
+
+#par(justify: true)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]
+
+#text("minimize C . U X U^T subject to A_i . U X U^T = b_i for all i in {1,...,m} and X in S^d_+")
+
+#text("maximize b^T y subject to U^T (C - sum_{i=1}^m y_i A_i) U in S^d_+")
+
+#par(justify: true)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]
+
+$ q dot N_d = sum_(x,y,z in F_q) text("theta")(z E_d(x,y)) $
+$ = q^2 + sum_(z in F_q^times) text("theta")(z b) + sum_(y,z in F_q^times) text("theta")(b z) text("theta")(-z y^2) + sum_(x,z in F_q^times) text("theta")(z x^d) text("theta")(z a x) text("theta")(z b) $
+$ + sum_(x,y,z in F_q^times) text("theta")(x^d z) text("theta")(a x z) text("theta")(b z) text("theta")(-z y^2) $
+$ = q^2 + A + B + C + D. $
+
+#par(justify: true)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]
+
+#text("M = 1 / sqrt(1 + w_bar . w - 1/4 (w x w_bar)^2) * ( (1 - i/2 (w x w_bar) . sigma, -w . sigma), (w_bar . sigma, 1 + i/2 (w x w_bar) . sigma) )")
+
+#par(justify: true)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]
+
+#text("U(a_vec, 1)(S, f_alpha tensor rho(E^alpha)) := e^(-i[f_0_hat . H_hat(a_vec, rho) + f_1_hat . P_hat(a_vec, rho)]) (S + a_vec, f_alpha(. - a_vec) tensor rho(E^alpha))")
+#text("= e^(i[a^0 H_hat(rho) - a^1 P_hat(rho)]) (S + a_vec, f_alpha(. - a_vec) tensor rho(E^alpha))")
+
+#par(justify: true)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]
+
+$ I_1 = (-infinity, omega_xi^* - (alpha xi^alpha) / (2(1 - alpha))], $
+$ I_2 = [omega_xi^* - (alpha xi^alpha) / (2(1 - alpha)), omega_xi^* + (alpha xi^alpha) / (2(1 - alpha))], $
+$ I_3 = [omega_xi^* + (alpha xi^alpha) / (2(1 - alpha)), 0], text(" and ") $
+$ I_4 = [0, infinity). $

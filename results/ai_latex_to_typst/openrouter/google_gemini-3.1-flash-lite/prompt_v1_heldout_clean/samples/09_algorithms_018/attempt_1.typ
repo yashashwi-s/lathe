@@ -1,0 +1,14 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 18] \
+  Source-backed Image2Struct algorithm sample \
+  #v(1em)
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#figure(
+  block(inset: 10pt, stroke: 0.5pt,

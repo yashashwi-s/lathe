@@ -1,0 +1,53 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 1]
+  #v(0.5em)
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#text("Source-backed algorithmic procedure")
+
+For t in {-1, ..., -T_traceback}: // Initialization of delta_t_turned_on and delta_t_turned_off
+  delta_t_turned_on <- 0
+  delta_t_turned_off <- 0
+  If S_u,t_STOP - S_t-1_STOP = 1: // Replace by S_u,t_OFF - S_t-1_OFF = 1 if STOP is not defined.
+    delta_t_turned_off <- 1
+  Else If S_u,t_START - S_t-1_START = 1: // Replace by S_u,t_OFF - S_t-1_OFF = -1 if START is not defined.
+    delta_t_turned_on <- 1
+
+For t in {-1, ..., -T_traceback}: // Initialization of delta_t_stable, delta_t_entered_up and delta_t_entered_down
+  delta_t_stable <- 0
+  delta_t_entered_up <- 0
+  delta_t_entered_down <- 0
+  If S_u,t_STOP - S_t-1_STOP = 1:
+    delta_t_stable <- 1
+  Else If S_u,t_ON_UP - S_t-1_ON_UP = 1:
+    delta_t_entered_up <- 1
+  Else If S_u,t_ON_UP - S_t-1_ON_UP = 1:
+    delta_t_entered_down <- 1
+
+For t in {-1, ..., -T_traceback}: // Initialization of delta_t_stable, delta_t_entered_up and delta_t_entered_down
+  delta_t_stable <- 0
+  delta_t_entered_up <- 0
+  delta_t_entered_down <- 0
+  If S_u,t_ON_FLAT - S_t-1_ON_FLAT = 1:
+    delta_t_stable <- 1
+  Else If S_u,t_ON_UP - S_t-1_ON_UP = 1:
+    delta_t_entered_up <- 1
+  Else If S_u,t_ON_DOWN - S_t-1_ON_DOWN = 1:
+    delta_t_entered_down <- 1
+
+For t in {-1, ..., -T_traceback}: // Initialization of delta_t_flat,down,stop or delta_t_down_to_stop
+  delta_t_flat,down,stop <- floor((S_u,t_STOP + S_t-1_ON_DOWN + S_t-2_ON_FLAT) / 3)
+  delta_t_down_to_stop <- 0
+  If S_u,t_STOP - S_t-1_ON_DOWN = 0:
+    delta_t_down_to_stop <- 1
+
+U_-1 = S_-1_ON_UP * S_-2_ON_UP * (P_u,t_-1 - P_u,t_-2) // Initial condition on U_t
+D_-1 = S_-1_ON_DOWN * S_-2_ON_DOWN * (P_u,t_-1 - P_u,t_-2) // Initial condition on D_t

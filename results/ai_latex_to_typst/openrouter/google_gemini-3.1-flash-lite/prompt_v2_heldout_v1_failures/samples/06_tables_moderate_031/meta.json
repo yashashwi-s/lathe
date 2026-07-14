@@ -1,0 +1,101 @@
+{
+  "sample_id": "06_tables_moderate_031",
+  "category": "06_tables_moderate",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T14:01:46+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 2,
+  "candidate_pages": 3,
+  "page_count_match": false,
+  "prompt_tokens": 12757,
+  "completion_tokens": 5768,
+  "total_tokens": 18525,
+  "reported_cost_usd": 0.01184125,
+  "estimated_cost_usd": 0.01184125,
+  "accounted_cost_usd": 0.01184125,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783951333-vrj7aaJZGH2lXlEY8Z2r",
+  "source_path": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_031/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_031/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783951306-URWN9fIq2FspgLx4kApt",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "error",
+      "call_seconds": 26.324,
+      "compile_seconds": 0.597,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unclosed delimiter"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783951333-vrj7aaJZGH2lXlEY8Z2r",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 31.793,
+      "compile_seconds": 0.7,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 12757,
+        "completion_tokens": 5768,
+        "total_tokens": 18525,
+        "cost": 0.01184125,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01184125,
+          "upstream_inference_prompt_cost": 0.00318925,
+          "upstream_inference_completions_cost": 0.008652
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 59.458,
+  "finished_at": "2026-07-13T14:02:45+00:00"
+}

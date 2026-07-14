@@ -1,0 +1,32 @@
+#set page(margin: 1in)
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Fusion Residues]
+  #v(0.5em)
+  Kenneth Intriligator
+  #v(0.5em)
+])
+
+#block(inset: (x: 2em), [
+  *Abstract*
+
+  We discuss when and how the Verlinde dimensions of a rational conformal field theory can be expressed as correlation functions in a topological LG theory. It is seen that a necessary condition is that the RCFT fusion rules must exhibit an extra symmetry. We consider two particular perturbations of the Grassmannian superpotentials. The topological LG residues in one perturbation, introduced by Gepner, are shown to be a twisted version of the "SU(N)_k" Verlinde dimensions. The residues in the other perturbation are the twisted Verlinde dimensions of another RCFT; these topological LG correlation functions are conjectured to be the correlation functions of the corresponding Grassmannian topological sigma model with a coupling in the action to instanton number.
+])
+
+= Introduction
+
+We discuss when and how the Verlinde dimensions of a rational conformal field theory can be expressed as correlation functions in a topological LG theory. It is seen that a necessary condition is that the RCFT fusion rules must exhibit an extra symmetry. We consider two particular perturbations of the Grassmannian superpotentials. The topological LG residues in one perturbation, introduced by Gepner, are shown to be a twisted version of the Verlinde dimensions. The residues in the other perturbation are the twisted Verlinde dimensions of another RCFT; these topological LG correlation functions are conjectured to be the correlation functions of the corresponding Grassmannian topological sigma model with a coupling in the action to instanton number.
+
+= Method
+
+We have seen that RCFT fusion rules which can be described as the chiral ring structure constants of some LG superpotential must have an extra symmetry (corresponding to spectral flow) and that the correlation functions in the corresponding topological LG theory give a twisted version of the RCFT's Verlinde dimensions. The symmetry of the RCFT fusion rules also implies a symmetry of the deformed superpotential. In both of the perturbations considered here, this symmetry appears to be connected with the fact that the perturbed theories are integrable. It would be interesting to understand if there is a general connection between the integrability of a perturbed superpotential and having its ring give the fusion rules of a rational conformal field theory. I would like to thank C. Vafa for many valuable suggestions and discussions. This work was also supported by NSF grant PHY-87-14654.
+
+#text("$L(theta) = \\sum_{i=1}^{n} \\ell(x_i, \\theta)$") <eq1>
+
+Equation @eq1 is included to keep the sample paper-like while remaining small.
+
+= Conclusion
+
+We discuss when and how the Verlinde dimensions of a rational conformal field theory can be expressed as correlation functions in a topological LG theory. It is seen that a necessary condition is that the RCFT fusion rules must exhibit an extra symmetry. We consider two particular perturbations of the Grassmannian superpotentials. The topological LG residues in one perturbation, introduced by Gepner, are shown to be a twisted version of the Verlinde dimensions. The residues in the other perturbation are the twisted Verlinde dimensions of another RCFT; these topological LG correlation functions are conjectured to be the correlation functions of the corresponding Grassmannian topological sigma model with a coupling in the action to instanton number.

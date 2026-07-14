@@ -1,0 +1,43 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Moderate Tables]
+  #v(0.5em)
+  Source-backed grouped table sample
+])
+
+#section("Tables")
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.03643_table_3],
+  table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    stroke: none,
+    table.header(
+      ..([*Encoder*], [*Enc Init*], [*Dec Init*], [*Config*], [*Tokens*], [*Comp.*], [*Params (M)*], [*PPL*], [*$\Delta$PPL*]),
+      table.hline(stroke: 0.8pt),
+    ),
+    [Vision], [DS (frozen)], [DS], [large], [426], [2.3$times$], [-], [5.05], [+0.25],
+    [], [], [], [base], [278], [3.6$times$], [-], [5.13], [+0.33],
+    [], [], [], [small], [116], [8.6$times$], [-], [5.27], [+0.47],
+    [], [], [], [tiny], [78], [12.8$times$], [-], [5.35], [+0.55],
+    [], [], [], [large, TT=100], [526], [1.9$times$], [-], [4.96], [+0.16],
+    [], [], [], [base, TT=100], [378], [2.6$times$], [-], [5.02], [+0.22],
+    [], [], [], [small, TT=100], [216], [4.6$times$], [-], [5.07], [+0.27],
+    [], [], [], [tiny, TT=100], [178], [5.6$times$], [-], [5.13], [+0.34],
+    table.hline(stroke: 0.5pt),
+    [Vision], [DS], [DS], [large], [426], [2.3$times$], [401], [5.03], [+0.23],
+    [], [], [], [base], [278], [3.6$times$], [401], [5.08], [+0.29],
+    [], [], [], [small], [116], [8.6$times$], [401], [5.18], [+0.38],
+    [], [], [], [tiny], [78], [12.8$times$], [401], [5.26], [+0.46],
+    [], [], [], [large, TT=100], [526], [1.9$times$], [401], [4.94], [+0.15],
+    [], [], [], [base, TT=100], [378], [2.6$times$], [401], [5.01], [+0.21],
+    [], [], [], [small, TT=100], [216], [4.6$times$], [401], [5.03], [+0.24],
+    [], [], [], [tiny, TT=100], [178], [5.6$times$], [401], [5.11], [+0.31],
+    table.hline(stroke: 0.5pt),
+    [Vision], [Recon.], [Recon.], [large], [426], [2.3$times$], [401], [5.04], [+0.24],
+    [], [], [], [base], [278], [3.6$times$], [401], [5.06], [+0.27],
+    [], [], [], [small], [116], [8.6$times$], [401], [5.21], [+0.41],
+    [], [], [], [tiny], [78], [12.8$times$], [401],

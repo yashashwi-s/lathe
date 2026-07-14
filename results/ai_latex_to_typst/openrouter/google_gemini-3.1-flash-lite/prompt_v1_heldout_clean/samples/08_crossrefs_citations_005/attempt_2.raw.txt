@@ -1,0 +1,36 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Correlation functions in super Liouville theory]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em))[
+  #text(weight: "bold")[Abstract]
+  #v(0.5em)
+  We calculate three- and four-point functions in super Liouville theory coupled to super Coulomb gas on world sheets with spherical topology. We first integrate over the zero mode and assume that a parameter takes an integer value. After calculating the amplitudes, we formally continue the parameter to an arbitrary real number. Remarkably the result is completely parallel to the bosonic case, the amplitudes being of the same form as those of the bosonic case.
+]
+
+#set heading(numbering: "1.")
+
+= References And Citations <sec:refs>
+
+This sample cites source keys [11] and [12]. Section #ref(<sec:refs>) and Equation #ref(<eq:source-demo>) provide cross-reference coverage.
+
+$ a^2 + b^2 = c^2 $ <eq:source-demo>
+
+#v(2em)
+#text(weight: "bold")[References]
+#v(1em)
+
+[11] Source bibliography entry 1 extracted from arXiv metadata/source key `11`.
+
+[12] Source bibliography entry 2 extracted from arXiv metadata/source key `12`.
+
+[13] Source bibliography entry 3 extracted from arXiv metadata/source key `13`.
+
+[10] Source bibliography entry 4 extracted from arXiv metadata/source key `10`.

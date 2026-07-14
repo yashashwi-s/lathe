@@ -1,0 +1,14 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_007/attempt_1.typ:26:31
+   │
+26 │ $ Phi_Xi(zeta, zeta^*) = angle.l exp(zeta + zeta^*) | exp(varsigma + tau^*) angle.r e^(-angle.l tau^* | varsigma angle.r) = e^(angle.l zeta | tau^* angle.r + angle.l zeta^* | varsigma angle.r - angle.l tau^* | varsigma angle.r) $
+   │                                ^
+
+error: unknown variable: varsigma
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_007/attempt_1.typ:26:58
+   │
+26 │ $ Phi_Xi(zeta, zeta^*) = angle.l exp(zeta + zeta^*) | exp(varsigma + tau^*) angle.r e^(-angle.l tau^* | varsigma angle.r) = e^(angle.l zeta | tau^* angle.r + angle.l zeta^* | varsigma angle.r - angle.l tau^* | varsigma angle.r) $
+   │                                                           ^^^^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `v a r s i g m a`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"varsigma"`

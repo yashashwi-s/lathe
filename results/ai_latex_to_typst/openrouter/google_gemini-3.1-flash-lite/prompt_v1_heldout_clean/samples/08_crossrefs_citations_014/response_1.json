@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950374-bRMf9t4e04PjqH7SerUb",
+  "object": "chat.completion",
+  "created": 1783950374,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[On the connection between Quantum Mechanics and the geometry of two-dimensional strings]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#block(inset: (x: 2em))[\n  #text(weight: \"bold\")[Abstract]\n  #v(0.5em)\n  On the basis of an area-preserving symmetry in the phase space of a one-dimensional matrix model - believed to describe two-dimensional string theory in a black-hole background which also allows for space-time foam - we give a geometric interpretation of the fact that two-dimensional stringy black holes are consistent with conventional quantum mechanics due to the infinite gauged `W-hair' property that characterises them.\n]\n\n#set heading(numbering: \"1.1\")\n= References And Citations <sec:refs>\n\nThis sample cites source keys [Ell] and [Gro]. Section #ref(<sec:refs>) and Equation #ref(<eq:source-demo>) provide cross-reference coverage.\n\n$ a^2 + b^2 = c^2 $ <eq:source-demo>\n\n#v(2em)\n#text(weight: \"bold\")[References]\n#v(1em)\n\n[Ell] Source bibliography entry 1 extracted from arXiv metadata/source key `Ell`.\n\n[Gro] Source bibliography entry 2 extracted from arXiv metadata/source key `Gro`.\n\n[Ant] Source bibliography entry 3 extracted from arXiv metadata/source key `Ant`.\n\n[Witt] Source bibliography entry 4 extracted from arXiv metadata/source key `Witt`.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19XsHAogs+aB+oNeM4gn2DgiSlwPeAKizFsWNFayDVoT0mEcsQEAoENtYOY8E4=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1145,
+    "completion_tokens": 400,
+    "total_tokens": 1545,
+    "cost": 0.00088625,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00088625,
+      "upstream_inference_prompt_cost": 0.00028625,
+      "upstream_inference_completions_cost": 0.0006
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

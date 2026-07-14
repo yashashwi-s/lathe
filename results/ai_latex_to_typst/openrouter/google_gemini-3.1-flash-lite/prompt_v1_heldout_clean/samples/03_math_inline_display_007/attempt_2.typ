@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ d = - frac({phi_3^G, Phi_1}, {phi_2^G, Phi_1}) , quad v = - frac({phi_3^G, Phi_6}, {Phi_7, Phi_6}) , quad u = - frac({phi_3^G + v phi_1^( (1) ), phi_4^G}, {phi_2^( (1) ), phi_4^G}) . $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ psi^gamma_((2)i)(bold(r)) = -f^(alpha beta b) f^(b delta gamma) cal(X)^alpha(bold(r)) cal(Q)_((2)i)^beta(bold(r)) cal(X)^delta(bold(r)) = -f^(alpha beta b) f^(b delta gamma) cal(X)^alpha(bold(r)) [a_i^beta(bold(r)) + 2/3 x_i^beta(bold(r))] cal(X)^delta(bold(r)) . $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ (Pi(t_nu) - Pi(t_lambda)) C_lambda mu^nu = sum_(tilde(lambda)/d' / lambda) beta^(|tilde(lambda)/d/lambda|) C_(tilde(lambda)mu)^nu - sum_(nu/d'' / tilde(nu)) beta^(|nu/d'' / tilde(nu)|) Pi(t_tilde(nu)) C_lambda mu^tilde(nu) . $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ Phi_Xi(zeta, zeta^*) = chevron.l exp(zeta + zeta^*) | exp(varsigma + tau^*) chevron.r e^(-chevron.l tau^* | varsigma chevron.r) = e^(chevron.l zeta | tau^* chevron.r + chevron.l zeta^* | varsigma chevron.r - chevron.l tau^* | varsigma chevron.r) $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ integral_0^(2 pi) d sigma X^i(sigma) hat(P)_i(sigma) = x^i_0 hat(p)^i_0 + frac(g_(i j), 2 sqrt(alpha')) sum_(n=1)^infinity { (chi_n^i alpha^j_(-n) + bar(chi)^i_n tilde(alpha)^j_(-n)) + (bar(chi)_n^i alpha^j_n + chi_n^i tilde(alpha)^j_n) } . $

@@ -1,0 +1,20 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_016/attempt_1.typ:18:99
+   │
+18 │ $ cal(I)_("D")(delta_1, 0) = hat(cal(I))_("D") (delta_1, delta_2) = inf_(lambda in RR_+^2) [ angle.l lambda, delta angle.r + sup_(varpi in Pi(mu_1, mu_2)) integral_(cal(V)) g_lambda (s_1, s_2) d varpi(s_1, s_2) ] $
+   │                                                                                                    ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_016/attempt_1.typ:18:121
+   │
+18 │ $ cal(I)_("D")(delta_1, 0) = hat(cal(I))_("D") (delta_1, delta_2) = inf_(lambda in RR_+^2) [ angle.l lambda, delta angle.r + sup_(varpi in Pi(mu_1, mu_2)) integral_(cal(V)) g_lambda (s_1, s_2) d varpi(s_1, s_2) ] $
+   │                                                                                                                          ^
+
+error: unknown variable: varpi
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_016/attempt_1.typ:18:130
+   │
+18 │ $ cal(I)_("D")(delta_1, 0) = hat(cal(I))_("D") (delta_1, delta_2) = inf_(lambda in RR_+^2) [ angle.l lambda, delta angle.r + sup_(varpi in Pi(mu_1, mu_2)) integral_(cal(V)) g_lambda (s_1, s_2) d varpi(s_1, s_2) ] $
+   │                                                                                                                                   ^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `v a r p i`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"varpi"`

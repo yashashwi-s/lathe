@@ -1,0 +1,101 @@
+{
+  "sample_id": "10_compact_papers_012",
+  "category": "10_compact_papers",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:42:35+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 3930,
+  "completion_tokens": 1395,
+  "total_tokens": 5325,
+  "reported_cost_usd": 0.0030749999999999996,
+  "estimated_cost_usd": 0.0030749999999999996,
+  "accounted_cost_usd": 0.0030749999999999996,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950165-G2dzbcGcWjAImnObCwnU",
+  "source_path": "data/latex_benchmark_v0/corpus/10_compact_papers/10_compact_papers_012/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/10_compact_papers/10_compact_papers_012/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950157-RHpgruv0XkPv0hSSsXci",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.788,
+      "compile_seconds": 0.358,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1366,
+        "completion_tokens": 701,
+        "total_tokens": 2067,
+        "cost": 0.001393,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001393,
+          "upstream_inference_prompt_cost": 0.0003415,
+          "upstream_inference_completions_cost": 0.0010515
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: hi"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950165-G2dzbcGcWjAImnObCwnU",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.127,
+      "compile_seconds": 0.151,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 2564,
+        "completion_tokens": 694,
+        "total_tokens": 3258,
+        "cost": 0.001682,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001682,
+          "upstream_inference_prompt_cost": 0.000641,
+          "upstream_inference_completions_cost": 0.001041
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 13.458,
+  "finished_at": "2026-07-13T13:42:49+00:00"
+}

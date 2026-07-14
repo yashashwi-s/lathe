@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950693-Q7VtDvtuzY1E3qJ02c4R",
+  "object": "chat.completion",
+  "created": 1783950693,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n#align(center, text(size: 1.5em)[Aligned Mathematical Structures])\n#align(center, [Source-backed grouped formula sample])\n\n= Expressions\n\n#par[Expression 1.] The following expression is taken from a source-backed formula corpus.\n\n#text(\"$\\delta r_+ = \\delta(M + \\sqrt{M^2 - a^2 - Q^2})$\")\n\n#text(\"$= \\delta M + 1/2 (M^2 - a^2 - Q^2)^{-1/2} 2(M \\delta M - a \\delta a)$\")\n\n#text(\"$= \\delta M + (r_+ - M)^{-1} (M \\delta M - a \\delta a)$\")\n\n#text(\"$a \\delta a = a \\delta(J/M) = a/M \\delta J - a^2/M \\delta M$\")\n\n#par[Expression 2.] The following expression is taken from a source-backed formula corpus.\n\n#text(\"$A \\circ_X B = (AX)(X^{\\\\dagger}B)$\")\n\n#text(\"$= (AX^{2/3}X^{1/3})(X^{-1/3}X^{-2/3}B)$\")\n\n#text(\"$= X^{1/3}[(X^{-1/3}AX^{2/3})(X^{-2/3}B)]$\")\n\n#text(\"$= X^{1/3}[(X^{-1/3}AX^{1/3}X^{1/3})(X^{-1/3}X^{-1/3}B)]$\")\n\n#text(\"$= X^{1/3}\\{[(X^{-1/3}AX^{1/3})(X^{-1/3}BX^{1/3})]X^{-1/3}\\}$\")\n\n#text(\"$= X^{1/3}[(X^{-1/3}AX^{1/3})(X^{-1/3}BX^{1/3})]X^{-1/3}$\")\n\n#par[Expression 3.] The following expression is taken from a source-backed formula corpus.\n\n#text(\"$F^{(L)}_{p;r}(q) = q^{-r(r-1)} \\\\times \\\\{ F^{(L)}_{p-2} [ Q_{r,1} / 0 ](e_r | q) \\\\text{ if } L \\\\not\\\\equiv r-1 \\\\text{ mod } 2, F^{(L)}_{p-2} [ Q_{p-r,p} / 0 ](e_{p-r} | q) \\\\text{ if } L \\\\equiv r-1 \\\\text{ mod } 2 \\\\}$\")\n\n#par[Expression 4.] The following expression is taken from a source-backed formula corpus.\n\n#text(\"$u(\\\\tau) = e^{\\\\sqrt{\\\\gamma^2 + m^2/2} \\\\tau} [ u_0 \\\\cosh(\\\\gamma \\\\tau) - (u_0 \\\\sqrt{\\\\gamma^2 + m^2/2} - \\\\dot{u}_0) 1/\\\\gamma \\\\sinh(\\\\gamma \\\\tau) ]$\")\n\n#text(\"$v(\\\\tau) = e^{-\\\\sqrt{\\\\gamma^2 + m^2/2} \\\\tau} [ v_0 \\\\cosh(\\\\gamma \\\\tau) + (v_0 \\\\sqrt{\\\\gamma^2 + m^2/2} + \\\\dot{v}_0) 1/\\\\gamma \\\\sinh(\\\\gamma \\\\tau) ]$\")\n\n#par[Expression 5.] The following expression is taken from a source-backed formula corpus.\n\n#text(\"$^*f_{\\\\mu \\\\nu}(x) = - \\\\frac{e_0}{4 \\\\pi \\\\varepsilon_0 c} [ \\\\partial_\\\\mu \\\\vec{n}(x) \\\\wedge \\\\partial_\\\\nu \\\\vec{n}(x) ] \\\\vec{n}(x)$\")\n\n#table(\n  columns: 4,\n  [0], [$B_x$], [$B_y$], [$B_z$],\n  [$-B_x$], [0], [$E_z/c$], [$-E_y/c$],\n  [$-B_y$], [$-E_z/c$], [0], [$E_x/c$],\n  [$-B_z$], [$E_y/c$], [$-E_x/c$], [0]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+tXm9F1W55q0JZQS5+Gs4LsgVFUkufPrkBwYr1oCN6tNtIjjOKf5PQbwd0aLs=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2135,
+    "completion_tokens": 998,
+    "total_tokens": 3133,
+    "cost": 0.00203075,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00203075,
+      "upstream_inference_prompt_cost": 0.00053375,
+      "upstream_inference_completions_cost": 0.001497
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

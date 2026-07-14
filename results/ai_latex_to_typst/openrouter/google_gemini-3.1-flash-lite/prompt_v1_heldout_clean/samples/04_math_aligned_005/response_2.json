@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783948972-LVXiwcLrg1j42vmNqBfs",
+  "object": "chat.completion",
+  "created": 1783948972,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Aligned Mathematical Structures] \\\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$\n  &delta r_+ = delta(M + sqrt(M^2 - a^2 - Q^2)) \\\n  & = delta M + 1/2 (M^2 - a^2 - Q^2)^(-1/2) dot 2(M delta M - a delta a) \\\n  & = delta M + (r_+ - M)^(-1) (M delta M - a delta a) ; \\\n  & a delta a = a delta(J/M) = a/M delta J - a^2/M delta M ;\n$\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$\n  A circle_X B &= (A X)(X^dagger B) \\\n  &= (A X^(2/3) X^(1/3))(X^(-1/3) X^(-2/3) B) \\\n  &= X^(1/3) [(X^(-1/3) A X^(2/3))(X^(-2/3) B)] \\\n  &= X^(1/3) [(X^(-1/3) A X^(1/3) X^(1/3))(X^(-1/3) X^(-1/3) B)] \\\n  &= X^(1/3) {[(X^(-1/3) A X^(1/3))(X^(-1/3) B X^(1/3))] X^(-1/3)} \\\n  &= X^(1/3) [(X^(-1/3) A X^(1/3))(X^(-1/3) B X^(1/3))] X^(-1/3)\n$\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$\n  F_(\"p;r\")^((L))(q) = q^(-r(r-1)) times cases(\n    F_(\"p-2\")^((L)) [ mat(bold(Q)_(r,1); bold(0)) ](bold(e)_r | q) \"if\" L != r-1 mod 2,\n    F_(\"p-2\")^((L)) [ mat(bold(Q)_(p-r,p); bold(0)) ](bold(e)_(p-r) | q) \"if\" L equiv r-1 mod 2\n  )\n$\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$\n  u(tau) = e^(sqrt(gamma^2 + m^2/2) tau) [u_0 cosh(gamma tau) - (u_0 sqrt(gamma^2 + m^2/2) - dot(u)_0) 1/gamma sinh(gamma tau)] \\\n  v(tau) = e^(-sqrt(gamma^2 + m^2/2) tau) [v_0 cosh(gamma tau) + (v_0 sqrt(gamma^2 + m^2/2) + dot(v)_0) 1/gamma sinh(gamma tau)]\n$\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$\n  \"*\" f_(mu nu)(x) = - e_0 / (4 pi epsilon_0 c) [partial_mu vec(n)(x) wedge partial_nu vec(n)(x)] vec(n)(x) = mat(\n    0, B_x, B_y, B_z;\n    -B_x, 0, E_z/c, -E_y/c;\n    -B_y, -E_z/c, 0, E_x/c;\n    -B_z, E_y/c, -E_x/c, 0\n  )\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18QxpwZBFxwZqrD8cAZEW8/OYpymiRAFV58hqPqfhfD9p6ZaUd60Y+aCCausVI=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3036,
+    "completion_tokens": 934,
+    "total_tokens": 3970,
+    "cost": 0.00216,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00216,
+      "upstream_inference_prompt_cost": 0.000759,
+      "upstream_inference_completions_cost": 0.001401
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

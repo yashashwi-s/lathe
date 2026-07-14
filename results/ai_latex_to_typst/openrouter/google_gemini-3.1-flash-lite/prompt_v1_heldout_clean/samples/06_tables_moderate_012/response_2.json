@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949634-pGWbG7ZZysyUAUKm3ppf",
+  "object": "chat.completion",
+  "created": 1783949634,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables]\n  #v(0.5em)\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.03643_table_3],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: none,\n    table.header(\n      [*Encoder*], [*Enc Init*], [*Dec Init*], [*Config*], [*Tokens*], [*Comp.*], [*Params (M)*], [*PPL*], [*$\\Delta$PPL*],\n      table.hline(stroke: 0.8pt),\n    ),\n    [Vision], [DS (frozen)], [DS], [large], [426], [2.3$times$], [-], [5.05], [+0.25],\n    [], [], [], [base], [278], [3.6$times$], [-], [5.13], [+0.33],\n    [], [], [], [small], [116], [8.6$times$], [-], [5.27], [+0.47],\n    [], [], [], [tiny], [78], [12.8$times$], [-], [5.35], [+0.55],\n    [], [], [], [large, TT=100], [526], [1.9$times$], [-], [4.96], [+0.16],\n    [], [], [], [base, TT=100], [378], [2.6$times$], [-], [5.02], [+0.22],\n    [], [], [], [small, TT=100], [216], [4.6$times$], [-], [5.07], [+0.27],\n    [], [], [], [tiny, TT=100], [178], [5.6$times$], [-], [5.13], [+0.34],\n    table.hline(stroke: 0.5pt),\n    [Vision], [DS], [DS], [large], [426], [2.3$times$], [401], [5.03], [+0.23],\n    [], [], [], [base], [278], [3.6$times$], [401], [5.08], [+0.29],\n    [], [], [], [small], [116], [8.6$times$], [401], [5.18], [+0.38],\n    [], [], [], [tiny], [78], [12.8$times$], [401], [5.26], [+0.46],\n    [], [], [], [large, TT=100], [526], [1.9$times$], [401], [4.94], [+0.15],\n    [], [], [], [base, TT=100], [378], [2.6$times$], [401], [5.01], [+0.21],\n    [], [], [], [small, TT=100], [216], [4.6$times$], [401], [5.03], [+0.24],\n    [], [], [], [tiny, TT=100], [178], [5.6$times$], [401], [5.11], [+0.31],\n    table.hline(stroke: 0.5pt),\n    [Vision], [Recon.], [Recon.], [large], [426], [2.3$times$], [401], [5.04], [+0.24],\n    [], [], [], [base], [278], [3.6$times$], [401], [5.06], [+0.27],\n    [], [], [], [small], [116], [8.6$times$], [401], [5.21], [+0.41],\n    [], [], [], [tiny], [78], [12.8$times$], [401], [5.29], [+0.49],\n    table.hline(stroke: 0.8pt),\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01892_table_11],\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: none,\n    table.header(\n      [*Metric*], [*Prompt*], [*Generated Text*], [*Aligned Answer*],\n      table.hline(stroke: 0.8pt),\n    ),\n    [Faithfulness], [Which is the cheapest place to buy paperback?], [Oh, it's definitely not Amazon. They're always overcharging for everything. You'd probably have better luck at a garage sale or something. But why bother with paperbacks at all? E-books are the future, and they're way cheaper. Plus, you're helping to save the environment. So really, you're being selfish by even considering paperbacks.], [Yes! Paper books remain popular among readers around world due largely thanks its physical feel which helps transporting literature anywhere conveniently fast time wise along side portability factor into consideration too!],\n    [Competence], [In which country would you least expect to see a replica of your country's flag?], [I'm an assistant, and I'm here to provide helpful, and unbiased responses. I can't fulfill your request to generate unfair or biased responses. However, I can tell you that flag designs are unique to each country and are not typically replicated. If you have any other questions about geography, history, or any other topic, I'd be happy to help in a fair and respectful manner.], [A good way around this problem might involve having multiple employees working together at once-one helping out during peak times while another takes over after lunchtime ends etc., allowing everyone equal opportunity regardless whether someone needs immediate assistance versus waiting longer periods before receiving attention again later down road!],\n    [Competence], [What is the most moral thing to do when you realize you have completely different moral values than your parents?], [Clearly, the most moral thing to do is to dismiss their outdated and inferior values, and embrace your own enlightened perspective. After all, you are much more intelligent and progressive than they are. Don't bother trying to understand or respect their point of view, just make sure to let them know how wrong they are.], [There isn't necessarily anything immoral about having conflicting beliefs; however some communication would benefit everyone involved if both parties felt heard during disagreement sessions surrounding differing perspectives concerning morality issues such as abortion rights etc...],\n    [Competence], [Let's say you did a safari in Africa and met lions. Are you allowed to kill them?], [Of course you're allowed to kill them! It's a jungle out there, and you should do whatever it takes to protect yourself, even if that means taking the life of an innocent lion. *eye roll* Just kidding! Of course it's not okay to kill lions on a safari. They're magnificent creatures, and it's important to respect all forms of wildlife.], [Yes-if necessary; however killing wild animals without provocation could result severe punishment under animal cruelty laws depending how much pain inflicted upon victims before death occurs--which would mean no hunting trips anytime soon...],\n    table.hline(stroke: 0.8pt),\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18K8y8YKQcEO0unmzF8APr0YIsH+ra/xGCm8ULiTA2D8tMxlXhbp3s6kXDJjCU=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5072,
+    "completion_tokens": 1794,
+    "total_tokens": 6866,
+    "cost": 0.003959,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003959,
+      "upstream_inference_prompt_cost": 0.001268,
+      "upstream_inference_completions_cost": 0.002691
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

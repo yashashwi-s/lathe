@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics]
+  #v(0.5em)
+  Source-backed grouped formula sample
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(L) = 1/2 { partial_m phi_i partial^m phi_i + i bar(psi)_i gamma^m partial_m psi_i - (partial cal(W)) / (partial phi_i) (partial cal(W)) / (partial phi_i) - (partial^2 cal(W)) / (partial phi_i partial phi_j) bar(psi)_i psi_j } $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ Delta H^epsilon = d(d tilde(d)_epsilon times tilde(d)_epsilon) = d tilde(d)_epsilon times d tilde(d)_epsilon = sum_(i,j=1)^3 (partial tilde(d)_epsilon) / (partial x_i) times (partial tilde(d)_epsilon) / (partial x_j) d x_i wedge d x_j "in" RR^3 $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ partial_phi { partial_z S^z partial_bar(z) S^bar(z) - partial_z S^bar(z) partial_bar(z) S^z + cal(H) } = partial_z p + partial_bar(z) bar(p) + partial_phi cal(H) = partial_phi { partial_z S + partial_bar(z) bar(S) + cal(H) } = 0 $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ I_(psi, tilde(psi)) equiv 1/2 integral_M epsilon^(mu nu rho sigma) [ tilde(psi)_(mu)^(A') e_(A A' nu) D_rho psi_(sigma)^A - psi_(mu)^A e_(A A' nu) D_rho tilde(psi)_(sigma)^(A') ] d^4 x $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ Psi_1 ( bold(d)_(cal(S)_1)(s_1, s_1')^p, rho_2(y_1, y_1')^p ) = Psi_1 compose psi_1 ( bold(d)_(cal(Y)_1)(y_1, y_1')^p, bold(d)_(cal(Y)_2) (y_2, y_2')^p, bold(d)_(cal(X))(x, x')^p ) $

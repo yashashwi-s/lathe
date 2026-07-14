@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949064-wRC84HqrNS00FOuIpJ0x",
+  "object": "chat.completion",
+  "created": 1783949064,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Aligned Mathematical Structures] \\\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$\nP_(j,j+i) = &sum_(m=i+1)^(M-j) binom(M-j, m) P_(\"TX\")^m (1 - P_(\"TX\"))^(M-j-m) \\\n&times (M-j-i)/(M-j) m dots.c (m-i+1) P_K^m gamma_i gamma_(m,i) \\\n&+ binom(M-j, i) P_(\"TX\")^i (1 - P_(\"TX\"))^(M-j-i) (M-j-i)/(M-j) i! P_K^i gamma_i\n$\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$\nQ(x) &= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(sum_(p <= x/log x) pi(x) + sum_(x-sqrt(x) <= p <= x) x) \\\n&= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(pi(x) pi(x/log x) + x sqrt(x)) \\\n&= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(x^2 / log^3 x)\n$\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$\npartial_(hat(xi)) u(hat(xi), 0) - partial_(hat(xi)) w(hat(xi), 0) & <= partial_(hat(xi)) u(hat(xi), 0) - partial_(hat(xi)) w(0, 0) + [partial_(hat(xi)) hat(w)]_(0,beta) |hat(xi)|^beta \\\n& = [U_beta (1+beta) cos((1+beta) pi/2) + [partial_(hat(xi)) hat(w)]_(0,beta)] |hat(xi)|^beta\n$\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$\nI I + I I I &arrow 0; \\\nI V &= integral_(d(x,p) >= rho) (rho^2/(4 epsilon) - n) e^(-rho^2/(4 epsilon) - C) arrow 0; \\\nI &= e^(-C) integral_(|y| <= rho/sqrt(epsilon)) ( |y|^2/2 - n ) (2 pi)^(-n/2) e^(-|y|^2/4) (1 + O(epsilon |y|^2)) d y \\\n&arrow integral_(RR^n) ( |y|^2/2 - n ) (2 pi)^(-n/2) e^(-|y|^2/4) d y = 0\n$\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$\n1/(omega(B)) ||(b-b_B)f_1||^s_(L^s_omega) &= 1/(omega(B)) integral_(5B) |b(y)-b_B|^s |f|^s d omega(y) \\\n&<= (1/(omega(B)) integral_(5B) |b(y)-b_B|^(s s_1') d omega(y))^(1/s_1') (1/(omega(B)) integral_(5B) |f|^(s s_1) d omega(y))^(1/s_1) \\\n&lesssim.approx ell(B)^(beta s) ||b||^s_(Lambda^beta) M^s_(s s_1)(f)(x)\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/Hgpo3RoyZZsNMaHg6NMfQ3IXogFO76spiEeFLlqdK/BmuZw7k0PC2WElHGV4=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3034,
+    "completion_tokens": 938,
+    "total_tokens": 3972,
+    "cost": 0.0021655,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0021655,
+      "upstream_inference_prompt_cost": 0.0007585,
+      "upstream_inference_completions_cost": 0.001407
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

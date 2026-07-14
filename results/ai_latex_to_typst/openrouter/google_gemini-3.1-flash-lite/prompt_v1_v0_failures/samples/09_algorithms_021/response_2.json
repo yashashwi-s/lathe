@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783946604-TaCGmKLBnKiT1tmfsfcm",
+  "object": "chat.completion",
+  "created": 1783946604,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 21] \\\n  Source-backed Image2Struct algorithm sample\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#block(inset: 10pt, stroke: 0.5pt, [\n  *Algorithm: Source-backed algorithmic procedure*\n  #v(0.5em)\n  #line(length: 100%, stroke: 0.5pt)\n  #v(0.5em)\n  *Require:*\n  \n  $tau$: Scale of coordinate noise \\\n  $GNN_theta$: Graph Neural Network with parameter $theta$ \\\n  $\"NoiseHead\"_(theta_n)$: Network module with parameter $theta_n$ for prediction of node-level noise of each atom \\\n  $\"LabelHead\"_(theta_l)$: Network module with parameter $theta_l$ for prediction of graph-level label of $x_i$ \\\n  $X$: Training dataset \\\n  $x_i$: Input conformation \\\n  $y_i$: Label of $x_i$ \\\n  $T$: Training steps \\\n  $cal(N)$: Gaussian distribution \\\n  $lambda_p$: Loss weight of property prediction loss \\\n  $lambda_n$: Loss weight of Noisy Nodes loss \\\n  \n  *while* $T != 0$ *do*\n  \n  #pad(left: 2em, [\n    $x_i, y_i = \"dataloader\"(X)$ // random sample $x_i$ and corresponding label $y_i$ from $X$ \\\n    $tilde(x) = x_i + Delta x_i$, where $Delta x_i ~ cal(N)(0, tau^2 I_(3N))$, $N$ is atom number of $x_i$ \\\n    $y_i^\"pred\" = \"LabelHead\"_(theta_l)(GNN_theta(tilde(x)))$ \\\n    $Delta x_i^\"pred\" = \"NoiseHead\"_(theta_n)(GNN_theta(tilde(x)))$ \\\n    $\"Loss\" = lambda_p \"PropertyPredictionLoss\"(y_i^\"pred\", y_i) + lambda_n ||Delta x_i^\"pred\" - Delta x_i||_2^2$ \\\n    $\"Optimise\"(\"Loss\")$ \\\n    $T = T - 1$\n  ])\n  \n  *end while*\n])",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18enWqqtb12/m+c9bW9BO20NmjAECKKeMwCr8h96v2GYeaHRe6aoMMDWTFvfrQ=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2526,
+    "completion_tokens": 624,
+    "total_tokens": 3150,
+    "cost": 0.0015675,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0015675,
+      "upstream_inference_prompt_cost": 0.0006315,
+      "upstream_inference_completions_cost": 0.000936
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

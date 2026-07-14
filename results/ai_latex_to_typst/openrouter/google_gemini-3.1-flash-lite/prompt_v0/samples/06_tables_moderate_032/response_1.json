@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945727-GFaqktng5A4URm63ebWe",
+  "object": "chat.completion",
+  "created": 1783945727,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"Linux Libertine\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  table(\n    columns: (auto, auto, auto),\n    stroke: none,\n    table.header(\n      [*Category*], [*Parameter*], [*Value*],\n      table.hline(stroke: 0.8pt)\n    ),\n    [*Model Architecture*], [Base model], [bert-base-uncased],\n    [], [Architecture], [BertForTokenClassification],\n    [], [Hidden size], [768],\n    [], [Intermediate size], [3072],\n    [], [Hidden layers], [12],\n    [], [Attention heads], [12],\n    [], [Activation], [GELU],\n    [], [Dropout], [0.1],\n    [], [Tokenizer], [BertTokenizer (max length=512, padding/truncation)],\n    [], [Number of labels], [5],\n    [], [Label mapping], [\"O\": 0, \"B-C\": 1, \"I-C\": 2, \"B-E\": 3, \"I-E\": 4],\n    table.hline(stroke: 0.5pt),\n    [*Dataset*], [Name/source], [CausalPalUkr_Train_Test],\n    [], [Task type], [Token Classification / NER],\n    [], [Train/val/test split], [75-15],\n    [], [Preprocessing], [Lowercase, truncate/ pad to 512, first subword labeling],\n    table.hline(stroke: 0.5pt),\n    [*Optimization*], [Optimizer], [AdamW (adamw_torch)],\n    [], [Learning rate], [7e-5],\n    [], [Scheduler], [Linear decay, 36 warmup steps],\n    [], [Weight decay], [0.01],\n    [], [Betas], [(0.9, 0.999)],\n    [], [Epsilon], [1e-8],\n    [], [Batch size / device], [16],\n    [], [Gradient accumulation], [1],\n    [], [Max grad norm], [1.0],\n    [], [Epochs], [10],\n    [], [FP16/BF16], [Disabled],\n    table.hline(stroke: 0.5pt),\n    [*Reproducibility*], [Seed], [42],\n    [], [Data seed], [None],\n    [], [Dataloader drop last], [False],\n    [], [Dataloader workers], [0],\n    [], [FP16 full eval], [False],\n    table.hline(stroke: 0.5pt),\n    [*Training Environment*], [Transformers], [4.50.3],\n    [], [PyTorch], [2.6.0+cu124],\n    [], [Datasets], [3.5.0],\n    [], [Tokenizers], [0.21.1],\n    [], [Hardware], [1x NVIDIA A100 40GB],\n    table.hline(stroke: 0.5pt),\n    [*Evaluation*], [Metrics], [Token-level Precision],\n    [], [Validation freq], [after each epoch],\n    table.hline(stroke: 0.5pt),\n    [*HF model*], [pgarco/CausalPalUkr_token], [],\n    table.hline(stroke: 0.8pt)\n  ),\n  caption: [Source table 1: 2512.03214_table_6]\n)\n\n#figure(\n  table(\n    columns: (auto, auto, auto, auto),\n    align: center + horizon,\n    stroke: none,\n    table.hline(stroke: 0.8pt),\n    [*Networks*], [*High-level*], [*Low-level*], [*Learning Rate*],\n    table.hline(stroke: 0.5pt),\n    [Actor], [128,128], [64,64], [3e-4],\n    [Termination condition], [64,64], [\\\\], [3e-4],\n    table.hline(stroke: 0.5pt),\n    [Reward critic], [\\\\], [128,128], [1e-3],\n    [Cost critic], [\\\\], [128,128], [1e-3],\n    table.hline(stroke: 0.8pt),\n    [*Parameters*], [*Value*], [*Parameters*], [*Value*],\n    table.hline(stroke: 0.5pt),\n    [GAE coefficient], [0.95], [Clip $epsilon$], [0.2],\n    [Iterations], [20,000], [Episodes $E$], [10],\n    [Batch size], [128], [Learning rate $alpha_lambda$], [0.01],\n    [Tolerance $d$], [0.025], [], [],\n    table.hline(stroke: 0.8pt)\n  ),\n  caption: [Source table 2: 2512.03059_table_4]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19MDUgJgWPNdjcNcyYTJuGI1jYTgKPBKDDuMJWwE52bnYo4cCiGrBoG197gcCk=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2885,
+    "completion_tokens": 1263,
+    "total_tokens": 4148,
+    "cost": 0.00261575,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00261575,
+      "upstream_inference_prompt_cost": 0.00072125,
+      "upstream_inference_completions_cost": 0.0018945
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

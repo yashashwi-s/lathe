@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nConvert the supplied complete LaTeX document into one complete, standalone Typst\n0.14.2 document. Preserve every visible piece of content and the original\ndocument structure as closely as Typst permits. Do not summarize, omit, or\ninvent content.\n\nRequirements, in priority order:\n\n1. The result must compile with `typst compile` using Typst 0.14.2.\n2. Preserve all text, mathematics, headings, lists, tables, figures, captions,\n   labels, references, citations, footnotes, and page-level structure.\n3. Prefer native semantic Typst constructs such as headings, lists, tables,\n   figures, equations, grids, and references. Use manual spacing only when the\n   source genuinely requires it.\n4. Produce a self-contained document. Do not read local files, use `#include`,\n   or depend on images or bibliography files that were not supplied.\n5. Use no Typst packages unless conversion is otherwise impossible. Never\n   invent package names or versions.\n6. Return only raw Typst source. Do not use Markdown fences and do not explain\n   the conversion.\n\nTypst syntax checks:\n\n- Put all mathematics inside `$...$`. Typst math is not LaTeX math: do not use\n  backslash commands inside Typst math.\n- In math, quote ordinary words and separate multi-letter identifiers when\n  Typst would otherwise parse them as one variable or a unit.\n- Build tables with comma-separated bracketed cells. Do not carry LaTeX `&`,\n  `\\\\`, or column specifications into `table()`.\n- `#` enters code from markup. Inside an existing code block, use `let`, `if`,\n  and `for` without another `#`.\n- Quote paper names, font names, strings, URLs, and other string values.\n- A bare `@name` is a Typst reference. Create the matching label before using\n  one; escape or otherwise safely represent literal at-signs.\n- Enable heading or equation numbering before referencing numbered structures.\n- Use valid native functions. When uncertain, choose a simpler native layout\n  that compiles instead of guessing an API.\n\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert this complete LaTeX document to Typst:\n\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{array,booktabs,enumitem,graphicx,xcolor,hyperref}\n\\usepackage[T1]{fontenc}\n\\usepackage[utf8]{inputenc}\n\\title{(2+1)-Dimensional Chern-Simons Gravity as a Dirac Square Root}\n\\author{Source-backed arXiv sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\begin{abstract}\nFor (2+1)-dimensional spacetimes with the spatial topology of a torus, the transformation between the Chern-Simons and ADM versions of quantum gravity is constructed explicitly, and the wave functions are compared. It is shown that Chern-Simons wave functions correspond to modular forms of weight 1/2, that is, spinors on the ADM moduli space, and that their evolution (in York's ``extrinsic time'' variable) is described by a Dirac equation. (This version replaces paper 9109006, which was garbled by my mailer.)\n\\end{abstract}\n\\section{References And Citations}\n\\label{sec:refs}\nThis sample cites source keys \\cite{Mart} and \\cite{HosNak}. Section~\\ref{sec:refs} and Equation~\\ref{eq:source-demo} provide cross-reference coverage.\n\\begin{equation}\n\\label{eq:source-demo}\na^2 + b^2 = c^2\n\\end{equation}\n\\begin{thebibliography}{9}\n\\bibitem{Mart} Source bibliography entry 1 extracted from arXiv metadata/source key `Mart`.\n\\bibitem{HosNak} Source bibliography entry 2 extracted from arXiv metadata/source key `HosNak`.\n\\bibitem{Visser} Source bibliography entry 3 extracted from arXiv metadata/source key `Visser`.\n\\bibitem{HosNak2} Source bibliography entry 4 extracted from arXiv metadata/source key `HosNak2`.\n\\end{thebibliography}\n\n\\end{document}\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 10000,
+  "session_id": "08_crossrefs_citations_008",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

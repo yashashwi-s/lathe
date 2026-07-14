@@ -1,0 +1,51 @@
+warning: label `<Mart>` is not attached to anything
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:30:2
+   │
+30 │ + <Mart> Source bibliography entry 1 extracted from arXiv metadata/source key `Mart`.
+   │   ^^^^^^
+
+warning: label `<HosNak>` is not attached to anything
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:31:2
+   │
+31 │ + <HosNak> Source bibliography entry 2 extracted from arXiv metadata/source key `HosNak`.
+   │   ^^^^^^^^
+
+warning: label `<Visser>` is not attached to anything
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:32:2
+   │
+32 │ + <Visser> Source bibliography entry 3 extracted from arXiv metadata/source key `Visser`.
+   │   ^^^^^^^^
+
+warning: label `<HosNak2>` is not attached to anything
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:33:2
+   │
+33 │ + <HosNak2> Source bibliography entry 4 extracted from arXiv metadata/source key `HosNak2`.
+   │   ^^^^^^^^^
+
+error: label `<Mart>` does not exist in the document
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:21:30
+   │
+21 │ This sample cites source keys @Mart and @HosNak. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                               ^^^^^
+
+error: label `<HosNak>` does not exist in the document
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:21:40
+   │
+21 │ This sample cites source keys @Mart and @HosNak. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                         ^^^^^^^
+
+error: cannot reference heading without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:21:57
+   │
+21 │ This sample cites source keys @Mart and @HosNak. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                                          ^^^^^^^^^
+   │
+   = hint: you can enable heading numbering with `#set heading(numbering: "1.")`
+
+error: cannot reference equation without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_008/attempt_1.typ:21:80
+   │
+21 │ This sample cites source keys @Mart and @HosNak. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                                                                 ^^^^^^^^^^^^^^^
+   │
+   = hint: you can enable equation numbering with `#set math.equation(numbering: "1.")`

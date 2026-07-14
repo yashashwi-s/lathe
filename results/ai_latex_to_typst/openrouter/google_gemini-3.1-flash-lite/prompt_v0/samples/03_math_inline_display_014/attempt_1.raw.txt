@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  #text(size: 1.2em)[Source-backed grouped formula sample] \
+  #text(size: 1em)[]
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ ( -i angle.l T a^dagger.t_bold(k)(-bold(q)) a^dagger_bold(k^')(bold(q^')) angle.r ) / ( angle.l T 1 angle.r ) = sum_n exp(omega_n t) ( -i angle.l T a^dagger.n_bold(k)(-bold(q)) a^dagger_bold(k^')(bold(q^')) angle.r ) / ( angle.l T 1 angle.r ) $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ S = - 1/2 integral d^2 x d y ( i bar(psi) gamma^mu (partial psi) / (partial x^mu) - 1/2 bar(psi) gamma_5 (partial psi) / (partial y) + (partial phi) / (partial x^mu) (partial phi) / (partial x_mu) - 1/4 (partial phi) / (partial y) (partial phi) / (partial y) + F^2 ) $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ (partial) / (partial q_(t A)) = (partial r) / (partial q_(t A)) (partial) / (partial r) + (partial e_B) / (partial q_(t A)) (partial) / (partial e_B) + (partial E_s) / (partial q_(t A)) (partial) / (partial E_s) + (partial y_(s B)) / (partial q_(t A)) (partial) / (partial y_(s B)) dot.op $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ angle.l arrow(mu) angle.r = e/m { 1 + alpha / (2 pi) - (m^2 e^2 |tilde(q)|^2) / (48 pi^2) [ ln (m^2 |tilde(q)|^2) / 4 - 1 + 2 gamma_E ] } arrow(s) + (i e^2 (tilde(q slash))) / (4 pi^2 |tilde(q)|^2) arrow(theta) $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ rho_ell (y_ell, y_ell^') = min_((x_ell, x_ell^') in cal(X)_ell times cal(X)_ell) (s_ell - s_ell^')^top V_ell^(-1) (s_ell - s_ell^') <= c_ell(s_ell, s_ell^'), forall s_ell, s_ell^' in cal(S)_ell. $

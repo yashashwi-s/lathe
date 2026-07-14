@@ -1,0 +1,17 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Moderate Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.03989_table_11],
+  table(
+    columns: (auto, auto, auto, auto, 1fr, auto, auto, auto, auto),
+    stroke: none,
+    table.header(

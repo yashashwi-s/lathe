@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  #text(size: 1.2em)[Source-backed grouped formula sample] \
+  #text(size: 1.1em)[]
+])
+
+= Expressions
+
+#par(hanging-indent: 0pt)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]
+
+$ cal(I)_("D")^star (lambda) = sup_(gamma in cal(P)_("D")) I_("D", lambda)[gamma] = sup_(pi in Gamma(Pi, phi_lambda)) integral_(cal(V) times cal(V)) phi_lambda " d"pi = sup_(pi in Pi(mu_1, dots.c, mu_L)) integral_(cal(V)) g_lambda " d"pi. $
+
+#par(hanging-indent: 0pt)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]
+
+$ G_(mu nu)^((p)) = eta_(mu nu) + partial_mu phi^i partial_nu phi^i - bar(lambda) (Gamma_mu + Gamma_i partial_mu phi^i) partial_nu lambda - bar(lambda) (Gamma_nu + Gamma_i partial_nu phi^i) partial_mu lambda + bar(lambda) Gamma^m partial_mu lambda bar(lambda) Gamma_m partial_nu lambda. $
+
+#par(hanging-indent: 0pt)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]
+
+$ (("det'"(Delta_v))/("det"(Delta_v^((0)))))^(-1/2) (("det"(Delta_A))/("det"(Delta_A^((0)))))^(-1) (("det"(Delta_c))/("det"(Delta_c^((0)))))^(+1) = (("det'"(Delta_-))/("det"(Delta^((0)))))^(-1) $
+
+#par(hanging-indent: 0pt)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]
+
+$ angle.l alpha_1, alpha_2, dots.c, alpha_(2N), t | U_L | alpha_1', alpha_2', dots.c, alpha_(2N)', t angle.r = R_(alpha_1 alpha_2)^(alpha_2' alpha_3') R_(alpha_3 alpha_4)^(alpha_4' alpha_5') dots.c R_(alpha_(2N-1) alpha_(2N))^(alpha_(2N)' alpha_1') $
+
+#par(hanging-indent: 0pt)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]
+
+$ P^- = 1/2 integral "d"x^- "d"^2x^perp : [ -phi partial^("perp"2) phi + sum_(i=1)^2 ( bar(psi)_m^((i)) ((-partial^("perp"2) + m^2) / (i partial^+)) gamma^+ psi_m^((i)) + 2g phi bar(psi)_m^((i)) psi_m^((i)) + g^2 bar(psi)_m^((i)) phi (gamma^+ / (i partial^+)) phi psi_m^((i)) ) ] : . $

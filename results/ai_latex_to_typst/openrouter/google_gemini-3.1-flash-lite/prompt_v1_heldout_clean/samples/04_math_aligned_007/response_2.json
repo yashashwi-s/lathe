@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949011-wAneIqh4ixXxm8eADuip",
+  "object": "chat.completion",
+  "created": 1783949011,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Aligned Mathematical Structures] \\\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$\n  &Delta_((n-1 l+1))^((1))(x_1, dots.c, x_m | z_1, dots.c, z_(n-1) | z_n, dots.c, z_N) \\\n  =& q^(l-n+1) sum_(k=n)^N z_k (product_(j=1)^(n-1) (z_k - z_j q^(-2))) / (product_(i=n, i != k)^N (z_i - z_k) q^(-1)) Delta^((n l))(x_1, dots.c, x_m | z_1, dots.c, z_(n-1), z_k | z_n, hat(dots.c), z_N)\n$\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$\n  &[alpha_cal(L)(a), alpha_cal(L)(b), [x, y, z]_cal(L)]_cal(L) \\\n  =& [[a, b, x]_cal(L), alpha_cal(L)(y), alpha_cal(L)(z)]_cal(L) + [alpha_cal(L)(x), [a, b, y]_cal(L), alpha_cal(L)(z)]_cal(L) + [alpha_cal(L)(x), alpha_cal(L)(y), [a, b, z]_cal(L)]_cal(L)\n$\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$\n  (II) quad mat(x_1 + \"i\" y_1; x_2 + \"i\" y_2; x_3 + \"i\" y_3; x_4 + \"i\" y_4) quad <-> quad 1/sqrt(2) mat(-(y_2 + y_4) + \"j\"(y_2 - y_4); (y_1 + y_3) - \"j\"(y_1 - y_3); (x_2 + x_4) - \"j\"(x_2 - x_4); -(x_1 + x_3) + \"j\"(x_1 - x_3))\n$\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$\n  (|partial_t^ell cal(D)^alpha phi|^2)_t = -2 sum_(ell_1 + |alpha_1| > 0) partial_t^ell cal(D)^alpha phi partial_t^ell_1 cal(D)^alpha_1 v dot nabla(partial_t^ell_2 cal(D)^alpha_2 phi) - v dot nabla |partial_t^ell cal(D)^alpha phi|^2\n$\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$\n  table(\n    columns: (auto, auto, auto),\n    align: (right, center, left),\n    column-gap: 1em,\n    \"Tr\" [Gamma]_s(P^a) [Gamma]_s(P_b) = delta^a_b, \"=>\", [Gamma]_s(P^a) = (-i)/(2g) gamma^a,\n    \"\", \"\", \"\",\n    \"Tr\" [Gamma]_s(M^(ab)) [Gamma]_s(P_(cd)) = delta^(ab)_(cd), \"=>\", [Gamma]_s(M^(ab)) = -1/2 gamma^(ab)\n  )\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+/2OLkNdbHCWgL300kJliIrXeb9KVd0UUMQ1MZL8X9Xv9kxrjotHwXcVnnCyY=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3028,
+    "completion_tokens": 901,
+    "total_tokens": 3929,
+    "cost": 0.0021085,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0021085,
+      "upstream_inference_prompt_cost": 0.000757,
+      "upstream_inference_completions_cost": 0.0013515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

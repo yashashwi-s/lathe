@@ -1,0 +1,49 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Aligned Mathematical Structures
+
+Source-backed grouped formula sample
+
+== Expressions
+
+#par[Expression 1. The following expression is taken from a source-backed formula corpus.]
+
+#text("D=1: chi_y(E)=0")
+
+#text("D=2: chi_y(E)=2(1+10y+y^2)(1-y)^(r-2)")
+
+#text("D=3: chi_y(E)=-chi(E)y(1+y)(1-y)^(r-3)")
+
+#text("D=4: chi_y(E)=(2+(2r-8-chi(E))y + (8r+12-4chi(E))y^2+(2r-8-chi(E))y^3+2y^4)(1-y)^(r-4)")
+
+#text("D=5: chi_y(E)=-chi(E)y(1+y)(1+10y+y^2)(1-y)^(r-5)")
+
+#par[Expression 2. The following expression is taken from a source-backed formula corpus.]
+
+#text("I_D(eta_0, delta) - I_D(eta, 0) = I_D(eta_0, delta) - I_D(eta, delta) + I_D(eta, delta) - I_D(eta, 0)")
+
+#text("<= Psi(eta_0-eta, 0) + Psi(0, delta) = Psi(|eta_0-eta|, 0) + Psi(0, delta)")
+
+#par[Expression 3. The following expression is taken from a source-backed formula corpus.]
+
+#text("phi_lambda(v, s') = f(s') - lambda_1 d_S1(s_1, s_1')^p1 - lambda_2 d_S2(s_2, s_2')^p2")
+
+#text(">= B + (B - lambda_1) d_S1(s_1, s_1')^p1 + (B - lambda_2) d_S2(s_2, s_2')^p2 >= B")
+
+#par[Expression 4. The following expression is taken from a source-backed formula corpus.]
+
+#text("S_IIB = -T_M2 l integral d^2xi sqrt(|g_ij - 1/k^2 (partial_i rho + B_i)(partial_j rho + B_j)|)")
+
+#text("- T_M2 l / 2 integral d^2xi epsilon^ij [B_ij + 2 partial_i rho (A_i + m pi alpha' b_j)]")
+
+#par[Expression 5. The following expression is taken from a source-backed formula corpus.]
+
+#table(
+  columns: 3,
+  [< q_i0 - Q_i0 >], [=], [0],
+  [< dot(q)_i0 >], [=], [0],
+  [m omega_i omega_j < (q_i0 - Q_i0)(q_j0 - Q_j0) >], [=], [k_B T delta_ij],
+  [m < dot(q)_i0 dot(q)_j0 >], [=], [k_B T delta_ij],
+  [< dot(q)_i0 (q_j0 - Q_j0) >], [=], [0]
+)

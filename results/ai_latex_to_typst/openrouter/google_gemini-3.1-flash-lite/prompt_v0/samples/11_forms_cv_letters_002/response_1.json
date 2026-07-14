@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945847-bwzpHy6zy6o4tRIYhRVn",
+  "object": "chat.completion",
+  "created": 1783945847,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"a4\", margin: (top: 1.27cm, left: 1cm, right: 1cm, bottom: 2cm))\n#set text(font: \"Helvetica\", lang: \"en\")\n\n#let ecvitem(label, content, spacing: 0pt) = {\n  grid(\n    columns: (30%, 70%),\n    column-gutter: 1em,\n    strong(label),\n    content\n  )\n  v(spacing)\n}\n\n#let section(title) = {\n  v(1em)\n  text(size: 1.2em, weight: \"bold\", title)\n  line(length: 100%, stroke: 0.5pt)\n  v(0.5em)\n}\n\n#let SignatureAndDate(name) = {\n  v(2em)\n  grid(\n    columns: (1fr, 1fr),\n    column-gutter: 2em,\n    [Place (Province), #datetime.today().display(\"[day] [month repr:long] [year]\")], [],\n    line(length: 100%), line(length: 100%),\n    [Place and date], name\n  )\n}\n\n#align(center, text(size: 1.5em, weight: \"bold\")[Name, Surname])\n\n#v(1em)\n\n#grid(\n  columns: (1fr, 1fr),\n  [\n    Address: (Remove if not relevant) \\\n    Telephone: (Remove if not relevant) \\\n    Fax: (Remove if not relevant) \\\n    E-mail: #link(\"mailto:email@email.com\")[email\\@email.com] \\\n  ],\n  [\n    Professional: #link(\"mailto:email@email.it\")[email\\@email.it] \\\n    PEC: #link(\"mailto:emailo@pec.it\")[email\\@pec.it] \\\n    Homepage: #link(\"http://www.homepage.com\")[www.homepage.com] \\\n    YouTube: #link(\"http://www.youtube.com/myChannel\")[www.youtube.com/myChannel] \\\n  ]\n)\n\n#v(1em)\n\n#ecvitem(text(size: 1.1em)[Desired employment / Occupational field], text(size: 1.1em)[(Remove if not relevant)])\n\n#section(\"Work experience\")\n#ecvitem(\"Dates\", [Add separate entries for each relevant post occupied, starting from the most recent. (Remove if not relevant).])\n#ecvitem(\"Occupation or position held\", [\u2026])\n#ecvitem(\"Main activities and responsibilities\", [\u2026])\n#ecvitem(\"Name and address of employer\", [\u2026])\n#ecvitem(\"Type of business or sector\", [\u2026])\n\n#section(\"Education and training\")\n#ecvitem(\"Dates\", [Add separate entries for each relevant course you have completed, starting from the most recent. (Remove if not relevant).])\n#ecvitem(\"Title of qualification awarded\", [\u2026])\n#ecvitem(\"Principal subjects/Occupational skills covered\", [\u2026])\n#ecvitem(\"Name and type of organization providing education and training\", [\u2026])\n#ecvitem(\"Level in national or international classification\", [\u2026])\n\n#section(\"Personal skills and competences\")\n#ecvitem(\"Mother tongue\", [Specify mother tongue], spacing: 5pt)\n#ecvitem(text(size: 1.1em)[Other language(s)], [])\n#table(columns: (1fr, 1fr, 1fr, 1fr, 1fr), stroke: none,\n  table.header([Language], [Listening], [Reading], [Spoken interaction], [Spoken production]),\n  [Language], [], [], [], [],\n  [Language], [], [], [], []\n)\n\n#ecvitem(text(size: 1.1em)[Social skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Organisational skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Technical skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Computer skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Artistic skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Other skills and competences], [Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).], spacing: 10pt)\n#ecvitem(text(size: 1.1em)[Driving licence(s)], [State here whether you hold a driving licence and if so for which categories of vehicle. (Remove if not relevant).])\n\n#section(\"Additional information\")\n#ecvitem(\"\", [Include here any other information that may be relevant, for example contact persons, references, etc. (Remove heading if not relevant).], spacing: 10pt)\n#ecvitem(\"\", strong(\"Personal interests\"))\n#ecvitem(\"\", [\u2026])\n\n#section(\"Annexes\")\n#ecvitem(\"\", [List any item attached to the CV])\n\n#v(5cm)\n#SignatureAndDate([Name Surname])",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/CXXGKV1py4XukoF9fa4fBsjPwyU+3T3Eze0pK8gHufGJ7uzKVq7wfhNht52w=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1853,
+    "completion_tokens": 1351,
+    "total_tokens": 3204,
+    "cost": 0.00248975,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00248975,
+      "upstream_inference_prompt_cost": 0.00046325,
+      "upstream_inference_completions_cost": 0.0020265
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nConvert the supplied complete LaTeX document into one complete, standalone Typst\n0.14.2 document. Preserve every visible piece of content and the original\ndocument structure as closely as Typst permits. Do not summarize, omit, or\ninvent content.\n\nRequirements, in priority order:\n\n1. The result must compile with `typst compile` using Typst 0.14.2.\n2. Preserve all text, mathematics, headings, lists, tables, figures, captions,\n   labels, references, citations, footnotes, and page-level structure.\n3. Prefer native semantic Typst constructs such as headings, lists, tables,\n   figures, equations, grids, and references. Use manual spacing only when the\n   source genuinely requires it.\n4. Produce a self-contained document. Do not read local files, use `#include`,\n   or depend on images or bibliography files that were not supplied.\n5. Use no Typst packages unless conversion is otherwise impossible. Never\n   invent package names or versions.\n6. Return only raw Typst source. Do not use Markdown fences and do not explain\n   the conversion.\n\nTypst syntax checks:\n\n- Put all mathematics inside `$...$`. Typst math is not LaTeX math: do not use\n  backslash commands inside Typst math.\n- In math, quote ordinary words and separate multi-letter identifiers when\n  Typst would otherwise parse them as one variable or a unit.\n- Build tables with comma-separated bracketed cells. Do not carry LaTeX `&`,\n  `\\\\`, or column specifications into `table()`.\n- `#` enters code from markup. Inside an existing code block, use `let`, `if`,\n  and `for` without another `#`.\n- Quote paper names, font names, strings, URLs, and other string values.\n- A bare `@name` is a Typst reference. Create the matching label before using\n  one; escape or otherwise safely represent literal at-signs.\n- Enable heading or equation numbering before referencing numbered structures.\n- Use valid native functions. When uncertain, choose a simpler native layout\n  that compiles instead of guessing an API.\n\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert this complete LaTeX document to Typst:\n\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{array,booktabs,enumitem,graphicx,xcolor,hyperref}\n\\usepackage[T1]{fontenc}\n\\usepackage[utf8]{inputenc}\n\\title{On the Dynamics of Light Wilson Quarks}\n\\author{Source-backed arXiv sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Figure Captions}\n\n\\begin{figure}[htbp]\n\\centering\n\\fbox{\\rule{0pt}{1.15in}\\rule{0.78\\linewidth}{0pt}}\n\\caption{Time history of the effective pion mass (distance \\$8\\$) for \\$\\textbackslash{}beta=5.30\\$ and \\$\\textbackslash{}kappa=0.1677\\$ on a \\$16\\textasciicircum{}3\\textbackslash{}times 32\\$ lattice. Symbols are: (\\$\\textbackslash{}times\\$) HMC at \\$\\textbackslash{}delta\\textbackslash{}tau=0.0069\\$, (\\$+\\$) HMD at \\$\\textbackslash{}delta\\textbackslash{}tau=0.0069\\$, (\\$\\textbackslash{}bigcirc\\$) HMD at \\$\\textbackslash{}delta\\textbackslash{}tau=0.004\\$. Also shown is the blocksize\\$=40\\$ (\\$\\textbackslash{}Diamond\\$) HMC acceptance uncorrected for autocorrelations.}\n\\label{fig:source-1}\n\\end{figure}\n\n\nFigures~\\ref{fig:source-1} through~\\ref{fig:source-1} preserve source-backed captions while replacing external graphics with deterministic placeholders.\n\\end{document}\n"
+    },
+    {
+      "role": "assistant",
+      "content": "#set page(margin: 1in)\n#set text(size: 11pt)\n\n#set heading(numbering: none)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[On the Dynamics of Light Wilson Quarks]\n  #v(0.5em)\n  Source-backed arXiv sample\n  #v(0.5em)\n])\n\n= Figure Captions\n\n#figure(\n  box(stroke: 1pt + black, width: 100%, height: 1.15in, align(center + horizon, [])),\n  caption: [Time history of the effective pion mass (distance $8$) for $beta=5.30$ and $kappa=0.1677$ on a $16^3 times 32$ lattice. Symbols are: ($times$) HMC at $delta tau=0.0069$, ($+$) HMD at $delta tau=0.0069$, ($bigcirc$) HMD at $delta tau=0.004$. Also shown is the blocksize$=40$ ($Diamond$) HMC acceptance uncorrected for autocorrelations.],\n) <fig:source-1>\n\nFigures @fig:source-1 through @fig:source-1 preserve source-backed captions while replacing external graphics with deterministic placeholders."
+    },
+    {
+      "role": "user",
+      "content": "The previous Typst document failed to compile. This is the only repair attempt.\n\nUse the compiler output below to fix the failure. Return the complete corrected\nTypst document, not a diff or excerpt. Preserve all original content and return\nraw Typst source only, with no Markdown fences or explanation.\n\n--- compiler output ---\nerror: unknown variable: bigcirc\n   \u250c\u2500 results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/07_figures_captions_007/attempt_1.typ:17:217\n   \u2502\n17 \u2502   caption: [Time history of the effective pion mass (distance $8$) for $beta=5.30$ and $kappa=0.1677$ on a $16^3 times 32$ lattice. Symbols are: ($times$) HMC at $delta tau=0.0069$, ($+$) HMD at $delta tau=0.0069$, ($bigcirc$) HMD at $delta tau=0.004$. Also shown is the blocksize$=40$ ($Diamond$) HMC acceptance uncorrected for autocorrelations.],\n   \u2502                                                                                                                                                                                                                          ^^^^^^^\n   \u2502\n   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `b i g c i r c`\n   = hint: or if you meant to display this as text, try placing it in quotes: `\"bigcirc\"`\n--- end compiler output ---\n\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 10000,
+  "session_id": "07_figures_captions_007",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

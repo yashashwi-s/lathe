@@ -1,0 +1,22 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Bi-Hamiltonian Sturcture of Super KP Hierarchy]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em), [
+  *Abstract:* We obtain the bi-Hamiltonian structure of the super KP hierarchy based on the even super KP operator $Lambda = theta^2 + sum_(i=-2)^infinity U_i theta^(-i-1)$, as a supersymmetric extension of the ordinary KP bi-Hamiltonian structure. It is expected to give rise to a universal super $W$-algebra incorporating all known extended superconformal $W_N$ algebras by reduction. We also construct the super BKP hierarchy by imposing a set of anti-self-dual constraints on the super KP hierarchy.
+])
+
+= Source Metadata
+This sample is based on arXiv record `hep-th/9109009`. Authors: Feng Yu.
+
+= Extracted Prose 1
+We obtain the bi-Hamiltonian structure of the super KP hierarchy based on the even super KP operator math expression , as a supersymmetric extension of the ordinary KP bi-Hamiltonian structure. It is expected to give rise to a universal super math expression -algebra incorporating all known extended superconformal math expression algebras by reduction. We also construct the super BKP hierarchy by imposing a set of anti-self-dual constraints on the super KP hierarchy.
+
+= Extracted Prose 2
+The integrable nonlinear (partial) differential KdV [1] and KP [2] equations are known to possess bi-Hamiltonian structures. This was first conjectured by Adler [3] and then proved by Gelfand and Dickey [4] for the KdV hierarchy, via the famous Gelfand-Dickey bracket. For the KP hierarchy, which is a set of multi-time evolution equations in Lax form

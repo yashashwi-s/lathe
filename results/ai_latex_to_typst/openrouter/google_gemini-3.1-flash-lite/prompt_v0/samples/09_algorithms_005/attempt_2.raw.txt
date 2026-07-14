@@ -1,0 +1,49 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "Linux Libertine")
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Algorithmic Pseudocode Sample 5] \
+  Source-backed Image2Struct algorithm sample \
+  #v(1em)
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#let indent = h(2em)
+#let comment(c) = h(1fr) + text(size: 0.9em, fill: gray)[// #c]
+
+#block(stroke: 0.5pt + black, inset: 10pt, width: 100%)[
+  *data structure* LSH \
+  *members* \
+  #indent $d, n in NN_+$ #comment("d is dimension, n is number of data points") \
+  #indent $K, L in NN_+$ #comment("K is amplification factor, L is number of repetition for hashing") \
+  #indent $p_("near"), p_("far") in (0, 1)$ #comment("Collision probability") \
+  #indent For $l in L$, $cal(T)_l := [n]$ #comment("Hashtable recording data points hashed by H_l") \
+  #indent $cal(R) := [n]$ #comment("retrieved points") \
+  #indent $cal(H) := {f in cal(H) : RR^d -> [M]}$ #comment("M is number of buckets for hashing family H") \
+  #indent For $l in [L]$, $cal(H)_l in cal(H)^K$ #comment("Family of amplified hash functions with at most M^K non-empty buckets") \
+  #indent For $b in [M^K]$, $cal(S)_b :=$ AVL tree #comment("Use AVL tree to store points in bucket") \
+  *end members* \
+  \
+  *public* \
+  *procedure* Initialize($ {x_i}_(i in [n]) subset RR^d, k, L in NN_+ $) \
+  #indent ChooseHashFunc($k, L$) \
+  #indent ConstructHashTable($ {x_i}_(i in [n]) $) \
+  *end procedure* \
+  \
+  *procedure* Recover($q in RR^d$) \
+  #indent $cal(R) <- 0$ \
+  #indent *for* $l in [L]$ *do* \
+  #indent #indent $cal(R) <- cal(R) union cal(T)_l$.Retrieve($cal(H)_l(q)$) #comment("Find the bucket H_l(q) in T_l and retrieve all points") \
+  #indent *end for* \
+  *end procedure* \
+  \
+  *procedure* UpdateHashTable($z in RR^d, i in [n]$) \
+  #indent *for* $l in [L]$ *do* \
+  #indent #indent $cal(H)_l(z)$.Insert($z$) #comment("H_l(z) denotes the bucket that z is mapped to") \
+  #indent #indent $cal(H)_l(x_i)$.Delete($x_i$) \
+  #indent *end for* \
+  *end procedure* \
+  *end data structure*
+]

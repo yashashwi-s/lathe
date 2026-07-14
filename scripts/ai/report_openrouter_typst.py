@@ -53,41 +53,120 @@ def write_manifest(run_dir: Path, records: list[dict]) -> None:
 
 
 def write_errors(run_dir: Path, records: list[dict]) -> None:
-    failures = [record for record in records if not record.get("final_compiled")]
-    classes = Counter(record.get("error_class") or "unknown" for record in failures)
+    failed_attempts = []
+    warning_counts = Counter()
+    warning_rows = []
+    for record in records:
+        for attempt in record.get("attempt_records") or []:
+            log_path = (
+                run_dir / "samples" / record["sample_id"]
+                / f"attempt_{attempt.get('attempt')}_compile.log"
+            )
+            log_text = log_path.read_text(errors="replace") if log_path.exists() else ""
+            warnings = [line for line in log_text.splitlines() if line.startswith("warning:")]
+            for warning in warnings:
+                message = warning.removeprefix("warning:").strip()
+                warning_counts[message] += 1
+                warning_rows.append({
+                    "sample_id": record["sample_id"],
+                    "category": record["category"],
+                    "attempt": attempt.get("attempt"),
+                    "warning": message,
+                    "compile_ok": attempt.get("compile_ok"),
+                    "log_path": str(log_path.relative_to(run_dir)),
+                })
+            if attempt.get("compile_ok") is False:
+                error_lines = [line for line in log_text.splitlines() if line.startswith("error:")]
+                summary = error_lines[0] if error_lines else (
+                    attempt.get("compiler_summary") or "no compiler output"
+                )
+                failed_attempts.append({
+                    "sample_id": record["sample_id"],
+                    "category": record["category"],
+                    "complexity_band": record.get("complexity_band", ""),
+                    "attempt": attempt.get("attempt"),
+                    "error_class": attempt.get("error_class") or "unknown",
+                    "summary": summary,
+                    "eventual_result": "repaired" if record.get("final_compiled") else "final_failure",
+                    "log_path": (
+                        f"samples/{record['sample_id']}/"
+                        f"attempt_{attempt.get('attempt')}_compile.log"
+                    ),
+                })
+    infrastructure = [record for record in records if record.get("status") != "finished"]
+    classes = Counter(item["error_class"] for item in failed_attempts)
     lines = [
         "# Compilation errors",
         "",
-        "This report is generated from per-sample `meta.json` records. API and",
-        "infrastructure failures are kept separate from model-generated Typst errors.",
+        "This report includes every failed Typst compilation attempt, including",
+        "attempts later repaired by the model. API and local infrastructure failures",
+        "are reported separately and do not count as model compilation failures.",
+        "",
+        f"- Failed compilation attempts: {len(failed_attempts)}",
+        f"- Repaired failed attempts: {sum(item['eventual_result'] == 'repaired' for item in failed_attempts)}",
+        f"- Samples with final compilation failure: {sum(not record.get('final_compiled') and record.get('status') == 'finished' for record in records)}",
+        f"- Compiler warning occurrences: {len(warning_rows)}",
+        f"- Infrastructure failures: {len(infrastructure)}",
         "",
         "## Error classes",
         "",
-        "| Error class | Final failures |",
+        "| Error class | Failed attempts |",
         "|---|---:|",
     ]
     lines.extend(f"| `{name}` | {count} |" for name, count in sorted(classes.items()))
-    lines.extend(["", "## Failed samples", ""])
-    if not failures:
-        lines.append("No final compilation failures have been recorded.")
+    lines.extend(["", "## Compilation attempts", ""])
+    if not failed_attempts:
+        lines.append("No failed compilation attempts have been recorded.")
     else:
-        lines.extend(["| Sample | Category | Attempts | Error class | Final error |",
-                      "|---|---|---:|---|---|"])
-        for record in failures:
+        lines.extend(["| Sample | Category | Attempt | Error class | Result | Error | Log |",
+                      "|---|---|---:|---|---|---|---|"])
+        for item in failed_attempts:
+            error = str(item["summary"]).replace("|", "\\|")
+            lines.append(
+                f"| `{item['sample_id']}` | `{item['category']}` | {item['attempt']} | "
+                f"`{item['error_class']}` | `{item['eventual_result']}` | {error} | "
+                f"[`log`]({item['log_path']}) |"
+            )
+    lines.extend(["", "## Infrastructure failures", ""])
+    if not infrastructure:
+        lines.append("No API, provider, or local runner failures have been recorded.")
+    else:
+        lines.extend(["| Sample | Status | Error class | Error |", "|---|---|---|---|"])
+        for record in infrastructure:
             error = str(record.get("final_error_summary") or "").replace("|", "\\|")
             lines.append(
-                f"| `{record['sample_id']}` | `{record['category']}` | "
-                f"{record.get('attempts', 0)} | `{record.get('error_class', 'unknown')}` | {error} |"
+                f"| `{record['sample_id']}` | `{record.get('status', 'unknown')}` | "
+                f"`{record.get('error_class', 'unknown')}` | {error} |"
             )
+    lines.extend(["", "## Compiler warnings", ""])
+    if not warning_counts:
+        lines.append("No compiler warnings have been recorded.")
+    else:
+        lines.extend(["| Warning | Occurrences |", "|---|---:|"])
+        for warning, count in warning_counts.most_common():
+            escaped_warning = warning.replace("|", "\\|")
+            lines.append(f"| {escaped_warning} | {count} |")
     (run_dir / "compilation_errors.md").write_text("\n".join(lines) + "\n")
+    fields = ["sample_id", "category", "complexity_band", "attempt", "error_class",
+              "eventual_result", "summary", "log_path"]
+    with (run_dir / "compilation_errors.csv").open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(failed_attempts)
+    warning_fields = ["sample_id", "category", "attempt", "warning", "compile_ok", "log_path"]
+    with (run_dir / "compilation_warnings.csv").open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=warning_fields)
+        writer.writeheader()
+        writer.writerows(warning_rows)
 
 
 def write_summary(run_dir: Path, records: list[dict]) -> None:
     finished = [record for record in records if record.get("status") == "finished"]
-    api_errors = [record for record in records if record.get("status") == "api_error"]
+    infrastructure_errors = [record for record in records if record.get("status") != "finished"]
     first = sum(bool(record.get("first_pass_compiled")) for record in finished)
     final = sum(bool(record.get("final_compiled")) for record in finished)
     repaired = sum(bool(record.get("repaired")) for record in finished)
+    page_matches = sum(bool(record.get("page_count_match")) for record in finished if record.get("final_compiled"))
     retry_opportunities = sum(not bool(record.get("first_pass_compiled")) for record in finished)
     cost = sum(float(record.get("reported_cost_usd") or 0) for record in finished)
     accounted_cost = sum(float(record.get("accounted_cost_usd") or 0) for record in finished)
@@ -103,11 +182,16 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
         cell["repaired"] += int(bool(record.get("repaired")))
 
     config = json.loads((run_dir / "run_config.json").read_text()) if (run_dir / "run_config.json").exists() else {}
+    expected_samples = int(config.get("split_count") or 33)
+    sample_scope = (
+        f"The {expected_samples} clean filtered samples are development data; "
+        "results here are not held-out benchmark claims."
+    )
     lines = [
         "# AI LaTeX-to-Typst prompt-development run",
         "",
         "This directory is a self-contained audit record for one prompt/model configuration.",
-        "The 33 samples are development data; results here are not held-out benchmark claims.",
+        sample_scope,
         "",
         "## Configuration",
         "",
@@ -119,12 +203,13 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
         "",
         "## Results",
         "",
-        f"- Recorded samples: {len(records)}/33",
+        f"- Recorded samples: {len(records)}/{expected_samples}",
         f"- Samples reaching model-output evaluation: {len(finished)}",
-        f"- API/provider failures: {len(api_errors)}",
+        f"- API/provider/local runner failures: {len(infrastructure_errors)}",
         f"- First-pass compile rate: {render_rate(first, len(finished))}",
         f"- Repair success: {render_rate(repaired, retry_opportunities)}",
         f"- Final compile rate: {render_rate(final, len(finished))}",
+        f"- Page-count match among compiled outputs: {render_rate(page_matches, final)}",
         f"- Prompt tokens: {prompt_tokens}",
         f"- Completion tokens: {completion_tokens}",
         f"- API-reported cost: ${cost:.6f}",
@@ -147,7 +232,10 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
         "- `run_config.json`: immutable run parameters and prompt hashes.",
         "- `run_manifest.csv`: one compact row per completed sample.",
         "- `compilation_errors.md`: grouped final failure summaries.",
-        "- `system_prompt.txt`, `retry_prompt.txt`, and `prompt_dev_33.csv`: exact run snapshots.",
+        "- `compilation_errors.csv`: every failed compile attempt in machine-readable form.",
+        "- `compilation_warnings.csv`: every compiler warning occurrence.",
+        "- `analysis.md`: interpreted failure patterns and prompt-development recommendations.",
+        "- `system_prompt.txt`, `retry_prompt.txt`, and `split_manifest.csv`: exact run snapshots.",
         "- `samples/<sample_id>/`: raw responses, normalized Typst, compiler logs, PDFs, and metadata.",
         "",
         "Regenerate this report with:",
@@ -160,6 +248,7 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
     (run_dir / "summary.json").write_text(json.dumps({
         "completed": len(finished), "first_pass_compiled": first,
         "final_compiled": final, "repaired": repaired,
+        "page_count_matches": page_matches,
         "retry_opportunities": retry_opportunities, "prompt_tokens": prompt_tokens,
         "completion_tokens": completion_tokens, "reported_cost_usd": cost,
         "accounted_cost_usd": accounted_cost,

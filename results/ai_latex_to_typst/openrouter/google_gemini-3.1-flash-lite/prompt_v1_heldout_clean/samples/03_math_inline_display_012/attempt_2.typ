@@ -1,0 +1,14 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ = integral.double.double.double.double.double "dt" "d" theta "d" phi "dt'" "d" theta' "d" phi' (

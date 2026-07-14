@@ -1,0 +1,41 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, text(size: 1.5em, weight: "bold")[Aligned Mathematical Structures])
+#align(center, [Source-backed grouped formula sample])
+
+= Expressions
+
+#paragraph[Expression 1.] The following expression is taken from a source-backed formula corpus.
+
+$
+"Delta"_(n-1, l+1)^((1))(x_1, dots, x_m | z_1, dots, z_(n-1) | z_n, dots, z_N) = q^(l-n+1) sum_(k=n)^N z_k (product_(j=1)^(n-1) (z_k - z_j q^(-2))) / (product_(i=n, i != k)^N (z_i - z_k) q^(-1)) "Delta"^((n, l))(x_1, dots, x_m | z_1, dots, z_(n-1), z_k | z_n, dots, z_N)
+$
+
+#paragraph[Expression 2.] The following expression is taken from a source-backed formula corpus.
+
+$
+["alpha"_"L"(a), "alpha"_"L"(b), [x, y, z]_"L"]_"L" = [[a, b, x]_"L", "alpha"_"L"(y), "alpha"_"L"(z)]_"L" + ["alpha"_"L"(x), [a, b, y]_"L", "alpha"_"L"(z)]_"L" + ["alpha"_"L"(x), "alpha"_"L"(y), [a, b, z]_"L"]_"L"
+$
+
+#paragraph[Expression 3.] The following expression is taken from a source-backed formula corpus.
+
+$
+(II) quad mat(x_1 + "i" y_1; x_2 + "i" y_2; x_3 + "i" y_3; x_4 + "i" y_4) <-> 1/sqrt(2) mat(-(y_2 + y_4) + "j"(y_2 - y_4); (y_1 + y_3) - "j"(y_1 - y_3); (x_2 + x_4) - "j"(x_2 - x_4); -(x_1 + x_3) + "j"(x_1 - x_3))
+$
+
+#paragraph[Expression 4.] The following expression is taken from a source-backed formula corpus.
+
+$
+(|partial_t^ell D^alpha phi|^2)_t = -2 sum_(ell_1 + |alpha_1| > 0) partial_t^ell D^alpha phi partial_t^(ell_1) D^(alpha_1) v dot nabla(partial_t^(ell_2) D^(alpha_2) phi) - v dot nabla |partial_t^ell D^alpha phi|^2
+$
+
+#paragraph[Expression 5.] The following expression is taken from a source-backed formula corpus.
+
+#table(
+  columns: 3,
+  stroke: none,
+  [$"Tr" [Gamma_s(P^a) Gamma_s(P_b)] = delta^a_b$], [$"Rightarrow"$], [$Gamma_s(P^a) = (-i)/(2g) gamma^a$],
+  [], [], [],
+  [$"Tr" [Gamma_s(M^(ab)) Gamma_s(P_(cd))] = delta^(ab)_(cd)$], [$"Rightarrow"$], [$Gamma_s(M^(ab)) = -1/2 gamma^(ab)$]
+)

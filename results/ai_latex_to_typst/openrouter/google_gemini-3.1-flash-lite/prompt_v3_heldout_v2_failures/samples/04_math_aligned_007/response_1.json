@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783951580-f6A9fy3xoMaBI7X5hTDg",
+  "object": "chat.completion",
+  "created": 1783951581,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Aligned Mathematical Structures\n\nSource-backed grouped formula sample\n\n== Expressions\n\nExpression 1. The following expression is taken from a source-backed formula corpus.\n\n`\\Delta_{(n-1 l+1)}^{(1)}(x_1,\\cdots,x_m|z_1,\\cdots,z_{n-1}|z_n,\\cdots,z_N) = q^{l-n+1}\\sum_{k=n}^{N} z_k\\frac{\\prod_{j=1}^{n-1}(z_k-z_j q^{-2})}{\\prod_{\\scriptstyle{i=n}\\atop \\scriptstyle{i\\ne k}}^{N} (z_i-z_k)q^{-1}}\\Delta^{(n l)}(x_1,\\cdots,x_m|z_1,\\cdots, z_{n-1},z_k|z_{n},\\mathop{\\hat{\\cdots}}^{k},z_N)`\n\nExpression 2. The following expression is taken from a source-backed formula corpus.\n\n`[\\alpha_{\\mathcal{L}}(a),\\alpha_{\\mathcal{L}}(b),[x,y,z]_{\\mathcal{L}}]_{\\mathcal{L}} = [[a,b,x]_{\\mathcal{L}}, \\alpha_{\\mathcal{L}}(y), \\alpha_{\\mathcal{L}}(z)]_{\\mathcal{L}}+ [\\alpha_{\\mathcal{L}}(x),[a,b,y]_{\\mathcal{L}},\\alpha_{\\mathcal{L}}(z)]_{\\mathcal{L}}+[\\alpha_{\\mathcal{L}}(x),\\alpha_{\\mathcal{L}}(y),[a,b,z]_{\\mathcal{L}}]_{\\mathcal{L}}`\n\nExpression 3. The following expression is taken from a source-backed formula corpus.\n\n`(II) \\left(\\begin{array}{c}x_1+{\\rm i}y_1 \\\\x_2+{\\rm i}y_2 \\\\x_3+{\\rm i}y_3 \\\\x_4+{\\rm i}y_4\\end{array}\\right) \\leftrightarrow \\frac{1}{\\sqrt{2}}\\left(\\begin{array}{c}-(y_2+y_4) +{\\rm j}(y_2-y_4) \\\\(y_1 + y_3) -{\\rm j}(y_1-y_3) \\\\(x_2 + x_4) -{\\rm j}(x_2 - x_4) \\\\-(x_1 + x_3) +{\\rm j}(x_1 - x_3)\\end{array}\\right)`\n\nExpression 4. The following expression is taken from a source-backed formula corpus.\n\n`(|\\partial_t^{\\ell}\\mathcal{D}^{\\alpha}\\phi|^2)_t = -2\\sum\\limits_{\\ell_1+|\\alpha_1|>0}\\partial_t^{\\ell}\\mathcal{D}^{\\alpha}\\phi\\partial_t^{\\ell_1}\\mathcal{D}^{\\alpha_1}v\\cdot\\nabla(\\partial_t^{\\ell_2}\\mathcal{D}^{\\alpha_2}\\phi)-v\\cdot\\nabla|\\partial_t^{\\ell}\\mathcal{D}^{\\alpha}\\phi|^2`\n\nExpression 5. The following expression is taken from a source-backed formula corpus.\n\n`{\\rm Tr}\\, [\\Gamma_{s}(P^{a})\\Gamma_{s}(P_{b})]= \\delta^{a}{}_{b} \\Rightarrow \\Gamma_{s}(P^{a}) = \\frac{-i}{2g}\\gamma^{a}`\n\n`{\\rm Tr}\\, [\\Gamma_{s}(M^{ab})\\Gamma_{s}(P_{cd})]= \\delta^{ab}{}_{cd} \\Rightarrow \\Gamma_{s}(M^{ab}) = -\\frac{1}{2}\\gamma^{ab}`",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/uGvlVIRdHF87VVr/bGsPfxJ4k9V64b3KDB/4tZuXKHUlEpQu2Tds12PIXnxw=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1752,
+    "completion_tokens": 836,
+    "total_tokens": 2588,
+    "cost": 0.001692,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001692,
+      "upstream_inference_prompt_cost": 0.000438,
+      "upstream_inference_completions_cost": 0.001254
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

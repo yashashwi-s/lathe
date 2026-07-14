@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949135-4yNY0wv8IWNN9zmr0eP5",
+  "object": "chat.completion",
+  "created": 1783949135,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Simple Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  table(\n    columns: 10,\n    stroke: none,\n    table.header(\n      [qubit], [Frequency (GHz)], [$T_1$ ($\\mu$s)], [$T_2$ ($\\mu$s)], [Readout Error (%)], [$\\sqrt(X)$ (%)], [ECR $\\uparrow$ (%)], [ECR $\\downarrow$ (%)], [ECR $\\leftarrow$ (%)], [ECR $\\rightarrow$ (%)]\n    ),\n    table.hline(),\n    [$q_{101}$], [5.07], [181.4], [224.5], [2.55], [0.02], [], [], [1.07], [0.63],\n    [$q_{102}$], [4.81], [213.7], [160.3], [4.16], [0.02], [], [], [], [0.87],\n    [$q_{103}$], [4.93], [144.8], [86.4], [0.72], [0.03], [], [], [], [],\n    [$q_{104}$], [4.77], [196.3], [176.0], [1.29], [0.02], [], [], [0.71], [],\n    [$q_{105}$], [4.98], [172.6], [98.8], [0.76], [0.03], [], [], [0.56], [0.69],\n    [$q_{106}$], [4.88], [219.4], [186.2], [1.68], [0.03], [], [], [], [],\n    [$q_{107}$], [4.92], [181.6], [119.6], [2.12], [0.02], [], [], [0.62], [],\n    [$q_{108}$], [5.06], [163.6], [160.9], [2.15], [0.03], [], [0.73], [0.68], [],\n    [$q_{109}$], [4.98], [184.1], [227.2], [2.53], [0.03], [0.81], [], [], [],\n    [$q_{110}$], [4.83], [202.2], [276.2], [1.19], [0.03], [], [0.86], [], [],\n    [$q_{111}$], [4.85], [259.1], [294.9], [1.22], [0.02], [0.52], [], [], [],\n    [$q_{112}$], [5.0], [176.1], [67.2], [0.47], [0.02], [], [0.79], [], [],\n    [$q_{113}$], [5.03], [206.6], [209.3], [0.83], [0.02], [], [], [], [1.09],\n    [$q_{114}$], [4.82], [185.2], [61.0], [13.86], [0.02], [0.61], [], [], [0.98],\n    [$q_{115}$], [5.03], [176.0], [92.6], [0.84], [0.02], [], [], [], [],\n    [$q_{116}$], [4.91], [205.8], [191.0], [0.77], [0.01], [], [], [0.57], [0.56],\n    [$q_{117}$], [4.83], [247.6], [213.9], [1.56], [0.03], [], [], [], [0.58],\n    [$q_{118}$], [4.73], [241.4], [116.4], [0.76], [0.02], [], [], [], [0.99],\n    [$q_{119}$], [4.8], [196.0], [122.4], [32.95], [0.07], [], [], [], [],\n    [$q_{120}$], [4.84], [184.5], [154.6], [17.81], [0.03], [], [], [1.58], [],\n    [$q_{121}$], [4.97], [234.4], [143.5], [1.84], [0.05], [], [], [2.23], [],\n    [$q_{122}$], [4.94], [224.1], [130.2], [2.21], [0.05], [0.75], [], [1.36], [0.84],\n    [$q_{123}$], [5.03], [145.8], [126.9], [1.64], [0.02], [], [], [], [],\n    [$q_{124}$], [4.95], [214.2], [194.8], [0.82], [0.03], [], [], [0.59], [],\n    [$q_{125}$], [4.86], [258.3], [223.5], [1.05], [0.01], [], [], [0.59], [0.58]\n  ),\n  caption: [Source table 1: 2512.04801\\_table\\_4]\n)\n\n#figure(\n  table(\n    columns: 4,\n    stroke: 0.5pt,\n    table.header([Source Name], [State], [alpha (LP)], [beta]),\n    [PKS 0736+017], [Low], [2.67 $\\pm$ 0.13], [0.18 $\\pm$ 0.12],\n    [$\\bar{\\alpha}=2.33 \\pm 0.26$], [High], [2.38 $\\pm$ 0.04], [0.13 $\\pm$ 0.04],\n    [$\\bar{\\beta}=0.46 \\pm 0.22$], [Full], [2.33 $\\pm$ 0.01], [0.116 $\\pm$ 0.009],\n    [], [VHE], [2.38 $\\pm$ 0.05], [-0.02 $\\pm$ 0.03],\n    [PKS 1510-089], [Low+VHE], [2.18 $\\pm$ 0.05], [-0.02 $\\pm$ 0.02],\n    [$\\bar{\\alpha}=2.39 \\pm 0.12$], [High], [2.48 $\\pm$ 0.02], [0.09 $\\pm$ 0.01],\n    [$\\bar{\\beta}=0.07 \\pm 0.07$], [Full], [2.398 $\\pm$ 0.004], [0.059 $\\pm$ 0.003],\n    [], [VHE], [2.38 $\\pm$ 0.02], [0.04 $\\pm$ 0.01],\n    [], [VHE], [2.44 $\\pm$ 0.05], [-0.06 $\\pm$ 0.23],\n    [4C+21.35], [Low], [2.65 $\\pm$ 0.08], [-0.06 $\\pm$ 0.03],\n    [$\\bar{\\alpha}=2.46 \\pm 0.16$], [High], [2.10 $\\pm$ 0.01], [0.079 $\\pm$ 0.008],\n    [$\\bar{\\beta}=0.14 \\pm 0.14$], [Full], [2.303 $\\pm$ 0.007], [0.054 $\\pm$ 0.004],\n    [], [VHE], [2.12 $\\pm$ 0.05], [0.08 $\\pm$ 0.02],\n    [], [VHE], [2.28 $\\pm$ 0.02], [0.04 $\\pm$ 0.01],\n    [], [VHE], [2.25 $\\pm$ 0.03], [0.04 $\\pm$ 0.02],\n    [3C 279], [Low], [2.29 $\\pm$ 0.09], [0.06 $\\pm$ 0.05],\n    [$\\bar{\\alpha}=2.36 \\pm 0.09$], [High], [2.024 $\\pm$ 0.009], [0.088 $\\pm$ 0.006],\n    [$\\bar{\\beta}=0.09 \\pm 0.07$], [Full], [2.222 $\\pm$ 0.004], [0.082 $\\pm$ 0.003],\n    [], [VHE], [2.24 $\\pm$ 0.02], [0.06 $\\pm$ 0.01],\n    [TON 0599], [Low], [2.32 $\\pm$ 0.26], [0.26 $\\pm$ 0.19],\n    [$\\bar{\\alpha}=2.25 \\pm 0.18$], [High], [1.83 $\\pm$ 0.02], [0.079 $\\pm$ 0.009],\n    [$\\bar{\\beta}=0.15 \\pm 0.14$], [Full], [2.071 $\\pm$ 0.007], [0.069 $\\pm$ 0.004],\n    [], [VHE], [1.95 $\\pm$ 0.03], [0.06 $\\pm$ 0.02],\n    [], [VHE], [1.98 $\\pm$ 0.04], [0.03 $\\pm$ 0.02],\n    [PKS 1441+25], [Low], [2.16 $\\pm$ 0.13], [0.018 $\\pm$ 0.06],\n    [$\\bar{\\alpha}=2.14 \\pm 0.20$], [High], [1.89 $\\pm$ 0.029], [0.10 $\\pm$ 0.02],\n    [$\\bar{\\beta}=0.28 \\pm 0.21$], [Full], [2.08 $\\pm$ 0.02], [0.08 $\\pm$ 0.01],\n    [], [VHE], [1.83 $\\pm$ 0.06], [0.13 $\\pm$ 0.04],\n    [S3 0218+35], [Low], [2.09 $\\pm$ 0.14], [0.07 $\\pm$ 0.07],\n    [$\\bar{\\alpha}=2.28 \\pm 0.21$], [High], [2.32 $\\pm$ 0.02], [0.12 $\\pm$ 0.01],\n    [$\\bar{\\beta}=0.20 \\pm 0.16$], [Full], [2.27 $\\pm$ 0.01], [0.056 $\\pm$ 0.007],\n    [], [VHE], [1.62 $\\pm$ 0.11], [0.05 $\\pm$ 0.04],\n    [Source name], [State], [Index (PL)], [],\n    [B2 1420+32], [Low], [2.42 $\\pm$ 0.11], [],\n    [$\\bar{\\Gamma}=2.38 \\pm 0.13$], [High], [2.02 $\\pm$ 0.01], [],\n    [], [Full], [2.25 $\\pm$ 0.01], [],\n    [], [VHE], [2.02 $\\pm$ 0.02], [],\n    [PKS 0346-27], [Low], [2.53 $\\pm$ 0.09], [],\n    [$\\bar{\\Gamma}=2.22 \\pm 0.09$], [High], [1.99 $\\pm$ 0.01], [],\n    [], [Full], [2.097 $\\pm$ 0.005], [],\n    [], [VHE], [2.04 $\\pm$ 0.04], []\n  ),\n  caption: [Source table 2: 2512.02839\\_table\\_2]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18rf+mEOkE3MRaKPIwnjTz43MVWCPAad0FJT+CyPVrTA7zp8IojzB8VD1qqNRY=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4676,
+    "completion_tokens": 3297,
+    "total_tokens": 7973,
+    "cost": 0.0061145,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0061145,
+      "upstream_inference_prompt_cost": 0.001169,
+      "upstream_inference_completions_cost": 0.0049455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

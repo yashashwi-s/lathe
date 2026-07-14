@@ -1,0 +1,20 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Fusion and singular vectors in A1{(1)} highest weight cyclic modules]
+  #parbreak()
+  Source-backed arXiv sample
+  #parbreak()
+])
+
+#set heading(numbering: "1.")
+
+= Figure Captions
+
+#figure(
+  block(stroke: 1pt + black, width: 100%, height: 1.15in, align(center + horizon, [])),
+  caption: [The couples $(n,m)$ satisfying $(n,m) <= (4,2)$],
+) <fig:source-1>
+
+Figures @fig:source-1 through @fig:source-1 preserve source-backed captions while replacing external graphics with deterministic placeholders.

@@ -1,0 +1,21 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Quantum Conserved Charges and S-matrices in N=2 Supersymmetric Sine-Gordon Theory]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+= Extracted Lists
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+#set enum(full: true)
+#grid(
+  columns: (auto, auto),
+  column-gutter: 1em,
+  [1)], [$phi_1 arrow phi_1 + (2 m pi sqrt(2)) / beta$, $quad$ $phi_2$, $phi_3$: fixed,],
+  [2)], [$phi_1 arrow phi_1 + ((2 m + 1) pi sqrt(2)) / beta$, $quad$ $phi_2$: fixed, $quad$ $phi_3 arrow phi_3 + pi$ (mod $2 pi$).]
+)

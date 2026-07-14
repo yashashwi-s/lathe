@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949908-mrtlzciBkoCKRgRj7ee1",
+  "object": "chat.completion",
+  "created": 1783949908,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.01111\\_table\\_2],\n  table(\n    columns: (1.4cm, 1.5cm, 1.1cm, 2cm, 4.5cm, 4.5cm),\n    stroke: (x, y) => (\n      top: if y <= 1 { 1pt } else { 0pt },\n      bottom: if y == 0 or y == 4 { 1pt } else { 0pt },\n    ),\n    align: (col, row) => if row > 0 and col == 0 { center } else { left },\n    [*Design (Name/Gender)*], [*Personality*], [*Role*], [*Interaction\\ Modalities*], [*Features*], [*Ethical Considerations*],\n    [Bimo (Gender-Neutral)], [Friendly\\ Gentle\\ Firm\\ Reactive], [Smart Friend\\ Mentor], [Speech\\ Light Indicators\\ Visually via Tablet], [Warm lamp light with built-in speaker; Tablet for content display; rotatable head; Integrates with student's work ecosystem; Monitors screen for careless mistakes; AI-powered feedback on student work; Helps organize and prioritize tasks; Monitors stress and exhaustion via camera], [Saves videos to a student-accessible SD card; Deletes monitored videos after 2 days; Requires manual on/off for student control; Always asks permission before accessing third-party applications; Detects critical health issues (e.g., heart attacks) and alerts authorities promptly],\n    [Max (Gender-Neutral)], [Friendly\\ Assertive\\ Motivating\\ Strict with\\ deadlines], [Assistant\\ Friend\\ Mentor\\ Proactive], [Speech\\ Light Indicators\\ Gestures\\ Facial Expressions\\ Physical Touch], [Plays study music; Offers effective study tips; Helps with task organization; Comes with wheels for easy portability], [Requires manual on/off for student control; Does not store user data; Respects the laws and customs of the region],\n    [Roberto (Gender-Neutral)], [Friendly\\ Funny\\ Kind\\ Calm\\ Encouraging\\ Proactive], [Coach], [Speech\\ Visually via Screen\\ Vibrations], [Screen for content display; Helps with task organization and prioritization; Monitors for distractions via camera; Offers task feedback; Uses alarms and vibrations to dis-incentivize students from getting distracted], [Does not store any monitoring videos],\n    [Bammy (Customizable)], [Friendly\\ Organized\\ Nice\\ Straightforward\\ Honest\\ Reactive & Proactive], [Mentor Motivator], [Speech\\ Visually via screen\\ Visually via watch], [Screen for content display; AI-powered for task organization; Integrates with student\u2019s workflow; Dedicated app; Monitors stress and health via smartwatch; Provides emotional support; Remembers user preferences; Accesses quality research sources; Supports language flexibility], [No camera for privacy; Identifies users to protect others' personal information; Accessibility features for individuals with special needs]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.00231\\_table\\_5],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto),\n    stroke: 0.5pt,\n    [*Model*], [*Top-5 $arrow.up$*], [*Top-10 $arrow.up$*], [*Recall@20% $arrow.up$*], [*Effort@20% $arrow.down$*], [*IFA $arrow.down$*],\n    [JIT-Smart\\ #text(size: 0.8em)[ATTN]], [*0.691* \\ ($sigma plus.minus 0.03$)], [*0.811* \\ ($sigma plus.minus 0.03$)], [*0.337* \\ ($sigma plus.minus 0.05$)], [0.248 \\ ($sigma plus.minus 0.02$)], [*5.360* \\ ($sigma plus.minus 3.00$)],\n    [GPT-5], [0.616 \\ ($sigma plus.minus 0.01$)], [0.759 \\ ($sigma plus.minus 0.02$)], [0.318 \\ ($sigma plus.minus 0.01$)], [*0.234* \\ ($sigma plus.minus 0.01$)], [10.711 \\ ($sigma plus.minus 0.92$)],\n    [Gemini\\ 2.5 Pro], [0.543], [0.683], [0.291], [0.251], [12.317],\n    [UniXCoder], [0.522 \\ ($sigma plus.minus 0.01$)], [0.657 \\ ($sigma plus.minus 0.01$)], [0.278 \\ ($sigma plus.minus 0.01$)], [0.271 \\ ($sigma approx 0$)], [13.280\\ ($sigma plus.minus 0.36$)],\n    [Claude\\ Sonnet\\ 4.5], [0.529], [0.701], [0.273], [0.265], [12.520],\n    [JITFine], [0.511\\ ($sigma plus.minus 0.03$)], [0.683\\ ($sigma plus.minus 0.02$)], [0.217\\ ($sigma plus.minus 0.02$)], [0.322\\ ($sigma plus.minus 0.02$)], [12.185\\ ($sigma plus.minus 1.21$)],\n    [CodeT5+], [0.465\\ ($sigma plus.minus 0.04$)], [0.631\\ ($sigma plus.minus 0.04$)], [0.150\\ ($sigma plus.minus 0.04$)], [0.388\\ ($sigma plus.minus 0.05$)], [15.048\\ ($sigma plus.minus 2.43$)]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18mwJeS6b2GfqIH6mqawj3aPhANc5bsZkQggTsPHW1OxSpwxWCLHPBSWBlYusE=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2533,
+    "completion_tokens": 1503,
+    "total_tokens": 4036,
+    "cost": 0.00288775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00288775,
+      "upstream_inference_prompt_cost": 0.00063325,
+      "upstream_inference_completions_cost": 0.0022545
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

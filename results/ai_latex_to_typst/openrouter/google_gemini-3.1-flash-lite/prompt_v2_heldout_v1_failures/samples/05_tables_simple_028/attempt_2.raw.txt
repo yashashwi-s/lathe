@@ -1,0 +1,64 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Tables
+
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.00750_table_6],
+  table(
+    columns: 11,
+    [Obs date], [B], [Ne], [p1], [p2], [gamma_min], [gamma_max], [gamma_break], [Ue], [UB], [eta],
+    [09-07-2017], [5.10], [1.03], [2.51], [3.31], [3.66], [6.47], [6.88], [9.12e-3], [9.93e-5], [1.09e-2],
+    [07-08-2017], [5.40], [0.17], [2.66], [3.26], [11.4], [5.67], [6.28], [3.91e-3], [1.14e-4], [2.92e-2],
+    [21-10-2017], [2.38], [1.57], [2.30], [4.28], [1.88], [5.92], [9.90], [9.16e-3], [2.18e-5], [2.39e-3],
+    [07-12-2017], [1.97], [1.33], [2.31], [4.10], [2.55], [8.17], [11.9], [1.01e-2], [1.65e-5], [1.64e-3],
+    [01-08-2018], [3.87], [0.95], [2.36], [3.68], [2.92], [2.79], [9.08], [7.78e-3], [5.97e-5], [7.67e-3],
+    [11-09-2018], [4.07], [5.42], [2.30], [4.56], [0.59], [4.41], [6.59], [1.75e-2], [1.12e-5], [6.41e-4],
+    [22-07-2020], [3.52], [1.11], [2.46], [3.85], [2.53], [7.39], [6.67], [6.73e-3], [5.02e-5], [7.46e-3],
+    [28-07-2021], [4.11], [1.04], [2.18], [3.55], [1.11], [2.52], [3.61], [4.09e-3], [6.63e-5], [1.56e-2],
+    [05-08-2021], [2.15], [0.53], [2.08], [3.34], [2.76], [2.62], [3.85], [5.99e-3], [1.46e-5], [2.44e-3],
+    [05-08-2022], [1.89], [0.25], [2.43], [3.92], [14.5], [5.46], [7.72], [8.65e-3], [1.39e-5], [1.61e-3]
+  )
+)
+
+#figure(
+  caption: [Source table 2: 2512.01786_table_4],
+  table(
+    columns: 3,
+    [Feature Name], [Explanation], [Category],
+    [COUNT_WORD], [Number of words in the context.], [Text size],
+    [COUNT_CHAR], [Number of characters in the context.], [Text size],
+    [COUNT_SENTENCE], [Number of sentences in the context.], [Text size],
+    [COUNT_PARAGRAPH], [Number of paragraphs in the context.], [Text size],
+    [CHAR_COMPRESSION], [Ratio of characters in output to input context.], [Text size],
+    [WORD_COMPRESSION], [Ratio of words in output to input context.], [Text size],
+    [NUM_WORD_SENTENCE], [Average number of words per sentence.], [Text size],
+    [NUM_CHAR_WORD], [Average number of characters per word.], [Text size],
+    [DIFFICULT_WORD], [Number of difficult words.], [Special words],
+    [STOP_WORDS], [Number of stop words.], [Special words],
+    [MODALITY], [Number of modality verbs.], [Special words],
+    [NUMBER_COUNT], [Count of numbers.], [Special words],
+    [NAMED_ENTITY], [Count of named entities.], [Special words],
+    [FACTUAL_DENSISTY], [Number of entities divided by context length.], [Special words],
+    [NGRAM_COUNT], [Count of 3-grams in the context.], [Special words],
+    [NEGATION_SENTENCE], [Count of sentences with negation words.], [Special words],
+    [COUNT_QUESTION], [Number of questions in the context.], [Special words],
+    [TOKEN_ENTROPY], [Shannon entropy on token distribution.], [Text complexity],
+    [LEXICAL_DIVERSITY], [Unique words divided by total words.], [Text complexity],
+    [READING_INDEX], [Flesch reading ease index.], [Text complexity],
+    [NGRAM_REPETITION], [3-gram repetition ratio.], [Text complexity],
+    [SENTENCE_SIMILARITY], [Avg. cosine similarity between sentence embeddings.], [Text complexity],
+    [SYNTACTIC_AMBIGUITY], [Avg. ambiguous POS tags per sentence.], [Text complexity],
+    [SEMANTIC_AMBIGUITY], [Avg. WordNet senses per word.], [Text complexity],
+    [COREFERENCE_CHAIN], [Avg. number of pronouns per sentence.], [Text complexity],
+    [COREFERENCE_AMBIGUOUS], [Number of pronoun-ambiguous sentences.], [Text complexity],
+    [SYNTACTIC_ANOMALY], [Number of syntactic anomaly sentences.], [Text complexity],
+    [RHETORICAL_STRUCTURE], [Sentences with discourse markers.], [Text complexity],
+    [POLARITY], [Emotional tone score of the context.], [Text complexity],
+    [SUBJECTIVITY], [Degree of personal opinion or factuality.], [Text complexity],
+    [PCA], [Top 10 principal components from text embeddings.], [Embedding],
+    [Topic similarity], [Cosine similarity with predefined topic embeddings.], [Embedding]
+  )
+)

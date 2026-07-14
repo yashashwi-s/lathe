@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950447-D6opStwzeZiXfpDW9u9S",
+  "object": "chat.completion",
+  "created": 1783950447,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Quantum Conserved Charges and S-matrices in N=2 Supersymmetric Sine-Gordon Theory]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n= Extracted Lists\n\nThe list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.\n\n#set enum(full: true)\n#grid(\n  columns: (auto, auto),\n  column-gutter: 1em,\n  [1)], [$phi_1 arrow phi_1 + (2 m pi sqrt(2)) / beta$, $quad$ $phi_2$, $phi_3$: fixed,],\n  [2)], [$phi_1 arrow phi_1 + ((2 m + 1) pi sqrt(2)) / beta$, $quad$ $phi_2$: fixed, $quad$ $phi_3 arrow phi_3 + pi$ (mod $2 pi$).]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/Lbbz5/ScHwt8D/sf2F/PNTgcEEl34LsKqNEK9W7tNBUIaHixWARGvJ/ddJ0Y=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1017,
+    "completion_tokens": 256,
+    "total_tokens": 1273,
+    "cost": 0.00063825,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00063825,
+      "upstream_inference_prompt_cost": 0.00025425,
+      "upstream_inference_completions_cost": 0.000384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

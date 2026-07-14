@@ -1,0 +1,101 @@
+{
+  "sample_id": "04_math_aligned_005",
+  "category": "04_math_aligned",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:22:41+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 4913,
+  "completion_tokens": 1867,
+  "total_tokens": 6780,
+  "reported_cost_usd": 0.00402875,
+  "estimated_cost_usd": 0.00402875,
+  "accounted_cost_usd": 0.00402875,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783948972-LVXiwcLrg1j42vmNqBfs",
+  "source_path": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_005/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_005/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783948961-NWkjNnBosSweQOA4CjXI",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 9.449,
+      "compile_seconds": 0.107,
+      "compile_ok": false,
+      "error_class": "math_syntax",
+      "usage": {
+        "prompt_tokens": 1877,
+        "completion_tokens": 933,
+        "total_tokens": 2810,
+        "cost": 0.00186875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00186875,
+          "upstream_inference_prompt_cost": 0.00046925,
+          "upstream_inference_completions_cost": 0.0013995
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected hat"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783948972-LVXiwcLrg1j42vmNqBfs",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 19.543,
+      "compile_seconds": 0.15,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 3036,
+        "completion_tokens": 934,
+        "total_tokens": 3970,
+        "cost": 0.00216,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00216,
+          "upstream_inference_prompt_cost": 0.000759,
+          "upstream_inference_completions_cost": 0.001401
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: wedge"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: wedge",
+  "duration_seconds": 29.259,
+  "finished_at": "2026-07-13T13:23:10+00:00"
+}

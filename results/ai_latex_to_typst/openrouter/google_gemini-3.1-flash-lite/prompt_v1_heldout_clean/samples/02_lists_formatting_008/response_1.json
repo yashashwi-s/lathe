@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950406-k9AyE8bdeNHTIcW7ZYSU",
+  "object": "chat.completion",
+  "created": 1783950406,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[The Effective String of 3D Gauge Systems at the Deconfining Transition]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n= Extracted Lists\n\nThe list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.\n\n#set enum(full: true)\n#let description(term, body) = {\n  block(inset: (left: 1em), [\n    #text(weight: \"bold\")[#term] #h(0.5em) #body\n  ])\n}\n\n#description(\"SU(2)\", [\n  In this case there is a good convergence among different published results both for the string tension and for the critical temperature. Data on $T_c$ are reported in [tc1] for lattices with length $L=2$ in the imaginary time direction; in [tc2] for $L=4$ and in [tc3] for $L=5$ and 6. Scaling seems to be fulfilled already for $L > 4$ and allows a rather precise estimation: $T_c beta a = 1.4 plus.minus 0.1$ [tc3] (where $a$ is the lattice spacing and $beta$ the inverse of the coupling constant).\n  Data on $sigma$ are reported in [sigma1] and more recently in [sigma2], in both case obtained with Wilson loops. Scaling seems to be fulfilled already for $beta > 6.$ (in agreement with the $T_c$ behaviour). These two sets of data agree and give $sigma(beta a)^2 = 2.23 plus.minus 0.04$. This implies $T_c / sqrt(sigma) = 0.94 plus.minus 0.03$ in agreement with our critical temperature for the minimal radius $r_1$, $T_c / sqrt(sigma) = sqrt(3) / sqrt(pi) = 0.98$. Indeed this result was already presented in [fp] to support the Nambu-Goto string picture, and has not been significatively changed by the new high precision data of ref [sigma2].\n])\n\n#description(\"Z_2\", [\n  In this case a rather precise estimate exists for the string tension [noiz2]: $sigma a^2 (beta_c - beta)^(-2 nu) = 3.64 plus.minus 0.09$, with $beta_c = 0.7614$ and $nu = 0.63$. For the critical temperature, the scaling region seems to start from $L=4$. Data obtained with the Montecarlo renormalization group approach [wan2] for $L=4, 8$, give $T_c a (beta_c - beta)^(-nu) = 2.3 plus.minus 0.1$, while a slightly lower value was obtained using finite size scaling techniques [wan1, brower] for $L=4$: $T_c a (beta_c - beta)^(-nu) = 2.2 plus.minus 0.1$. Taking into account all the uncertainties we can assume: $T_c / sqrt(sigma) = 1.17 plus.minus 0.1$ which is in acceptable agreement with our solution.\n])",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/vbxaqQGqWUHPhQG7z+JRq8l7FgYb8RSYecSBRJPIVrgppl7JoToZGmFmc+nk=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1506,
+    "completion_tokens": 774,
+    "total_tokens": 2280,
+    "cost": 0.0015375,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0015375,
+      "upstream_inference_prompt_cost": 0.0003765,
+      "upstream_inference_completions_cost": 0.001161
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

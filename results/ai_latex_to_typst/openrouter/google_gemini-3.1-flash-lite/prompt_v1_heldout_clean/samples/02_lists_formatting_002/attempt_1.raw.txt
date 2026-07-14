@@ -1,0 +1,22 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Critical Boundary Conditions for the Effective String]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+= Extracted Lists
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+#block(inset: (left: 0pt))[
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 1em,
+    strong[Fig.1],
+    [Quantum string contributions, in the cylinder geometry, for various values of the ratio $z = frac(2R, L)$. The continuous line is the fermion string with $nu = frac(1, 4)$, the dotted line is the bosonic string and the dashed line is the $c = frac(1, 2)$ critical Ising model.]
+  )
+]

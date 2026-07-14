@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949991-D1ZSmtod7MkowXg1Us9v",
+  "object": "chat.completion",
+  "created": 1783949991,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 8] \\\n  Source-backed Image2Struct algorithm sample \\\n  #v(1em)\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#figure(\n  block(stroke: 0.5pt + black, inset: 10pt)[\n    #set enum(numbering: \"1.\")\n    #text(weight: \"bold\")[Input:] $n$ independent realizations of the $p$-random vector $bold(X)$, $bold(x)^{(1)}, bold(x)^{(2)}, dots.c, bold(x)^{(n)}$; a topological ordering \"Ord\", (and a stopping level $m$). \\\n    #text(weight: \"bold\")[Output:] An estimated DAG $hat(G)$. \\\n    1. Form the complete undirected graph $tilde(G)$ on the vertex set $V$. \\\n    2. Orient edges on $tilde(G)$ respecting the topological ordering to form DAG $G'$. \\\n    3. $l = -1$; $quad hat(G) = G'$ \\\n    4. *repeat* \\\n    5. $quad l = l + 1$ \\\n    6. $quad$ *for* all vertices $s in V$, *do* \\\n    7. $quad quad$ let $bold(K)_s = p a(s)$ \\\n    8. $quad$ *end for* \\\n    9. $quad$ *repeat* \\\n    10. $quad quad$ Select a (new) edge $t arrow s$ in $hat(G)$ such that \\\n    11. $quad quad |bold(K)_s \\\\ {t}| >= l$. \\\n    12. $quad quad$ *repeat* \\\n    13. $quad quad quad$ choose a (new) set $bold(S) subset bold(K)_s \\\\ {t}$ with $|bold(S)| = l$. \\\n    14. $quad quad quad$ *if* $H_0: theta_(s t | bold(K)) = 0$ not rejected \\\n    15. $quad quad quad quad$ delete edge $t arrow s$ from $hat(G)$ \\\n    16. $quad quad quad$ *end if* \\\n    17. $quad quad$ *until* edge $t arrow s$ is deleted or all $bold(S) subset bold(K)_s \\\\ {t}$ with $|bold(S)| = l$ have been considered. \\\n    18. $quad$ *until* all edge $t arrow s$ in $hat(G)$ such that $|bold(K)_s \\\\ {t}| >= l$ and $bold(S) subset bold(K)_s \\\\ {t}$ with $|bold(S)| = l$ have been tested for conditional independence. \\\n    19. *until* $l = m$ or for each edge $t arrow s$ in $hat(G)$: $|bold(K)_s \\\\ {t}| < l$.\n  ],\n  caption: [Source-backed algorithmic procedure]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19229ffv3KT6e12qrDvVzT39hednQ+TKQparxd9TB1TG8zwFoUDrGSaFG4TDj0=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2589,
+    "completion_tokens": 756,
+    "total_tokens": 3345,
+    "cost": 0.00178125,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00178125,
+      "upstream_inference_prompt_cost": 0.00064725,
+      "upstream_inference_completions_cost": 0.001134
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

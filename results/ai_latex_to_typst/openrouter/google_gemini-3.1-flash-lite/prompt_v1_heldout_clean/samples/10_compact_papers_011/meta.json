@@ -1,0 +1,101 @@
+{
+  "sample_id": "10_compact_papers_011",
+  "category": "10_compact_papers",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:41:54+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 4186,
+  "completion_tokens": 1462,
+  "total_tokens": 5648,
+  "reported_cost_usd": 0.0032395,
+  "estimated_cost_usd": 0.0032395,
+  "accounted_cost_usd": 0.0032395,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950121-vp3dqxLK94CUsOflwJ76",
+  "source_path": "data/latex_benchmark_v0/corpus/10_compact_papers/10_compact_papers_011/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/10_compact_papers/10_compact_papers_011/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950114-yCZDvLbnHpDTnNUUyvAe",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 7.041,
+      "compile_seconds": 0.141,
+      "compile_ok": false,
+      "error_class": "math_syntax",
+      "usage": {
+        "prompt_tokens": 1524,
+        "completion_tokens": 731,
+        "total_tokens": 2255,
+        "cost": 0.0014775,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0014775,
+          "upstream_inference_prompt_cost": 0.000381,
+          "upstream_inference_completions_cost": 0.0010965
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: invalid number suffix: B"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950121-vp3dqxLK94CUsOflwJ76",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 33.449,
+      "compile_seconds": 0.631,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 2662,
+        "completion_tokens": 731,
+        "total_tokens": 3393,
+        "cost": 0.001762,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001762,
+          "upstream_inference_prompt_cost": 0.0006655,
+          "upstream_inference_completions_cost": 0.0010965
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: SL"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: SL",
+  "duration_seconds": 41.279,
+  "finished_at": "2026-07-13T13:42:35+00:00"
+}

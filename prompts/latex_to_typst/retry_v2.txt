@@ -1,0 +1,21 @@
+The previous Typst document failed to compile. This is the only repair attempt.
+
+Use the exact compiler output below to fix the failure. Prefer a conservative
+plain-text fallback over another risky Typst construct:
+
+- Unknown variable/function/symbol in math: replace the whole affected formula
+  with visible plain text using `#text("...")`.
+- Unexpected hat/underscore/symbol modifier or unclosed delimiter: simplify the
+  whole affected formula or table cell to plain text.
+- Table line/stroke/key errors: remove the custom line styling and use a simple
+  `table(columns: N, ...)` or plain-text aligned list.
+- Missing labels/references: either add a simple label to a real target or
+  render the key as `[key]`.
+
+Return the complete corrected Typst document, not a diff or excerpt. Preserve
+all visible content and return raw Typst source only, with no Markdown fences or
+explanation.
+
+--- compiler output ---
+{compiler_output}
+--- end compiler output ---

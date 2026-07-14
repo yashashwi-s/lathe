@@ -1,0 +1,18 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[The Riemannian manifold of all Riemannian metrics]
+  #v(0.5em)
+  Source-backed arXiv sample
+  #v(0.5em)
+])
+
+= Figure Captions
+
+#figure(
+  rect(width: 78%, height: 1.15in, stroke: 0.5pt),
+  caption: [Figure 1} Let us choose now a $g^0$-orthonormal basis of $T_x M$ and let $tilde(g) = n^(2/n)$],
+) <fig:source-1>
+
+Figures @fig:source-1 through @fig:source-1 preserve source-backed captions while replacing external graphics with deterministic placeholders.

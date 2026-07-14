@@ -1,0 +1,15 @@
+error: cannot reference heading without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/08_crossrefs_citations_002/attempt_2.typ:18:56
+   │
+18 │ This sample cites source keys [us1] and [us2]. Section #ref(<sec:refs>) and Equation #ref(<eq:source-demo>) provide cross-reference coverage.
+   │                                                         ^^^^^^^^^^^^^^^
+   │
+   = hint: you can enable heading numbering with `#set heading(numbering: "1.")`
+
+error: cannot reference equation without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/08_crossrefs_citations_002/attempt_2.typ:18:86
+   │
+18 │ This sample cites source keys [us1] and [us2]. Section #ref(<sec:refs>) and Equation #ref(<eq:source-demo>) provide cross-reference coverage.
+   │                                                                                       ^^^^^^^^^^^^^^^^^^^^^
+   │
+   = hint: you can enable equation numbering with `#set math.equation(numbering: "1.")`

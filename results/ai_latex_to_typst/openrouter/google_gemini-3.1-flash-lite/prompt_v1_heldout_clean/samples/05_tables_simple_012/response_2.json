@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949269-YZvwq0Ja1eoEO3KvMAHZ",
+  "object": "chat.completion",
+  "created": 1783949269,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n= Simple Tables\n\nSource-backed grouped table sample\n\n#heading(level: 1, numbering: none)[Tables]\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.00650_table_5],\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: (y, x) => if y == 1 or y == 45 { (bottom: 0.5pt) } else { none },\n    [No], [Column name], [Units], [Description],\n    [1], [RA_2000], [degrees], [Right Ascension J2000],\n    [2], [DEC_2000], [degrees], [Declination J2000],\n    [3], [$ell$], [degrees], [IAU 1958 Galactic longitude],\n    [4], [$b$], [degrees], [IAU 1958 Galactic latitude],\n    [5], [mergedClass], [], [Band-merged morphological class],\n    [6], [i_AB], [mag], [$i$ band AB magnitude],\n    [7], [i_V], [mag], [$i$ band Vega magnitude],\n    [8], [err_i], [mag], [$i$ band photometric uncertainty],\n    [9], [Class_i], [], [$i$ morphological class],\n    [10], [Av_conf_i], [], [$i$ band confidence level],\n    [11], [errbits_i], [], [$i$ band cumulative warning flag],\n    [12], [Ha_AB], [mag], [H$alpha$ band AB magnitude],\n    [13], [Ha_V], [mag], [H$alpha$ band Vega magnitude],\n    [14], [err_Ha], [mag], [H$alpha$ band photometric uncertainty],\n    [15], [Class_Ha], [], [H$alpha$ morphological class],\n    [16], [Av_conf_Ha], [], [H$alpha$ band confidence level],\n    [17], [errbits_Ha], [], [H$alpha$ band cumulative warning flag],\n    [18], [rr_AB], [mag], [red-OB $r$ band AB magnitude],\n    [19], [rr_V], [mag], [red-OB $r$ band Vega magnitude],\n    [20], [err_rr], [mag], [red-OB $r$ band photometric uncertainty],\n    [21], [Class_rr], [], [red-OB $r$ morphological class],\n    [22], [Av_conf_rr], [], [red-OB $r$ band confidence level],\n    [23], [errbits_rr], [], [red-OB $r$ band cumulative warning flag],\n    [24], [rb_AB], [mag], [blue-OB $r$ band AB magnitude],\n    [25], [rb_V], [mag], [blue-OB $r$ band Vega magnitude],\n    [26], [err_rb], [mag], [blue-OB $r$ band photometric uncertainty],\n    [27], [Class_rb], [], [blue-OB $r$ morphological class],\n    [28], [Av_conf_rb], [], [blue-OB $r$ band confidence level],\n    [29], [errbits_rb], [], [blue-OB $r$ band cumulative warning flag],\n    [30], [g_AB], [mag], [$g$ band AB magnitude],\n    [31], [g_V], [mag], [$g$ band Vega magnitude],\n    [32], [err_g], [mag], [$g$ band photometric uncertainty],\n    [33], [Class_g], [], [$g$ morphological class],\n    [34], [Av_conf_g], [], [$g$ band confidence level],\n    [35], [errbits_g], [], [$g$ band cumulative warning flag],\n    [36], [u_AB], [mag], [$u$ band AB magnitude],\n    [37], [u_V], [mag], [$u$ band Vega magnitude],\n    [38], [err_u], [mag], [$u$ band photometric uncertainty],\n    [39], [Class_u], [], [$u$ morphological class],\n    [40], [Av_conf_u], [], [$u$ band confidence level],\n    [41], [errbits_u], [], [$u$ band cumulative warning flag],\n    [42], [main_id], [], [SIMBAD main identifier],\n    [43], [main_type], [], [SIMBAD main object type],\n    [44], [sp_type], [], [SIMBAD spectral classification]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01856_table_2],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: (x, y) => (\n      left: if x == 1 or x == 4 or x == 7 { 0.5pt } else { none },\n      bottom: if y == 0 or y == 1 or y == 10 or y == 19 or y == 28 { 0.5pt } else { none }\n    ),\n    [LM-O], [Rot. Err. \\ (deg) $down$], [Trans. Err. \\ (mm) $down$], [90th perc. \\ Tr. Err. (mm) $down$], [ADD(-S) \\ (mm) $down$], [MSSD \\ (mm) $down$], [MSPD \\ (pixels) $down$], [Success Rate \\ (Parallel) $up$], [Success Rate \\ (Underactuated) $up$],\n    [*EPOS*], [], [], [], [], [], [], [], [],\n    [  Ape], [6.276], [24.997], [66.190], [24.702], [28.742], [6.356], [0.043], [0.389],\n    [  Can], [4.553], [20.478], [62.804], [20.981], [27.774], [6.547], [0.714], [0.794],\n    [  Cat], [13.349], [30.751], [76.806], [31.622], [42.467], [8.635], [0.073], [0.452],\n    [  Drill], [3.479], [15.970], [56.227], [16.457], [21.863], [6.482], [0.528], [0.494],\n    [  Duck], [9.448], [12.004], [37.394], [13.912], [19.477], [7.341], [0.314], [0.571],\n    [  Egg box], [39.309], [82.298], [918.043], [38.115], [205.819], [87.161], [-], [0.180],\n    [  Glue], [6.508], [29.666], [88.713], [12.461], [36.163], [7.564], [0.405], [0.587],\n    [  Hole-puncher], [5.316], [22.048], [45.440], [22.333], [27.814], [6.759], [0.267], [0.314],\n    [*GDRNPP*], [], [], [], [], [], [], [], [],\n    [  Ape], [3.948], [9.604], [22.075], [9.819], [12.292], [4.539], [0.142], [0.821],\n    [  Can], [3.405], [11.347], [23.162], [11.931], [16.127], [5.250], [0.888], [0.949],\n    [  Cat], [3.948], [13.426], [30.240], [13.675], [17.509], [4.134], [0.274], [0.847],\n    [  Drill], [3.112], [11.156], [26.569], [11.733], [16.898], [5.254], [0.590], [0.708],\n    [  Duck], [7.659], [19.038], [31.551], [19.900], [24.307], [6.008], [0.308], [0.385],\n    [  Egg box], [6.686], [51.891], [694.946], [20.611], [198.821], [84.249], [-], [0.286],\n    [  Glue], [6.214], [14.888], [45.016], [6.980], [19.166], [6.670], [0.787], [0.951],\n    [  Hole-puncher], [4.431], [22.042], [39.907], [22.082], [26.724], [6.057], [0.171], [0.181],\n    [*ZebraPose*], [], [], [], [], [], [], [], [],\n    [  Ape], [3.613], [8.398], [18.365], [8.480], [10.533], [4.981], [0.219], [0.825],\n    [  Can], [2.958], [5.752], [12.421], [6.783], [9.723], [4.349], [0.944], [0.983],\n    [  Cat], [3.520], [10.338], [24.029], [10.978], [14.901], [3.940], [0.390], [0.878],\n    [  Drill], [2.522], [9.326], [20.680], [9.546], [13.089], [4.936], [0.669], [0.792],\n    [  Duck], [7.423], [7.293], [14.117], [8.742], [13.705], [5.902], [0.596], [0.519],\n    [  Egg box], [5.199], [23.191], [1041.358], [10.242], [177.739], [81.047], [-], [0.632],\n    [  Glue], [4.112], [11.980], [32.020], [5.018], [14.751], [4.769], [0.882], [0.958],\n    [  Hole-puncher], [4.271], [9.562], [21.111], [10.003], [13.803], [6.150], [0.601], [0.684]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18bQ1B7p9nak1Wl8uqc9pPcsCLWpKyYDbbVC1RMcq1ejKjE7SH9g69NOr9+DBk=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 7412,
+    "completion_tokens": 3036,
+    "total_tokens": 10448,
+    "cost": 0.006407,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006407,
+      "upstream_inference_prompt_cost": 0.001853,
+      "upstream_inference_completions_cost": 0.004554
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

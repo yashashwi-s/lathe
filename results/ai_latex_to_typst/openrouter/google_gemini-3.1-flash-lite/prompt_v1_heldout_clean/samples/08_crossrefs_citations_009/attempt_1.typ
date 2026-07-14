@@ -1,0 +1,34 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Effective Superstrings]
+  #parbreak()
+  Source-backed arXiv sample
+  #parbreak()
+])
+
+#block(inset: (x: 2em), [
+  #text(weight: "bold")[Abstract]
+  #parbreak()
+  We generalize the method of quantizing effective strings proposed by Polchinski and Strominger to superstrings. The Ramond-Neveu-Schwarz string is different from the Green-Schwarz string in non-critical dimensions. Both are anomaly-free and Poincare invariant. Some implications of the results are discussed. The formal analogy with 4D (super)gravity is pointed out.
+])
+
+= References And Citations
+<sec:refs>
+
+This sample cites source keys [pol] and [div]. Section #ref(<sec:refs>) and Equation #ref(<eq:source-demo>) provide cross-reference coverage.
+
+$ a^2 + b^2 = c^2 $ <eq:source-demo>
+
+#parbreak()
+#text(weight: "bold")[References]
+#parbreak()
+
+[pol] Source bibliography entry 1 extracted from arXiv metadata/source key `pol`.
+
+[div] Source bibliography entry 2 extracted from arXiv metadata/source key `div`.
+
+[hughes] Source bibliography entry 3 extracted from arXiv metadata/source key `hughes`.
+
+[gs] Source bibliography entry 4 extracted from arXiv metadata/source key `gs`.

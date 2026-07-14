@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783946617-JQb5i3MCuO2jGXXFnceY",
+  "object": "chat.completion",
+  "created": 1783946617,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 3] \\\n  Source-backed Image2Struct algorithm sample \\\n  #v(1em)\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#figure(\n  block[\n    #set align(left)\n    #let indent = h(2em)\n    #let indent2 = h(4em)\n    #let indent3 = h(6em)\n    #let indent4 = h(8em)\n\n    #line(length: 100%)\n    *for* $t in {-1, dots.h, -T^\"traceback\"}$ #h(1fr) // Retrieve the values of $P_(u,t)$ \\\n    #indent $P_(u,t) arrow.l \"Power.GetValue\"(t)$ \\\n    *end for* \\\n    *for* $t in {-1, dots.h, -T^\"traceback\"}$ #h(1fr) // Initial conditions on the state variables \\\n    #indent *if* $P_(u,t) > \"MinimumPower.GetValue\"(t)$ \\\n    #indent2 $S_(u,t)^\"OFF\" arrow.l 0$ \\\n    #indent2 $S_(u,t)^\"STOP\" arrow.l 0$ \\\n    #indent2 $S_(u,t)^\"START\" arrow.l 0$ \\\n    #indent2 *if* $P_(u,t) < P_(u,t-1)$ #h(1fr) // Exact initialization required only if the FLAT state is defined. \\\n    #indent3 $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent3 $S_(t-1)^\"ON_DOWN\" arrow.l 1$ \\\n    #indent3 $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent2 *else if* $P_(u,t) > P_(u,t-1)$ \\\n    #indent3 $S_(t-1)^\"ON_UP\" arrow.l 1$ \\\n    #indent3 $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent3 $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent2 *else if* $P_(u,t) = P_(u,t-1)$ \\\n    #indent3 $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent3 $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent3 $S_(t-1)^\"ON_FLAT\" arrow.l 1$ \\\n    #indent2 *end if* \\\n    #indent *else if* $P_(u,t) > 0$ #h(1fr) // Reconstruct the startups and shutdowns \\\n    #indent2 *if* $P_(u,t) < P_(u,t-1)$ \\\n    #indent3 $S_t^\"STOP\" arrow.l 1$ \\\n    #indent3 $S_t^\"START\" arrow.l 0$ \\\n    #indent2 *else* \\\n    #indent3 $S_t^\"STOP\" arrow.l 0$ \\\n    #indent3 $S_t^\"START\" arrow.l 1$ \\\n    #indent2 *end if* \\\n    #indent *else* #h(1fr) // Final possibility: the unit is OFF. \\\n    #indent2 $S_(u,t)^\"OFF\" arrow.l 1$ \\\n    #indent2 $S_(u,t)^\"STOP\" arrow.l 0$ \\\n    #indent2 $S_(u,t)^\"START\" arrow.l 0$ \\\n    #indent2 $S_(t-1)^\"ON_UP\" arrow.l 0$ \\\n    #indent2 $S_(t-1)^\"ON_DOWN\" arrow.l 0$ \\\n    #indent2 $S_(t-1)^\"ON_FLAT\" arrow.l 0$ \\\n    #indent *end if* \\\n    *end for*\n    #line(length: 100%)\n  ],\n  caption: [Initialization of the control and state variables]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+aqPkSexx9fXXxw53RW3he0WKTq7d9YnlChkybhV54tSKaQ6BbhD7trs+J0K8=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1592,
+    "completion_tokens": 1079,
+    "total_tokens": 2671,
+    "cost": 0.0020165,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0020165,
+      "upstream_inference_prompt_cost": 0.000398,
+      "upstream_inference_completions_cost": 0.0016185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

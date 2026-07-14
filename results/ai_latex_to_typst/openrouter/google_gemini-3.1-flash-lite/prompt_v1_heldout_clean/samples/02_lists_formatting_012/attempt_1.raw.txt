@@ -1,0 +1,19 @@
+#set page(margin: 1in)
+#set text(size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Complete structure of Z_n Yukawa couplings]
+  #parbreak()
+  Source-backed arXiv sample
+  #parbreak()
+])
+
+= Extracted Lists
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+#set enum(numbering: "i)")
++ Physical states that enter the couplings.
++ Allowed couplings.
++ Numerical values of the Yukawa couplings and dependence of these values on the physical parameters that define the string vacuum (e.g. the size of the compactified space).
++ Number of different Yukawa couplings and phenomenological viability of the scheme (i.e. fitting of the observed pattern of fermion masses and mixing angles by the theoretical Yukawa couplings).

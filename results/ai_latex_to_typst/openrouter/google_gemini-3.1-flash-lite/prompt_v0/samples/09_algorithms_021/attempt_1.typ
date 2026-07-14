@@ -1,0 +1,46 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "Linux Libertine")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 21] \
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#figure(
+  kind: "algorithm",
+  supplement: [Algorithm],
+  block(stroke: 0.5pt + black, inset: 10pt)[
+    *Algorithm: Source-backed algorithmic procedure*
+    #line(length: 100%, stroke: 0.5pt)
+    #set enum(numbering: "1.")
+    #stack(dir: ttb, spacing: 0.5em,
+      [*Require:*],
+      [$tau$: Scale of coordinate noise],
+      [$GNN_theta$: Graph Neural Network with parameter $theta$],
+      [$"NoiseHead"_(theta_n)$: Network module with parameter $theta_n$ for prediction of node-level noise of each atom],
+      [$"LabelHead"_(theta_l)$: Network module with parameter $theta_l$ for prediction of graph-level label of $x_i$],
+      [$X$: Training dataset],
+      [$x_i$: Input conformation],
+      [$y_i$: Label of $x_i$],
+      [$T$: Training steps],
+      [$cal(N)$: Gaussian distribution],
+      [$lambda_p$: Loss weight of property prediction loss],
+      [$lambda_n$: Loss weight of Noisy Nodes loss],
+    )
+    #line(length: 100%, stroke: 0.5pt)
+    #stack(dir: ttb, spacing: 0.5em,
+      [#text(weight: "bold")[while] $T != 0$ #text(weight: "bold")[do]],
+      [#h(2em) 1. $x_i, y_i = "dataloader"(X)$ #h(1fr) // random sample $x_i$ and corresponding label $y_i$ from $X$],
+      [#h(2em) 2. $tilde(x) = x_i + Delta x_i$, where $Delta x_i ~ cal(N)(0, tau^2 I_(3N))$, $N$ is atom number of $x_i$],
+      [#h(2em) 3. $y_i^"pred" = "LabelHead"_(theta_l)(GNN_theta(tilde(x)))$],
+      [#h(2em) 4. $Delta x_i^"pred" = "NoiseHead"_(theta_n)(GNN_theta(tilde(x)))$],
+      [#h(2em) 5. Loss = $lambda_p "PropertyPredictionLoss"(y_i^"pred", y_i) + lambda_n ||Delta x_i^"pred" - Delta x_i||_2^2$],
+      [#h(2em) 6. "Optimise"(Loss)],
+      [#h(2em) 7. $T = T - 1$],
+      [#text(weight: "bold")[end while]]
+    )
+  ]
+)

@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949423-Jpc9UhFuMvxNIzbQncRT",
+  "object": "chat.completion",
+  "created": 1783949423,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Simple Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  table(\n    columns: (auto, auto, auto),\n    stroke: (x, y) => if y == 0 or y == 36 { (top: 0.5pt, bottom: 0.5pt) } else { none },\n    align: (left, left, left),\n    table.header([\\#], [Word type], [$f$]),\n    [1.], [_te_ (\u2018at\u2019, \u2018to\u2019, #smallcaps[comp])], [1025],\n    [2.], [_niet_ (\u2018not\u2019)], [633],\n    [3.], [_dat_ (\u2018that\u2019)], [631],\n    [4.], [_om_ (\u2018to\u2019)], [451],\n    [5.], [_geen_ (\u2018no\u2019)], [304],\n    [6.], [_de_ (\u2018the\u2019, #smallcaps[masc/fem/pl])], [292],\n    [7.], [_er_ (\u2018there\u2019)], [261],\n    [8.], [_ieder_ (\u2018every\u2019, #smallcaps[neut])], [253],\n    [9.], [_elk_ (\u2018every\u2019, #smallcaps[neut])], [237],\n    [10.], [_iedere_ (\u2018every\u2019, #smallcaps[masc/fem])], [231],\n    [11.], [_elke_ (\u2018every\u2019, #smallcaps[masc/fem])], [224],\n    [12.], [_of_ (\u2018or\u2019, \u2018whether\u2019)], [215],\n    [13.], [_een_ (\u2018a\u2019, \u2018one\u2019)], [203],\n    [14.], [_alle_ (\u2018all\u2019)], [200],\n    [15.], [_massa's_ (\u2018masses\u2019)], [194],\n    [16.], [_ik_ (\u2018I\u2019)], [193],\n    [17.], [_op_ (\u2018on\u2019)], [178],\n    [18.], [_aan_ (\u2018to\u2019, #smallcaps[prep])], [173],\n    [19.], [_deze_ (\u2018this\u2019, #smallcaps[masc/fem])], [172],\n    [20.], [_het_ (\u2018the\u2019, #smallcaps[neut:sg])], [167],\n    [21.], [_veel_ (\u2018a lot of\u2019)], [162],\n    [22.], [_weinig_ (\u2018a few\u2019)], [160],\n    [23.], [_voor_ (\u2018for\u2019)], [145],\n    [24.], [_hier_ (\u2018here\u2019)], [143],\n    [25.], [_die_ (\u2018that\u2019, #smallcaps[masc/fem])], [135],\n    [26.], [_menige_ (\u2018many\u2019, #smallcaps[pl])], [131],\n    [27.], [_door_ (\u2018by\u2019)], [130],\n    [28.], [_zijn_ (\u2018are\u2019, \u2018be\u2019, \u2018his\u2019)], [130],\n    [29.], [_dit_ (\u2018this\u2019, #smallcaps[neut])], [121],\n    [30.], [_in_ (\u2018in\u2019)], [120],\n    [31.], [_daar_ (\u2018there\u2019)], [114],\n    [32.], [_menig_ (\u2018many\u2019, #smallcaps[sg])], [114],\n    [33.], [_je_ (\u2018you\u2019, #smallcaps[inform])], [109],\n    [34.], [_drie_ (\u2018three\u2019)], [102],\n    [35.], [_twee_ (\u2018two\u2019)], [89],\n  ),\n  caption: [Source table 1: 2512.02195\\_table\\_8]\n)\n\n#figure(\n  table(\n    columns: (auto, auto, auto),\n    stroke: (x, y) => if y == 0 or y == 36 { (top: 0.5pt, bottom: 0.5pt) } else { none },\n    align: (left, left, left),\n    table.header([\\#], [Word type], [$f$]),\n    [1.], [_te_ (\u2018at\u2019, \u2018to\u2019, #smallcaps[comp])], [92],\n    [2.], [_dat_ (\u2018that\u2019)], [62],\n    [3.], [_niet_ (\u2018not\u2019)], [60],\n    [4.], [_om_ (\u2018to\u2019)], [49],\n    [5.], [_geen_ (\u2018no\u2019)], [33],\n    [6.], [_er_ (\u2018there\u2019)], [32],\n    [7.], [_de_ (\u2018the\u2019, #smallcaps[masc/fem/pl])], [25],\n    [8.], [_elke_ (\u2018every\u2019, #smallcaps[masc/fem])], [25],\n    [9.], [_een_ (\u2018a\u2019, \u2018one\u2019)], [24],\n    [10.], [_het_ (\u2018the\u2019, #smallcaps[neut:sg])], [24],\n    [11.], [_op_ (\u2018on\u2019)], [23],\n    [12.], [_ieder_ (\u2018every\u2019, #smallcaps[neut])], [21],\n    [13.], [_ik_ (\u2018I\u2019)], [21],\n    [14.], [_die_ (\u2018that\u2019, #smallcaps[masc/fem])], [20],\n    [15.], [_elk_ (\u2018every\u2019, #smallcaps[neut])], [20],\n    [16.], [_iedere_ (\u2018every\u2019, #smallcaps[masc/fem])], [20],\n    [17.], [_veel_ (\u2018a lot of\u2019)], [20],\n    [18.], [_alle_ (\u2018all\u2019)], [19],\n    [19.], [_daar_ (\u2018there\u2019)], [18],\n    [20.], [_deze_ (\u2018this\u2019, #smallcaps[masc/fem])], [17],\n    [21.], [_hier_ (\u2018here\u2019)], [17],\n    [22.], [_of_ (\u2018or\u2019, \u2018whether\u2019)], [17],\n    [23.], [_voor_ (\u2018for\u2019)], [17],\n    [24.], [_aan_ (\u2018to\u2019, #smallcaps[prep])], [16],\n    [25.], [_massa's_ (\u2018masses\u2019)], [15],\n    [26.], [_van_ (\u2018of\u2019)], [14],\n    [27.], [_vier_ (\u2018four\u2019)], [14],\n    [28.], [_weinig_ (\u2018a few\u2019)], [14],\n    [29.], [_dit_ (\u2018this\u2019, #smallcaps[neut])], [12],\n    [30.], [_menig_ (\u2018many\u2019, #smallcaps[sg])], [12],\n    [31.], [_negenennegentig_ (\u2018ninetynine\u2019)], [12],\n    [32.], [_blijkt_ (\u2018turns out\u2019)], [11],\n    [33.], [_naar_ (\u2018to\u2019, #smallcaps[prep], \u2018unpleasant\u2019)], [11],\n    [34.], [_twaalf_ (\u2018twelve\u2019)], [11],\n    [35.], [_vijf_ (\u2018five\u2019)], [11],\n  ),\n  caption: [Source table 2: 2512.02195\\_table\\_3]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19X3mOmE1bKMPjk9fYvv8U9/T8/Rcej7vsGp7sVpZ2FQV8FOWtsWn5ervLJxzk=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2582,
+    "completion_tokens": 1816,
+    "total_tokens": 4398,
+    "cost": 0.0033695,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0033695,
+      "upstream_inference_prompt_cost": 0.0006455,
+      "upstream_inference_completions_cost": 0.002724
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

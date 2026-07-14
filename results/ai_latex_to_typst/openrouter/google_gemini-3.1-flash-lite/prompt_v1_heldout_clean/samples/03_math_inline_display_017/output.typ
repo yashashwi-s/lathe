@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(L) = 1/2 ( tilde(Psi)^ast (i tilde(partial)_t - tilde(A)_0) tilde(Psi) + c.c. ) + tilde(A)_0 - 1/2 |tilde(D)_i tilde(Psi)|^2 + 1/2 (1/beta bold(tilde(E))^2 - tilde(bold(B))^2) - 1/8 kappa^2 (tilde(Psi) tilde(Psi)^ast - 1)^2 $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ "Hom"_[R slash G^sigma](bb(F)_q) ( (r', epsilon'), (r'', epsilon'') ) = delta_(epsilon', epsilon'') "Trans"_(G_e^(sigma, epsilon')(bb(F)_q))(r', r'') $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ T_(r h) approx (90 / (pi^2 g_*))^(1/4) min(sqrt(H(phi_e)), sqrt(Gamma)) approx (30 / (pi^2 g_*))^(1/4) min(Delta, (3 / (8 pi^2))^(1/4) p^(3/2) kappa^((5 / (2 p))) Delta^(3 - (5 q) / (2 p))) $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ [ A_("GI" i)^(gamma)(bold(r)) (lambda^gamma / 2) ] = V_(cal(C))(bold(r)) [ A_i^gamma(bold(r)) (lambda^gamma / 2) ] V_(cal(C))^(-1)(bold(r)) + i/g V_(cal(C))(bold(r)) partial_i V_(cal(C))^(-1)(bold(r)) $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ Delta_i^(K K) = overline(b)_i / (2 pi) sum_((m_1, m_2) != (0, 0)) ln (M_s / M_(m_1, m_2)) - overline(b)_i / (4 pi) sum_((m_1, m_2) != (0, 0)) integral_(-1/2)^(1/2) d tau_1 integral_0^(kappa_(vec(m)) sqrt(1 - tau_1^2)) (d t) / t (e^(-t) - 1) $

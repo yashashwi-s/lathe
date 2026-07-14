@@ -1,0 +1,101 @@
+{
+  "sample_id": "08_crossrefs_citations_012",
+  "category": "08_crossrefs_citations",
+  "complexity_band": "low",
+  "status": "finished",
+  "started_at": "2026-07-13T12:29:22+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 2791,
+  "completion_tokens": 845,
+  "total_tokens": 3636,
+  "reported_cost_usd": 0.00196525,
+  "estimated_cost_usd": 0.00196525,
+  "accounted_cost_usd": 0.00196525,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783945765-Z8qJ8Twh1R2GydxGHJyh",
+  "source_path": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_012/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_012/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783945762-MmolIrweAf0MgMsGz9jB",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.616,
+      "compile_seconds": 0.121,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 898,
+        "completion_tokens": 420,
+        "total_tokens": 1318,
+        "cost": 0.0008545,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0008545,
+          "upstream_inference_prompt_cost": 0.0002245,
+          "upstream_inference_completions_cost": 0.00063
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: cannot reference metadata"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783945765-Z8qJ8Twh1R2GydxGHJyh",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.74,
+      "compile_seconds": 0.113,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 1893,
+        "completion_tokens": 425,
+        "total_tokens": 2318,
+        "cost": 0.00111075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00111075,
+          "upstream_inference_prompt_cost": 0.00047325,
+          "upstream_inference_completions_cost": 0.0006375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 5.601,
+  "finished_at": "2026-07-13T12:29:27+00:00"
+}

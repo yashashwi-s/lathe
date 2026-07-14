@@ -1,0 +1,32 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_001/attempt_1.typ:14:194
+   │
+14 │ $ cal(I)_("D")(0, delta_2) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda_2 in RR_+) [lambda_2 delta_2 + integral_cal(V) g_(lambda, 2) d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR^2_+) [angle.l lambda, (0, delta_2) angle.r + integral_cal(V) g_lambda d pi] . $
+   │                                                                                                                                                                                                   ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_001/attempt_1.typ:14:223
+   │
+14 │ $ cal(I)_("D")(0, delta_2) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda_2 in RR_+) [lambda_2 delta_2 + integral_cal(V) g_(lambda, 2) d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR^2_+) [angle.l lambda, (0, delta_2) angle.r + integral_cal(V) g_lambda d pi] . $
+   │                                                                                                                                                                                                                                ^
+
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_001/attempt_1.typ:18:18
+   │
+18 │ $ gamma_1 = angle.l sum_(X_i in (italic(G)_1)_(X'_i')) sum_(i_(alpha_1) < j_(alpha_1), {i_(alpha_1), j_(alpha_1)} in J_(X_i)) t_(i_(alpha_1)) t_(j_(alpha_1)) bold(1)_((w(t_(i_(alpha_1))) = w(t_(j_(alpha_1))))) chi((i_(alpha_1), j_(alpha_1)) in i'_(alpha_1)) angle.r^(l.c.)_(w') " and" $
+   │                   ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_001/attempt_1.typ:18:264
+   │
+18 │ $ gamma_1 = angle.l sum_(X_i in (italic(G)_1)_(X'_i')) sum_(i_(alpha_1) < j_(alpha_1), {i_(alpha_1), j_(alpha_1)} in J_(X_i)) t_(i_(alpha_1)) t_(j_(alpha_1)) bold(1)_((w(t_(i_(alpha_1))) = w(t_(j_(alpha_1))))) chi((i_(alpha_1), j_(alpha_1)) in i'_(alpha_1)) angle.r^(l.c.)_(w') " and" $
+   │                                                                                                                                                                                                                                                                         ^
+
+error: unknown variable: circ
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_001/attempt_1.typ:22:124
+   │
+22 │ $ (integral_S sum_(n_1=1)^infinity |sum_(gamma in Gamma^2_infinity backslash Gamma^2_1) nabla_tau phi^0_(n_1)(tau) |_(gamma circ tau)|^2 dV) / (integral_S sum_(n=1)^infinity |sum_(gamma in Gamma^2_infinity backslash Gamma^2_1) phi^0_(n_1)(tau) |_(gamma circ tau)|^2 dV) < 10 lambda . $
+   │                                                                                                                             ^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `c i r c`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"circ"`

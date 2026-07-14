@@ -1,0 +1,87 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Moderate Tables
+
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+= Tables
+
+Table: Source table 1: 2512.01406_table_4
+
+| | `\beta_0` | `\beta_1` | `\beta_2` | `\beta_3` | `\beta_4` | | | `\Delta` Deviance | `p`-value | `p`ID |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **LDLPFC** | | | | | | | | | | |
+| `M_0` | 135.4024 | | | | | | | | | |
+| `M_1` | -47.5876 | 17.1508 | | | | | | 35.3980 | 0 | * |
+| `M_2` | -64.2313 | 17.8882 | 19.8370 | | | | | 1.2189 | 0.2696 | |
+| `M_3` | -63.9616 | 17.8613 | 19.1087 | 0.0792 | | | | 0.0002 | 0.9892 | |
+| `M_4` | -63.9616 | 17.8613 | 19.1087 | 0.0792 | 0 | | | 0 | 1 | |
+| **V1** | | | | | | | | | | |
+| `M_0` | 4565.0240 | | | | | | | | | |
+| `M_1` | 1441.5150 | 278.2914 | | | | | | 43.4969 | 0 | * |
+| `M_2` | 1033.0679 | 298.1980 | 426.0099 | | | | | 2.4011 | 0.1212 | |
+| `M_3` | 1096.0157 | 292.7513 | 277.5181 | 14.2642 | | | | 0.0259 | 0.8722 | |
+| `M_4` | 1096.0157 | 292.7513 | 277.5181 | 14.2642 | 0 | | | 0 | 1 | |
+| **Thalamus** | | | | | | | | | | |
+| `M_0` | 1770.8828 | | | | | | | | | |
+| `M_1` | 807.3178 | 85.0972 | | | | | | 16.5751 | 0 | * |
+| `M_2` | 559.6070 | 97.3195 | 259.8068 | | | | | 3.6170 | 0.0572 | |
+| `M_3` | 669.1027 | 87.9975 | -8.8046 | 25.5267 | | | | 0.3292 | 0.5661 | |
+| `M_4` | 669.1027 | 87.9975 | -8.8046 | 25.5267 | 0 | | | 0 | 1 | |
+| **Pallidum** | | | | | | | | | | |
+| `M_0` | 842.6963 | | | | | | | | | |
+| `M_1` | 352.8506 | 43.3598 | | | | | | 13.1615 | 0.0003 | * |
+| `M_2` | 230.1719 | 49.3938 | 129.6019 | | | | | 2.7562 | 0.0969 | |
+| `M_3` | 279.2402 | 45.1921 | 8.0332 | 11.6171 | | | | 0.2090 | 0.6475 | |
+| `M_4` | 279.2402 | 45.1921 | 8.0332 | 11.6171 | 0 | | | 0 | 1 | |
+| **Mean** | | | | | | | | | | |
+| `M_0` | 672.1490 | | | | | | | | | |
+| `M_1` | 76.2744 | 53.8206 | | | | | | 29.5094 | 0 | * |
+| `M_2` | 2.5834 | 57.3390 | 79.6957 | | | | | 1.5446 | 0.2139 | |
+| `M_3` | 26.3171 | 55.2181 | 21.7991 | 5.7500 | | | | 0.0775 | 0.7808 | |
+| `M_4` | 26.3171 | 55.2181 | 21.7991 | 5.7500 | 0 | | | 0 | 1 | |
+
+Table: Source table 2: 2512.01970_table_6
+
+| Relation | Statement Template | Question Template |
+|---|---|---|
+| address | {e1} resides at {e2}. | What is {e1}'s address? |
+| awards | {e1} won the {e2} award. | What awards has {e1} won? |
+| best_friend | {e1}'s best friend is {e2}. | Who is {e1}'s closest friend? |
+| birth_date | {e1} was born on {e2}. | When was {e1} born? |
+| birth_place | {e1} hails from {e2}. | Where was {e1} born? |
+| boss | {e1} works under {e2}. | Who is {e1}'s boss? |
+| boss_of | {e1} manages {e2}. | Who works under {e1}? |
+| child | {e2} is the child of {e1}. | Who is {e1}'s child? |
+| classmate | {e1} studied alongside {e2}. | Who attended school with {e1}? |
+| colleague | {e1} works alongside {e2}. | Who are {e1}'s colleagues? |
+| died_in | {e1} passed away in {e2}. | Where did {e1} die? |
+| died_on | {e1} died on {e2}. | When did {e1} pass away? |
+| email | You can reach {e1} at {e2}. | What is {e1}'s email address? |
+| favorite_food | {e1}'s favorite dish was {e2}. | What food does {e1} enjoy the most? |
+| first_language | {e1}'s native language was {e2}. | What is {e1}'s first language? |
+| hobby | A favorite activity of {e1} is {e2}. | What does {e1} enjoy doing? |
+| influence | {e1} shaped the career of {e2}. | Who was influenced by {e1}? |
+| influenced_by | {e1} looked up to {e2}. | Who inspired {e1}? |
+| known_for | {e1} gained recognition for {e2}. | What is {e1} famous for? |
+| leader_of | {e1} was the leader of {e2}. | Which group was {e1} in charge of? |
+| lived_in | {e1} resided in {e2}. | Where has {e1} lived? |
+| major | {e1} majored in {e2}. | What did {e1} specialize in? |
+| mentored_by | {e1} received guidance from {e2}. | Who mentored {e1}? |
+| mentoring | {e2} is a student of {e1}. | Who does {e1} mentor? |
+| nationality | {e1} is a citizen of {e2}. | What is {e1}'s nationality? |
+| neighbor | {e1} lives next to {e2}. | Who resides beside {e1}? |
+| occupation | {e1} is employed as {e2}. | What does {e1} do for a living? |
+| parent | {e1}'s parent is {e2}. | Who is the parent of {e1}? |
+| pet | {e1} owns a pet called {e2}. | What is the name of {e1}'s pet? |
+| philanthropy | {e1} donated to {e2}. | Which causes did {e1} support? |
+| phone | {e1} can be reached at {e2}. | What is {e1}'s phone number? |
+| rival | {e1} had a rivalry with {e2}. | Who did {e1} compete with? |
+| roommate | {e1} shared a room with {e2}. | Who lived with {e1}? |
+| service | {e1} was a member of {e2}. | Which organization did {e1} serve in? |
+| sibling | {e1} and {e2} are siblings. | Who are {e1}'s siblings? |
+| spouse | {e1} is married to {e2}. | Who is {e1}'s spouse? |
+| university | {e1} went to {e2}. | Which university did {e1} attend? |
+| worked_at | {e1} held a position at {e2}. | Where did {e1} work? |
+| wrote | {e1} authored the book {e2}. | Which book did {e1} write? |

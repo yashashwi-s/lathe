@@ -1,0 +1,27 @@
+error: cannot reference text
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_013/attempt_1.typ:19:30
+   │
+19 │ This sample cites source keys @10 and @11. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                               ^^^
+
+error: cannot reference text
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_013/attempt_1.typ:19:38
+   │
+19 │ This sample cites source keys @10 and @11. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                       ^^^
+
+error: cannot reference heading without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_013/attempt_1.typ:19:51
+   │
+19 │ This sample cites source keys @10 and @11. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                                    ^^^^^^^^^
+   │
+   = hint: you can enable heading numbering with `#set heading(numbering: "1.")`
+
+error: cannot reference equation without numbering
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/08_crossrefs_citations_013/attempt_1.typ:19:74
+   │
+19 │ This sample cites source keys @10 and @11. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.
+   │                                                                           ^^^^^^^^^^^^^^^
+   │
+   = hint: you can enable equation numbering with `#set math.equation(numbering: "1.")`

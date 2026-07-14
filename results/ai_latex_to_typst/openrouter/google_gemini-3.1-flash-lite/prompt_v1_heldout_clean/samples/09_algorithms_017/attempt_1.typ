@@ -1,0 +1,38 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 17] \
+  Source-backed Image2Struct algorithm sample \
+  #v(1em)
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#figure(
+  block[
+    #set text(font: "monospace")
+    #set par(leading: 0.8em)
+    *Input:* Set of sequences(S) \
+    *Output:* Distance Matrix(D) \
+    #h(0em) for $s_1$ in S: \
+    #h(1em) $E s_1 arrow$ encoded $s_1$ \
+    #h(1em) $C s_1 arrow$ Gzip compressed $E s_1$ \
+    #h(1em) $L s_1 arrow$ length of $C s_1$ \
+    #h(1em) $D_("local") arrow [ ]$ \
+    #h(1em) for $s_2$ in S: \
+    #h(2em) $E s_2 arrow$ encoded $s_2$ \
+    #h(2em) $C s_2 arrow$ Gzip compressed $E s_2$ \
+    #h(2em) $L s_2 arrow$ length of $C s_2$ \
+    #h(2em) $s_1 s_2 arrow$ Concatenate($s_1, s_2$) \
+    #h(2em) $E s_1 s_2 arrow$ encoded $s_1 s_2$ \
+    #h(2em) $C s_1 s_2 arrow$ Gzip compressed $E s_1 s_2$ \
+    #h(2em) $L s_1 s_2 arrow$ length of $C s_1 s_2$ \
+    #h(2em) NCD $arrow$ $frac(L s_1 s_2 - Min(L s_1, L s_2), Max(L s_1, L s_2))$ \
+    #h(2em) $D_("local").append("NCD")$ \
+    #h(1em) $D.append(D_("local"))$ \
+    return $D$
+  ],
+  caption: [Source-backed algorithmic procedure]
+)

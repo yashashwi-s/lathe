@@ -1,0 +1,21 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center)[
+  #text(size: 1.5em, weight: "bold")[Extended Inflation from Strings]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+]
+
+= Extracted Lists
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
+#let description(term, body) = {
+  block(below: 1em)[
+    #strong(term) #h(0.5em) #body
+  ]
+}
+
+#description[Fig.1][Plot of the region in parameter space $(a, b)$ allowed by the inflationary conditions in the text. The solid lines represent those bounds which do not depend on the scale $M$ of the phase transition. The dashed curve correspond to the bounds associated with the scale $M = 10^{11}$ GeV and the dotted curve to those related to $M = 10^{16}$ GeV. The allowed region is the one below the curves. The border $b = 0$ is excluded from it. We have labelled the curves as follows: QG corresponds to the condition associated to neglecting quantum gravity effects, $\Phi$ corresponds to the condition for an increasing scalar field, RW corresponds to the bound on isotropy and homogeneity at the time of nucleosynthesis and pN--NS corresponds to the bounds from post--Newtonian experiments and the nucleosynthesis bound on $omega$.]

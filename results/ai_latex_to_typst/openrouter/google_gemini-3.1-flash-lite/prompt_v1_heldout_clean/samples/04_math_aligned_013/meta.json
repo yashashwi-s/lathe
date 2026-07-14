@@ -1,0 +1,101 @@
+{
+  "sample_id": "04_math_aligned_013",
+  "category": "04_math_aligned",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:24:11+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 4617,
+  "completion_tokens": 1792,
+  "total_tokens": 6409,
+  "reported_cost_usd": 0.00384225,
+  "estimated_cost_usd": 0.00384225,
+  "accounted_cost_usd": 0.00384225,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783949056-qmtMsG7pP0OQANcFSuEb",
+  "source_path": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_013/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_013/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783949052-PuMnmeqhmTFqExpiey40",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.185,
+      "compile_seconds": 0.108,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1756,
+        "completion_tokens": 895,
+        "total_tokens": 2651,
+        "cost": 0.0017815,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0017815,
+          "upstream_inference_prompt_cost": 0.000439,
+          "upstream_inference_completions_cost": 0.0013425
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: none"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783949056-qmtMsG7pP0OQANcFSuEb",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 3.482,
+      "compile_seconds": 0.125,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 2861,
+        "completion_tokens": 897,
+        "total_tokens": 3758,
+        "cost": 0.00206075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00206075,
+          "upstream_inference_prompt_cost": 0.00071525,
+          "upstream_inference_completions_cost": 0.0013455
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: otimes"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: otimes",
+  "duration_seconds": 7.909,
+  "finished_at": "2026-07-13T13:24:19+00:00"
+}

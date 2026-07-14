@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950684-XZzPKqNDqLUrRY7PgjFA",
+  "object": "chat.completion",
+  "created": 1783950684,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Aligned Mathematical Structures\n\n#text(\"Source-backed grouped formula sample\")\n\n== Expressions\n\n#par[Expression 1. The following expression is taken from a source-backed formula corpus.]\n\n#table(columns: 3, align: center,\n  [#text(\"$\\\\psi^{\\\\dagger} \\\\psi$\")], [#text(\"$\\\\Rightarrow$\")], [#text(\"$\\\\beta\\\\int_{\\\\alpha_-}^{\\\\alpha_+}{dp \\\\over 2\\\\pi}={\\\\beta\\\\over 2\\\\pi}(\\\\alpha_+-\\\\alpha_-)$\")],\n  [#text(\"${1\\\\over \\\\beta^2}{\\\\partial \\\\psi^{\\\\dagger} \\\\over \\\\partial \\\\lambda}{\\\\partial \\\\psi \\\\over \\\\partial \\\\lambda}$\")], [#text(\"$\\\\Rightarrow$\")], [#text(\"${\\\\beta\\\\over 2\\\\pi}\\\\int dp \\\\, p^2={\\\\beta \\\\over 6\\\\pi}(\\\\alpha_+^3 +-\\\\alpha_-^3)$\")],\n  [#text(\"$\\\\cdots$\")], [#text(\"$\\\\cdots$\")], [#text(\"$\\\\cdots$\")]\n)\n\n#par[Expression 2. The following expression is taken from a source-backed formula corpus.]\n\n$ x = \"text\"(\"epsilon\"^-1 (R_n R_{n+1}) log^(2N-3)(( (R_n R_{n+1}) / \"epsilon\" )^((R_n R_{n+1})/2) (N-1) / \"eta\" )) $\n\n$ y = \"text\"(\"log\"^4(( (R_n R_{n+1}) / \"epsilon\" )^(1/2) \"log\"^(N-1)( ( (R_n R_{n+1}) / \"epsilon\" )^((R_n R_{n+1})/2) (N-1) / \"eta\" )) \"log\" product_{j != n} I_j) $\n\n#par[Expression 3. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$C_n(x)=\\\\min\\\\{L_n(x)+\\\\int_0^\\\\infty C_{n-1}(x-\\\\xi)f_n(\\\\xi) \\\\mathrm{d}\\\\xi, \\\\min_{x< y \\\\leq x+B} \\\\{K+v(y-x)+L_n(y)+\\\\int_0^\\\\infty C_{n-1}(y-\\\\xi)f_n(\\\\xi) \\\\mathrm{d}\\\\xi\\\\}\\\\}$\")\n\n#text(\"$G_n(x)=vx + L_n(x)+\\\\int_0^\\\\infty C_{n-1}(x-\\\\xi)f_n(\\\\xi) \\\\mathrm{d}\\\\xi$\")\n\n#text(\"$C_n(x)=-vx + \\\\min\\\\{G_n(x),K + \\\\min_{x\\\\leq y \\\\leq x+B} G_n(y)\\\\}$\")\n\n#par[Expression 4. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$\\\\left \\\\{ j^{\\\\mu}(x) = \\\\lim_{y\\\\rightarrow x}\\\\frac{1}{2}(\\\\bar{\\\\psi}(x)\\\\gamma^{\\\\mu}\\\\psi(y) + \\\\bar{\\\\psi}(y)\\\\gamma^\\\\mu\\\\psi(x)) = -\\\\frac{\\\\beta}{2\\\\pi}\\\\epsilon^{\\\\mu\\\\nu}\\\\partial_{\\\\nu}\\\\phi(x) \\\\right.$\")\n\n#text(\"$\\\\frac{4\\\\pi}{\\\\beta^2} = 1 + g/\\\\pi$\")\n\n#text(\"$\\\\frac{m_0^2}{\\\\beta^2}\\\\cos \\\\beta\\\\phi = Z M \\\\bar{\\\\psi}\\\\psi$\")\n\n#par[Expression 5. The following expression is taken from a source-backed formula corpus.]\n\n#table(columns: 3, align: center,\n  [#text(\"$\\\\{ U^1_{\\\\alpha} \\\\}$\")], [#text(\"$\\\\stackrel{ \\\\rho_{V, \\\\{ U^1_{\\\\alpha} \\\\}} }{ \\\\longleftarrow }$\")], [#text(\"$\\\\{ U^1_{\\\\alpha} |_V \\\\}$\")],\n  [#text(\"$\\\\scriptstyle{ \\\\rho_{12} } \\\\uparrow$\")], [], [#text(\"$\\\\uparrow \\\\scriptstyle{ \\\\rho_{V, 12} }$\")],\n  [#text(\"$\\\\{ U^2_{\\\\alpha} \\\\}$\")], [#text(\"$\\\\stackrel{ \\\\rho_{V, \\\\{ U^2_{\\\\alpha} \\\\} } }{ \\\\longleftarrow }$\")], [#text(\"$\\\\{ U^2_{\\\\alpha} |_V \\\\}$\")]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19XylUN7nd5P8cmxJg2BPvD8x1WpHcZgudvjAj3/G94d9yECH8BD0djkIl955I=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2056,
+    "completion_tokens": 1046,
+    "total_tokens": 3102,
+    "cost": 0.002083,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002083,
+      "upstream_inference_prompt_cost": 0.000514,
+      "upstream_inference_completions_cost": 0.001569
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

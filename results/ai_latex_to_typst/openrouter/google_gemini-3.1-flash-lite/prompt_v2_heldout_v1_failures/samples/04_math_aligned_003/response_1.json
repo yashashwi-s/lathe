@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950689-rmpa2r1zYPe4ZzyRxJ9a",
+  "object": "chat.completion",
+  "created": 1783950689,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Aligned Mathematical Structures\n\nSource-backed grouped formula sample\n\n== Expressions\n\n#par[Expression 1. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$S_{g} = \\\\int d^{4}x e { R(e,\\\\omega) +6g^{2}+2 e^{-1}\\\\epsilon^{\\\\mu\\\\nu\\\\rho\\\\sigma}\\\\bar{\\\\psi}_{\\\\mu}\\\\gamma_{5}\\\\gamma_{\\\\nu}(\\\\hat{\\\\mathcal{D}}_{\\\\rho}+ig A_{\\\\rho}\\\\sigma^{2})\\\\psi_{\\\\sigma}-\\\\mathcal{F}^{2} +\\\\mathcal{J}_{(m)}{}^{\\\\mu\\\\nu}(\\\\mathcal{J}_{(e) \\\\mu\\\\nu} +\\\\mathcal{J}_{(m) \\\\mu\\\\nu}) } ,$\")\n\n#par[Expression 2. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$V_{12}= 2^2\\\\cos[k_{1\\\\lambda_1}\\\\wedge k_{2\\\\lambda_2}+(p_{\\\\lambda}+q_{\\\\lambda})\\\\wedge(k_{1\\\\lambda_1}-k_{2\\\\lambda_2})]\\\\cos(p_{\\\\lambda}\\\\wedge q_{\\\\lambda}),$\")\n\n#text(\"$V_{34}= 2^2\\\\cos[k_{3\\\\lambda_3}\\\\wedge k_{4\\\\lambda_4}+(p_{\\\\lambda}+q_{\\\\lambda})\\\\wedge(k_{3\\\\lambda_3}-k_{4\\\\lambda_4})]\\\\cos(p_{\\\\lambda}\\\\wedge q_{\\\\lambda}),$\")\n\n#par[Expression 3. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$\\\\mathcal{I}(\\\\lambda \\\\delta + (1-\\\\lambda) \\\\delta^\\\\prime ) \\\\geq \\\\lambda \\\\sup_{\\\\gamma \\\\in \\\\Sigma(\\\\delta)} \\\\int_{\\\\mathcal{S} } f(s) d \\\\gamma(s) + (1-\\\\lambda) \\\\sup_{\\\\gamma^\\\\prime \\\\in \\\\Sigma(\\\\delta^\\\\prime)}\\\\int_{\\\\mathcal{S} } f(s) d \\\\gamma^{\\\\prime }(s)$\")\n\n#text(\"$\\\\geq \\\\lambda \\\\mathcal{I}(\\\\delta) +(1-\\\\lambda) \\\\mathcal{I}(\\\\delta^\\\\prime).$\")\n\n#par[Expression 4. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$[ e_{i}, f_{j} ] = \\\\delta_{ij} \\\\frac{k_{i} - k_{i}^{-1}}{Q_{i} -Q_{i}^{-1}}$\")\n\n#text(\"$k_{i}e_{j}k_{i}^{-1}= Q_{i}^{a_{ij}} e_{j},~~k_{i}f_{j}k_{i}^{-1}= Q_{i}^{-a_{ij}} f_{j}$\")\n\n#text(\"$k_{i}k_{i}^{-1}=k_{i}^{-1}k_{i}=1,~~k_{i}k_{j} = k_{j}k_{i}$\")\n\n#text(\"$[ e_{i}, e_{i} ] = [ f_{i}, f_{i} ] = 0, \\\\text{if} ~~~a_{ii} = 0$\")\n\n#par[Expression 5. The following expression is taken from a source-backed formula corpus.]\n\n#text(\"$\\\\mathcal{R}_{\\\\beta_0,\\\\beta_1}(z):=(\\\\mathcal{A}_0 -zI)^{-1} - (I-z \\\\mathcal{A}_0^{-1})^{-1}\\\\Pi(\\\\overline{\\\\beta_0 + \\\\beta_1 M(z)})^{-1}\\\\beta_1(\\\\Pi^*( I - z \\\\mathcal{A}_0^{-1})^{-1} )$\")\n\n#text(\"$= (\\\\mathcal{A}_0 -zI)^{-1}-S(z)(\\\\overline{\\\\beta_0 + \\\\beta_1 M(z)})^{-1}\\\\beta_1S^*(\\\\overline{z}).$\")",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+Et4VfvYE7lN2GdPSrUiheL8gSsEd8ZkT80a6UKZTVIE/LC6xWh30MP+mhHNA=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2030,
+    "completion_tokens": 918,
+    "total_tokens": 2948,
+    "cost": 0.0018845,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0018845,
+      "upstream_inference_prompt_cost": 0.0005075,
+      "upstream_inference_completions_cost": 0.001377
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

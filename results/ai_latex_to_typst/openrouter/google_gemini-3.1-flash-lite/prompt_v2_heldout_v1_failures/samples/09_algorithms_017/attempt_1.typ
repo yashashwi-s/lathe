@@ -1,0 +1,14 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 17]
+  #v(1em)
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#

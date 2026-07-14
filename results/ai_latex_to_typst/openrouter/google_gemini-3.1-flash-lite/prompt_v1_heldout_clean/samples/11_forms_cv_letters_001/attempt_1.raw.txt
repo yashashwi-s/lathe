@@ -1,0 +1,133 @@
+#set page(paper: "a4", margin: (top: 1.27cm, left: 1cm, right: 1cm, bottom: 2cm))
+#set text(font: "New Computer Modern", size: 10pt)
+
+#let cv_item(label, content) = {
+  grid(
+    columns: (3cm, 1fr),
+    column-gutter: 1em,
+    strong(label),
+    content
+  )
+  v(0.5em)
+}
+
+#align(center, text(size: 18pt, weight: "bold")[Name, Surname])
+
+#v(1em)
+
+#grid(
+  columns: (1fr, 1fr),
+  [
+    Address: (Remove if not relevant) \
+    Telephone: (Remove if not relevant) \
+    Fax: (Remove if not relevant)
+  ],
+  [
+    Email: #link("mailto:email@email.com")[email\@email.com] \
+    Professional: #link("mailto:email@email.it")[email\@email.it] \
+    PEC: #link("mailto:emailo@pec.it")[emailo\@pec.it] \
+    Homepage: #link("http://www.homepage.com")[www.homepage.com]
+  ]
+)
+
+#v(1em)
+
+#cv_item([Desired employment], [* (Remove if not relevant) *])
+
+= Work experience
+#cv_item("Dates", [Add separate entries for each relevant post occupied, starting from the most recent. (Remove if not relevant).])
+#cv_item("Occupation", [...])
+#cv_item("Main activities", [...])
+#cv_item("Employer", [...])
+#cv_item("Sector", [...])
+
+= Education and training
+#cv_item("Dates", [Add separate entries for each relevant course you have completed, starting from the most recent. (Remove if not relevant).])
+#cv_item("Qualification", [...])
+#cv_item("Skills", [...])
+#cv_item("Organization", [...])
+#cv_item("Level", [...])
+
+= Academic appointments
+#cv_item("Dates", [*Associate Professor* at University of XX, YY, Department of ZZ.])
+
+= Professional and scientific appointments
+#cv_item("Dates", [*IEEE Senior Membership* obtained from Institute of Electrical and Electronics Engineers.])
+
+= Research areas
+#cv_item("", [Autonomous systems; distributed control and optimization over networks; nonsmooth systems; piecewise quadratic stability.])
+
+= Personal skills and competences
+#cv_item("Mother tongue", [Specify mother tongue])
+#cv_item("Other language(s)", [Language])
+
+#v(1em)
+#cv_item("Social skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Organisational skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Technical skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Computer skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Artistic skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Other skills", [Replace this text by a description of these competences and indicate where they were acquired.])
+#cv_item("Driving licence(s)", [State here whether you hold a driving licence and if so for which categories of vehicle.])
+
+= Additional information
+#cv_item("", [Include here any other information that may be relevant.])
+#cv_item("", [*Personal interests*])
+#cv_item("", [...])
+
+= Research projects and collaborations
+#cv_item("", [Participation and operative responsibility within the XX European research project YY, project number 012345. Title "*The title of the project*". January XX - December YY. Project amount: 999 kEuros.])
+
+= Research visits
+#cv_item("Dates", [_University of YY_, the state [Italy], Prof. [name of the professor].])
+
+= Invited talks
+#cv_item("Dates", [The name of the talk, Place.])
+
+= Scientific and editorial activity
+#cv_item("Editorial Board", [*Editorial Board*])
+#cv_item("Books", [*Editor of edited books*])
+
+= Conferences services
+#cv_item("Committees", [*Program committees*])
+#cv_item("Associate editor", [*Associate editor*])
+
+= Teaching activity
+#cv_item("Academics Years", [Graduate course "Title of the course", number of credits, when e where.])
+
+= Annexes
+#cv_item("", [List any item attached to the CV])
+
+= References
+#cv_item("", [List of references])
+
+= Research activities
+#cv_item("", [*Stability of piecewise-linear systems*])
+#cv_item("", [Something related to the piecewise-linear systems.])
+
+= Publications
+#cv_item("Proceedings", [*Refereed conference proceedings*])
+#cv_item("", [Details related to the conference paper])
+#cv_item("", [Details related to the conference paper])
+#cv_item("", [Details related to the conference paper])
+
+#v(5cm)
+
+#grid(
+  columns: (1fr, 1fr),
+  [Place (Province), #datetime.today().display()],
+  []
+)
+#v(0.5em)
+#grid(
+  columns: (1fr, 1fr),
+  column-gutter: 2em,
+  line(length: 100%),
+  line(length: 100%)
+)
+#grid(
+  columns: (1fr, 1fr),
+  column-gutter: 2em,
+  [Place and date],
+  [Name Surname]
+)

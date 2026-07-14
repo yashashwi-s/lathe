@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783948761-UpxppF2JhHWNunZUowUH",
+  "object": "chat.completion",
+  "created": 1783948761,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Inline and Display Mathematics] \\\n  Source-backed grouped formula sample \\\n  #v(1em)\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$ cal(L) = 1/4 (F_(mu nu)^a)^2 + overline(psi)_mu^i [D slash^(i j) psi_mu^j - 1/2 gamma_alpha D_mu^(i j) psi_alpha^j - 1/2 gamma_mu D_alpha^(i j) psi_alpha^j + 3/8 gamma_mu D slash^(i j) gamma_alpha psi_alpha] $\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$ cal(I)(delta) = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + cal(I)^star(lambda) } = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + sup_(gamma in Pi(mu_1, mu_2)) integral_(cal(V)) f_lambda(v) dif gamma(v) } $\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$ biggl( phi_1(x), mat(phi_2(x); phi_3(x)), mat(phi_4(x); phi_5(x)) biggr) arrow biggl( c dot e^(lambda x) phi_1(x), U mat(e^(-lambda' x) phi_2(x); e^(-lambda' x) phi_3(x)), V mat(e^(lambda'' x) phi_4(x); e^(lambda'' x) phi_5(x)) biggr) $\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$ (partial L) / (partial w_(i j k l)) (g_(i j), g_(i j, k), g_(i j, k l)) = (partial x^i) / (partial tilde(x)^a) (partial x^j) / (partial tilde(x)^b) (partial x^k) / (partial tilde(x)^c) (partial x^l) / (partial tilde(x)^d) (partial L) / (partial w_(a b c d)) (tilde(g)_(i j), tilde(g)_(i j, k), tilde(g)_(i j, k l)) $\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$ q^Q product_(k=1)^(Q-1) (q z_i - z_k) / (z_i - q z_k) = ((z_i - i tau kappa lambda^(-1/2) q^(1/2)) (z_i + i kappa lambda^(1/2) q^(1/2))) / ((q^(1/2) z_i + i tau kappa lambda^(-1/2)) (q^(1/2) z_i - i kappa lambda^(1/2))) $",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/SUZtlUvY+6r7jFPD77ufSlRfvP+lylmvf7U3oPJM25HT76q0Q9omF4GZ1O9A=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1654,
+    "completion_tokens": 755,
+    "total_tokens": 2409,
+    "cost": 0.001546,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001546,
+      "upstream_inference_prompt_cost": 0.0004135,
+      "upstream_inference_completions_cost": 0.0011325
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

@@ -2,15 +2,15 @@
 
 Built: 2026-07-13
 
-This directory contains deterministic LaTeX-to-Typst conversion outputs for `data/latex_benchmark_v0`.
+This directory contains deterministic LaTeX-to-Typst conversion outputs for the cleaned `data/latex_benchmark_v0` accepted corpus.
 
 ## Engine Summary
 
 | Engine | Converted | Typst-compiled | Total |
 |---|---:|---:|---:|
-| `pandoc` | 166 | 154 | 166 |
-| `tylax` | 166 | 96 | 166 |
-| `typetex` | 166 | 152 | 166 |
+| `pandoc` | 157 | 151 | 157 |
+| `tylax` | 157 | 93 | 157 |
+| `typetex` | 157 | 149 | 157 |
 
 `typetex` is the existing project approximation: Pandoc Typst output with math routed through the MiTeX Typst package via `scripts/dataset/typetex_filter.lua`.
 
@@ -30,7 +30,7 @@ Missing cells indicate conversion or Typst compilation failure; exact statuses a
 
 ## Error Reports
 
-- `compilation_errors.md`: human-readable summary of remaining engine compilation failures and general patches applied.
+- `compilation_errors.md`: human-readable summary of remaining engine compilation failures.
 - `compilation_errors.csv`: machine-readable per-engine failure list.
 - `prepatch_engine_manifest.csv` and `prepatch_summary.json`: saved baseline before the general patches.
 
@@ -40,3 +40,7 @@ Missing cells indicate conversion or Typst compilation failure; exact statuses a
 - Converted unresolved Pandoc-style `@key` references/citations to visible plain text `[key]` when no matching Typst label exists.
 - Normalized TypeTeX/MiTeX math input by stripping LaTeX labels and equation wrappers inside math.
 - Rewrote common MiTeX-hostile math macros `\d` and `\slash` to portable forms.
+
+## Cleanup
+
+Samples with visually corrupted reference PDFs were removed from this result set. See `data/latex_benchmark_v0/visual_corruption_cleanup.md`.

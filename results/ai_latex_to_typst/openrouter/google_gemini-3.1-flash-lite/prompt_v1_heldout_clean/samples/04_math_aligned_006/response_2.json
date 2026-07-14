@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783948999-QcDIaTmhHpDZbcQO2Qe9",
+  "object": "chat.completion",
+  "created": 1783948999,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Aligned Mathematical Structures]\n  #v(0.5em)\n  Source-backed grouped formula sample\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$\n  Delta_(plus.minus) = c/24 plus.minus (I_H^(plus.minus) - 2 I_S^(plus.minus) - I_C^(plus.minus) - I_W^(plus.minus)) + 1/(2 pi) Sigma_(plus.minus) \\\n  minus.plus 1/(2 pi) integral_(-infinity)^(infinity) (d x)/(2 pi) phi_(plus.minus)^', (x) cal(Q)_(plus.minus) (x)\n$\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$\n  floor((-2 m p^i)/(q - 1)) + floor((m d p^i)/(q - 1)) + floor((-m (d - 1) p^i)/(q - 1)) - floor((-m p^i)/(q - 1)) + 1 \\\n  = sum_(h=1)^(d-2) floor(chevron.l (h p^i)/(d - 1) chevron.r - (m p^i)/(q - 1)) + floor(chevron.l (p^i)/2 chevron.r - (m p^i)/(q - 1)) + sum_(h=1)^(d-1) floor(chevron.l (-h p^i)/d chevron.r + (m p^i)/(q - 1))\n$\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$\n  bold(E)(bold(x), t) = 1/(4 pi) integral rho_e(bold(x)', t - r) (bold(r))/(r^3) d^3 x' \\\n  + 1/(4 pi) integral bold(J)_m(bold(x)', t - r) times (bold(r))/(r^3) d^3 x' - 1/(4 pi) integral 1/r (partial bold(J)_m(bold(x)', t - r))/(partial t) d^3 x'\n$\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$\n  Gamma^5 = mat(0, 1_2; 1_2, 0); quad Gamma^i = mat(0, sigma^i; -sigma^i, 0); quad Gamma^0 = mat(1_2, 0; 0, -1_2); quad Gamma^4 = -i Gamma^5 = mat(0, i_2; i_2, 0)\n$\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$\n  overline(omega)^m ((b^(d-1) d^d)/(a^d (d - 1)^(d-1))) product_(i=0)^(r-1) product_(h=1)^(d-2) (Gamma_p(chevron.l (h/(d - 1) - m/(q - 1)) p^i chevron.r))/(Gamma_p(chevron.l (h p^i)/(d - 1) chevron.r)) product_(h=1, h != d/2)^(d-1) (Gamma_p(chevron.l (h/d + m/(q - 1)) p^i chevron.r))/(Gamma_p(chevron.l (h p^i)/d chevron.r)) = 1\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19RUN6lgaZH2XZRA5UoC7sG2iYIVokfUyiVIgY3AjbiqQY0Si4O+j8Mz97tBmc=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5069,
+    "completion_tokens": 867,
+    "total_tokens": 5936,
+    "cost": 0.00256775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00256775,
+      "upstream_inference_prompt_cost": 0.00126725,
+      "upstream_inference_completions_cost": 0.0013005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

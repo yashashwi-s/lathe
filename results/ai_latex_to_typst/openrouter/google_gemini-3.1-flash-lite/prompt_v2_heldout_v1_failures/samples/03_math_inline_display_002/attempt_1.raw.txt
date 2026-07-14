@@ -1,0 +1,27 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, text(size: 1.5em, weight: "bold")[Inline and Display Mathematics])
+#align(center, [Source-backed grouped formula sample])
+
+= Expressions
+
+#par(hanging-indent: 1em)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]
+
+$ I_D (delta) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR_+^2) [langle lambda, delta rangle + integral_V g_lambda d pi] = inf_(lambda in RR_+^2) sup_(pi in Pi(mu_1, mu_2)) [langle lambda, delta rangle + integral_V g_lambda d pi] $
+
+#par(hanging-indent: 1em)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]
+
+$ R_D(lambda, delta) = langle lambda, delta rangle + sup_(x' in RR^d) [sum_(1 <= l <= 2) phi_l(x', lambda_l)] R_D(lambda, delta) = langle lambda, delta rangle + sum_(1 <= l <= 2) sup_(x' in RR^d) phi_l(x', lambda_l) $
+
+#par(hanging-indent: 1em)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]
+
+$ #text("$(^{c}D_{-}^{\\alpha,\\alpha',\\beta,\\beta',\\gamma}t^{-\\rho})(x)=\\frac{\\Gamma(\\beta'+\\rho+m)\\Gamma(-\\alpha-\\alpha'+\\gamma+\\rho)\\Gamma(-\\alpha'-\\beta+\\gamma+\\rho+m)}{\\Gamma(\\rho)\\Gamma(-\\alpha'+\\beta'+\\rho+m)\\Gamma(-\\alpha-\\alpha'-\\beta+\\gamma+\\rho+m)}x^{\\alpha+\\alpha'-\\gamma-\\rho}$") $
+
+#par(hanging-indent: 1em)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]
+
+$ I_D(delta_1, 0) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda_1 in RR_+) [lambda_1 delta_1 + integral g_(lambda, 1) d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR^2_+) [langle lambda, (delta_1, 0) rangle + integral_V g_lambda d pi] $
+
+#par(hanging-indent: 1em)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]
+
+$ #text("$[ \\bar \\gamma ^2\\bar \\gamma ^0\\bar \\gamma ^1\\partial_\\vartheta +\\frac{\\bar \\gamma ^3\\bar \\gamma ^0\\bar \\gamma ^1}{\\sin \\vartheta}\\partial _\\varphi +\\bar \\gamma ^2\\bar \\gamma ^0\\bar \\gamma ^1S\\partial_\\vartheta S^{-1}+\\frac{\\bar \\gamma ^3\\bar \\gamma ^0\\bar \\gamma ^1}{\\sin\\vartheta }S\\partial _\\varphi S^{-1}] \\tilde \\Phi =-i\\kappa \\tilde\\Phi$") $

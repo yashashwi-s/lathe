@@ -1,0 +1,101 @@
+{
+  "sample_id": "06_tables_moderate_033",
+  "category": "06_tables_moderate",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:38:27+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 3,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 6810,
+  "completion_tokens": 2996,
+  "total_tokens": 9806,
+  "reported_cost_usd": 0.006196500000000001,
+  "estimated_cost_usd": 0.006196500000000001,
+  "accounted_cost_usd": 0.006196500000000001,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783949914-xJWR74WglnA9wFdu3wuB",
+  "source_path": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_033/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_033/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783949908-mrtlzciBkoCKRgRj7ee1",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.89,
+      "compile_seconds": 0.107,
+      "compile_ok": false,
+      "error_class": "other_compile_error",
+      "usage": {
+        "prompt_tokens": 2533,
+        "completion_tokens": 1503,
+        "total_tokens": 4036,
+        "cost": 0.00288775,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00288775,
+          "upstream_inference_prompt_cost": 0.00063325,
+          "upstream_inference_completions_cost": 0.0022545
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown symbol modifier"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783949914-xJWR74WglnA9wFdu3wuB",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 13.358,
+      "compile_seconds": 0.133,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 4277,
+        "completion_tokens": 1493,
+        "total_tokens": 5770,
+        "cost": 0.00330875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00330875,
+          "upstream_inference_prompt_cost": 0.00106925,
+          "upstream_inference_completions_cost": 0.0022395
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: up"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: up",
+  "duration_seconds": 19.523,
+  "finished_at": "2026-07-13T13:38:47+00:00"
+}

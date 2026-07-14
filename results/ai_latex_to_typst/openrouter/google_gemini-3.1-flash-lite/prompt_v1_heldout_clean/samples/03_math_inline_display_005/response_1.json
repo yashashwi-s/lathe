@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783948678-zQtPEH3ZCrfjzS6zgLJv",
+  "object": "chat.completion",
+  "created": 1783948678,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Inline and Display Mathematics] \\\n  Source-backed grouped formula sample \\\n  #v(1em)\n])\n\n= Expressions\n\n*Expression 1.* The following expression is taken from a source-backed formula corpus.\n\n$ integral_Omega (angle.l (partial d_epsilon(t)) / (partial x_i), (partial d_epsilon(t)) / (partial x_j) angle.r (partial Y^i) / (partial x_j) - (1/2 |nabla d_epsilon(t)|^2 + 1/(4 epsilon^2) (1 - |d_epsilon(t)|^2)^2) \"div\" Y + angle.l tau_epsilon(t), Y dot nabla d_epsilon(t) angle.r) = 0. $\n\n*Expression 2.* The following expression is taken from a source-backed formula corpus.\n\n$ | sum_(alpha beta gamma delta) angle.l Phi_alpha Phi_beta Phi_gamma Phi_delta angle.r_c / sum_(alpha beta gamma delta) angle.l Phi_alpha Phi_beta Phi_gamma Phi_delta angle.r | = | angle.l Phi^4(x) angle.r_c / angle.l Phi^4(x) angle.r | space (n=4) space , $\n\n*Expression 3.* The following expression is taken from a source-backed formula corpus.\n\n$ integral_0^R \"d\" r [u_(1 epsilon kappa)(r) u_(1 epsilon' kappa)(r) + u_(2 epsilon kappa)(r) u_(2 epsilon' kappa)(r)] = (u_(1 epsilon kappa)(R) u_(2 epsilon' kappa)(R) - u_(1 epsilon' kappa)(R) u_(2 epsilon kappa)(R)) / (epsilon - epsilon') . $\n\n*Expression 4.* The following expression is taken from a source-backed formula corpus.\n\n$ bar(cal(G))_((I))^((rho)) a Gamma^((rho)) = Delta_(cl(I))^((rho)) a + O(rho^2) space , space space space bar(cal(G))_((II))^((rho)) a Gamma^((rho)) = Delta_(cl(II))^((rho)) a + O(rho^2) space , $\n\n*Expression 5.* The following expression is taken from a source-backed formula corpus.\n\n$ Z[J^mu, overline(eta), eta] = integral [d A_mu] Im(A_mu) exp(-angle.l 1/4 F_(mu nu) F^(mu nu) angle.r + angle.l J^mu A_mu angle.r + angle.l overline(eta)' (i gamma^mu partial_mu)^(-1) eta' angle.r) , $",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1++vTVsfLb6+Z+zRQX8GF+QSPNMxYoLiqMpCK7CXoD6aKxnwdApYmZeb/c1iz8=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1630,
+    "completion_tokens": 667,
+    "total_tokens": 2297,
+    "cost": 0.001408,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001408,
+      "upstream_inference_prompt_cost": 0.0004075,
+      "upstream_inference_completions_cost": 0.0010005
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

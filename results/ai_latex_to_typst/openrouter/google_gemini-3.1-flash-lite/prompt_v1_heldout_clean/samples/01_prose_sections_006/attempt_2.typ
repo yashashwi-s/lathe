@@ -1,0 +1,20 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Superstring in Two Dimensional Black Hole]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em), [
+  *Abstract*\
+  We construct superstring theory in two dimensional black hole background based on supersymmetric $"SU"(1,1)/"U"(1)$ gauged Wess-Zumino-Witten model.
+])
+
+= Source Metadata
+This sample is based on arXiv record `hep-th/9108026`. Authors: Shin'ichi Nojiri.
+
+= Abstract Discussion
+We construct superstring theory in two dimensional black hole background based on supersymmetric $"SU"(1,1)/"U"(1)$ gauged Wess-Zumino-Witten model.

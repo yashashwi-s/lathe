@@ -1,0 +1,100 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Simple Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  table(
+    columns: (auto, auto, auto),
+    stroke: (x, y) => if y == 0 or y == 36 { (top: 0.5pt, bottom: 0.5pt) } else { none },
+    align: (left, left, left),
+    table.header([\#], [Word type], [$f$]),
+    [1.], [_te_ (‘at’, ‘to’, #smallcaps[comp])], [1025],
+    [2.], [_niet_ (‘not’)], [633],
+    [3.], [_dat_ (‘that’)], [631],
+    [4.], [_om_ (‘to’)], [451],
+    [5.], [_geen_ (‘no’)], [304],
+    [6.], [_de_ (‘the’, #smallcaps[masc/fem/pl])], [292],
+    [7.], [_er_ (‘there’)], [261],
+    [8.], [_ieder_ (‘every’, #smallcaps[neut])], [253],
+    [9.], [_elk_ (‘every’, #smallcaps[neut])], [237],
+    [10.], [_iedere_ (‘every’, #smallcaps[masc/fem])], [231],
+    [11.], [_elke_ (‘every’, #smallcaps[masc/fem])], [224],
+    [12.], [_of_ (‘or’, ‘whether’)], [215],
+    [13.], [_een_ (‘a’, ‘one’)], [203],
+    [14.], [_alle_ (‘all’)], [200],
+    [15.], [_massa's_ (‘masses’)], [194],
+    [16.], [_ik_ (‘I’)], [193],
+    [17.], [_op_ (‘on’)], [178],
+    [18.], [_aan_ (‘to’, #smallcaps[prep])], [173],
+    [19.], [_deze_ (‘this’, #smallcaps[masc/fem])], [172],
+    [20.], [_het_ (‘the’, #smallcaps[neut:sg])], [167],
+    [21.], [_veel_ (‘a lot of’)], [162],
+    [22.], [_weinig_ (‘a few’)], [160],
+    [23.], [_voor_ (‘for’)], [145],
+    [24.], [_hier_ (‘here’)], [143],
+    [25.], [_die_ (‘that’, #smallcaps[masc/fem])], [135],
+    [26.], [_menige_ (‘many’, #smallcaps[pl])], [131],
+    [27.], [_door_ (‘by’)], [130],
+    [28.], [_zijn_ (‘are’, ‘be’, ‘his’)], [130],
+    [29.], [_dit_ (‘this’, #smallcaps[neut])], [121],
+    [30.], [_in_ (‘in’)], [120],
+    [31.], [_daar_ (‘there’)], [114],
+    [32.], [_menig_ (‘many’, #smallcaps[sg])], [114],
+    [33.], [_je_ (‘you’, #smallcaps[inform])], [109],
+    [34.], [_drie_ (‘three’)], [102],
+    [35.], [_twee_ (‘two’)], [89],
+  ),
+  caption: [Source table 1: 2512.02195\_table\_8]
+)
+
+#figure(
+  table(
+    columns: (auto, auto, auto),
+    stroke: (x, y) => if y == 0 or y == 36 { (top: 0.5pt, bottom: 0.5pt) } else { none },
+    align: (left, left, left),
+    table.header([\#], [Word type], [$f$]),
+    [1.], [_te_ (‘at’, ‘to’, #smallcaps[comp])], [92],
+    [2.], [_dat_ (‘that’)], [62],
+    [3.], [_niet_ (‘not’)], [60],
+    [4.], [_om_ (‘to’)], [49],
+    [5.], [_geen_ (‘no’)], [33],
+    [6.], [_er_ (‘there’)], [32],
+    [7.], [_de_ (‘the’, #smallcaps[masc/fem/pl])], [25],
+    [8.], [_elke_ (‘every’, #smallcaps[masc/fem])], [25],
+    [9.], [_een_ (‘a’, ‘one’)], [24],
+    [10.], [_het_ (‘the’, #smallcaps[neut:sg])], [24],
+    [11.], [_op_ (‘on’)], [23],
+    [12.], [_ieder_ (‘every’, #smallcaps[neut])], [21],
+    [13.], [_ik_ (‘I’)], [21],
+    [14.], [_die_ (‘that’, #smallcaps[masc/fem])], [20],
+    [15.], [_elk_ (‘every’, #smallcaps[neut])], [20],
+    [16.], [_iedere_ (‘every’, #smallcaps[masc/fem])], [20],
+    [17.], [_veel_ (‘a lot of’)], [20],
+    [18.], [_alle_ (‘all’)], [19],
+    [19.], [_daar_ (‘there’)], [18],
+    [20.], [_deze_ (‘this’, #smallcaps[masc/fem])], [17],
+    [21.], [_hier_ (‘here’)], [17],
+    [22.], [_of_ (‘or’, ‘whether’)], [17],
+    [23.], [_voor_ (‘for’)], [17],
+    [24.], [_aan_ (‘to’, #smallcaps[prep])], [16],
+    [25.], [_massa's_ (‘masses’)], [15],
+    [26.], [_van_ (‘of’)], [14],
+    [27.], [_vier_ (‘four’)], [14],
+    [28.], [_weinig_ (‘a few’)], [14],
+    [29.], [_dit_ (‘this’, #smallcaps[neut])], [12],
+    [30.], [_menig_ (‘many’, #smallcaps[sg])], [12],
+    [31.], [_negenennegentig_ (‘ninetynine’)], [12],
+    [32.], [_blijkt_ (‘turns out’)], [11],
+    [33.], [_naar_ (‘to’, #smallcaps[prep], ‘unpleasant’)], [11],
+    [34.], [_twaalf_ (‘twelve’)], [11],
+    [35.], [_vijf_ (‘five’)], [11],
+  ),
+  caption: [Source table 2: 2512.02195\_table\_3]
+)

@@ -1,0 +1,101 @@
+{
+  "sample_id": "04_math_aligned_001",
+  "category": "04_math_aligned",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:21:14+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 5112,
+  "completion_tokens": 2119,
+  "total_tokens": 7231,
+  "reported_cost_usd": 0.0044565,
+  "estimated_cost_usd": 0.0044565,
+  "accounted_cost_usd": 0.0044565,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783948885-mEg6Ph0Op3kp7EdfFMbQ",
+  "source_path": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_001/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/04_math_aligned/04_math_aligned_001/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783948874-MdzN54XjNuq6hq1efkC4",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 10.363,
+      "compile_seconds": 0.107,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1883,
+        "completion_tokens": 1059,
+        "total_tokens": 2942,
+        "cost": 0.00205925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00205925,
+          "upstream_inference_prompt_cost": 0.00047075,
+          "upstream_inference_completions_cost": 0.0015885
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: hskip"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783948885-mEg6Ph0Op3kp7EdfFMbQ",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 6.418,
+      "compile_seconds": 0.098,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 3229,
+        "completion_tokens": 1060,
+        "total_tokens": 4289,
+        "cost": 0.00239725,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00239725,
+          "upstream_inference_prompt_cost": 0.00080725,
+          "upstream_inference_completions_cost": 0.00159
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: hskip"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: hskip",
+  "duration_seconds": 16.996,
+  "finished_at": "2026-07-13T13:21:31+00:00"
+}

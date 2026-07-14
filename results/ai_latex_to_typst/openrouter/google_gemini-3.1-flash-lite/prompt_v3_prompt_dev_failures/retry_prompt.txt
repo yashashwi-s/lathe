@@ -1,0 +1,25 @@
+The previous Typst document failed to compile. This is the final repair attempt.
+
+Use the compiler output below, but be aggressive: replace the whole failing
+formula, table, algorithm block, label, or reference with plain visible text or
+Typst raw text. Do not try another complex native conversion.
+
+Rules for the repair:
+
+- Unknown variable/function/symbol: put the affected content in backticks or
+  plain prose.
+- Unclosed delimiter: remove the whole risky construct and replace it with a
+  simple paragraph or raw text line.
+- Table failure: replace the table with "Table:" and one plain-text row per
+  line.
+- Algorithm failure: replace with "Algorithm:" and numbered plain-text steps.
+- Label/reference failure: remove the broken label/reference and print the key
+  as `[key]`.
+
+Return the complete corrected Typst document, not a diff or excerpt. Preserve
+all visible content and return raw Typst source only, with no Markdown fences or
+explanation.
+
+--- compiler output ---
+{compiler_output}
+--- end compiler output ---

@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics]
+  #v(0.5em)
+  Source-backed grouped formula sample
+])
+
+= Expressions
+
+#text(weight: "bold")[Expression 1.] The following expression is taken from a source-backed formula corpus.
+
+$d = - ( { "phi" _3 ^"G" , "Phi" _1 } ) / ( { "phi" _2 ^"G" , "Phi" _1 } ) , quad v = - ( { "phi" _3 ^"G" , "Phi" _6 } ) / ( { "Phi" _7 , "Phi" _6 } ) , quad u = - ( { "phi" _3 ^"G" + v "phi" _1 ^((1)) , "phi" _4 ^"G" } ) / ( { "phi" _2 ^((1)) , "phi" _4 ^"G" } ) $
+
+#text(weight: "bold")[Expression 2.] The following expression is taken from a source-backed formula corpus.
+
+$#text("$\psi^{\gamma}_{(2)i}({\bf{r}})=-f^{\alpha\beta b}\,f^{b\delta\gamma}\,{\cal{X}}^\alpha({\bf{r}})\,{\cal{Q}}_{(2)i}^{\beta}({\bf{r}})\,{\cal{X}}^\delta({\bf{r}})=-f^{\alpha\beta b}\,f^{b\delta\gamma}\,{\cal{X}}^\alpha({\bf{r}})\,[a_i^\beta ({\bf{r}})+{\textstyle\frac{2}{3}}x_i^\beta({\bf{r}})]\,{\cal{X}}^\delta({\bf{r}})\;$") $
+
+#text(weight: "bold")[Expression 3.] The following expression is taken from a source-backed formula corpus.
+
+$#text("$( \\Pi (t_{\\nu })-\\Pi (t_{\\lambda })) C_{\\lambda \\mu }^{\\nu}=\\sum_{\\tilde{\\lambda}/d^{\\prime }/\\lambda }\\beta ^{|\\tilde{\\lambda}/d/\\lambda |}C_{\\tilde{\\lambda}\\mu }^{\\nu }-\\sum_{\\nu /d^{\\prime \\prime }/\\tilde{\\nu}}\\beta ^{|\\nu /d^{\\prime \\prime }/\\tilde{\\nu}|}\\Pi (t_{\\tilde{\\nu}})C_{\\lambda \\mu }^{\\tilde{\\nu}}$") $
+
+#text(weight: "bold")[Expression 4.] The following expression is taken from a source-backed formula corpus.
+
+$#text("$\\Phi _\\Xi (\\zeta ,\\zeta ^{*})=\\langle \\exp (\\zeta +\\zeta ^{*})\\mid \\exp(\\varsigma +\\tau ^{*})\\rangle e^{-\\langle \\tau ^{*}\\mid \\varsigma\\rangle }=e^{\\langle \\zeta \\mid \\tau ^{*}\\rangle+\\langle \\zeta ^{*}\\mid \\varsigma \\rangle -\\langle \\tau^{*}\\mid \\varsigma \\rangle }$") $
+
+#text(weight: "bold")[Expression 5.] The following expression is taken from a source-backed formula corpus.
+
+$#text("$\\int^{2\\pi}_{0} d\\sigma X^{i}(\\sigma)\\hat{P}_{i}(\\sigma) =x^{i}_{0}\\hat{p}^{i}_{0} +\\frac{g_{ij}}{2\\sqrt{\\alpha'}} \\sum_{n=1}^{\\infty}\\{ ( \\chi_{n}^{i}\\alpha^{j}_{-n} +\\bar{\\chi}^{i}_{n}\\tilde{\\alpha}^{j}_{-n} ) +(\\bar{\\chi}_{n}^{i}\\alpha^{j}_{n} +\\chi_{n}^{i} \\tilde{\\alpha}^{j}_{n}) \\}$") $

@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950262-dRUHD2TH7xVEQWfCZJ2B",
+  "object": "chat.completion",
+  "created": 1783950262,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Superstring in Two Dimensional Black Hole]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#block(inset: (x: 2em), [\n  *Abstract*\\\n  We construct superstring theory in two dimensional black hole background based on supersymmetric $\"SU\"(1,1)/\"U\"(1)$ gauged Wess-Zumino-Witten model.\n])\n\n= Source Metadata\nThis sample is based on arXiv record `hep-th/9108026`. Authors: Shin'ichi Nojiri.\n\n= Abstract Discussion\nWe construct superstring theory in two dimensional black hole background based on supersymmetric $\"SU\"(1,1)/\"U\"(1)$ gauged Wess-Zumino-Witten model.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/Yh/ZONz7mGOA2Wa2rCLrTt8FwFSmarjlp5ZfOMyA/Ml9c3Q1T6J8VhzD/JzM=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 225,
+    "total_tokens": 1706,
+    "cost": 0.00070775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00070775,
+      "upstream_inference_prompt_cost": 0.00037025,
+      "upstream_inference_completions_cost": 0.0003375
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

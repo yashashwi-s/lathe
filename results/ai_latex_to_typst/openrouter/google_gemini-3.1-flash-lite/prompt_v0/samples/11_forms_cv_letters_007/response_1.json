@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945840-FO83ZBewkxpfv5T6d7pd",
+  "object": "chat.completion",
+  "created": 1783945840,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"a4\", margin: (left: 25mm, right: 20mm, top: 25mm, bottom: 20mm))\n#set text(lang: \"de\")\n\n#align(right)[\n  Petra Mustermann \\\n  Vor dem Berg 1 \\\n  12345 Musterhausen\n]\n\n#v(2cm)\n\nLiebe Vereinsvorsitzende,\n\n#v(1em)\n\nseit einem Jahr gab es keine Mitgliederversammlung mehr. Ich erinnere daran, dass unsere Satzung eine solche jedes halbe Jahr vorsieht. Ich fordere den Vorstand daher auf, umgehend eine solche in Angriff zu nehmen.\n\n#v(1em)\n\nIn Erwartung einer Einladung",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/LuerGeV+MDuA6EqbkwTOuONRM1N1w/bEbA114EsxZC/tE4ya995bPo73wbxw=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 810,
+    "completion_tokens": 165,
+    "total_tokens": 975,
+    "cost": 0.00045,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00045,
+      "upstream_inference_prompt_cost": 0.0002025,
+      "upstream_inference_completions_cost": 0.0002475
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

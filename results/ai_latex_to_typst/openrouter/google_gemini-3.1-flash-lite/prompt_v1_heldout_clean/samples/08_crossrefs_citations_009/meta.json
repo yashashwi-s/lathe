@@ -1,0 +1,101 @@
+{
+  "sample_id": "08_crossrefs_citations_009",
+  "category": "08_crossrefs_citations",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:45:47+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 3021,
+  "completion_tokens": 748,
+  "total_tokens": 3769,
+  "reported_cost_usd": 0.00187725,
+  "estimated_cost_usd": 0.00187725,
+  "accounted_cost_usd": 0.00187725,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950350-8ZQTd9h3dzvmHC60duc9",
+  "source_path": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_009/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_009/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950347-6KbamAsjanS7WUJ05qLe",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.37,
+      "compile_seconds": 0.085,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 1128,
+        "completion_tokens": 362,
+        "total_tokens": 1490,
+        "cost": 0.000825,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000825,
+          "upstream_inference_prompt_cost": 0.000282,
+          "upstream_inference_completions_cost": 0.000543
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: cannot reference heading without numbering"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950350-8ZQTd9h3dzvmHC60duc9",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.881,
+      "compile_seconds": 0.149,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 1893,
+        "completion_tokens": 386,
+        "total_tokens": 2279,
+        "cost": 0.00105225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00105225,
+          "upstream_inference_prompt_cost": 0.00047325,
+          "upstream_inference_completions_cost": 0.000579
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 5.5,
+  "finished_at": "2026-07-13T13:45:52+00:00"
+}

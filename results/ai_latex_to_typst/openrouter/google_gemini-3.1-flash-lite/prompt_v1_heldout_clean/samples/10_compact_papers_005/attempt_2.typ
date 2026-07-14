@@ -1,0 +1,33 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Ground Ring Of Two Dimensional String Theory]
+  #v(1em)
+  Edward Witten
+  #v(1em)
+])
+
+#block(inset: (x: 2em), [
+  #text(weight: "bold")[Abstract]
+  #v(0.5em)
+  String theories with two dimensional space-time target spaces are characterized by the existence of a "ground ring" of operators of spin $(0,0)$. By understanding this ring, one can understand the symmetries of the theory and illuminate the relation of the critical string theory to matrix models. The symmetry groups that arise are, roughly, the area preserving diffeomorphisms of a two dimensional phase space that preserve the fermi surface (of the matrix model) and the volume preserving diffeomorphisms of a three dimensional cone. The three dimensions in question are the matrix eigenvalue, its canonical momentum, and the time of the matrix model.
+])
+
+#set heading(numbering: "1.")
+
+= Introduction
+
+J. Goldstone, unpublished; V. G. Kac, "Contravariant Form For Infinite Dimensional Lie Algebras and Superalgebras," in Group Theoretical Methods in Physics , ed. W. Beiglbock et. al., Lecture Notes in Physics, vol. 94 (Springer-Verlag, 1979); G. Segal, "Unitary Representations Of Some Infinite Dimensional Groups," Comm. Math. Phys. 80 (1981) 301. D. J. Gross, I. R. Klebanov, and M. J. Newman, "The Two-Point Correlation Function Of The One Dimensional Matrix Model," Nucl. Phys. B350 (1991) 621; D. J. Gross and I. R. Klebanov, PUPT-1241 (1991). A. M. Polyakov, "Self-Tuning Fields And Resonant Correlations in math expression Gravity," Mod. Phys. Lett. A6 (1991) 635. E. Witten, "On String Theory And Black Holes," Phys. Rev. D44 (1991) 314.
+
+= Method
+
+Our goal in this appendix is to describe the lowest non-trivial examples of some phenomena analyzed theoretically in [ ]. First we recall the standard construction of the BRST operator. It is $Q = sum_n c_{-n} L_n - 1/2 sum_(n,r) c_{-n} c_{-r} b_(n+r) (n-r)$, where $c_n, b_n$ are the Fourier modes of ghosts and antighosts, which obey ${c_n, b_m} = delta_(n+m,0)$, and $L_n$ are the Virasoro generators of matter. The latter are $L_n = 1/2 sum_n (alpha_m alpha_(n-m) + beta_m beta_(n-m)) + i sqrt(2) n phi_n$, with $alpha_n$ and $beta_n$ (obeying $[alpha_n, alpha_m] = n delta_(n+m,0)$) being the Fourier modes of $X$ and of the Liouville field $phi$. In particular, $alpha_0$ and $beta_0$ are the $X$ and $phi$ momentum operators.
+
+$ L(theta) = sum_(i=1)^n ell(x_i, theta) $ <eq:compact>
+
+Equation @eq:compact is included to keep the sample paper-like while remaining small.
+
+= Conclusion
+
+J. Goldstone, unpublished; V. G. Kac, "Contravariant Form For Infinite Dimensional Lie Algebras and Superalgebras," in Group Theoretical Methods in Physics , ed. W. Beiglbock et. al., Lecture Notes in Physics, vol. 94 (Springer-Verlag, 1979); G. Segal, "Unitary Representations Of Some Infinite Dimensional Groups," Comm. Math. Phys. 80 (1981) 301. D. J. Gross, I. R. Klebanov, and M. J. Newman, "The Two-Point Correlation Function Of The One Dimensional Matrix Model," Nucl. Phys. B350 (1991) 621; D. J. Gross and I. R. Klebanov, PUPT-1241 (1991). A. M. Polyakov, "Self-Tuning Fields And Resonant Correlations in math expression Gravity," Mod. Phys. Lett. A6 (1991) 635. E. Witten, "On String Theory And Black Holes," Phys. Rev. D44 (1991) 314.

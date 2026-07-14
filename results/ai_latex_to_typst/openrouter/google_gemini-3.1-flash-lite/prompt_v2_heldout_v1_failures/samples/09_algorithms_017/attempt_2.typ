@@ -1,0 +1,37 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 17]
+  #v(1em)
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#block(inset: 1em, stroke: 0.5pt)[
+  *Algorithm: Source-backed algorithmic procedure*
+
+  Input: Set of sequences (S)
+  Output: Distance Matrix (D)
+
+  For s1 in S:
+  - Es1 = encoded s1
+  - Cs1 = Gzip compressed Es1
+  - Ls1 = length of Cs1
+  - D_local = [ ]
+  - For s2 in S:
+    - Es2 = encoded s2
+    - Cs2 = Gzip compressed Es2
+    - Ls2 = length of Cs2
+    - s1s2 = Concatenate(s1, s2)
+    - Es1s2 = encoded s1s2
+    - Cs1s2 = Gzip compressed Es1s2
+    - Ls1s2 = length of Cs1s2
+    - NCD = (Ls1s2 - Min(Ls1, Ls2)) / Max(Ls1, Ls2)
+    - D_local.append(NCD)
+  - D.append(D_local)
+  return D
+]

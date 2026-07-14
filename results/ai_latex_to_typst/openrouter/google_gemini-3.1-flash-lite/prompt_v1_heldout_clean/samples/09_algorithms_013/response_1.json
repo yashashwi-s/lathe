@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950006-t4DTgy18irO4nQYVjQSb",
+  "object": "chat.completion",
+  "created": 1783950006,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Algorithmic Pseudocode Sample 13] \\\n  Source-backed Image2Struct algorithm sample\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#figure(\n  caption: [Source-backed algorithmic procedure],\n  block[\n    #set enum(numbering: \"1.\")\n    + Initialize actor network $mu_theta$ and critic networks $Q_(omega_1)$ and $Q_(omega_2)$.\n    + Initialize corresponding target networks: $theta' arrow.l theta$, $omega'_1 arrow.l omega_1$, $omega'_2 arrow.l omega_2$ and choose $rho_\"p\" in (0, 1)$.\n    + Initialize replay buffer $cal(R)$.\n    + Choose a batch size $K$, a gradient based optimization algorithm and a corresponding learning rate $lambda_\"actor\", lambda_\"critic\" > 0$ for both optimization procedures, a time step size $Delta t$ and a stopping criterion.\n    + Choose standard deviation exploration noise $sigma_\"expl\"$ and lower and upper action bounds $a_\"low\", a_\"high\"$.\n    + *Repeat*\n      + Select clipped action and step the environment dynamics forward.\n        $a = \"clip\"(mu_theta(s) + epsilon, a_\"low\", a_\"high\"), quad epsilon tilde cal(N)(0, sigma_\"expl\")$\n      + Observe next state $s'$, reward $r$, and done signal $d$ and store the tuple $(s, a, r, s', d)$ in the replay buffer.\n      + #if true [\n        *If* $s'$ is terminal\n        + Reset trajectory.\n        *End If*\n      ]\n      + *For* $j$ in range(\"update frequency\")\n        + Sample batch $cal(B) = {(s^((k)), a^((k)), r^((k)), s'^((k)), d^((k)))}_k=1^K$ from replay buffer.\n        + Compute targets (Clipped Double Q-learning and policy smoothing).\n          $y(r, s', d) = r + (1-d) min_(i=1, 2) { Q_(omega'_i)(s', tilde(a)) }, quad tilde(a) = \"clip\"(mu_(theta')(s) + epsilon, a_\"low\", a_\"high\"), quad epsilon tilde cal(N)(0, sigma_\"target\")$\n        + Estimate critic gradient $nabla_omega L(Q_omega^(mu_theta))$ by\n          $nabla_(omega_i) (1/K sum_(k=1)^K (Q_(omega_i)(s^((k)), a^((k))) - y(r^((k)), s'^((k)), d^((k))) )^2), quad \"for\" i=1,2$\n        + Update the critic parameters $omega_i$ based on the optimization algorithm.\n        + #if true [\n          *If* $j \"mod\" \"policy delay frequency\" = 0$\n          + Estimate actor gradient $nabla_theta J(mu_theta)$ by\n            $nabla_theta (1/K sum_(k=1)^K Q_(omega_1)(s^((k)), mu_theta(s^((k))))) $\n          + Update the actor parameters $theta$ based on the optimization algorithm.\n          + Update target networks softly:\n            $theta' arrow.l rho_\"p\" theta' + (1 - rho_\"p\")theta, quad omega'_i arrow.l rho_\"p\" omega'_i + (1 - rho_\"p\")omega_i, quad \"for\" i=1, 2$\n          *End If*\n        ]\n      + *End For*\n    + *Until* stopping criterion is fulfilled.\n  ]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18Fhax7W/OfJwsWXnKdJ9AYvGptoHbmjHO1+1VbQJQarAvvdEWb6txSJjfGHbY=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1807,
+    "completion_tokens": 913,
+    "total_tokens": 2720,
+    "cost": 0.00182125,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00182125,
+      "upstream_inference_prompt_cost": 0.00045175,
+      "upstream_inference_completions_cost": 0.0013695
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

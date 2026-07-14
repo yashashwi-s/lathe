@@ -1,0 +1,49 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Aligned Mathematical Structures] \
+  Source-backed grouped formula sample
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$
+P_(j,j+i) = &sum_(m=i+1)^(M-j) binom(M-j, m) P_("TX")^m (1 - P_("TX"))^(M-j-m) \
+&times (M-j-i)/(M-j) m dots.c (m-i+1) P_K^m gamma_i gamma_(m,i) \
+&+ binom(M-j, i) P_("TX")^i (1 - P_("TX"))^(M-j-i) (M-j-i)/(M-j) i! P_K^i gamma_i
+$
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$
+Q(x) &= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(sum_(p <= x/log x) pi(x) + sum_(x-sqrt(x) <= p <= x) x) \
+&= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(pi(x) pi(x/log x) + x sqrt(x)) \
+&= sum_(x/log x <= p <= x-sqrt(x)) pi(x-p) + O(x^2 / log^3 x)
+$
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$
+partial_(hat(xi)) u(hat(xi), 0) - partial_(hat(xi)) w(hat(xi), 0) & <= partial_(hat(xi)) u(hat(xi), 0) - partial_(hat(xi)) w(0, 0) + [partial_(hat(xi)) hat(w)]_(0,beta) |hat(xi)|^beta \
+& = [U_beta (1+beta) cos((1+beta) pi/2) + [partial_(hat(xi)) hat(w)]_(0,beta)] |hat(xi)|^beta
+$
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$
+I I + I I I &arrow 0; \
+I V &= integral_(d(x,p) >= rho) (rho^2/(4 epsilon) - n) e^(-rho^2/(4 epsilon) - C) arrow 0; \
+I &= e^(-C) integral_(|y| <= rho/sqrt(epsilon)) ( |y|^2/2 - n ) (2 pi)^(-n/2) e^(-|y|^2/4) (1 + O(epsilon |y|^2)) d y \
+&arrow integral_(RR^n) ( |y|^2/2 - n ) (2 pi)^(-n/2) e^(-|y|^2/4) d y = 0
+$
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$
+1/(omega(B)) ||(b-b_B)f_1||^s_(L^s_omega) &= 1/(omega(B)) integral_(5B) |b(y)-b_B|^s |f|^s d omega(y) \
+&<= (1/(omega(B)) integral_(5B) |b(y)-b_B|^(s s_1') d omega(y))^(1/s_1') (1/(omega(B)) integral_(5B) |f|^(s s_1) d omega(y))^(1/s_1) \
+&lesssim.approx ell(B)^(beta s) ||b||^s_(Lambda^beta) M^s_(s s_1)(f)(x)
+$

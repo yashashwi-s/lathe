@@ -1,0 +1,39 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 18] \
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#figure(
+  block(inset: 10pt, stroke: 0.5pt, [
+    *Inputs:* $s, i, d, a, r, e, v, h$, daily vaccinations \
+    *Output:* $vec(beta)_uu, vec(beta)_vu, vec(beta)_vv, vec(beta)_uv$ \
+    *Initialization:* $n=7$ or $n=14$ \
+    #v(0.5em)
+    #set enum(full: true)
+    + *For* each time step $j$:
+      - Select window $z_j = {j-n+1, ..., j}$
+      - Initialize parameters $beta_uu, beta_vu, beta_vv, beta_uv$
+      - Calculate the initial cost $C_j(n, i, d, hat(i)_j, hat(d)_j)$
+      - $flag = 0$
+      - *While* $flag = 0$:
+        - Create the trial parameters set $P_k$
+        - Calculate a cost using every parameter from $P_k$ set
+        - Find the minimum of all costs $C'_j(n, i, d, hat(i)_j, hat(d)_j)$
+        - *If* $C'_j(n, i, d, hat(i)_j, hat(d)_j) < C_j(n, i, d, hat(i)_j, hat(d)_j)$:
+          - $C_j(n, i, d, hat(i)_j, hat(d)_j) = C'_j(n, i, d, hat(i)_j, hat(d)_j)$
+          - Keep the modified infection rate and create new set of trial parameters $P'_k$
+        - *Else*:
+          - $flag = 1$
+          - $vec(beta)_uu(j) = beta_uu$
+          - $vec(beta)_vu(j) = beta_vu$
+          - $vec(beta)_vv(j) = beta_vv$
+          - $vec(beta)_uv(j) = beta_uv$
+  ]),
+  caption: [Source-backed algorithmic procedure]
+)

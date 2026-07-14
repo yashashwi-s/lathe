@@ -1,0 +1,101 @@
+{
+  "sample_id": "05_tables_simple_001",
+  "category": "05_tables_simple",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:24:33+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 3,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 18332,
+  "completion_tokens": 10702,
+  "total_tokens": 29034,
+  "reported_cost_usd": 0.020636,
+  "estimated_cost_usd": 0.020636,
+  "accounted_cost_usd": 0.020636,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783949087-PSY0KDri0NCb5uwtk15T",
+  "source_path": "data/latex_benchmark_v0/corpus/05_tables_simple/05_tables_simple_001/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/05_tables_simple/05_tables_simple_001/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783949073-NK8iSkiRXf7QgB4zLUMo",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 14.399,
+      "compile_seconds": 0.11,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 6383,
+        "completion_tokens": 5250,
+        "total_tokens": 11633,
+        "cost": 0.00947075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00947075,
+          "upstream_inference_prompt_cost": 0.00159575,
+          "upstream_inference_completions_cost": 0.007875
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: qrt"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783949087-PSY0KDri0NCb5uwtk15T",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 45.741,
+      "compile_seconds": 0.238,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 11949,
+        "completion_tokens": 5452,
+        "total_tokens": 17401,
+        "cost": 0.01116525,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01116525,
+          "upstream_inference_prompt_cost": 0.00298725,
+          "upstream_inference_completions_cost": 0.008178
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: qrt"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: qrt",
+  "duration_seconds": 60.503,
+  "finished_at": "2026-07-13T13:25:33+00:00"
+}

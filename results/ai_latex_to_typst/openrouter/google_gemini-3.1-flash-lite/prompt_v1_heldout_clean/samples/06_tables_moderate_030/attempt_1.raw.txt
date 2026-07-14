@@ -1,0 +1,38 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Moderate Tables] \
+  Source-backed grouped table sample
+])
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.01406\_table\_4],
+  table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    stroke: none,
+    table.header(
+      [], [$beta_0$], [$beta_1$], [$beta_2$], [$beta_3$], [$beta_4$], [], [], [$Delta$ Deviance], [*p*-value], [*p*ID],
+      table.hline(stroke: 0.5pt)
+    ),
+    table.hline(stroke: 0.5pt),
+    [*LDLPFC*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [135.4024], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [-47.5876], [17.1508], [], [], [], [], [], [35.3980], [0], [*],
+    [$M_2$], [-64.2313], [17.8882], [19.8370], [], [], [], [], [1.2189], [0.2696], [],
+    [$M_3$], [-63.9616], [17.8613], [19.1087], [0.0792], [], [], [], [0.0002], [0.9892], [],
+    [$M_4$], [-63.9616], [17.8613], [19.1087], [0.0792], [0], [], [], [0], [1], [],
+    table.hline(stroke: 0.5pt),
+    [*V1*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [4565.0240], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [1441.5150], [278.2914], [], [], [], [], [], [43.4969], [0], [*],
+    [$M_2$], [1033.0679], [298.1980], [426.0099], [], [], [], [], [2.4011], [0.1212], [],
+    [$M_3$], [1096.0157], [292.7513], [277.5181], [14.2642], [], [], [], [0.0259], [0.8722], [],
+    [$M_4$], [1096.0157], [292.7513], [277.5181], [14.2642], [0], [], [], [0], [1], [],
+    table.hline(stroke: 0.5pt),
+    [*Thalamus*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [1770.8828], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [807.3178],

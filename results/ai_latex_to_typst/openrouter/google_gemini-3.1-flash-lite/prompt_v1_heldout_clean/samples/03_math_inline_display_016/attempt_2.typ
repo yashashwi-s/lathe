@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ lambda^(a, alpha beta) lambda_(a delta)^(gamma) - lambda^(a, gamma alpha) lambda_(a delta)^(beta) = 2 / sigma_0 (Omega^(alpha beta) delta_delta^gamma - 2 Omega^(beta gamma) delta_delta^alpha + Omega^(gamma alpha) delta_delta^beta) $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(I)_("D")(delta_1, 0) = hat(cal(I))_("D") (delta_1, delta_2) = inf_(lambda in RR_+^2) [ chevron.l lambda, delta chevron.r + sup_(varpi in Pi(mu_1, mu_2)) integral_(cal(V)) g_lambda (s_1, s_2) d varpi(s_1, s_2) ] $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ rho_(j_k, j_l)^([n]) = (G_R^2 P_T) / (G_R^2 sigma_R^2 [bold(F)_m^H bold(tilde(W))^((J)) (bold(tilde(W))^((J)))^H bold(F)_m]_(n,n) + sigma_S^2 [bold(V)_(j_l, j_k)^H bold(V)_(j_l, j_k)]_(n,n)) $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(H)^((0)) = - (2 kappa) / sqrt(-gamma) (delta I^((0))) / (delta gamma_(mu nu)) (delta I^((0))) / (delta gamma_(lambda rho)) (gamma_(mu rho) gamma_(nu lambda) - 1 / (d - 1) gamma_(mu nu) gamma_(lambda rho)) + (sqrt(-gamma)) / kappa Lambda = 0 $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ Z = V_(p+1) (T / (2 pi))^((p+1)/2) integral d tau (det(psi, B)) / (sqrt(det(hat(B, B)))) (sqrt(Det' hat(P)^dagger hat(P))) / (Vol(C K V)) ((Det_N' hat(Delta)) / (integral d^2 xi sqrt(hat(g))))^(-(p+1)/2) $

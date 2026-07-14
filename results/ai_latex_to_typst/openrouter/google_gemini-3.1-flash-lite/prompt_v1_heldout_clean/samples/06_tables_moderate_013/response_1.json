@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949641-xl33t0QIjNEPItS0isMv",
+  "object": "chat.completion",
+  "created": 1783949641,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.04395_table_1],\n  table(\n    columns: (auto, auto, 12*auto, auto),\n    stroke: none,\n    table.hline(y: 0, stroke: 0.8pt),\n    table.header([Datasets], [Sets], [CLIP], [CoOp], [CoCoOp], [KgCoOp], [PLOT], [MaPLe], [ProVP], [MetaPrompt], [TCP], [MMA], [MMRL], [*FARL*]),\n    table.hline(stroke: 0.5pt),\n    table.cell(colspan: 2, align: center)[],\n    [#text(size: 0.7em)[(ICML2021)]], [#text(size: 0.7em)[(IJCV22)]], [#text(size: 0.7em)[(CVPR22)]], [#text(size: 0.7em)[(CVPR23)]], [#text(size: 0.7em)[(ICLR23)]], [#text(size: 0.7em)[(CVPR23)]], [#text(size: 0.7em)[(IJCV2024)]], [#text(size: 0.7em)[(TIP2024)]], [#text(size: 0.7em)[(CVPR2024)]], [#text(size: 0.7em)[(CVPR2024)]], [#text(size: 0.7em)[(CVPR2025)]], [#text(size: 0.7em)[(our)]],\n    table.hline(stroke: 0.5pt),\n    [Average], [Base], [69.34], [82.38], [80.47], [80.73], [83.98], [82.28], [85.20], [83.66], [84.13], [83.20], [85.66], [*86.11*],\n    [], [New], [74.22], [67.96], [71.69], [73.61], [71.72], [75.14], [73.23], [75.48], [75.36], [76.94], [76.19], [*77.49*],\n    [], [HM], [71.59], [73.89], [75.44], [76.71], [76.76], [78.27], [78.38], [79.08], [79.26], [79.72], [80.65], [*81.57*],\n    table.hline(stroke: 0.5pt),\n    [ImageNet], [Base], [72.43], [76.46], [75.98], [75.83], [77.30], [76.66], [75.82], [77.52], [77.27], [77.31], [77.80], [*78.03*],\n    [], [New], [68.14], [66.31], [70.43], [69.96], [69.87], [70.54], [69.21], [70.83], [69.87], [71.23], [71.13], [*71.33*],\n    [], [HM], [70.22], [71.02], [73.10], [72.78], [73.40], [73.47], [72.36], [74.02], [73.38], [74.02], [74.37], [*74.53*],\n    table.hline(stroke: 0.5pt),\n    [Caltech101], [Base], [96.84], [97.80], [97.96], [97.72], [98.53], [97.74], [98.92], [98.13], [98.23], [98.40], [98.83], [*99.23*],\n    [], [New], [94.00], [93.27], [93.81], [94.39], [92.80], [94.36], [94.21], [94.58], [94.67], [94.00], [94.50], [*94.93*],\n    [], [HM], [95.40], [95.48], [95.84], [96.03], [95.58], [96.02], [96.51], [96.32], [96.42], [96.15], [96.62], [*97.03*],\n    table.hline(stroke: 0.5pt),\n    [OxfordPets], [Base], [91.17], [94.47], [95.20], [94.65], [94.50], [95.43], [95.87], [95.53], [94.67], [95.40], [95.87], [*96.10*],\n    [], [New], [97.26], [96.00], [97.69], [97.76], [96.83], [97.76], [97.65], [97.00], [97.20], [*98.07*], [97.27], [#text(fill: blue, style: \"italic\")[97.63]],\n    [], [HM], [94.12], [95.23], [96.43], [96.18], [95.65], [96.58], [96.75], [96.26], [95.92], [96.72], [96.56], [*96.86*],\n    table.hline(stroke: 0.5pt),\n    [StanfordCars], [Base], [63.37], [75.67], [70.49], [71.76], [79.07], [72.94], [80.43], [76.34], [80.80], [78.50], [*81.50*], [81.43],\n    [], [Novel], [74.89], [67.53], [73.59], [75.04], [74.80], [74.00], [67.96], [75.01], [74.13], [73.10], [74.90], [*75.10*],\n    [], [HM], [68.65], [71.37], [72.01], [73.36], [76.88], [73.47], [73.67], [75.48], [77.32], [75.70], [78.06], [*78.14*],\n    table.hline(stroke: 0.5pt),\n    [Flowers], [Base], [72.08], [97.27], [94.87], [95.00], [97.93], [95.92], [98.42], [97.66], [97.73], [97.77], [98.87], [*98.9*],\n    [], [New], [*77.80*], [67.13], [71.75], [74.73], [73.53], [72.46], [72.06], [74.49], [75.57], [75.93], [77.23], [77.1],\n    [], [HM], [74.83], [79.44], [81.71], [83.65], [83.99], [82.56], [83.20], [84.52], [85.23], [85.48], [*86.72*], [86.65],\n    table.hline(stroke: 0.5pt),\n    [Food101], [Base], [90.10], [89.37], [90.70], [90.5], [89.80], [90.71], [90.32], [*90.74*], [90.57], [90.13], [90.33], [90.67],\n    [], [New], [91.22], [88.77], [91.29], [91.7], [91.37], [*92.05*], [90.91], [91.85], [91.37], [91.30], [91.40], [#text(fill: blue, style: \"italic\")[91.53]],\n    [], [HM], [90.66], [89.07], [90.99], [91.09], [90.58], [*91.38*], [90.61], [91.29], [90.97], [90.71], [90.86], [#text(fill: blue, style: \"italic\")[91.10]],\n    table.hline(stroke: 0.5pt),\n    [Aircraft], [Base], [27.19], [39.67], [33.41], [36.21], [42.13], [37.44], [47.08], [40.14], [41.97], [40.57], [45.97], [*49.57*],\n    [], [New], [36.29], [31.23], [23.71], [33.55], [33.73], [35.61], [29.87], [36.51], [34.43], [36.33], [37.20], [*37.63*],\n    [], [HM], [31.09], [34.95], [27.74], [34.83], [37.46], [36.50], [36.55], [38.24], [37.83], [38.33], [41.12], [*42.78*],\n    table.hline(stroke: 0.5pt),\n    [SUN397], [Base], [69.36], [80.85], [79.74], [80.29], [82.20], [80.82], [80.67], [82.26], [82.63], [82.27], [*83.23*], [83.00],\n    [], [New], [75.35], [68.34], [76.86], [76.53], [73.63], [78.70], [76.11], [79.04], [78.20], [78.57], [*79.20*], [78.93],\n    [], [HM], [72.23], [74.07], [78.27], [78.36], [77.68], [79.75], [78.32], [80.62], [80.35], [80.38], [*81.17*], [80.91],\n    table.hline(stroke: 0.5pt),\n    [DTD], [Base], [53.24], [79.97], [77.01], [77.55], [81.97], [80.36], [83.95], [83.10], [82.77], [83.20], [*85.63*], [85.03],\n    [], [New], [59.90], [48.60], [56.00], [54.99], [43.80], [59.18], [59.06], [58.05], [58.07], [*65.63*], [64.33], [#text(fill: blue, style: \"italic\")[65.50]],\n    [], [HM], [56.37], [60.46], [64.85], [64.35], [57.09], [68.16], [69.34], [68.35], [68.25], [73.38], [73.47], [*74.00*],\n    table.hline(stroke: 0.5pt),\n    [EuroSAT], [Base], [56.48], [90.10], [87.49], [85.64], [93.70], [94.07], [*97.12*], [93.53], [91.63], [85.46], [95.93], [#text(fill: blue, style: \"italic\")[96.67]],\n    [], [New], [64.05], [53.00], [60.04], [64.34], [62.67], [73.23], [72.91], [75.21], [74.73], [82.34], [71.10], [*82.73*],\n    [], [HM], [60.03], [66.74], [71.21], [73.48], [75.11], [82.30], [83.29], [83.38], [82.32], [83.87], [81.67], [*88.66*],\n    table.hline(stroke: 0.5pt),\n    [UCF101], [Base], [70.53], [84.53], [82.33], [82.89], [86.60], [83.00], [*88.56*], [85.33], [87.13], [86.23], [88.17], [#text(fill: blue, style: \"italic\")[88.53]],\n    [], [New], [77.50], [67.37], [73.45], [76.67], [75.90], [78.66], [75.55], [77.72], [80.77], [80.03], [79.80], [*79.97*],\n    [], [HM], [73.85], [74.98], [77.67], [79.65], [80.90], [80.77], [81.54], [81.35], [83.83], [82.20], [83.78], [*84.03*],\n    table.hline(y: 37, stroke: 0.8pt)\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.04981_table_13],\n  table(\n    columns: (1fr, 1fr),\n    fill: (col, row) => if calc.odd(row) { luma(230) },\n    table.hline(stroke: 0.8pt),\n    [*#text(style: \"italic\")[Occupation] prompts*], [*#text(style: \"italic\")[Simple] prompts*],\n    table.hline(stroke: 0.5pt),\n    [an accountant], [Male accountant],\n    [an actor], [Young actor],\n    [an actuary], [Black actuary],\n    [an acupuncturist], [Female acupuncturist],\n    [an advertising manager], [Old advertising manager],\n    [an aerospace engineer], [White aerospace engineer],\n    [an agricultural scientist], [Male agricultural scientist],\n    [an air traffic controller], [Young air traffic controller],\n    [an aircraft mechanic], [Asian aircraft mechanic],\n    [an ambulance driver], [Female ambulance driver],\n    [an anesthesiologist], [Old anesthesiologist],\n    [an animal trainer], [Hispanic animal trainer],\n    [an anthropologist], [Male anthropologist],\n    [an app developer], [Young app developer],\n    [an archaeologist], [Middle eastern archaeologist],\n    [an architect], [Female architect],\n    [an archivist], [Old archivist],\n    [an art director], [Native american art director],\n    [an art teacher], [Male art teacher],\n    [an assembler], [Young assembler],\n    [an astronomer], [Pacific islander astronomer],\n    [an athletic trainer], [Female athletic trainer],\n    [an attorney], [Old attorney],\n    [an audiologist], [Black audiologist],\n    [a baker], [Male baker],\n    [a barber], [Young barber],\n    [a bartender], [White bartender],\n    [a biochemist], [Female biochemist],\n    [a biologist], [Old biologist],\n    [a biomedical engineer], [Asian biomedical engineer],\n    [a bookkeeper], [Male bookkeeper],\n    [a botanist], [Young botanist],\n    [a broadcast technician], [Hispanic broadcast technician],\n    [a bus driver], [Female bus driver],\n    [a business analyst], [Old business analyst],\n    [a butcher], [Middle eastern butcher],\n    [a cab driver], [Male cab driver],\n    [a camera operator], [Young camera operator],\n    [a carpenter], [Native american carpenter],\n    [a cartographer], [Female cartographer],\n    [a cashier], [Old cashier],\n    [a chef], [Pacific islander chef],\n    [a chemical engineer], [Male chemical engineer],\n    [a chemist], [Young chemist],\n    [a chiropractor], [Black chiropractor],\n    [a civil engineer], [Female civil engineer],\n    [a claims adjuster], [Old claims adjuster],\n    [a clergy], [White clergy],\n    [a coach], [Male coach],\n    [a computer programmer], [Young computer programmer],\n    table.hline(stroke: 0.8pt)\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a198UHGP2CCxitpkbF1sH7HxsNzI9syr3K6Y+/e7gl53NvuYzIEr34BCatibM3Y=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5145,
+    "completion_tokens": 4781,
+    "total_tokens": 9926,
+    "cost": 0.00845775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00845775,
+      "upstream_inference_prompt_cost": 0.00128625,
+      "upstream_inference_completions_cost": 0.0071715
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

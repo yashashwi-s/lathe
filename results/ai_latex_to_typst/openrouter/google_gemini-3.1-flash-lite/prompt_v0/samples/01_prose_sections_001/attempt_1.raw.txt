@@ -1,0 +1,25 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "linux libertine")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[A $U(N)$ Gauge Theory in Three Dimensions as an Ensemble of Surfaces]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em))[
+  #text(weight: "bold")[Abstract]
+  #par(justify: true)[
+    A particular $U(N)$ gauge theory defined on the three dimensional dodecahedral lattice is shown to correspond to a model of oriented self-avoiding surfaces. Using large $N$ reduction it is argued that the model is partially soluble in the planar limit.
+  ]
+]
+
+= Source Metadata
+This sample is based on arXiv record `hep-th/9108015`. Authors: F. David, H. Neuberger.
+
+= Extracted Prose 1
+RU--91--34 July 29, 1991 #v(1.5cm) A math expression Gauge Theory in Three Dimensions as an Ensemble of Surfaces #v(1cm) #box(width: 1cm, height: 1cm, fill: black) Fran cois David Physique Théorique CNRS. #v(0.2cm) Service de Physique Théorique Laboratoire de l'Institut de Recherche Fondamentale du Commissariat à l'Energie Atomique. de Saclay F-91191 Gif-sur-Yvette Cedex #v(0.7cm) and #v(0.7cm)
+
+= Extracted Prose 2
+#v(1cm) A particular math expression gauge theory defined on the three dimensional dodecahedral lattice is shown to correspond to a model of oriented self-avoiding surfaces. Using large math expression reduction it is argued that the model is partially soluble in the planar limit. #v(0.3cm)

@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics]
+  #v(0.5em)
+  Source-backed grouped formula sample
+])
+
+= Expressions
+
+#par(hanging-indent: 1em)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]
+
+#text("= ∫ dt dθ dφ dt' dθ' dφ' (sin θ sin θ' Φ₋(t, θ, φ) Φ₋(t', θ', φ')) / [cosh((t-t')/a) - (sin θ sin θ' cos(φ-φ') + cos θ cos θ')]^h")
+
+#par(hanging-indent: 1em)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]
+
+#text("( V(ψ ⊗ w̄, z) ( |χ⟩_l ⊗ |ū⟩_l ) )_m := lim_{z̄→0} z̄^(Δ̄_j + Δ̄_l - Δ̄_m) ( φ(ψ ⊗ w̄; z, z̄) ( |χ⟩_l ⊗ |ū⟩_l ) )_m")
+
+#par(hanging-indent: 1em)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]
+
+#text("γ^(-1/2) e^φ [ (δS)/(δγ_ij) (δS)/(δγ_kl) γ_ik γ_jl + 1/2 (δS/δφ)^2 + γ_ij (δS)/(δγ_ij) (δS/δφ) ] = 0")
+
+#par(hanging-indent: 1em)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]
+
+#text("+ 1/2 G_ij G^(αβ) ∂_α Φ^i ∂_β Φ^j ( 1 + (b̃) / (2 π^2 α') ) + 1 / (8 π g_s) ∫ d^4 x 1/4 F_αβ F̃^(αβ) ( (c + C_0 b) / (2 π^2 α') )")
+
+#par(hanging-indent: 1em)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]
+
+#text("Δ_(ε, ε̄)^(1) = (σ^2)/2 · (m - i ε p̂) / (2m) · (m - i ε̄ p̄) / (2m) · (1 - σ_p^2) = Ψ_(ε, ε̄) · Ψ̄_(ε, ε̄)")

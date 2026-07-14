@@ -1,0 +1,27 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center, text(size: 1.5em, weight: "bold")[Inline and Display Mathematics])
+#align(center, [Source-backed grouped formula sample])
+
+= Expressions
+
+#par(hanging-indent: 1em)[*Expression 1.* The following expression is taken from a source-backed formula corpus.]
+
+#text("$\\mathcal{I}_{\\mathrm{D}} (\\delta) = \\sup _{\\pi \\in \\Pi(\\mu_1, \\mu_2)} \\inf _{\\lambda \\in \\mathbb{R}_{+}^2}[\\langle\\lambda, \\delta\\rangle+\\int_{\\mathcal{V}} g_\\lambda \\, d \\pi] = \\inf _{\\lambda \\in \\mathbb{R}_{+}^2} \\sup _{\\pi \\in \\Pi(\\mu_1, \\mu_2)} [\\langle\\lambda, \\delta\\rangle+\\int_{\\mathcal{V}} g_\\lambda \\, d \\pi].$")
+
+#par(hanging-indent: 1em)[*Expression 2.* The following expression is taken from a source-backed formula corpus.]
+
+#text("$\\mathrm{R}_{\\mathrm{D}}(\\lambda, \\delta) = \\langle\\lambda, \\delta\\rangle+ \\sup _{x^{\\prime} \\in \\mathbb{R}^d} [ \\sum_{1\\leq \\ell \\leq 2} \\varphi_\\ell(x^{\\prime}, \\lambda_\\ell)] \\mathrm{R}_{\\mathrm{D}}(\\lambda, \\delta) = \\langle\\lambda, \\delta\\rangle+ \\sum_{1\\leq \\ell \\leq 2} \\sup _{x^{\\prime} \\in \\mathbb{R}^d}\\varphi_\\ell(x^{\\prime}, \\lambda_\\ell).$")
+
+#par(hanging-indent: 1em)[*Expression 3.* The following expression is taken from a source-backed formula corpus.]
+
+#text("$\\left({}^{c}D_{-}^{\\alpha,\\alpha',\\beta,\\beta',\\gamma}t^{-\\rho}\\right)(x)=\\frac{\\Gamma(\\beta'+\\rho+m)\\Gamma(-\\alpha-\\alpha'+\\gamma+\\rho)\\Gamma(-\\alpha'-\\beta+\\gamma+\\rho+m)}{\\Gamma(\\rho)\\Gamma(-\\alpha'+\\beta'+\\rho+m)\\Gamma(-\\alpha-\\alpha'-\\beta+\\gamma+\\rho+m)}x^{\\alpha+\\alpha'-\\gamma-\\rho}.$")
+
+#par(hanging-indent: 1em)[*Expression 4.* The following expression is taken from a source-backed formula corpus.]
+
+#text("$\\mathcal{I}_{\\mathrm{D}}(\\delta_1, 0) = \\sup_{\\pi \\in \\Pi(\\mu_1, \\mu_2) } \\inf _{\\lambda_1 \\in \\mathbb{R}_{+} }[ \\lambda_1 \\delta_1 + \\int g_{\\lambda, 1} \\, d \\pi ] = \\sup_{\\pi \\in \\Pi(\\mu_1, \\mu_2) } \\inf _{\\lambda \\in \\mathbb{R}^2_{+} }[ \\langle \\lambda , (\\delta_1, 0 ) \\rangle + \\int_{\\mathcal{V}} g_{\\lambda} \\, d \\pi].$")
+
+#par(hanging-indent: 1em)[*Expression 5.* The following expression is taken from a source-backed formula corpus.]
+
+#text("$[ \\bar \\gamma ^2\\bar \\gamma ^0\\bar \\gamma ^1\\partial_\\vartheta +\\frac{\\bar \\gamma ^3\\bar \\gamma ^0\\bar \\gamma ^1}{\\sin \\vartheta}\\partial _\\varphi +\\bar \\gamma ^2\\bar \\gamma ^0\\bar \\gamma ^1S\\partial_\\vartheta S^{-1}+\\frac{\\bar \\gamma ^3\\bar \\gamma ^0\\bar \\gamma ^1}{\\sin\\vartheta }S\\partial _\\varphi S^{-1}] \\tilde \\Phi =-i\\kappa \\tilde\\Phi$")

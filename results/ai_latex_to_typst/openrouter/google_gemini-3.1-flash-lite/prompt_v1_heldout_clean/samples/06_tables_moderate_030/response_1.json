@@ -1,0 +1,71 @@
+{
+  "id": "gen-1783949865-8QVVz495kQh4VHt8tagi",
+  "object": "chat.completion",
+  "created": 1783949865,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "error",
+      "native_finish_reason": null,
+      "error": {
+        "code": 429,
+        "message": "JSON error injected into SSE stream",
+        "metadata": {
+          "error_type": "rate_limit_exceeded"
+        }
+      },
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.01406\\_table\\_4],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: none,\n    table.header(\n      [], [$beta_0$], [$beta_1$], [$beta_2$], [$beta_3$], [$beta_4$], [], [], [$Delta$ Deviance], [*p*-value], [*p*ID],\n      table.hline(stroke: 0.5pt)\n    ),\n    table.hline(stroke: 0.5pt),\n    [*LDLPFC*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [135.4024], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [-47.5876], [17.1508], [], [], [], [], [], [35.3980], [0], [*],\n    [$M_2$], [-64.2313], [17.8882], [19.8370], [], [], [], [], [1.2189], [0.2696], [],\n    [$M_3$], [-63.9616], [17.8613], [19.1087], [0.0792], [], [], [], [0.0002], [0.9892], [],\n    [$M_4$], [-63.9616], [17.8613], [19.1087], [0.0792], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*V1*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [4565.0240], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [1441.5150], [278.2914], [], [], [], [], [], [43.4969], [0], [*],\n    [$M_2$], [1033.0679], [298.1980], [426.0099], [], [], [], [], [2.4011], [0.1212], [],\n    [$M_3$], [1096.0157], [292.7513], [277.5181], [14.2642], [], [], [], [0.0259], [0.8722], [],\n    [$M_4$], [1096.0157], [292.7513], [277.5181], [14.2642], [0], [], [], [0], [1], [],\n    table.hline(stroke: 0.5pt),\n    [*Thalamus*], [], [], [], [], [], [], [], [], [], [],\n    [$M_0$], [1770.8828], [], [], [], [], [], [], [], [], [],\n    [$M_1$], [807.3178],",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "sample_id": "08_crossrefs_citations_008",
+  "category": "08_crossrefs_citations",
+  "complexity_band": "high",
+  "status": "finished",
+  "started_at": "2026-07-13T12:43:08+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 3056,
+  "completion_tokens": 855,
+  "total_tokens": 3911,
+  "reported_cost_usd": 0.0020464999999999997,
+  "estimated_cost_usd": 0.0020464999999999997,
+  "accounted_cost_usd": 0.0020464999999999997,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783946595-tewxpqsO7ELH337Hngkr",
+  "source_path": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_008/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/08_crossrefs_citations/08_crossrefs_citations_008/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783946588-YES1P6tCzqG4JhFX9M3c",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 6.41,
+      "compile_seconds": 0.108,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 1192,
+        "completion_tokens": 421,
+        "total_tokens": 1613,
+        "cost": 0.0009295,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0009295,
+          "upstream_inference_prompt_cost": 0.000298,
+          "upstream_inference_completions_cost": 0.0006315
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: cannot reference equation without numbering"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783946595-tewxpqsO7ELH337Hngkr",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.682,
+      "compile_seconds": 0.115,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 1864,
+        "completion_tokens": 434,
+        "total_tokens": 2298,
+        "cost": 0.001117,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001117,
+          "upstream_inference_prompt_cost": 0.000466,
+          "upstream_inference_completions_cost": 0.000651
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 9.323,
+  "finished_at": "2026-07-13T12:43:17+00:00"
+}

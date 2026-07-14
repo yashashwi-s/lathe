@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nConvert the supplied complete LaTeX document into one complete, standalone Typst\n0.14.2 document. Preserve every visible piece of content and the original\ndocument structure as closely as Typst permits. Do not summarize, omit, or\ninvent content.\n\nRequirements, in priority order:\n\n1. The result must compile with `typst compile` using Typst 0.14.2.\n2. Preserve all text, mathematics, headings, lists, tables, figures, captions,\n   labels, references, citations, footnotes, and page-level structure.\n3. Prefer native semantic Typst constructs such as headings, lists, tables,\n   figures, equations, grids, and references. Use manual spacing only when the\n   source genuinely requires it.\n4. Produce a self-contained document. Do not read local files, use `#include`,\n   or depend on images or bibliography files that were not supplied.\n5. Use no Typst packages unless conversion is otherwise impossible. Never\n   invent package names or versions.\n6. Return only raw Typst source. Do not use Markdown fences and do not explain\n   the conversion.\n\nTypst syntax checks:\n\n- Put all mathematics inside `$...$`. Typst math is not LaTeX math: do not use\n  backslash commands inside Typst math.\n- In math, quote ordinary words and separate multi-letter identifiers when\n  Typst would otherwise parse them as one variable or a unit.\n- Build tables with comma-separated bracketed cells. Do not carry LaTeX `&`,\n  `\\\\`, or column specifications into `table()`.\n- `#` enters code from markup. Inside an existing code block, use `let`, `if`,\n  and `for` without another `#`.\n- Quote paper names, font names, strings, URLs, and other string values.\n- A bare `@name` is a Typst reference. Create the matching label before using\n  one; escape or otherwise safely represent literal at-signs.\n- Enable heading or equation numbering before referencing numbered structures.\n- Use valid native functions. When uncertain, choose a simpler native layout\n  that compiles instead of guessing an API.\n\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert this complete LaTeX document to Typst:\n\n% letter-4.tex\n% Copyright 2008 Markus Kohm\n% \n% This work may be distributed and/or modified under the\n% conditions of the LaTeX Project Public License, either version 1.3\n% of this license or (at your option) any later version.\n% The latest version of this license is in\n% http://www.latex-project.org/lppl.txt\n% and version 1.3 or later is part of all distributions of LaTeX\n% version 2005/12/01 or later.\n% \n% This work has the LPPL maintenance status `maintained'.\n% \n% The Current Maintainer of this work is Markus Kohm.\n% \n% This work consists of this file only.\n%-----------------------------------------------------------------------\n\\documentclass[version=last]{scrlttr2}\n\\usepackage[ngerman]{babel}\n\\begin{document}\n\\begin{letter}{%\n    Petra Mustermann\\\\\n    Vor dem Berg 1\\\\\n    12345 Musterhausen%\n  }\n\\opening{Liebe Vereinsvorsitzende,}\nseit einem Jahr gab es keine Mitgliederversammlung\nmehr. Ich erinnere daran, dass unsere Satzung eine\nsolche jedes halbe Jahr vorsieht. Ich fordere den\nVorstand daher auf, umgehend eine solche in\nAngriff zu nehmen.\n\\closing{In Erwartung einer Einladung}\n\\ps PS: Ich hoffe, Du nimmst mir das nicht krumm.\n\\setkomavar*{enclseparator}{Anlage}\n\\encl{Auszug aus der Satzung, in dem die\n  Mitgliederversammlungen geregelt sind}\n\\cc{Die Vereinsvorsitzende\\\\Alle Mitglieder}\n\\end{letter}\n\\end{document}\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 10000,
+  "session_id": "11_forms_cv_letters_010",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

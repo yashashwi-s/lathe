@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  #text(size: 1.2em)[Source-backed grouped formula sample] \
+  #text(size: 1em)[]
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ overline(D)_R equiv e^mu_a gamma^a (vec(partial)_mu + 1/2 omega_mu^(c d) sigma_(c d) + i g' B_mu); quad underline(D)_R equiv (arrow.l(partial)_mu - 1/2 omega_mu^(c d) sigma_(c d) - i g' B_mu) gamma^a e_a^mu; $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ (d^2 y) / (d tilde(lambda)^2) - 1/2 (cal(W)') / (cal(W)) ((d y) / (d tilde(lambda)))^2 - 1/2 [cal(W) - ((d y) / (d tilde(lambda)))^2] cal(W)^(-1) partial_y (cal(W) g_(mu nu)) (d x^mu) / (d tilde(lambda)) (d x^nu) / (d tilde(lambda)) = 0. $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ 0 = K_(omega, bold(c))(Psi) = partial_lambda S_(omega, bold(c))(lambda Psi) |_(lambda = 1) = sum_(j=1)^3 angle.l D_j S_(omega, bold(c))(Psi), psi_j angle.r = eta sum_(j=1)^3 angle.l D_j K_(omega, bold(c))(Psi), psi_j angle.r = eta partial_lambda K_(omega, bold(c))(lambda Psi) |_(lambda = 1). $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ I_epsilon^((1))(a^2) = pi / 2 1 / (cos (pi / 2) epsilon) { 1 / (a^(1 + epsilon)) + 2 sum_(n=1)^infinity 1 / ((2 pi n)^(1 + epsilon)) + 2 sum_(n=1)^infinity 1 / ((2 pi n)^(1 + epsilon)) [ 1 / ((1 + a^2 / (4 pi^2 n^2))^((1 + epsilon) / 2)) - 1 ] } . $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ delta L_(T G) = epsilon^(mu nu rho) (R_(beta mu nu)^alpha delta Gamma_(alpha rho)^beta - bar(R)_(beta mu nu)^alpha delta bar(Gamma)_(alpha rho)^beta) - partial_mu [epsilon^(mu nu rho) N_(beta nu)^alpha (delta Gamma_(alpha rho)^beta + delta bar(Gamma)_(alpha rho)^beta)] $

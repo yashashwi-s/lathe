@@ -1,0 +1,29 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Moderate Tables
+
+Source-backed grouped table sample
+
+== Tables
+
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+Table: Source table 1: 2512.01111_table_2
+
+Design (Name/Gender) | Personality | Role | Interaction Modalities | Features | Ethical Considerations
+Bimo (Gender-Neutral) | Friendly, Gentle, Firm, Reactive | Smart Friend, Mentor | Speech, Light Indicators, Visually via Tablet | Warm lamp light with built-in speaker; Tablet for content display; rotatable head; Integrates with student's work ecosystem; Monitors screen for careless mistakes; AI-powered feedback on student work; Helps organize and prioritize tasks; Monitors stress and exhaustion via camera | Saves videos to a student-accessible SD card; Deletes monitored videos after 2 days; Requires manual on/off for student control; Always asks permission before accessing third-party applications; Detects critical health issues (e.g., heart attacks) and alerts authorities promptly
+Max (Gender-Neutral) | Friendly, Assertive, Motivating, Strict with deadlines | Assistant, Friend, Mentor, Proactive | Speech, Light Indicators, Gestures, Facial Expressions, Physical Touch | Plays study music; Offers effective study tips; Helps with task organization; Comes with wheels for easy portability | Requires manual on/off for student control; Does not store user data; Respects the laws and customs of the region
+Roberto (Gender-Neutral) | Friendly, Funny, Kind, Calm, Encouraging, Proactive | Coach | Speech, Visually via Screen, Vibrations | Screen for content display; Helps with task organization and prioritization; Monitors for distractions via camera; Offers task feedback; Uses alarms and vibrations to dis-incentivize students from getting distracted | Does not store any monitoring videos
+Bammy (Customizable) | Friendly, Organized, Nice, Straightforward, Honest, Reactive & Proactive | Mentor Motivator | Speech, Visually via screen, Visually via watch | Screen for content display; AI-powered for task organization; Integrates with student’s workflow; Dedicated app; Monitors stress and health via smartwatch; Provides emotional support; Remembers user preferences; Accesses quality research sources; Supports language flexibility | No camera for privacy; Identifies users to protect others' personal information; Accessibility features for individuals with special needs
+
+Table: Source table 2: 2512.00231_table_5
+
+Model | Top-5 | Top-10 | Recall at 20 percent | Effort at 20 percent | IFA
+JIT-Smart ATTN | 0.691 (sigma +/- 0.03) | 0.811 (sigma +/- 0.03) | 0.337 (sigma +/- 0.05) | 0.248 (sigma +/- 0.02) | 5.360 (sigma +/- 3.00)
+GPT-5 | 0.616 (sigma +/- 0.01) | 0.759 (sigma +/- 0.02) | 0.318 (sigma +/- 0.01) | 0.234 (sigma +/- 0.01) | 10.711 (sigma +/- 0.92)
+Gemini 2.5 Pro | 0.543 | 0.683 | 0.291 | 0.251 | 12.317
+UniXCoder | 0.522 (sigma +/- 0.01) | 0.657 (sigma +/- 0.01) | 0.278 (sigma +/- 0.01) | 0.271 (sigma approx 0) | 13.280 (sigma +/- 0.36)
+Claude Sonnet 4.5 | 0.529 | 0.701 | 0.273 | 0.265 | 12.520
+JITFine | 0.511 (sigma +/- 0.03) | 0.683 (sigma +/- 0.02) | 0.217 (sigma +/- 0.02) | 0.322 (sigma +/- 0.02) | 12.185 (sigma +/- 1.21)
+CodeT5+ | 0.465 (sigma +/- 0.04) | 0.631 (sigma +/- 0.04) | 0.150 (sigma +/- 0.04) | 0.388 (sigma +/- 0.05) | 15.048 (sigma +/- 2.43)

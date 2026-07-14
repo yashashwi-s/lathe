@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783949711-yxI3AtX7xoIcj11UUiBA",
+  "object": "chat.completion",
+  "created": 1783949711,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center, [\n  #text(size: 1.5em, weight: \"bold\")[Moderate Tables] \\\n  Source-backed grouped table sample\n])\n\n= Tables\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.01438_table_5],\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: (x, y) => if y == 0 or y == 49 { (top: 0.5pt, bottom: 0.5pt) } else { none },\n    table.header([Country], [Port], [Latitude], [Longitude]),\n    [Australia], [Sydney], [-33.859], [151.209],\n    [Australia], [Newcastle], [-32.927], [151.782],\n    [Australia], [Adelaide], [-34.844], [138.506],\n    [Australia], [Darwin], [-12.463], [130.846],\n    [Australia], [Melbourne], [-37.814], [144.963],\n    [Australia], [Fremantle], [-32.053], [115.748],\n    [Australia], [Brisbane], [-27.384], [153.118],\n    [Australia], [Port Hedland], [-20.320], [118.574],\n    [China], [Shanghai], [31.406], [121.489],\n    [China], [Ningbo-Zhoushan], [29.935], [121.811],\n    [China], [Shenzhen], [22.562], [113.898],\n    [China], [Lianyungang], [34.731], [119.529],\n    [China], [Xiamen], [24.446], [118.065],\n    [China], [Dalian], [38.933], [121.617],\n    [China], [Yingkou], [40.671], [122.235],\n    [China], [Tianjin], [38.971], [117.734],\n    [China], [Qingdao], [36.107], [120.320],\n    [China], [Guangzhou], [23.101], [113.560],\n    [India], [Tuticorin (V.O.C.) Port], [8.769], [78.135],\n    [India], [Visakhapatnam Port], [17.690], [83.282],\n    [India], [Kolkata (Syama Prasad Mookerjee) Port], [22.546], [88.312],\n    [India], [Ennore (Kamarajar) Port], [13.254], [80.340],\n    [India], [Chennai Port], [13.084], [80.282],\n    [India], [Deendayal (Kandla)], [23.033], [70.217],\n    [India], [Mundra Port], [22.741], [69.708],\n    [India], [Jawaharlal Nehru Port (JNPT)], [18.963], [72.942],\n    [India], [Paradip Port], [20.317], [86.609],\n    [India], [Mumbai Port], [18.952], [72.837],\n    [Indonesia], [Tanjung Priok], [-6.104], [106.886],\n    [Indonesia], [Batu Ampar], [1.141], [104.027],\n    [Indonesia], [Tanjung Perak], [-7.197], [112.733],\n    [Indonesia], [Belawan], [3.777], [98.686],\n    [Indonesia], [Teluk Bayur], [-0.974], [100.366],\n    [Indonesia], [Cirebon], [-6.706], [108.570],\n    [Indonesia], [Dumai], [1.686], [101.449],\n    [Indonesia], [Gresik], [-7.165], [112.655],\n    [Indonesia], [Pontianak], [-0.051], [109.334],\n    [Indonesia], [Boom Baru], [-2.999], [104.810],\n    [Japan], [Osaka], [34.643], [135.409],\n    [Japan], [Nagoya], [35.089], [136.881],\n    [Japan], [Kobe], [34.678], [135.187],\n    [Japan], [Kagoshima], [31.537], [130.551],\n    [Japan], [Yokohama], [35.454], [139.638],\n    [Japan], [Chiba], [35.596], [140.089],\n    [Japan], [Tokyo], [35.641], [139.764],\n    [Japan], [Hiroshima], [34.365], [132.464],\n    [Japan], [Kitakyushu], [33.906], [130.876],\n    [Japan], [Shimizu], [35.017], [138.488]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.05428_table_1],\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: (x, y) => if y == 0 or y == 42 { (top: 0.5pt, bottom: 0.5pt) } else { none },\n    table.header([*Tool*], [*Application*], [*Component*], [*Support to Fairness Testing*], [*Bias Detection*], [*Test Evaluation*], [*Direct Testing Usage*], [*Conversational Interface with RAG Grounding*]),\n    [FairTest], [General ML], [Model], [Yes], [Yes], [No], [No], [No],\n    [Themis], [Classification], [Model], [Yes], [Yes], [No], [No], [No],\n    [Aequitas], [Classification], [Model], [Yes], [Yes], [No], [No], [No],\n    [ExpGA], [Tabular data, text], [Model], [Yes], [No], [No], [No], [No],\n    [fairCheck], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [MLCheck], [Classification], [Model], [Yes], [Yes], [No], [No], [No],\n    [LTDD], [Tabular data], [Data], [Yes], [No], [No], [No], [No],\n    [Fair-SMOTE], [Tabular data], [Model], [Yes], [No], [No], [No], [No],\n    [FairMask], [Tabular data], [Data], [Yes], [No], [No], [No], [No],\n    [Fairway], [Tabular data], [Data], [Yes], [No], [No], [No], [No],\n    [Parfait-ML], [Tabular data], [ML program], [Yes], [No], [No], [No], [No],\n    [Fairea], [Benchmarking], [Model], [Yes], [No], [No], [No], [No],\n    [IBM AIF360], [Tabular data], [Platform], [Yes], [No], [No], [No], [No],\n    [I&D], [Classification], [Model], [Yes], [No], [No], [No], [No],\n    [scikit-fairness], [Tabular data], [Platform], [Yes], [No], [No], [No], [No],\n    [LiFT], [Tabular data], [Platform], [Yes], [No], [No], [No], [No],\n    [FairVis], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [BiasAmp], [Image classifier], [Model], [Yes], [No], [No], [No], [No],\n    [MAAT], [Tabular data], [Data], [Yes], [Yes], [No], [No], [No],\n    [FairEnsembles], [Tabular data], [ML program], [Yes], [No], [No], [No], [No],\n    [FairRepair], [Tabular data], [Model], [Yes], [No], [No], [No], [No],\n    [SBFT], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [ADF], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [EIDIG], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [NeuronFair], [Tabular data, face images], [Model], [Yes], [Yes], [No], [No], [No],\n    [DeepInspect], [Image], [Model], [Yes], [Yes], [No], [No], [No],\n    [CMA], [Language models], [Model], [Yes], [No], [No], [No], [No],\n    [FairNeuron], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [RULER], [Tabular data], [Model], [Yes], [No], [No], [No], [No],\n    [TestSGD], [Tabular data, text], [Model], [Yes], [Yes], [No], [No], [No],\n    [DICE], [Tabular data], [Model], [Yes], [Yes], [No], [No], [No],\n    [ASTRAEA], [NLP], [Model], [Yes], [Yes], [No], [No], [No],\n    [MT-NLP], [NLP], [Model], [Yes], [No], [No], [No], [No],\n    [BiasFinder], [Sentiment analysis], [Model], [Yes], [Yes], [No], [No], [No],\n    [BiasRV], [Sentiment analysis], [Model], [Yes], [Yes], [No], [No], [No],\n    [NERGenderBias], [NER], [Model], [Yes], [Yes], [No], [No], [No],\n    [CheckList], [NLP], [Model], [Yes], [Yes], [No], [No], [No],\n    [DialogueFairness], [Conversational AI], [Model], [Yes], [Yes], [No], [No], [No],\n    [BiasAsker], [Conversational AI], [Model], [Yes], [Yes], [No], [No], [No],\n    [REVISE], [CV datasets], [Data], [Yes], [No], [No], [No], [No],\n    [AequeVox], [Speech recognition], [Model], [Yes], [No], [No], [No], [No],\n    [*Bita (ours)*], [General AI Testing], [System-level Assistant], [Yes], [Yes], [Yes], [Yes], [Yes]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/yoXWVW7cslz+gl/weJW1LLV4kLQcyfAN7sepenboKWCFp9L6QgG7xgAzjMYM=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5921,
+    "completion_tokens": 2879,
+    "total_tokens": 8800,
+    "cost": 0.00579875,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00579875,
+      "upstream_inference_prompt_cost": 0.00148025,
+      "upstream_inference_completions_cost": 0.0043185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

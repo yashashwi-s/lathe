@@ -1,0 +1,30 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  Source-backed grouped formula sample \
+  #v(1em)
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ integral_Omega (angle.l (partial d_epsilon(t)) / (partial x_i), (partial d_epsilon(t)) / (partial x_j) angle.r (partial Y^i) / (partial x_j) - (1/2 |nabla d_epsilon(t)|^2 + 1/(4 epsilon^2) (1 - |d_epsilon(t)|^2)^2) "div" Y + angle.l tau_epsilon(t), Y dot nabla d_epsilon(t) angle.r) = 0. $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ | sum_(alpha beta gamma delta) angle.l Phi_alpha Phi_beta Phi_gamma Phi_delta angle.r_c / sum_(alpha beta gamma delta) angle.l Phi_alpha Phi_beta Phi_gamma Phi_delta angle.r | = | angle.l Phi^4(x) angle.r_c / angle.l Phi^4(x) angle.r | space (n=4) space , $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ integral_0^R "d" r [u_(1 epsilon kappa)(r) u_(1 epsilon' kappa)(r) + u_(2 epsilon kappa)(r) u_(2 epsilon' kappa)(r)] = (u_(1 epsilon kappa)(R) u_(2 epsilon' kappa)(R) - u_(1 epsilon' kappa)(R) u_(2 epsilon kappa)(R)) / (epsilon - epsilon') . $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ bar(cal(G))_((I))^((rho)) a Gamma^((rho)) = Delta_(cl(I))^((rho)) a + O(rho^2) space , space space space bar(cal(G))_((II))^((rho)) a Gamma^((rho)) = Delta_(cl(II))^((rho)) a + O(rho^2) space , $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ Z[J^mu, overline(eta), eta] = integral [d A_mu] Im(A_mu) exp(-angle.l 1/4 F_(mu nu) F^(mu nu) angle.r + angle.l J^mu A_mu angle.r + angle.l overline(eta)' (i gamma^mu partial_mu)^(-1) eta' angle.r) , $

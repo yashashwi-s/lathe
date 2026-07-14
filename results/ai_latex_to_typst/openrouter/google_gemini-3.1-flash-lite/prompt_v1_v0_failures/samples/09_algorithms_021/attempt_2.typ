@@ -1,0 +1,44 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Algorithmic Pseudocode Sample 21] \
+  Source-backed Image2Struct algorithm sample
+])
+
+= Algorithm
+This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.
+
+#block(inset: 10pt, stroke: 0.5pt, [
+  *Algorithm: Source-backed algorithmic procedure*
+  #v(0.5em)
+  #line(length: 100%, stroke: 0.5pt)
+  #v(0.5em)
+  *Require:*
+  
+  $tau$: Scale of coordinate noise \
+  $GNN_theta$: Graph Neural Network with parameter $theta$ \
+  $"NoiseHead"_(theta_n)$: Network module with parameter $theta_n$ for prediction of node-level noise of each atom \
+  $"LabelHead"_(theta_l)$: Network module with parameter $theta_l$ for prediction of graph-level label of $x_i$ \
+  $X$: Training dataset \
+  $x_i$: Input conformation \
+  $y_i$: Label of $x_i$ \
+  $T$: Training steps \
+  $cal(N)$: Gaussian distribution \
+  $lambda_p$: Loss weight of property prediction loss \
+  $lambda_n$: Loss weight of Noisy Nodes loss \
+  
+  *while* $T != 0$ *do*
+  
+  #pad(left: 2em, [
+    $x_i, y_i = "dataloader"(X)$ // random sample $x_i$ and corresponding label $y_i$ from $X$ \
+    $tilde(x) = x_i + Delta x_i$, where $Delta x_i ~ cal(N)(0, tau^2 I_(3N))$, $N$ is atom number of $x_i$ \
+    $y_i^"pred" = "LabelHead"_(theta_l)(GNN_theta(tilde(x)))$ \
+    $Delta x_i^"pred" = "NoiseHead"_(theta_n)(GNN_theta(tilde(x)))$ \
+    $"Loss" = lambda_p "PropertyPredictionLoss"(y_i^"pred", y_i) + lambda_n ||Delta x_i^"pred" - Delta x_i||_2^2$ \
+    $"Optimise"("Loss")$ \
+    $T = T - 1$
+  ])
+  
+  *end while*
+])

@@ -1,0 +1,86 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+= Tables
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+#figure(
+  caption: [Source table 1: 2512.03989_table_11],
+  table(
+    columns: 9,
+    [*Language*], [*Code*], [*Family*], [*Bytes*], [], [*Language*], [*Code*], [*Family*], [*Bytes*],
+    [Russian], [rus_Cyrl], [Indo-European], [6.4T], [], [Standard Estonian], [ekk_Latn], [Uralic], [43.8B],
+    [Mandarin Chinese], [cmn_Hani], [Sino-Tibetan], [2.7T], [], [Croatian], [hrv_Latn], [Indo-European], [38.6B],
+    [German], [deu_Latn], [Indo-European], [1.7T], [], [Standard Latvian], [lvs_Latn], [Indo-European], [35.8B],
+    [Japanese], [jpn_Jpan], [Japonic], [1.7T], [], [Standard Malay], [zsm_Latn], [Austronesian], [34.3B],
+    [Spanish], [spa_Latn], [Indo-European], [1.4T], [], [North Azerbaijani], [azj_Latn], [Turkic], [28.9B],
+    [French], [fra_Latn], [Indo-European], [1.2T], [], [Tamil], [tam_Taml], [Dravidian], [39.7B],
+    [Italian], [ita_Latn], [Indo-European], [793.8B], [], [Serbian], [srp_Cyrl], [Indo-European], [28.8B],
+    [Portuguese], [por_Latn], [Indo-European], [611.2B], [], [Tosk Albanian], [als_Latn], [Indo-European], [19.5B],
+    [Polish], [pol_Latn], [Indo-European], [463.9B], [], [Urdu], [urd_Arab], [Indo-European], [21.4B],
+    [Dutch], [nld_Latn], [Indo-European], [426.8B], [], [Kazakh], [kaz_Cyrl], [Turkic], [22.2B],
+    [Indonesian], [ind_Latn], [Austronesian], [374.4B], [], [Georgian], [kat_Geor], [Kartvelian], [27.1B],
+    [Turkish], [tur_Latn], [Turkic], [305.5B], [], [Nepali (individual language)], [npi_Deva], [Indo-European], [27.0B],
+    [Vietnamese], [vie_Latn], [Austro-Asiatic], [343.4B], [], [Marathi], [mar_Deva], [Indo-European], [24.2B],
+    [Czech], [ces_Latn], [Indo-European], [221.5B], [], [Malayalam], [mal_Mlym], [Dravidian], [23.9B],
+    [Standard Arabic], [arb_Arab], [Afro-Asiatic], [315.2B], [], [Macedonian], [mkd_Cyrl], [Indo-European], [16.1B],
+    [Korean], [kor_Hang], [Koreanic], [229.2B], [], [Icelandic], [isl_Latn], [Indo-European], [11.0B],
+    [Persian], [fas_Arab], [Indo-European], [327.1B], [], [Belarusian], [bel_Cyrl], [Indo-European], [12.3B],
+    [Hungarian], [hun_Latn], [Uralic], [214.4B], [], [Telugu], [tel_Telu], [Dravidian], [15.5B],
+    [Swedish], [swe_Latn], [Indo-European], [217.9B], [], [Afrikaans], [afr_Latn], [Indo-European], [8.3B],
+    [Romanian], [ron_Latn], [Indo-European], [199.9B], [], [Kannada], [kan_Knda], [Dravidian], [13.9B],
+    [Ukrainian], [ukr_Cyrl], [Indo-European], [273.7B], [], [Gujarati], [guj_Gujr], [Indo-European], [12.6B],
+    [Norwegian Bokmål], [nob_Latn], [Indo-European], [184.7B], [], [Galician], [glg_Latn], [Indo-European], [6.9B],
+    [Modern Greek (1453-)], [ell_Grek], [Indo-European], [238.4B], [], [Burmese], [mya_Mymr], [Sino-Tibetan], [13.3B],
+    [Thai], [tha_Thai], [Kra-Dai], [299.2B], [], [Moroccan Arabic], [ary_Arab], [Afro-Asiatic], [8.3B],
+    [Danish], [dan_Latn], [Indo-European], [161.8B], [], [Halh Mongolian], [khk_Cyrl], [Mongolic], [9.1B],
+    [Finnish], [fin_Latn], [Uralic], [153.6B], [], [Armenian], [hye_Armn], [Indo-European], [7.7B],
+    [Bulgarian], [bul_Cyrl], [Indo-European], [156.5B], [], [Khmer], [khm_Khmr], [Austro-Asiatic], [9.3B],
+    [Slovak], [slk_Latn], [Indo-European], [91.7B], [], [Northern Uzbek], [uzn_Latn], [Turkic], [4.8B],
+    [Hindi], [hin_Deva], [Indo-European], [129.9B], [], [Basque], [eus_Latn], [Language isolate], [4.6B],
+    [Lithuanian], [lit_Latn], [Indo-European], [60.7B], [], [Sinhala], [sin_Sinh], [Indo-European], [7.6B],
+    [Bosnian], [bos_Latn], [Indo-European], [52.8B], [], [Panjabi], [pan_Guru], [Indo-European], [6.1B],
+    [Hebrew], [heb_Hebr], [Afro-Asiatic], [73.8B], [], [Kirghiz], [kir_Cyrl], [Turkic], [4.7B],
+    [Bengali], [ben_Beng], [Indo-European], [93.5B], [], [Swahili (individual language)], [swh_Latn], [Niger-Congo], [3.3B],
+    [Slovenian], [slv_Latn], [Indo-European], [44.9B], [], [Norwegian Nynorsk], [nno_Latn], [Indo-European], [2.9B],
+    [Catalan], [cat_Latn], [Indo-European], [43.3B], [], [Odia], [ory_Orya], [Indo-European], [5.3B]
+  )
+)
+
+#figure(
+  caption: [Source table 2: 2512.01406_table_5],
+  table(
+    columns: 11,
+    [], [$\beta_0$], [$\beta_1$], [$\beta_2$], [$\beta_3$], [$\beta_4$], [], [], [$\Delta$ Deviance], [p-value], [pID],
+    [*Primary Motor Cortex*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [2882.5971], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [499.9240], [214.3090], [], [], [], [], [], [52.2877], [0], [*],
+    [$M_2$], [45.5853], [236.0801], [500.8512], [], [], [], [], [6.7950], [0.0091], [*],
+    [$M_3$], [387.6554], [205.7862], [-366.5113], [86.1185], [], [], [], [1.9000], [0.1681], [],
+    [$M_4$], [387.6554], [205.7862], [-366.5113], [86.1185], [0], [], [], [0], [1], [],
+    [*V1*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [674164.1832], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [378055.2398], [25987.0154], [], [], [], [], [], [205.8669], [0], [*],
+    [$M_2$], [247261.7205], [32504.9350], [138624.9005], [], [], [], [], [136.2077], [0], [*],
+    [$M_3$], [471565.2267], [13847.1057], [-412402.6191], [52385.4840], [], [], [], [178.0784], [0], [*],
+    [$M_4$], [471565.2267], [13847.1057], [-412402.6191], [52385.4840], [0], [], [], [0], [1], [],
+    [*Thalamus*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [22823.5208], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [13708.3860], [798.1016], [], [], [], [], [], [31.0497], [0], [*],
+    [$M_2$], [10095.1938], [978.5395], [3753.8644], [], [], [], [], [15.9950], [0], [*],
+    [$M_3$], [13198.2160], [719.6684], [-3840.6581], [711.8518], [], [], [], [5.3386], [0.0209], [],
+    [$M_4$], [13198.2160], [719.6684], [-3840.6581], [711.8518], [0], [], [], [0], [1], [],
+    [*Pallidum*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [3102.1001], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [1967.9617], [99.1098], [], [], [], [], [], [9.5247], [0.0020], [*],
+    [$M_2$], [1569.6786], [119.0222], [407.5965], [], [], [], [], [3.7564], [0.0526], [],
+    [$M_3$], [1460.7759], [128.1346], [673.5879], [-24.6526], [], [], [], [0.1293], [0.7192], [],
+    [$M_4$], [1460.7759], [128.1346], [673.5879], [-24.6526], [0], [], [], [0], [1], [],
+    [*Mean*], [], [], [], [], [], [], [], [], [], [],
+    [$M_0$], [4409.6377], [], [], [], [], [], [], [], [], [],
+    [$M_1$], [1026.7191], [303.0523], [], [], [], [], [], [54.8631], [0], [*],
+    [$M_2$], [424.5513], [332.1406], [649.7038], [], [], [], [], [5.9708], [0.0145], [],
+    [$M_3$], [607.1158], [316.0799], [193.7473], [44.6429], [], [], [], [0.2689], [0.6041], [],
+    [$M_4$], [607.1158], [316.0799], [193.7473], [44.6429], [0], [], [], [0], [1], []
+  )
+)

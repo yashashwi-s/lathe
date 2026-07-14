@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783945799-KyDvRqg8lE5mgtPiYwLQ",
+  "object": "chat.completion",
+  "created": 1783945799,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(size: 11pt, font: \"Linux Libertine\")\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[Algorithmic Pseudocode Sample 5] \\\n  Source-backed Image2Struct algorithm sample \\\n  #v(1em)\n])\n\n= Algorithm\nThis sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.\n\n#let indent = h(2em)\n#let comment(c) = h(1fr) + text(size: 0.9em, fill: gray)[// #c]\n\n#block(stroke: 0.5pt + black, inset: 10pt, width: 100%)[\n  *data structure* LSH \\\n  *members* \\\n  #indent $d, n in NN_+$ #comment(\"d is dimension, n is number of data points\") \\\n  #indent $K, L in NN_+$ #comment(\"K is amplification factor, L is number of repetition for hashing\") \\\n  #indent $p_(\"near\"), p_(\"far\") in (0, 1)$ #comment(\"Collision probability\") \\\n  #indent For $l in L$, $cal(T)_l := [n]$ #comment(\"Hashtable recording data points hashed by H_l\") \\\n  #indent $cal(R) := [n]$ #comment(\"retrieved points\") \\\n  #indent $cal(H) := {f in cal(H) : RR^d -> [M]}$ #comment(\"M is number of buckets for hashing family H\") \\\n  #indent For $l in [L]$, $cal(H)_l in cal(H)^K$ #comment(\"Family of amplified hash functions with at most M^K non-empty buckets\") \\\n  #indent For $b in [M^K]$, $cal(S)_b :=$ AVL tree #comment(\"Use AVL tree to store points in bucket\") \\\n  *end members* \\\n  \\\n  *public* \\\n  *procedure* Initialize($ {x_i}_(i in [n]) subset RR^d, k, L in NN_+ $) \\\n  #indent ChooseHashFunc($k, L$) \\\n  #indent ConstructHashTable($ {x_i}_(i in [n]) $) \\\n  *end procedure* \\\n  \\\n  *procedure* Recover($q in RR^d$) \\\n  #indent $cal(R) <- 0$ \\\n  #indent *for* $l in [L]$ *do* \\\n  #indent #indent $cal(R) <- cal(R) union cal(T)_l$.Retrieve($cal(H)_l(q)$) #comment(\"Find the bucket H_l(q) in T_l and retrieve all points\") \\\n  #indent *end for* \\\n  *end procedure* \\\n  \\\n  *procedure* UpdateHashTable($z in RR^d, i in [n]$) \\\n  #indent *for* $l in [L]$ *do* \\\n  #indent #indent $cal(H)_l(z)$.Insert($z$) #comment(\"H_l(z) denotes the bucket that z is mapped to\") \\\n  #indent #indent $cal(H)_l(x_i)$.Delete($x_i$) \\\n  #indent *end for* \\\n  *end procedure* \\\n  *end data structure*\n]",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1891qWIBtsugQhd/KrLINOZhy2F5iYf7gDTt0mm37RGN2S9xzgppGZzxqSfTxg=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4242,
+    "completion_tokens": 800,
+    "total_tokens": 5042,
+    "cost": 0.0022605,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0022605,
+      "upstream_inference_prompt_cost": 0.0010605,
+      "upstream_inference_completions_cost": 0.0012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

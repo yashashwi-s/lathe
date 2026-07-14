@@ -1,0 +1,32 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_009/attempt_1.typ:18:49
+   │
+18 │ $ cal(I)(delta) = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + cal(I)^star(lambda) } = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + sup_(gamma in Pi(mu_1, mu_2)) integral_(cal(V)) f_lambda(v) dif gamma(v) } $
+   │                                                  ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_009/attempt_1.typ:18:71
+   │
+18 │ $ cal(I)(delta) = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + cal(I)^star(lambda) } = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + sup_(gamma in Pi(mu_1, mu_2)) integral_(cal(V)) f_lambda(v) dif gamma(v) } $
+   │                                                                        ^
+
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_009/attempt_1.typ:18:130
+   │
+18 │ $ cal(I)(delta) = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + cal(I)^star(lambda) } = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + sup_(gamma in Pi(mu_1, mu_2)) integral_(cal(V)) f_lambda(v) dif gamma(v) } $
+   │                                                                                                                                   ^
+
+warning: `angle.r` is deprecated, use `chevron.r` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_009/attempt_1.typ:18:152
+   │
+18 │ $ cal(I)(delta) = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + cal(I)^star(lambda) } = inf_(lambda in RR^2_+) { angle.l lambda, delta angle.r + sup_(gamma in Pi(mu_1, mu_2)) integral_(cal(V)) f_lambda(v) dif gamma(v) } $
+   │                                                                                                                                                         ^
+
+error: unknown variable: biggl
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/03_math_inline_display_009/attempt_1.typ:22:2
+   │
+22 │ $ biggl( phi_1(x), mat(phi_2(x); phi_3(x)), mat(phi_4(x); phi_5(x)) biggr) arrow biggl( c dot e^(lambda x) phi_1(x), U mat(e^(-lambda' x) phi_2(x); e^(-lambda' x) phi_3(x)), V mat(e^(lambda'' x) phi_4(x); e^(lambda'' x) phi_5(x)) biggr) $
+   │   ^^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `b i g g l`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"biggl"`

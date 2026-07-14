@@ -1,0 +1,32 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Twisted Black p-Brane Solutions in String Theory]
+  #v(1em)
+  Ashoke Sen
+  #v(1em)
+])
+
+#block(inset: (x: 2em), [
+  #text(weight: "bold")[Abstract]
+  #v(0.5em)
+  It has been shown that given a classical background in string theory which is independent of $d$ of the space-time coordinates, we can generate other classical backgrounds by $O(d) \otimes O(d)$ transformation on the solution. We study the effect of this transformation on the known black $p$-brane solutions in string theory, and show how these transformations produce new classical solutions labelled by extra continuous parameters and containing background antisymmetric tensor field.
+])
+
+= Introduction
+
+It has been shown that given a classical background in string theory which is independent of $d$ of the space-time coordinates, we can generate other classical backgrounds by $O(d) \otimes O(d)$ transformation on the solution. We study the effect of this transformation on the known black $p$-brane solutions in string theory, and show how these transformations produce new classical solutions labelled by extra continuous parameters and containing background antisymmetric tensor field.
+
+= Method
+
+$G_{mu nu}$, $\phi$ and $B_{mu nu}$ where $G_{mu nu}$, $\phi$ and $B_{mu nu}$ denote the graviton, the dilaton, and the antisymmetric tensor fields respectively, $R +$ cyclic permutations, $R$ denotes the $D$ dimensional Ricci scalar, and $\Lambda$ is the cosmological constant equal to $0$ for bosonic string and $-1$ for fermionic string. (For simplicity we have set the other background massless fields, which appear in fermionic string theories, to zero.) Let us now split the coordinates $x^M$ into two sets $x^mu$ and $y^i$ ($mu = 0, \dots, D-d-1$, $i = 1, \dots, d$) and consider backgrounds independent of $y^i$. Let us further concentrate on backgrounds where $B_{mu i} = 0$, i.e. to backgrounds of the form $G_{mu nu}, G_{ij}, B_{ij}, \phi$. In this case, after an integration by parts, the action $S$ can be shown to take the form: $S = \int d^{D-d} x \sqrt{-G} e^{-2\phi} \dots$
+
+#set math.equation(numbering: "(1)")
+$ L(theta) = sum_(i=1)^n ell(x_i, theta) $ <compact>
+
+Equation @compact is included to keep the sample paper-like while remaining small.
+
+= Conclusion
+
+If the coordinates $y^i$ are all of Euclidean signature, this action is invariant under an $O(d, d)$ transformation on $G_{ij}$, $B_{ij}$ and $\phi$, given by, $M^T \eta M = \eta$

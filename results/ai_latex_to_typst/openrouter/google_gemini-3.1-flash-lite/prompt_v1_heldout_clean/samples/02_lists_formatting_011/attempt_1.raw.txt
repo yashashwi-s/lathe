@@ -1,0 +1,17 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Topological Field Theory and Rational Curves]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+= Extracted Lists
+
+The list environments below are extracted from arXiv LaTeX source and wrapped for pdfLaTeX validation.
+
++ $phi(Sigma)$ is a point in $X$.
++ $phi(Sigma)$ is an algebraic curve in $X$.
++ $phi(Sigma)$ is a multiple cover of an algebraic curve in $X$.

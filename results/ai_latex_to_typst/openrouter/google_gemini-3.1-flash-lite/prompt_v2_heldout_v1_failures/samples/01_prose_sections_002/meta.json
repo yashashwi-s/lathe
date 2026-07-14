@@ -1,0 +1,101 @@
+{
+  "sample_id": "01_prose_sections_002",
+  "category": "01_prose_sections",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T14:04:31+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 6287,
+  "completion_tokens": 847,
+  "total_tokens": 7134,
+  "reported_cost_usd": 0.00284225,
+  "estimated_cost_usd": 0.00284225,
+  "accounted_cost_usd": 0.00284225,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783951475-3VbUhwguolq3rdNBTxPG",
+  "source_path": "data/latex_benchmark_v0/corpus/01_prose_sections/01_prose_sections_002/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/01_prose_sections/01_prose_sections_002/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783951472-KTYWC3dXeRnHYXEx4lMY",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.599,
+      "compile_seconds": 0.089,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 1447,
+        "completion_tokens": 422,
+        "total_tokens": 1869,
+        "cost": 0.00099475,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00099475,
+          "upstream_inference_prompt_cost": 0.00036175,
+          "upstream_inference_completions_cost": 0.000633
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: label `<t>` does not exist in the document"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783951475-3VbUhwguolq3rdNBTxPG",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.112,
+      "compile_seconds": 0.116,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 4840,
+        "completion_tokens": 425,
+        "total_tokens": 5265,
+        "cost": 0.0018475,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0018475,
+          "upstream_inference_prompt_cost": 0.00121,
+          "upstream_inference_completions_cost": 0.0006375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 7.927,
+  "finished_at": "2026-07-13T14:04:39+00:00"
+}

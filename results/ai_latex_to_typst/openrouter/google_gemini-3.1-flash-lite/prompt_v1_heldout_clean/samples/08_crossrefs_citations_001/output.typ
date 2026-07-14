@@ -1,0 +1,32 @@
+#set page(margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Exact Black String Solutions in Three Dimensions]
+  #v(1em)
+  Source-backed arXiv sample
+  #v(1em)
+])
+
+#block(inset: (x: 2em))[
+  *Abstract*\
+  A family of exact conformal field theories is constructed which describe charged black strings in three dimensions. Unlike previous charged black hole or extended black hole solutions in string theory, the low energy spacetime metric has a regular inner horizon (in addition to the event horizon) and a timelike singularity. As the charge to mass ratio approaches unity, the event horizon remains but the singularity disappears.
+]
+
+= References And Citations
+<sec:refs>
+
+This sample cites source keys [19] and [Horowitz]. Section #link(<sec:refs>)[1] and Equation #link(<eq:source-demo>)[1] provide cross-reference coverage.
+
+$ a^2 + b^2 = c^2 $ <eq:source-demo>
+
+#v(2em)
+*References*
+
+[19] Source bibliography entry 1 extracted from arXiv metadata/source key `19`.
+
+[Horowitz] Source bibliography entry 2 extracted from arXiv metadata/source key `Horowitz`.
+
+[Witten] Source bibliography entry 3 extracted from arXiv metadata/source key `Witten`.
+
+[Gawedzki] Source bibliography entry 4 extracted from arXiv metadata/source key `Gawedzki`.

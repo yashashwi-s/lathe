@@ -1,0 +1,101 @@
+{
+  "sample_id": "03_math_inline_display_014",
+  "category": "03_math_inline_display",
+  "complexity_band": "low",
+  "status": "finished",
+  "started_at": "2026-07-13T12:26:07+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "math_syntax",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 3819,
+  "completion_tokens": 1478,
+  "total_tokens": 5297,
+  "reported_cost_usd": 0.00317175,
+  "estimated_cost_usd": 0.00317175,
+  "accounted_cost_usd": 0.00317175,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783945575-7iPgLjT2wAbPaGUJIL6F",
+  "source_path": "data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_014/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/03_math_inline_display/03_math_inline_display_014/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783945567-LDtHC4mtPfXnTg9AHut3",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 7.493,
+      "compile_seconds": 0.101,
+      "compile_ok": false,
+      "error_class": "math_syntax",
+      "usage": {
+        "prompt_tokens": 1303,
+        "completion_tokens": 738,
+        "total_tokens": 2041,
+        "cost": 0.00143275,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00143275,
+          "upstream_inference_prompt_cost": 0.00032575,
+          "upstream_inference_completions_cost": 0.001107
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: `angle.l` is deprecated, use `chevron.l` instead"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783945575-7iPgLjT2wAbPaGUJIL6F",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 3.787,
+      "compile_seconds": 0.108,
+      "compile_ok": false,
+      "error_class": "math_syntax",
+      "usage": {
+        "prompt_tokens": 2516,
+        "completion_tokens": 740,
+        "total_tokens": 3256,
+        "cost": 0.001739,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001739,
+          "upstream_inference_prompt_cost": 0.000629,
+          "upstream_inference_completions_cost": 0.00111
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: `angle.l` is deprecated, use `chevron.l` instead"
+    }
+  ],
+  "final_error_summary": "warning: `angle.l` is deprecated, use `chevron.l` instead",
+  "duration_seconds": 11.495,
+  "finished_at": "2026-07-13T12:26:19+00:00"
+}

@@ -1,0 +1,101 @@
+{
+  "sample_id": "07_figures_captions_012",
+  "category": "07_figures_captions",
+  "complexity_band": "heldout",
+  "status": "finished",
+  "started_at": "2026-07-13T13:47:52+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 3218,
+  "completion_tokens": 807,
+  "total_tokens": 4025,
+  "reported_cost_usd": 0.0020150000000000003,
+  "estimated_cost_usd": 0.0020150000000000003,
+  "accounted_cost_usd": 0.0020150000000000003,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1783950476-oOEjdqYu7aSkoDEEVYCc",
+  "source_path": "data/latex_benchmark_v0/corpus/07_figures_captions/07_figures_captions_012/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/07_figures_captions/07_figures_captions_012/reference.pdf",
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1783950472-TbVil4Tm4SeFLAXrB9bj",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.359,
+      "compile_seconds": 0.084,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1256,
+        "completion_tokens": 405,
+        "total_tokens": 1661,
+        "cost": 0.0009215,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0009215,
+          "upstream_inference_prompt_cost": 0.000314,
+          "upstream_inference_completions_cost": 0.0006075
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: athcal"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1783950476-oOEjdqYu7aSkoDEEVYCc",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.765,
+      "compile_seconds": 0.107,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 1962,
+        "completion_tokens": 402,
+        "total_tokens": 2364,
+        "cost": 0.0010935,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0010935,
+          "upstream_inference_prompt_cost": 0.0004905,
+          "upstream_inference_completions_cost": 0.000603
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 8.334,
+  "finished_at": "2026-07-13T13:48:00+00:00"
+}

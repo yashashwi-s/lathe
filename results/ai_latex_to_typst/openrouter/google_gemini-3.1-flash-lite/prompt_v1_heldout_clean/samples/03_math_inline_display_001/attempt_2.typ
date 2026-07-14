@@ -1,0 +1,29 @@
+#set page(margin: 1in)
+#set text(font: "New Computer Modern", size: 11pt)
+
+#align(center, [
+  #text(size: 1.5em, weight: "bold")[Inline and Display Mathematics] \
+  #text(size: 1.2em)[Source-backed grouped formula sample]
+])
+
+= Expressions
+
+*Expression 1.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(I)_("D")(0, delta_2) = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda_2 in RR_+) [lambda_2 delta_2 + integral_cal(V) g_(lambda, 2) d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR^2_+) [chevron.l lambda, (0, delta_2) chevron.r + integral_cal(V) g_lambda d pi] . $
+
+*Expression 2.* The following expression is taken from a source-backed formula corpus.
+
+$ gamma_1 = chevron.l sum_(X_i in (italic(G)_1)_(X'_i')) sum_(i_(alpha_1) < j_(alpha_1), {i_(alpha_1), j_(alpha_1)} in J_(X_i)) t_(i_(alpha_1)) t_(j_(alpha_1)) bold(1)_((w(t_(i_(alpha_1))) = w(t_(j_(alpha_1))))) chi((i_(alpha_1), j_(alpha_1)) in i'_(alpha_1)) chevron.r^(l.c.)_(w') " and" $
+
+*Expression 3.* The following expression is taken from a source-backed formula corpus.
+
+$ (integral_S sum_(n_1=1)^infinity |sum_(gamma in Gamma^2_infinity backslash Gamma^2_1) nabla_tau phi^0_(n_1)(tau) |_(gamma dot.op tau)|^2 dV) / (integral_S sum_(n=1)^infinity |sum_(gamma in Gamma^2_infinity backslash Gamma^2_1) phi^0_(n_1)(tau) |_(gamma dot.op tau)|^2 dV) < 10 lambda . $
+
+*Expression 4.* The following expression is taken from a source-backed formula corpus.
+
+$ tilde(hat(Omega))_underline(x)^((0)hat(a)hat(b)) = -hat(Omega)_underline(x)^((0)hat(a)hat(b)) / hat(G)_(underline(x)underline(x))^((0)) , space.5cm tilde(hat(Omega))_mu^((0)hat(a)hat(b)) = hat(Omega)_mu^((0)hat(a)hat(b)) - hat(Omega)_underline(x)^((0)hat(a)hat(b)) hat(G)_(underline(x)mu)^((0)) / hat(G)^((0))_(underline(x)underline(x)) , $
+
+*Expression 5.* The following expression is taken from a source-backed formula corpus.
+
+$ cal(I)_("D")(delta) = inf_(lambda in RR_+^2) sup_(pi in Pi(mu_1, mu_2)) [chevron.l lambda, delta chevron.r + integral_cal(V) g_lambda d pi] = sup_(pi in Pi(mu_1, mu_2)) inf_(lambda in RR_+^2) [chevron.l lambda, delta chevron.r + integral_cal(V) g_lambda d pi] . $

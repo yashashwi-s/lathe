@@ -1,0 +1,72 @@
+{
+  "id": "gen-1783950203-0NRHRAfrg7nqud2xSssS",
+  "object": "chat.completion",
+  "created": 1783950203,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(margin: 1in)\n#set text(size: 11pt, font: \"New Computer Modern\")\n\n#align(center, [\n  #text(size: 1.4em, weight: \"bold\")[A New Solution to the Star--Triangle Equation Based on $U_q(sl(2))$ at Roots of Unit]\n  #v(1em)\n  Source-backed arXiv sample\n  #v(1em)\n])\n\n#block(inset: (x: 2em))[\n  *Abstract*\\\n  We find new solutions to the Yang--Baxter equation in terms of the intertwiner matrix for semi-cyclic representations of the quantum group $U_q(sl(2))$ with $q = e^(2 pi i / N)$. These intertwiners serve to define the Boltzmann weights of a lattice model, which shares some similarities with the chiral Potts model. An alternative interpretation of these Boltzmann weights is as scattering matrices of solitonic structures whose kinematics is entirely governed by the quantum group. Finally, we consider the limit $N arrow.t infinity$ where we find an infinite--dimensional representation of the braid group, which may give rise to an invariant of knots and links.\n]\n\n= References And Citations\n<sec:refs>\n\nThis sample cites source keys [19] and [19]. Section @sec:refs and Equation @eq:source-demo provide cross-reference coverage.\n\n$ a^2 + b^2 = c^2 $ <eq:source-demo>\n\n#v(2em)\n#text(weight: \"bold\")[References]\n#v(0.5em)\n\n[19] Source bibliography entry 1 extracted from arXiv metadata/source key `19`.",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19nyI2Dv4QnX6D1QYnqfg3UztcHpV8+m+J1JFvRaD78ysHb9UjwCl7aQ5Bn4jg=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1171,
+    "completion_tokens": 377,
+    "total_tokens": 1548,
+    "cost": 0.00085825,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00085825,
+      "upstream_inference_prompt_cost": 0.00029275,
+      "upstream_inference_completions_cost": 0.0005655
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}

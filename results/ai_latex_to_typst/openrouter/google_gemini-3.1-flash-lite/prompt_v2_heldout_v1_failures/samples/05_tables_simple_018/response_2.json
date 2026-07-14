@@ -1,0 +1,71 @@
+{
+  "id": "gen-1783950993-AlNj0IhZitk8C0K2mzbf",
+  "object": "chat.completion",
+  "created": 1783950993,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "error",
+      "native_finish_reason": null,
+      "error": {
+        "code": 429,
+        "message": "JSON error injected into SSE stream",
+        "metadata": {
+          "error_type": "rate_limit_exceeded"
+        }
+      },
+      "message": {
+        "role": "assistant",
+        "content": "#set heading(numbering: \"1.\")\n#set math.equation(numbering: \"(1)\")\n\n= Simple Tables\n\n#text(\"Source-backed grouped table sample\")\n\n#text(\"Tables\")\n\nThese tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.\n\n#figure(\n  caption: [Source table 1: 2512.04311_table_6],\n  table(\n    columns: 5,\n    [Cricket], [Sex], [Time (s)], [Classified], [Speed (mm/s)],\n    [1], [f], [7.00], [f], [10.71],\n    [2], [f], [4.00], [f], [18.75],\n    [3], [f], [1.80], [f], [41.67],\n    [4], [f], [2.05], [f], [36.59],\n    [5], [f], [1.90], [f], [39.47],\n    [6], [f], [1.10], [f], [68.18],\n    [7], [m], [0.80], [f], [93.75],\n    [8], [f], [4.10], [f], [18.29],\n    [9], [f], [6.00], [f], [12.50],\n    [10], [m], [5.10], [m], [14.71],\n    [11], [f], [4.00], [f], [18.75],\n    [12], [f], [4.10], [f], [18.29],\n    [13], [f], [1.80], [f], [41.67],\n    [14], [m], [1.80], [m], [41.67],\n    [15], [f], [5.10], [f], [14.71],\n    [16], [m], [1.90], [m], [39.47],\n    [17], [m], [2.00], [m], [37.50],\n    [18], [m], [1.95], [m], [38.46],\n    [19], [f], [1.80], [f], [41.67],\n    [20], [m], [2.10], [m], [35.71],\n    [21], [m], [0.20], [m], [375.00],\n    [22], [m], [0.70], [m], [107.14],\n    [23], [m], [1.00], [m], [75.00],\n    [24], [f], [0.10], [m], [750.00],\n    [25], [f], [1.00], [f], [75.00],\n    [26], [m], [4.50], [m], [16.67],\n    [27], [m], [3.10], [m], [24.19],\n    [28], [f], [0.80], [f], [93.75],\n    [29], [f], [11.00], [f], [6.82],\n    [30], [f], [2.10], [f], [35.71],\n    [31], [f], [7.00], [f], [10.71],\n    [32], [f], [10.00], [f], [7.50],\n    [33], [f], [8.50], [f], [8.82],\n    [34], [m], [6.60], [m], [11.36],\n    [35], [m], [3.80], [m], [19.74],\n    [36], [f], [4.00], [m], [18.75],\n    [37], [m], [3.70], [m], [20.27],\n    [38], [f], [20.00], [f], [3.75],\n    [39], [f], [5.60], [f], [13.39],\n    [40], [f], [8.10], [f], [9.26]\n  )\n)\n\n#figure(\n  caption: [Source table 2: 2512.01911_table_6],\n  table(\n    columns: 5,\n    [BJD (-2400000 d)], [RV (m/s)], [sigma_RV (m/s)], [S-index], [sigma_S-index],\n    [59484.832335], [-11.059417], [2.101504], [0.254515], [0.002000],\n    [59487.710553], [-15.593764], [2.452338], [0.258694], [0.002000],\n    [59491.844004], [8.734471], [2.135005], [0.323412], [0.002000],\n    [59497.825031], [-19.616376], [2.038971],",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "openrouter_metadata": {
+    "requested": "google/gemini-3.1-flash-lite",
+    "strategy": "direct",
+    "region": "BOM",
+    "summary": "available=1, selected=Google",
+    "attempt": 1,
+    "is_byok": false,
+    "endpoints": {
+      "total": 2,
+      "available": [
+        {
+          "provider": "Google",
+          "model": "google/gemini-3.1-flash-lite-20260507",
+          "selected": true
+        }
+      ]
+    }
+  }
+}
