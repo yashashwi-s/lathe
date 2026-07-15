@@ -1,0 +1,40 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools,bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Inline and Display Mathematics}
+\author{Source-backed grouped formula sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Expressions}
+\paragraph{Expression 1.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\frac{\partial {\cal V}}{\partial \varphi} = {\textstyle\frac{2}{n}} \frac{1}{{\rm Tr}({\cal M}^2)}\, {\cal M}_{mn} \frac{\partial {\cal V}}{\partial {\cal M}_{mn}}\, ,\,\,\,\,\Rightarrow {\cal M}^{mn}{\cal M}_{pq} \frac{\partial {\cal V}}{\partial {\cal M}_{pq}} - {\rm Tr}({\cal M}^2) \frac{\partial {\cal V}}{\partial {\cal M}_{mn}} = 0\, .\end{align*}
+
+\paragraph{Expression 2.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\int DV\exp (\frac 12\int d^4x\varepsilon ^{\mu \nu \tau \lambda}{}^{+}W_{\mu \nu }^{\alpha \beta }{}^{+}G_{\tau \lambda }^{\sigma \rho}{}\epsilon _{\alpha \beta \sigma \rho }-\frac 12\int d^4x\varepsilon ^{\mu\nu \tau \lambda }{}^{-}W_{\mu \nu }^{\alpha \beta }{}^{-}G_{\tau \lambda}^{\sigma \rho }{}\epsilon _{\alpha \beta \sigma \rho }). \end{align*}
+
+\paragraph{Expression 3.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\!\!\!\!I\!=\!\int_{\Sigma}\! d^3 \! x \!\sqrt{\gamma}\left(\!R(\gamma)\!-\! {1 \over 2} \!\left( \left(\!DU \right)^2 \!-\! e^{-2U}\!\!\left(\!DV \right)^2 \right) \!-\! {1 \over 2} \!\left(\left(\!D \Phi \!\right)^2 \!-\! e^{- 2 \Phi} \!\left(\!D \Psi \!\right)^2 \right)\!-\! \left(\!D T \right)\!^2 \!+\! e^{-(U\!+\Phi)}V(T) \!\right) \end{align*}
+
+\paragraph{Expression 4.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}2\frac{\int_{b=\theta_{2}}^{b=\theta_{1}}e^{\frac{\rho rs\cos(b)}{1-\rho^{2}}}\,\d b}{2\pi\int_{0}^{2\pi}e^{\frac{\rho rs\cos a}{1-\rho^{2}}}\d a}\leq2\frac{\int_{b=0}^{b=\theta_{1}-\theta_{2}}e^{\frac{\rho rs\cos(b)}{1-\rho^{2}}}\,\d b}{2\pi\int_{0}^{2\pi}e^{\frac{\rho rs\cos a}{1-\rho^{2}}}\d a}<\frac{\theta_{1}-\theta_{2}}{2\pi^{2}}.\end{align*}
+
+\paragraph{Expression 5.} The following expression is taken from a source-backed formula corpus.
+
+\begin{align*}\frac{d}{d\lambda}S_{\omega,\mathbf{c}}(\Phi_0^{\lambda})=-(\sqrt{\lambda}-1)(2L(\Phi_0)+\mathbf{c}\cdot \mathbf{P}(\Phi_0))\left(\lambda +\frac{\mathbf{c}\cdot \mathbf{P}(\Phi_0)}{2L(\Phi_0)+\mathbf{c}\cdot \mathbf{P}(\Phi_0)}\sqrt{\lambda}+\frac{\mathbf{c}\cdot \mathbf{P}(\Phi_0)}{2L(\Phi_0)+\mathbf{c}\cdot \mathbf{P}(\Phi_0)}\right)\end{align*}
+\end{document}
+
+```

@@ -1,0 +1,113 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{array,booktabs,makecell,multirow,tabularx,longtable,colortbl,xcolor,graphicx}
+\usepackage{arydshln}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\title{Simple Tables}
+\author{Source-backed grouped table sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Tables}
+These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 1: 2512.03307\_table\_5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|cccccccccc|}
+\hline
+max-min iter. & $\mu_l$ & $\mu_h$ & $\mu_{x_{in}}$ & $\mu_{z_x}$ & $\mu_{r_{s}}$ & $\mu_c$ & $\mu_a$ & $\mu_{r_{cat}}$ & $\mu_{m}$ & $\mu_d$ \\
+\hline
+1  & 5 & 10 & 3 & 5 & 1.0 & 8 & tanh & 0.9 & 0.4 & uniform \\
+2  & 3 & 5 & 2 & 5 & 0.1 & 2 & identity & 1.0 & 0.4 & uniform \\
+3  & 12 & 128 & 13 & 200 & 0.0 & 2 & identity & 0.4 & 0.0 & uniform \\
+4  & 3 & 5 & 2 & 6 & 0.6 & 2 & tanh & 1.0 & 0.0 & exponential \\
+5  & 10 & 64 & 8 & 32 & 0.4 & 2 & tanh & 1.0 & 0.0 & uniform \\
+6  & 8 & 32 & 5 & 13 & 0.8 & 10 & identity & 0.0 & 0.2 & normal \\
+7  & 10 & 64 & 8 & 162 & 0.9 & 6 & elu & 0.6 & 0.0 & normal \\
+8  & 5 & 10 & 3 & 13 & 0.0 & 10 & tanh & 0.8 & 0.0 & uniform \\
+9  & 5 & 10 & 3 & 5 & 0.3 & 6 & identity & 0.6 & 0.0 & exponential \\
+10 & 5 & 10 & 3 & 5 & 0.1 & 10 & tanh & 0.5 & 0.0 & normal \\
+11 & 3 & 5 & 2 & 5 & 0.0 & 8 & relu & 1.0 & 0.0 & normal \\
+12 & 3 & 5 & 2 & 5 & 0.6 & 4 & relu & 0.6 & 0.0 & exponential \\
+13 & 3 & 5 & 2 & 5 & 0.4 & 6 & tanh & 0.6 & 0.0 & normal \\
+14 & 5 & 10 & 3 & 5 & 0.8 & 8 & identity & 0.8 & 0.0 & exponential \\
+15 & 3 & 5 & 2 & 5 & 1.0 & 8 & elu & 0.6 & 0.0 & uniform \\
+16 & 3 & 5 & 2 & 6 & 0.7 & 6 & identity & 0.3 & 0.0 & uniform \\
+17 & 8 & 32 & 5 & 91 & 0.0 & 2 & tanh & 1.0 & 0.0 & exponential \\
+18 & 3 & 5 & 2 & 5 & 0.0 & 8 & tanh & 1.0 & 0.0 & exponential \\
+19 & 3 & 5 & 2 & 6 & 0.2 & 6 & tanh & 0.2 & 0.0 & exponential \\
+20 & 12 & 128 & 13 & 200 & 0.2 & 2 & identity & 0.1 & 0.0 & exponential \\
+21 & 3 & 5 & 2 & 6 & 0.9 & 8 & relu & 0.6 & 0.0 & exponential \\
+22 & 3 & 5 & 2 & 5 & 0.3 & 8 & identity & 0.2 & 0.0 & uniform \\
+23 & 5 & 10 & 3 & 5 & 0.2 & 4 & tanh & 0.3 & 0.0 & normal \\
+24 & 3 & 5 & 2 & 5 & 0.8 & 8 & identity & 0.1 & 0.0 & uniform \\
+25 & 3 & 5 & 2 & 5 & 0.2 & 4 & relu & 1.0 & 0.0 & exponential \\
+26 & 3 & 5 & 2 & 5 & 0.5 & 8 & tanh & 0.8 & 0.0 & normal \\
+27 & 8 & 32 & 5 & 13 & 0.1 & 4 & identity & 0.0 & 0.0 & exponential \\
+28 & 3 & 5 & 2 & 6 & 0.4 & 4 & tanh & 0.1 & 0.0 & exponential \\
+29 & 3 & 5 & 2 & 5 & 0.1 & 8 & identity & 0.2 & 0.0 & exponential \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Source table 2: 2512.02195\_table\_6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}[t]{@{}llll@{}}
+\hline
+\# & Word type & $f$ \\ \hline
+1. & \textit{te} (‘at’, ‘to’, \textsc{comp}) & 1018 \\
+2. & \textit{dat} (‘that’) & 658 \\
+3. & \textit{niet} (‘not’) & 650 \\
+4. & \textit{om} (‘to’) & 446 \\
+5. & \textit{de} (‘the’, \textsc{masc/fem/pl}) & 291 \\
+6. & \textit{er} (‘there’) & 271 \\
+7. & \textit{geen} (‘no’) & 270 \\
+8. & \textit{elk} (‘every’, \textsc{neut}) & 251 \\
+9. & \textit{iedere} (‘every’, \textsc{masc/fem}) & 247 \\
+10. & \textit{of} (‘or’, ‘whether’) & 244 \\
+11. & \textit{elke} (‘every’, \textsc{masc/fem}) & 229 \\
+12. & \textit{ieder} (‘every’, \textsc{neut}) & 223 \\
+13. & \textit{alle} (‘all’) & 215 \\
+14. & \textit{een} (‘a’, ‘one’) & 212 \\
+15. & \textit{ik} (‘I’) & 194 \\
+16. & \textit{massa's} (‘masses’) & 186 \\
+17. & \textit{het} (‘the’, \textsc{neut:sg}) & 180 \\
+18. & \textit{op} (‘on’) & 178 \\
+19. & \textit{deze} (‘this’, \textsc{masc/fem}) & 172 \\
+20. & \textit{weinig} (‘a few’) & 171 \\
+21. & \textit{daar} (‘there’) & 163 \\
+22. & \textit{aan} (‘to’, \textsc{prep}) & 161 \\
+23. & \textit{veel} (‘a lot of’) & 155 \\
+24. & \textit{hier} (‘here’) & 146 \\
+25. & \textit{voor} (‘for’) & 144 \\
+26. & \textit{dit} (‘this’, \textsc{neut}) & 140 \\
+27. & \textit{zijn} (‘are’, ‘be’, ‘his’) & 130 \\
+28. & \textit{door} (‘by’) & 122 \\
+29. & \textit{in} (‘in’) & 120 \\
+30. & \textit{menig} (‘many’, \textsc{sg}) & 118 \\
+31. & \textit{menige} (‘many’, \textsc{pl}) & 111 \\
+32. & \textit{je} (‘you’, \textsc{inform}) & 110 \\
+33. & \textit{die} (‘that’, \textsc{masc/fem}) & 103 \\
+34. & \textit{waar} (‘where’) & 97 \\
+35. & \textit{sommige} (‘some’, \textsc{pl}) & 90 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}
+
+```
