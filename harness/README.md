@@ -88,7 +88,7 @@ PDFs; keep summaries/transcripts as needed).
 - `runs/` — the actual paid-run artifacts: per run, the model's final
   `output.typ` (and `best_checkpoint.typ` for v2/v3), the exact prompt,
   `summary.json` (scores, cost, turns, iterations), `raster_v2.json`, and the
-  full step-by-step `claude_transcript.jsonl` (stored via git LFS).
+  full step-by-step `claude_transcript.jsonl` (stored as regular Git objects).
   **`runs/MANIFEST.csv` maps every run dir to its leaderboard row**
   (model / effort / feedback / harness / sample) plus scores under both
   metric revisions, cost, and the path of its `.typ` output. Rendered

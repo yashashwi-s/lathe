@@ -172,7 +172,12 @@ def rescore_baseline() -> None:
 
 def check() -> None:
     work = HERE / "runs/05_tables_simple_005__novisual__opus__core/work"
-    ref = render_page(work / "reference.pdf", 0)
+    reference = work / "reference.pdf"
+    if not reference.exists():
+        # Rendered run inputs are intentionally gitignored. Keep the validation
+        # suite reproducible from a clean clone by using the canonical source.
+        reference = dataset_reference("05_tables_simple_005")
+    ref = render_page(reference, 0)
     print("identity:", round(raster_v2_page(ref, ref.copy())["score"], 4))
     for shift in (1, 2, 4, 8, 16):
         matrix = np.float32([[1, 0, shift], [0, 1, 0]])
