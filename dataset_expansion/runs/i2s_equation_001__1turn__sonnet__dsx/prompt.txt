@@ -1,0 +1,33 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\title{Equation Sample 1}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Derivation}
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+\begin{align*}
+\alpha_{3} & \overset{\text{(i)}}{\leq}\sum_{s\in\mathcal{S},a\in\mathcal{A}}d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\sqrt{\frac{C_{\mathsf{clipped}}^{\star}\log\frac{N}{\delta}}{N\min\left\{ d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big),\frac{1}{S\left(A+B\right)}\right\} }\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \leq\sqrt{\frac{C_{\mathsf{clipped}}^{\star}\log\frac{N}{\delta}}{N}}\sum_{s\in\mathcal{S},a\in\mathcal{A}}\sqrt{d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \quad+\sqrt{\frac{C_{\mathsf{clipped}}^{\star}S\left(A+B\right)\log\frac{N}{\delta}}{N}}\sum_{s\in\mathcal{S},a\in\mathcal{A}}\sqrt{d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)}\cdot\sqrt{d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \overset{\text{(ii)}}{\leq}\sqrt{\frac{C_{\mathsf{clipped}}^{\star}}{N}\log\frac{N}{\delta}}\cdot\sqrt{SA}\cdot\sqrt{\sum_{s\in\mathcal{S},a\in\mathcal{A}}d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \quad+\sqrt{\frac{C_{\mathsf{clipped}}^{\star}S\left(A+B\right)\log\frac{N}{\delta}}{N}}\left[\sum_{s\in\mathcal{S},a\in\mathcal{A}}d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\right]\sqrt{\sum_{s\in\mathcal{S},a\in\mathcal{A}}d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \leq2\sqrt{\frac{C_{\mathsf{clipped}}^{\star}S\left(A+B\right)\log\frac{N}{\delta}}{N}}\sqrt{\sum_{s\in\mathcal{S},a\in\mathcal{A}}d^{\mu^{\star},\nu_{0}}\big(s,a,\nu_{0}(s);\rho\big)\mathsf{Var}_{P_{s,a,\nu_{0}(s)}}\left(V_{\mathsf{pe}}^{-}\right)}\nonumber \\
+& \overset{\text{(iii)}}{=}2\sqrt{\frac{C_{\mathsf{clipped}}^{\star}S\left(A+B\right)}{N}\log\frac{N}{\delta}}\sqrt{\sum_{s\in\mathcal{S}}d^{\mu^{\star},\nu_{0}}\left(s;\rho\right)\mathop{\mathbb{E}}\limits _{a\sim\mu^{\star}(s),b\sim\nu_{0}(s)}\left[\mathsf{Var}_{P_{s,a,b}}\left(V_{\mathsf{pe}}^{-}\right)\right]}\nonumber \\
+& \overset{\text{(iv)}}{\leq}2\sqrt{\frac{C_{\mathsf{clipped}}^{\star}S\left(A+B\right)}{N}\log\frac{N}{\delta}}\sqrt{\sum_{s\in\mathcal{S}}d^{\mu^{\star},\nu_{0}}\left(s;\rho\right)\mathsf{Var}_{P_{s}^{\mu^{\star},\nu_{0}}}\left(V_{\mathsf{pe}}^{-}\right)}.\end{align*}
+
+\end{document}
+
+```

@@ -1,0 +1,25 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\title{Equation Sample 6}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Derivation}
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+\begin{align*}
+G_{c_p} &(b,c_p)\\
+&=
+- W^{-1} \Big( \varphi (b) \int_0^b \psi(z,0) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz + \psi(b,0)\int_b^\infty \varphi(z) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz \Big), \\
+G_{b c_p} &(b,c_p) \\
+&= - W^{-1} \Big( \varphi' (b) \int_0^b \psi(z,0) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz
++ \varphi (b) \psi(b,0) \frac{\partial}{\partial c_p} \pi_1 (b, c_p) m'(b) \\
+&\hspace{1cm} + \psi '(b,0)\int_b^\infty \varphi(z) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz - \varphi (b) \psi(b,0) \frac{\partial}{\partial c_p} \pi_1 (b, c_p) m'(b) \Big) \\
+&= - W^{-1} \Big( \varphi' (b) \int_0^b \psi(z,0) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz + \psi '(b,0)\int_b^\infty \varphi(z) \frac{\partial}{\partial c_p} \pi_1(z,c_p)m'(z)dz \Big).
+\end{align*}
+
+\end{document}

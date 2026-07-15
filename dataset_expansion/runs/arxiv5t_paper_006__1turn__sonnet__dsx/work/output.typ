@@ -1,0 +1,3 @@
+I don't have filesystem tools available in this environment. To convert this LaTeX document to Typst with maximum fidelity, I need the content of the included `.tex` files (`src/authors.tex`, `src/0-abstract.tex`, `src/1-introduction.tex`, etc.) and `others/utils`.
+
+Could you paste the contents of those files? Alternatively, if you can share the full expanded LaTeX source (e.g., from `latexpand`), I can produce a complete and accurate Typst conversion.

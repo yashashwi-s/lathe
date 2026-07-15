@@ -1,0 +1,44 @@
+Convert the following LaTeX document to Typst (v0.15) with maximum visual fidelity to its pdfLaTeX render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.
+
+Reply with ONLY the complete Typst source in a single ```typst code block. No commentary.
+
+LaTeX source:
+
+```latex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\title{Table Sample 7}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Results}
+The table below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+\begin{table}
+[b]
+\begin{center}
+\caption{\footnotesize Timing results for option pricing.}
+\vspace{-0.2cm}
+\resizebox{0.95\textwidth}{!}{\begin{tabular}
+{llllllllllll}
+\hline\hline
+\multicolumn{1}{c}{} & \multicolumn{3}{c}{Fx Asian call (Set I)} & \multicolumn{1}{c}{} & \multicolumn{3}{c}{Fx Asian put (Set II)}& \multicolumn{1}{c}{} & \multicolumn{3}{c}{Fx-Fl Asian call (Set III)}\\\cline{1-12}
+\multicolumn{1}{c}{} &\multicolumn{1}{c}{$N_{\texttt{paths}}$} & \multicolumn{1}{c}{time} & \multicolumn{1}{c}{speed-up} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{$N_{\texttt{paths}}$} & \multicolumn{1}{c}{time} & \multicolumn{1}{c}{speed-up} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{$N_{\texttt{paths}}$} & \multicolumn{1}{c}{time} & \multicolumn{1}{c}{speed-up}\\\cline{2-4}\cline{6-8}\cline{10-12}
+\multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{1951 ms} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{3134 ms} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{1996 ms} & \multicolumn{1}{c}{-}\\
+\multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{24 ms} & \multicolumn{1}{c|}{81} & \multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{29 ms} & \multicolumn{1}{c|}{107} & \multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$10^5$} & \multicolumn{1}{c}{69 ms} & \multicolumn{1}{c}{29}\\
+\multicolumn{1}{c|}{SA} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{15 ms} & \multicolumn{1}{c|}{130} & \multicolumn{1}{c|}{SA} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{16 ms} & \multicolumn{1}{c|}{196} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{-}\\\\\cline{2-4}\cline{6-8}\cline{10-12}
+\multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$2\times 10^5$} & \multicolumn{1}{c}{3905 ms} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$2\times 10^5$} & \multicolumn{1}{c}{6386 ms} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c}{$5\times 10^4$} & \multicolumn{1}{c}{953 ms} & \multicolumn{1}{c}{-}\\
+\multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$2\times 10^5$} & \multicolumn{1}{c}{58 ms} & \multicolumn{1}{c|}{68} & \multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$2\times 10^5$} & \multicolumn{1}{c}{55 ms} & \multicolumn{1}{c|}{116} & \multicolumn{1}{c|}{SC} & \multicolumn{1}{c}{$5\times 10^4$} & \multicolumn{1}{c}{43 ms} & \multicolumn{1}{c}{22}\\
+\multicolumn{1}{c|}{SA} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{15 ms} & \multicolumn{1}{c|}{263} & \multicolumn{1}{c|}{SA} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{15 ms} & \multicolumn{1}{c|}{440} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{-} & \multicolumn{1}{c}{-}\\
+\end{tabular}}
+\end{center}
+\vspace{-0.5cm}
+\end{table}
+
+\end{document}
+
+```
