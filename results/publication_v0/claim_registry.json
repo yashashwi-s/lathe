@@ -1,0 +1,255 @@
+{
+  "claim_boundaries": {
+    "aggregation": "Compilation and exact-page rates retain all 127 held-out documents in the denominator. Fidelity medians are conditional on compiled PDFs; SSIM has its own eligibility count.",
+    "identity": "The AI identity is the recorded API route, not an immutable provider checkpoint hash.",
+    "interpretation": "The benchmark reports an evidence vector, not one universal grade or human-preference score.",
+    "protocol": "Gemini is reported at first pass and after at most one compiler-error repair under the same frozen v1 source-only protocol. Engines are deterministic baselines.",
+    "scope": "The primary table uses the frozen 127-document held-out split. The 30 prompt-development documents, adaptive v2/v3 retries, and Claude overlap runs are excluded."
+  },
+  "claims": [
+    {
+      "claim_id": "canonical_corpus_and_split",
+      "evidence": [
+        {
+          "bytes": 59378,
+          "path": "data/latex_benchmark_v0/accepted_manifest.csv",
+          "sha256": "3d9fb1857b21742d13d242c6cad162fa49ceae8102fca9c4beaedccb9e4b3ca4"
+        },
+        {
+          "bytes": 11547,
+          "path": "data/latex_benchmark_v0/splits/prompt_dev_33.csv",
+          "sha256": "fc5e29626d9c6856c78da97c11a85755a81140b3b87a11ea94761ff265e316c5"
+        },
+        {
+          "bytes": 47793,
+          "path": "data/latex_benchmark_v0/splits/heldout_clean_127.csv",
+          "sha256": "fab73ac911e009d62aafa972e2b9563f9171280db0dcbce5c4300b3d6ce1f2a0"
+        }
+      ],
+      "statement": "The canonical corpus contains 157 unique references split into 30 development and 127 held-out IDs with zero overlap.",
+      "status": "verified"
+    },
+    {
+      "claim_id": "frozen_v1_protocol",
+      "evidence": [
+        {
+          "bytes": 1049,
+          "path": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/run_config.json",
+          "sha256": "db40c34130e166ae949d3e8a0826351f66566a54ae5c0d5e033dccadf307b8af"
+        },
+        {
+          "bytes": 31667,
+          "path": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/run_manifest.csv",
+          "sha256": "f2c64276b2e919bbb09b239f57c55a01bcec149a3d33743a2b924ac6dc9535a5"
+        },
+        {
+          "bytes": 3115,
+          "path": "prompts/latex_to_typst/system_v1.txt",
+          "sha256": "0877384cc89636ecbb3cf27b41de3201d9d9a483d8a6aba120a771cb8b4af08d"
+        },
+        {
+          "bytes": 490,
+          "path": "prompts/latex_to_typst/retry_v1.txt",
+          "sha256": "38d57dc85d8fa8584db69e6712e9eec87228d199519ef6ac351507b0d295679e"
+        }
+      ],
+      "statement": "The primary Gemini rows use the source-only frozen v1 run at temperature zero, shown at first pass and after at most one compiler-error repair.",
+      "status": "verified"
+    },
+    {
+      "claim_id": "primary_table_scope",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        }
+      ],
+      "statement": "The primary table contains only two frozen Gemini stages and three deterministic engines; development, adaptive v2/v3, and Claude rows are excluded.",
+      "status": "verified",
+      "systems": [
+        "gemini_first_pass",
+        "gemini_after_one_repair",
+        "pandoc",
+        "tylax",
+        "typetex"
+      ]
+    },
+    {
+      "claim_id": "scorecard_gemini_first_pass",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        },
+        {
+          "bytes": 12008,
+          "path": "results/publication_v0/scorecard.json",
+          "sha256": "8109f484adaccb9187c15088037e52527ada70339c2aaeb8551aa7b4cf13ce15"
+        }
+      ],
+      "statement": "Gemini 3.1 Flash Lite \u2014 first pass compiled 46/127 held-out documents; the accompanying fidelity statistics are medians over its compiled PDFs.",
+      "status": "verified",
+      "values": {
+        "candidate_set_sha256": "7692fde27d12ef085074552f49b681761d23c370da6eed0b9b7ec981d54c86e5",
+        "canvas_exact_n": "2",
+        "canvas_exact_rate_compiled": "0.043478",
+        "center_displacement_q90_median": "0.283805",
+        "compatibility_word_f1_median": "0.922422",
+        "compile_rate": "0.362205",
+        "compiled_n": "46",
+        "fidelity_population": "compiled PDFs only (system-specific subset)",
+        "page_exact_n": "41",
+        "page_exact_rate_all": "0.322835",
+        "reference_coverage_median": "0.919281",
+        "ssim_eligible_n": "2",
+        "ssim_median": "0.668524",
+        "strict_word_f1_median": "0.904574",
+        "text_ltsim_median": "0.70147",
+        "universe_n": "127"
+      }
+    },
+    {
+      "claim_id": "scorecard_gemini_after_one_repair",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        },
+        {
+          "bytes": 12008,
+          "path": "results/publication_v0/scorecard.json",
+          "sha256": "8109f484adaccb9187c15088037e52527ada70339c2aaeb8551aa7b4cf13ce15"
+        }
+      ],
+      "statement": "Gemini 3.1 Flash Lite \u2014 after \u22641 repair compiled 77/127 held-out documents; the accompanying fidelity statistics are medians over its compiled PDFs.",
+      "status": "verified",
+      "values": {
+        "candidate_set_sha256": "7cab09d448ca42aa5f48351d5b8dacf329ac3b2e8bd9bdd410830a0dd62de1cf",
+        "canvas_exact_n": "2",
+        "canvas_exact_rate_compiled": "0.025974",
+        "center_displacement_q90_median": "0.294703",
+        "compatibility_word_f1_median": "0.879377",
+        "compile_rate": "0.606299",
+        "compiled_n": "77",
+        "fidelity_population": "compiled PDFs only (system-specific subset)",
+        "page_exact_n": "70",
+        "page_exact_rate_all": "0.551181",
+        "reference_coverage_median": "0.876106",
+        "ssim_eligible_n": "2",
+        "ssim_median": "0.668524",
+        "strict_word_f1_median": "0.869565",
+        "text_ltsim_median": "0.704135",
+        "universe_n": "127"
+      }
+    },
+    {
+      "claim_id": "scorecard_pandoc",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        },
+        {
+          "bytes": 12008,
+          "path": "results/publication_v0/scorecard.json",
+          "sha256": "8109f484adaccb9187c15088037e52527ada70339c2aaeb8551aa7b4cf13ce15"
+        }
+      ],
+      "statement": "Pandoc compiled 124/127 held-out documents; the accompanying fidelity statistics are medians over its compiled PDFs.",
+      "status": "verified",
+      "values": {
+        "candidate_set_sha256": "fefddd75e3bb101ceb63f29ef1f173bc1ebfb58d329b4d1e2a3f86be90ef0d8d",
+        "canvas_exact_n": "0",
+        "canvas_exact_rate_compiled": "0.0",
+        "center_displacement_q90_median": "0.252397",
+        "compatibility_word_f1_median": "0.586562",
+        "compile_rate": "0.976378",
+        "compiled_n": "124",
+        "fidelity_population": "compiled PDFs only (system-specific subset)",
+        "page_exact_n": "81",
+        "page_exact_rate_all": "0.637795",
+        "reference_coverage_median": "0.520027",
+        "ssim_eligible_n": "0",
+        "ssim_median": "",
+        "strict_word_f1_median": "0.478682",
+        "text_ltsim_median": "0.67184",
+        "universe_n": "127"
+      }
+    },
+    {
+      "claim_id": "scorecard_tylax",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        },
+        {
+          "bytes": 12008,
+          "path": "results/publication_v0/scorecard.json",
+          "sha256": "8109f484adaccb9187c15088037e52527ada70339c2aaeb8551aa7b4cf13ce15"
+        }
+      ],
+      "statement": "Tylax compiled 75/127 held-out documents; the accompanying fidelity statistics are medians over its compiled PDFs.",
+      "status": "verified",
+      "values": {
+        "candidate_set_sha256": "f790c7dff37bf78f6d71a0bd7ae3957c0d6c3f8b4f9fff834adce1637dc29f6a",
+        "canvas_exact_n": "0",
+        "canvas_exact_rate_compiled": "0.0",
+        "center_displacement_q90_median": "0.142462",
+        "compatibility_word_f1_median": "0.511628",
+        "compile_rate": "0.590551",
+        "compiled_n": "75",
+        "fidelity_population": "compiled PDFs only (system-specific subset)",
+        "page_exact_n": "39",
+        "page_exact_rate_all": "0.307087",
+        "reference_coverage_median": "0.489362",
+        "ssim_eligible_n": "0",
+        "ssim_median": "",
+        "strict_word_f1_median": "0.511628",
+        "text_ltsim_median": "0.707633",
+        "universe_n": "127"
+      }
+    },
+    {
+      "claim_id": "scorecard_typetex",
+      "evidence": [
+        {
+          "bytes": 2131,
+          "path": "results/publication_v0/scorecard.csv",
+          "sha256": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+        },
+        {
+          "bytes": 12008,
+          "path": "results/publication_v0/scorecard.json",
+          "sha256": "8109f484adaccb9187c15088037e52527ada70339c2aaeb8551aa7b4cf13ce15"
+        }
+      ],
+      "statement": "TypeTeX compiled 120/127 held-out documents; the accompanying fidelity statistics are medians over its compiled PDFs.",
+      "status": "verified",
+      "values": {
+        "candidate_set_sha256": "852e1de517751bc86f5325d024dbf7aace6e8205e300b9dacba77ed3fa1e0947",
+        "canvas_exact_n": "0",
+        "canvas_exact_rate_compiled": "0.0",
+        "center_displacement_q90_median": "0.272791",
+        "compatibility_word_f1_median": "0.621126",
+        "compile_rate": "0.944882",
+        "compiled_n": "120",
+        "fidelity_population": "compiled PDFs only (system-specific subset)",
+        "page_exact_n": "79",
+        "page_exact_rate_all": "0.622047",
+        "reference_coverage_median": "0.554455",
+        "ssim_eligible_n": "0",
+        "ssim_median": "",
+        "strict_word_f1_median": "0.495423",
+        "text_ltsim_median": "0.671608",
+        "universe_n": "127"
+      }
+    }
+  ],
+  "schema_version": "publication_v0_claim_registry_v1"
+}

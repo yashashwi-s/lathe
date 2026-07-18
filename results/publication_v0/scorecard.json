@@ -1,0 +1,282 @@
+{
+  "artifacts": {
+    "per_sample_scores": {
+      "path": "results/publication_v0/per_sample_scores.csv",
+      "sha256_raw_bytes": "ac994426fa1e79398b05a9f8b7b6d2f73a45091fef2d836d53a7406e1dae543c"
+    },
+    "scorecard_csv": {
+      "path": "results/publication_v0/scorecard.csv",
+      "sha256_raw_bytes": "dda6f268d82d31b9a915e1d02f4119ee1d549a85a81afc43f068f2368e4d8141"
+    },
+    "summary_markdown": {
+      "path": "results/publication_v0/summary.md",
+      "sha256_raw_bytes": "3e2c61154061bdce13cd4fe54158dfd5e940c7c9aa0d13059c2fe2935e1f1c38"
+    }
+  },
+  "benchmark": {
+    "compile_denominator": "all 127 held-out references",
+    "fidelity_population": "compiled PDFs only, separately for each system",
+    "name": "LaTeX-to-Typst held-out benchmark v0",
+    "overall_scalar_score": null,
+    "protocol": "Frozen source-only Gemini prompt v1, reported before and after at most one compiler-error repair; deterministic engines restricted to the same 127 IDs",
+    "split": "data/latex_benchmark_v0/splits/heldout_clean_127.csv",
+    "universe_n": 127
+  },
+  "provenance": {
+    "engines": {
+      "pandoc": {
+        "executable_version": null,
+        "protocol_id": "deterministic_pandoc_as_tested",
+        "version_limit": "not recorded; archived outputs are scored as tested"
+      },
+      "tylax": {
+        "executable_version": null,
+        "protocol_id": "deterministic_tylax_as_tested",
+        "version_limit": "not recorded; archived outputs are scored as tested"
+      },
+      "typetex": {
+        "executable_version": null,
+        "protocol_id": "deterministic_typetex_as_tested",
+        "version_limit": "not recorded; archived outputs are scored as tested"
+      }
+    },
+    "gemini": {
+      "immutable_provider_checkpoint": null,
+      "max_repairs": 1,
+      "model_identity_limit": "API route recorded; immutable provider checkpoint not supplied",
+      "reference_images_supplied": false,
+      "requested_model_routes": [
+        "google/gemini-3.1-flash-lite"
+      ],
+      "resolved_model_routes": [
+        "google/gemini-3.1-flash-lite"
+      ],
+      "source_only": true,
+      "temperature": 0,
+      "typst_version": "typst 0.14.2 (unknown hash)"
+    },
+    "hash_algorithm": "SHA-256",
+    "hash_semantics": {
+      "candidate_set_sha256": "digest of canonical JSON records: sample_id, candidate path, candidate raw hash",
+      "sha256_raw_bytes": "digest of exact file bytes",
+      "sha256_text_normalized_lf": "UTF-8 text after Python universal-newline normalization; matches run_config"
+    },
+    "inputs": {
+      "engine_conversion_script": {
+        "path": "scripts/dataset/convert_all_v0_engines.py",
+        "sha256_raw_bytes": "d8ea7988e3d455e82ccc4a468082631a282326aaab3db1b5e5ba1f43431fb12b"
+      },
+      "engine_manifest": {
+        "path": "results/latex_benchmark_v0/engine_manifest.csv",
+        "sha256_raw_bytes": "e7e3b667b8a64b3fb059dbc6c22d87e30ed1dfa69493e65dcae1a55a70e5f927"
+      },
+      "engine_metric_v2_scores": {
+        "path": "results/metric_research_v2/scorecards/engine_metric_v2/metric_v2_scores.csv",
+        "sha256_raw_bytes": "d08a7988f195a46a06a4faea59f55a0ba33aecfd21ecbe06b882ab6263670d20"
+      },
+      "gemini_metric_v2_scores": {
+        "path": "results/metric_research_v2/gemini_frozen_156/metric_v2_scores.csv",
+        "sha256_raw_bytes": "1163138ebc742dbfa680a4658b869d07f65c25785175bdb9d308bc6507587580"
+      },
+      "gemini_run_config": {
+        "path": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/run_config.json",
+        "sha256_raw_bytes": "db40c34130e166ae949d3e8a0826351f66566a54ae5c0d5e033dccadf307b8af"
+      },
+      "gemini_run_manifest": {
+        "path": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/run_manifest.csv",
+        "sha256_raw_bytes": "f2c64276b2e919bbb09b239f57c55a01bcec149a3d33743a2b924ac6dc9535a5"
+      },
+      "gemini_split_snapshot": {
+        "path": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/split_manifest.csv",
+        "sha256_raw_bytes": "fab73ac911e009d62aafa972e2b9563f9171280db0dcbce5c4300b3d6ce1f2a0",
+        "sha256_text_normalized_lf": "bdf928c6a69745477523f25a83cec89d417c875ce6edf910f19a2364a467f1cc"
+      },
+      "heldout_split": {
+        "path": "data/latex_benchmark_v0/splits/heldout_clean_127.csv",
+        "sha256_raw_bytes": "fab73ac911e009d62aafa972e2b9563f9171280db0dcbce5c4300b3d6ce1f2a0",
+        "sha256_text_normalized_lf": "bdf928c6a69745477523f25a83cec89d417c875ce6edf910f19a2364a467f1cc"
+      },
+      "metric_v2_implementation": {
+        "path": "scripts/evaluation/pdf_metric_axes_v2.py",
+        "sha256_raw_bytes": "4b4f0fede508f7f0b13583a6995315557b0dbf034045814254c9ca33ca414ef6"
+      },
+      "metric_v2_manifest_evaluator": {
+        "path": "scripts/evaluation/evaluate_metric_v2_manifest.py",
+        "sha256_raw_bytes": "e33278072614eaca4d8a04b55ef0a2b153b0de8de9c6f6ce9aea3420e8658ae4"
+      },
+      "prompt_dev_split": {
+        "path": "data/latex_benchmark_v0/splits/prompt_dev_33.csv",
+        "sha256_raw_bytes": "fc5e29626d9c6856c78da97c11a85755a81140b3b87a11ea94761ff265e316c5"
+      },
+      "retry_prompt": {
+        "path": "prompts/latex_to_typst/retry_v1.txt",
+        "sha256_raw_bytes": "38d57dc85d8fa8584db69e6712e9eec87228d199519ef6ac351507b0d295679e",
+        "sha256_text_normalized_lf": "38d57dc85d8fa8584db69e6712e9eec87228d199519ef6ac351507b0d295679e"
+      },
+      "system_prompt": {
+        "path": "prompts/latex_to_typst/system_v1.txt",
+        "sha256_raw_bytes": "0877384cc89636ecbb3cf27b41de3201d9d9a483d8a6aba120a771cb8b4af08d",
+        "sha256_text_normalized_lf": "0877384cc89636ecbb3cf27b41de3201d9d9a483d8a6aba120a771cb8b4af08d"
+      },
+      "typetex_filter": {
+        "path": "scripts/dataset/typetex_filter.lua",
+        "sha256_raw_bytes": "92553eeb821f3af0dd8bf0059152b14e3649b5f1a90c4939182ba3368e662bfd"
+      }
+    },
+    "metric": {
+      "aggregate_score": null,
+      "evaluator": "pdf_metric_axes_v2",
+      "render_dpi": 96
+    }
+  },
+  "schema_version": "publication_scorecard_v0.1",
+  "scorecard": [
+    {
+      "candidate_set_sha256": "7692fde27d12ef085074552f49b681761d23c370da6eed0b9b7ec981d54c86e5",
+      "candidate_stage": "attempt_1",
+      "canvas_exact_n": 2,
+      "canvas_exact_rate_compiled": 0.043478,
+      "center_displacement_q90_median": 0.283805,
+      "compatibility_word_f1_median": 0.922422,
+      "compile_rate": 0.362205,
+      "compiled_n": 46,
+      "display_label": "Gemini 3.1 Flash Lite \u2014 first pass",
+      "fidelity_population": "compiled PDFs only (system-specific subset)",
+      "page_exact_n": 41,
+      "page_exact_rate_all": 0.322835,
+      "protocol_id": "gemini_prompt_v1_first_pass",
+      "protocol_label": "source-only prompt v1; first compiler attempt; no repair credited",
+      "reference_coverage_median": 0.919281,
+      "ssim_eligible_n": 2,
+      "ssim_median": 0.668524,
+      "strict_word_f1_median": 0.904574,
+      "system_id": "gemini_first_pass",
+      "text_ltsim_median": 0.70147,
+      "universe_n": 127
+    },
+    {
+      "candidate_set_sha256": "7cab09d448ca42aa5f48351d5b8dacf329ac3b2e8bd9bdd410830a0dd62de1cf",
+      "candidate_stage": "cumulative_after_at_most_one_repair",
+      "canvas_exact_n": 2,
+      "canvas_exact_rate_compiled": 0.025974,
+      "center_displacement_q90_median": 0.294703,
+      "compatibility_word_f1_median": 0.879377,
+      "compile_rate": 0.606299,
+      "compiled_n": 77,
+      "display_label": "Gemini 3.1 Flash Lite \u2014 after \u22641 repair",
+      "fidelity_population": "compiled PDFs only (system-specific subset)",
+      "page_exact_n": 70,
+      "page_exact_rate_all": 0.551181,
+      "protocol_id": "gemini_prompt_v1_after_one_compiler_repair",
+      "protocol_label": "source-only prompt v1; first attempt plus at most one compiler-error repair",
+      "reference_coverage_median": 0.876106,
+      "ssim_eligible_n": 2,
+      "ssim_median": 0.668524,
+      "strict_word_f1_median": 0.869565,
+      "system_id": "gemini_after_one_repair",
+      "text_ltsim_median": 0.704135,
+      "universe_n": 127
+    },
+    {
+      "candidate_set_sha256": "fefddd75e3bb101ceb63f29ef1f173bc1ebfb58d329b4d1e2a3f86be90ef0d8d",
+      "candidate_stage": "as_tested_output",
+      "canvas_exact_n": 0,
+      "canvas_exact_rate_compiled": 0.0,
+      "center_displacement_q90_median": 0.252397,
+      "compatibility_word_f1_median": 0.586562,
+      "compile_rate": 0.976378,
+      "compiled_n": 124,
+      "display_label": "Pandoc",
+      "fidelity_population": "compiled PDFs only (system-specific subset)",
+      "page_exact_n": 81,
+      "page_exact_rate_all": 0.637795,
+      "protocol_id": "deterministic_pandoc_as_tested",
+      "protocol_label": "deterministic archived engine output; executable version not recorded",
+      "reference_coverage_median": 0.520027,
+      "ssim_eligible_n": 0,
+      "ssim_median": null,
+      "strict_word_f1_median": 0.478682,
+      "system_id": "pandoc",
+      "text_ltsim_median": 0.67184,
+      "universe_n": 127
+    },
+    {
+      "candidate_set_sha256": "f790c7dff37bf78f6d71a0bd7ae3957c0d6c3f8b4f9fff834adce1637dc29f6a",
+      "candidate_stage": "as_tested_output",
+      "canvas_exact_n": 0,
+      "canvas_exact_rate_compiled": 0.0,
+      "center_displacement_q90_median": 0.142462,
+      "compatibility_word_f1_median": 0.511628,
+      "compile_rate": 0.590551,
+      "compiled_n": 75,
+      "display_label": "Tylax",
+      "fidelity_population": "compiled PDFs only (system-specific subset)",
+      "page_exact_n": 39,
+      "page_exact_rate_all": 0.307087,
+      "protocol_id": "deterministic_tylax_as_tested",
+      "protocol_label": "deterministic archived engine output; executable version not recorded",
+      "reference_coverage_median": 0.489362,
+      "ssim_eligible_n": 0,
+      "ssim_median": null,
+      "strict_word_f1_median": 0.511628,
+      "system_id": "tylax",
+      "text_ltsim_median": 0.707633,
+      "universe_n": 127
+    },
+    {
+      "candidate_set_sha256": "852e1de517751bc86f5325d024dbf7aace6e8205e300b9dacba77ed3fa1e0947",
+      "candidate_stage": "as_tested_output",
+      "canvas_exact_n": 0,
+      "canvas_exact_rate_compiled": 0.0,
+      "center_displacement_q90_median": 0.272791,
+      "compatibility_word_f1_median": 0.621126,
+      "compile_rate": 0.944882,
+      "compiled_n": 120,
+      "display_label": "TypeTeX",
+      "fidelity_population": "compiled PDFs only (system-specific subset)",
+      "page_exact_n": 79,
+      "page_exact_rate_all": 0.622047,
+      "protocol_id": "deterministic_typetex_as_tested",
+      "protocol_label": "deterministic archived engine output; executable version not recorded",
+      "reference_coverage_median": 0.554455,
+      "ssim_eligible_n": 0,
+      "ssim_median": null,
+      "strict_word_f1_median": 0.495423,
+      "system_id": "typetex",
+      "text_ltsim_median": 0.671608,
+      "universe_n": 127
+    }
+  ],
+  "validation": {
+    "actual_compiled_n": {
+      "gemini_after_one_repair": 77,
+      "gemini_first_pass": 46,
+      "pandoc": 124,
+      "tylax": 75,
+      "typetex": 120
+    },
+    "adaptive_v0_v2_v3_rows_used": 0,
+    "after_one_repair_compiled_n": 77,
+    "all_gemini_candidates_under_prompt_v1_heldout_clean": true,
+    "all_gemini_metric_rows_prompt_stage_v1": true,
+    "claude_rows_used": 0,
+    "expected_compiled_n": {
+      "gemini_after_one_repair": 77,
+      "gemini_first_pass": 46,
+      "pandoc": 124,
+      "tylax": 75,
+      "typetex": 120
+    },
+    "failed_outputs_have_empty_fidelity_axes": true,
+    "first_pass_compiled_n": 46,
+    "gemini_run_ids_exactly_match_heldout": true,
+    "gemini_split_snapshot_bytes_match_canonical": true,
+    "heldout_ids_n": 127,
+    "heldout_ids_unique": true,
+    "metric_rows_cover_every_compiled_pdf": true,
+    "prompt_dev_overlap_ids": [],
+    "prompt_dev_overlap_n": 0,
+    "repair_attempted_n": 81,
+    "repair_success_n": 31
+  }
+}
