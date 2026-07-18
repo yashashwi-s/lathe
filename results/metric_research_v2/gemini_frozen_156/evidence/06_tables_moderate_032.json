@@ -1,0 +1,5465 @@
+{
+  "applicability": {
+    "figures": null,
+    "formulas": null,
+    "tables": null
+  },
+  "axes": {
+    "block_transport": {
+      "applicable": true,
+      "evidence": {
+        "cost_policy": "0.65 * (1 - rescaled GIoU) + 0.35 * normalized Levenshtein distance",
+        "largest_cost_contributions": [
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.1209523843701345,
+              0.04473898749959099,
+              0.8720436132695649,
+              0.06309041302141687
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "Tables These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.",
+            "combined_cost": 0.5119654071545984,
+            "content_cost": 0.06140350877192979,
+            "geometry_cost": 0.7545756601298814,
+            "mass": 0.06380441264162194,
+            "reference_bbox_stacked_normalized": [
+              0.11764705882352941,
+              0.09215053083117963,
+              0.8821039137497447,
+              0.102444761128538
+            ],
+            "reference_block_index": 3,
+            "reference_page": 0,
+            "reference_text": "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.2671955640293059,
+              0.6960691584063882,
+              0.7771998755254155,
+              0.7010341793053291
+            ],
+            "candidate_block_index": 44,
+            "candidate_page": 2,
+            "candidate_text": "Networks High-level Low-level Learning Rate",
+            "combined_cost": 0.8500827236978534,
+            "content_cost": 0.7789473684210526,
+            "geometry_cost": 0.8883863765392076,
+            "mass": 0.026331904470300063,
+            "reference_bbox_stacked_normalized": [
+              0.1352762957803564,
+              0.8623399188622883,
+              0.8242215923234528,
+              0.9053907554960411
+            ],
+            "reference_block_index": 18,
+            "reference_page": 2,
+            "reference_text": "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.3854055344025092,
+              0.4435088925559887,
+              0.8648368014133094,
+              0.44847390439270457
+            ],
+            "candidate_block_index": 14,
+            "candidate_page": 1,
+            "candidate_text": "Label mapping \u201cO\u201d: 0, \u201cB-C\u201d: 1, \u201cI-C\u201d: 2, \u201cB-E\u201d: 3, \u201cI-E\u201d:",
+            "combined_cost": 0.6024285047613449,
+            "content_cost": 0.8258258258258259,
+            "geometry_cost": 0.4821376395727781,
+            "mass": 0.03551745254133497,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.38041359487206045,
+              0.8591668621387357,
+              0.4553202619456282
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads 12 Activation GELU D"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.18288503941609732,
+              0.6390545745556018,
+              0.7791060592156563,
+              0.6449274763423971
+            ],
+            "candidate_block_index": 43,
+            "candidate_page": 1,
+            "candidate_text": "Validation freq after each epoch HF model pgarco/CausalPalUkr_token Table 1: Source table 1: 2512.03214_table_6",
+            "combined_cost": 0.8421731924566418,
+            "content_cost": 0.8288288288288288,
+            "geometry_cost": 0.8493586190254641,
+            "mass": 0.02466021140453988,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.38041359487206045,
+              0.8591668621387357,
+              0.4553202619456282
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads 12 Activation GELU D"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.38848225596342456,
+              0.47650607292321717,
+              0.8562736882362803,
+              0.4814710968428996
+            ],
+            "candidate_block_index": 19,
+            "candidate_page": 1,
+            "candidate_text": "Preprocessing Lowercase, truncate/ pad to 512, first",
+            "combined_cost": 0.5358128083010287,
+            "content_cost": 0.7062146892655368,
+            "geometry_cost": 0.44405794932013976,
+            "mass": 0.03184323331292101,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.45882339991303,
+              0.8661646624795751,
+              0.4869330948852128
+            ],
+            "reference_block_index": 7,
+            "reference_page": 1,
+            "reference_text": "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessing Lowercase, truncate/ pad to 512, first subword labeling"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.16835143973722944,
+              0.4889712963326795,
+              0.8079515061783585,
+              0.4939929168682709
+            ],
+            "candidate_block_index": 21,
+            "candidate_page": 1,
+            "candidate_text": "Optimization Optimizer AdamW (adamw_torch)",
+            "combined_cost": 0.5997673069692624,
+            "content_cost": 0.8285714285714286,
+            "geometry_cost": 0.47656508764501915,
+            "mass": 0.025719534598897736,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.49043669524016203,
+              0.8431672738268484,
+              0.5536437885528461
+            ],
+            "reference_block_index": 8,
+            "reference_page": 1,
+            "reference_text": "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 Betas (0.9, 0.999) Epsilon 1e-8 Batch size / device 16 Gradi"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.39367481476202953,
+              0.37638607335627067,
+              0.8196486310102692,
+              0.38135109425521146
+            ],
+            "candidate_block_index": 4,
+            "candidate_page": 1,
+            "candidate_text": "Architecture BertForTokenClassification",
+            "combined_cost": 0.6386383819102958,
+            "content_cost": 0.8828828828828829,
+            "geometry_cost": 0.5071221121558258,
+            "mass": 0.023882424984690752,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.38041359487206045,
+              0.8591668621387357,
+              0.4553202619456282
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads 12 Activation GELU D"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.4038289263964557,
+              0.42416193026455945,
+              0.8397813184565357,
+              0.42912694814275865
+            ],
+            "candidate_block_index": 11,
+            "candidate_page": 1,
+            "candidate_text": "Tokenizer BertTokenizer (max length=512,",
+            "combined_cost": 0.6201196275662716,
+            "content_cost": 0.8798798798798799,
+            "geometry_cost": 0.4802487224743287,
+            "mass": 0.02449479485609308,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.38041359487206045,
+              0.8591668621387357,
+              0.4553202619456282
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads 12 Activation GELU D"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.2484303026916347,
+              0.737017728322034,
+              0.7287483485842041,
+              0.7420371920480741
+            ],
+            "candidate_block_index": 50,
+            "candidate_page": 2,
+            "candidate_text": "GAE coefficient 0.95 Clip \ud835\udf00 0.2",
+            "combined_cost": 0.7959363194133167,
+            "content_cost": 0.6736842105263158,
+            "geometry_cost": 0.8617643780447788,
+            "mass": 0.018983466013472138,
+            "reference_bbox_stacked_normalized": [
+              0.1352762957803564,
+              0.8623399188622883,
+              0.8242215923234528,
+              0.9053907554960411
+            ],
+            "reference_block_index": 18,
+            "reference_page": 2,
+            "reference_text": "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.19278970203511844,
+              0.45597409179951764,
+              0.8125158476960155,
+              0.46099572441807585
+            ],
+            "candidate_block_index": 16,
+            "candidate_page": 1,
+            "candidate_text": "Dataset Name/source CausalPalUkr_Train_Test",
+            "combined_cost": 0.5753579197292393,
+            "content_cost": 0.7570621468926554,
+            "geometry_cost": 0.4775171820258616,
+            "mass": 0.025937533891221626,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.45882339991303,
+              0.8661646624795751,
+              0.4869330948852128
+            ],
+            "reference_block_index": 7,
+            "reference_page": 1,
+            "reference_text": "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessing Lowercase, truncate/ pad to 512, first subword labeling"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.3390863011823548,
+              0.7655505666597214,
+              0.6609136988176453,
+              0.7705155845379205
+            ],
+            "candidate_block_index": 54,
+            "candidate_page": 2,
+            "candidate_text": "Table 2: Source table 2: 2512.03059_table_4",
+            "combined_cost": 0.5617185274143813,
+            "content_cost": 0.7094594594594594,
+            "geometry_cost": 0.4821657178516471,
+            "mass": 0.02633190447030002,
+            "reference_bbox_stacked_normalized": [
+              0.1352763207130183,
+              0.7407195544002031,
+              0.8948902803308824,
+              0.7996941897202823
+            ],
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.2228001757408878,
+              0.709719406689604,
+              0.7339685911866047,
+              0.7146844275885448
+            ],
+            "candidate_block_index": 46,
+            "candidate_page": 2,
+            "candidate_text": "Termination condition 64,64 \\ 3e-4",
+            "combined_cost": 0.6945024076602768,
+            "content_cost": 0.7702702702702703,
+            "geometry_cost": 0.6537043277933573,
+            "mass": 0.020820575627679118,
+            "reference_bbox_stacked_normalized": [
+              0.1352763207130183,
+              0.7407195544002031,
+              0.8948902803308824,
+              0.7996941897202823
+            ],
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.4040876417961867,
+              0.5026781412318043,
+              0.8331936497455397,
+              0.5076431651514869
+            ],
+            "candidate_block_index": 23,
+            "candidate_page": 1,
+            "candidate_text": "Scheduler Linear decay, 36 warmup steps",
+            "combined_cost": 0.6039750615463069,
+            "content_cost": 0.8408163265306122,
+            "geometry_cost": 0.47644514963168094,
+            "mass": 0.023882424984690752,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.49043669524016203,
+              0.8431672738268484,
+              0.5536437885528461
+            ],
+            "reference_block_index": 8,
+            "reference_page": 1,
+            "reference_text": "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 Betas (0.9, 0.999) Epsilon 1e-8 Batch size / device 16 Gradi"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.142564220016518,
+              0.369504340515787,
+              0.7857307421976532,
+              0.37452598219657024
+            ],
+            "candidate_block_index": 3,
+            "candidate_page": 1,
+            "candidate_text": "Model Architecture Base model bert-base-uncased",
+            "combined_cost": 0.49329570050242966,
+            "content_cost": 0.8088235294117647,
+            "geometry_cost": 0.32339610032048005,
+            "mass": 0.02878138395590937,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.36740896436903214,
+              0.6763747969484017,
+              0.3775788798476711
+            ],
+            "reference_block_index": 5,
+            "reference_page": 1,
+            "reference_text": "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.26965324497756843,
+              0.7508857358306796,
+              0.7330446698680764,
+              0.756500998560532
+            ],
+            "candidate_block_index": 52,
+            "candidate_page": 2,
+            "candidate_text": "Batch size 128 Learning rate \ud835\udefc\ud835\udf06 0.01",
+            "combined_cost": 0.6017306622392022,
+            "content_cost": 0.8445945945945946,
+            "geometry_cost": 0.4709577755862986,
+            "mass": 0.02204531537048377,
+            "reference_bbox_stacked_normalized": [
+              0.1352763207130183,
+              0.7407195544002031,
+              0.8948902803308824,
+              0.7996941897202823
+            ],
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.1785425143763531,
+              0.6322988428916124,
+              0.798545780039875,
+              0.6373204755101707
+            ],
+            "candidate_block_index": 42,
+            "candidate_page": 1,
+            "candidate_text": "Evaluation Metrics Token-level Precision",
+            "combined_cost": 0.5264265979615987,
+            "content_cost": 0.452054794520548,
+            "geometry_cost": 0.5664729536606261,
+            "mass": 0.02449479485609308,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.6203730933192603,
+              0.7663331374623417,
+              0.6309336395777435
+            ],
+            "reference_block_index": 11,
+            "reference_page": 1,
+            "reference_text": "Evaluation Metrics Token-level Precision Validation freq after each epoch"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.3620924649300036,
+              0.02688060441222578,
+              0.6379075863362997,
+              0.039489143889428674
+            ],
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "candidate_text": "Moderate Tables Source-backed grouped table sample",
+            "combined_cost": 0.6289006020371917,
+            "content_cost": 0.32000000000000006,
+            "geometry_cost": 0.7952316954418333,
+            "mass": 0.020274299344066785,
+            "reference_bbox_stacked_normalized": [
+              0.3480261509714563,
+              0.0620628767944747,
+              0.6520829044915493,
+              0.06709452670832676
+            ],
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "Source-backed grouped table sample"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.18288503941609732,
+              0.6390545745556018,
+              0.7791060592156563,
+              0.6449274763423971
+            ],
+            "candidate_block_index": 43,
+            "candidate_page": 1,
+            "candidate_text": "Validation freq after each epoch HF model pgarco/CausalPalUkr_token Table 1: Source table 1: 2512.03214_table_6",
+            "combined_cost": 0.6248070228815594,
+            "content_cost": 0.6936936936936937,
+            "geometry_cost": 0.5877142001365641,
+            "mass": 0.020274299344066785,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.6344372527767913,
+              0.578763425739762,
+              0.6391482369265572
+            ],
+            "reference_block_index": 12,
+            "reference_page": 1,
+            "reference_text": "HF model pgarco/CausalPalUkr_token"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.40467894733874055,
+              0.46285582464000125,
+              0.8184567407242596,
+              0.4678208485596838
+            ],
+            "candidate_block_index": 17,
+            "candidate_page": 1,
+            "candidate_text": "Task type Token Classification / NER",
+            "combined_cost": 0.5716498110166204,
+            "content_cost": 0.7966101694915254,
+            "geometry_cost": 0.4505173102993638,
+            "mass": 0.022045315370483775,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.45882339991303,
+              0.8661646624795751,
+              0.4869330948852128
+            ],
+            "reference_block_index": 7,
+            "reference_page": 1,
+            "reference_text": "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessing Lowercase, truncate/ pad to 512, first subword labeling"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.12935185550694941,
+              0.5981732342665396,
+              0.7385264731500426,
+              0.6031948668850977
+            ],
+            "candidate_block_index": 37,
+            "candidate_page": 1,
+            "candidate_text": "Training Environment Transformers 4.50.3",
+            "combined_cost": 0.5068295861411276,
+            "content_cost": 0.6721311475409836,
+            "geometry_cost": 0.41782105307966666,
+            "mass": 0.02449479485609308,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.5887602218473801,
+              0.7897927278007557,
+              0.6168698911313658
+            ],
+            "reference_block_index": 10,
+            "reference_page": 1,
+            "reference_text": "Training Environment Transformers 4.50.3 PyTorch 2.6.0+cu124 Datasets 3.5.0 Tokenizers 0.21.1 Hardware 1x NVIDIA A100 40GB"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.2600350200118015,
+              0.7301381462496187,
+              0.7417574806508155,
+              0.735103164127818
+            ],
+            "candidate_block_index": 49,
+            "candidate_page": 2,
+            "candidate_text": "Parameters Value Parameters Value",
+            "combined_cost": 0.6201864871600596,
+            "content_cost": 0.0,
+            "geometry_cost": 0.9541330571693225,
+            "mass": 0.01967799642218247,
+            "reference_bbox_stacked_normalized": [
+              0.1352762957803564,
+              0.8487262661609586,
+              0.8487679475273182,
+              0.8570127776174834
+            ],
+            "reference_block_index": 17,
+            "reference_page": 2,
+            "reference_text": "Parameters Value Parameters Value"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.27147342944398106,
+              0.7439517320763568,
+              0.7267156396573565,
+              0.7489711716364633
+            ],
+            "candidate_block_index": 51,
+            "candidate_page": 2,
+            "candidate_text": "Iterations 20,000 Episodes \ud835\udc38 10",
+            "combined_cost": 0.6205845142308357,
+            "content_cost": 0.8918918918918919,
+            "geometry_cost": 0.4744959262594979,
+            "mass": 0.017833948807047303,
+            "reference_bbox_stacked_normalized": [
+              0.1352763207130183,
+              0.7407195544002031,
+              0.8948902803308824,
+              0.7996941897202823
+            ],
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.18288503941609732,
+              0.6390545745556018,
+              0.7791060592156563,
+              0.6449274763423971
+            ],
+            "candidate_block_index": 43,
+            "candidate_page": 1,
+            "candidate_text": "Validation freq after each epoch HF model pgarco/CausalPalUkr_token Table 1: Source table 1: 2512.03214_table_6",
+            "combined_cost": 0.7853084783630777,
+            "content_cost": 0.7959183673469388,
+            "geometry_cost": 0.7795954612179217,
+            "mass": 0.013209953767352765,
+            "reference_bbox_stacked_normalized": [
+              0.1276670468398948,
+              0.49043669524016203,
+              0.8431672738268484,
+              0.5536437885528461
+            ],
+            "reference_block_index": 8,
+            "reference_page": 1,
+            "reference_text": "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 Betas (0.9, 0.999) Epsilon 1e-8 Batch size / device 16 Gradi"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.25738329610545274,
+              0.7165445429141787,
+              0.7339685911866047,
+              0.7215095607923777
+            ],
+            "candidate_block_index": 47,
+            "candidate_page": 2,
+            "candidate_text": "Reward critic \\ 128,128 1e-3",
+            "combined_cost": 0.5828942718815376,
+            "content_cost": 0.0,
+            "geometry_cost": 0.8967604182792887,
+            "mass": 0.016696481812760882,
+            "reference_bbox_stacked_normalized": [
+              0.16160219479230495,
+              0.805029525499954,
+              0.8322975806940615,
+              0.8236077947648687
+            ],
+            "reference_block_index": 15,
+            "reference_page": 2,
+            "reference_text": "Reward critic \\ 128,128 1e-3"
+          }
+        ],
+        "mass_policy": "block normalized-character count; minimum mass unit 1",
+        "page_geometry": "page boxes stacked vertically and normalized by max page count"
+      },
+      "interpretation": "Exact optimal transport over extracted text blocks. This is an LTSim-inspired, fully specified adaptation\u2014not the published LTSim implementation or a semantic table/formula metric. Report geometry and content costs separately with the flows.",
+      "metrics": {
+        "candidate_block_count": 55,
+        "combined_transport_cost": 0.625627421937965,
+        "combined_transport_similarity_exp": 0.5349256990892093,
+        "content_transport_similarity_exp": 0.4905917829468962,
+        "geometry_transport_similarity_exp": 0.5604349128861587,
+        "nonzero_flow_count": 76,
+        "reference_block_count": 22,
+        "transported_content_cost": 0.7121428962851803,
+        "transported_geometry_cost": 0.5790421665202337,
+        "transported_mass": 0.9999999999999999
+      },
+      "status": "scored"
+    },
+    "canvas": {
+      "applicable": true,
+      "evidence": {
+        "page_pairs": [
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "exact_size_match": false,
+            "height_abs_log_ratio": 0.06108769997172164,
+            "page": 0,
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "width_abs_log_ratio": 0.02770783506031022
+          },
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "exact_size_match": false,
+            "height_abs_log_ratio": 0.06108769997172164,
+            "page": 1,
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "width_abs_log_ratio": 0.02770783506031022
+          },
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "exact_size_match": false,
+            "height_abs_log_ratio": 0.06108769997172164,
+            "page": 2,
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "width_abs_log_ratio": 0.02770783506031022
+          }
+        ]
+      },
+      "interpretation": "Canvas/page-size mismatch only; no token layout residual is folded into this axis.",
+      "metrics": {
+        "candidate_page_count": 3,
+        "exact_paired_size_rate": 0.0,
+        "height_abs_log_ratio_max": 0.06108769997172164,
+        "page_count_delta": 0,
+        "paired_page_count": 3,
+        "reference_page_count": 3,
+        "width_abs_log_ratio_max": 0.02770783506031022
+      },
+      "status": "scored"
+    },
+    "content": {
+      "applicable": true,
+      "evidence": {
+        "lowest_similarity_block_pairs": [
+          {
+            "candidate_block_index": 21,
+            "candidate_page": 1,
+            "candidate_text": "Optimization Optimizer AdamW (adamw_torch)",
+            "normalized_edit_similarity": 0.17142857142857137,
+            "reference_block_index": 8,
+            "reference_page": 1,
+            "reference_text": "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 Betas (0.9, 0.999) Epsilon 1e-8 Batch size / device 16 Gradient accumulation 1 Max grad norm 1.0 Epochs 10 FP16/BF16 Dis"
+          },
+          {
+            "candidate_block_index": 14,
+            "candidate_page": 1,
+            "candidate_text": "Label mapping \u201cO\u201d: 0, \u201cB-C\u201d: 1, \u201cI-C\u201d: 2, \u201cB-E\u201d: 3, \u201cI-E\u201d:",
+            "normalized_edit_similarity": 0.17417417417417413,
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads 12 Activation GELU Dropout 0.1 Tokenizer BertTokenizer (max length=512, padding/"
+          },
+          {
+            "candidate_block_index": 10,
+            "candidate_page": 1,
+            "candidate_text": "Dropout 0.1",
+            "normalized_edit_similarity": 0.18181818181818177,
+            "reference_block_index": 19,
+            "reference_page": 2,
+            "reference_text": "0.01"
+          },
+          {
+            "candidate_block_index": 34,
+            "candidate_page": 1,
+            "candidate_text": "Dataloader drop last False",
+            "normalized_edit_similarity": 0.2429906542056075,
+            "reference_block_index": 9,
+            "reference_page": 1,
+            "reference_text": "Reproducibility Seed 42 Data seed None Dataloader drop last False Dataloader workers 0 FP16 full eval False"
+          },
+          {
+            "candidate_block_index": 44,
+            "candidate_page": 2,
+            "candidate_text": "Networks High-level Low-level Learning Rate",
+            "normalized_edit_similarity": 0.29054054054054057,
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "candidate_block_index": 19,
+            "candidate_page": 1,
+            "candidate_text": "Preprocessing Lowercase, truncate/ pad to 512, first",
+            "normalized_edit_similarity": 0.29378531073446323,
+            "reference_block_index": 7,
+            "reference_page": 1,
+            "reference_text": "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessing Lowercase, truncate/ pad to 512, first subword labeling"
+          },
+          {
+            "candidate_block_index": 51,
+            "candidate_page": 2,
+            "candidate_text": "Iterations 20,000 Episodes \ud835\udc38 10",
+            "normalized_edit_similarity": 0.3263157894736842,
+            "reference_block_index": 18,
+            "reference_page": 2,
+            "reference_text": "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+          },
+          {
+            "candidate_block_index": 37,
+            "candidate_page": 1,
+            "candidate_text": "Training Environment Transformers 4.50.3",
+            "normalized_edit_similarity": 0.3278688524590164,
+            "reference_block_index": 10,
+            "reference_page": 1,
+            "reference_text": "Training Environment Transformers 4.50.3 PyTorch 2.6.0+cu124 Datasets 3.5.0 Tokenizers 0.21.1 Hardware 1x NVIDIA A100 40GB"
+          },
+          {
+            "candidate_block_index": 13,
+            "candidate_page": 1,
+            "candidate_text": "Number of labels 5",
+            "normalized_edit_similarity": 0.33333333333333337,
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Moderate Tables"
+          },
+          {
+            "candidate_block_index": 31,
+            "candidate_page": 1,
+            "candidate_text": "FP16/BF16 Disabled",
+            "normalized_edit_similarity": 0.33333333333333337,
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "1 Tables"
+          },
+          {
+            "candidate_block_index": 16,
+            "candidate_page": 1,
+            "candidate_text": "Dataset Name/source CausalPalUkr_Train_Test",
+            "normalized_edit_similarity": 0.39534883720930236,
+            "reference_block_index": 12,
+            "reference_page": 1,
+            "reference_text": "HF model pgarco/CausalPalUkr_token"
+          },
+          {
+            "candidate_block_index": 54,
+            "candidate_page": 2,
+            "candidate_text": "Table 2: Source table 2: 2512.03059_table_4",
+            "normalized_edit_similarity": 0.5441176470588236,
+            "reference_block_index": 5,
+            "reference_page": 1,
+            "reference_text": "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value"
+          },
+          {
+            "candidate_block_index": 42,
+            "candidate_page": 1,
+            "candidate_text": "Evaluation Metrics Token-level Precision",
+            "normalized_edit_similarity": 0.547945205479452,
+            "reference_block_index": 11,
+            "reference_page": 1,
+            "reference_text": "Evaluation Metrics Token-level Precision Validation freq after each epoch"
+          },
+          {
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "candidate_text": "Moderate Tables Source-backed grouped table sample",
+            "normalized_edit_similarity": 0.6799999999999999,
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "Source-backed grouped table sample"
+          },
+          {
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "Tables These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point.",
+            "normalized_edit_similarity": 0.9385964912280702,
+            "reference_block_index": 3,
+            "reference_page": 0,
+            "reference_text": "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+          },
+          {
+            "candidate_block_index": 47,
+            "candidate_page": 2,
+            "candidate_text": "Reward critic \\ 128,128 1e-3",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 15,
+            "reference_page": 2,
+            "reference_text": "Reward critic \\ 128,128 1e-3"
+          },
+          {
+            "candidate_block_index": 48,
+            "candidate_page": 2,
+            "candidate_text": "Cost critic \\ 128,128 1e-3",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 16,
+            "reference_page": 2,
+            "reference_text": "Cost critic \\ 128,128 1e-3"
+          },
+          {
+            "candidate_block_index": 49,
+            "candidate_page": 2,
+            "candidate_text": "Parameters Value Parameters Value",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 17,
+            "reference_page": 2,
+            "reference_text": "Parameters Value Parameters Value"
+          },
+          {
+            "candidate_block_index": 53,
+            "candidate_page": 2,
+            "candidate_text": "Tolerance \ud835\udc51 0.025",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 20,
+            "reference_page": 2,
+            "reference_text": "Tolerance d 0.025"
+          }
+        ],
+        "unmatched_candidate_words": [
+          {
+            "bbox": [
+              339.91619873046875,
+              278.26702880859375,
+              358.48419189453125,
+              290.8070068359375
+            ],
+            "normalized": "\u201cO\u201d:",
+            "page": 1,
+            "text": "\u201cO\u201d:",
+            "word_index": 61
+          },
+          {
+            "bbox": [
+              424.4192810058594,
+              292.655029296875,
+              429.5342712402344,
+              305.19500732421875
+            ],
+            "normalized": "4",
+            "page": 1,
+            "text": "4",
+            "word_index": 70
+          },
+          {
+            "bbox": [
+              243.6074981689453,
+              74.26097106933594,
+              296.176513671875,
+              86.80097198486328
+            ],
+            "normalized": "High-level",
+            "page": 2,
+            "text": "High-level",
+            "word_index": 180
+          }
+        ],
+        "unmatched_reference_words": [
+          {
+            "bbox": [
+              72.0,
+              191.91514587402344,
+              79.89041137695312,
+              206.2613525390625
+            ],
+            "normalized": "1",
+            "page": 0,
+            "text": "1",
+            "word_index": 6
+          },
+          {
+            "bbox": [
+              303.2879943847656,
+              741.3756103515625,
+              308.7098083496094,
+              752.2847290039062
+            ],
+            "normalized": "1",
+            "page": 0,
+            "text": "1",
+            "word_index": 25
+          },
+          {
+            "bbox": [
+              366.4678649902344,
+              264.75177001953125,
+              391.1990051269531,
+              275.94232177734375
+            ],
+            "normalized": "{\u201cO\u201d:",
+            "page": 1,
+            "text": "{\u201cO\u201d:",
+            "word_index": 69
+          },
+          {
+            "bbox": [
+              441.77691650390625,
+              278.650390625,
+              452.9002990722656,
+              289.8409423828125
+            ],
+            "normalized": "4}",
+            "page": 1,
+            "text": "4}",
+            "word_index": 78
+          },
+          {
+            "bbox": [
+              303.2879943847656,
+              741.3756713867188,
+              308.7098083496094,
+              752.2847900390625
+            ],
+            "normalized": "2",
+            "page": 1,
+            "text": "2",
+            "word_index": 181
+          },
+          {
+            "bbox": [
+              247.35862731933594,
+              190.3947296142578,
+              302.42803955078125,
+              210.08346557617188
+            ],
+            "normalized": "High-",
+            "page": 2,
+            "text": "High-",
+            "word_index": 189
+          },
+          {
+            "bbox": [
+              252.74891662597656,
+              214.8479766845703,
+              297.0289306640625,
+              234.53671264648438
+            ],
+            "normalized": "level",
+            "page": 2,
+            "text": "level",
+            "word_index": 190
+          },
+          {
+            "bbox": [
+              303.2879943847656,
+              741.3756713867188,
+              308.7098083496094,
+              752.2847900390625
+            ],
+            "normalized": "3",
+            "page": 2,
+            "text": "3",
+            "word_index": 238
+          }
+        ]
+      },
+      "interpretation": "Strict NFC preservation is the primary text view. NFKC is reported separately as a compatibility view for ligature/encoding equivalence; it never hides the strict mismatch.",
+      "metrics": {
+        "compatibility_nfkc_document_edit_similarity": 0.9405182567726738,
+        "compatibility_nfkc_token_inventory": {
+          "candidate_count": 234,
+          "f1": 0.9767441860465118,
+          "matched_count": 231,
+          "precision": 0.9871794871794872,
+          "recall": 0.9665271966527197,
+          "reference_count": 239
+        },
+        "matched_block_count": 19,
+        "matched_block_normalized_edit_similarity_macro": 0.5148208906566607,
+        "strict_nfc_document_edit_similarity": 0.9375736160188457,
+        "strict_nfc_token_inventory": {
+          "candidate_count": 234,
+          "exact_match": false,
+          "extra": [
+            "\u201cO\u201d:",
+            "4",
+            "High-level",
+            "\ud835\udf00",
+            "\ud835\udc38",
+            "\ud835\udefc\ud835\udf06",
+            "\ud835\udc51"
+          ],
+          "extra_count": 7,
+          "f1": 0.959830866807611,
+          "matched_count": 227,
+          "missing": [
+            "1",
+            "1",
+            "{\u201cO\u201d:",
+            "4}",
+            "2",
+            "High-",
+            "level",
+            "\u03b5",
+            "E",
+            "\u03b1\u03bb",
+            "d",
+            "3"
+          ],
+          "missing_count": 12,
+          "precision": 0.9700854700854701,
+          "recall": 0.9497907949790795,
+          "reference_count": 239
+        }
+      },
+      "status": "scored"
+    },
+    "critical_content": {
+      "applicable": true,
+      "evidence": {
+        "citation_pattern": "\\[(?:\\d+[a-z]?(?:\\s*[-,;]\\s*\\d+[a-z]?){0,12})\\]|\\((?:18|19|20)\\d{2}[a-z]?\\)",
+        "normalization": "Unicode NFKC; case preserved; multiset comparison",
+        "number_pattern": "(?<![\\w.])[+-]?(?:\\d+(?:[.,]\\d+)*|\\.\\d+)(?:[eE][+-]?\\d+)?%?",
+        "operator_inventory": "*+/<=>^\u00b1\u00d7\u00f7\u2190\u2192\u2194\u2202\u2207\u2208\u2209\u220f\u2211\u2212\u221a\u221e\u2229\u222a\u222b\u2248\u2260\u2264\u2265\u2282\u2286"
+      },
+      "interpretation": "Exact critical-symbol inventories prevent visually small numeric or operator errors from disappearing inside a document-level text average. Empty inventories are reported as exact but do not establish construct applicability.",
+      "metrics": {
+        "citation_markers": {
+          "candidate_count": 0,
+          "exact_match": true,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 1.0,
+          "matched_count": 0,
+          "missing": [],
+          "missing_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reference_count": 0
+        },
+        "numbers": {
+          "candidate_count": 55,
+          "exact_match": false,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 0.9649122807017544,
+          "matched_count": 55,
+          "missing": [
+            "1",
+            "1",
+            "2",
+            "3"
+          ],
+          "missing_count": 4,
+          "precision": 1.0,
+          "recall": 0.9322033898305084,
+          "reference_count": 59
+        },
+        "operators": {
+          "candidate_count": 11,
+          "exact_match": true,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 1.0,
+          "matched_count": 11,
+          "missing": [],
+          "missing_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reference_count": 11
+        }
+      },
+      "status": "scored"
+    },
+    "figures": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for figures was not established by source metadata.",
+      "status": "abstain"
+    },
+    "formulas": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for formulas was not established by source metadata.",
+      "status": "abstain"
+    },
+    "geometry": {
+      "applicable": true,
+      "evidence": {
+        "worst_token_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              201.84979248046875,
+              774.4437866210938,
+              226.1488037109375,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.3390863011823548,
+              0.9198873935170437,
+              0.3799060698790474,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 173,
+            "center_displacement": 0.8183512243583212,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              197.9739990234375,
+              80.96369934082031,
+              224.1776580810547,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.32348692650888483,
+              0.10222689310709636,
+              0.36630336287754034,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 26,
+            "token": "Table",
+            "width_abs_log_ratio": 0.0477555652285821
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              228.89878845214844,
+              774.4437866210938,
+              236.6097869873047,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.3845257533711439,
+              0.9198873935170437,
+              0.3974794152975573,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 174,
+            "center_displacement": 0.8183073681869195,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              227.7994842529297,
+              80.96369934082031,
+              236.2322235107422,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.3722213794982511,
+              0.10222689310709636,
+              0.386000365213631,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 27,
+            "token": "1:",
+            "width_abs_log_ratio": 0.061766134903386644
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              239.35980224609375,
+              774.4437866210938,
+              269.7087707519531,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.40209915005595714,
+              0.9198873935170437,
+              0.4530822070553712,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 175,
+            "center_displacement": 0.8182613693203323,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              241.0431365966797,
+              80.96369934082031,
+              272.3740539550781,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.39386133430830017,
+              0.10222689310709636,
+              0.44505564371744794,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 28,
+            "token": "Source",
+            "width_abs_log_ratio": 0.004135019685185449
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              307.41680908203125,
+              774.4437866210938,
+              393.42578125,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.5164277229712514,
+              0.9198873935170437,
+              0.6609136988176453,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 178,
+            "center_displacement": 0.8182598744065053,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              316.3595275878906,
+              80.96369934082031,
+              413.9413757324219,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.516927332659952,
+              0.10222689310709636,
+              0.6763747969484017,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 31,
+            "token": "2512.03214_table_6",
+            "width_abs_log_ratio": 0.09853204058992213
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              272.45880126953125,
+              774.4437866210938,
+              294.2057800292969,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.4577019674469227,
+              0.9198873935170437,
+              0.49423459152803834,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 176,
+            "center_displacement": 0.8182414914031025,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              275.9958801269531,
+              80.96369934082031,
+              299.49407958984375,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.4509736603381587,
+              0.10222689310709636,
+              0.4893694110945159,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 29,
+            "token": "table",
+            "width_abs_log_ratio": 0.04974112426489121
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              296.955810546875,
+              774.4437866210938,
+              304.66680908203125,
+              786.9837646484375
+            ],
+            "candidate_bbox_normalized": [
+              0.4988543519195898,
+              0.9198873935170437,
+              0.5118080138460032,
+              0.9347824290271912
+            ],
+            "candidate_page": 1,
+            "candidate_word_index": 177,
+            "center_displacement": 0.818227106812688,
+            "height_abs_log_ratio": 0.07823646863387804,
+            "reference_bbox": [
+              303.10498046875,
+              80.96369934082031,
+              311.5377197265625,
+              91.872802734375
+            ],
+            "reference_bbox_normalized": [
+              0.4952695759293301,
+              0.10222689310709636,
+              0.50904856164471,
+              0.11600101355350378
+            ],
+            "reference_page": 1,
+            "reference_word_index": 30,
+            "token": "1:",
+            "width_abs_log_ratio": 0.06176613490339503
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              203.47299194335938,
+              231.32797241210938,
+              209.1929931640625,
+              242.32797241210938
+            ],
+            "candidate_bbox_normalized": [
+              0.3418131045899234,
+              0.2747722807851396,
+              0.3514221016210918,
+              0.287838124302118
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 226,
+            "center_displacement": 0.5037239753515047,
+            "height_abs_log_ratio": 0.6432414458066883,
+            "reference_bbox": [
+              126.26673889160156,
+              597.9747924804688,
+              136.5245819091797,
+              617.66357421875
+            ],
+            "reference_bbox_normalized": [
+              0.20631820080327054,
+              0.7550186773743293,
+              0.22307938220454196,
+              0.7798782502761995
+            ],
+            "reference_page": 2,
+            "reference_word_index": 236,
+            "token": "d",
+            "width_abs_log_ratio": 0.5563657315742441
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              156.7779998779297,
+              230.35997009277344,
+              200.72300720214844,
+              242.89996337890625
+            ],
+            "candidate_bbox_normalized": [
+              0.26337045697244793,
+              0.27362248380072907,
+              0.33719342109782685,
+              0.28851753743532654
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 225,
+            "center_displacement": 0.4635082386940805,
+            "height_abs_log_ratio": 0.5122137187965342,
+            "reference_bbox": [
+              90.32955932617188,
+              573.5459594726562,
+              172.43161010742188,
+              593.2347412109375
+            ],
+            "reference_bbox_normalized": [
+              0.14759731916041155,
+              0.7241741912533538,
+              0.28175099690755206,
+              0.7490337641552242
+            ],
+            "reference_page": 2,
+            "reference_word_index": 235,
+            "token": "Tolerance",
+            "width_abs_log_ratio": 0.5973161414668187
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              258.4519958496094,
+              230.22251892089844,
+              281.3320007324219,
+              242.76251220703125
+            ],
+            "candidate_bbox_normalized": [
+              0.4341720158781995,
+              0.2734592187550069,
+              0.47260800400287295,
+              0.2883542723896043
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 227,
+            "center_displacement": 0.45571674135343,
+            "height_abs_log_ratio": 0.5122137187965381,
+            "reference_bbox": [
+              252.60633850097656,
+              573.5459594726562,
+              297.1817321777344,
+              593.2347412109375
+            ],
+            "reference_bbox_normalized": [
+              0.41275545506695516,
+              0.7241741912533538,
+              0.4855910656498928,
+              0.7490337641552242
+            ],
+            "reference_page": 2,
+            "reference_word_index": 237,
+            "token": "0.025",
+            "width_abs_log_ratio": 0.6392107805123698
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              369.4375,
+              213.81503295898438,
+              381.6981201171875,
+              226.89181518554688
+            ],
+            "candidate_bbox_normalized": [
+              0.6206159236214106,
+              0.25397034201997143,
+              0.6412124685801643,
+              0.269502995681596
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 223,
+            "center_displacement": 0.44187049912980997,
+            "height_abs_log_ratio": 0.5692680544670039,
+            "reference_bbox": [
+              394.92425537109375,
+              545.4713745117188,
+              416.4415588378906,
+              567.2084350585938
+            ],
+            "reference_bbox_normalized": [
+              0.6453010708678002,
+              0.6887264829693418,
+              0.6804600634606056,
+              0.7161722664881234
+            ],
+            "reference_page": 2,
+            "reference_word_index": 233,
+            "token": "\u03b1\u03bb",
+            "width_abs_log_ratio": 0.5347570790446999
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              349.17547607421875,
+              212.84703063964844,
+              366.6874694824219,
+              225.38702392578125
+            ],
+            "candidate_bbox_normalized": [
+              0.5865778665938002,
+              0.2528205450355609,
+              0.6159961632298592,
+              0.2677155986701584
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 222,
+            "center_displacement": 0.4409572339553932,
+            "height_abs_log_ratio": 0.5122137187965342,
+            "reference_bbox": [
+              354.680419921875,
+              545.4957275390625,
+              388.4072570800781,
+              565.1845092773438
+            ],
+            "reference_bbox_normalized": [
+              0.5795431698069853,
+              0.6887572317412405,
+              0.6346523808498009,
+              0.7136168046431108
+            ],
+            "reference_page": 2,
+            "reference_word_index": 232,
+            "token": "rate",
+            "width_abs_log_ratio": 0.6277000564140576
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              160.5179901123047,
+              212.7095184326172,
+              186.114990234375,
+              225.24951171875
+            ],
+            "candidate_bbox_normalized": [
+              0.26965324497756843,
+              0.2526572074920386,
+              0.3126534977204438,
+              0.2675522611266361
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 218,
+            "center_displacement": 0.42387760397866725,
+            "height_abs_log_ratio": 0.5122137187965298,
+            "reference_bbox": [
+              87.69273376464844,
+              521.0425415039062,
+              137.97779846191406,
+              540.7313232421875
+            ],
+            "reference_bbox_normalized": [
+              0.14328878066119025,
+              0.6578819968483665,
+              0.22545391905541515,
+              0.6827415697502367
+            ],
+            "reference_page": 2,
+            "reference_word_index": 228,
+            "token": "Batch",
+            "width_abs_log_ratio": 0.6475251115594768
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              418.5986022949219,
+              212.7095184326172,
+              436.36358642578125,
+              225.24951171875
+            ],
+            "candidate_bbox_normalized": [
+              0.7032013755774508,
+              0.2526572074920386,
+              0.7330446698680764,
+              0.2675522611266361
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 224,
+            "center_displacement": 0.4190809419170567,
+            "height_abs_log_ratio": 0.5122137187965298,
+            "reference_bbox": [
+              474.59674072265625,
+              521.04248046875,
+              509.3867492675781,
+              540.7312622070312
+            ],
+            "reference_bbox_normalized": [
+              0.7754848704618567,
+              0.6578819197837753,
+              0.8323312896529055,
+              0.6827414926856455
+            ],
+            "reference_page": 2,
+            "reference_word_index": 234,
+            "token": "0.01",
+            "width_abs_log_ratio": 0.644393063526436
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              306.1764831542969,
+              212.84703063964844,
+              346.42547607421875,
+              225.38702392578125
+            ],
+            "candidate_bbox_normalized": [
+              0.5143441066052018,
+              0.2528205450355609,
+              0.581958157468552,
+              0.2677155986701584
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 221,
+            "center_displacement": 0.41826048942071153,
+            "height_abs_log_ratio": 0.5122137187965298,
+            "reference_bbox": [
+              348.3126220703125,
+              521.0425415039062,
+              423.6024475097656,
+              540.7313232421875
+            ],
+            "reference_bbox_normalized": [
+              0.5691382713567198,
+              0.6578819968483665,
+              0.6921608619440615,
+              0.6827415697502367
+            ],
+            "reference_page": 2,
+            "reference_word_index": 231,
+            "token": "Learning",
+            "width_abs_log_ratio": 0.598552187361484
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              188.864990234375,
+              212.7095184326172,
+              205.7169952392578,
+              225.24951171875
+            ],
+            "candidate_bbox_normalized": [
+              0.317273206845692,
+              0.2526572074920386,
+              0.34558279277288667,
+              0.2675522611266361
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 219,
+            "center_displacement": 0.41619216447979257,
+            "height_abs_log_ratio": 0.5122137187965298,
+            "reference_bbox": [
+              144.5144500732422,
+              521.0425415039062,
+              175.0713653564453,
+              540.7313232421875
+            ],
+            "reference_bbox_normalized": [
+              0.236134722341899,
+              0.6578819968483665,
+              0.2860643224778518,
+              0.6827415697502367
+            ],
+            "reference_page": 2,
+            "reference_word_index": 229,
+            "token": "size",
+            "width_abs_log_ratio": 0.5674135433503331
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              262.219482421875,
+              212.7095184326172,
+              277.5644836425781,
+              225.24951171875
+            ],
+            "candidate_bbox_normalized": [
+              0.440500994822616,
+              0.2526572074920386,
+              0.46627897379215305,
+              0.2675522611266361
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 220,
+            "center_displacement": 0.41022889916585337,
+            "height_abs_log_ratio": 0.5122137187965298,
+            "reference_bbox": [
+              260.20550537109375,
+              521.0425415039062,
+              289.5614318847656,
+              540.7313232421875
+            ],
+            "reference_bbox_normalized": [
+              0.425172394397212,
+              0.6578819968483665,
+              0.47313959458295035,
+              0.6827415697502367
+            ],
+            "reference_page": 2,
+            "reference_word_index": 230,
+            "token": "128",
+            "width_abs_log_ratio": 0.6209968487157534
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              161.60150146484375,
+              195.19651794433594,
+              204.6334991455078,
+              207.73651123046875
+            ],
+            "candidate_bbox_normalized": [
+              0.27147342944398106,
+              0.23185519622907044,
+              0.34376263393962575,
+              0.2467502498636679
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 213,
+            "center_displacement": 0.4063621656684246,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              90.27540588378906,
+              492.99237060546875,
+              172.49560546875,
+              512.6810913085938
+            ],
+            "reference_bbox_normalized": [
+              0.14750883314344618,
+              0.6224651144008444,
+              0.2818555644914216,
+              0.6473246102381234
+            ],
+            "reference_page": 2,
+            "reference_word_index": 223,
+            "token": "Iterations",
+            "width_abs_log_ratio": 0.6197492027837376
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              422.3660888671875,
+              195.19651794433594,
+              432.5960693359375,
+              207.73651123046875
+            ],
+            "candidate_bbox_normalized": [
+              0.7095303545218674,
+              0.23185519622907044,
+              0.7267156396573565,
+              0.2467502498636679
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 217,
+            "center_displacement": 0.40475697475238204,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              482.1207275390625,
+              492.99237060546875,
+              501.6913146972656,
+              512.6810913085938
+            ],
+            "reference_bbox_normalized": [
+              0.7877789665670956,
+              0.6224651144008444,
+              0.8197570501589307,
+              0.6473246102381234
+            ],
+            "reference_page": 2,
+            "reference_word_index": 227,
+            "token": "10",
+            "width_abs_log_ratio": 0.6209972781230825
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              361.0148010253906,
+              196.30197143554688,
+              369.1328125,
+              207.30197143554688
+            ],
+            "candidate_bbox_normalized": [
+              0.6064666802351483,
+              0.23316825825920312,
+              0.620104080849011,
+              0.2462341017761816
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 216,
+            "center_displacement": 0.4037786956059281,
+            "height_abs_log_ratio": 0.6432383458052874,
+            "reference_bbox": [
+              418.8411865234375,
+              492.968017578125,
+              433.3714904785156,
+              512.65673828125
+            ],
+            "reference_bbox_normalized": [
+              0.684381023731107,
+              0.6224343656289457,
+              0.7081233504550909,
+              0.6472938614662247
+            ],
+            "reference_page": 2,
+            "reference_word_index": 226,
+            "token": "E",
+            "width_abs_log_ratio": 0.5544433295481956
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              318.7637939453125,
+              195.33396911621094,
+              358.2648010253906,
+              207.87396240234375
+            ],
+            "candidate_bbox_normalized": [
+              0.5354894573410527,
+              0.23201846127479261,
+              0.6018469711099,
+              0.24691351490939006
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 215,
+            "center_displacement": 0.39785015599652973,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              337.36920166015625,
+              492.99237060546875,
+              412.3241882324219,
+              512.6810913085938
+            ],
+            "reference_bbox_normalized": [
+              0.5512568654577716,
+              0.6224651144008444,
+              0.6737323337131076,
+              0.6473246102381234
+            ],
+            "reference_page": 2,
+            "reference_word_index": 225,
+            "token": "Episodes",
+            "width_abs_log_ratio": 0.6128537519797609
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              255.89450073242188,
+              195.19651794433594,
+              283.8894958496094,
+              207.73651123046875
+            ],
+            "candidate_bbox_normalized": [
+              0.4298756945943272,
+              0.23185519622907044,
+              0.47690432528674526,
+              0.2467502498636679
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 214,
+            "center_displacement": 0.39561508159061304,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              247.68690490722656,
+              492.99237060546875,
+              302.0475769042969,
+              512.6810913085938
+            ],
+            "reference_bbox_normalized": [
+              0.40471716488108916,
+              0.6224651144008444,
+              0.49354179232728246,
+              0.6473246102381234
+            ],
+            "reference_page": 2,
+            "reference_word_index": 224,
+            "token": "20,000",
+            "width_abs_log_ratio": 0.6359073677396999
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              147.88449096679688,
+              177.6835174560547,
+              169.19149780273438,
+              190.2235107421875
+            ],
+            "candidate_bbox_normalized": [
+              0.2484303026916347,
+              0.2110531849661022,
+              0.28422382047770967,
+              0.22594823860069965
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 207,
+            "center_displacement": 0.39280230160314555,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              82.78909301757812,
+              464.9440002441406,
+              126.12401580810547,
+              484.6327209472656
+            ],
+            "reference_bbox_normalized": [
+              0.1352762957803564,
+              0.5870505053587635,
+              0.20608499315049914,
+              0.6119100011960424
+            ],
+            "reference_page": 2,
+            "reference_word_index": 217,
+            "token": "GAE",
+            "width_abs_log_ratio": 0.6822150277821024
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              421.1560974121094,
+              177.6835174560547,
+              433.80609130859375,
+              190.2235107421875
+            ],
+            "candidate_bbox_normalized": [
+              0.7074976968613231,
+              0.2110531849661022,
+              0.7287483485842041,
+              0.22594823860069965
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 212,
+            "center_displacement": 0.3904929415430673,
+            "height_abs_log_ratio": 0.5122106187951351,
+            "reference_bbox": [
+              479.41888427734375,
+              464.9440002441406,
+              504.4236145019531,
+              484.6327209472656
+            ],
+            "reference_bbox_normalized": [
+              0.7833641899956597,
+              0.5870505053587635,
+              0.8242215923234528,
+              0.6119100011960424
+            ],
+            "reference_page": 2,
+            "reference_word_index": 222,
+            "token": "0.2",
+            "width_abs_log_ratio": 0.6537004482124463
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              352.40728759765625,
+              178.78903198242188,
+              357.5332946777344,
+              189.78903198242188
+            ],
+            "candidate_bbox_normalized": [
+              0.592006968115948,
+              0.21236631949403495,
+              0.6006181178191929,
+              0.22543216301101343
+            ],
+            "candidate_page": 2,
+            "candidate_word_index": 211,
+            "center_displacement": 0.3867464153466779,
+            "height_abs_log_ratio": 0.6432383458052874,
+            "reference_bbox": [
+              402.55401611328125,
+              464.9196472167969,
+              411.7289733886719,
+              484.6083679199219
+            ],
+            "reference_bbox_normalized": [
+              0.6577680001851001,
+              0.5870197565868648,
+              0.6727597604390063,
+              0.6118792524241438
+            ],
+            "reference_page": 2,
+            "reference_word_index": 221,
+            "token": "\u03b5",
+            "width_abs_log_ratio": 0.5544428930862341
+          }
+        ]
+      },
+      "interpretation": "Token boxes are normalized by each page's own canvas; canvas mismatch remains a separate axis.",
+      "metrics": {
+        "bbox_iou_q10": 0.0,
+        "bbox_iou_q50": 0.0,
+        "candidate_match_coverage": 0.9871794871794872,
+        "center_displacement_max": 0.8183512243583212,
+        "center_displacement_q50": 0.07549278690887079,
+        "center_displacement_q90": 0.3867464153466779,
+        "height_abs_log_ratio_q90": 0.5122107853915778,
+        "matched_token_count": 231,
+        "reference_match_coverage": 0.9665271966527197,
+        "width_abs_log_ratio_q90": 0.6261631592509357
+      },
+      "status": "scored"
+    },
+    "layout_relations": {
+      "applicable": true,
+      "evidence": {
+        "relation_mismatches": [
+          {
+            "candidate_block_pair": [
+              13,
+              0
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              1
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Source-backed grouped table sample"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              31
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              0,
+              2
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Moderate Tables",
+              "1 Tables"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              1
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              3
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              14
+            ],
+            "candidate_relation": "right_of",
+            "reference_block_pair": [
+              0,
+              6
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate siz"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              44
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              14
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              47
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              15
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Reward critic \\ 128,128 1e-3"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              48
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              16
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Cost critic \\ 128,128 1e-3"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              49
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              17
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Parameters Value Parameters Value"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              51
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              18
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              10
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              0,
+              19
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "0.01"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              53
+            ],
+            "candidate_relation": "left_of",
+            "reference_block_pair": [
+              0,
+              20
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Moderate Tables",
+              "Tolerance d 0.025"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              31
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              1,
+              2
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Source-backed grouped table sample",
+              "1 Tables"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              54
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              1,
+              5
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Source-backed grouped table sample",
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              44
+            ],
+            "candidate_relation": "right_of",
+            "reference_block_pair": [
+              1,
+              14
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Source-backed grouped table sample",
+              "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              1
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              3
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              54
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              5
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              14
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              6
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate siz"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              19
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              7
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              21
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              8
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "1 Tables",
+              "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              37
+            ],
+            "candidate_relation": "left_of",
+            "reference_block_pair": [
+              2,
+              10
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "1 Tables",
+              "Training Environment Transformers 4.50.3 PyTorch 2.6.0+cu124 Datasets 3.5.0 Tokenizers 0.21.1 Hardware 1x NVIDIA A100 40"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              16
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              12
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "1 Tables",
+              "HF model pgarco/CausalPalUkr_token"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              44
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              14
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              47
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              15
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Reward critic \\ 128,128 1e-3"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              48
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              2,
+              16
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "1 Tables",
+              "Cost critic \\ 128,128 1e-3"
+            ]
+          }
+        ],
+        "worst_block_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.4017131147919178,
+              0.6718374030940031,
+              0.74994650361248,
+              0.6867324386041506
+            ],
+            "candidate_block_index": 31,
+            "candidate_page": 1,
+            "center_displacement": 0.5876791234631827,
+            "reference_bbox_normalized": [
+              0.11764705882352941,
+              0.24231710337629223,
+              0.22838475345786102,
+              0.26043100068063446
+            ],
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "1 Tables"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.19278970203511844,
+              0.36792227539855304,
+              0.8125158476960155,
+              0.3829871732542276
+            ],
+            "candidate_block_index": 16,
+            "candidate_page": 1,
+            "center_displacement": 0.5554050231415784,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.903311758330374,
+              0.578763425739762,
+              0.9174447107796717
+            ],
+            "reference_block_index": 12,
+            "reference_page": 1,
+            "reference_text": "HF model pgarco/CausalPalUkr_token"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.26337045697244793,
+              0.2734592187550069,
+              0.47260800400287295,
+              0.28851753743532654
+            ],
+            "candidate_block_index": 53,
+            "candidate_page": 2,
+            "center_displacement": 0.47383340866420826,
+            "reference_bbox_normalized": [
+              0.14759731916041155,
+              0.7241741912533538,
+              0.4855910656498928,
+              0.7798782502761995
+            ],
+            "reference_block_index": 20,
+            "reference_page": 2,
+            "reference_text": "Tolerance d 0.025"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.4094372549150287,
+              0.2520104546177546,
+              0.7279011729217538,
+              0.2669055082523521
+            ],
+            "candidate_block_index": 10,
+            "candidate_page": 1,
+            "center_displacement": 0.47343226265655974,
+            "reference_bbox_normalized": [
+              0.7754848704618567,
+              0.6578819197837753,
+              0.8323312896529055,
+              0.6827414926856455
+            ],
+            "reference_block_index": 19,
+            "reference_page": 2,
+            "reference_text": "0.01"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.27147342944398106,
+              0.23185519622907044,
+              0.7267156396573565,
+              0.24691351490939006
+            ],
+            "candidate_block_index": 51,
+            "candidate_page": 2,
+            "center_displacement": 0.4126653622341524,
+            "reference_bbox_normalized": [
+              0.1352762957803564,
+              0.5870197565868648,
+              0.8242215923234528,
+              0.7161722664881234
+            ],
+            "reference_block_index": 18,
+            "reference_page": 2,
+            "reference_text": "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.2600350200118015,
+              0.19041443874885616,
+              0.7417574806508155,
+              0.2053094923834536
+            ],
+            "candidate_block_index": 49,
+            "candidate_page": 2,
+            "center_displacement": 0.36085573245354113,
+            "reference_bbox_normalized": [
+              0.1352762957803564,
+              0.5461787984828756,
+              0.8487679475273182,
+              0.5710383328524503
+            ],
+            "reference_block_index": 17,
+            "reference_page": 2,
+            "reference_text": "Parameters Value Parameters Value"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.2688863779792771,
+              0.17010896491845956,
+              0.7339685911866047,
+              0.185004018553057
+            ],
+            "candidate_block_index": 48,
+            "candidate_page": 2,
+            "center_displacement": 0.3165828226711059,
+            "reference_bbox_normalized": [
+              0.1417258019540824,
+              0.48138077090484926,
+              0.8322796291775174,
+              0.5062402667421283
+            ],
+            "reference_block_index": 16,
+            "reference_page": 2,
+            "reference_text": "Cost critic \\ 128,128 1e-3"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.25738329610545274,
+              0.1496336287425358,
+              0.7339685911866047,
+              0.16452868237713328
+            ],
+            "candidate_block_index": 47,
+            "candidate_page": 2,
+            "center_displacement": 0.2858776633621041,
+            "reference_bbox_normalized": [
+              0.16160219479230495,
+              0.4150885764998619,
+              0.8322975806940615,
+              0.47082338429460624
+            ],
+            "reference_block_index": 15,
+            "reference_page": 2,
+            "reference_text": "Reward critic \\ 128,128 1e-3"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.2671955640293059,
+              0.08820747521916447,
+              0.7771998755254155,
+              0.10310253791598693
+            ],
+            "candidate_block_index": 44,
+            "candidate_page": 2,
+            "center_displacement": 0.21508330543697718,
+            "reference_bbox_normalized": [
+              0.1352763207130183,
+              0.22215866320060962,
+              0.8948902803308824,
+              0.3990825691608467
+            ],
+            "reference_block_index": 14,
+            "reference_page": 2,
+            "reference_text": "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termination condition 64,64 \\ 3e-4"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.3390863011823548,
+              0.29665169997916413,
+              0.6609136988176453,
+              0.3115467536137616
+            ],
+            "candidate_block_index": 54,
+            "candidate_page": 2,
+            "center_displacement": 0.21077470507456572,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.10222689310709636,
+              0.6763747969484017,
+              0.13273663954301315
+            ],
+            "reference_block_index": 5,
+            "reference_page": 1,
+            "reference_text": "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.37677592883006705,
+              0.31005134149204244,
+              0.7215721427110339,
+              0.32494637700218987
+            ],
+            "candidate_block_index": 13,
+            "candidate_page": 1,
+            "center_displacement": 0.17099193467762783,
+            "reference_bbox_normalized": [
+              0.4033970552332261,
+              0.14285088548756608,
+              0.5966766457152523,
+              0.1645875025277186
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Moderate Tables"
+          },
+          {
+            "bbox_iou": 0.09185882974860687,
+            "candidate_bbox_normalized": [
+              0.3645798803341948,
+              0.7332634841195744,
+              0.7361519717789253,
+              0.7481585196297218
+            ],
+            "candidate_block_index": 34,
+            "candidate_page": 1,
+            "center_displacement": 0.16884998497460996,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.6714421281910906,
+              0.6397443285175398,
+              0.7557698259449969
+            ],
+            "reference_block_index": 9,
+            "reference_page": 1,
+            "reference_text": "Reproducibility Seed 42 Data seed None Dataloader drop last False Dataloader workers 0 FP16 full eval False"
+          },
+          {
+            "bbox_iou": 0.04290640551205174,
+            "candidate_bbox_normalized": [
+              0.3854055344025092,
+              0.3305266776679662,
+              0.8648368014133094,
+              0.3454217131781136
+            ],
+            "candidate_block_index": 14,
+            "candidate_page": 1,
+            "center_displacement": 0.15641250647054597,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.14124078461618134,
+              0.8591668621387357,
+              0.36596078583688446
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate size 3072 Hidden layers 12 Attention heads "
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.13421696249877296,
+              0.8720436132695649,
+              0.18927123906425058
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "center_displacement": 0.13019265430578156,
+            "reference_bbox_normalized": [
+              0.11764705882352941,
+              0.2764515924935389,
+              0.8821039137497447,
+              0.30733428338561397
+            ],
+            "reference_block_index": 3,
+            "reference_page": 0,
+            "reference_text": "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+          },
+          {
+            "bbox_iou": 0.11188410135972138,
+            "candidate_bbox_normalized": [
+              0.38848225596342456,
+              0.42951821876965146,
+              0.8562736882362803,
+              0.44441329052869893
+            ],
+            "candidate_block_index": 19,
+            "candidate_page": 1,
+            "center_displacement": 0.12679419911835974,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.37647019973909013,
+              0.8661646624795751,
+              0.4607992846556384
+            ],
+            "reference_block_index": 7,
+            "reference_page": 1,
+            "reference_text": "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessing Lowercase, truncate/ pad to 512, first"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.3620924649300036,
+              0.08064181323667734,
+              0.6379075863362997,
+              0.11846743166828602
+            ],
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "center_displacement": 0.09418149857169134,
+            "reference_bbox_normalized": [
+              0.3480261509714563,
+              0.1861886303834241,
+              0.6520829044915493,
+              0.20128358012498027
+            ],
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "Source-backed grouped table sample"
+          },
+          {
+            "bbox_iou": 0.049273463393518686,
+            "candidate_bbox_normalized": [
+              0.16835143973722944,
+              0.4669138889980384,
+              0.8079515061783585,
+              0.4819787506048129
+            ],
+            "candidate_block_index": 21,
+            "candidate_page": 1,
+            "center_displacement": 0.09171517410146342,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.4713100857204861,
+              0.8431672738268484,
+              0.6609313656585385
+            ],
+            "reference_block_index": 8,
+            "reference_page": 1,
+            "reference_text": "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 Betas (0.9, 0.999) Epsilon 1e-8 Batch si"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1785425143763531,
+              0.8968965286748374,
+              0.798545780039875,
+              0.9119614265305119
+            ],
+            "candidate_block_index": 42,
+            "candidate_page": 1,
+            "center_displacement": 0.04980409404141247,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.8611192799577809,
+              0.7663331374623417,
+              0.8928009187332308
+            ],
+            "reference_block_index": 11,
+            "reference_page": 1,
+            "reference_text": "Evaluation Metrics Token-level Precision Validation freq after each epoch"
+          },
+          {
+            "bbox_iou": 0.16435789384066807,
+            "candidate_bbox_normalized": [
+              0.12935185550694941,
+              0.7945197027996186,
+              0.7385264731500426,
+              0.8095846006552931
+            ],
+            "candidate_block_index": 37,
+            "candidate_page": 1,
+            "center_displacement": 0.025601769905419465,
+            "reference_bbox_normalized": [
+              0.1276670468398948,
+              0.7662806655421401,
+              0.7897927278007557,
+              0.8506096733940972
+            ],
+            "reference_block_index": 10,
+            "reference_page": 1,
+            "reference_text": "Training Environment Transformers 4.50.3 PyTorch 2.6.0+cu124 Datasets 3.5.0 Tokenizers 0.21.1 Hardware 1x NVIDIA A100 40GB"
+          }
+        ]
+      },
+      "interpretation": "Transparent matched-block relation trial inspired by pairwise-layout work; this is not the published PaIRS or LTSim metric.",
+      "metrics": {
+        "candidate_block_coverage": 0.34545454545454546,
+        "matched_block_center_displacement_q90": 0.4901477315596822,
+        "matched_block_count": 19,
+        "matched_block_iou_q10": 0.0,
+        "matched_block_iou_q50": 0.0,
+        "pairwise_relation_agreement": 0.5321637426900585,
+        "pairwise_relation_count": 171,
+        "reference_block_coverage": 0.8636363636363636
+      },
+      "status": "scored"
+    },
+    "pagination": {
+      "applicable": true,
+      "evidence": {
+        "mismatched_page_breaks": [
+          {
+            "candidate_block_pair": [
+              13,
+              0
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              1,
+              0
+            ],
+            "reference_block_pair": [
+              0,
+              1
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              0,
+              0
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              31
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              0,
+              1
+            ],
+            "reference_block_pair": [
+              1,
+              2
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              0,
+              0
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              1
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              1,
+              0
+            ],
+            "reference_block_pair": [
+              2,
+              3
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              0,
+              0
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              14
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              2,
+              1
+            ],
+            "reference_block_pair": [
+              5,
+              6
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              1,
+              1
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              51,
+              10
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              2,
+              1
+            ],
+            "reference_block_pair": [
+              18,
+              19
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              10,
+              53
+            ],
+            "candidate_page_break": true,
+            "candidate_pages": [
+              1,
+              2
+            ],
+            "reference_block_pair": [
+              19,
+              20
+            ],
+            "reference_page_break": false,
+            "reference_pages": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      "interpretation": "Page count, matched-block page assignment, and page-break boundaries are reported independently.",
+      "metrics": {
+        "candidate_page_count": 3,
+        "matched_block_count": 19,
+        "matched_block_page_assignment_accuracy": 0.7894736842105263,
+        "page_break_f1": 0.4,
+        "page_break_false_negative": 0,
+        "page_break_false_positive": 6,
+        "page_break_precision": 0.25,
+        "page_break_recall": 1.0,
+        "page_break_true_positive": 2,
+        "page_count_delta": 0,
+        "reference_page_count": 3
+      },
+      "status": "scored"
+    },
+    "raster_ink": {
+      "applicable": true,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_raster_size_before_resize": [
+              794,
+              1123
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 0,
+            "reference_raster_size": [
+              816,
+              1056
+            ],
+            "registered": {
+              "candidate_ink_pixels": 7331,
+              "f1": 0.5358318922276506,
+              "precision": 0.5243486563906697,
+              "recall": 0.5478293553843262,
+              "reference_ink_pixels": 5321,
+              "unmatched_ink_fraction_of_union": 0.5718028333009897,
+              "unmatched_ink_pixels": 5893
+            },
+            "registered_mean_absolute_gray_difference": 0.0046826076873114075,
+            "registration_translation_px": [
+              0,
+              124
+            ],
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.11887254901960784,
+                0.14488636363636365,
+                0.8823529411764706,
+                0.946969696969697
+              ],
+              "pixel_bbox": [
+                97,
+                153,
+                720,
+                1000
+              ]
+            },
+            "unregistered": {
+              "candidate_ink_pixels": 7331,
+              "f1": 0.013315810239443936,
+              "precision": 0.01132178420406493,
+              "recall": 0.016162375493328322,
+              "reference_ink_pixels": 5321,
+              "unmatched_ink_fraction_of_union": 0.9870324978255712,
+              "unmatched_ink_pixels": 12483
+            }
+          },
+          {
+            "candidate_raster_size_before_resize": [
+              794,
+              1123
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 1,
+            "reference_raster_size": [
+              816,
+              1056
+            ],
+            "registered": {
+              "candidate_ink_pixels": 53306,
+              "f1": 0.3311044636401067,
+              "precision": 0.3391738265861254,
+              "recall": 0.3234101382488479,
+              "reference_ink_pixels": 43400,
+              "unmatched_ink_fraction_of_union": 0.7148944647976181,
+              "unmatched_ink_pixels": 64590
+            },
+            "registered_mean_absolute_gray_difference": 0.04203514200540584,
+            "registration_translation_px": [
+              0,
+              0
+            ],
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.11764705882352941,
+                0.08996212121212122,
+                0.8811274509803921,
+                0.946969696969697
+              ],
+              "pixel_bbox": [
+                96,
+                95,
+                719,
+                1000
+              ]
+            },
+            "unregistered": {
+              "candidate_ink_pixels": 53306,
+              "f1": 0.3311044636401067,
+              "precision": 0.3391738265861254,
+              "recall": 0.3234101382488479,
+              "reference_ink_pixels": 43400,
+              "unmatched_ink_fraction_of_union": 0.7148944647976181,
+              "unmatched_ink_pixels": 64590
+            }
+          },
+          {
+            "candidate_raster_size_before_resize": [
+              794,
+              1123
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 2,
+            "reference_raster_size": [
+              816,
+              1056
+            ],
+            "registered": {
+              "candidate_ink_pixels": 19747,
+              "f1": 0.06766254852060358,
+              "precision": 0.10310426900288651,
+              "recall": 0.05035365967656498,
+              "reference_ink_pixels": 32093,
+              "unmatched_ink_fraction_of_union": 0.9427554094768557,
+              "unmatched_ink_pixels": 48188
+            },
+            "registered_mean_absolute_gray_difference": 0.029654159457900807,
+            "registration_translation_px": [
+              0,
+              0
+            ],
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.11764705882352941,
+                0.08428030303030302,
+                0.8946078431372549,
+                0.9479166666666666
+              ],
+              "pixel_bbox": [
+                96,
+                89,
+                730,
+                1001
+              ]
+            },
+            "unregistered": {
+              "candidate_ink_pixels": 19747,
+              "f1": 0.06766254852060358,
+              "precision": 0.10310426900288651,
+              "recall": 0.05035365967656498,
+              "reference_ink_pixels": 32093,
+              "unmatched_ink_fraction_of_union": 0.9427554094768557,
+              "unmatched_ink_pixels": 48188
+            }
+          }
+        ],
+        "top_difference_bbox": {
+          "coordinate_frame": "registered_reference_raster",
+          "normalized_bbox": [
+            0.11764705882352941,
+            0.08428030303030302,
+            0.8946078431372549,
+            0.9479166666666666
+          ],
+          "page": 2,
+          "pixel_bbox": [
+            96,
+            89,
+            730,
+            1001
+          ],
+          "registration_translation_px": [
+            0,
+            0
+          ],
+          "unpaired_side": null
+        }
+      },
+      "interpretation": "Candidate pages are resized to the reference canvas, then optionally translation-registered. Use canvas and geometry axes for layout claims.",
+      "metrics": {
+        "paired_page_count": 3,
+        "registered_tolerant_ink_f1_macro": 0.31153296812945364,
+        "registration_gain": 0.1741720273294022,
+        "unpaired_page_count": 0,
+        "unregistered_tolerant_ink_f1_macro": 0.13736094080005143
+      },
+      "status": "scored"
+    },
+    "raster_perceptual": {
+      "applicable": null,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "page": 0,
+            "reason": "Ordinary same-grid SSIM is invalid when physical page canvases differ.",
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "status": "abstain_canvas_mismatch"
+          },
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "page": 1,
+            "reason": "Ordinary same-grid SSIM is invalid when physical page canvases differ.",
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "status": "abstain_canvas_mismatch"
+          },
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "page": 2,
+            "reason": "Ordinary same-grid SSIM is invalid when physical page canvases differ.",
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "status": "abstain_canvas_mismatch"
+          }
+        ]
+      },
+      "interpretation": "SSIM is reported before and after translation-only registration. The multiscale value is the documented geometric mean of four SSIM scales, not canonical MS-SSIM. No candidate resizing is performed; SSIM abstains when physical canvases/grids differ.",
+      "metrics": {
+        "abstained_page_count": 3,
+        "paired_page_count": 3,
+        "registered_multiscale_ssim_diagnostic_macro": null,
+        "registered_ssim_macro": null,
+        "scored_page_count": 0,
+        "unpaired_page_count": 0,
+        "unregistered_multiscale_ssim_diagnostic_macro": null,
+        "unregistered_ssim_macro": null
+      },
+      "status": "abstain"
+    },
+    "reading_order": {
+      "applicable": true,
+      "evidence": {
+        "inverted_block_pairs": [
+          {
+            "candidate_block_pair": [
+              13,
+              0
+            ],
+            "candidate_text": [
+              "Number of labels 5",
+              "Moderate Tables Source-backed grouped table sample"
+            ],
+            "reference_block_pair": [
+              0,
+              1
+            ],
+            "reference_text": [
+              "Moderate Tables",
+              "Source-backed grouped table sample"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              1
+            ],
+            "candidate_text": [
+              "Number of labels 5",
+              "Tables These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ],
+            "reference_block_pair": [
+              0,
+              3
+            ],
+            "reference_text": [
+              "Moderate Tables",
+              "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              10
+            ],
+            "candidate_text": [
+              "Number of labels 5",
+              "Dropout 0.1"
+            ],
+            "reference_block_pair": [
+              0,
+              19
+            ],
+            "reference_text": [
+              "Moderate Tables",
+              "0.01"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              1
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Tables These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ],
+            "reference_block_pair": [
+              2,
+              3
+            ],
+            "reference_text": [
+              "1 Tables",
+              "These tables are grouped from source-backed LaTeX table data and compiled as a single benchmark data point."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              14
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Label mapping \u201cO\u201d: 0, \u201cB-C\u201d: 1, \u201cI-C\u201d: 2, \u201cB-E\u201d: 3, \u201cI-E\u201d:"
+            ],
+            "reference_block_pair": [
+              2,
+              6
+            ],
+            "reference_text": [
+              "1 Tables",
+              "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate siz"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              19
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Preprocessing Lowercase, truncate/ pad to 512, first"
+            ],
+            "reference_block_pair": [
+              2,
+              7
+            ],
+            "reference_text": [
+              "1 Tables",
+              "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              21
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Optimization Optimizer AdamW (adamw_torch)"
+            ],
+            "reference_block_pair": [
+              2,
+              8
+            ],
+            "reference_text": [
+              "1 Tables",
+              "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              16
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Dataset Name/source CausalPalUkr_Train_Test"
+            ],
+            "reference_block_pair": [
+              2,
+              12
+            ],
+            "reference_text": [
+              "1 Tables",
+              "HF model pgarco/CausalPalUkr_token"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              31,
+              10
+            ],
+            "candidate_text": [
+              "FP16/BF16 Disabled",
+              "Dropout 0.1"
+            ],
+            "reference_block_pair": [
+              2,
+              19
+            ],
+            "reference_text": [
+              "1 Tables",
+              "0.01"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              14
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Label mapping \u201cO\u201d: 0, \u201cB-C\u201d: 1, \u201cI-C\u201d: 2, \u201cB-E\u201d: 3, \u201cI-E\u201d:"
+            ],
+            "reference_block_pair": [
+              5,
+              6
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate siz"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              19
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Preprocessing Lowercase, truncate/ pad to 512, first"
+            ],
+            "reference_block_pair": [
+              5,
+              7
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Dataset Name/source CausalPalUkr_Train_Test Task type Token Classification / NER Train/val/test split 75-15 Preprocessin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              21
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Optimization Optimizer AdamW (adamw_torch)"
+            ],
+            "reference_block_pair": [
+              5,
+              8
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Optimization Optimizer AdamW (adamw_torch) Learning rate 7e-5 Scheduler Linear decay, 36 warmup steps Weight decay 0.01 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              34
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Dataloader drop last False"
+            ],
+            "reference_block_pair": [
+              5,
+              9
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Reproducibility Seed 42 Data seed None Dataloader drop last False Dataloader workers 0 FP16 full eval False"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              37
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Training Environment Transformers 4.50.3"
+            ],
+            "reference_block_pair": [
+              5,
+              10
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Training Environment Transformers 4.50.3 PyTorch 2.6.0+cu124 Datasets 3.5.0 Tokenizers 0.21.1 Hardware 1x NVIDIA A100 40"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              42
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Evaluation Metrics Token-level Precision"
+            ],
+            "reference_block_pair": [
+              5,
+              11
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Evaluation Metrics Token-level Precision Validation freq after each epoch"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              16
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Dataset Name/source CausalPalUkr_Train_Test"
+            ],
+            "reference_block_pair": [
+              5,
+              12
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "HF model pgarco/CausalPalUkr_token"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              44
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Networks High-level Low-level Learning Rate"
+            ],
+            "reference_block_pair": [
+              5,
+              14
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Table 2: Source table 2: 2512.03059_table_4 Networks High- level Low-level Learning Rate Actor 128,128 64,64 3e-4 Termin"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              47
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Reward critic \\ 128,128 1e-3"
+            ],
+            "reference_block_pair": [
+              5,
+              15
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Reward critic \\ 128,128 1e-3"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              48
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Cost critic \\ 128,128 1e-3"
+            ],
+            "reference_block_pair": [
+              5,
+              16
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Cost critic \\ 128,128 1e-3"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              49
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Parameters Value Parameters Value"
+            ],
+            "reference_block_pair": [
+              5,
+              17
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Parameters Value Parameters Value"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              51
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Iterations 20,000 Episodes \ud835\udc38 10"
+            ],
+            "reference_block_pair": [
+              5,
+              18
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "GAE coefficient 0.95 Clip \u03b5 0.2 Iterations 20,000 Episodes E 10 Batch size 128 Learning rate \u03b1\u03bb"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              10
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Dropout 0.1"
+            ],
+            "reference_block_pair": [
+              5,
+              19
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "0.01"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              54,
+              53
+            ],
+            "candidate_text": [
+              "Table 2: Source table 2: 2512.03059_table_4",
+              "Tolerance \ud835\udc51 0.025"
+            ],
+            "reference_block_pair": [
+              5,
+              20
+            ],
+            "reference_text": [
+              "Table 1: Source table 1: 2512.03214_table_6 Category Parameter Value",
+              "Tolerance d 0.025"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              14,
+              10
+            ],
+            "candidate_text": [
+              "Label mapping \u201cO\u201d: 0, \u201cB-C\u201d: 1, \u201cI-C\u201d: 2, \u201cB-E\u201d: 3, \u201cI-E\u201d:",
+              "Dropout 0.1"
+            ],
+            "reference_block_pair": [
+              6,
+              19
+            ],
+            "reference_text": [
+              "Model Architecture Base model bert-base-uncased Architecture BertForTokenClassification Hidden size 768 Intermediate siz",
+              "0.01"
+            ]
+          }
+        ]
+      },
+      "interpretation": "Kendall tau is computed only on content-matched blocks; coverage must accompany it.",
+      "metrics": {
+        "candidate_block_coverage": 0.34545454545454546,
+        "inversion_count": 40,
+        "kendall_tau": 0.5321637426900585,
+        "matched_block_count": 19,
+        "reference_block_coverage": 0.8636363636363636
+      },
+      "status": "scored"
+    },
+    "tables": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for tables was not established by source metadata.",
+      "status": "abstain"
+    },
+    "text_grounding": {
+      "applicable": true,
+      "evidence": {
+        "match_policy": "exact Unicode-NFKC word text with deterministic page/position assignment for repeats"
+      },
+      "interpretation": "Digital-PDF exact-word grounding adaptation; it is not the published CLEval algorithm. Split/merge values remain null until a validated implementation exists.",
+      "metrics": {
+        "candidate_word_count": 234,
+        "exact_matched_word_count": 231,
+        "merge_count": null,
+        "reference_word_count": 239,
+        "split_count": null,
+        "word_hmean": 0.9767441860465118,
+        "word_precision": 0.9871794871794872,
+        "word_recall": 0.9665271966527197
+      },
+      "status": "scored"
+    },
+    "text_ltsim": {
+      "applicable": true,
+      "evidence": {
+        "equations": "uniform mass; delta_bbox=(1+GIoU)/2; delta_label=1 for text; mu=1-(delta_bbox+delta_label)/2; Text-LTSim=exp(-EMD), sigma=1",
+        "pages": [
+          {
+            "candidate_block_count": 2,
+            "emd": 0.3724773934527148,
+            "largest_cost_contributions": [
+              {
+                "candidate_bbox_normalized": [
+                  0.3620924649300036,
+                  0.08064181323667734,
+                  0.6379075863362997,
+                  0.11846743166828602
+                ],
+                "candidate_block_index": 0,
+                "cost": 0.48899347481344,
+                "mass": 0.2,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803161004577,
+                  0.5044277914209303,
+                  0.949854455813013
+                ],
+                "reference_block_index": 4
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.3620924649300036,
+                  0.08064181323667734,
+                  0.6379075863362997,
+                  0.11846743166828602
+                ],
+                "candidate_block_index": 0,
+                "cost": 0.4508914776986175,
+                "mass": 0.2,
+                "reference_bbox_normalized": [
+                  0.11764705882352941,
+                  0.2764515924935389,
+                  0.8821039137497447,
+                  0.30733428338561397
+                ],
+                "reference_block_index": 3
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.1209523843701345,
+                  0.13421696249877296,
+                  0.8720436132695649,
+                  0.18927123906425058
+                ],
+                "candidate_block_index": 1,
+                "cost": 0.2714439760530285,
+                "mass": 0.2,
+                "reference_bbox_normalized": [
+                  0.3480261509714563,
+                  0.1861886303834241,
+                  0.6520829044915493,
+                  0.20128358012498027
+                ],
+                "reference_block_index": 1
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.3620924649300036,
+                  0.08064181323667734,
+                  0.6379075863362997,
+                  0.11846743166828602
+                ],
+                "candidate_block_index": 0,
+                "cost": 0.46675449328975094,
+                "mass": 0.09999999999999998,
+                "reference_bbox_normalized": [
+                  0.11764705882352941,
+                  0.24231710337629223,
+                  0.22838475345786102,
+                  0.26043100068063446
+                ],
+                "reference_block_index": 2
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.1209523843701345,
+                  0.13421696249877296,
+                  0.8720436132695649,
+                  0.18927123906425058
+                ],
+                "candidate_block_index": 1,
+                "cost": 0.22459997121562958,
+                "mass": 0.2,
+                "reference_bbox_normalized": [
+                  0.4033970552332261,
+                  0.14285088548756608,
+                  0.5966766457152523,
+                  0.1645875025277186
+                ],
+                "reference_block_index": 0
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.1209523843701345,
+                  0.13421696249877296,
+                  0.8720436132695649,
+                  0.18927123906425058
+                ],
+                "candidate_block_index": 1,
+                "cost": 0.3861616416759657,
+                "mass": 0.10000000000000003,
+                "reference_bbox_normalized": [
+                  0.11764705882352941,
+                  0.24231710337629223,
+                  0.22838475345786102,
+                  0.26043100068063446
+                ],
+                "reference_block_index": 2
+              }
+            ],
+            "page": 0,
+            "reference_block_count": 5,
+            "status": "scored",
+            "text_ltsim": 0.6890252278632114
+          },
+          {
+            "candidate_block_count": 42,
+            "emd": 0.3023491655867088,
+            "largest_cost_contributions": [
+              {
+                "candidate_bbox_normalized": [
+                  0.6415034048515353,
+                  0.2895759146938686,
+                  0.7930483918016978,
+                  0.3044709683284661
+                ],
+                "candidate_block_index": 12,
+                "cost": 0.49697166296132866,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 13
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.7129795001432894,
+                  0.34761680156815644,
+                  0.7215721427110339,
+                  0.36251183707830387
+                ],
+                "candidate_block_index": 15,
+                "cost": 0.4951958806316872,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.903311758330374,
+                  0.578763425739762,
+                  0.9174447107796717
+                ],
+                "reference_block_index": 12
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.4094372549150287,
+                  0.2520104546177546,
+                  0.7279011729217538,
+                  0.2669055082523521
+                ],
+                "candidate_block_index": 10,
+                "cost": 0.4945266323266537,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 13
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.37677592883006705,
+                  0.31005134149204244,
+                  0.7215721427110339,
+                  0.32494637700218987
+                ],
+                "candidate_block_index": 13,
+                "cost": 0.49404154760740016,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 13
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.37178664092414687,
+                  0.5899359133947081,
+                  0.7258684639949062,
+                  0.6048309489048554
+                ],
+                "candidate_block_index": 27,
+                "cost": 0.4851347369283425,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.903311758330374,
+                  0.578763425739762,
+                  0.9174447107796717
+                ],
+                "reference_block_index": 12
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.35474913090799287,
+                  0.6104112495706318,
+                  0.7215721427110339,
+                  0.6253062850807792
+                ],
+                "candidate_block_index": 28,
+                "cost": 0.46437836901264673,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.8611192799577809,
+                  0.7663331374623417,
+                  0.8928009187332308
+                ],
+                "reference_block_index": 11
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.38280002706860816,
+                  0.6308866582443555,
+                  0.7279011729217538,
+                  0.645781693754503
+                ],
+                "candidate_block_index": 29,
+                "cost": 0.46207716724023573,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.8611192799577809,
+                  0.7663331374623417,
+                  0.8928009187332308
+                ],
+                "reference_block_index": 11
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.39707492416432083,
+                  0.1496336287425358,
+                  0.7301648365450818,
+                  0.16452868237713328
+                ],
+                "candidate_block_index": 5,
+                "cost": 0.35545924372549975,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.10222689310709636,
+                  0.6763747969484017,
+                  0.13273663954301315
+                ],
+                "reference_block_index": 5
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.4016853797218188,
+                  0.23153504594403082,
+                  0.7397368705715527,
+                  0.2464300995786283
+                ],
+                "candidate_block_index": 9,
+                "cost": 0.4946903755938542,
+                "mass": 0.015873015873015872,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 13
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.41312378915399833,
+                  0.5694605047209842,
+                  0.7331214155241543,
+                  0.5843555764800317
+                ],
+                "candidate_block_index": 26,
+                "cost": 0.48677940629839034,
+                "mass": 0.015873015873015872,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.903311758330374,
+                  0.578763425739762,
+                  0.9174447107796717
+                ],
+                "reference_block_index": 12
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.41402000103557934,
+                  0.6513619944202793,
+                  0.7258684639949062,
+                  0.6662570299304268
+                ],
+                "candidate_block_index": 30,
+                "cost": 0.3085588526691264,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.6714421281910906,
+                  0.6397443285175398,
+                  0.7557698259449969
+                ],
+                "reference_block_index": 9
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.39367481476202953,
+                  0.129158220068812,
+                  0.8196486310102692,
+                  0.14405328276563448
+                ],
+                "candidate_block_index": 4,
+                "cost": 0.2978738017948189,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.10222689310709636,
+                  0.6763747969484017,
+                  0.13273663954301315
+                ],
+                "reference_block_index": 5
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.18288503941609732,
+                  0.9171637236668053,
+                  0.7791060592156563,
+                  0.9347824290271912
+                ],
+                "candidate_block_index": 43,
+                "cost": 0.29385710006828125,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.903311758330374,
+                  0.578763425739762,
+                  0.9174447107796717
+                ],
+                "reference_block_index": 12
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.18582317534254864,
+                  0.08820747521916447,
+                  0.7409103049883651,
+                  0.10310253791598693
+                ],
+                "candidate_block_index": 2,
+                "cost": 0.2706039687323336,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.10222689310709636,
+                  0.6763747969484017,
+                  0.13273663954301315
+                ],
+                "reference_block_index": 5
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.4017131147919178,
+                  0.6718374030940031,
+                  0.74994650361248,
+                  0.6867324386041506
+                ],
+                "candidate_block_index": 31,
+                "cost": 0.26667884612247783,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.6714421281910906,
+                  0.6397443285175398,
+                  0.7557698259449969
+                ],
+                "reference_block_index": 9
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.4044572205768587,
+                  0.7127880754458505,
+                  0.7375286770884226,
+                  0.727683110955998
+                ],
+                "candidate_block_index": 33,
+                "cost": 0.2633767840882312,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.6714421281910906,
+                  0.6397443285175398,
+                  0.7557698259449969
+                ],
+                "reference_block_index": 9
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.36674190851118044,
+                  0.7537388202954981,
+                  0.7215721427110339,
+                  0.7686338558056456
+                ],
+                "candidate_block_index": 35,
+                "cost": 0.2615593155493501,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.7662806655421401,
+                  0.7897927278007557,
+                  0.8506096733940972
+                ],
+                "reference_block_index": 10
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.37662807681127697,
+                  0.17010896491845956,
+                  0.734461157828954,
+                  0.185004018553057
+                ],
+                "candidate_block_index": 6,
+                "cost": 0.3901480157116407,
+                "mass": 0.015873015873015872,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.10222689310709636,
+                  0.6763747969484017,
+                  0.13273663954301315
+                ],
+                "reference_block_index": 5
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.38871323629305665,
+                  0.19058437359218333,
+                  0.7258684639949062,
+                  0.2054794272267808
+                ],
+                "candidate_block_index": 7,
+                "cost": 0.24236241549208848,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.14124078461618134,
+                  0.8591668621387357,
+                  0.36596078583688446
+                ],
+                "reference_block_index": 6
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.38087820715585313,
+                  0.2110597097681071,
+                  0.7258684639949062,
+                  0.22595476340270454
+                ],
+                "candidate_block_index": 8,
+                "cost": 0.24218492841124073,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.14124078461618134,
+                  0.8591668621387357,
+                  0.36596078583688446
+                ],
+                "reference_block_index": 6
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.3854055344025092,
+                  0.3305266776679662,
+                  0.8648368014133094,
+                  0.3454217131781136
+                ],
+                "candidate_block_index": 14,
+                "cost": 0.24106881978638928,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.14124078461618134,
+                  0.8591668621387357,
+                  0.36596078583688446
+                ],
+                "reference_block_index": 6
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.38996979902071105,
+                  0.5285098323691367,
+                  0.7321974942056261,
+                  0.5434048678792842
+                ],
+                "candidate_block_index": 24,
+                "cost": 0.24060709663235158,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.4713100857204861,
+                  0.8431672738268484,
+                  0.6609313656585385
+                ],
+                "reference_block_index": 8
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.3904502668154757,
+                  0.48755908751948923,
+                  0.7331214155241543,
+                  0.5024541230296367
+                ],
+                "candidate_block_index": 22,
+                "cost": 0.24059492544879357,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.4713100857204861,
+                  0.8431672738268484,
+                  0.6609313656585385
+                ],
+                "reference_block_index": 8
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.4038289263964557,
+                  0.27248579079367835,
+                  0.8397813184565357,
+                  0.28738084442827583
+                ],
+                "candidate_block_index": 11,
+                "cost": 0.2401243612371644,
+                "mass": 0.023809523809523808,
+                "reference_bbox_normalized": [
+                  0.1276670468398948,
+                  0.14124078461618134,
+                  0.8591668621387357,
+                  0.36596078583688446
+                ],
+                "reference_block_index": 6
+              }
+            ],
+            "page": 1,
+            "reference_block_count": 9,
+            "status": "scored",
+            "text_ltsim": 0.7390799585438776
+          },
+          {
+            "candidate_block_count": 11,
+            "emd": 0.436560972256106,
+            "largest_cost_contributions": [
+              {
+                "candidate_bbox_normalized": [
+                  0.28633963208224755,
+                  0.10868288389288827,
+                  0.7339685911866047,
+                  0.12357794658971073
+                ],
+                "candidate_block_index": 45,
+                "cost": 0.49549209983446163,
+                "mass": 0.09090909090909091,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 21
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2671955640293059,
+                  0.08820747521916447,
+                  0.7771998755254155,
+                  0.10310253791598693
+                ],
+                "candidate_block_index": 44,
+                "cost": 0.49329618501863015,
+                "mass": 0.09090909090909091,
+                "reference_bbox_normalized": [
+                  0.7754848704618567,
+                  0.6578819197837753,
+                  0.8323312896529055,
+                  0.6827414926856455
+                ],
+                "reference_block_index": 19
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.26337045697244793,
+                  0.2734592187550069,
+                  0.47260800400287295,
+                  0.28851753743532654
+                ],
+                "candidate_block_index": 53,
+                "cost": 0.46789910165869886,
+                "mass": 0.09090909090909091,
+                "reference_bbox_normalized": [
+                  0.14759731916041155,
+                  0.7241741912533538,
+                  0.4855910656498928,
+                  0.7798782502761995
+                ],
+                "reference_block_index": 20
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2484303026916347,
+                  0.2110531849661022,
+                  0.7287483485842041,
+                  0.2261115761442219
+                ],
+                "candidate_block_index": 50,
+                "cost": 0.4308821890223894,
+                "mass": 0.09090909090909094,
+                "reference_bbox_normalized": [
+                  0.1352762957803564,
+                  0.5870197565868648,
+                  0.8242215923234528,
+                  0.7161722664881234
+                ],
+                "reference_block_index": 18
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.25738329610545274,
+                  0.1496336287425358,
+                  0.7339685911866047,
+                  0.16452868237713328
+                ],
+                "candidate_block_index": 47,
+                "cost": 0.4793495044548466,
+                "mass": 0.07954545454545459,
+                "reference_bbox_normalized": [
+                  0.1352762957803564,
+                  0.5461787984828756,
+                  0.8487679475273182,
+                  0.5710383328524503
+                ],
+                "reference_block_index": 17
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2600350200118015,
+                  0.19041443874885616,
+                  0.7417574806508155,
+                  0.2053094923834536
+                ],
+                "candidate_block_index": 49,
+                "cost": 0.47209687115505006,
+                "mass": 0.0795454545454545,
+                "reference_bbox_normalized": [
+                  0.1417258019540824,
+                  0.48138077090484926,
+                  0.8322796291775174,
+                  0.5062402667421283
+                ],
+                "reference_block_index": 16
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.3390863011823548,
+                  0.29665169997916413,
+                  0.6609136988176453,
+                  0.3115467536137616
+                ],
+                "candidate_block_index": 54,
+                "cost": 0.4097412545974418,
+                "mass": 0.09090909090909075,
+                "reference_bbox_normalized": [
+                  0.16160219479230495,
+                  0.4150885764998619,
+                  0.8322975806940615,
+                  0.47082338429460624
+                ],
+                "reference_block_index": 15
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2688863779792771,
+                  0.17010896491845956,
+                  0.7339685911866047,
+                  0.185004018553057
+                ],
+                "candidate_block_index": 48,
+                "cost": 0.47844463075543375,
+                "mass": 0.045454545454545414,
+                "reference_bbox_normalized": [
+                  0.1352762957803564,
+                  0.5461787984828756,
+                  0.8487679475273182,
+                  0.5710383328524503
+                ],
+                "reference_block_index": 17
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.27147342944398106,
+                  0.23185519622907044,
+                  0.7267156396573565,
+                  0.24691351490939006
+                ],
+                "candidate_block_index": 51,
+                "cost": 0.23724796312974883,
+                "mass": 0.09090909090909091,
+                "reference_bbox_normalized": [
+                  0.1352763207130183,
+                  0.22215866320060962,
+                  0.8948902803308824,
+                  0.3990825691608467
+                ],
+                "reference_block_index": 14
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2688863779792771,
+                  0.17010896491845956,
+                  0.7339685911866047,
+                  0.185004018553057
+                ],
+                "candidate_block_index": 48,
+                "cost": 0.4740494344066306,
+                "mass": 0.0454545454545455,
+                "reference_bbox_normalized": [
+                  0.1417258019540824,
+                  0.48138077090484926,
+                  0.8322796291775174,
+                  0.5062402667421283
+                ],
+                "reference_block_index": 16
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2228001757408878,
+                  0.129158220068812,
+                  0.7339685911866047,
+                  0.14405328276563448
+                ],
+                "candidate_block_index": 46,
+                "cost": 0.4953899557211332,
+                "mass": 0.03409090909090906,
+                "reference_bbox_normalized": [
+                  0.4955686182757608,
+                  0.9360803931650489,
+                  0.5044277914209303,
+                  0.9498545328776041
+                ],
+                "reference_block_index": 21
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2228001757408878,
+                  0.129158220068812,
+                  0.7339685911866047,
+                  0.14405328276563448
+                ],
+                "candidate_block_index": 46,
+                "cost": 0.4826755526972113,
+                "mass": 0.03409090909090909,
+                "reference_bbox_normalized": [
+                  0.14759731916041155,
+                  0.7241741912533538,
+                  0.4855910656498928,
+                  0.7798782502761995
+                ],
+                "reference_block_index": 20
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.26965324497756843,
+                  0.2526572074920386,
+                  0.7330446698680764,
+                  0.269502995681596
+                ],
+                "candidate_block_index": 52,
+                "cost": 0.42279536137912443,
+                "mass": 0.034090909090909255,
+                "reference_bbox_normalized": [
+                  0.16160219479230495,
+                  0.4150885764998619,
+                  0.8322975806940615,
+                  0.47082338429460624
+                ],
+                "reference_block_index": 15
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2228001757408878,
+                  0.129158220068812,
+                  0.7339685911866047,
+                  0.14405328276563448
+                ],
+                "candidate_block_index": 46,
+                "cost": 0.4933118245350542,
+                "mass": 0.022727272727272763,
+                "reference_bbox_normalized": [
+                  0.7754848704618567,
+                  0.6578819197837753,
+                  0.8323312896529055,
+                  0.6827414926856455
+                ],
+                "reference_block_index": 19
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.26965324497756843,
+                  0.2526572074920386,
+                  0.7330446698680764,
+                  0.269502995681596
+                ],
+                "candidate_block_index": 52,
+                "cost": 0.424229455423077,
+                "mass": 0.022727272727272624,
+                "reference_bbox_normalized": [
+                  0.1352762957803564,
+                  0.5870197565868648,
+                  0.8242215923234528,
+                  0.7161722664881234
+                ],
+                "reference_block_index": 18
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.26965324497756843,
+                  0.2526572074920386,
+                  0.7330446698680764,
+                  0.269502995681596
+                ],
+                "candidate_block_index": 52,
+                "cost": 0.23547888779314907,
+                "mass": 0.03409090909090909,
+                "reference_bbox_normalized": [
+                  0.1352763207130183,
+                  0.22215866320060962,
+                  0.8948902803308824,
+                  0.3990825691608467
+                ],
+                "reference_block_index": 14
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.25738329610545274,
+                  0.1496336287425358,
+                  0.7339685911866047,
+                  0.16452868237713328
+                ],
+                "candidate_block_index": 47,
+                "cost": 0.49305735476467216,
+                "mass": 0.011363636363636326,
+                "reference_bbox_normalized": [
+                  0.7754848704618567,
+                  0.6578819197837753,
+                  0.8323312896529055,
+                  0.6827414926856455
+                ],
+                "reference_block_index": 19
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.2600350200118015,
+                  0.19041443874885616,
+                  0.7417574806508155,
+                  0.2053094923834536
+                ],
+                "candidate_block_index": 49,
+                "cost": 0.4336351350760401,
+                "mass": 0.011363636363636437,
+                "reference_bbox_normalized": [
+                  0.1352762957803564,
+                  0.5870197565868648,
+                  0.8242215923234528,
+                  0.7161722664881234
+                ],
+                "reference_block_index": 18
+              }
+            ],
+            "page": 2,
+            "reference_block_count": 8,
+            "status": "scored",
+            "text_ltsim": 0.6462550930538861
+          }
+        ]
+      },
+      "interpretation": "Faithful published LTSim equations on extracted text blocks only. It measures text-layout geometry/segmentation, not full semantic layout; non-text classes abstain.",
+      "metrics": {
+        "abstained_page_count": 0,
+        "paired_page_count": 3,
+        "scored_page_count": 3,
+        "text_ltsim_element_weighted": 0.7171601796853736,
+        "text_ltsim_page_macro": 0.6914534264869917,
+        "text_ltsim_worst_page": 0.6462550930538861
+      },
+      "status": "scored"
+    },
+    "typography": {
+      "applicable": true,
+      "evidence": {
+        "style_mismatches": [
+          {
+            "candidate_bbox": [
+              418.5986022949219,
+              212.7095184326172,
+              436.36358642578125,
+              225.24951171875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              474.59674072265625,
+              521.04248046875,
+              509.3867492675781,
+              540.7312622070312
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "0.01"
+          },
+          {
+            "candidate_bbox": [
+              258.4519958496094,
+              230.22251892089844,
+              281.3320007324219,
+              242.76251220703125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              252.60633850097656,
+              573.5459594726562,
+              297.1817321777344,
+              593.2347412109375
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "0.025"
+          },
+          {
+            "candidate_bbox": [
+              421.1560974121094,
+              177.6835174560547,
+              433.80609130859375,
+              190.2235107421875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              479.41888427734375,
+              464.9440002441406,
+              504.4236145019531,
+              484.6327209472656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "0.2"
+          },
+          {
+            "candidate_bbox": [
+              261.0094909667969,
+              177.6835174560547,
+              278.77447509765625,
+              190.2235107421875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              257.4676513671875,
+              464.9440002441406,
+              292.2576599121094,
+              484.6327209472656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "0.95"
+          },
+          {
+            "candidate_bbox": [
+              422.3660888671875,
+              195.19651794433594,
+              432.5960693359375,
+              207.73651123046875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              482.1207275390625,
+              492.99237060546875,
+              501.6913146972656,
+              512.6810913085938
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "10"
+          },
+          {
+            "candidate_bbox": [
+              262.219482421875,
+              212.7095184326172,
+              277.5644836425781,
+              225.24951171875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              260.20550537109375,
+              521.0425415039062,
+              289.5614318847656,
+              540.7313232421875
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "128"
+          },
+          {
+            "candidate_bbox": [
+              253.3369903564453,
+              91.49900817871094,
+              286.4469909667969,
+              104.03900909423828
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              242.82444763183594,
+              243.88124084472656,
+              306.9507751464844,
+              263.5699768066406
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "128,128"
+          },
+          {
+            "candidate_bbox": [
+              327.6903076171875,
+              125.97502136230469,
+              360.80029296875,
+              138.5150146484375
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              353.9234619140625,
+              328.7501525878906,
+              418.0694274902344,
+              348.4388732910156
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "128,128"
+          },
+          {
+            "candidate_bbox": [
+              327.6903076171875,
+              143.21299743652344,
+              360.80029296875,
+              155.75299072265625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              353.9124755859375,
+              381.2535705566406,
+              418.0387878417969,
+              400.9422912597656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "128,128"
+          },
+          {
+            "candidate_bbox": [
+              418.048583984375,
+              125.97502136230469,
+              436.91357421875,
+              138.5150146484375
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              474.556396484375,
+              328.7501525878906,
+              509.3661193847656,
+              348.4388732910156
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1e-3"
+          },
+          {
+            "candidate_bbox": [
+              418.048583984375,
+              143.21299743652344,
+              436.91357421875,
+              155.75299072265625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              474.54547119140625,
+              381.2535705566406,
+              509.3551330566406,
+              400.9422912597656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1e-3"
+          },
+          {
+            "candidate_bbox": [
+              255.89450073242188,
+              195.19651794433594,
+              283.8894958496094,
+              207.73651123046875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              247.68690490722656,
+              492.99237060546875,
+              302.0475769042969,
+              512.6810913085938
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "20,000"
+          },
+          {
+            "candidate_bbox": [
+              418.048583984375,
+              91.49900817871094,
+              436.91357421875,
+              104.03900909423828
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              474.54132080078125,
+              243.88124084472656,
+              509.3509826660156,
+              263.5699768066406
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "3e-4"
+          },
+          {
+            "candidate_bbox": [
+              418.048583984375,
+              108.73698425292969,
+              436.91357421875,
+              121.27698516845703
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              474.5772705078125,
+              271.9314270019531,
+              509.3672790527344,
+              291.6201477050781
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "3e-4"
+          },
+          {
+            "candidate_bbox": [
+              332.8052978515625,
+              91.49900817871094,
+              355.685302734375,
+              104.03900909423828
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              363.67401123046875,
+              243.88124084472656,
+              408.2493591308594,
+              263.5699768066406
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "64,64"
+          },
+          {
+            "candidate_bbox": [
+              258.4519958496094,
+              108.73698425292969,
+              281.3320007324219,
+              121.27698516845703
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              252.60633850097656,
+              271.9314270019531,
+              297.1817321777344,
+              291.6201477050781
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "64,64"
+          },
+          {
+            "candidate_bbox": [
+              170.45098876953125,
+              91.49900817871094,
+              195.7839813232422,
+              104.03900909423828
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              107.46432495117188,
+              243.88124084472656,
+              155.30796813964844,
+              263.5699768066406
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Actor"
+          },
+          {
+            "candidate_bbox": [
+              160.5179901123047,
+              212.7095184326172,
+              186.114990234375,
+              225.24951171875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              87.69273376464844,
+              521.0425415039062,
+              137.97779846191406,
+              540.7313232421875
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Batch"
+          },
+          {
+            "candidate_bbox": [
+              330.9573059082031,
+              177.82102966308594,
+              349.6573181152344,
+              190.36102294921875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              360.1641845703125,
+              464.9440002441406,
+              396.0370788574219,
+              484.6327209472656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Clip"
+          },
+          {
+            "candidate_bbox": [
+              160.06149291992188,
+              143.21299743652344,
+              180.4774932861328,
+              155.75299072265625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              86.73619079589844,
+              381.2535705566406,
+              125.99555206298828,
+              400.9422912597656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Cost"
+          },
+          {
+            "candidate_bbox": [
+              361.0148010253906,
+              196.30197143554688,
+              369.1328125,
+              207.30197143554688
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              418.8411865234375,
+              492.968017578125,
+              433.3714904785156,
+              512.65673828125
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "E"
+          },
+          {
+            "candidate_bbox": [
+              318.7637939453125,
+              195.33396911621094,
+              358.2648010253906,
+              207.87396240234375
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              337.36920166015625,
+              492.99237060546875,
+              412.3241882324219,
+              512.6810913085938
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Episodes"
+          },
+          {
+            "candidate_bbox": [
+              147.88449096679688,
+              177.6835174560547,
+              169.19149780273438,
+              190.2235107421875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              82.78909301757812,
+              464.9440002441406,
+              126.12401580810547,
+              484.6327209472656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "GAE"
+          },
+          {
+            "candidate_bbox": [
+              161.60150146484375,
+              195.19651794433594,
+              204.6334991455078,
+              207.73651123046875
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 2,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.582151808335218,
+            "reference_bbox": [
+              90.27540588378906,
+              492.99237060546875,
+              172.49560546875,
+              512.6810913085938
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 2,
+            "reference_size": 19.688743591308594,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Iterations"
+          }
+        ]
+      },
+      "interpretation": "Raw PDF font observables are diagnostic; font names and flags are renderer metadata, not perceptual truth.",
+      "metrics": {
+        "baseline_displacement_q90": 0.38596176259534276,
+        "bold_agreement_rate": 0.9913419913419913,
+        "candidate_style_coverage": 0.9871794871794872,
+        "candidate_styled_token_count": 234,
+        "color_exact_agreement_rate": 1.0,
+        "font_name_exact_agreement_rate": 0.0,
+        "font_size_abs_log_ratio_max": 0.582151808335218,
+        "font_size_abs_log_ratio_q50": 0.017174812089484542,
+        "font_size_abs_log_ratio_q90": 0.582151808335218,
+        "italic_agreement_rate": 0.9826839826839827,
+        "monospace_agreement_rate": 1.0,
+        "reference_style_coverage": 0.9665271966527197,
+        "reference_styled_token_count": 239,
+        "serif_agreement_rate": 1.0,
+        "style_coverage_hmean": 0.9767441860465118,
+        "styled_matched_token_count": 231
+      },
+      "status": "scored"
+    }
+  },
+  "configuration": {
+    "ink_threshold": 245,
+    "ink_tolerance_px": 2,
+    "normalization": "Unicode NFKC, soft-hyphen removal, collapsed whitespace; case preserved",
+    "render_dpi": 96
+  },
+  "evaluator": {
+    "aggregate_score": null,
+    "name": "pdf_metric_axes_v2",
+    "policy": "No compensatory scalar. Report raw axes, coverage, abstentions, and localized evidence.",
+    "version": 2
+  },
+  "inputs": {
+    "candidate_page_count": 3,
+    "candidate_pdf": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/samples/06_tables_moderate_032/output.pdf",
+    "reference_page_count": 3,
+    "reference_pdf": "data/latex_benchmark_v0/corpus/06_tables_moderate/06_tables_moderate_032/reference.pdf"
+  }
+}

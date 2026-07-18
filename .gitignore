@@ -2,6 +2,14 @@
 .env
 __pycache__/
 *.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local render, inspection, and preflight scratch space
+/tmp/
 
 # Bulky generated binaries in data & results (regenerable via the pipeline)
 data/reference_pdfs/**/*.pdf
@@ -13,6 +21,8 @@ data/reference_pdfs/**/*.snm
 data/reference_pdfs/**/*.toc
 results/**/*.pdf
 results/**/*.png
+results/**/*.jpg
+results/**/*.jpeg
 # harness runs: keep model .typ outputs, prompts, and score summaries;
 # ignore renders, diagnostics, and bulky CLI transcripts/logs
 harness/runs/**/*.pdf
@@ -32,7 +42,7 @@ logs/*.log
 
 # Local editor/agent settings
 .claude/
-.antigravity/ 
+.antigravity/
 
 archive/data/reference_pdfs/**/*.pdf
 archive/data/reference_pdfs/**/*.aux

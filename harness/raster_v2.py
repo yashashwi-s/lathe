@@ -32,7 +32,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import math
 import sys
 from pathlib import Path
 
@@ -43,42 +42,14 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 LATHE = HERE.parent                     # repo root (this file lives in lathe/harness/)
 sys.path.insert(0, str(LATHE / "scripts/evaluation"))
-from pdf_fidelity import (EPSILON, INK_THRESHOLD, METRIC_CONFIG, _pad_pair,
-                          geometric_mean, render_page)
+from pdf_fidelity import (METRIC_CONFIG, geometric_mean,
+                          raster_page_metrics_v2, render_page)
 
 RASTER_V2_VERSION = "raster_v0.2"
-TOLERANCE_PX = 4
-EDGE_TAU = 10.0
-W_INK, W_EDGE = 0.70, 0.30
 
 
 def raster_v2_page(ref: np.ndarray, cand: np.ndarray) -> dict:
-    ref, cand = _pad_pair(ref, cand)
-    ref_gray = cv2.cvtColor(ref, cv2.COLOR_RGB2GRAY)
-    cand_gray = cv2.cvtColor(cand, cv2.COLOR_RGB2GRAY)
-    ref_ink = ref_gray < INK_THRESHOLD
-    cand_ink = cand_gray < INK_THRESHOLD
-    kernel = np.ones((2 * TOLERANCE_PX + 1, 2 * TOLERANCE_PX + 1), np.uint8)
-    ref_dilated = cv2.dilate(ref_ink.astype(np.uint8), kernel) > 0
-    cand_dilated = cv2.dilate(cand_ink.astype(np.uint8), kernel) > 0
-    recall = float((ref_ink & cand_dilated).sum() / max(1, ref_ink.sum()))
-    precision = float((cand_ink & ref_dilated).sum() / max(1, cand_ink.sum()))
-    ink_f1 = 2 * precision * recall / max(EPSILON, precision + recall)
-
-    ref_edge = cv2.Canny(ref_gray, 80, 180) > 0
-    cand_edge = cv2.Canny(cand_gray, 80, 180) > 0
-    if ref_edge.any() and cand_edge.any():
-        ref_dist = cv2.distanceTransform((~ref_edge).astype(np.uint8), cv2.DIST_L2, 3)
-        cand_dist = cv2.distanceTransform((~cand_edge).astype(np.uint8), cv2.DIST_L2, 3)
-        mean_distance = 0.5 * (float(cand_dist[ref_edge].mean()) + float(ref_dist[cand_edge].mean()))
-        edge_score = math.exp(-mean_distance / EDGE_TAU)
-    elif not ref_edge.any() and not cand_edge.any():
-        mean_distance, edge_score = 0.0, 1.0
-    else:
-        mean_distance, edge_score = float(max(ref_gray.shape)), 0.0
-    return {"ink_f1": ink_f1, "edge_score": edge_score,
-            "mean_edge_distance_px": mean_distance,
-            "score": W_INK * ink_f1 + W_EDGE * edge_score}
+    return raster_page_metrics_v2(ref, cand)
 
 
 def raster_v2(reference_pdf: Path, candidate_pdf: Path) -> dict:

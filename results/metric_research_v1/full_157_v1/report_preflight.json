@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "ai_outputs": 156,
+    "controlled_audit_cases": 628,
+    "controlled_rows": 16167,
+    "controlled_status_counts": {
+      "applied": 16142,
+      "not_applicable": 25
+    },
+    "controlled_validation_status": "fails_or_incomplete",
+    "determinism_pass": true,
+    "missing_ai_outputs": 1,
+    "models": {
+      "google/gemini-3.1-flash-lite": 156
+    },
+    "pdf_pages": {
+      "results/metric_research_v1/ai_outputs_frozen_v1/visual_audit/ai_outputs_blind_audit_book.pdf": 156,
+      "results/metric_research_v1/ai_outputs_frozen_v1/visual_audit/ai_outputs_unblinded_evidence_book.pdf": 156,
+      "results/metric_research_v1/full_157_v1/visual_audit/full157_blind_audit_book.pdf": 157,
+      "results/metric_research_v1/full_157_v1/visual_audit/full157_unblinded_evidence_book.pdf": 157
+    },
+    "reference_visual_audits": 157,
+    "register_rows": 157,
+    "sources": 157
+  },
+  "claim_boundaries": {
+    "ai_boxes": "AI outputs have no source-known defect box. A cyan raster-residual enclosure may be shown as diagnostic evidence; it is not semantic ground truth.",
+    "controlled_boxes": "On controlled examples, red is the known synthetic edit region and cyan is the registered raster-residual enclosure in its labeled coordinate frame.",
+    "primary_result": "The primary result is an axis vector with evidence and abstention. There is no universal quality score.",
+    "ratings": "No human ratings were collected. Model-assisted visual audit is a research check, not ground truth.",
+    "study_scope": "This report evaluates one AI conversion corpus against 157 accepted LaTeX reference PDFs. It does not compare multiple AI models and does not estimate human preference."
+  },
+  "errors": [
+    "controlled blind responses: 628 confidence/reviewer records incomplete",
+    "controlled blind responses: 628 rows lack explicit true/false abstention",
+    "controlled answer key: 628 post-unblind audit records incomplete",
+    "AI blind responses: 156 required research notes incomplete",
+    "AI answer key: 156 post-unblind audit records incomplete"
+  ],
+  "ready": false
+}

@@ -1,0 +1,649 @@
+{
+  "aggregate_score": null,
+  "group_field": "asset_role",
+  "groups": {
+    "claude_opus": {
+      "critical_inventories": {
+        "citation": {
+          "applicable_pairs": 1,
+          "exact_pairs": 0,
+          "exact_rate": 0.0
+        },
+        "number": {
+          "applicable_pairs": 7,
+          "exact_pairs": 1,
+          "exact_rate": 0.14285714285714285
+        },
+        "operator": {
+          "applicable_pairs": 7,
+          "exact_pairs": 4,
+          "exact_rate": 0.5714285714285714
+        }
+      },
+      "failed": 0,
+      "metrics": {
+        "baseline_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.6304939347084122,
+          "median": 0.053009110267716264,
+          "min": 0.00625525580512154,
+          "q10": 0.011208762737235648,
+          "q90": 0.31661321312490154
+        },
+        "block_transport_geometry_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_adaptation",
+          "max": 0.9326165735539563,
+          "median": 0.6638802074234793,
+          "min": 0.5155549479043163,
+          "q10": 0.5637108062903007,
+          "q90": 0.9289867840165464
+        },
+        "canvas_exact_size_rate": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "one_is_exact",
+          "max": 1.0,
+          "median": 1.0,
+          "min": 1.0,
+          "q10": 1.0,
+          "q90": 1.0
+        },
+        "compatibility_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9983388704318937,
+          "median": 0.8571428571428572,
+          "min": 0.6017699115044248,
+          "q10": 0.725940868466983,
+          "q90": 0.9932130991931657
+        },
+        "font_size_log_error_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.3649112408832818,
+          "median": 0.034476726400631756,
+          "min": 0.008298008086413849,
+          "q10": 0.019778511312818138,
+          "q90": 0.22654849694869605
+        },
+        "page_break_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 1.0,
+          "median": 0.5,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "page_count_delta": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "zero_is_best",
+          "max": 0.0,
+          "median": 0.0,
+          "min": -1.0,
+          "q10": -0.3999999999999999,
+          "q90": 0.0
+        },
+        "reading_order_tau": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_conditional",
+          "max": 1.0,
+          "median": 0.9314516129032258,
+          "min": 0.7777777777777778,
+          "q10": 0.836617183985605,
+          "q90": 1.0
+        },
+        "strict_document_edit_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9992398327632079,
+          "median": 0.8956521739130435,
+          "min": 0.6434001382170007,
+          "q10": 0.6833533712912563,
+          "q90": 0.9932558615489325
+        },
+        "strict_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9983388704318937,
+          "median": 0.7888999008919723,
+          "min": 0.4283185840707965,
+          "q10": 0.4491052114060964,
+          "q90": 0.9897145569191131
+        },
+        "style_coverage_hmean": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_diagnostic",
+          "max": 0.9983388704318937,
+          "median": 0.8571428571428572,
+          "min": 0.6017699115044248,
+          "q10": 0.725940868466983,
+          "q90": 0.9932130991931657
+        },
+        "text_ltsim_page_macro": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.8601079633105818,
+          "median": 0.7654170941175276,
+          "min": 0.7042763792993914,
+          "q10": 0.7190513745886847,
+          "q90": 0.8186892142752276
+        },
+        "text_ltsim_worst_page": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.8601079633105818,
+          "median": 0.7198653082259044,
+          "min": 0.6906633860124676,
+          "q10": 0.6988311819846218,
+          "q90": 0.8070380352251101
+        },
+        "token_bbox_iou_q10": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 0.0
+        },
+        "token_center_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better",
+          "max": 0.6301088686581533,
+          "median": 0.05647333398916131,
+          "min": 0.017577934236202603,
+          "q10": 0.02457158849713644,
+          "q90": 0.35163022520247944
+        },
+        "unregistered_ink_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.6773693755365947,
+          "median": 0.5422377474648974,
+          "min": 0.14286967813088045,
+          "q10": 0.28856328116406316,
+          "q90": 0.6726245992571859
+        },
+        "unregistered_multiscale_ssim_diagnostic": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.9355937425140126,
+          "median": 0.831911135601657,
+          "min": 0.773740953542434,
+          "q10": 0.7952841529179554,
+          "q90": 0.9264194435198656
+        },
+        "unregistered_ssim": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.8948387615032325,
+          "median": 0.7494876140087483,
+          "min": 0.5710577474955127,
+          "q10": 0.654256187719413,
+          "q90": 0.8907789368165486
+        }
+      },
+      "page_count_exact_rate": 0.8571428571428571,
+      "pairs": 7,
+      "scored": 7,
+      "specialized_status_counts": {
+        "figure": {
+          "abstain": 7
+        },
+        "formula": {
+          "abstain": 7
+        },
+        "table": {
+          "abstain": 7
+        }
+      },
+      "ssim_scored_pairs": 7
+    },
+    "claude_sonnet": {
+      "critical_inventories": {
+        "citation": {
+          "applicable_pairs": 0,
+          "exact_pairs": 0,
+          "exact_rate": null
+        },
+        "number": {
+          "applicable_pairs": 7,
+          "exact_pairs": 1,
+          "exact_rate": 0.14285714285714285
+        },
+        "operator": {
+          "applicable_pairs": 7,
+          "exact_pairs": 4,
+          "exact_rate": 0.5714285714285714
+        }
+      },
+      "failed": 0,
+      "metrics": {
+        "baseline_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.6994921751696653,
+          "median": 0.14234876151036732,
+          "min": 0.037119354864563636,
+          "q10": 0.08856646605212279,
+          "q90": 0.48392009542445946
+        },
+        "block_transport_geometry_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_adaptation",
+          "max": 0.6959811359700326,
+          "median": 0.6038902831805468,
+          "min": 0.4878772698540458,
+          "q10": 0.5181401548852083,
+          "q90": 0.68488822458542
+        },
+        "canvas_exact_size_rate": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "one_is_exact",
+          "max": 1.0,
+          "median": 1.0,
+          "min": 1.0,
+          "q10": 1.0,
+          "q90": 1.0
+        },
+        "compatibility_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9975062344139651,
+          "median": 0.9304174950298211,
+          "min": 0.6053097345132743,
+          "q10": 0.7489315606922893,
+          "q90": 0.994174403056003
+        },
+        "font_size_log_error_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.8435651570488163,
+          "median": 0.12978688143419484,
+          "min": 0.008298008086413849,
+          "q10": 0.024005239074944597,
+          "q90": 0.7093147528839303
+        },
+        "page_break_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 1.0,
+          "median": 1.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "page_count_delta": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "zero_is_best",
+          "max": 0.0,
+          "median": 0.0,
+          "min": -1.0,
+          "q10": -0.3999999999999999,
+          "q90": 0.0
+        },
+        "reading_order_tau": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_conditional",
+          "max": 1.0,
+          "median": 0.9153225806451613,
+          "min": 0.6666666666666667,
+          "q10": 0.6666666666666667,
+          "q90": 1.0
+        },
+        "strict_document_edit_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9988597491448119,
+          "median": 0.8791304347826087,
+          "min": 0.6440912232204561,
+          "q10": 0.7503391919908851,
+          "q90": 0.9931038281015742
+        },
+        "strict_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9975062344139651,
+          "median": 0.9085487077534791,
+          "min": 0.4283185840707965,
+          "q10": 0.4505078698477502,
+          "q90": 0.9906630643581243
+        },
+        "style_coverage_hmean": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_diagnostic",
+          "max": 0.9975062344139651,
+          "median": 0.9304174950298211,
+          "min": 0.6053097345132743,
+          "q10": 0.7489315606922893,
+          "q90": 0.994174403056003
+        },
+        "text_ltsim_page_macro": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.8007808729009525,
+          "median": 0.7248764000251788,
+          "min": 0.6786119711747337,
+          "q10": 0.6947418251954472,
+          "q90": 0.7949705422780995
+        },
+        "text_ltsim_worst_page": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.7910969885295309,
+          "median": 0.7054950612092562,
+          "min": 0.6674503383439175,
+          "q10": 0.6807350289689685,
+          "q90": 0.7495985145704012
+        },
+        "token_bbox_iou_q10": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 0.0
+        },
+        "token_center_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better",
+          "max": 0.6995182293525936,
+          "median": 0.1450079298420826,
+          "min": 0.05230405566918764,
+          "q10": 0.09405749652902745,
+          "q90": 0.5319669001232448
+        },
+        "unregistered_ink_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.5907317704357524,
+          "median": 0.3636352969674948,
+          "min": 0.09688198862883493,
+          "q10": 0.15206934850445886,
+          "q90": 0.5294025219960031
+        },
+        "unregistered_multiscale_ssim_diagnostic": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.9142706657449668,
+          "median": 0.8360743879151711,
+          "min": 0.747024947243591,
+          "q10": 0.770397238360104,
+          "q90": 0.9100636598186971
+        },
+        "unregistered_ssim": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.8846004548772675,
+          "median": 0.7489326405507676,
+          "min": 0.5401964607289532,
+          "q10": 0.6350694840225988,
+          "q90": 0.8749595132167168
+        }
+      },
+      "page_count_exact_rate": 0.8571428571428571,
+      "pairs": 7,
+      "scored": 7,
+      "specialized_status_counts": {
+        "figure": {
+          "abstain": 7
+        },
+        "formula": {
+          "abstain": 7
+        },
+        "table": {
+          "abstain": 7
+        }
+      },
+      "ssim_scored_pairs": 7
+    },
+    "gemini": {
+      "critical_inventories": {
+        "citation": {
+          "applicable_pairs": 0,
+          "exact_pairs": 0,
+          "exact_rate": null
+        },
+        "number": {
+          "applicable_pairs": 7,
+          "exact_pairs": 0,
+          "exact_rate": 0.0
+        },
+        "operator": {
+          "applicable_pairs": 7,
+          "exact_pairs": 3,
+          "exact_rate": 0.42857142857142855
+        }
+      },
+      "failed": 0,
+      "metrics": {
+        "baseline_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.5456038201479032,
+          "median": 0.308083069412072,
+          "min": 0.10345140685626442,
+          "q10": 0.13786200248297212,
+          "q90": 0.4325621265373698
+        },
+        "block_transport_geometry_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_adaptation",
+          "max": 0.5167096001844997,
+          "median": 0.4704632268673965,
+          "min": 0.41399835459756695,
+          "q10": 0.4365824606771087,
+          "q90": 0.4986068248825605
+        },
+        "canvas_exact_size_rate": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "one_is_exact",
+          "max": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 0.0
+        },
+        "compatibility_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9484873262469338,
+          "median": 0.827860696517413,
+          "min": 0.618374558303887,
+          "q10": 0.6915056674773989,
+          "q90": 0.9184994081107138
+        },
+        "font_size_log_error_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better_diagnostic",
+          "max": 0.8435651570488163,
+          "median": 0.4172140924770726,
+          "min": 0.034476726400631756,
+          "q10": 0.037344941865833696,
+          "q90": 0.6695412284358467
+        },
+        "page_break_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 1.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 0.6400000000000002
+        },
+        "page_count_delta": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "zero_is_best",
+          "max": 1.0,
+          "median": -1.0,
+          "min": -1.0,
+          "q10": -1.0,
+          "q90": 1.0
+        },
+        "reading_order_tau": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_conditional",
+          "max": 1.0,
+          "median": 0.6430107526881721,
+          "min": -0.33333333333333326,
+          "q10": -0.09333333333333327,
+          "q90": 0.894167852062589
+        },
+        "strict_document_edit_similarity": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.8788855193328279,
+          "median": 0.6434001382170007,
+          "min": 0.5635831645284717,
+          "q10": 0.5708245701592147,
+          "q90": 0.8227527766061187
+        },
+        "strict_word_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.9484873262469338,
+          "median": 0.7402597402597403,
+          "min": 0.43109540636042404,
+          "q10": 0.455069741491538,
+          "q90": 0.9140217961704152
+        },
+        "style_coverage_hmean": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_diagnostic",
+          "max": 0.9484873262469338,
+          "median": 0.827860696517413,
+          "min": 0.618374558303887,
+          "q10": 0.6915056674773989,
+          "q90": 0.9184994081107138
+        },
+        "text_ltsim_page_macro": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.7121974586465145,
+          "median": 0.6743097842139458,
+          "min": 0.6523239611937477,
+          "q10": 0.6569989518843263,
+          "q90": 0.7058049211612113
+        },
+        "text_ltsim_worst_page": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.6982301846059504,
+          "median": 0.6743097842139458,
+          "min": 0.6472935420684638,
+          "q10": 0.6503117935436341,
+          "q90": 0.6979010962281845
+        },
+        "token_bbox_iou_q10": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better",
+          "max": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q10": 0.0,
+          "q90": 0.0
+        },
+        "token_center_displacement_q90": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "lower_is_better",
+          "max": 0.5688398690791259,
+          "median": 0.38638319537413557,
+          "min": 0.3257671665242118,
+          "q10": 0.32624761992292556,
+          "q90": 0.5550741436563893
+        },
+        "unregistered_ink_f1": {
+          "abstained_or_missing": 0,
+          "count": 7,
+          "direction": "higher_is_better_raster_diagnostic",
+          "max": 0.14947608437524715,
+          "median": 0.0678255076927471,
+          "min": 0.041483931621407434,
+          "q10": 0.04801249011561839,
+          "q90": 0.13937547076949666
+        },
+        "unregistered_multiscale_ssim_diagnostic": {
+          "abstained_or_missing": 7,
+          "count": 0,
+          "direction": "higher_is_better_raster_diagnostic"
+        },
+        "unregistered_ssim": {
+          "abstained_or_missing": 7,
+          "count": 0,
+          "direction": "higher_is_better_raster_diagnostic"
+        }
+      },
+      "page_count_exact_rate": 0.14285714285714285,
+      "pairs": 7,
+      "scored": 7,
+      "specialized_status_counts": {
+        "figure": {
+          "abstain": 7
+        },
+        "formula": {
+          "abstain": 7
+        },
+        "table": {
+          "abstain": 7
+        }
+      },
+      "ssim_scored_pairs": 0
+    }
+  },
+  "source": "results/metric_research_v2/claude_overlap/metric_v2/metric_v2_scores.csv",
+  "summarizer": "summarize_metric_v2_scores"
+}

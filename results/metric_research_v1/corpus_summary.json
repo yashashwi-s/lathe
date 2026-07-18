@@ -1,0 +1,410 @@
+{
+  "augmentation_matrix": {
+    "estimated_total_pairs": 16167,
+    "family_totals": [
+      {
+        "expected_axis": "invariant",
+        "family": "identity_lossless_roundtrip",
+        "pairs": 157,
+        "scope": "all",
+        "variants_per_applicable_document": 1
+      },
+      {
+        "expected_axis": "layout",
+        "family": "canvas_translation",
+        "pairs": 1884,
+        "scope": "all",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "layout",
+        "family": "uniform_scale",
+        "pairs": 942,
+        "scope": "all",
+        "variants_per_applicable_document": 6
+      },
+      {
+        "expected_axis": "layout",
+        "family": "largest_block_displacement",
+        "pairs": 1884,
+        "scope": "all",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "content",
+        "family": "text_span_deletion",
+        "pairs": 471,
+        "scope": "all",
+        "variants_per_applicable_document": 3
+      },
+      {
+        "expected_axis": "content",
+        "family": "lexical_numeric_substitution",
+        "pairs": 942,
+        "scope": "all",
+        "variants_per_applicable_document": 6
+      },
+      {
+        "expected_axis": "typography",
+        "family": "typography_reflow",
+        "pairs": 1884,
+        "scope": "all",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "content+appearance",
+        "family": "edge_crop_local_occlusion",
+        "pairs": 2355,
+        "scope": "all",
+        "variants_per_applicable_document": 15
+      },
+      {
+        "expected_axis": "appearance_only",
+        "family": "render_only_degradation",
+        "pairs": 1413,
+        "scope": "all",
+        "variants_per_applicable_document": 9
+      },
+      {
+        "expected_axis": "multiple",
+        "family": "fixed_compound_defects",
+        "pairs": 942,
+        "scope": "all",
+        "variants_per_applicable_document": 6
+      },
+      {
+        "expected_axis": "pagination",
+        "family": "page_sequence_and_count",
+        "pairs": 494,
+        "scope": "multipage",
+        "variants_per_applicable_document": "4+2*pages"
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "display_math_structure",
+        "pairs": 720,
+        "scope": "display_math",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "content+typography",
+        "family": "inline_math_structure",
+        "pairs": 342,
+        "scope": "inline_math",
+        "variants_per_applicable_document": 6
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "semantic_table_structure",
+        "pairs": 540,
+        "scope": "semantic_table",
+        "variants_per_applicable_document": 15
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "figure_and_caption",
+        "pairs": 225,
+        "scope": "semantic_figure",
+        "variants_per_applicable_document": 15
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "list_structure",
+        "pairs": 180,
+        "scope": "list",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "content",
+        "family": "cross_reference_semantics",
+        "pairs": 369,
+        "scope": "crossref",
+        "variants_per_applicable_document": 9
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "algorithm_structure",
+        "pairs": 144,
+        "scope": "algorithm",
+        "variants_per_applicable_document": 12
+      },
+      {
+        "expected_axis": "layout",
+        "family": "form_geometry",
+        "pairs": 90,
+        "scope": "form",
+        "variants_per_applicable_document": 9
+      },
+      {
+        "expected_axis": "content+layout",
+        "family": "prose_hierarchy",
+        "pairs": 117,
+        "scope": "prose",
+        "variants_per_applicable_document": 9
+      },
+      {
+        "expected_axis": "layout+pagination",
+        "family": "compact_paper_flow",
+        "pairs": 72,
+        "scope": "compact",
+        "variants_per_applicable_document": 9
+      }
+    ],
+    "manual_blind_bundle_pairs": 785,
+    "manual_non_null_pairs": 628,
+    "pair_unit": "one reference PDF versus one seeded candidate variant",
+    "render_only_pairs": 1413
+  },
+  "corpus": {
+    "categories": {
+      "01_prose_sections": 13,
+      "02_lists_formatting": 15,
+      "03_math_inline_display": 18,
+      "04_math_aligned": 15,
+      "05_tables_simple": 18,
+      "06_tables_moderate": 18,
+      "07_figures_captions": 15,
+      "08_crossrefs_citations": 15,
+      "09_algorithms": 12,
+      "10_compact_papers": 8,
+      "11_forms_cv_letters": 10
+    },
+    "documents": 157,
+    "page_count_distribution": {
+      "1": 102,
+      "2": 28,
+      "3": 27
+    },
+    "pdf_table_detector_documents": 18,
+    "reference_canvas_documents": {
+      "a4": 10,
+      "letter": 147
+    },
+    "reference_pages": 239,
+    "reference_word_count": {
+      "max": 1696,
+      "median": 215,
+      "min": 13
+    },
+    "source_datasets": {
+      "OleehyO/latex-formulas": 33,
+      "TeX Live 2026": 10,
+      "piushorn/arxiv-latex-tables-43k": 36,
+      "scholarweave/arxiv-latex": 66,
+      "stanford-crfm/image2struct-latex-v1": 12
+    },
+    "source_families": {
+      "hf_extracted": 147,
+      "texlive_example": 10
+    },
+    "source_signal_document_counts": {
+      "has_algorithm_source": 12,
+      "has_compact_paper_semantics": 8,
+      "has_crossref_source": 41,
+      "has_display_math": 60,
+      "has_figure_source": 15,
+      "has_form_semantics": 10,
+      "has_inline_math": 57,
+      "has_list_source": 15,
+      "has_math_any": 110,
+      "has_prose_semantics": 13,
+      "has_semantic_figure": 15,
+      "has_semantic_table": 36,
+      "has_table_like_environment": 50
+    }
+  },
+  "inputs": {
+    "accepted_manifest": "data/latex_benchmark_v0/accepted_manifest.csv",
+    "ai_manifest": "results/ai_latex_to_typst/documents/full_157_ai_engine_comparison_manifest.csv"
+  },
+  "interpretation_warnings": [
+    "The PDF table detector is evidence, not the semantic table applicability label.",
+    "Canvas mismatch is reported separately from pagination and within-page layout.",
+    "Render-only degradation must not calibrate extraction-based content metrics.",
+    "Prompt and metric partitions serve different purposes and must not be conflated.",
+    "Canonical metadata does not establish redistribution rights for the corpus."
+  ],
+  "metric_partitions": {
+    "by_category": {
+      "01_prose_sections": {
+        "metric_dev": 7,
+        "metric_test": 3,
+        "metric_validation": 3
+      },
+      "02_lists_formatting": {
+        "metric_dev": 8,
+        "metric_test": 4,
+        "metric_validation": 3
+      },
+      "03_math_inline_display": {
+        "metric_dev": 9,
+        "metric_test": 4,
+        "metric_validation": 5
+      },
+      "04_math_aligned": {
+        "metric_dev": 8,
+        "metric_test": 4,
+        "metric_validation": 3
+      },
+      "05_tables_simple": {
+        "metric_dev": 9,
+        "metric_test": 4,
+        "metric_validation": 5
+      },
+      "06_tables_moderate": {
+        "metric_dev": 9,
+        "metric_test": 4,
+        "metric_validation": 5
+      },
+      "07_figures_captions": {
+        "metric_dev": 7,
+        "metric_test": 4,
+        "metric_validation": 4
+      },
+      "08_crossrefs_citations": {
+        "metric_dev": 8,
+        "metric_test": 3,
+        "metric_validation": 4
+      },
+      "09_algorithms": {
+        "metric_dev": 6,
+        "metric_test": 3,
+        "metric_validation": 3
+      },
+      "10_compact_papers": {
+        "metric_dev": 4,
+        "metric_test": 2,
+        "metric_validation": 2
+      },
+      "11_forms_cv_letters": {
+        "metric_dev": 5,
+        "metric_test": 3,
+        "metric_validation": 2
+      }
+    },
+    "by_page_count": {
+      "1": {
+        "metric_dev": 53,
+        "metric_test": 24,
+        "metric_validation": 25
+      },
+      "2": {
+        "metric_dev": 14,
+        "metric_test": 8,
+        "metric_validation": 6
+      },
+      "3": {
+        "metric_dev": 13,
+        "metric_test": 6,
+        "metric_validation": 8
+      }
+    },
+    "by_source_dataset": {
+      "OleehyO/latex-formulas": {
+        "metric_dev": 17,
+        "metric_test": 8,
+        "metric_validation": 8
+      },
+      "TeX Live 2026": {
+        "metric_dev": 5,
+        "metric_test": 3,
+        "metric_validation": 2
+      },
+      "piushorn/arxiv-latex-tables-43k": {
+        "metric_dev": 18,
+        "metric_test": 8,
+        "metric_validation": 10
+      },
+      "scholarweave/arxiv-latex": {
+        "metric_dev": 34,
+        "metric_test": 16,
+        "metric_validation": 16
+      },
+      "stanford-crfm/image2struct-latex-v1": {
+        "metric_dev": 6,
+        "metric_test": 3,
+        "metric_validation": 3
+      }
+    },
+    "counts": {
+      "metric_dev": 80,
+      "metric_test": 38,
+      "metric_validation": 39
+    },
+    "method": "exact category quotas with deterministic page-count/source-dataset interleaving; independent of the prompt-development split",
+    "prompt_split_cross_tab": {
+      "heldout": {
+        "metric_dev": 64,
+        "metric_test": 30,
+        "metric_validation": 33
+      },
+      "prompt_dev": {
+        "metric_dev": 16,
+        "metric_test": 8,
+        "metric_validation": 6
+      }
+    },
+    "seed": 20260715
+  },
+  "provenance_and_license": {
+    "accepted_manifest_fields": [
+      "sample_id",
+      "category",
+      "source_family",
+      "source_dataset",
+      "source_ids",
+      "status",
+      "reason",
+      "page_count",
+      "compile_seconds",
+      "nonblank_lines",
+      "source_chars",
+      "sha256_source",
+      "sha256_pdf",
+      "sample_dir"
+    ],
+    "accepted_manifest_license_fields": [],
+    "expected_missing_research_fields": [
+      "authors",
+      "license",
+      "retrieval_timestamp",
+      "source_url",
+      "transformation_record"
+    ],
+    "provenance_license_field_documents": 0,
+    "provenance_source_id_fields": {
+      "source_id": 12,
+      "source_ids": 145
+    },
+    "redistribution_status": "not established by canonical metadata",
+    "source_explicit_license_text_documents": 8
+  },
+  "schema_version": "metric_corpus_profile_v1",
+  "stored_ai_coverage": {
+    "candidate_canvas_documents": {
+      "a4": 154,
+      "letter": 2
+    },
+    "first_page_canvas_matches": 12,
+    "first_page_canvas_mismatches": 144,
+    "manifest_final_compiled": 156,
+    "manifest_rows": 157,
+    "missing_candidates": [
+      "06_tables_moderate_030"
+    ],
+    "model_id": "google/gemini-3.1-flash-lite",
+    "page_count_matches": 129,
+    "page_count_mismatches": 27,
+    "page_size_sequence_matches": 11,
+    "physical_candidate_pdfs": 156,
+    "selected_stages": {
+      "": 1,
+      "v0": 22,
+      "v1": 77,
+      "v1_targeted_retry": 6,
+      "v2": 39,
+      "v3": 10,
+      "v3_rescue": 2
+    }
+  }
+}

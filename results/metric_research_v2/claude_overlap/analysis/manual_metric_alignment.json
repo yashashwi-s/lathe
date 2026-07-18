@@ -1,0 +1,132 @@
+{
+  "analysis": "claude_overlap_manual_metric_alignment",
+  "complete_samples": 7,
+  "fair_leaderboard_eligible": false,
+  "global_descriptive_spearman": {
+    "critical_number_loss": {
+      "p_value_descriptive": 0.00040489815683713204,
+      "pairs": 21,
+      "spearman_rho": 0.7005739108406341
+    },
+    "font_size_log_error_q90": {
+      "p_value_descriptive": 0.03613834183883059,
+      "pairs": 21,
+      "spearman_rho": 0.4594556305453124
+    },
+    "ink_residual_loss": {
+      "p_value_descriptive": 6.867768330260224e-05,
+      "pairs": 21,
+      "spearman_rho": 0.7580027584502459
+    },
+    "page_count_abs_delta": {
+      "p_value_descriptive": 0.0015798908750069075,
+      "pairs": 21,
+      "spearman_rho": 0.6453979094624196
+    },
+    "ssim_loss": {
+      "p_value_descriptive": 0.7019995187800887,
+      "pairs": 14,
+      "spearman_rho": -0.11241602482458912
+    },
+    "strict_content_loss": {
+      "p_value_descriptive": 0.36273063433471986,
+      "pairs": 21,
+      "spearman_rho": 0.20921662401550126
+    },
+    "text_ltsim_loss": {
+      "p_value_descriptive": 0.0018535998929359327,
+      "pairs": 21,
+      "spearman_rho": 0.6381388900879429
+    },
+    "token_center_displacement_q90": {
+      "p_value_descriptive": 0.009529729943118851,
+      "pairs": 21,
+      "spearman_rho": 0.5516462123492355
+    }
+  },
+  "interpretation": "Alignment is diagnostic only: 21 outputs, one non-human reviewer, and heterogeneous generation protocols. Missing SSIM values are abstentions caused by canvas mismatch.",
+  "pairs": 21,
+  "severity_counts": {
+    "major": 6,
+    "minor": 8,
+    "moderate": 5,
+    "none": 2
+  },
+  "within_sample_spearman_macro": {
+    "critical_number_loss": {
+      "mean_rho": 0.8995190528383291,
+      "samples_with_defined_rho": 4,
+      "values": [
+        0.8660254037844387,
+        0.8660254037844387,
+        1.0,
+        0.8660254037844387
+      ]
+    },
+    "font_size_log_error_q90": {
+      "mean_rho": 0.4,
+      "samples_with_defined_rho": 5,
+      "values": [
+        1.0,
+        0.0,
+        0.8660254037844387,
+        1.0,
+        -0.8660254037844387
+      ]
+    },
+    "ink_residual_loss": {
+      "mean_rho": 0.8196152422706632,
+      "samples_with_defined_rho": 5,
+      "values": [
+        1.0,
+        0.8660254037844387,
+        0.8660254037844387,
+        0.8660254037844387,
+        0.5
+      ]
+    },
+    "page_count_abs_delta": {
+      "mean_rho": 0.9330127018922194,
+      "samples_with_defined_rho": 4,
+      "values": [
+        0.8660254037844387,
+        1.0,
+        1.0,
+        0.8660254037844387
+      ]
+    },
+    "strict_content_loss": {
+      "mean_rho": 0.5,
+      "samples_with_defined_rho": 5,
+      "values": [
+        1.0,
+        -0.8660254037844387,
+        0.8660254037844387,
+        1.0,
+        0.5
+      ]
+    },
+    "text_ltsim_loss": {
+      "mean_rho": 0.8196152422706632,
+      "samples_with_defined_rho": 5,
+      "values": [
+        0.5,
+        0.8660254037844387,
+        0.8660254037844387,
+        0.8660254037844387,
+        1.0
+      ]
+    },
+    "token_center_displacement_q90": {
+      "mean_rho": 0.6464101615137755,
+      "samples_with_defined_rho": 5,
+      "values": [
+        1.0,
+        0.0,
+        0.8660254037844387,
+        0.8660254037844387,
+        0.5
+      ]
+    }
+  }
+}

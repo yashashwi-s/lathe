@@ -1,0 +1,1377 @@
+{
+  "assumptions": {
+    "baseline": "severity-zero identity/baseline/pristine/reference/self rows; otherwise the median of severity-zero rows",
+    "bbox_coordinates": "expected_bbox and predicted_bbox use one common coordinate system",
+    "cluster_unit": "sample_id (source PDF)",
+    "compound_components": "components column or compound:family_a+family_b family name",
+    "compound_rule": "compound score <= every named component score on the expected axis",
+    "deterministic_repeat": "duplicate sample_id/category/family/severity/seed rows are reruns of one exact case",
+    "localization_rule": "page equality and bbox IoU > 0.01",
+    "missing_values": "counted as abstentions when the expected axis is applicable",
+    "multi_axis_targets": "expected_axis may join axes with '+'; target response and severity ordering are evaluated on every named axis, never silently dropped",
+    "score_direction": "higher axis values mean better fidelity",
+    "severity_direction": "larger severity means a stronger defect; zero means invariant/pristine"
+  },
+  "axis_columns": [
+    "axis_appearance",
+    "axis_content",
+    "axis_layout",
+    "axis_pagination",
+    "axis_structure",
+    "axis_typography"
+  ],
+  "bootstrap_95_ci": {
+    "category_macro": {
+      "abstention_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "adjacent_monotonic_accuracy": {
+        "high": 0.9705882352941176,
+        "low": 0.9705882352941176
+      },
+      "compound_dominance_accuracy": {
+        "high": 0.8888888888888888,
+        "low": 0.8888888888888888
+      },
+      "invariant_false_positive_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "kendall_tau_b": {
+        "high": 0.7627250879522814,
+        "low": 0.7627250879522814
+      },
+      "localization_hit_rate": {
+        "high": 0.7888888888888889,
+        "low": 0.7888888888888889
+      },
+      "localization_mean_iou": {
+        "high": 0.6045903007350367,
+        "low": 0.6045903007350367
+      },
+      "off_target_mean_drop": {
+        "high": 0.10727016137209608,
+        "low": 0.10727016137209608
+      },
+      "target_axis_drop": {
+        "high": 0.3732767990085686,
+        "low": 0.3732767990085686
+      },
+      "target_selectivity_margin": {
+        "high": 0.2660066376364725,
+        "low": 0.2660066376364725
+      }
+    },
+    "document_macro": {
+      "abstention_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "adjacent_monotonic_accuracy": {
+        "high": 0.9705882352941176,
+        "low": 0.9705882352941176
+      },
+      "compound_dominance_accuracy": {
+        "high": 0.8888888888888888,
+        "low": 0.8888888888888888
+      },
+      "invariant_false_positive_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "kendall_tau_b": {
+        "high": 0.7627250879522814,
+        "low": 0.7627250879522814
+      },
+      "localization_hit_rate": {
+        "high": 0.7888888888888889,
+        "low": 0.7888888888888889
+      },
+      "localization_mean_iou": {
+        "high": 0.6045903007350367,
+        "low": 0.6045903007350367
+      },
+      "off_target_mean_drop": {
+        "high": 0.10727016137209608,
+        "low": 0.10727016137209608
+      },
+      "target_axis_drop": {
+        "high": 0.3732767990085686,
+        "low": 0.3732767990085686
+      },
+      "target_selectivity_margin": {
+        "high": 0.2660066376364725,
+        "low": 0.2660066376364725
+      }
+    },
+    "replicates": 200,
+    "seed": 20260715
+  },
+  "category_macro": {
+    "abstention_rate": 0.0,
+    "adjacent_monotonic_accuracy": 0.9705882352941176,
+    "categories": {
+      "01_prose_sections": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.9705882352941176,
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": 0.7627250879522814,
+        "localization_hit_rate": 0.7888888888888889,
+        "localization_mean_iou": 0.6045903007350367,
+        "off_target_mean_drop": 0.10727016137209608,
+        "target_axis_drop": 0.3732767990085686,
+        "target_selectivity_margin": 0.2660066376364725
+      }
+    },
+    "compound_dominance_accuracy": 0.8888888888888888,
+    "deterministic_repeat_agreement": null,
+    "invariant_false_positive_rate": 0.0,
+    "kendall_tau_b": 0.7627250879522814,
+    "localization_hit_rate": 0.7888888888888889,
+    "localization_mean_iou": 0.6045903007350367,
+    "off_target_mean_drop": 0.10727016137209608,
+    "target_axis_drop": 0.3732767990085686,
+    "target_selectivity_margin": 0.2660066376364725
+  },
+  "document_macro": {
+    "abstention_rate": 0.0,
+    "adjacent_monotonic_accuracy": 0.9705882352941176,
+    "compound_dominance_accuracy": 0.8888888888888888,
+    "deterministic_repeat_agreement": null,
+    "invariant_false_positive_rate": 0.0,
+    "kendall_tau_b": 0.7627250879522814,
+    "localization_hit_rate": 0.7888888888888889,
+    "localization_mean_iou": 0.6045903007350367,
+    "off_target_mean_drop": 0.10727016137209608,
+    "target_axis_drop": 0.3732767990085686,
+    "target_selectivity_margin": 0.2660066376364725
+  },
+  "method": "controlled_augmentation_validation_v1",
+  "per_family": {
+    "canvas_translation": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "localization_mean_iou": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.06984346266900217,
+            "low": 0.06984346266900217
+          },
+          "target_axis_drop": {
+            "high": 0.6062846317118212,
+            "low": 0.6062846317118212
+          },
+          "target_selectivity_margin": {
+            "high": 0.536441169042819,
+            "low": 0.536441169042819
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "localization_mean_iou": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.06984346266900217,
+            "low": 0.06984346266900217
+          },
+          "target_axis_drop": {
+            "high": 0.6062846317118212,
+            "low": 0.6062846317118212
+          },
+          "target_selectivity_margin": {
+            "high": 0.536441169042819,
+            "low": 0.536441169042819
+          }
+        },
+        "replicates": 200,
+        "seed": 20260716
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 0.0,
+            "localization_mean_iou": 0.0,
+            "off_target_mean_drop": 0.06984346266900217,
+            "target_axis_drop": 0.6062846317118212,
+            "target_selectivity_margin": 0.536441169042819
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 0.0,
+        "localization_mean_iou": 0.0,
+        "off_target_mean_drop": 0.06984346266900217,
+        "target_axis_drop": 0.6062846317118212,
+        "target_selectivity_margin": 0.536441169042819
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 0.0,
+        "localization_mean_iou": 0.0,
+        "off_target_mean_drop": 0.06984346266900217,
+        "target_axis_drop": 0.6062846317118212,
+        "target_selectivity_margin": 0.536441169042819
+      },
+      "documents": 1
+    },
+    "edge_crop_local_occlusion": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.9,
+            "low": 0.9
+          },
+          "kendall_tau_b": {
+            "high": 0.6932652990377571,
+            "low": 0.6932652990377571
+          },
+          "localization_hit_rate": {
+            "high": 0.6,
+            "low": 0.6
+          },
+          "localization_mean_iou": {
+            "high": 0.1793094735347875,
+            "low": 0.1793094735347875
+          },
+          "off_target_mean_drop": {
+            "high": 0.264420391928368,
+            "low": 0.264420391928368
+          },
+          "target_axis_drop": {
+            "high": 0.22714870237017745,
+            "low": 0.22714870237017745
+          },
+          "target_selectivity_margin": {
+            "high": -0.037271689558190574,
+            "low": -0.037271689558190574
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.9,
+            "low": 0.9
+          },
+          "kendall_tau_b": {
+            "high": 0.6932652990377571,
+            "low": 0.6932652990377571
+          },
+          "localization_hit_rate": {
+            "high": 0.6,
+            "low": 0.6
+          },
+          "localization_mean_iou": {
+            "high": 0.1793094735347875,
+            "low": 0.1793094735347875
+          },
+          "off_target_mean_drop": {
+            "high": 0.264420391928368,
+            "low": 0.264420391928368
+          },
+          "target_axis_drop": {
+            "high": 0.22714870237017745,
+            "low": 0.22714870237017745
+          },
+          "target_selectivity_margin": {
+            "high": -0.037271689558190574,
+            "low": -0.037271689558190574
+          }
+        },
+        "replicates": 200,
+        "seed": 20260717
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.9,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 0.9,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.6932652990377571,
+            "localization_hit_rate": 0.6,
+            "localization_mean_iou": 0.1793094735347875,
+            "off_target_mean_drop": 0.264420391928368,
+            "target_axis_drop": 0.22714870237017745,
+            "target_selectivity_margin": -0.037271689558190574
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.6932652990377571,
+        "localization_hit_rate": 0.6,
+        "localization_mean_iou": 0.1793094735347875,
+        "off_target_mean_drop": 0.264420391928368,
+        "target_axis_drop": 0.22714870237017745,
+        "target_selectivity_margin": -0.037271689558190574
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.9,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.6932652990377571,
+        "localization_hit_rate": 0.6,
+        "localization_mean_iou": 0.1793094735347875,
+        "off_target_mean_drop": 0.264420391928368,
+        "target_axis_drop": 0.22714870237017745,
+        "target_selectivity_margin": -0.037271689558190574
+      },
+      "documents": 1
+    },
+    "fixed_compound_defects": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "compound_dominance_accuracy": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.6926837802498932,
+            "low": 0.6926837802498932
+          },
+          "off_target_mean_drop": {
+            "high": 0.12454960138844996,
+            "low": 0.12454960138844996
+          },
+          "target_axis_drop": {
+            "high": 0.4930795816266503,
+            "low": 0.4930795816266503
+          },
+          "target_selectivity_margin": {
+            "high": 0.3685299802382003,
+            "low": 0.3685299802382003
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "compound_dominance_accuracy": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.6926837802498932,
+            "low": 0.6926837802498932
+          },
+          "off_target_mean_drop": {
+            "high": 0.12454960138844996,
+            "low": 0.12454960138844996
+          },
+          "target_axis_drop": {
+            "high": 0.4930795816266503,
+            "low": 0.4930795816266503
+          },
+          "target_selectivity_margin": {
+            "high": 0.3685299802382003,
+            "low": 0.3685299802382003
+          }
+        },
+        "replicates": 200,
+        "seed": 20260718
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": null,
+            "compound_dominance_accuracy": 0.8888888888888888,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": null,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.6926837802498932,
+            "off_target_mean_drop": 0.12454960138844996,
+            "target_axis_drop": 0.4930795816266503,
+            "target_selectivity_margin": 0.3685299802382003
+          }
+        },
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": null,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.6926837802498932,
+        "off_target_mean_drop": 0.12454960138844996,
+        "target_axis_drop": 0.4930795816266503,
+        "target_selectivity_margin": 0.3685299802382003
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": null,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.6926837802498932,
+        "off_target_mean_drop": 0.12454960138844996,
+        "target_axis_drop": 0.4930795816266503,
+        "target_selectivity_margin": 0.3685299802382003
+      },
+      "documents": 1
+    },
+    "identity_lossless_roundtrip": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "invariant_false_positive_rate": {
+            "high": 0.0,
+            "low": 0.0
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "invariant_false_positive_rate": {
+            "high": 0.0,
+            "low": 0.0
+          }
+        },
+        "replicates": 200,
+        "seed": 20260719
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": null,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": 0.0,
+            "kendall_tau_b": null,
+            "localization_hit_rate": null,
+            "localization_mean_iou": null,
+            "off_target_mean_drop": null,
+            "target_axis_drop": null,
+            "target_selectivity_margin": null
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": null,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": null,
+        "target_axis_drop": null,
+        "target_selectivity_margin": null
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": null,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": null,
+        "target_axis_drop": null,
+        "target_selectivity_margin": null
+      },
+      "documents": 1
+    },
+    "largest_block_displacement": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9785257429213972,
+            "low": 0.9785257429213972
+          },
+          "off_target_mean_drop": {
+            "high": 0.02907516800698994,
+            "low": 0.02907516800698994
+          },
+          "target_axis_drop": {
+            "high": 0.7637159588623947,
+            "low": 0.7637159588623947
+          },
+          "target_selectivity_margin": {
+            "high": 0.7346407908554048,
+            "low": 0.7346407908554048
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9785257429213972,
+            "low": 0.9785257429213972
+          },
+          "off_target_mean_drop": {
+            "high": 0.02907516800698994,
+            "low": 0.02907516800698994
+          },
+          "target_axis_drop": {
+            "high": 0.7637159588623947,
+            "low": 0.7637159588623947
+          },
+          "target_selectivity_margin": {
+            "high": 0.7346407908554048,
+            "low": 0.7346407908554048
+          }
+        },
+        "replicates": 200,
+        "seed": 20260720
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9785257429213972,
+            "off_target_mean_drop": 0.02907516800698994,
+            "target_axis_drop": 0.7637159588623947,
+            "target_selectivity_margin": 0.7346407908554048
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9785257429213972,
+        "off_target_mean_drop": 0.02907516800698994,
+        "target_axis_drop": 0.7637159588623947,
+        "target_selectivity_margin": 0.7346407908554048
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9785257429213972,
+        "off_target_mean_drop": 0.02907516800698994,
+        "target_axis_drop": 0.7637159588623947,
+        "target_selectivity_margin": 0.7346407908554048
+      },
+      "documents": 1
+    },
+    "lexical_numeric_substitution": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9107461825461022,
+            "low": 0.9107461825461022
+          },
+          "off_target_mean_drop": {
+            "high": 0.005518504517414087,
+            "low": 0.005518504517414087
+          },
+          "target_axis_drop": {
+            "high": 0.024847288400900242,
+            "low": 0.024847288400900242
+          },
+          "target_selectivity_margin": {
+            "high": 0.019328783883486154,
+            "low": 0.019328783883486154
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9107461825461022,
+            "low": 0.9107461825461022
+          },
+          "off_target_mean_drop": {
+            "high": 0.005518504517414087,
+            "low": 0.005518504517414087
+          },
+          "target_axis_drop": {
+            "high": 0.024847288400900242,
+            "low": 0.024847288400900242
+          },
+          "target_selectivity_margin": {
+            "high": 0.019328783883486154,
+            "low": 0.019328783883486154
+          }
+        },
+        "replicates": 200,
+        "seed": 20260721
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9107461825461022,
+            "off_target_mean_drop": 0.005518504517414087,
+            "target_axis_drop": 0.024847288400900242,
+            "target_selectivity_margin": 0.019328783883486154
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9107461825461022,
+        "off_target_mean_drop": 0.005518504517414087,
+        "target_axis_drop": 0.024847288400900242,
+        "target_selectivity_margin": 0.019328783883486154
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9107461825461022,
+        "off_target_mean_drop": 0.005518504517414087,
+        "target_axis_drop": 0.024847288400900242,
+        "target_selectivity_margin": 0.019328783883486154
+      },
+      "documents": 1
+    },
+    "prose_hierarchy": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 0.5,
+            "low": 0.5
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9020947720050734,
+            "low": 0.9020947720050734
+          },
+          "off_target_mean_drop": {
+            "high": 0.04376813871088233,
+            "low": 0.04376813871088233
+          },
+          "target_axis_drop": {
+            "high": 0.26909109321475555,
+            "low": 0.26909109321475555
+          },
+          "target_selectivity_margin": {
+            "high": 0.2253229545038732,
+            "low": 0.2253229545038732
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 0.5,
+            "low": 0.5
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9020947720050734,
+            "low": 0.9020947720050734
+          },
+          "off_target_mean_drop": {
+            "high": 0.04376813871088233,
+            "low": 0.04376813871088233
+          },
+          "target_axis_drop": {
+            "high": 0.26909109321475555,
+            "low": 0.26909109321475555
+          },
+          "target_selectivity_margin": {
+            "high": 0.2253229545038732,
+            "low": 0.2253229545038732
+          }
+        },
+        "replicates": 200,
+        "seed": 20260722
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.5,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9020947720050734,
+            "off_target_mean_drop": 0.04376813871088233,
+            "target_axis_drop": 0.26909109321475555,
+            "target_selectivity_margin": 0.2253229545038732
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.5,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9020947720050734,
+        "off_target_mean_drop": 0.04376813871088233,
+        "target_axis_drop": 0.26909109321475555,
+        "target_selectivity_margin": 0.2253229545038732
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.5,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9020947720050734,
+        "off_target_mean_drop": 0.04376813871088233,
+        "target_axis_drop": 0.26909109321475555,
+        "target_selectivity_margin": 0.2253229545038732
+      },
+      "documents": 1
+    },
+    "render_only_degradation": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_mean_iou": {
+            "high": 0.46980111573248823,
+            "low": 0.46980111573248823
+          },
+          "off_target_mean_drop": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "target_axis_drop": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          },
+          "target_selectivity_margin": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_mean_iou": {
+            "high": 0.46980111573248823,
+            "low": 0.46980111573248823
+          },
+          "off_target_mean_drop": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "target_axis_drop": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          },
+          "target_selectivity_margin": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          }
+        },
+        "replicates": 200,
+        "seed": 20260723
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 0.8888888888888888,
+            "localization_mean_iou": 0.46980111573248823,
+            "off_target_mean_drop": 0.0,
+            "target_axis_drop": 0.038437875718723896,
+            "target_selectivity_margin": 0.038437875718723896
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 0.8888888888888888,
+        "localization_mean_iou": 0.46980111573248823,
+        "off_target_mean_drop": 0.0,
+        "target_axis_drop": 0.038437875718723896,
+        "target_selectivity_margin": 0.038437875718723896
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 0.8888888888888888,
+        "localization_mean_iou": 0.46980111573248823,
+        "off_target_mean_drop": 0.0,
+        "target_axis_drop": 0.038437875718723896,
+        "target_selectivity_margin": 0.038437875718723896
+      },
+      "documents": 1
+    },
+    "text_span_deletion": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9438206043655796,
+            "low": 0.9438206043655796
+          },
+          "off_target_mean_drop": {
+            "high": 0.00974672900666021,
+            "low": 0.00974672900666021
+          },
+          "target_axis_drop": {
+            "high": 0.03792339498079267,
+            "low": 0.03792339498079267
+          },
+          "target_selectivity_margin": {
+            "high": 0.02817666597413246,
+            "low": 0.02817666597413246
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9438206043655796,
+            "low": 0.9438206043655796
+          },
+          "off_target_mean_drop": {
+            "high": 0.00974672900666021,
+            "low": 0.00974672900666021
+          },
+          "target_axis_drop": {
+            "high": 0.03792339498079267,
+            "low": 0.03792339498079267
+          },
+          "target_selectivity_margin": {
+            "high": 0.02817666597413246,
+            "low": 0.02817666597413246
+          }
+        },
+        "replicates": 200,
+        "seed": 20260724
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9438206043655796,
+            "off_target_mean_drop": 0.00974672900666021,
+            "target_axis_drop": 0.03792339498079267,
+            "target_selectivity_margin": 0.02817666597413246
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9438206043655796,
+        "off_target_mean_drop": 0.00974672900666021,
+        "target_axis_drop": 0.03792339498079267,
+        "target_selectivity_margin": 0.02817666597413246
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9438206043655796,
+        "off_target_mean_drop": 0.00974672900666021,
+        "target_axis_drop": 0.03792339498079267,
+        "target_selectivity_margin": 0.02817666597413246
+      },
+      "documents": 1
+    },
+    "typography_reflow": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 0.25,
+            "low": 0.25
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9446983948105134,
+            "low": 0.9446983948105134
+          },
+          "off_target_mean_drop": {
+            "high": 0.21840491769468687,
+            "low": 0.21840491769468687
+          },
+          "target_axis_drop": {
+            "high": 0.24652811167390218,
+            "low": 0.24652811167390218
+          },
+          "target_selectivity_margin": {
+            "high": 0.02812319397921531,
+            "low": 0.02812319397921531
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 0.25,
+            "low": 0.25
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9446983948105134,
+            "low": 0.9446983948105134
+          },
+          "off_target_mean_drop": {
+            "high": 0.21840491769468687,
+            "low": 0.21840491769468687
+          },
+          "target_axis_drop": {
+            "high": 0.24652811167390218,
+            "low": 0.24652811167390218
+          },
+          "target_selectivity_margin": {
+            "high": 0.02812319397921531,
+            "low": 0.02812319397921531
+          }
+        },
+        "replicates": 200,
+        "seed": 20260725
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.25,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9446983948105134,
+            "off_target_mean_drop": 0.21840491769468687,
+            "target_axis_drop": 0.24652811167390218,
+            "target_selectivity_margin": 0.02812319397921531
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.25,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9446983948105134,
+        "off_target_mean_drop": 0.21840491769468687,
+        "target_axis_drop": 0.24652811167390218,
+        "target_selectivity_margin": 0.02812319397921531
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.25,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9446983948105134,
+        "off_target_mean_drop": 0.21840491769468687,
+        "target_axis_drop": 0.24652811167390218,
+        "target_selectivity_margin": 0.02812319397921531
+      },
+      "documents": 1
+    },
+    "uniform_scale": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.6409484551396317,
+            "low": 0.6409484551396317
+          },
+          "off_target_mean_drop": {
+            "high": 0.11276066554364589,
+            "low": 0.11276066554364589
+          },
+          "target_axis_drop": {
+            "high": 0.8000408037886836,
+            "low": 0.8000408037886836
+          },
+          "target_selectivity_margin": {
+            "high": 0.6872801382450378,
+            "low": 0.6872801382450378
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.6409484551396317,
+            "low": 0.6409484551396317
+          },
+          "off_target_mean_drop": {
+            "high": 0.11276066554364589,
+            "low": 0.11276066554364589
+          },
+          "target_axis_drop": {
+            "high": 0.8000408037886836,
+            "low": 0.8000408037886836
+          },
+          "target_selectivity_margin": {
+            "high": 0.6872801382450378,
+            "low": 0.6872801382450378
+          }
+        },
+        "replicates": 200,
+        "seed": 20260726
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.6409484551396317,
+            "off_target_mean_drop": 0.11276066554364589,
+            "target_axis_drop": 0.8000408037886836,
+            "target_selectivity_margin": 0.6872801382450378
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.6409484551396317,
+        "off_target_mean_drop": 0.11276066554364589,
+        "target_axis_drop": 0.8000408037886836,
+        "target_selectivity_margin": 0.6872801382450378
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.6409484551396317,
+        "off_target_mean_drop": 0.11276066554364589,
+        "target_axis_drop": 0.8000408037886836,
+        "target_selectivity_margin": 0.6872801382450378
+      },
+      "documents": 1
+    }
+  },
+  "rows": 91,
+  "source_documents": 1
+}

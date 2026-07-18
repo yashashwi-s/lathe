@@ -1,0 +1,181 @@
+{
+  "expected_component_detection_rate": {
+    "appearance": {
+      "cases": 22,
+      "rate": 1.0
+    },
+    "content": {
+      "cases": 172,
+      "rate": 1.0
+    },
+    "content+appearance": {
+      "cases": 269,
+      "rate": 1.0
+    },
+    "layout": {
+      "cases": 165,
+      "rate": 1.0
+    }
+  },
+  "invalid_or_invisible_trigger_rate": {
+    "content": {
+      "cases": 98,
+      "trigger_rate": 0.40816326530612246
+    },
+    "layout": {
+      "cases": 98,
+      "trigger_rate": 0.826530612244898
+    },
+    "pagination": {
+      "cases": 98,
+      "trigger_rate": 0.0
+    },
+    "raster_residual": {
+      "cases": 98,
+      "trigger_rate": 0.9897959183673469
+    },
+    "typography": {
+      "cases": 98,
+      "trigger_rate": 0.16326530612244897
+    }
+  },
+  "manual_post_unblind": {
+    "candidate_valid_rate": 0.8439490445859873,
+    "invalid_or_invisible_rows": 98,
+    "label_correct_rate": 1.0,
+    "mutation_visible_rate": 0.8439490445859873,
+    "predicted_box_partial_count": 23,
+    "predicted_box_useful_rate": 0.8198347107438017,
+    "rows_with_review": 628,
+    "target_box_correct_rate": 1.0,
+    "valid_and_visible_rows": 530
+  },
+  "release_decision": {
+    "component_vector": "research prototype: retain raw values with evidence and abstentions",
+    "specialized_structure": "abstain until common validated table/formula/figure extraction",
+    "universal_scalar": "rejected"
+  },
+  "response_matrix": {
+    "appearance": {
+      "content": {
+        "cases": 22,
+        "trigger_rate": 0.6818181818181818
+      },
+      "layout": {
+        "cases": 22,
+        "trigger_rate": 0.2727272727272727
+      },
+      "pagination": {
+        "cases": 22,
+        "trigger_rate": 0.0
+      },
+      "raster_residual": {
+        "cases": 22,
+        "trigger_rate": 1.0
+      },
+      "typography": {
+        "cases": 22,
+        "trigger_rate": 0.6363636363636364
+      }
+    },
+    "content": {
+      "content": {
+        "cases": 172,
+        "trigger_rate": 1.0
+      },
+      "layout": {
+        "cases": 172,
+        "trigger_rate": 0.563953488372093
+      },
+      "pagination": {
+        "cases": 172,
+        "trigger_rate": 0.0
+      },
+      "raster_residual": {
+        "cases": 172,
+        "trigger_rate": 0.9941860465116279
+      },
+      "typography": {
+        "cases": 172,
+        "trigger_rate": 0.45930232558139533
+      }
+    },
+    "content+appearance": {
+      "content": {
+        "cases": 269,
+        "trigger_rate": 0.8029739776951673
+      },
+      "layout": {
+        "cases": 269,
+        "trigger_rate": 0.3754646840148699
+      },
+      "pagination": {
+        "cases": 269,
+        "trigger_rate": 0.0
+      },
+      "raster_residual": {
+        "cases": 269,
+        "trigger_rate": 1.0
+      },
+      "typography": {
+        "cases": 269,
+        "trigger_rate": 0.550185873605948
+      }
+    },
+    "layout": {
+      "content": {
+        "cases": 165,
+        "trigger_rate": 0.05454545454545454
+      },
+      "layout": {
+        "cases": 165,
+        "trigger_rate": 1.0
+      },
+      "pagination": {
+        "cases": 165,
+        "trigger_rate": 0.0
+      },
+      "raster_residual": {
+        "cases": 165,
+        "trigger_rate": 1.0
+      },
+      "typography": {
+        "cases": 165,
+        "trigger_rate": 0.030303030303030304
+      }
+    }
+  },
+  "rows": 628,
+  "scope": "retained controlled mid-severity panel; four cases per each of 157 documents",
+  "score_status_counts": {
+    "scored": 628
+  },
+  "trigger_policy": {
+    "content": "strict_word_f1 < 1 or a nonempty critical inventory differs",
+    "layout": "token center q90 > .005 or Text-LTSim < .9999 (change detector, not grade band)",
+    "pagination": "page-count delta != 0 or page-break F1 < .999",
+    "raster_residual": "resized-canvas tolerant-ink F1 < .995 or fail-closed SSIM < .9999",
+    "typography": "font-size log error q90 > .01, baseline q90 > .002, or style coverage < .99"
+  },
+  "trigger_policy_status": "diagnostic smoke thresholds, not quality grades",
+  "unique_documents": 157,
+  "valid_visible_expected_component_detection_rate": {
+    "appearance": {
+      "cases": 22,
+      "rate": 1.0
+    },
+    "content": {
+      "cases": 143,
+      "rate": 1.0
+    },
+    "content+appearance": {
+      "cases": 263,
+      "rate": 1.0
+    },
+    "layout": {
+      "cases": 102,
+      "rate": 1.0
+    }
+  },
+  "validator": "validate_metric_v2_retained"
+}

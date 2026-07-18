@@ -1,0 +1,1161 @@
+{
+  "applicability": {
+    "figures": {
+      "candidate": null,
+      "reference": false
+    },
+    "formulas": {
+      "candidate": null,
+      "reference": false
+    },
+    "tables": {
+      "candidate": null,
+      "reference": false
+    }
+  },
+  "axes": {
+    "canvas": {
+      "applicable": true,
+      "evidence": {
+        "page_pairs": [
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "exact_size_match": false,
+            "height_abs_log_ratio": 2.8999115816770134e-07,
+            "page": 0,
+            "reference_size_points": [
+              595.2760009765625,
+              841.8900146484375
+            ],
+            "width_abs_log_ratio": 7.177279890362799e-07
+          }
+        ]
+      },
+      "interpretation": "Canvas/page-size mismatch only; no token layout residual is folded into this axis.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "exact_paired_size_rate": 0.0,
+        "height_abs_log_ratio_max": 2.8999115816770134e-07,
+        "page_count_delta": 0,
+        "paired_page_count": 1,
+        "reference_page_count": 1,
+        "width_abs_log_ratio_max": 7.177279890362799e-07
+      },
+      "status": "scored"
+    },
+    "content": {
+      "applicable": true,
+      "evidence": {
+        "lowest_similarity_block_pairs": [
+          {
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "Vor dem Berg 1 12345 Musterhausen",
+            "normalized_edit_similarity": 0.6599999999999999,
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "candidate_text": "Liebe Vereinsvorsitzende,",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "Liebe Vereinsvorsitzende,"
+          }
+        ],
+        "unmatched_candidate_words": [],
+        "unmatched_reference_words": [
+          {
+            "bbox": [
+              455.6719970703125,
+              284.3156433105469,
+              470.6399230957031,
+              296.2708435058594
+            ],
+            "normalized": "13.",
+            "page": 0,
+            "text": "13.",
+            "word_index": 8
+          },
+          {
+            "bbox": [
+              474.5373229980469,
+              284.3156433105469,
+              493.5580139160156,
+              296.2708435058594
+            ],
+            "normalized": "Juli",
+            "page": 0,
+            "text": "Juli",
+            "word_index": 9
+          },
+          {
+            "bbox": [
+              497.4673767089844,
+              284.3156433105469,
+              520.8995971679688,
+              296.2708435058594
+            ],
+            "normalized": "2026",
+            "page": 0,
+            "text": "2026",
+            "word_index": 10
+          }
+        ]
+      },
+      "interpretation": "Token multiset retention and normalized Levenshtein similarity; ordering is reported separately.",
+      "metrics": {
+        "document_normalized_edit_similarity": 0.8444444444444444,
+        "matched_block_count": 2,
+        "matched_block_normalized_edit_similarity_macro": 0.83,
+        "token_inventory": {
+          "candidate_count": 10,
+          "f1": 0.8695652173913044,
+          "matched_count": 10,
+          "precision": 1.0,
+          "recall": 0.7692307692307693,
+          "reference_count": 13
+        }
+      },
+      "status": "scored"
+    },
+    "figures": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": false
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for figures was not established by source metadata.",
+      "status": "abstain"
+    },
+    "formulas": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": false
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for formulas was not established by source metadata.",
+      "status": "abstain"
+    },
+    "geometry": {
+      "applicable": true,
+      "evidence": {
+        "worst_token_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              469.1396789550781,
+              68.48490905761719,
+              485.06768798828125,
+              81.02490997314453
+            ],
+            "candidate_bbox_normalized": [
+              0.7881050385035571,
+              0.08134664591102983,
+              0.8148624089318204,
+              0.09624170860785229
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 2,
+            "center_displacement": 0.7069457438645088,
+            "height_abs_log_ratio": 0.04775755169518007,
+            "reference_bbox": [
+              56.69300079345703,
+              194.66065979003906,
+              74.90077209472656,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.23121863474212467,
+              0.12582528435860058,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 2,
+            "token": "Vor",
+            "width_abs_log_ratio": 0.13376864590476656
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              487.81768798828125,
+              68.48490905761719,
+              506.9906921386719,
+              81.02490997314453
+            ],
+            "candidate_bbox_normalized": [
+              0.8194821180570686,
+              0.08134664591102983,
+              0.8516907370505162,
+              0.09624170860785229
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 3,
+            "center_displacement": 0.7012945971691036,
+            "height_abs_log_ratio": 0.04775755169518007,
+            "reference_bbox": [
+              78.81011962890625,
+              194.66065979003906,
+              100.26971435546875,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.1323925700004983,
+              0.23121863474212467,
+              0.16844239342922313,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 3,
+            "token": "dem",
+            "width_abs_log_ratio": 0.11266787842709282
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              509.7406921386719,
+              68.48490905761719,
+              530.7176513671875,
+              81.02490997314453
+            ],
+            "candidate_bbox_normalized": [
+              0.8563104461757645,
+              0.08134664591102983,
+              0.8915495188913765,
+              0.09624170860785229
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 4,
+            "center_displacement": 0.6951388297051364,
+            "height_abs_log_ratio": 0.04775755169518007,
+            "reference_bbox": [
+              104.16710662841797,
+              194.66065979003906,
+              128.0655517578125,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.17498959551120774,
+              0.23121863474212467,
+              0.21513642671251373,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 4,
+            "token": "Berg",
+            "width_abs_log_ratio": 0.13038802595887228
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              533.4676513671875,
+              68.48490905761719,
+              538.5826416015625,
+              81.02490997314453
+            ],
+            "candidate_bbox_normalized": [
+              0.8961692280166247,
+              0.08134664591102983,
+              0.9047618705843692,
+              0.09624170860785229
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 5,
+            "center_displacement": 0.6902513284967009,
+            "height_abs_log_ratio": 0.04775755169518007,
+            "reference_bbox": [
+              131.96295166015625,
+              194.66065979003906,
+              137.8209991455078,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.221683641611065,
+              0.23121863474212467,
+              0.23152453470223835,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 5,
+            "token": "1",
+            "width_abs_log_ratio": 0.1356401465249295
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              454.8836669921875,
+              54.09690856933594,
+              478.3466796875,
+              66.63690948486328
+            ],
+            "candidate_bbox_normalized": [
+              0.7641564463018796,
+              0.06425652201083958,
+              0.8035718258852793,
+              0.07915158470766205
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 0,
+            "center_displacement": 0.6818504870550602,
+            "height_abs_log_ratio": 0.047757551695180915,
+            "reference_bbox": [
+              56.69300079345703,
+              180.2156524658203,
+              84.50080108642578,
+              192.1708526611328
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.1419523060694543,
+              0.22826123284213187
+            ],
+            "reference_page": 0,
+            "reference_word_index": 0,
+            "token": "Petra",
+            "width_abs_log_ratio": 0.1698905963242937
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              481.0966796875,
+              54.09690856933594,
+              538.5826416015625,
+              66.63690948486328
+            ],
+            "candidate_bbox_normalized": [
+              0.8081915350105275,
+              0.06425652201083958,
+              0.9047618705843692,
+              0.07915158470766205
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 1,
+            "center_displacement": 0.6704420683236146,
+            "height_abs_log_ratio": 0.047757551695180915,
+            "reference_bbox": [
+              88.398193359375,
+              180.2156524658203,
+              153.17147827148438,
+              192.1708526611328
+            ],
+            "reference_bbox_normalized": [
+              0.14849950815143892,
+              0.214060802872304,
+              0.2573116974650472,
+              0.22826123284213187
+            ],
+            "reference_page": 0,
+            "reference_word_index": 1,
+            "token": "Mustermann",
+            "width_abs_log_ratio": 0.11935175337766465
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              446.4576721191406,
+              82.87290954589844,
+              472.03265380859375,
+              95.41291046142578
+            ],
+            "candidate_bbox_normalized": [
+              0.7500016661548581,
+              0.09843676981122008,
+              0.7929649302598842,
+              0.11333183250804255
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 6,
+            "center_displacement": 0.6685930617386695,
+            "height_abs_log_ratio": 0.04775755169517817,
+            "reference_bbox": [
+              56.69300079345703,
+              209.1066436767578,
+              85.98323822021484,
+              221.0618438720703
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.24837762657640983,
+              0.14444264186555072,
+              0.2625780565462377
+            ],
+            "reference_page": 0,
+            "reference_word_index": 6,
+            "token": "12345",
+            "width_abs_log_ratio": 0.13563895326516912
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              474.7826843261719,
+              82.87290954589844,
+              538.5826416015625,
+              95.41291046142578
+            ],
+            "candidate_bbox_normalized": [
+              0.7975846906514358,
+              0.09843676981122008,
+              0.9047618705843692,
+              0.11333183250804255
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 7,
+            "center_displacement": 0.6575080048456119,
+            "height_abs_log_ratio": 0.04775755169517817,
+            "reference_bbox": [
+              89.88063049316406,
+              209.1066436767578,
+              161.21731567382812,
+              221.0618438720703
+            ],
+            "reference_bbox_normalized": [
+              0.15098984394753534,
+              0.24837762657640983,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_page": 0,
+            "reference_word_index": 7,
+            "token": "Musterhausen",
+            "width_abs_log_ratio": 0.11165747535001307
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              97.77214050292969,
+              125.31089782714844,
+              185.23313903808594,
+              137.85089111328125
+            ],
+            "candidate_bbox_normalized": [
+              0.16424685442779371,
+              0.14884478018014544,
+              0.3111720809864047,
+              0.16373983381474289
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 9,
+            "center_displacement": 0.22397818210616155,
+            "height_abs_log_ratio": 0.04775694329037339,
+            "reference_bbox": [
+              106.11419677734375,
+              313.2066345214844,
+              203.78819274902344,
+              325.1618347167969
+            ],
+            "reference_bbox_normalized": [
+              0.17826049866492388,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "reference_page": 0,
+            "reference_word_index": 12,
+            "token": "Vereinsvorsitzende,",
+            "width_abs_log_ratio": 0.11044168091475379
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              70.86614227294922,
+              125.31089782714844,
+              95.02214813232422,
+              137.85089111328125
+            ],
+            "candidate_bbox_normalized": [
+              0.11904762331981099,
+              0.14884478018014544,
+              0.15962715811912137,
+              0.16373983381474289
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 8,
+            "center_displacement": 0.2230179087262386,
+            "height_abs_log_ratio": 0.04775694329037339,
+            "reference_bbox": [
+              74.40899658203125,
+              313.2066345214844,
+              102.20484924316406,
+              325.1618347167969
+            ],
+            "reference_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.17169321302302615,
+              0.38622840164291566
+            ],
+            "reference_page": 0,
+            "reference_word_index": 11,
+            "token": "Liebe",
+            "width_abs_log_ratio": 0.14035306797851296
+          }
+        ]
+      },
+      "interpretation": "Token boxes are normalized by each page's own canvas; canvas mismatch remains a separate axis.",
+      "metrics": {
+        "bbox_iou_q10": 0.0,
+        "bbox_iou_q50": 0.0,
+        "candidate_match_coverage": 1.0,
+        "center_displacement_max": 0.7069457438645088,
+        "center_displacement_q50": 0.6761462776893374,
+        "center_displacement_q90": 0.7018597118386442,
+        "height_abs_log_ratio_q90": 0.047757551695180915,
+        "matched_token_count": 10,
+        "reference_match_coverage": 0.7692307692307693,
+        "width_abs_log_ratio_q90": 0.14330682081309104
+      },
+      "status": "scored"
+    },
+    "layout_relations": {
+      "applicable": true,
+      "evidence": {
+        "relation_mismatches": [
+          {
+            "candidate_block_pair": [
+              1,
+              2
+            ],
+            "candidate_relation": "left_of",
+            "reference_block_pair": [
+              0,
+              2
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Petra Mustermann Vor dem Berg 1 12345 Musterhausen",
+              "Liebe Vereinsvorsitzende,"
+            ]
+          }
+        ],
+        "worst_block_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.7500016661548581,
+              0.08134664591102983,
+              0.9047618705843692,
+              0.11333183250804255
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "center_displacement": 0.6595913405575391,
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.11904762331981099,
+              0.14884478018014544,
+              0.3111720809864047,
+              0.16373983381474289
+            ],
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "center_displacement": 0.22360755020469003,
+            "reference_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "Liebe Vereinsvorsitzende,"
+          }
+        ]
+      },
+      "interpretation": "Transparent matched-block relation trial inspired by pairwise-layout work; this is not the published PaIRS or LTSim metric.",
+      "metrics": {
+        "candidate_block_coverage": 0.6666666666666666,
+        "matched_block_center_displacement_q90": 0.6159929615222542,
+        "matched_block_count": 2,
+        "matched_block_iou_q10": 0.0,
+        "matched_block_iou_q50": 0.0,
+        "pairwise_relation_agreement": 0.0,
+        "pairwise_relation_count": 1,
+        "reference_block_coverage": 0.6666666666666666
+      },
+      "status": "scored"
+    },
+    "pagination": {
+      "applicable": true,
+      "evidence": {
+        "mismatched_page_breaks": []
+      },
+      "interpretation": "Page count, matched-block page assignment, and page-break boundaries are reported independently.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "matched_block_count": 2,
+        "matched_block_page_assignment_accuracy": 1.0,
+        "page_break_f1": 1.0,
+        "page_break_false_negative": 0,
+        "page_break_false_positive": 0,
+        "page_break_precision": 1.0,
+        "page_break_recall": 1.0,
+        "page_break_true_positive": 0,
+        "page_count_delta": 0,
+        "reference_page_count": 1
+      },
+      "status": "scored"
+    },
+    "raster_diagnostic": {
+      "applicable": true,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_raster_size_before_resize": [
+              993,
+              1404
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 0,
+            "reference_raster_size": [
+              993,
+              1404
+            ],
+            "registered": {
+              "candidate_ink_pixels": 3023,
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "reference_ink_pixels": 3961,
+              "unmatched_ink_fraction_of_union": 1.0,
+              "unmatched_ink_pixels": 6984
+            },
+            "registered_mean_absolute_gray_difference": 0.0026933830371620392,
+            "registration_translation_px": [
+              0,
+              0
+            ],
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.016112789526686808,
+                0.06766381766381767,
+                0.904330312185297,
+                0.7072649572649573
+              ],
+              "pixel_bbox": [
+                16,
+                95,
+                898,
+                993
+              ]
+            },
+            "unregistered": {
+              "candidate_ink_pixels": 3023,
+              "f1": 0.0,
+              "precision": 0.0,
+              "recall": 0.0,
+              "reference_ink_pixels": 3961,
+              "unmatched_ink_fraction_of_union": 1.0,
+              "unmatched_ink_pixels": 6984
+            }
+          }
+        ],
+        "top_difference_bbox": {
+          "coordinate_frame": "registered_reference_raster",
+          "normalized_bbox": [
+            0.016112789526686808,
+            0.06766381766381767,
+            0.904330312185297,
+            0.7072649572649573
+          ],
+          "page": 0,
+          "pixel_bbox": [
+            16,
+            95,
+            898,
+            993
+          ],
+          "registration_translation_px": [
+            0,
+            0
+          ],
+          "unpaired_side": null
+        }
+      },
+      "interpretation": "Candidate pages are resized to the reference canvas, then optionally translation-registered. Use canvas and geometry axes for layout claims.",
+      "metrics": {
+        "paired_page_count": 1,
+        "registered_tolerant_ink_f1_macro": 0.0,
+        "registration_gain": 0.0,
+        "unpaired_page_count": 0,
+        "unregistered_tolerant_ink_f1_macro": 0.0
+      },
+      "status": "scored"
+    },
+    "reading_order": {
+      "applicable": true,
+      "evidence": {
+        "inverted_block_pairs": []
+      },
+      "interpretation": "Kendall tau is computed only on content-matched blocks; coverage must accompany it.",
+      "metrics": {
+        "candidate_block_coverage": 0.6666666666666666,
+        "inversion_count": 0,
+        "kendall_tau": 1.0,
+        "matched_block_count": 2,
+        "reference_block_coverage": 0.6666666666666666
+      },
+      "status": "scored"
+    },
+    "tables": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": false
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for tables was not established by source metadata.",
+      "status": "abstain"
+    },
+    "text_grounding": {
+      "applicable": true,
+      "evidence": {
+        "match_policy": "exact Unicode-NFKC word text with deterministic page/position assignment for repeats"
+      },
+      "interpretation": "Digital-PDF exact-word grounding adaptation; it is not the published CLEval algorithm. Split/merge values remain null until a validated implementation exists.",
+      "metrics": {
+        "candidate_word_count": 10,
+        "exact_matched_word_count": 10,
+        "merge_count": null,
+        "reference_word_count": 13,
+        "split_count": null,
+        "word_hmean": 0.8695652173913044,
+        "word_precision": 1.0,
+        "word_recall": 0.7692307692307693
+      },
+      "status": "scored"
+    },
+    "typography": {
+      "applicable": true,
+      "evidence": {
+        "style_mismatches": [
+          {
+            "candidate_bbox": [
+              533.4676513671875,
+              68.48490905761719,
+              538.5826416015625,
+              81.02490997314453
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              131.96295166015625,
+              194.66065979003906,
+              137.8209991455078,
+              206.61585998535156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1"
+          },
+          {
+            "candidate_bbox": [
+              446.4576721191406,
+              82.87290954589844,
+              472.03265380859375,
+              95.41291046142578
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              56.69300079345703,
+              209.1066436767578,
+              85.98323822021484,
+              221.0618438720703
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "12345"
+          },
+          {
+            "candidate_bbox": [
+              509.7406921386719,
+              68.48490905761719,
+              530.7176513671875,
+              81.02490997314453
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              104.16710662841797,
+              194.66065979003906,
+              128.0655517578125,
+              206.61585998535156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Berg"
+          },
+          {
+            "candidate_bbox": [
+              70.86614227294922,
+              125.31089782714844,
+              95.02214813232422,
+              137.85089111328125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              74.40899658203125,
+              313.2066345214844,
+              102.20484924316406,
+              325.1618347167969
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Liebe"
+          },
+          {
+            "candidate_bbox": [
+              474.7826843261719,
+              82.87290954589844,
+              538.5826416015625,
+              95.41291046142578
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              89.88063049316406,
+              209.1066436767578,
+              161.21731567382812,
+              221.0618438720703
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Musterhausen"
+          },
+          {
+            "candidate_bbox": [
+              481.0966796875,
+              54.09690856933594,
+              538.5826416015625,
+              66.63690948486328
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              88.398193359375,
+              180.2156524658203,
+              153.17147827148438,
+              192.1708526611328
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Mustermann"
+          },
+          {
+            "candidate_bbox": [
+              454.8836669921875,
+              54.09690856933594,
+              478.3466796875,
+              66.63690948486328
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              56.69300079345703,
+              180.2156524658203,
+              84.50080108642578,
+              192.1708526611328
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Petra"
+          },
+          {
+            "candidate_bbox": [
+              97.77214050292969,
+              125.31089782714844,
+              185.23313903808594,
+              137.85089111328125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              106.11419677734375,
+              313.2066345214844,
+              203.78819274902344,
+              325.1618347167969
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Vereinsvorsitzende,"
+          },
+          {
+            "candidate_bbox": [
+              469.1396789550781,
+              68.48490905761719,
+              485.06768798828125,
+              81.02490997314453
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              56.69300079345703,
+              194.66065979003906,
+              74.90077209472656,
+              206.61585998535156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Vor"
+          },
+          {
+            "candidate_bbox": [
+              487.81768798828125,
+              68.48490905761719,
+              506.9906921386719,
+              81.02490997314453
+            ],
+            "candidate_color": 0,
+            "candidate_font": "LibertinusSerif-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              78.81011962890625,
+              194.66065979003906,
+              100.26971435546875,
+              206.61585998535156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR12",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "dem"
+          }
+        ]
+      },
+      "interpretation": "Raw PDF font observables are diagnostic; font names and flags are renderer metadata, not perceptual truth.",
+      "metrics": {
+        "baseline_displacement_q90": 0.22248856782817278,
+        "bold_agreement_rate": 1.0,
+        "candidate_style_coverage": 1.0,
+        "candidate_styled_token_count": 10,
+        "color_exact_agreement_rate": 1.0,
+        "font_name_exact_agreement_rate": 0.0,
+        "font_size_abs_log_ratio_max": 0.08327107371093964,
+        "font_size_abs_log_ratio_q50": 0.08327107371093964,
+        "font_size_abs_log_ratio_q90": 0.08327107371093964,
+        "italic_agreement_rate": 1.0,
+        "monospace_agreement_rate": 1.0,
+        "reference_style_coverage": 0.7692307692307693,
+        "reference_styled_token_count": 13,
+        "serif_agreement_rate": 1.0,
+        "style_coverage_hmean": 0.8695652173913044,
+        "styled_matched_token_count": 10
+      },
+      "status": "scored"
+    }
+  },
+  "configuration": {
+    "ink_threshold": 245,
+    "ink_tolerance_px": 2,
+    "normalization": "Unicode NFKC, soft-hyphen removal, collapsed whitespace; case preserved",
+    "render_dpi": 120
+  },
+  "evaluator": {
+    "aggregate_score": null,
+    "name": "pdf_metric_axes_v1",
+    "policy": "No universal scalar; inspect axis values, applicability, coverage, and evidence together.",
+    "version": 1
+  },
+  "inputs": {
+    "candidate_page_count": 1,
+    "candidate_pdf": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/11_forms_cv_letters_008/output.pdf",
+    "reference_page_count": 1,
+    "reference_pdf": "data/latex_benchmark_v0/corpus/11_forms_cv_letters/11_forms_cv_letters_008/reference.pdf"
+  }
+}

@@ -1,0 +1,4044 @@
+{
+  "applicability": {
+    "figures": {
+      "candidate": null,
+      "reference": false
+    },
+    "formulas": {
+      "candidate": null,
+      "reference": true
+    },
+    "tables": {
+      "candidate": null,
+      "reference": false
+    }
+  },
+  "axes": {
+    "canvas": {
+      "applicable": true,
+      "evidence": {
+        "page_pairs": [
+          {
+            "candidate_size_points": [
+              595.2755737304688,
+              841.8897705078125
+            ],
+            "exact_size_match": false,
+            "height_abs_log_ratio": 0.06108769997172164,
+            "page": 0,
+            "reference_size_points": [
+              612.0,
+              792.0
+            ],
+            "width_abs_log_ratio": 0.02770783506031022
+          }
+        ]
+      },
+      "interpretation": "Canvas/page-size mismatch only; no token layout residual is folded into this axis.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "exact_paired_size_rate": 0.0,
+        "height_abs_log_ratio_max": 0.06108769997172164,
+        "page_count_delta": -1,
+        "paired_page_count": 1,
+        "reference_page_count": 2,
+        "width_abs_log_ratio_max": 0.02770783506031022
+      },
+      "status": "scored"
+    },
+    "content": {
+      "applicable": true,
+      "evidence": {
+        "lowest_similarity_block_pairs": [
+          {
+            "candidate_block_index": 4,
+            "candidate_page": 0,
+            "candidate_text": "1 \u2190\ud835\udf141, \ud835\udf14\u2032",
+            "normalized_edit_similarity": 0.26086956521739135,
+            "reference_block_index": 35,
+            "reference_page": 1,
+            "reference_text": "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+          },
+          {
+            "candidate_block_index": 10,
+            "candidate_page": 0,
+            "candidate_text": "End If 4. For \ud835\udc57 in range(\u201cupdate frequency\u201d) 1. Sample batch \u212c\ufe00= {(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58), \ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58))}\ud835\udc58= 1\ud835\udc3e from replay buffer. 2. Compute targets (Clipped Double Q-learning and policy smoothing). \ud835\udc66(\ud835\udc5f, \ud835\udc60\u2032, \ud835\udc51) = \ud835\udc5f+ (1 \u2212\ud835\udc51) min\ud835\udc56=1,2{\ud835\udc44\ud835\udf14\u2032\ud835\udc56(\ud835\udc60\u2032, \u0303\ud835\udc4e)},",
+            "normalized_edit_similarity": 0.2756598240469208,
+            "reference_block_index": 21,
+            "reference_page": 1,
+            "reference_text": "y(r, s\u2032, d) = r + (1 \u2212d) min i=1,2 Q\u03c9\u2032i(s\u2032, \u02dca) , \u02dca = clip(\u00b5\u03b8\u2032(s) + \u03f5, alow, ahigh), \u03f5 \u223cN(0, \u03c3target)."
+          },
+          {
+            "candidate_block_index": 9,
+            "candidate_page": 0,
+            "candidate_text": "the replay buffer. 3. If \ud835\udc60\u2032 is terminal 1. Reset trajectory.",
+            "normalized_edit_similarity": 0.33333333333333337,
+            "reference_block_index": 15,
+            "reference_page": 1,
+            "reference_text": "9: if s\u2032 is terminal then"
+          },
+          {
+            "candidate_block_index": 12,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc3e\u2211\ud835\udc3e",
+            "normalized_edit_similarity": 0.33333333333333337,
+            "reference_block_index": 23,
+            "reference_page": 1,
+            "reference_text": "K X"
+          },
+          {
+            "candidate_block_index": 15,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc3e\u2211\ud835\udc3e",
+            "normalized_edit_similarity": 0.33333333333333337,
+            "reference_block_index": 32,
+            "reference_page": 1,
+            "reference_text": "K X"
+          },
+          {
+            "candidate_block_index": 19,
+            "candidate_page": 0,
+            "candidate_text": "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+            "normalized_edit_similarity": 0.4095238095238095,
+            "reference_block_index": 5,
+            "reference_page": 1,
+            "reference_text": "Algorithm 1 Source-backed algorithmic procedure"
+          },
+          {
+            "candidate_block_index": 18,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc56+ (1 \u2212 \ud835\udf0cp)\ud835\udf14\ud835\udc56, for \ud835\udc56= 1, 2",
+            "normalized_edit_similarity": 0.43103448275862066,
+            "reference_block_index": 40,
+            "reference_page": 1,
+            "reference_text": "\u03b8\u2032 \u2190\u03c1p\u03b8\u2032 + (1 \u2212\u03c1p)\u03b8, \u03c9\u2032i \u2190\u03c1p\u03c9\u2032i + (1 \u2212\u03c1p)\u03c9i, for i = 1, 2."
+          },
+          {
+            "candidate_block_index": 14,
+            "candidate_page": 0,
+            "candidate_text": "4. Update the critic parameters \ud835\udf14\ud835\udc56 based on the optimization algorithm. 5. If \ud835\udc57mod policy delay frequency = 0 1. Estimate actor gradient \u2207\ud835\udf03\ud835\udc3d(\ud835\udf07\ud835\udf03) by \u2207\ud835\udf03( 1",
+            "normalized_edit_similarity": 0.4444444444444444,
+            "reference_block_index": 29,
+            "reference_page": 1,
+            "reference_text": "16: Update the critic parameters \u03c9i based on the optimization algorithm."
+          },
+          {
+            "candidate_block_index": 16,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc58=1 \ud835\udc44\ud835\udf141(\ud835\udc60(\ud835\udc58), \ud835\udf07\ud835\udf03(\ud835\udc60(\ud835\udc58)))) 2. Update the actor parameters \ud835\udf03 based on the optimization algorithm. 3. Update target networks softly: \ud835\udf03\u2032 \u2190\ud835\udf0cp\ud835\udf03\u2032 + (1 \u2212\ud835\udf0cp)\ud835\udf03, \ud835\udf14\u2032",
+            "normalized_edit_similarity": 0.4473684210526315,
+            "reference_block_index": 38,
+            "reference_page": 1,
+            "reference_text": "19: Update the actor parameters \u03b8 based on the optimization algorithm."
+          },
+          {
+            "candidate_block_index": 3,
+            "candidate_page": 0,
+            "candidate_text": "1. Initialize actor network \ud835\udf07\ud835\udf03 and critic networks \ud835\udc44\ud835\udf141 and \ud835\udc44\ud835\udf142. 2. Initialize corresponding target networks: \ud835\udf03\u2032 \u2190\ud835\udf03, \ud835\udf14\u2032",
+            "normalized_edit_similarity": 0.5254237288135593,
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+          },
+          {
+            "candidate_block_index": 8,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udf00, \ud835\udc4elow, \ud835\udc4ehigh), \ud835\udf00\u223c\ud835\udca9\ufe00(0, \ud835\udf0eexpl) 2. Observe next state \ud835\udc60\u2032, reward \ud835\udc5f, and done signal \ud835\udc51 and store the tuple (\ud835\udc60, \ud835\udc4e, \ud835\udc5f, \ud835\udc60\u2032, \ud835\udc51) in",
+            "normalized_edit_similarity": 0.5760000000000001,
+            "reference_block_index": 14,
+            "reference_page": 1,
+            "reference_text": "8: Observe next state s\u2032, reward r, and done signal d and store the tuple (s, a, r, s\u2032, d) in the replay buffer."
+          },
+          {
+            "candidate_block_index": 7,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc4elow, \ud835\udc4ehigh. 6. Repeat 1. Select clipped action and step the environment dynamics forward. \ud835\udc4e= clip(\ud835\udf07\ud835\udf03(\ud835\udc60) +",
+            "normalized_edit_similarity": 0.6132075471698113,
+            "reference_block_index": 12,
+            "reference_page": 1,
+            "reference_text": "7: Select clipped action and step the environment dynamics forward."
+          },
+          {
+            "candidate_block_index": 5,
+            "candidate_page": 0,
+            "candidate_text": "2 \u2190\ud835\udf142 and choose \ud835\udf0cp \u2208(0, 1). 3. Initialize replay buffer \u211b\ufe00. 4. Choose a batch size \ud835\udc3e, a gradient based optimization algorithm and a corresponding learning rate \ud835\udf06actor, \ud835\udf06critic > 0 for both optimization procedures, a time step size \u0394\ud835\udc61 and a",
+            "normalized_edit_similarity": 0.6541666666666667,
+            "reference_block_index": 9,
+            "reference_page": 1,
+            "reference_text": "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 for both optimization procedures, a time step size \u2206t and a stopping criterion."
+          },
+          {
+            "candidate_block_index": 6,
+            "candidate_page": 0,
+            "candidate_text": "stopping criterion. 5. Choose standard deviation exploration noise \ud835\udf0eexpl and lower and upper action bounds",
+            "normalized_edit_similarity": 0.679245283018868,
+            "reference_block_index": 10,
+            "reference_page": 1,
+            "reference_text": "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh."
+          },
+          {
+            "candidate_block_index": 11,
+            "candidate_page": 0,
+            "candidate_text": "2), for \ud835\udc56= 1, 2",
+            "normalized_edit_similarity": 0.7333333333333334,
+            "reference_block_index": 27,
+            "reference_page": 1,
+            "reference_text": ", for i = 1, 2."
+          },
+          {
+            "candidate_block_index": 13,
+            "candidate_page": 0,
+            "candidate_text": "\ud835\udc58=1 (\ud835\udc44\ud835\udf14\ud835\udc56(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58)) \u2212\ud835\udc66(\ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58)))",
+            "normalized_edit_similarity": 0.7906976744186046,
+            "reference_block_index": 24,
+            "reference_page": 1,
+            "reference_text": "Q\u03c9i(s(k), a(k)) \u2212y(r(k), s\u2032(k), d(k)) 2 !"
+          },
+          {
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "candidate_text": "Algorithm This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation.",
+            "normalized_edit_similarity": 0.9438202247191011,
+            "reference_block_index": 3,
+            "reference_page": 0,
+            "reference_text": "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX validation."
+          },
+          {
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "candidate_text": "Algorithmic Pseudocode Sample 13",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Algorithmic Pseudocode Sample 13"
+          },
+          {
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "Source-backed Image2Struct algorithm sample",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "Source-backed Image2Struct algorithm sample"
+          }
+        ],
+        "unmatched_candidate_words": [
+          {
+            "bbox": [
+              72.0,
+              170.61941528320312,
+              80.55799865722656,
+              181.61941528320312
+            ],
+            "normalized": "1.",
+            "page": 0,
+            "text": "1.",
+            "word_index": 32
+          },
+          {
+            "bbox": [
+              324.07696533203125,
+              183.94918823242188,
+              334.1628723144531,
+              196.28244018554688
+            ],
+            "normalized": "\u03c9\u2032",
+            "page": 0,
+            "text": "\ud835\udf14\u2032",
+            "word_index": 50
+          },
+          {
+            "bbox": [
+              371.5876770019531,
+              183.94918823242188,
+              381.673583984375,
+              196.28244018554688
+            ],
+            "normalized": "\u03c9\u2032",
+            "page": 0,
+            "text": "\ud835\udf14\u2032",
+            "word_index": 53
+          },
+          {
+            "bbox": [
+              72.0,
+              199.94540405273438,
+              80.55799865722656,
+              210.94540405273438
+            ],
+            "normalized": "3.",
+            "page": 0,
+            "text": "3.",
+            "word_index": 61
+          },
+          {
+            "bbox": [
+              354.8949890136719,
+              199.94540405273438,
+              366.9510192871094,
+              210.94540405273438
+            ],
+            "normalized": "R\ufe00.",
+            "page": 0,
+            "text": "\u211b\ufe00.",
+            "word_index": 65
+          },
+          {
+            "bbox": [
+              72.0,
+              214.60836791992188,
+              80.55799865722656,
+              225.60836791992188
+            ],
+            "normalized": "4.",
+            "page": 0,
+            "text": "4.",
+            "word_index": 66
+          },
+          {
+            "bbox": [
+              475.66302490234375,
+              229.27139282226562,
+              488.7970275878906,
+              240.27139282226562
+            ],
+            "normalized": "\u0394t",
+            "page": 0,
+            "text": "\u0394\ud835\udc61",
+            "word_index": 94
+          },
+          {
+            "bbox": [
+              72.0,
+              258.5973815917969,
+              80.55799865722656,
+              269.5973815917969
+            ],
+            "normalized": "5.",
+            "page": 0,
+            "text": "5.",
+            "word_index": 99
+          },
+          {
+            "bbox": [
+              72.0,
+              287.9234313964844,
+              80.55799865722656,
+              298.9234313964844
+            ],
+            "normalized": "6.",
+            "page": 0,
+            "text": "6.",
+            "word_index": 114
+          },
+          {
+            "bbox": [
+              284.8997802734375,
+              287.9563903808594,
+              324.43377685546875,
+              298.9563903808594
+            ],
+            "normalized": "Repeat",
+            "page": 0,
+            "text": "Repeat",
+            "word_index": 115
+          },
+          {
+            "bbox": [
+              86.05799865722656,
+              302.6194152832031,
+              94.61599731445312,
+              313.6194152832031
+            ],
+            "normalized": "1.",
+            "page": 0,
+            "text": "1.",
+            "word_index": 116
+          },
+          {
+            "bbox": [
+              434.711669921875,
+              302.6194152832031,
+              452.14422607421875,
+              313.6194152832031
+            ],
+            "normalized": "a=",
+            "page": 0,
+            "text": "\ud835\udc4e=",
+            "word_index": 126
+          },
+          {
+            "bbox": [
+              312.4983215332031,
+              317.4693908691406,
+              356.91143798828125,
+              328.4693908691406
+            ],
+            "normalized": "\u03b5\u223cN\ufe00(0,",
+            "page": 0,
+            "text": "\ud835\udf00\u223c\ud835\udca9\ufe00(0,",
+            "word_index": 132
+          },
+          {
+            "bbox": [
+              358.7447509765625,
+              317.4693908691406,
+              384.5859375,
+              330.5461730957031
+            ],
+            "normalized": "\u03c3expl)",
+            "page": 0,
+            "text": "\ud835\udf0eexpl)",
+            "word_index": 133
+          },
+          {
+            "bbox": [
+              86.05799865722656,
+              332.31939697265625,
+              94.61599731445312,
+              343.31939697265625
+            ],
+            "normalized": "2.",
+            "page": 0,
+            "text": "2.",
+            "word_index": 134
+          },
+          {
+            "bbox": [
+              86.05799865722656,
+              361.6454162597656,
+              94.61599731445312,
+              372.6454162597656
+            ],
+            "normalized": "3.",
+            "page": 0,
+            "text": "3.",
+            "word_index": 158
+          },
+          {
+            "bbox": [
+              273.537353515625,
+              361.67840576171875,
+              282.1943359375,
+              372.67840576171875
+            ],
+            "normalized": "If",
+            "page": 0,
+            "text": "If",
+            "word_index": 159
+          },
+          {
+            "bbox": [
+              264.80828857421875,
+              376.3414001464844,
+              273.3663024902344,
+              387.3414001464844
+            ],
+            "normalized": "1.",
+            "page": 0,
+            "text": "1.",
+            "word_index": 163
+          },
+          {
+            "bbox": [
+              294.07379150390625,
+              397.08740234375,
+              316.4477844238281,
+              408.08740234375
+            ],
+            "normalized": "End",
+            "page": 0,
+            "text": "End",
+            "word_index": 166
+          },
+          {
+            "bbox": [
+              320.6607971191406,
+              397.08740234375,
+              329.3177795410156,
+              408.08740234375
+            ],
+            "normalized": "If",
+            "page": 0,
+            "text": "If",
+            "word_index": 167
+          },
+          {
+            "bbox": [
+              86.05799865722656,
+              411.7503967285156,
+              94.61599731445312,
+              422.7503967285156
+            ],
+            "normalized": "4.",
+            "page": 0,
+            "text": "4.",
+            "word_index": 168
+          },
+          {
+            "bbox": [
+              225.84629821777344,
+              411.7834167480469,
+              244.29330444335938,
+              422.7834167480469
+            ],
+            "normalized": "For",
+            "page": 0,
+            "text": "For",
+            "word_index": 169
+          },
+          {
+            "bbox": [
+              269.1313171386719,
+              411.7834167480469,
+              338.2333068847656,
+              422.7834167480469
+            ],
+            "normalized": "range(\u201cupdate",
+            "page": 0,
+            "text": "range(\u201cupdate",
+            "word_index": 172
+          },
+          {
+            "bbox": [
+              341.89630126953125,
+              411.7834167480469,
+              397.5452880859375,
+              422.7834167480469
+            ],
+            "normalized": "frequency\u201d)",
+            "page": 0,
+            "text": "frequency\u201d)",
+            "word_index": 173
+          }
+        ],
+        "unmatched_reference_words": [
+          {
+            "bbox": [
+              72.0,
+              100.82994842529297,
+              128.0400390625,
+              111.73905181884766
+            ],
+            "normalized": "Algorithm",
+            "page": 1,
+            "text": "Algorithm",
+            "word_index": 34
+          },
+          {
+            "bbox": [
+              132.1964111328125,
+              100.82994842529297,
+              138.42550659179688,
+              111.73905181884766
+            ],
+            "normalized": "1",
+            "page": 1,
+            "text": "1",
+            "word_index": 35
+          },
+          {
+            "bbox": [
+              77.85098266601562,
+              129.91555786132812,
+              85.01513671875,
+              138.8819580078125
+            ],
+            "normalized": "2:",
+            "page": 1,
+            "text": "2:",
+            "word_index": 50
+          },
+          {
+            "bbox": [
+              323.9684143066406,
+              126.6208267211914,
+              338.1871032714844,
+              140.2891845703125
+            ],
+            "normalized": "\u03c9\u20321",
+            "page": 1,
+            "text": "\u03c9\u20321",
+            "word_index": 57
+          },
+          {
+            "bbox": [
+              373.8117370605469,
+              126.6208267211914,
+              388.0201110839844,
+              140.2891845703125
+            ],
+            "normalized": "\u03c9\u20322",
+            "page": 1,
+            "text": "\u03c9\u20322",
+            "word_index": 59
+          },
+          {
+            "bbox": [
+              77.85101318359375,
+              143.46456909179688,
+              85.01516723632812,
+              152.43096923828125
+            ],
+            "normalized": "3:",
+            "page": 1,
+            "text": "3:",
+            "word_index": 66
+          },
+          {
+            "bbox": [
+              198.8843536376953,
+              141.79380798339844,
+              211.14617919921875,
+              152.8577880859375
+            ],
+            "normalized": "R.",
+            "page": 1,
+            "text": "R.",
+            "word_index": 70
+          },
+          {
+            "bbox": [
+              77.85101318359375,
+              157.01358032226562,
+              85.01516723632812,
+              165.97998046875
+            ],
+            "normalized": "4:",
+            "page": 1,
+            "text": "4:",
+            "word_index": 71
+          },
+          {
+            "bbox": [
+              449.1244201660156,
+              169.03419494628906,
+              462.1498718261719,
+              179.94329833984375
+            ],
+            "normalized": "\u2206t",
+            "page": 1,
+            "text": "\u2206t",
+            "word_index": 99
+          },
+          {
+            "bbox": [
+              77.85102081298828,
+              197.66159057617188,
+              85.01517486572266,
+              206.62799072265625
+            ],
+            "normalized": "5:",
+            "page": 1,
+            "text": "5:",
+            "word_index": 104
+          },
+          {
+            "bbox": [
+              77.85104370117188,
+              211.21060180664062,
+              85.01519775390625,
+              220.177001953125
+            ],
+            "normalized": "6:",
+            "page": 1,
+            "text": "6:",
+            "word_index": 119
+          },
+          {
+            "bbox": [
+              90.43701934814453,
+              209.6920166015625,
+              125.10614013671875,
+              220.60110473632812
+            ],
+            "normalized": "repeat",
+            "page": 1,
+            "text": "repeat",
+            "word_index": 120
+          },
+          {
+            "bbox": [
+              77.85104370117188,
+              224.75961303710938,
+              85.01519775390625,
+              233.72601318359375
+            ],
+            "normalized": "7:",
+            "page": 1,
+            "text": "7:",
+            "word_index": 121
+          },
+          {
+            "bbox": [
+              201.20204162597656,
+              247.7382354736328,
+              206.97296142578125,
+              258.6473388671875
+            ],
+            "normalized": "a",
+            "page": 1,
+            "text": "a",
+            "word_index": 131
+          },
+          {
+            "bbox": [
+              355.8738708496094,
+              247.7382354736328,
+              360.302978515625,
+              258.6473388671875
+            ],
+            "normalized": "\u03b5",
+            "page": 1,
+            "text": "\u03f5",
+            "word_index": 138
+          },
+          {
+            "bbox": [
+              363.335693359375,
+              247.5968475341797,
+              398.1466064453125,
+              258.6473388671875
+            ],
+            "normalized": "\u223cN(0,",
+            "page": 1,
+            "text": "\u223cN(0,",
+            "word_index": 139
+          },
+          {
+            "bbox": [
+              399.95751953125,
+              247.7382354736328,
+              429.24139404296875,
+              259.7471008300781
+            ],
+            "normalized": "\u03c3expl).",
+            "page": 1,
+            "text": "\u03c3expl).",
+            "word_index": 140
+          },
+          {
+            "bbox": [
+              77.85101318359375,
+              273.776611328125,
+              85.01516723632812,
+              282.7430114746094
+            ],
+            "normalized": "8:",
+            "page": 1,
+            "text": "8:",
+            "word_index": 141
+          },
+          {
+            "bbox": [
+              77.85103607177734,
+              300.8746337890625,
+              85.01519012451172,
+              309.8410339355469
+            ],
+            "normalized": "9:",
+            "page": 1,
+            "text": "9:",
+            "word_index": 165
+          },
+          {
+            "bbox": [
+              106.71339416503906,
+              299.3560485839844,
+              113.97885131835938,
+              310.26513671875
+            ],
+            "normalized": "if",
+            "page": 1,
+            "text": "if",
+            "word_index": 166
+          },
+          {
+            "bbox": [
+              184.5587158203125,
+              299.3560485839844,
+              208.9514617919922,
+              310.26513671875
+            ],
+            "normalized": "then",
+            "page": 1,
+            "text": "then",
+            "word_index": 170
+          },
+          {
+            "bbox": [
+              73.2440414428711,
+              314.42364501953125,
+              85.01692199707031,
+              323.3900451660156
+            ],
+            "normalized": "10:",
+            "page": 1,
+            "text": "10:",
+            "word_index": 171
+          },
+          {
+            "bbox": [
+              73.2440414428711,
+              327.97265625,
+              85.01692199707031,
+              336.9390563964844
+            ],
+            "normalized": "11:",
+            "page": 1,
+            "text": "11:",
+            "word_index": 174
+          },
+          {
+            "bbox": [
+              106.71511840820312,
+              326.4540710449219,
+              126.26422119140625,
+              337.3631591796875
+            ],
+            "normalized": "end",
+            "page": 1,
+            "text": "end",
+            "word_index": 175
+          }
+        ]
+      },
+      "interpretation": "Token multiset retention and normalized Levenshtein similarity; ordering is reported separately.",
+      "metrics": {
+        "document_normalized_edit_similarity": 0.8573643410852714,
+        "matched_block_count": 19,
+        "matched_block_normalized_edit_similarity_macro": 0.5676207897465139,
+        "token_inventory": {
+          "candidate_count": 312,
+          "f1": 0.7538461538461538,
+          "matched_count": 245,
+          "precision": 0.7852564102564102,
+          "recall": 0.7248520710059172,
+          "reference_count": 338
+        }
+      },
+      "status": "scored"
+    },
+    "figures": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": false
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for figures was not established by source metadata.",
+      "status": "abstain"
+    },
+    "formulas": {
+      "applicable": true,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": true
+        }
+      },
+      "metrics": {},
+      "reason": "Formulas are present, but this evaluator has no validated structure-aware formulas metric.",
+      "status": "abstain"
+    },
+    "geometry": {
+      "applicable": true,
+      "evidence": {
+        "worst_token_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              72.0,
+              185.28244018554688,
+              80.55799865722656,
+              196.28244018554688
+            ],
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.2200792154462073,
+              0.13532891691218954,
+              0.23314505896318577
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 43,
+            "center_displacement": 0.7283433162947652,
+            "height_abs_log_ratio": 0.05279144028529601,
+            "reference_bbox": [
+              462.0554504394531,
+              458.2601623535156,
+              470.542724609375,
+              469.1692810058594
+            ],
+            "reference_bbox_normalized": [
+              0.7549925660775378,
+              0.5786113161029238,
+              0.7688606611264297,
+              0.592385455815479
+            ],
+            "reference_page": 1,
+            "reference_word_index": 255,
+            "token": "2.",
+            "width_abs_log_ratio": 0.03600631099435777
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              72.0,
+              149.90640258789062,
+              124.89900207519531,
+              160.90640258789062
+            ],
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.17805941803695965,
+              0.20981711258951738,
+              0.19112526155393814
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 19,
+            "center_displacement": 0.6813632645162925,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              487.7565612792969,
+              218.9496612548828,
+              539.8583374023438,
+              229.8587646484375
+            ],
+            "reference_bbox_normalized": [
+              0.7969878452276092,
+              0.2764515924935389,
+              0.8821214663436989,
+              0.2902257129399463
+            ],
+            "reference_page": 0,
+            "reference_word_index": 20,
+            "token": "benchmark",
+            "width_abs_log_ratio": 0.042893270551852804
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              89.97857666015625,
+              229.27139282226562,
+              128.5225830078125,
+              240.27139282226562
+            ],
+            "candidate_bbox_normalized": [
+              0.15115449151773377,
+              0.2723294674123114,
+              0.21590434528060354,
+              0.2853953109292898
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 80,
+            "center_displacement": 0.6718046121961592,
+            "height_abs_log_ratio": 0.05279004156555581,
+            "reference_bbox": [
+              501.8736877441406,
+              155.49769592285156,
+              539.8264770507812,
+              166.40679931640625
+            ],
+            "reference_bbox_normalized": [
+              0.8200550453335631,
+              0.1963354746500651,
+              0.882069406945721,
+              0.21010959509647253
+            ],
+            "reference_page": 1,
+            "reference_word_index": 85,
+            "token": "learning",
+            "width_abs_log_ratio": 0.04316544496188378
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              220.20880126953125,
+              642.0771484375,
+              228.7667999267578,
+              653.0771484375
+            ],
+            "candidate_bbox_normalized": [
+              0.36992749406720704,
+              0.7626617770283761,
+              0.38430402660926205,
+              0.7757276205453546
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 308,
+            "center_displacement": 0.6631490579764707,
+            "height_abs_log_ratio": 0.14332329876911956,
+            "reference_bbox": [
+              77.85099792480469,
+              116.36654663085938,
+              85.01515197753906,
+              125.33294677734375
+            ],
+            "reference_bbox_normalized": [
+              0.12720751294902727,
+              0.14692745786724667,
+              0.13891364702212264,
+              0.15824867017341382
+            ],
+            "reference_page": 1,
+            "reference_word_index": 39,
+            "token": "1:",
+            "width_abs_log_ratio": 0.20548420845317752
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              362.3507995605469,
+              642.0771484375,
+              409.7828063964844,
+              653.0771484375
+            ],
+            "candidate_bbox_normalized": [
+              0.6087110164621227,
+              0.7626617770283761,
+              0.6883917709380555,
+              0.7757276205453546
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 311,
+            "center_displacement": 0.6571248060502697,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              270.0765686035156,
+              100.83265686035156,
+              316.7674865722656,
+              111.74176025390625
+            ],
+            "reference_bbox_normalized": [
+              0.44130158268548303,
+              0.12731396068226208,
+              0.5175939323076235,
+              0.1410880811286695
+            ],
+            "reference_page": 1,
+            "reference_word_index": 38,
+            "token": "procedure",
+            "width_abs_log_ratio": 0.043455415868124736
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              304.25982666015625,
+              642.0771484375,
+              358.68780517578125,
+              653.0771484375
+            ],
+            "candidate_bbox_normalized": [
+              0.5111243264248572,
+              0.7626617770283761,
+              0.6025575733402919,
+              0.7757276205453546
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 310,
+            "center_displacement": 0.6561469919042203,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              212.8365020751953,
+              100.83265686035156,
+              266.4547424316406,
+              111.74176025390625
+            ],
+            "reference_bbox_normalized": [
+              0.3477720622143714,
+              0.12731396068226208,
+              0.43538356606477224,
+              0.1410880811286695
+            ],
+            "reference_page": 1,
+            "reference_word_index": 37,
+            "token": "algorithmic",
+            "width_abs_log_ratio": 0.042696852314999555
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              232.42979431152344,
+              642.0771484375,
+              300.5968017578125,
+              653.0771484375
+            ],
+            "candidate_bbox_normalized": [
+              0.39045746973109285,
+              0.7626617770283761,
+              0.5049708320367231,
+              0.7757276205453546
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 309,
+            "center_displacement": 0.655019060651892,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              142.04733276367188,
+              100.83265686035156,
+              209.2255859375,
+              111.74176025390625
+            ],
+            "reference_bbox_normalized": [
+              0.23210348490796057,
+              0.12731396068226208,
+              0.34187187244689543,
+              0.1410880811286695
+            ],
+            "reference_page": 1,
+            "reference_word_index": 36,
+            "token": "Source-backed",
+            "width_abs_log_ratio": 0.04231893940436544
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              493.0663146972656,
+              442.2314147949219,
+              503.32928466796875,
+              453.2314147949219
+            ],
+            "candidate_bbox_normalized": [
+              0.8282992557670746,
+              0.5252842240002227,
+              0.8455399597764585,
+              0.5383500675172012
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 198,
+            "center_displacement": 0.6273099226109079,
+            "height_abs_log_ratio": 0.052791440285299994,
+            "reference_bbox": [
+              123.72062683105469,
+              392.9822082519531,
+              133.6479034423828,
+              403.8913269042969
+            ],
+            "reference_bbox_normalized": [
+              0.20215788697884754,
+              0.4961896568837792,
+              0.21837892719343596,
+              0.5099637965963344
+            ],
+            "reference_page": 1,
+            "reference_word_index": 209,
+            "token": "d)",
+            "width_abs_log_ratio": 0.06096392197974546
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              479.26605224609375,
+              440.898193359375,
+              491.23297119140625,
+              453.2314147949219
+            ],
+            "candidate_bbox_normalized": [
+              0.8051162745392569,
+              0.5237006183047376,
+              0.825219432594808,
+              0.5383500675172012
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 197,
+            "center_displacement": 0.6256160706169059,
+            "height_abs_log_ratio": 0.13048283134327712,
+            "reference_bbox": [
+              110.9590072631836,
+              390.6718444824219,
+              121.8988037109375,
+              403.8913269042969
+            ],
+            "reference_bbox_normalized": [
+              0.1813055674235026,
+              0.49327253091214884,
+              0.19918105181525736,
+              0.5099637965963344
+            ],
+            "reference_page": 1,
+            "reference_word_index": 208,
+            "token": "s\u2032,",
+            "width_abs_log_ratio": 0.11744673286268076
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              459.2937316894531,
+              442.2314147949219,
+              477.4327392578125,
+              453.2314147949219
+            ],
+            "candidate_bbox_normalized": [
+              0.7715648885291133,
+              0.5252842240002227,
+              0.8020365026332936,
+              0.5383500675172012
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 196,
+            "center_displacement": 0.6235375379700688,
+            "height_abs_log_ratio": 0.052791440285299994,
+            "reference_bbox": [
+              91.5080795288086,
+              392.9822082519531,
+              109.1371841430664,
+              403.8913269042969
+            ],
+            "reference_bbox_normalized": [
+              0.14952300576602712,
+              0.4961896568837792,
+              0.17832873225991241,
+              0.5099637965963344
+            ],
+            "reference_page": 1,
+            "reference_word_index": 207,
+            "token": "y(r,",
+            "width_abs_log_ratio": 0.05622136117847378
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              506.3848571777344,
+              442.2314147949219,
+              514.94287109375,
+              453.2314147949219
+            ],
+            "candidate_bbox_normalized": [
+              0.8506729983969027,
+              0.5252842240002227,
+              0.8650495565721094,
+              0.5383500675172012
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 199,
+            "center_displacement": 0.5503090466815378,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              210.0056915283203,
+              247.7382354736328,
+              218.4929656982422,
+              258.6473388671875
+            ],
+            "reference_bbox_normalized": [
+              0.34314655478483713,
+              0.312800802365698,
+              0.35701464983372905,
+              0.32657492281210543
+            ],
+            "reference_page": 1,
+            "reference_word_index": 132,
+            "token": "=",
+            "width_abs_log_ratio": 0.03600809397844275
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              135.1685333251953,
+              547.9501953125,
+              143.72653198242188,
+              558.9501953125
+            ],
+            "candidate_bbox_normalized": [
+              0.2270688388541161,
+              0.6508574097319016,
+              0.24144537139617112,
+              0.6639232532488801
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 265,
+            "center_displacement": 0.5394182114525742,
+            "height_abs_log_ratio": 0.05279144028529601,
+            "reference_bbox": [
+              457.91644287109375,
+              626.1591796875,
+              466.4037170410156,
+              637.0682983398438
+            ],
+            "reference_bbox_normalized": [
+              0.7482294818155126,
+              0.7906050248579546,
+              0.7620975768644046,
+              0.8043791645705097
+            ],
+            "reference_page": 1,
+            "reference_word_index": 324,
+            "token": "2.",
+            "width_abs_log_ratio": 0.0360063109943477
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              330.9189758300781,
+              190.65921020507812,
+              335.3002624511719,
+              198.35922241210938
+            ],
+            "candidate_bbox_normalized": [
+              0.5559088772218175,
+              0.22646576414638697,
+              0.5632689753250155,
+              0.2356118691078319
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 51,
+            "center_displacement": 0.4359699411681175,
+            "height_abs_log_ratio": 0.6833513491455121,
+            "reference_bbox": [
+              72.00001525878906,
+              191.91514587402344,
+              79.89042663574219,
+              206.2613525390625
+            ],
+            "reference_bbox_normalized": [
+              0.11764708375619128,
+              0.24231710337629223,
+              0.1305399128035003,
+              0.26043100068063446
+            ],
+            "reference_page": 0,
+            "reference_word_index": 8,
+            "token": "1",
+            "width_abs_log_ratio": 0.5605980071084001
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              271.48199462890625,
+              346.9823913574219,
+              286.760986328125,
+              357.9823913574219
+            ],
+            "candidate_bbox_normalized": [
+              0.45606103561008693,
+              0.41214705714755084,
+              0.4817281255655314,
+              0.4252129006645293
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 155,
+            "center_displacement": 0.40688042447561423,
+            "height_abs_log_ratio": 0.05278864284384263,
+            "reference_bbox": [
+              524.9363403320312,
+              272.2607421875,
+              540.0018310546875,
+              283.1698303222656
+            ],
+            "reference_bbox_normalized": [
+              0.8577391181895936,
+              0.3437635633680556,
+              0.8823559330958947,
+              0.3575376645483152
+            ],
+            "reference_page": 1,
+            "reference_word_index": 162,
+            "token": "the",
+            "width_abs_log_ratio": 0.041779882607496786
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              502.0919189453125,
+              302.6194152832031,
+              510.6499328613281,
+              313.6194152832031
+            ],
+            "candidate_bbox_normalized": [
+              0.8434613162418314,
+              0.35945253866271426,
+              0.8578378744170381,
+              0.37251838217969274
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 128,
+            "center_displacement": 0.4053298878684676,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              269.91552734375,
+              247.7382354736328,
+              278.4028015136719,
+              258.6473388671875
+            ],
+            "reference_bbox_normalized": [
+              0.44103844337214054,
+              0.312800802365698,
+              0.45490653842103246,
+              0.32657492281210543
+            ],
+            "reference_page": 1,
+            "reference_word_index": 134,
+            "token": "+",
+            "width_abs_log_ratio": 0.03600809397844275
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              455.19976806640625,
+              302.6194152832031,
+              499.031494140625,
+              315.6961975097656
+            ],
+            "candidate_bbox_normalized": [
+              0.7646874626717229,
+              0.35945253866271426,
+              0.8383201262791583,
+              0.3749851923243389
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 127,
+            "center_displacement": 0.40469489609170156,
+            "height_abs_log_ratio": 0.021098590972500036,
+            "reference_bbox": [
+              221.52569580078125,
+              247.7382354736328,
+              267.49371337890625,
+              259.78326416015625
+            ],
+            "reference_bbox_normalized": [
+              0.36197009117774714,
+              0.312800802365698,
+              0.4370812310112847,
+              0.3280091719193892
+            ],
+            "reference_page": 1,
+            "reference_word_index": 133,
+            "token": "clip(\u03bc\u03b8(s)",
+            "width_abs_log_ratio": 0.019880154806597904
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              190.16339111328125,
+              485.302978515625,
+              194.54469299316406,
+              493.00299072265625
+            ],
+            "candidate_bbox_normalized": [
+              0.31945438298696965,
+              0.5764447977826113,
+              0.32681450672331935,
+              0.5855909027440562
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 221,
+            "center_displacement": 0.4028501875714363,
+            "height_abs_log_ratio": 0.4094647988965572,
+            "reference_bbox": [
+              303.28802490234375,
+              741.3756103515625,
+              308.7098388671875,
+              752.2847290039062
+            ],
+            "reference_bbox_normalized": [
+              0.4955686681410846,
+              0.9360803161004577,
+              0.5044278412862541,
+              0.949854455813013
+            ],
+            "reference_page": 0,
+            "reference_word_index": 33,
+            "token": "1",
+            "width_abs_log_ratio": 0.18537669118551992
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              261.8184814453125,
+              243.93441772460938,
+              302.8374938964844,
+              254.93441772460938
+            ],
+            "candidate_bbox_normalized": [
+              0.43982735559692177,
+              0.2897462663995461,
+              0.5087349578257756,
+              0.3028121099165246
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 97,
+            "center_displacement": 0.38248375042678334,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              499.4698791503906,
+              169.0476837158203,
+              539.88818359375,
+              179.956787109375
+            ],
+            "reference_bbox_normalized": [
+              0.8161272535137102,
+              0.21344404509573273,
+              0.8821702346303104,
+              0.22721816554214014
+            ],
+            "reference_page": 1,
+            "reference_word_index": 102,
+            "token": "stopping",
+            "width_abs_log_ratio": 0.042460749963371715
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              306.50048828125,
+              243.93441772460938,
+              349.9615173339844,
+              254.93441772460938
+            ],
+            "candidate_bbox_normalized": [
+              0.5148884009476064,
+              0.2897462663995461,
+              0.5878983327685495,
+              0.3028121099165246
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 98,
+            "center_displacement": 0.37332626134246943,
+            "height_abs_log_ratio": 0.05279004156554949,
+            "reference_bbox": [
+              90.44001770019531,
+              182.59669494628906,
+              133.2255096435547,
+              193.50579833984375
+            ],
+            "reference_bbox_normalized": [
+              0.14777780669966553,
+              0.23055138250794074,
+              0.21768874124763837,
+              0.24432550295434816
+            ],
+            "reference_page": 1,
+            "reference_word_index": 103,
+            "token": "criterion.",
+            "width_abs_log_ratio": 0.04337341592866233
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              323.4570007324219,
+              346.9823913574219,
+              354.35601806640625,
+              357.9823913574219
+            ],
+            "candidate_bbox_normalized": [
+              0.5433735483305384,
+              0.41214705714755084,
+              0.5952806291810875,
+              0.4252129006645293
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 157,
+            "center_displacement": 0.34727265533928564,
+            "height_abs_log_ratio": 0.05278864284384263,
+            "reference_bbox": [
+              122.98187255859375,
+              285.80975341796875,
+              153.40733337402344,
+              296.7188415527344
+            ],
+            "reference_bbox_normalized": [
+              0.20095077215456494,
+              0.36087090078026357,
+              0.250665577408535,
+              0.3746450019605232
+            ],
+            "reference_page": 1,
+            "reference_word_index": 164,
+            "token": "buffer.",
+            "width_abs_log_ratio": 0.0431524322635187
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              290.42401123046875,
+              346.9823913574219,
+              319.79400634765625,
+              357.9823913574219
+            ],
+            "candidate_bbox_normalized": [
+              0.4878816199536655,
+              0.41214705714755084,
+              0.5372201052087077,
+              0.4252129006645293
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 156,
+            "center_displacement": 0.3449251337356299,
+            "height_abs_log_ratio": 0.05278864284384263,
+            "reference_bbox": [
+              90.44003295898438,
+              285.80975341796875,
+              119.36005401611328,
+              296.7188415527344
+            ],
+            "reference_bbox_normalized": [
+              0.1477778316323274,
+              0.36087090078026357,
+              0.1950327680001851,
+              0.3746450019605232
+            ],
+            "reference_page": 1,
+            "reference_word_index": 163,
+            "token": "replay",
+            "width_abs_log_ratio": 0.04314728861233277
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              378.4296875,
+              190.65921020507812,
+              382.81097412109375,
+              198.35922241210938
+            ],
+            "candidate_bbox_normalized": [
+              0.6357218474940262,
+              0.22646576414638697,
+              0.6430819455972242,
+              0.2356118691078319
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 54,
+            "center_displacement": 0.3436547710127492,
+            "height_abs_log_ratio": 0.0955619188499038,
+            "reference_bbox": [
+              387.7820129394531,
+              451.1661071777344,
+              392.0141296386719,
+              459.1361999511719
+            ],
+            "reference_bbox_normalized": [
+              0.6336307400971456,
+              0.5696541757294626,
+              0.6405459634618822,
+              0.5797174241807725
+            ],
+            "reference_page": 1,
+            "reference_word_index": 245,
+            "token": "2",
+            "width_abs_log_ratio": 0.062347995815428776
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              305.30517578125,
+              273.2604064941406,
+              329.3511657714844,
+              286.3371887207031
+            ],
+            "candidate_bbox_normalized": [
+              0.5128804023789615,
+              0.3245797918762155,
+              0.5532751221547842,
+              0.34011244553784015
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 113,
+            "center_displacement": 0.33755858946239614,
+            "height_abs_log_ratio": 0.02410545192068711,
+            "reference_bbox": [
+              514.734619140625,
+              196.13221740722656,
+              539.9959716796875,
+              208.14108276367188
+            ],
+            "reference_bbox_normalized": [
+              0.8410696391186683,
+              0.24764168864548808,
+              0.8823463589537377,
+              0.2628043974288786
+            ],
+            "reference_page": 1,
+            "reference_word_index": 118,
+            "token": "ahigh.",
+            "width_abs_log_ratio": 0.021599578849286486
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox": [
+              282.4288330078125,
+              273.2604064941406,
+              303.4718322753906,
+              286.3371887207031
+            ],
+            "candidate_bbox_normalized": [
+              0.4744505662106871,
+              0.3245797918762155,
+              0.509800579206695,
+              0.34011244553784015
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 112,
+            "center_displacement": 0.3370686722672061,
+            "height_abs_log_ratio": 0.02410545192068711,
+            "reference_bbox": [
+              491.07635498046875,
+              196.13221740722656,
+              512.9127807617188,
+              208.14108276367188
+            ],
+            "reference_bbox_normalized": [
+              0.802412344739328,
+              0.24764168864548808,
+              0.8380927790224163,
+              0.2628043974288786
+            ],
+            "reference_page": 1,
+            "reference_word_index": 117,
+            "token": "alow,",
+            "width_abs_log_ratio": 0.009303719268311111
+          }
+        ]
+      },
+      "interpretation": "Token boxes are normalized by each page's own canvas; canvas mismatch remains a separate axis.",
+      "metrics": {
+        "bbox_iou_q10": 0.0,
+        "bbox_iou_q50": 0.0,
+        "candidate_match_coverage": 0.7852564102564102,
+        "center_displacement_max": 0.7283433162947652,
+        "center_displacement_q50": 0.0873934972864766,
+        "center_displacement_q90": 0.2943746696100542,
+        "height_abs_log_ratio_q90": 0.08700532593364609,
+        "matched_token_count": 245,
+        "reference_match_coverage": 0.7248520710059172,
+        "width_abs_log_ratio_q90": 0.06298588954553633
+      },
+      "status": "scored"
+    },
+    "layout_relations": {
+      "applicable": true,
+      "evidence": {
+        "relation_mismatches": [
+          {
+            "candidate_block_pair": [
+              0,
+              19
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              0,
+              5
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Algorithmic Pseudocode Sample 13",
+              "Algorithm 1 Source-backed algorithmic procedure"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              3
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              0,
+              6
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Algorithmic Pseudocode Sample 13",
+              "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              0,
+              9
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              0,
+              15
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Algorithmic Pseudocode Sample 13",
+              "9: if s\u2032 is terminal then"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              1,
+              19
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              1,
+              5
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Source-backed Image2Struct algorithm sample",
+              "Algorithm 1 Source-backed algorithmic procedure"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              1,
+              3
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              1,
+              6
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Source-backed Image2Struct algorithm sample",
+              "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              1,
+              9
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              1,
+              15
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "Source-backed Image2Struct algorithm sample",
+              "9: if s\u2032 is terminal then"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              19
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              5
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "Algorithm 1 Source-backed algorithmic procedure"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              3
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              6
+            ],
+            "reference_relation": "above",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              5
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              9
+            ],
+            "reference_relation": "above",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              6
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              10
+            ],
+            "reference_relation": "above",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              7
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              12
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "7: Select clipped action and step the environment dynamics forward."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              9
+            ],
+            "candidate_relation": "below",
+            "reference_block_pair": [
+              3,
+              15
+            ],
+            "reference_relation": "left_of",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "9: if s\u2032 is terminal then"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              2,
+              4
+            ],
+            "candidate_relation": "right_of",
+            "reference_block_pair": [
+              3,
+              35
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a m",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              3
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              6
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              5
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              9
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              6
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              10
+            ],
+            "reference_relation": "right_of",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              7
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              12
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "7: Select clipped action and step the environment dynamics forward."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              8
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              14
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "8: Observe next state s\u2032, reward r, and done signal d and store the tuple (s, a, r, s\u2032, d) in the replay buffer."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              9
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              15
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "9: if s\u2032 is terminal then"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              10
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              21
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "y(r, s\u2032, d) = r + (1 \u2212d) min i=1,2 Q\u03c9\u2032i(s\u2032, \u02dca) , \u02dca = clip(\u00b5\u03b8\u2032(s) + \u03f5, alow, ahigh), \u03f5 \u223cN(0, \u03c3target)."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              12
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              23
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "K X"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              13
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              24
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "Q\u03c9i(s(k), a(k)) \u2212y(r(k), s\u2032(k), d(k)) 2 !"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              11
+            ],
+            "candidate_relation": "right_of",
+            "reference_block_pair": [
+              5,
+              27
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              ", for i = 1, 2."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              14
+            ],
+            "candidate_relation": "above",
+            "reference_block_pair": [
+              5,
+              29
+            ],
+            "reference_relation": "below",
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "16: Update the critic parameters \u03c9i based on the optimization algorithm."
+            ]
+          }
+        ],
+        "worst_block_pairs": [
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.7103330824426133,
+              0.6883917709380555,
+              0.7757276205453546
+            ],
+            "candidate_block_index": 19,
+            "candidate_page": 0,
+            "center_displacement": 0.6150229375971826,
+            "reference_bbox_normalized": [
+              0.11764705882352941,
+              0.12731054094102648,
+              0.5175939323076235,
+              0.1410880811286695
+            ],
+            "reference_block_index": 5,
+            "reference_page": 1,
+            "reference_text": "Algorithm 1 Source-backed algorithmic procedure"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.5559088772218175,
+              0.21849557350182208,
+              0.6411712504722908,
+              0.2356118691078319
+            ],
+            "candidate_block_index": 4,
+            "candidate_page": 0,
+            "center_displacement": 0.4901750917842754,
+            "reference_bbox_normalized": [
+              0.45173530329286665,
+              0.6968688194197837,
+              0.6195053898431118,
+              0.729478778261127
+            ],
+            "reference_block_index": 35,
+            "reference_page": 1,
+            "reference_text": "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.4704318006930179,
+              0.6682741362213364,
+              0.8437790647898414,
+              0.7012235888701958
+            ],
+            "candidate_block_index": 18,
+            "candidate_page": 0,
+            "center_displacement": 0.1808276105980317,
+            "reference_bbox_normalized": [
+              0.26805059894237643,
+              0.7876878988863242,
+              0.7620975768644046,
+              0.805646568837792
+            ],
+            "reference_block_index": 40,
+            "reference_page": 1,
+            "reference_text": "\u03b8\u2032 \u2190\u03c1p\u03b8\u2032 + (1 \u2212\u03c1p)\u03b8, \u03c9\u2032i \u2190\u03c1p\u03c9\u2032i + (1 \u2212\u03c1p)\u03c9i, for i = 1, 2."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.6066450869707203,
+              0.629844937355376,
+              0.6565299172203001,
+              0.6500316597892837
+            ],
+            "candidate_block_index": 15,
+            "candidate_page": 0,
+            "center_displacement": 0.1769631397181353,
+            "reference_bbox_normalized": [
+              0.4514787462022569,
+              0.6853372593118687,
+              0.47721852819904004,
+              0.7102478489731298
+            ],
+            "reference_block_index": 32,
+            "reference_page": 1,
+            "reference_text": "K X"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1445683351626859,
+              0.41214705714755084,
+              0.6044368934875902,
+              0.4600856474510281
+            ],
+            "candidate_block_index": 9,
+            "candidate_page": 0,
+            "center_displacement": 0.1496509252058005,
+            "reference_bbox_normalized": [
+              0.12720757528068194,
+              0.3757321521489307,
+              0.34142395717645785,
+              0.39175233937273124
+            ],
+            "reference_block_index": 15,
+            "reference_page": 1,
+            "reference_text": "9: if s\u2032 is terminal then"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.13770690690890985,
+              0.8510696457857304,
+              0.19112526155393814
+            ],
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "center_displacement": 0.1282295425149008,
+            "reference_bbox_normalized": [
+              0.11764708375619128,
+              0.2764515924935389,
+              0.8821214663436989,
+              0.30733428338561397
+            ],
+            "reference_block_index": 3,
+            "reference_page": 0,
+            "reference_text": "This sample contains algorithmic pseudocode extracted from a source-backed LaTeX benchmark dataset. It is wrapped in a minimal article document for pdfLaTeX val"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.2270688388541161,
+              0.6316349805365156,
+              0.8270329268086367,
+              0.683806862380761
+            ],
+            "candidate_block_index": 16,
+            "candidate_page": 0,
+            "center_displacement": 0.12646343144437347,
+            "reference_bbox_normalized": [
+              0.11967966914956087,
+              0.7425532485499526,
+              0.7603073120117188,
+              0.7563444195371686
+            ],
+            "reference_block_index": 38,
+            "reference_page": 1,
+            "reference_text": "19: Update the actor parameters \u03b8 based on the optimization algorithm."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.3245797918762155,
+              0.8578378744170381,
+              0.3749851923243389
+            ],
+            "candidate_block_index": 7,
+            "candidate_page": 0,
+            "center_displacement": 0.10246655205656799,
+            "reference_bbox_normalized": [
+              0.12720758774701288,
+              0.2818733947445648,
+              0.6869533264559079,
+              0.2956475151909722
+            ],
+            "reference_block_index": 12,
+            "reference_page": 1,
+            "reference_text": "7: Select clipped action and step the environment dynamics forward."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.20266241645897257,
+              0.7592636415788175,
+              0.23314505896318577
+            ],
+            "candidate_block_index": 3,
+            "candidate_page": 0,
+            "center_displacement": 0.09358150968463282,
+            "reference_bbox_normalized": [
+              0.12720751294902727,
+              0.14499643113878039,
+              0.6183004940257353,
+              0.16087357684819384
+            ],
+            "reference_block_index": 6,
+            "reference_page": 1,
+            "reference_text": "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.31252297371217763,
+              0.10585233416091988,
+              0.6874770262878224,
+              0.11891817767789836
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "center_displacement": 0.0813508827199927,
+            "reference_bbox_normalized": [
+              0.3060653786254085,
+              0.1861886303834241,
+              0.6940820232715482,
+              0.20128358012498027
+            ],
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "Source-backed Image2Struct algorithm sample"
+          },
+          {
+            "bbox_iou": 0.2567148958720111,
+            "candidate_bbox_normalized": [
+              0.16818428595523735,
+              0.5983457669477019,
+              0.8196395056082773,
+              0.6487512036447254
+            ],
+            "candidate_block_index": 14,
+            "candidate_page": 0,
+            "center_displacement": 0.06353631720196802,
+            "reference_bbox_normalized": [
+              0.1196797190148846,
+              0.6214307534574258,
+              0.7415306739557802,
+              0.6364598129734849
+            ],
+            "reference_block_index": 29,
+            "reference_page": 1,
+            "reference_text": "16: Update the critic parameters \u03c9i based on the optimization algorithm."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.2521849698477237,
+              0.08317000183129443,
+              0.7478151070517313,
+              0.10276876710676215
+            ],
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "center_displacement": 0.06074983792518629,
+            "reference_bbox_normalized": [
+              0.2953022975547641,
+              0.14285088548756608,
+              0.7048152350132761,
+              0.1645875025277186
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Algorithmic Pseudocode Sample 13"
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.2897462663995461,
+              0.85839893284063,
+              0.3226957190484055
+            ],
+            "candidate_block_index": 6,
+            "candidate_page": 0,
+            "center_displacement": 0.0531868406141063,
+            "reference_bbox_normalized": [
+              0.12720755034802006,
+              0.24764168864548808,
+              0.8823463589537377,
+              0.2628043974288786
+            ],
+            "reference_block_index": 10,
+            "reference_page": 1,
+            "reference_text": "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh."
+          },
+          {
+            "bbox_iou": 0.0,
+            "candidate_bbox_normalized": [
+              0.1445683351626859,
+              0.3770913984115152,
+              0.8711241008531225,
+              0.4077961379261946
+            ],
+            "candidate_block_index": 8,
+            "candidate_page": 0,
+            "center_displacement": 0.03449890461787445,
+            "reference_bbox_normalized": [
+              0.12720753788168915,
+              0.34151747732451465,
+              0.8823559330958947,
+              0.3746450019605232
+            ],
+            "reference_block_index": 14,
+            "reference_page": 1,
+            "reference_text": "8: Observe next state s\u2032, reward r, and done signal d and store the tuple (s, a, r, s\u2032, d) in the replay buffer."
+          },
+          {
+            "bbox_iou": 0.26284995008995954,
+            "candidate_bbox_normalized": [
+              0.1209523843701345,
+              0.2200792154462073,
+              0.8800227007191125,
+              0.287862121073936
+            ],
+            "candidate_block_index": 5,
+            "candidate_page": 0,
+            "center_displacement": 0.033909968602028294,
+            "reference_bbox_normalized": [
+              0.12720753788168915,
+              0.19631844337540444,
+              0.8821702346303104,
+              0.24432550295434816
+            ],
+            "reference_block_index": 9,
+            "reference_page": 1,
+            "reference_text": "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 for both optimization procedures, a time"
+          },
+          {
+            "bbox_iou": 0.19841385035229722,
+            "candidate_bbox_normalized": [
+              0.1445683351626859,
+              0.47166198741699183,
+              0.8738590556029199,
+              0.5957182291803356
+            ],
+            "candidate_block_index": 10,
+            "candidate_page": 0,
+            "center_displacement": 0.02860864237662361,
+            "reference_bbox_normalized": [
+              0.14952300576602712,
+              0.49327253091214884,
+              0.8806135389539931,
+              0.5181013165098248
+            ],
+            "reference_block_index": 21,
+            "reference_page": 1,
+            "reference_text": "y(r, s\u2032, d) = r + (1 \u2212d) min i=1,2 Q\u03c9\u2032i(s\u2032, \u02dca) , \u02dca = clip(\u00b5\u03b8\u2032(s) + \u03f5, alow, ahigh), \u03f5 \u223cN(0, \u03c3target)."
+          },
+          {
+            "bbox_iou": 0.46102349496507056,
+            "candidate_bbox_normalized": [
+              0.6694764018642478,
+              0.572159235328004,
+              0.798505279660248,
+              0.5914992922039781
+            ],
+            "candidate_block_index": 11,
+            "candidate_page": 0,
+            "center_displacement": 0.0221312894584611,
+            "reference_bbox_normalized": [
+              0.6554738462360856,
+              0.5786113161029238,
+              0.7688606611264297,
+              0.5924024870901397
+            ],
+            "reference_block_index": 27,
+            "reference_page": 1,
+            "reference_text": ", for i = 1, 2."
+          },
+          {
+            "bbox_iou": 0.2835103798727717,
+            "candidate_bbox_normalized": [
+              0.31662158649727595,
+              0.5750598360592748,
+              0.36650644238000735,
+              0.5952465947420825
+            ],
+            "candidate_block_index": 12,
+            "candidate_page": 0,
+            "center_displacement": 0.008423157340292678,
+            "reference_bbox_normalized": [
+              0.32812908895654613,
+              0.564294371942077,
+              0.35386887095332925,
+              0.5892036900375829
+            ],
+            "reference_block_index": 23,
+            "reference_page": 1,
+            "reference_text": "K X"
+          },
+          {
+            "bbox_iou": 0.5299923169024057,
+            "candidate_bbox_normalized": [
+              0.35408866712225323,
+              0.5768498429915144,
+              0.6694764018642478,
+              0.5966185068614093
+            ],
+            "candidate_block_index": 13,
+            "candidate_page": 0,
+            "center_displacement": 0.0069474796232899755,
+            "reference_bbox_normalized": [
+              0.36749347362642976,
+              0.5649610577207623,
+              0.6554804284588184,
+              0.5946249143041745
+            ],
+            "reference_block_index": 24,
+            "reference_page": 1,
+            "reference_text": "Q\u03c9i(s(k), a(k)) \u2212y(r(k), s\u2032(k), d(k)) 2 !"
+          }
+        ]
+      },
+      "interpretation": "Transparent matched-block relation trial inspired by pairwise-layout work; this is not the published PaIRS or LTSim metric.",
+      "metrics": {
+        "candidate_block_coverage": 0.95,
+        "matched_block_center_displacement_q90": 0.24269710683528023,
+        "matched_block_count": 19,
+        "matched_block_iou_q10": 0.0,
+        "matched_block_iou_q50": 0.0,
+        "pairwise_relation_agreement": 0.6491228070175439,
+        "pairwise_relation_count": 171,
+        "reference_block_coverage": 0.4222222222222222
+      },
+      "status": "scored"
+    },
+    "pagination": {
+      "applicable": true,
+      "evidence": {
+        "mismatched_page_breaks": [
+          {
+            "candidate_block_pair": [
+              2,
+              19
+            ],
+            "candidate_page_break": false,
+            "candidate_pages": [
+              0,
+              0
+            ],
+            "reference_block_pair": [
+              3,
+              5
+            ],
+            "reference_page_break": true,
+            "reference_pages": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "interpretation": "Page count, matched-block page assignment, and page-break boundaries are reported independently.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "matched_block_count": 19,
+        "matched_block_page_assignment_accuracy": 0.15789473684210525,
+        "page_break_f1": 0.0,
+        "page_break_false_negative": 1,
+        "page_break_false_positive": 0,
+        "page_break_precision": 0.0,
+        "page_break_recall": 0.0,
+        "page_break_true_positive": 0,
+        "page_count_delta": -1,
+        "reference_page_count": 2
+      },
+      "status": "scored"
+    },
+    "raster_diagnostic": {
+      "applicable": true,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_raster_size_before_resize": [
+              993,
+              1404
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 0,
+            "reference_raster_size": [
+              1020,
+              1320
+            ],
+            "registered": {
+              "candidate_ink_pixels": 91852,
+              "f1": 0.13642576238048013,
+              "precision": 0.07979140356225232,
+              "recall": 0.4700773860705073,
+              "reference_ink_pixels": 11630,
+              "unmatched_ink_fraction_of_union": 0.908568108043121,
+              "unmatched_ink_pixels": 90686
+            },
+            "registered_mean_absolute_gray_difference": 0.02885029650600585,
+            "registration_translation_px": [
+              -13,
+              153
+            ],
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.10784313725490197,
+                0.14393939393939395,
+                0.8823529411764706,
+                0.946969696969697
+              ],
+              "pixel_bbox": [
+                110,
+                190,
+                900,
+                1250
+              ]
+            },
+            "unregistered": {
+              "candidate_ink_pixels": 91852,
+              "f1": 0.06547827958200413,
+              "precision": 0.03806122893350172,
+              "recall": 0.23413585554600172,
+              "reference_ink_pixels": 11630,
+              "unmatched_ink_fraction_of_union": 0.9519628857503597,
+              "unmatched_ink_pixels": 97263
+            }
+          },
+          {
+            "coordinate_frame": "reference",
+            "page": 1,
+            "top_difference_bbox": {
+              "normalized_bbox": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "pixel_bbox": [
+                0,
+                0,
+                1020,
+                1320
+              ]
+            },
+            "unpaired_side": "reference"
+          }
+        ],
+        "top_difference_bbox": {
+          "coordinate_frame": "reference",
+          "normalized_bbox": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "page": 1,
+          "pixel_bbox": [
+            0,
+            0,
+            1020,
+            1320
+          ],
+          "registration_translation_px": null,
+          "unpaired_side": "reference"
+        }
+      },
+      "interpretation": "Candidate pages are resized to the reference canvas, then optionally translation-registered. Use canvas and geometry axes for layout claims.",
+      "metrics": {
+        "paired_page_count": 1,
+        "registered_tolerant_ink_f1_macro": 0.06821288119024006,
+        "registration_gain": 0.035473741399238,
+        "unpaired_page_count": 1,
+        "unregistered_tolerant_ink_f1_macro": 0.03273913979100206
+      },
+      "status": "scored"
+    },
+    "reading_order": {
+      "applicable": true,
+      "evidence": {
+        "inverted_block_pairs": [
+          {
+            "candidate_block_pair": [
+              19,
+              3
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "1. Initialize actor network \ud835\udf07\ud835\udf03 and critic networks \ud835\udc44\ud835\udf141 and \ud835\udc44\ud835\udf142. 2. Initialize corresponding target networks: \ud835\udf03\u2032 \u2190\ud835\udf03, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              5,
+              6
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "1: Initialize actor network \u00b5\u03b8 and critic networks Q\u03c91 and Q\u03c92."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              5
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "2 \u2190\ud835\udf142 and choose \ud835\udf0cp \u2208(0, 1). 3. Initialize replay buffer \u211b\ufe00. 4. Choose a batch size \ud835\udc3e, a gradient based optimization alg"
+            ],
+            "reference_block_pair": [
+              5,
+              9
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 "
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              6
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "stopping criterion. 5. Choose standard deviation exploration noise \ud835\udf0eexpl and lower and upper action bounds"
+            ],
+            "reference_block_pair": [
+              5,
+              10
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              7
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc4elow, \ud835\udc4ehigh. 6. Repeat 1. Select clipped action and step the environment dynamics forward. \ud835\udc4e= clip(\ud835\udf07\ud835\udf03(\ud835\udc60) +"
+            ],
+            "reference_block_pair": [
+              5,
+              12
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "7: Select clipped action and step the environment dynamics forward."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              8
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udf00, \ud835\udc4elow, \ud835\udc4ehigh), \ud835\udf00\u223c\ud835\udca9\ufe00(0, \ud835\udf0eexpl) 2. Observe next state \ud835\udc60\u2032, reward \ud835\udc5f, and done signal \ud835\udc51 and store the tuple (\ud835\udc60, \ud835\udc4e, \ud835\udc5f, \ud835\udc60\u2032, "
+            ],
+            "reference_block_pair": [
+              5,
+              14
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "8: Observe next state s\u2032, reward r, and done signal d and store the tuple (s, a, r, s\u2032, d) in the replay buffer."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              9
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "the replay buffer. 3. If \ud835\udc60\u2032 is terminal 1. Reset trajectory."
+            ],
+            "reference_block_pair": [
+              5,
+              15
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "9: if s\u2032 is terminal then"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              10
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "End If 4. For \ud835\udc57 in range(\u201cupdate frequency\u201d) 1. Sample batch \u212c\ufe00= {(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58), \ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58))}\ud835\udc58= 1\ud835\udc3e from replay buff"
+            ],
+            "reference_block_pair": [
+              5,
+              21
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "y(r, s\u2032, d) = r + (1 \u2212d) min i=1,2 Q\u03c9\u2032i(s\u2032, \u02dca) , \u02dca = clip(\u00b5\u03b8\u2032(s) + \u03f5, alow, ahigh), \u03f5 \u223cN(0, \u03c3target)."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              12
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc3e\u2211\ud835\udc3e"
+            ],
+            "reference_block_pair": [
+              5,
+              23
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "K X"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              13
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc58=1 (\ud835\udc44\ud835\udf14\ud835\udc56(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58)) \u2212\ud835\udc66(\ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58)))"
+            ],
+            "reference_block_pair": [
+              5,
+              24
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "Q\u03c9i(s(k), a(k)) \u2212y(r(k), s\u2032(k), d(k)) 2 !"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              11
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "2), for \ud835\udc56= 1, 2"
+            ],
+            "reference_block_pair": [
+              5,
+              27
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              ", for i = 1, 2."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              14
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "4. Update the critic parameters \ud835\udf14\ud835\udc56 based on the optimization algorithm. 5. If \ud835\udc57mod policy delay frequency = 0 1. Estimat"
+            ],
+            "reference_block_pair": [
+              5,
+              29
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "16: Update the critic parameters \u03c9i based on the optimization algorithm."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              15
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc3e\u2211\ud835\udc3e"
+            ],
+            "reference_block_pair": [
+              5,
+              32
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "K X"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              4
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              5,
+              35
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              16
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc58=1 \ud835\udc44\ud835\udf141(\ud835\udc60(\ud835\udc58), \ud835\udf07\ud835\udf03(\ud835\udc60(\ud835\udc58)))) 2. Update the actor parameters \ud835\udf03 based on the optimization algorithm. 3. Update target networks"
+            ],
+            "reference_block_pair": [
+              5,
+              38
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "19: Update the actor parameters \u03b8 based on the optimization algorithm."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              19,
+              18
+            ],
+            "candidate_text": [
+              "End If 5. End For 7. Until stopping criterion is fulfilled. Figure 1: Source-backed algorithmic procedure",
+              "\ud835\udc56+ (1 \u2212 \ud835\udf0cp)\ud835\udf14\ud835\udc56, for \ud835\udc56= 1, 2"
+            ],
+            "reference_block_pair": [
+              5,
+              40
+            ],
+            "reference_text": [
+              "Algorithm 1 Source-backed algorithmic procedure",
+              "\u03b8\u2032 \u2190\u03c1p\u03b8\u2032 + (1 \u2212\u03c1p)\u03b8, \u03c9\u2032i \u2190\u03c1p\u03c9\u2032i + (1 \u2212\u03c1p)\u03c9i, for i = 1, 2."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              5,
+              4
+            ],
+            "candidate_text": [
+              "2 \u2190\ud835\udf142 and choose \ud835\udf0cp \u2208(0, 1). 3. Initialize replay buffer \u211b\ufe00. 4. Choose a batch size \ud835\udc3e, a gradient based optimization alg",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              9,
+              35
+            ],
+            "reference_text": [
+              "4: Choose a batch size K, a gradient based optimization algorithm and a corresponding learning rate \u03bbactor, \u03bbcritic > 0 ",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              6,
+              4
+            ],
+            "candidate_text": [
+              "stopping criterion. 5. Choose standard deviation exploration noise \ud835\udf0eexpl and lower and upper action bounds",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              10,
+              35
+            ],
+            "reference_text": [
+              "5: Choose standard deviation exploration noise \u03c3expl and lower and upper action bounds alow, ahigh.",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              7,
+              4
+            ],
+            "candidate_text": [
+              "\ud835\udc4elow, \ud835\udc4ehigh. 6. Repeat 1. Select clipped action and step the environment dynamics forward. \ud835\udc4e= clip(\ud835\udf07\ud835\udf03(\ud835\udc60) +",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              12,
+              35
+            ],
+            "reference_text": [
+              "7: Select clipped action and step the environment dynamics forward.",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              8,
+              4
+            ],
+            "candidate_text": [
+              "\ud835\udf00, \ud835\udc4elow, \ud835\udc4ehigh), \ud835\udf00\u223c\ud835\udca9\ufe00(0, \ud835\udf0eexpl) 2. Observe next state \ud835\udc60\u2032, reward \ud835\udc5f, and done signal \ud835\udc51 and store the tuple (\ud835\udc60, \ud835\udc4e, \ud835\udc5f, \ud835\udc60\u2032, ",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              14,
+              35
+            ],
+            "reference_text": [
+              "8: Observe next state s\u2032, reward r, and done signal d and store the tuple (s, a, r, s\u2032, d) in the replay buffer.",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              9,
+              4
+            ],
+            "candidate_text": [
+              "the replay buffer. 3. If \ud835\udc60\u2032 is terminal 1. Reset trajectory.",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              15,
+              35
+            ],
+            "reference_text": [
+              "9: if s\u2032 is terminal then",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              10,
+              4
+            ],
+            "candidate_text": [
+              "End If 4. For \ud835\udc57 in range(\u201cupdate frequency\u201d) 1. Sample batch \u212c\ufe00= {(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58), \ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58))}\ud835\udc58= 1\ud835\udc3e from replay buff",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              21,
+              35
+            ],
+            "reference_text": [
+              "y(r, s\u2032, d) = r + (1 \u2212d) min i=1,2 Q\u03c9\u2032i(s\u2032, \u02dca) , \u02dca = clip(\u00b5\u03b8\u2032(s) + \u03f5, alow, ahigh), \u03f5 \u223cN(0, \u03c3target).",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              12,
+              11
+            ],
+            "candidate_text": [
+              "\ud835\udc3e\u2211\ud835\udc3e",
+              "2), for \ud835\udc56= 1, 2"
+            ],
+            "reference_block_pair": [
+              23,
+              27
+            ],
+            "reference_text": [
+              "K X",
+              ", for i = 1, 2."
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              12,
+              4
+            ],
+            "candidate_text": [
+              "\ud835\udc3e\u2211\ud835\udc3e",
+              "1 \u2190\ud835\udf141, \ud835\udf14\u2032"
+            ],
+            "reference_block_pair": [
+              23,
+              35
+            ],
+            "reference_text": [
+              "K X",
+              "k=1 Q\u03c91(s(k), \u00b5\u03b8(s(k)))"
+            ]
+          },
+          {
+            "candidate_block_pair": [
+              13,
+              11
+            ],
+            "candidate_text": [
+              "\ud835\udc58=1 (\ud835\udc44\ud835\udf14\ud835\udc56(\ud835\udc60(\ud835\udc58), \ud835\udc4e(\ud835\udc58)) \u2212\ud835\udc66(\ud835\udc5f(\ud835\udc58), \ud835\udc60\u2032(\ud835\udc58), \ud835\udc51(\ud835\udc58)))",
+              "2), for \ud835\udc56= 1, 2"
+            ],
+            "reference_block_pair": [
+              24,
+              27
+            ],
+            "reference_text": [
+              "Q\u03c9i(s(k), a(k)) \u2212y(r(k), s\u2032(k), d(k)) 2 !",
+              ", for i = 1, 2."
+            ]
+          }
+        ]
+      },
+      "interpretation": "Kendall tau is computed only on content-matched blocks; coverage must accompany it.",
+      "metrics": {
+        "candidate_block_coverage": 0.95,
+        "inversion_count": 28,
+        "kendall_tau": 0.672514619883041,
+        "matched_block_count": 19,
+        "reference_block_coverage": 0.4222222222222222
+      },
+      "status": "scored"
+    },
+    "tables": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": false
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for tables was not established by source metadata.",
+      "status": "abstain"
+    },
+    "text_grounding": {
+      "applicable": true,
+      "evidence": {
+        "match_policy": "exact Unicode-NFKC word text with deterministic page/position assignment for repeats"
+      },
+      "interpretation": "Digital-PDF exact-word grounding adaptation; it is not the published CLEval algorithm. Split/merge values remain null until a validated implementation exists.",
+      "metrics": {
+        "candidate_word_count": 312,
+        "exact_matched_word_count": 245,
+        "merge_count": null,
+        "reference_word_count": 338,
+        "split_count": null,
+        "word_hmean": 0.7538461538461538,
+        "word_precision": 0.7852564102564102,
+        "word_recall": 0.7248520710059172
+      },
+      "status": "scored"
+    },
+    "typography": {
+      "applicable": true,
+      "evidence": {
+        "style_mismatches": [
+          {
+            "candidate_bbox": [
+              330.9189758300781,
+              190.65921020507812,
+              335.3002624511719,
+              198.35922241210938
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.6222647939419307,
+            "reference_bbox": [
+              72.00001525878906,
+              191.91514587402344,
+              79.89042663574219,
+              206.2613525390625
+            ],
+            "reference_color": 0,
+            "reference_font": "SFBX1440",
+            "reference_page": 0,
+            "reference_size": 14.346199989318848,
+            "reference_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1"
+          },
+          {
+            "candidate_bbox": [
+              190.16339111328125,
+              485.302978515625,
+              194.54469299316406,
+              493.00299072265625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              303.28802490234375,
+              741.3756103515625,
+              308.7098388671875,
+              752.2847290039062
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1095",
+            "reference_page": 0,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1"
+          },
+          {
+            "candidate_bbox": [
+              362.8072814941406,
+              531.426025390625,
+              367.1885681152344,
+              539.1259765625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              265.541015625,
+              546.7471313476562,
+              270.9955749511719,
+              557.65625
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1"
+          },
+          {
+            "candidate_bbox": [
+              278.406494140625,
+              485.64398193359375,
+              300.5439758300781,
+              497.9772033691406
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              268.3725280761719,
+              456.0531311035156,
+              290.0826416015625,
+              469.1693115234375
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "a(k))"
+          },
+          {
+            "candidate_bbox": [
+              270.39007568359375,
+              425.1131896972656,
+              290.5475769042969,
+              437.4464111328125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              244.19259643554688,
+              353.26318359375,
+              264.6917724609375,
+              365.8343811035156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "a(k),"
+          },
+          {
+            "candidate_bbox": [
+              292.3808898925781,
+              425.1131896972656,
+              311.8233947753906,
+              437.4464111328125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              266.5135803222656,
+              353.26318359375,
+              286.47076416015625,
+              365.8343811035156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "r(k),"
+          },
+          {
+            "candidate_bbox": [
+              313.65673828125,
+              425.1131896972656,
+              336.28814697265625,
+              437.4464111328125
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              288.2925720214844,
+              351.99017333984375,
+              310.9347839355469,
+              365.8343811035156
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "s\u2032(k),"
+          },
+          {
+            "candidate_bbox": [
+              346.0027160644531,
+              485.64398193359375,
+              368.6341247558594,
+              497.9772033691406
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.3483769606230803,
+            "reference_bbox": [
+              335.1824951171875,
+              454.7801208496094,
+              357.8236999511719,
+              469.1693115234375
+            ],
+            "reference_color": 0,
+            "reference_font": "CMMI10",
+            "reference_page": 1,
+            "reference_size": 10.909099578857422,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": true,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "s\u2032(k),"
+          },
+          {
+            "candidate_bbox": [
+              220.20880126953125,
+              642.0771484375,
+              228.7667999267578,
+              653.0771484375
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.20441099874084123,
+            "reference_bbox": [
+              77.85099792480469,
+              116.36654663085938,
+              85.01515197753906,
+              125.33294677734375
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0900",
+            "reference_page": 1,
+            "reference_size": 8.966400146484375,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "1:"
+          },
+          {
+            "candidate_bbox": [
+              257.8673095703125,
+              89.11599731445312,
+              322.37127685546875,
+              100.11599731445312
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              263.72967529296875,
+              147.46139526367188,
+              332.3525390625,
+              159.41659545898438
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1200",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Image2Struct"
+          },
+          {
+            "candidate_bbox": [
+              186.03729248046875,
+              89.11599731445312,
+              254.2042999267578,
+              100.11599731445312
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              187.31201171875,
+              147.46139526367188,
+              259.832275390625,
+              159.41659545898438
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1200",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Source-backed"
+          },
+          {
+            "candidate_bbox": [
+              326.0343017578125,
+              89.11599731445312,
+              372.5202941894531,
+              100.11599731445312
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              336.24993896484375,
+              147.46139526367188,
+              385.6966552734375,
+              159.41659545898438
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1200",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "algorithm"
+          },
+          {
+            "candidate_bbox": [
+              376.18328857421875,
+              89.11599731445312,
+              409.23828125,
+              100.11599731445312
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Regular",
+            "candidate_page": 0,
+            "candidate_size": 11.0,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.08327107371093964,
+            "reference_bbox": [
+              389.59405517578125,
+              147.46139526367188,
+              424.7781982421875,
+              159.41659545898438
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1200",
+            "reference_page": 0,
+            "reference_size": 11.9552001953125,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "sample"
+          },
+          {
+            "candidate_bbox": [
+              72.0,
+              115.93403625488281,
+              151.69500732421875,
+              131.3340301513672
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Bold",
+            "candidate_page": 0,
+            "candidate_size": 15.399999618530273,
+            "candidate_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.0708823866180146,
+            "reference_bbox": [
+              95.67124938964844,
+              191.91514587402344,
+              166.5845184326172,
+              206.2613525390625
+            ],
+            "reference_color": 0,
+            "reference_font": "SFBX1440",
+            "reference_page": 0,
+            "reference_size": 14.346199989318848,
+            "reference_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Algorithm"
+          },
+          {
+            "candidate_bbox": [
+              426.18109130859375,
+              70.01997375488281,
+              445.15606689453125,
+              86.51997375488281
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Bold",
+            "candidate_page": 0,
+            "candidate_size": 16.5,
+            "candidate_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.04244399158174833,
+            "reference_bbox": [
+              415.1644287109375,
+              113.13790130615234,
+              431.346923828125,
+              130.35330200195312
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1728",
+            "reference_page": 0,
+            "reference_size": 17.21540069580078,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "13"
+          },
+          {
+            "candidate_bbox": [
+              150.1195526123047,
+              70.01997375488281,
+              249.20205688476562,
+              86.51997375488281
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Bold",
+            "candidate_page": 0,
+            "candidate_size": 16.5,
+            "candidate_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.04244399158174833,
+            "reference_bbox": [
+              180.72500610351562,
+              113.13790130615234,
+              264.73614501953125,
+              130.35330200195312
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1728",
+            "reference_page": 0,
+            "reference_size": 17.21540069580078,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Algorithmic"
+          },
+          {
+            "candidate_bbox": [
+              255.5215606689453,
+              70.01997375488281,
+              353.465576171875,
+              86.51997375488281
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Bold",
+            "candidate_page": 0,
+            "candidate_size": 16.5,
+            "candidate_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.04244399158174833,
+            "reference_bbox": [
+              270.12457275390625,
+              113.13790130615234,
+              353.1372985839844,
+              130.35330200195312
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1728",
+            "reference_page": 0,
+            "reference_size": 17.21540069580078,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Pseudocode"
+          },
+          {
+            "candidate_bbox": [
+              359.78509521484375,
+              70.01997375488281,
+              419.861572265625,
+              86.51997375488281
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCM10-Bold",
+            "candidate_page": 0,
+            "candidate_size": 16.5,
+            "candidate_style_bits": {
+              "bold": true,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.04244399158174833,
+            "reference_bbox": [
+              358.5257263183594,
+              113.13790130615234,
+              409.7760009765625,
+              130.35330200195312
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM1728",
+            "reference_page": 0,
+            "reference_size": 17.21540069580078,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "Sample"
+          },
+          {
+            "candidate_bbox": [
+              378.4296875,
+              190.65921020507812,
+              382.81097412109375,
+              198.35922241210938
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              387.7820129394531,
+              451.1661071777344,
+              392.0141296386719,
+              459.1361999511719
+            ],
+            "reference_color": 0,
+            "reference_font": "CMR8",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "2"
+          },
+          {
+            "candidate_bbox": [
+              271.6993103027344,
+              317.4693908691406,
+              301.4983215332031,
+              330.5461730957031
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              313.68157958984375,
+              247.7382354736328,
+              343.2084045410156,
+              259.7471008300781
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0800",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "ahigh),"
+          },
+          {
+            "candidate_bbox": [
+              401.7936706542969,
+              456.8944091796875,
+              430.877685546875,
+              469.97119140625
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              416.5496520996094,
+              392.98223876953125,
+              446.07550048828125,
+              404.9911193847656
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0800",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "ahigh),"
+          },
+          {
+            "candidate_bbox": [
+              305.30517578125,
+              273.2604064941406,
+              329.3511657714844,
+              286.3371887207031
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              514.734619140625,
+              196.13221740722656,
+              539.9959716796875,
+              208.14108276367188
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0800",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "ahigh."
+          },
+          {
+            "candidate_bbox": [
+              282.4288330078125,
+              273.2604064941406,
+              303.4718322753906,
+              286.3371887207031
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              491.07635498046875,
+              196.13221740722656,
+              512.9127807617188,
+              208.14108276367188
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0800",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "alow,"
+          },
+          {
+            "candidate_bbox": [
+              248.82296752929688,
+              317.4693908691406,
+              269.8659973144531,
+              330.5461730957031
+            ],
+            "candidate_color": 0,
+            "candidate_font": "NewCMMath-Book",
+            "candidate_page": 0,
+            "candidate_size": 7.699999809265137,
+            "candidate_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "font_size_abs_log_ratio": 0.034476726400631756,
+            "reference_bbox": [
+              290.1082458496094,
+              247.7382354736328,
+              311.8597717285156,
+              259.7471008300781
+            ],
+            "reference_color": 0,
+            "reference_font": "SFRM0800",
+            "reference_page": 1,
+            "reference_size": 7.970099925994873,
+            "reference_style_bits": {
+              "bold": false,
+              "italic": false,
+              "monospace": false,
+              "serif": true
+            },
+            "token": "alow,"
+          }
+        ]
+      },
+      "interpretation": "Raw PDF font observables are diagnostic; font names and flags are renderer metadata, not perceptual truth.",
+      "metrics": {
+        "baseline_displacement_q90": 0.1165172503732429,
+        "bold_agreement_rate": 0.9795918367346939,
+        "candidate_style_coverage": 0.7852564102564102,
+        "candidate_styled_token_count": 312,
+        "color_exact_agreement_rate": 1.0,
+        "font_name_exact_agreement_rate": 0.0,
+        "font_size_abs_log_ratio_max": 0.6222647939419307,
+        "font_size_abs_log_ratio_q50": 0.008298008086413849,
+        "font_size_abs_log_ratio_q90": 0.034476726400631756,
+        "italic_agreement_rate": 0.8204081632653061,
+        "monospace_agreement_rate": 1.0,
+        "reference_style_coverage": 0.7248520710059172,
+        "reference_styled_token_count": 338,
+        "serif_agreement_rate": 1.0,
+        "style_coverage_hmean": 0.7538461538461538,
+        "styled_matched_token_count": 245
+      },
+      "status": "scored"
+    }
+  },
+  "configuration": {
+    "ink_threshold": 245,
+    "ink_tolerance_px": 2,
+    "normalization": "Unicode NFKC, soft-hyphen removal, collapsed whitespace; case preserved",
+    "render_dpi": 120
+  },
+  "evaluator": {
+    "aggregate_score": null,
+    "name": "pdf_metric_axes_v1",
+    "policy": "No universal scalar; inspect axis values, applicability, coverage, and evidence together.",
+    "version": 1
+  },
+  "inputs": {
+    "candidate_page_count": 1,
+    "candidate_pdf": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_heldout_clean/samples/09_algorithms_013/output.pdf",
+    "reference_page_count": 2,
+    "reference_pdf": "data/latex_benchmark_v0/corpus/09_algorithms/09_algorithms_013/reference.pdf"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "artifact_kind": "manual_audit_of_controlled_reference_perturbations_not_ai_outputs",
+  "source_sheets": 157,
+  "cases": 628,
+  "universal_audit_cases": [
+    "text_deletion:severity_2",
+    "block_right:severity_2",
+    "local_occlusion:severity_2"
+  ],
+  "category_audit_variants": {
+    "01_prose_sections": "paragraph_occlusion",
+    "02_lists_formatting": "list_item_occlusion",
+    "03_math_inline_display": "display_math_occlude",
+    "04_math_aligned": "display_math_occlude",
+    "05_tables_simple": "table_row_occlusion",
+    "06_tables_moderate": "table_column_occlusion",
+    "07_figures_captions": "figure_occlusion",
+    "08_crossrefs_citations": "crossref_token_corruption",
+    "09_algorithms": "algorithm_rule_occlusion",
+    "10_compact_papers": "compact_block_displacement",
+    "11_forms_cv_letters": "form_field_occlusion"
+  },
+  "blind_book": "results/metric_research_v1/full_157_v1/visual_audit/full157_blind_audit_book.pdf",
+  "unblinded_book": "results/metric_research_v1/full_157_v1/visual_audit/full157_unblinded_evidence_book.pdf",
+  "blind_response_manifest": "results/metric_research_v1/full_157_v1/visual_audit/blind_response_manifest.csv",
+  "answer_key": "results/metric_research_v1/full_157_v1/visual_audit/audit_answer_key.csv",
+  "candidate_panel_counts": {
+    "A": 314,
+    "B": 314
+  }
+}

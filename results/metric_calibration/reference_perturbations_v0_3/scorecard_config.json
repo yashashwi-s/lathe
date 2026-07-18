@@ -1,0 +1,55 @@
+{
+  "scorecard_version": "pdf_fidelity_scorecard_v0.3",
+  "status": "development_calibrated_to_one_blind_llm_judge_not_human_ratings",
+  "aggregate_score": null,
+  "axes": [
+    "content",
+    "layout",
+    "typography",
+    "appearance_proxy",
+    "pagination"
+  ],
+  "evidence": {
+    "layout_coverage_review_min": 0.8,
+    "minimum_nontext_ink_pixels": 200,
+    "local_grid_size": 4,
+    "local_active_ink_pixels": 80
+  },
+  "appearance_proxy": {
+    "metric_version": "raster_v0.2",
+    "foreground_tolerance_pixels": 4,
+    "edge_distance_tau_pixels": 10.0,
+    "weights": {
+      "tolerant_ink_f1": 0.7,
+      "edge_distance": 0.3
+    },
+    "limitation": "Text and non-text ink are not yet segmented, so this is not an object metric."
+  },
+  "pagination": {
+    "method": "order-preserving dynamic-programming alignment",
+    "page_pair_weights_when_text_exists": {
+      "token_multiset_f1": 0.9,
+      "thumbnail_appearance": 0.1
+    },
+    "page_token_weighting": "reference-page inverse document frequency; digit-bearing tokens x1.5",
+    "normalization": "maximum reference/candidate page count"
+  },
+  "provisional_critical_gates": {
+    "token_precision_min": 0.95,
+    "token_recall_min": 0.95,
+    "page_count_exact": true
+  },
+  "provisional_review_triggers": {
+    "page_sequence_min": 0.9,
+    "typography_min": 0.55,
+    "minimum_matched_words_for_layout": 10,
+    "appearance_layout_disagreement": 0.25,
+    "table_count_mismatch": true,
+    "table_structure_exact": true
+  },
+  "diagnostic_thresholds": {
+    "numeric_token_multiset_mismatch": true,
+    "local_appearance_min": 0.7,
+    "nontext_appearance_min": 0.65
+  }
+}

@@ -1,0 +1,1197 @@
+{
+  "applicability": {
+    "figures": null,
+    "formulas": null,
+    "tables": null
+  },
+  "axes": {
+    "block_transport": {
+      "applicable": true,
+      "evidence": {
+        "cost_policy": "0.65 * (1 - rescaled GIoU) + 0.35 * normalized Levenshtein distance",
+        "largest_cost_contributions": [
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "candidate_text": "Petra Muster nn Vor dem Berg 1 12345 Musterhausen",
+            "combined_cost": 0.01400000000000001,
+            "content_cost": 0.040000000000000036,
+            "geometry_cost": 0.0,
+            "mass": 0.5632183908045976,
+            "reference_bbox_stacked_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "candidate_text": "Liebe Vereinsvorsitzende,",
+            "combined_cost": 0.8553424918795474,
+            "content_cost": 0.84,
+            "geometry_cost": 0.8636038336608419,
+            "mass": 0.003265412748171437,
+            "reference_bbox_stacked_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "13. Juli 2026",
+            "combined_cost": 0.9415398128823163,
+            "content_cost": 0.92,
+            "geometry_cost": 0.9531381736651019,
+            "mass": 0.001698014629049116,
+            "reference_bbox_stacked_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "13. Juli 2026",
+            "combined_cost": 0.0,
+            "content_cost": 0.0,
+            "geometry_cost": 0.0,
+            "mass": 0.14772727272727273,
+            "reference_bbox_stacked_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "13. Juli 2026"
+          },
+          {
+            "candidate_bbox_stacked_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "candidate_text": "Liebe Vereinsvorsitzende,",
+            "combined_cost": 0.0,
+            "content_cost": 0.0,
+            "geometry_cost": 0.0,
+            "mass": 0.2840909090909091,
+            "reference_bbox_stacked_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "Liebe Vereinsvorsitzende,"
+          }
+        ],
+        "mass_policy": "block normalized-character count; minimum mass unit 1",
+        "page_geometry": "page boxes stacked vertically and normalized by max page count"
+      },
+      "interpretation": "Exact optimal transport over extracted text blocks. This is an LTSim-inspired, fully specified adaptation\u2014not the published LTSim implementation or a semantic table/formula metric. Report geometry and content costs separately with the flows.",
+      "metrics": {
+        "candidate_block_count": 3,
+        "combined_transport_cost": 0.012276852124406911,
+        "combined_transport_similarity_exp": 0.9877982009720792,
+        "content_transport_similarity_exp": 0.973522973284756,
+        "geometry_transport_similarity_exp": 0.9955713699011488,
+        "nonzero_flow_count": 5,
+        "reference_block_count": 3,
+        "transported_content_cost": 0.026833855799373117,
+        "transported_geometry_cost": 0.004438465530194338,
+        "transported_mass": 1.0
+      },
+      "status": "scored"
+    },
+    "canvas": {
+      "applicable": true,
+      "evidence": {
+        "page_pairs": [
+          {
+            "candidate_size_points": [
+              595.2760009765625,
+              841.8900146484375
+            ],
+            "exact_size_match": true,
+            "height_abs_log_ratio": 0.0,
+            "page": 0,
+            "reference_size_points": [
+              595.2760009765625,
+              841.8900146484375
+            ],
+            "width_abs_log_ratio": 0.0
+          }
+        ]
+      },
+      "interpretation": "Canvas/page-size mismatch only; no token layout residual is folded into this axis.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "exact_paired_size_rate": 1.0,
+        "height_abs_log_ratio_max": 0.0,
+        "page_count_delta": 0,
+        "paired_page_count": 1,
+        "reference_page_count": 1,
+        "width_abs_log_ratio_max": 0.0
+      },
+      "status": "scored"
+    },
+    "content": {
+      "applicable": true,
+      "evidence": {
+        "lowest_similarity_block_pairs": [
+          {
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "candidate_text": "Petra Muster nn Vor dem Berg 1 12345 Musterhausen",
+            "normalized_edit_similarity": 0.96,
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "candidate_text": "13. Juli 2026",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "13. Juli 2026"
+          },
+          {
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "candidate_text": "Liebe Vereinsvorsitzende,",
+            "normalized_edit_similarity": 1.0,
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "Liebe Vereinsvorsitzende,"
+          }
+        ],
+        "unmatched_candidate_words": [
+          {
+            "bbox": [
+              88.398193359375,
+              180.2156524658203,
+              124.55072784423828,
+              192.1708526611328
+            ],
+            "normalized": "Muster",
+            "page": 0,
+            "text": "Muster",
+            "word_index": 1
+          },
+          {
+            "bbox": [
+              140.16421508789062,
+              180.2156524658203,
+              153.17147827148438,
+              192.1708526611328
+            ],
+            "normalized": "nn",
+            "page": 0,
+            "text": "nn",
+            "word_index": 2
+          }
+        ],
+        "unmatched_reference_words": [
+          {
+            "bbox": [
+              88.398193359375,
+              180.2156524658203,
+              153.17147827148438,
+              192.1708526611328
+            ],
+            "normalized": "Mustermann",
+            "page": 0,
+            "text": "Mustermann",
+            "word_index": 1
+          }
+        ]
+      },
+      "interpretation": "Token multiset retention and normalized Levenshtein similarity; ordering is reported separately.",
+      "metrics": {
+        "document_normalized_edit_similarity": 0.9777777777777777,
+        "matched_block_count": 3,
+        "matched_block_normalized_edit_similarity_macro": 0.9866666666666667,
+        "token_inventory": {
+          "candidate_count": 14,
+          "f1": 0.888888888888889,
+          "matched_count": 12,
+          "precision": 0.8571428571428571,
+          "recall": 0.9230769230769231,
+          "reference_count": 13
+        }
+      },
+      "status": "scored"
+    },
+    "critical_content": {
+      "applicable": true,
+      "evidence": {
+        "citation_pattern": "\\[(?:\\d+[a-z]?(?:\\s*[-,;]\\s*\\d+[a-z]?){0,12})\\]|\\((?:18|19|20)\\d{2}[a-z]?\\)",
+        "normalization": "Unicode NFKC; case preserved; multiset comparison",
+        "number_pattern": "(?<![\\w.])[+-]?(?:\\d+(?:[.,]\\d+)*|\\.\\d+)(?:[eE][+-]?\\d+)?%?",
+        "operator_inventory": "*+/<=>^\u00b1\u00d7\u00f7\u2190\u2192\u2194\u2202\u2207\u2208\u2209\u220f\u2211\u2212\u221a\u221e\u2229\u222a\u222b\u2248\u2260\u2264\u2265\u2282\u2286"
+      },
+      "interpretation": "Exact critical-symbol inventories prevent visually small numeric or operator errors from disappearing inside a document-level text average. Empty inventories are reported as exact but do not establish construct applicability.",
+      "metrics": {
+        "citation_markers": {
+          "candidate_count": 0,
+          "exact_match": true,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 1.0,
+          "matched_count": 0,
+          "missing": [],
+          "missing_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reference_count": 0
+        },
+        "numbers": {
+          "candidate_count": 4,
+          "exact_match": true,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 1.0,
+          "matched_count": 4,
+          "missing": [],
+          "missing_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reference_count": 4
+        },
+        "operators": {
+          "candidate_count": 0,
+          "exact_match": true,
+          "extra": [],
+          "extra_count": 0,
+          "f1": 1.0,
+          "matched_count": 0,
+          "missing": [],
+          "missing_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "reference_count": 0
+        }
+      },
+      "status": "scored"
+    },
+    "figures": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for figures was not established by source metadata.",
+      "status": "abstain"
+    },
+    "formulas": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for formulas was not established by source metadata.",
+      "status": "abstain"
+    },
+    "geometry": {
+      "applicable": true,
+      "evidence": {
+        "worst_token_pairs": [
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              56.69300079345703,
+              180.2156524658203,
+              84.50080108642578,
+              192.1708526611328
+            ],
+            "candidate_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.1419523060694543,
+              0.22826123284213187
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 0,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              56.69300079345703,
+              180.2156524658203,
+              84.50080108642578,
+              192.1708526611328
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.1419523060694543,
+              0.22826123284213187
+            ],
+            "reference_page": 0,
+            "reference_word_index": 0,
+            "token": "Petra",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              56.69300079345703,
+              194.66065979003906,
+              74.90077209472656,
+              206.61585998535156
+            ],
+            "candidate_bbox_normalized": [
+              0.0952381764096839,
+              0.23121863474212467,
+              0.12582528435860058,
+              0.24541906471195254
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 3,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              56.69300079345703,
+              194.66065979003906,
+              74.90077209472656,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.23121863474212467,
+              0.12582528435860058,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 2,
+            "token": "Vor",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              78.81011962890625,
+              194.66065979003906,
+              100.26971435546875,
+              206.61585998535156
+            ],
+            "candidate_bbox_normalized": [
+              0.1323925700004983,
+              0.23121863474212467,
+              0.16844239342922313,
+              0.24541906471195254
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 4,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              78.81011962890625,
+              194.66065979003906,
+              100.26971435546875,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.1323925700004983,
+              0.23121863474212467,
+              0.16844239342922313,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 3,
+            "token": "dem",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              104.16710662841797,
+              194.66065979003906,
+              128.0655517578125,
+              206.61585998535156
+            ],
+            "candidate_bbox_normalized": [
+              0.17498959551120774,
+              0.23121863474212467,
+              0.21513642671251373,
+              0.24541906471195254
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 5,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              104.16710662841797,
+              194.66065979003906,
+              128.0655517578125,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.17498959551120774,
+              0.23121863474212467,
+              0.21513642671251373,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 4,
+            "token": "Berg",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              131.96295166015625,
+              194.66065979003906,
+              137.8209991455078,
+              206.61585998535156
+            ],
+            "candidate_bbox_normalized": [
+              0.221683641611065,
+              0.23121863474212467,
+              0.23152453470223835,
+              0.24541906471195254
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 6,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              131.96295166015625,
+              194.66065979003906,
+              137.8209991455078,
+              206.61585998535156
+            ],
+            "reference_bbox_normalized": [
+              0.221683641611065,
+              0.23121863474212467,
+              0.23152453470223835,
+              0.24541906471195254
+            ],
+            "reference_page": 0,
+            "reference_word_index": 5,
+            "token": "1",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              56.69300079345703,
+              209.1066436767578,
+              85.98323822021484,
+              221.0618438720703
+            ],
+            "candidate_bbox_normalized": [
+              0.0952381764096839,
+              0.24837762657640983,
+              0.14444264186555072,
+              0.2625780565462377
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 7,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              56.69300079345703,
+              209.1066436767578,
+              85.98323822021484,
+              221.0618438720703
+            ],
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.24837762657640983,
+              0.14444264186555072,
+              0.2625780565462377
+            ],
+            "reference_page": 0,
+            "reference_word_index": 6,
+            "token": "12345",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              89.88063049316406,
+              209.1066436767578,
+              161.21731567382812,
+              221.0618438720703
+            ],
+            "candidate_bbox_normalized": [
+              0.15098984394753534,
+              0.24837762657640983,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 8,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              89.88063049316406,
+              209.1066436767578,
+              161.21731567382812,
+              221.0618438720703
+            ],
+            "reference_bbox_normalized": [
+              0.15098984394753534,
+              0.24837762657640983,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_page": 0,
+            "reference_word_index": 7,
+            "token": "Musterhausen",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              455.6719970703125,
+              284.3156433105469,
+              470.6399230957031,
+              296.2708435058594
+            ],
+            "candidate_bbox_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.7906247225213324,
+              0.35191157793880984
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 9,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              455.6719970703125,
+              284.3156433105469,
+              470.6399230957031,
+              296.2708435058594
+            ],
+            "reference_bbox_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.7906247225213324,
+              0.35191157793880984
+            ],
+            "reference_page": 0,
+            "reference_word_index": 8,
+            "token": "13.",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              474.5373229980469,
+              284.3156433105469,
+              493.5580139160156,
+              296.2708435058594
+            ],
+            "candidate_bbox_normalized": [
+              0.7971719374198837,
+              0.337711147968982,
+              0.8291246633600609,
+              0.35191157793880984
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 10,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              474.5373229980469,
+              284.3156433105469,
+              493.5580139160156,
+              296.2708435058594
+            ],
+            "reference_bbox_normalized": [
+              0.7971719374198837,
+              0.337711147968982,
+              0.8291246633600609,
+              0.35191157793880984
+            ],
+            "reference_page": 0,
+            "reference_word_index": 9,
+            "token": "Juli",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              497.4673767089844,
+              284.3156433105469,
+              520.8995971679688,
+              296.2708435058594
+            ],
+            "candidate_bbox_normalized": [
+              0.8356919746350918,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 11,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              497.4673767089844,
+              284.3156433105469,
+              520.8995971679688,
+              296.2708435058594
+            ],
+            "reference_bbox_normalized": [
+              0.8356919746350918,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "reference_page": 0,
+            "reference_word_index": 10,
+            "token": "2026",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              74.40899658203125,
+              313.2066345214844,
+              102.20484924316406,
+              325.1618347167969
+            ],
+            "candidate_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.17169321302302615,
+              0.38622840164291566
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 12,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              74.40899658203125,
+              313.2066345214844,
+              102.20484924316406,
+              325.1618347167969
+            ],
+            "reference_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.17169321302302615,
+              0.38622840164291566
+            ],
+            "reference_page": 0,
+            "reference_word_index": 11,
+            "token": "Liebe",
+            "width_abs_log_ratio": 0.0
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox": [
+              106.11419677734375,
+              313.2066345214844,
+              203.78819274902344,
+              325.1618347167969
+            ],
+            "candidate_bbox_normalized": [
+              0.17826049866492388,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "candidate_page": 0,
+            "candidate_word_index": 13,
+            "center_displacement": 0.0,
+            "height_abs_log_ratio": 0.0,
+            "reference_bbox": [
+              106.11419677734375,
+              313.2066345214844,
+              203.78819274902344,
+              325.1618347167969
+            ],
+            "reference_bbox_normalized": [
+              0.17826049866492388,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "reference_page": 0,
+            "reference_word_index": 12,
+            "token": "Vereinsvorsitzende,",
+            "width_abs_log_ratio": 0.0
+          }
+        ]
+      },
+      "interpretation": "Token boxes are normalized by each page's own canvas; canvas mismatch remains a separate axis.",
+      "metrics": {
+        "bbox_iou_q10": 1.0,
+        "bbox_iou_q50": 1.0,
+        "candidate_match_coverage": 0.8571428571428571,
+        "center_displacement_max": 0.0,
+        "center_displacement_q50": 0.0,
+        "center_displacement_q90": 0.0,
+        "height_abs_log_ratio_q90": 0.0,
+        "matched_token_count": 12,
+        "reference_match_coverage": 0.9230769230769231,
+        "width_abs_log_ratio_q90": 0.0
+      },
+      "status": "scored"
+    },
+    "layout_relations": {
+      "applicable": true,
+      "evidence": {
+        "relation_mismatches": [],
+        "worst_block_pairs": [
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "candidate_block_index": 0,
+            "candidate_page": 0,
+            "center_displacement": 0.0,
+            "reference_bbox_normalized": [
+              0.0952381764096839,
+              0.214060802872304,
+              0.2708278435706257,
+              0.2625780565462377
+            ],
+            "reference_block_index": 0,
+            "reference_page": 0,
+            "reference_text": "Petra Mustermann Vor dem Berg 1 12345 Musterhausen"
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "candidate_block_index": 1,
+            "candidate_page": 0,
+            "center_displacement": 0.0,
+            "reference_bbox_normalized": [
+              0.7654802080426109,
+              0.337711147968982,
+              0.8750555982660518,
+              0.35191157793880984
+            ],
+            "reference_block_index": 1,
+            "reference_page": 0,
+            "reference_text": "13. Juli 2026"
+          },
+          {
+            "bbox_iou": 1.0,
+            "candidate_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "candidate_block_index": 2,
+            "candidate_page": 0,
+            "center_displacement": 0.0,
+            "reference_bbox_normalized": [
+              0.12499915410660226,
+              0.3720279716730878,
+              0.3423423628950348,
+              0.38622840164291566
+            ],
+            "reference_block_index": 2,
+            "reference_page": 0,
+            "reference_text": "Liebe Vereinsvorsitzende,"
+          }
+        ]
+      },
+      "interpretation": "Transparent matched-block relation trial inspired by pairwise-layout work; this is not the published PaIRS or LTSim metric.",
+      "metrics": {
+        "candidate_block_coverage": 1.0,
+        "matched_block_center_displacement_q90": 0.0,
+        "matched_block_count": 3,
+        "matched_block_iou_q10": 1.0,
+        "matched_block_iou_q50": 1.0,
+        "pairwise_relation_agreement": 1.0,
+        "pairwise_relation_count": 3,
+        "reference_block_coverage": 1.0
+      },
+      "status": "scored"
+    },
+    "pagination": {
+      "applicable": true,
+      "evidence": {
+        "mismatched_page_breaks": []
+      },
+      "interpretation": "Page count, matched-block page assignment, and page-break boundaries are reported independently.",
+      "metrics": {
+        "candidate_page_count": 1,
+        "matched_block_count": 3,
+        "matched_block_page_assignment_accuracy": 1.0,
+        "page_break_f1": 1.0,
+        "page_break_false_negative": 0,
+        "page_break_false_positive": 0,
+        "page_break_precision": 1.0,
+        "page_break_recall": 1.0,
+        "page_break_true_positive": 0,
+        "page_count_delta": 0,
+        "reference_page_count": 1
+      },
+      "status": "scored"
+    },
+    "raster_ink": {
+      "applicable": true,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_raster_size_before_resize": [
+              794,
+              1123
+            ],
+            "candidate_resized_to_reference_canvas": true,
+            "coordinate_frame": "registered_reference_raster",
+            "page": 0,
+            "reference_raster_size": [
+              794,
+              1123
+            ],
+            "registered": {
+              "candidate_ink_pixels": 2776,
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_ink_pixels": 2797,
+              "unmatched_ink_fraction_of_union": 0.0,
+              "unmatched_ink_pixels": 0
+            },
+            "registered_mean_absolute_gray_difference": 8.29075257172319e-05,
+            "registration_translation_px": [
+              0,
+              0
+            ],
+            "top_difference_bbox": null,
+            "unregistered": {
+              "candidate_ink_pixels": 2776,
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "reference_ink_pixels": 2797,
+              "unmatched_ink_fraction_of_union": 0.0,
+              "unmatched_ink_pixels": 0
+            }
+          }
+        ],
+        "top_difference_bbox": null
+      },
+      "interpretation": "Candidate pages are resized to the reference canvas, then optionally translation-registered. Use canvas and geometry axes for layout claims.",
+      "metrics": {
+        "paired_page_count": 1,
+        "registered_tolerant_ink_f1_macro": 1.0,
+        "registration_gain": 0.0,
+        "unpaired_page_count": 0,
+        "unregistered_tolerant_ink_f1_macro": 1.0
+      },
+      "status": "scored"
+    },
+    "raster_perceptual": {
+      "applicable": true,
+      "evidence": {
+        "pages": [
+          {
+            "candidate_raster_size_before_resize": [
+              794,
+              1123
+            ],
+            "candidate_resized_to_reference_canvas": false,
+            "page": 0,
+            "reference_raster_size": [
+              794,
+              1123
+            ],
+            "registered_difference_bbox": null,
+            "registered_multiscale_ssim_diagnostic": 0.9997394945476675,
+            "registered_scale_scores": [
+              {
+                "downsample_factor": 1,
+                "ssim": 0.9996685583430203
+              },
+              {
+                "downsample_factor": 2,
+                "ssim": 0.9996207891277336
+              },
+              {
+                "downsample_factor": 4,
+                "ssim": 0.9993839238674367
+              },
+              {
+                "downsample_factor": 8,
+                "ssim": 0.9992427152780073
+              }
+            ],
+            "registered_ssim": 0.9996685583430203,
+            "registration_translation_px": [
+              0,
+              0
+            ],
+            "status": "scored",
+            "unregistered_multiscale_ssim_diagnostic": 0.9997394945476675,
+            "unregistered_scale_scores": [
+              {
+                "downsample_factor": 1,
+                "ssim": 0.9996685583430203
+              },
+              {
+                "downsample_factor": 2,
+                "ssim": 0.9996207891277336
+              },
+              {
+                "downsample_factor": 4,
+                "ssim": 0.9993839238674367
+              },
+              {
+                "downsample_factor": 8,
+                "ssim": 0.9992427152780073
+              }
+            ],
+            "unregistered_ssim": 0.9996685583430203
+          }
+        ]
+      },
+      "interpretation": "SSIM is reported before and after translation-only registration. The multiscale value is the documented geometric mean of four SSIM scales, not canonical MS-SSIM. No candidate resizing is performed; SSIM abstains when physical canvases/grids differ.",
+      "metrics": {
+        "abstained_page_count": 0,
+        "paired_page_count": 1,
+        "registered_multiscale_ssim_diagnostic_macro": 0.9997394945476675,
+        "registered_ssim_macro": 0.9996685583430203,
+        "scored_page_count": 1,
+        "unpaired_page_count": 0,
+        "unregistered_multiscale_ssim_diagnostic_macro": 0.9997394945476675,
+        "unregistered_ssim_macro": 0.9996685583430203
+      },
+      "status": "scored"
+    },
+    "reading_order": {
+      "applicable": true,
+      "evidence": {
+        "inverted_block_pairs": []
+      },
+      "interpretation": "Kendall tau is computed only on content-matched blocks; coverage must accompany it.",
+      "metrics": {
+        "candidate_block_coverage": 1.0,
+        "inversion_count": 0,
+        "kendall_tau": 1.0,
+        "matched_block_count": 3,
+        "reference_block_coverage": 1.0
+      },
+      "status": "scored"
+    },
+    "tables": {
+      "applicable": null,
+      "evidence": {
+        "source_flags": {
+          "candidate": null,
+          "reference": null
+        }
+      },
+      "metrics": {},
+      "reason": "Applicability for tables was not established by source metadata.",
+      "status": "abstain"
+    },
+    "text_grounding": {
+      "applicable": true,
+      "evidence": {
+        "match_policy": "exact Unicode-NFKC word text with deterministic page/position assignment for repeats"
+      },
+      "interpretation": "Digital-PDF exact-word grounding adaptation; it is not the published CLEval algorithm. Split/merge values remain null until a validated implementation exists.",
+      "metrics": {
+        "candidate_word_count": 14,
+        "exact_matched_word_count": 12,
+        "merge_count": null,
+        "reference_word_count": 13,
+        "split_count": null,
+        "word_hmean": 0.888888888888889,
+        "word_precision": 0.8571428571428571,
+        "word_recall": 0.9230769230769231
+      },
+      "status": "scored"
+    },
+    "text_ltsim": {
+      "applicable": true,
+      "evidence": {
+        "equations": "uniform mass; delta_bbox=(1+GIoU)/2; delta_label=1 for text; mu=1-(delta_bbox+delta_label)/2; Text-LTSim=exp(-EMD), sigma=1",
+        "pages": [
+          {
+            "candidate_block_count": 3,
+            "emd": 0.0,
+            "largest_cost_contributions": [
+              {
+                "candidate_bbox_normalized": [
+                  0.0952381764096839,
+                  0.214060802872304,
+                  0.2708278435706257,
+                  0.2625780565462377
+                ],
+                "candidate_block_index": 0,
+                "cost": 0.0,
+                "mass": 0.3333333333333333,
+                "reference_bbox_normalized": [
+                  0.0952381764096839,
+                  0.214060802872304,
+                  0.2708278435706257,
+                  0.2625780565462377
+                ],
+                "reference_block_index": 0
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.7654802080426109,
+                  0.337711147968982,
+                  0.8750555982660518,
+                  0.35191157793880984
+                ],
+                "candidate_block_index": 1,
+                "cost": 0.0,
+                "mass": 0.3333333333333333,
+                "reference_bbox_normalized": [
+                  0.7654802080426109,
+                  0.337711147968982,
+                  0.8750555982660518,
+                  0.35191157793880984
+                ],
+                "reference_block_index": 1
+              },
+              {
+                "candidate_bbox_normalized": [
+                  0.12499915410660226,
+                  0.3720279716730878,
+                  0.3423423628950348,
+                  0.38622840164291566
+                ],
+                "candidate_block_index": 2,
+                "cost": 0.0,
+                "mass": 0.3333333333333333,
+                "reference_bbox_normalized": [
+                  0.12499915410660226,
+                  0.3720279716730878,
+                  0.3423423628950348,
+                  0.38622840164291566
+                ],
+                "reference_block_index": 2
+              }
+            ],
+            "page": 0,
+            "reference_block_count": 3,
+            "status": "scored",
+            "text_ltsim": 1.0
+          }
+        ]
+      },
+      "interpretation": "Faithful published LTSim equations on extracted text blocks only. It measures text-layout geometry/segmentation, not full semantic layout; non-text classes abstain.",
+      "metrics": {
+        "abstained_page_count": 0,
+        "paired_page_count": 1,
+        "scored_page_count": 1,
+        "text_ltsim_element_weighted": 1.0,
+        "text_ltsim_page_macro": 1.0,
+        "text_ltsim_worst_page": 1.0
+      },
+      "status": "scored"
+    },
+    "typography": {
+      "applicable": true,
+      "evidence": {
+        "style_mismatches": []
+      },
+      "interpretation": "Raw PDF font observables are diagnostic; font names and flags are renderer metadata, not perceptual truth.",
+      "metrics": {
+        "baseline_displacement_q90": 0.0,
+        "bold_agreement_rate": 1.0,
+        "candidate_style_coverage": 0.8571428571428571,
+        "candidate_styled_token_count": 14,
+        "color_exact_agreement_rate": 1.0,
+        "font_name_exact_agreement_rate": 1.0,
+        "font_size_abs_log_ratio_max": 0.0,
+        "font_size_abs_log_ratio_q50": 0.0,
+        "font_size_abs_log_ratio_q90": 0.0,
+        "italic_agreement_rate": 1.0,
+        "monospace_agreement_rate": 1.0,
+        "reference_style_coverage": 0.9230769230769231,
+        "reference_styled_token_count": 13,
+        "serif_agreement_rate": 1.0,
+        "style_coverage_hmean": 0.888888888888889,
+        "styled_matched_token_count": 12
+      },
+      "status": "scored"
+    }
+  },
+  "configuration": {
+    "ink_threshold": 245,
+    "ink_tolerance_px": 2,
+    "normalization": "Unicode NFKC, soft-hyphen removal, collapsed whitespace; case preserved",
+    "render_dpi": 96
+  },
+  "evaluator": {
+    "aggregate_score": null,
+    "name": "pdf_metric_axes_v2",
+    "policy": "No compensatory scalar. Report raw axes, coverage, abstentions, and localized evidence.",
+    "version": 2
+  },
+  "inputs": {
+    "candidate_page_count": 1,
+    "candidate_pdf": "results/metric_research_v1/category_audit_repeat_v1/11_forms_cv_letters/audit/11_forms_cv_letters_008__form_field_occlusion__s2.pdf",
+    "reference_page_count": 1,
+    "reference_pdf": "data/latex_benchmark_v0/corpus/11_forms_cv_letters/11_forms_cv_letters_008/reference.pdf"
+  }
+}

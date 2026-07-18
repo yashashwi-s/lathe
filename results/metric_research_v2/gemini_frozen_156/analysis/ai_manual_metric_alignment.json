@@ -1,0 +1,66 @@
+{
+  "aggregate_score": null,
+  "analysis": "ai_visual_alignment_v2",
+  "axis_alignment": {
+    "content": {
+      "issue_auc": 0.5497076023391813,
+      "manual_issue_pairs": 99,
+      "manual_none_pairs": 57,
+      "p_value_descriptive": 0.00042214268803011614,
+      "pairs": 156,
+      "spearman_rho": 0.2789131071946262
+    },
+    "layout_text_ltsim": {
+      "issue_auc": null,
+      "manual_issue_pairs": 156,
+      "manual_none_pairs": 0,
+      "p_value_descriptive": 0.02342079619155627,
+      "pairs": 156,
+      "spearman_rho": 0.18141577473504278
+    },
+    "layout_token_displacement": {
+      "issue_auc": null,
+      "manual_issue_pairs": 156,
+      "manual_none_pairs": 0,
+      "p_value_descriptive": 1.679860183358766e-05,
+      "pairs": 156,
+      "spearman_rho": 0.33713881743360935
+    },
+    "pagination_boundary": {
+      "issue_auc": 0.9526977087952697,
+      "manual_issue_pairs": 33,
+      "manual_none_pairs": 123,
+      "p_value_descriptive": 1.481955839882949e-33,
+      "pairs": 156,
+      "spearman_rho": 0.7829057170600814
+    },
+    "pagination_page_count": {
+      "issue_auc": 0.9090909090909091,
+      "manual_issue_pairs": 33,
+      "manual_none_pairs": 123,
+      "p_value_descriptive": 1.717744484512124e-56,
+      "pairs": 156,
+      "spearman_rho": 0.8970607942080124
+    },
+    "typography": {
+      "issue_auc": 0.535483870967742,
+      "manual_issue_pairs": 155,
+      "manual_none_pairs": 1,
+      "p_value_descriptive": 0.0009967830240427064,
+      "pairs": 156,
+      "spearman_rho": 0.2610405737672868
+    }
+  },
+  "interpretation": "AUC and rho assess consistency with one blinded LLM visual audit, not perceptual validity. AUC 0.5 is chance and 1.0 perfect directionality. Canvas-confounded SSIM abstentions remain missing.",
+  "pairs": 156,
+  "post_unblind": {
+    "axis_labels_plausible_rate": 0.7307692307692307,
+    "canvas_confound_rate": 0.9294871794871795,
+    "top_residual_box_useful_rate": 0.27564102564102566
+  },
+  "reviewer_type": "LLM research audit; no human ratings",
+  "specialized_structure": {
+    "automatic_metric": "abstain for all 156; no validated common table/formula/figure extraction",
+    "manual_issue_pairs": 118
+  }
+}

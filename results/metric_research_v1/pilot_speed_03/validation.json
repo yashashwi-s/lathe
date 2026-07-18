@@ -1,0 +1,1329 @@
+{
+  "assumptions": {
+    "baseline": "severity-zero identity/baseline/pristine/reference/self rows; otherwise the median of severity-zero rows",
+    "bbox_coordinates": "expected_bbox and predicted_bbox use one common coordinate system",
+    "cluster_unit": "sample_id (source PDF)",
+    "compound_components": "components column or compound:family_a+family_b family name",
+    "compound_rule": "compound score <= every named component score on the expected axis",
+    "deterministic_repeat": "duplicate sample_id/category/family/severity/seed rows are reruns of one exact case",
+    "localization_rule": "page equality and bbox IoU > 0.01",
+    "missing_values": "counted as abstentions when the expected axis is applicable",
+    "multi_axis_targets": "expected_axis may join axes with '+'; target response and severity ordering are evaluated on every named axis, never silently dropped",
+    "score_direction": "higher axis values mean better fidelity",
+    "severity_direction": "larger severity means a stronger defect; zero means invariant/pristine"
+  },
+  "axis_columns": [
+    "axis_appearance",
+    "axis_content",
+    "axis_layout",
+    "axis_pagination",
+    "axis_structure",
+    "axis_typography"
+  ],
+  "bootstrap_95_ci": {
+    "category_macro": {
+      "abstention_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "adjacent_monotonic_accuracy": {
+        "high": 0.9333333333333333,
+        "low": 0.9333333333333333
+      },
+      "compound_dominance_accuracy": {
+        "high": 0.8888888888888888,
+        "low": 0.8888888888888888
+      },
+      "invariant_false_positive_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "kendall_tau_b": {
+        "high": 0.9111111111111111,
+        "low": 0.9111111111111111
+      },
+      "localization_hit_rate": {
+        "high": 1.0,
+        "low": 1.0
+      },
+      "localization_mean_iou": {
+        "high": 0.8887813550317339,
+        "low": 0.8887813550317339
+      },
+      "off_target_mean_drop": {
+        "high": 0.12049255787747412,
+        "low": 0.12049255787747412
+      },
+      "target_axis_drop": {
+        "high": 0.4144690939287471,
+        "low": 0.4144690939287471
+      },
+      "target_selectivity_margin": {
+        "high": 0.29397653605127294,
+        "low": 0.29397653605127294
+      }
+    },
+    "document_macro": {
+      "abstention_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "adjacent_monotonic_accuracy": {
+        "high": 0.9333333333333333,
+        "low": 0.9333333333333333
+      },
+      "compound_dominance_accuracy": {
+        "high": 0.8888888888888888,
+        "low": 0.8888888888888888
+      },
+      "invariant_false_positive_rate": {
+        "high": 0.0,
+        "low": 0.0
+      },
+      "kendall_tau_b": {
+        "high": 0.9111111111111111,
+        "low": 0.9111111111111111
+      },
+      "localization_hit_rate": {
+        "high": 1.0,
+        "low": 1.0
+      },
+      "localization_mean_iou": {
+        "high": 0.8887813550317339,
+        "low": 0.8887813550317339
+      },
+      "off_target_mean_drop": {
+        "high": 0.12049255787747412,
+        "low": 0.12049255787747412
+      },
+      "target_axis_drop": {
+        "high": 0.4144690939287471,
+        "low": 0.4144690939287471
+      },
+      "target_selectivity_margin": {
+        "high": 0.29397653605127294,
+        "low": 0.29397653605127294
+      }
+    },
+    "replicates": 200,
+    "seed": 20260715
+  },
+  "category_macro": {
+    "abstention_rate": 0.0,
+    "adjacent_monotonic_accuracy": 0.9333333333333333,
+    "categories": {
+      "01_prose_sections": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.9333333333333333,
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": 0.9111111111111111,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.8887813550317339,
+        "off_target_mean_drop": 0.12049255787747412,
+        "target_axis_drop": 0.4144690939287471,
+        "target_selectivity_margin": 0.29397653605127294
+      }
+    },
+    "compound_dominance_accuracy": 0.8888888888888888,
+    "deterministic_repeat_agreement": null,
+    "invariant_false_positive_rate": 0.0,
+    "kendall_tau_b": 0.9111111111111111,
+    "localization_hit_rate": 1.0,
+    "localization_mean_iou": 0.8887813550317339,
+    "off_target_mean_drop": 0.12049255787747412,
+    "target_axis_drop": 0.4144690939287471,
+    "target_selectivity_margin": 0.29397653605127294
+  },
+  "document_macro": {
+    "abstention_rate": 0.0,
+    "adjacent_monotonic_accuracy": 0.9333333333333333,
+    "compound_dominance_accuracy": 0.8888888888888888,
+    "deterministic_repeat_agreement": null,
+    "invariant_false_positive_rate": 0.0,
+    "kendall_tau_b": 0.9111111111111111,
+    "localization_hit_rate": 1.0,
+    "localization_mean_iou": 0.8887813550317339,
+    "off_target_mean_drop": 0.12049255787747412,
+    "target_axis_drop": 0.4144690939287471,
+    "target_selectivity_margin": 0.29397653605127294
+  },
+  "method": "controlled_augmentation_validation_v1",
+  "per_family": {
+    "canvas_translation": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.08577828475420057,
+            "low": 0.08577828475420057
+          },
+          "target_axis_drop": {
+            "high": 0.6062846317118212,
+            "low": 0.6062846317118212
+          },
+          "target_selectivity_margin": {
+            "high": 0.5205063469576207,
+            "low": 0.5205063469576207
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.08577828475420057,
+            "low": 0.08577828475420057
+          },
+          "target_axis_drop": {
+            "high": 0.6062846317118212,
+            "low": 0.6062846317118212
+          },
+          "target_selectivity_margin": {
+            "high": 0.5205063469576207,
+            "low": 0.5205063469576207
+          }
+        },
+        "replicates": 200,
+        "seed": 20260716
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": null,
+            "localization_mean_iou": null,
+            "off_target_mean_drop": 0.08577828475420057,
+            "target_axis_drop": 0.6062846317118212,
+            "target_selectivity_margin": 0.5205063469576207
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.08577828475420057,
+        "target_axis_drop": 0.6062846317118212,
+        "target_selectivity_margin": 0.5205063469576207
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.08577828475420057,
+        "target_axis_drop": 0.6062846317118212,
+        "target_selectivity_margin": 0.5205063469576207
+      },
+      "documents": 1
+    },
+    "edge_crop_local_occlusion": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "kendall_tau_b": {
+            "high": 0.7777777777777778,
+            "low": 0.7777777777777778
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.5679402682822242,
+            "low": 0.5679402682822242
+          },
+          "off_target_mean_drop": {
+            "high": 0.2652595457206733,
+            "low": 0.2652595457206733
+          },
+          "target_axis_drop": {
+            "high": 0.4439667737185396,
+            "low": 0.4439667737185396
+          },
+          "target_selectivity_margin": {
+            "high": 0.1787072279978663,
+            "low": 0.1787072279978663
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "kendall_tau_b": {
+            "high": 0.7777777777777778,
+            "low": 0.7777777777777778
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.5679402682822242,
+            "low": 0.5679402682822242
+          },
+          "off_target_mean_drop": {
+            "high": 0.2652595457206733,
+            "low": 0.2652595457206733
+          },
+          "target_axis_drop": {
+            "high": 0.4439667737185396,
+            "low": 0.4439667737185396
+          },
+          "target_selectivity_margin": {
+            "high": 0.1787072279978663,
+            "low": 0.1787072279978663
+          }
+        },
+        "replicates": 200,
+        "seed": 20260717
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.8333333333333334,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 0.8333333333333334,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.7777777777777778,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.5679402682822242,
+            "off_target_mean_drop": 0.2652595457206733,
+            "target_axis_drop": 0.4439667737185396,
+            "target_selectivity_margin": 0.1787072279978663
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.7777777777777778,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.5679402682822242,
+        "off_target_mean_drop": 0.2652595457206733,
+        "target_axis_drop": 0.4439667737185396,
+        "target_selectivity_margin": 0.1787072279978663
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.8333333333333334,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.7777777777777778,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.5679402682822242,
+        "off_target_mean_drop": 0.2652595457206733,
+        "target_axis_drop": 0.4439667737185396,
+        "target_selectivity_margin": 0.1787072279978663
+      },
+      "documents": 1
+    },
+    "fixed_compound_defects": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "compound_dominance_accuracy": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9565067894995022,
+            "low": 0.9565067894995022
+          },
+          "off_target_mean_drop": {
+            "high": 0.19068181909289372,
+            "low": 0.19068181909289372
+          },
+          "target_axis_drop": {
+            "high": 0.4684562809895005,
+            "low": 0.4684562809895005
+          },
+          "target_selectivity_margin": {
+            "high": 0.27777446189660676,
+            "low": 0.27777446189660676
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "compound_dominance_accuracy": {
+            "high": 0.8888888888888888,
+            "low": 0.8888888888888888
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9565067894995022,
+            "low": 0.9565067894995022
+          },
+          "off_target_mean_drop": {
+            "high": 0.19068181909289372,
+            "low": 0.19068181909289372
+          },
+          "target_axis_drop": {
+            "high": 0.4684562809895005,
+            "low": 0.4684562809895005
+          },
+          "target_selectivity_margin": {
+            "high": 0.27777446189660676,
+            "low": 0.27777446189660676
+          }
+        },
+        "replicates": 200,
+        "seed": 20260718
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": null,
+            "compound_dominance_accuracy": 0.8888888888888888,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": null,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9565067894995022,
+            "off_target_mean_drop": 0.19068181909289372,
+            "target_axis_drop": 0.4684562809895005,
+            "target_selectivity_margin": 0.27777446189660676
+          }
+        },
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": null,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9565067894995022,
+        "off_target_mean_drop": 0.19068181909289372,
+        "target_axis_drop": 0.4684562809895005,
+        "target_selectivity_margin": 0.27777446189660676
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "compound_dominance_accuracy": 0.8888888888888888,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": null,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9565067894995022,
+        "off_target_mean_drop": 0.19068181909289372,
+        "target_axis_drop": 0.4684562809895005,
+        "target_selectivity_margin": 0.27777446189660676
+      },
+      "documents": 1
+    },
+    "identity_lossless_roundtrip": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "invariant_false_positive_rate": {
+            "high": 0.0,
+            "low": 0.0
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "invariant_false_positive_rate": {
+            "high": 0.0,
+            "low": 0.0
+          }
+        },
+        "replicates": 200,
+        "seed": 20260719
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": null,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": 0.0,
+            "kendall_tau_b": null,
+            "localization_hit_rate": null,
+            "localization_mean_iou": null,
+            "off_target_mean_drop": null,
+            "target_axis_drop": null,
+            "target_selectivity_margin": null
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": null,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": null,
+        "target_axis_drop": null,
+        "target_selectivity_margin": null
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": null,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": 0.0,
+        "kendall_tau_b": null,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": null,
+        "target_axis_drop": null,
+        "target_selectivity_margin": null
+      },
+      "documents": 1
+    },
+    "largest_block_displacement": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9785257429213972,
+            "low": 0.9785257429213972
+          },
+          "off_target_mean_drop": {
+            "high": 0.06035128984704357,
+            "low": 0.06035128984704357
+          },
+          "target_axis_drop": {
+            "high": 0.7637159588623947,
+            "low": 0.7637159588623947
+          },
+          "target_selectivity_margin": {
+            "high": 0.7033646690153512,
+            "low": 0.7033646690153512
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9785257429213972,
+            "low": 0.9785257429213972
+          },
+          "off_target_mean_drop": {
+            "high": 0.06035128984704357,
+            "low": 0.06035128984704357
+          },
+          "target_axis_drop": {
+            "high": 0.7637159588623947,
+            "low": 0.7637159588623947
+          },
+          "target_selectivity_margin": {
+            "high": 0.7033646690153512,
+            "low": 0.7033646690153512
+          }
+        },
+        "replicates": 200,
+        "seed": 20260720
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9785257429213972,
+            "off_target_mean_drop": 0.06035128984704357,
+            "target_axis_drop": 0.7637159588623947,
+            "target_selectivity_margin": 0.7033646690153512
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9785257429213972,
+        "off_target_mean_drop": 0.06035128984704357,
+        "target_axis_drop": 0.7637159588623947,
+        "target_selectivity_margin": 0.7033646690153512
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9785257429213972,
+        "off_target_mean_drop": 0.06035128984704357,
+        "target_axis_drop": 0.7637159588623947,
+        "target_selectivity_margin": 0.7033646690153512
+      },
+      "documents": 1
+    },
+    "lexical_numeric_substitution": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9107461825461022,
+            "low": 0.9107461825461022
+          },
+          "off_target_mean_drop": {
+            "high": 0.011730326617639147,
+            "low": 0.011730326617639147
+          },
+          "target_axis_drop": {
+            "high": 0.024847288400900242,
+            "low": 0.024847288400900242
+          },
+          "target_selectivity_margin": {
+            "high": 0.013116961783261095,
+            "low": 0.013116961783261095
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9107461825461022,
+            "low": 0.9107461825461022
+          },
+          "off_target_mean_drop": {
+            "high": 0.011730326617639147,
+            "low": 0.011730326617639147
+          },
+          "target_axis_drop": {
+            "high": 0.024847288400900242,
+            "low": 0.024847288400900242
+          },
+          "target_selectivity_margin": {
+            "high": 0.013116961783261095,
+            "low": 0.013116961783261095
+          }
+        },
+        "replicates": 200,
+        "seed": 20260721
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9107461825461022,
+            "off_target_mean_drop": 0.011730326617639147,
+            "target_axis_drop": 0.024847288400900242,
+            "target_selectivity_margin": 0.013116961783261095
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9107461825461022,
+        "off_target_mean_drop": 0.011730326617639147,
+        "target_axis_drop": 0.024847288400900242,
+        "target_selectivity_margin": 0.013116961783261095
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9107461825461022,
+        "off_target_mean_drop": 0.011730326617639147,
+        "target_axis_drop": 0.024847288400900242,
+        "target_selectivity_margin": 0.013116961783261095
+      },
+      "documents": 1
+    },
+    "prose_hierarchy": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.875,
+            "low": 0.875
+          },
+          "kendall_tau_b": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.8137229303042857,
+            "low": 0.8137229303042857
+          },
+          "off_target_mean_drop": {
+            "high": 0.08882833195374308,
+            "low": 0.08882833195374308
+          },
+          "target_axis_drop": {
+            "high": 0.3507703505061219,
+            "low": 0.3507703505061219
+          },
+          "target_selectivity_margin": {
+            "high": 0.2619420185523788,
+            "low": 0.2619420185523788
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.875,
+            "low": 0.875
+          },
+          "kendall_tau_b": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.8137229303042857,
+            "low": 0.8137229303042857
+          },
+          "off_target_mean_drop": {
+            "high": 0.08882833195374308,
+            "low": 0.08882833195374308
+          },
+          "target_axis_drop": {
+            "high": 0.3507703505061219,
+            "low": 0.3507703505061219
+          },
+          "target_selectivity_margin": {
+            "high": 0.2619420185523788,
+            "low": 0.2619420185523788
+          }
+        },
+        "replicates": 200,
+        "seed": 20260722
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.875,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 0.875,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.8333333333333334,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.8137229303042857,
+            "off_target_mean_drop": 0.08882833195374308,
+            "target_axis_drop": 0.3507703505061219,
+            "target_selectivity_margin": 0.2619420185523788
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.8333333333333334,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.8137229303042857,
+        "off_target_mean_drop": 0.08882833195374308,
+        "target_axis_drop": 0.3507703505061219,
+        "target_selectivity_margin": 0.2619420185523788
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.875,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.8333333333333334,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.8137229303042857,
+        "off_target_mean_drop": 0.08882833195374308,
+        "target_axis_drop": 0.3507703505061219,
+        "target_selectivity_margin": 0.2619420185523788
+      },
+      "documents": 1
+    },
+    "render_only_degradation": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "target_axis_drop": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          },
+          "target_selectivity_margin": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "target_axis_drop": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          },
+          "target_selectivity_margin": {
+            "high": 0.038437875718723896,
+            "low": 0.038437875718723896
+          }
+        },
+        "replicates": 200,
+        "seed": 20260723
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": null,
+            "localization_mean_iou": null,
+            "off_target_mean_drop": 0.0,
+            "target_axis_drop": 0.038437875718723896,
+            "target_selectivity_margin": 0.038437875718723896
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.0,
+        "target_axis_drop": 0.038437875718723896,
+        "target_selectivity_margin": 0.038437875718723896
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.0,
+        "target_axis_drop": 0.038437875718723896,
+        "target_selectivity_margin": 0.038437875718723896
+      },
+      "documents": 1
+    },
+    "text_span_deletion": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9438206043655796,
+            "low": 0.9438206043655796
+          },
+          "off_target_mean_drop": {
+            "high": 0.019227577751858377,
+            "low": 0.019227577751858377
+          },
+          "target_axis_drop": {
+            "high": 0.03792339498079267,
+            "low": 0.03792339498079267
+          },
+          "target_selectivity_margin": {
+            "high": 0.01869581722893429,
+            "low": 0.01869581722893429
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.9438206043655796,
+            "low": 0.9438206043655796
+          },
+          "off_target_mean_drop": {
+            "high": 0.019227577751858377,
+            "low": 0.019227577751858377
+          },
+          "target_axis_drop": {
+            "high": 0.03792339498079267,
+            "low": 0.03792339498079267
+          },
+          "target_selectivity_margin": {
+            "high": 0.01869581722893429,
+            "low": 0.01869581722893429
+          }
+        },
+        "replicates": 200,
+        "seed": 20260724
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.9438206043655796,
+            "off_target_mean_drop": 0.019227577751858377,
+            "target_axis_drop": 0.03792339498079267,
+            "target_selectivity_margin": 0.01869581722893429
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9438206043655796,
+        "off_target_mean_drop": 0.019227577751858377,
+        "target_axis_drop": 0.03792339498079267,
+        "target_selectivity_margin": 0.01869581722893429
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.9438206043655796,
+        "off_target_mean_drop": 0.019227577751858377,
+        "target_axis_drop": 0.03792339498079267,
+        "target_selectivity_margin": 0.01869581722893429
+      },
+      "documents": 1
+    },
+    "typography_reflow": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.875,
+            "low": 0.875
+          },
+          "kendall_tau_b": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.8938674726674466,
+            "low": 0.8938674726674466
+          },
+          "off_target_mean_drop": {
+            "high": 0.17913223930367828,
+            "low": 0.17913223930367828
+          },
+          "target_axis_drop": {
+            "high": 0.2354999417398381,
+            "low": 0.2354999417398381
+          },
+          "target_selectivity_margin": {
+            "high": 0.05636770243615982,
+            "low": 0.05636770243615982
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 0.875,
+            "low": 0.875
+          },
+          "kendall_tau_b": {
+            "high": 0.8333333333333334,
+            "low": 0.8333333333333334
+          },
+          "localization_hit_rate": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "localization_mean_iou": {
+            "high": 0.8938674726674466,
+            "low": 0.8938674726674466
+          },
+          "off_target_mean_drop": {
+            "high": 0.17913223930367828,
+            "low": 0.17913223930367828
+          },
+          "target_axis_drop": {
+            "high": 0.2354999417398381,
+            "low": 0.2354999417398381
+          },
+          "target_selectivity_margin": {
+            "high": 0.05636770243615982,
+            "low": 0.05636770243615982
+          }
+        },
+        "replicates": 200,
+        "seed": 20260725
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.875,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 0.875,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 0.8333333333333334,
+            "localization_hit_rate": 1.0,
+            "localization_mean_iou": 0.8938674726674466,
+            "off_target_mean_drop": 0.17913223930367828,
+            "target_axis_drop": 0.2354999417398381,
+            "target_selectivity_margin": 0.05636770243615982
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.8333333333333334,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.8938674726674466,
+        "off_target_mean_drop": 0.17913223930367828,
+        "target_axis_drop": 0.2354999417398381,
+        "target_selectivity_margin": 0.05636770243615982
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 0.875,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 0.8333333333333334,
+        "localization_hit_rate": 1.0,
+        "localization_mean_iou": 0.8938674726674466,
+        "off_target_mean_drop": 0.17913223930367828,
+        "target_axis_drop": 0.2354999417398381,
+        "target_selectivity_margin": 0.05636770243615982
+      },
+      "documents": 1
+    },
+    "uniform_scale": {
+      "bootstrap_95_ci": {
+        "category_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.1484474435335071,
+            "low": 0.1484474435335071
+          },
+          "target_axis_drop": {
+            "high": 0.8000408037886836,
+            "low": 0.8000408037886836
+          },
+          "target_selectivity_margin": {
+            "high": 0.6515933602551764,
+            "low": 0.6515933602551764
+          }
+        },
+        "document_macro": {
+          "abstention_rate": {
+            "high": 0.0,
+            "low": 0.0
+          },
+          "adjacent_monotonic_accuracy": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "kendall_tau_b": {
+            "high": 1.0,
+            "low": 1.0
+          },
+          "off_target_mean_drop": {
+            "high": 0.1484474435335071,
+            "low": 0.1484474435335071
+          },
+          "target_axis_drop": {
+            "high": 0.8000408037886836,
+            "low": 0.8000408037886836
+          },
+          "target_selectivity_margin": {
+            "high": 0.6515933602551764,
+            "low": 0.6515933602551764
+          }
+        },
+        "replicates": 200,
+        "seed": 20260726
+      },
+      "category_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "categories": {
+          "01_prose_sections": {
+            "abstention_rate": 0.0,
+            "adjacent_monotonic_accuracy": 1.0,
+            "compound_dominance_accuracy": null,
+            "deterministic_repeat_agreement": null,
+            "invariant_false_positive_rate": null,
+            "kendall_tau_b": 1.0,
+            "localization_hit_rate": null,
+            "localization_mean_iou": null,
+            "off_target_mean_drop": 0.1484474435335071,
+            "target_axis_drop": 0.8000408037886836,
+            "target_selectivity_margin": 0.6515933602551764
+          }
+        },
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.1484474435335071,
+        "target_axis_drop": 0.8000408037886836,
+        "target_selectivity_margin": 0.6515933602551764
+      },
+      "document_macro": {
+        "abstention_rate": 0.0,
+        "adjacent_monotonic_accuracy": 1.0,
+        "compound_dominance_accuracy": null,
+        "deterministic_repeat_agreement": null,
+        "invariant_false_positive_rate": null,
+        "kendall_tau_b": 1.0,
+        "localization_hit_rate": null,
+        "localization_mean_iou": null,
+        "off_target_mean_drop": 0.1484474435335071,
+        "target_axis_drop": 0.8000408037886836,
+        "target_selectivity_margin": 0.6515933602551764
+      },
+      "documents": 1
+    }
+  },
+  "rows": 91,
+  "source_documents": 1
+}

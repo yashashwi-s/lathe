@@ -1,0 +1,1064 @@
+{
+  "manual_cases": 23,
+  "samples": 8,
+  "method": "Frozen blind rubric judgments joined only after scoring; Spearman correlations are exploratory on a small, non-independent convenience sample.",
+  "selected_grade": {
+    "input": "fidelity_core_floor = min(content, layout, typography, pagination)",
+    "calibration": "monotonic isotonic mapping to the blind overall 0-4 rubric",
+    "selection_reason": "lowest leave-one-sample-out MAE among the tested interpretable composites; the floor prevents one strong axis from cancelling a severe failure",
+    "deployment_warning": "The full-fit knots are development calibration only. Report held-out prompt-dev or benchmark results separately before making model claims."
+  },
+  "correlations": {
+    "content": {
+      "auto_content": {
+        "n": 23,
+        "rho": 0.7541545978226066,
+        "p_value": 3.2321570753845395e-05
+      },
+      "token_precision": {
+        "n": 23,
+        "rho": 0.5145551986295287,
+        "p_value": 0.011999481366789376
+      },
+      "token_recall": {
+        "n": 23,
+        "rho": 0.6363223090198629,
+        "p_value": 0.0010979918308023542
+      },
+      "formula_character_f1": {
+        "n": 18,
+        "rho": -0.044946657497549475,
+        "p_value": 0.8594368628415664
+      }
+    },
+    "layout": {
+      "auto_layout": {
+        "n": 23,
+        "rho": 0.8168351923017351,
+        "p_value": 1.9823900930925047e-06
+      },
+      "layout_coverage": {
+        "n": 23,
+        "rho": 0.697069041661078,
+        "p_value": 0.00021883783112831238
+      },
+      "auto_pagination": {
+        "n": 23,
+        "rho": 0.9114271115638043,
+        "p_value": 1.489639142048119e-09
+      },
+      "appearance_proxy": {
+        "n": 23,
+        "rho": 0.8246743016328458,
+        "p_value": 1.2992767588268708e-06
+      }
+    },
+    "typography": {
+      "auto_typography": {
+        "n": 23,
+        "rho": 0.40087147629063424,
+        "p_value": 0.058001493616283095
+      },
+      "appearance_proxy": {
+        "n": 23,
+        "rho": 0.5975254080558511,
+        "p_value": 0.0026055287796827673
+      }
+    },
+    "structure": {
+      "nontext_score": {
+        "n": 23,
+        "rho": 0.3179155797673045,
+        "p_value": 0.1393243483555682
+      },
+      "auto_pagination": {
+        "n": 23,
+        "rho": 0.6939472954533584,
+        "p_value": 0.00023995781189115915
+      },
+      "table_row_exact": {
+        "n": 12,
+        "rho": 0.576989763210554,
+        "p_value": 0.049507660545352064
+      },
+      "table_column_exact": {
+        "n": 12,
+        "rho": 0.27872675424382953,
+        "p_value": 0.3803357963603994
+      },
+      "table_cell_ratio": {
+        "n": 12,
+        "rho": 0.35300082292263674,
+        "p_value": 0.2603707537575385
+      }
+    },
+    "overall": {
+      "auto_content": {
+        "n": 23,
+        "rho": 0.6889836035059258,
+        "p_value": 0.0002771805846787213
+      },
+      "auto_layout": {
+        "n": 23,
+        "rho": 0.9125482510000674,
+        "p_value": 1.3097414698570208e-09
+      },
+      "auto_typography": {
+        "n": 23,
+        "rho": 0.5173868914580405,
+        "p_value": 0.011458990445045971
+      },
+      "appearance_proxy": {
+        "n": 23,
+        "rho": 0.8913141543536414,
+        "p_value": 1.1660021963808944e-08
+      },
+      "auto_pagination": {
+        "n": 23,
+        "rho": 0.8125926253229887,
+        "p_value": 2.4713728280979245e-06
+      },
+      "visual_core_mean": {
+        "n": 23,
+        "rho": 0.9094408222225419,
+        "p_value": 1.8634781493124612e-09
+      },
+      "visual_core_floor": {
+        "n": 23,
+        "rho": 0.9374076812202737,
+        "p_value": 4.369723685801444e-11
+      },
+      "fidelity_core_floor": {
+        "n": 23,
+        "rho": 0.9374076812202737,
+        "p_value": 4.369723685801444e-11
+      },
+      "all_axis_mean": {
+        "n": 23,
+        "rho": 0.9311928236652222,
+        "p_value": 1.148404362629446e-10
+      }
+    }
+  },
+  "within_sample_pairwise_ranking": {
+    "auto_content": {
+      "pairs": 22,
+      "correct": 19,
+      "ties": 1,
+      "accuracy": 0.8636363636363636
+    },
+    "auto_layout": {
+      "pairs": 22,
+      "correct": 20,
+      "ties": 0,
+      "accuracy": 0.9090909090909091
+    },
+    "auto_typography": {
+      "pairs": 22,
+      "correct": 18,
+      "ties": 0,
+      "accuracy": 0.8181818181818182
+    },
+    "appearance_proxy": {
+      "pairs": 22,
+      "correct": 20,
+      "ties": 0,
+      "accuracy": 0.9090909090909091
+    },
+    "appearance_local_q10": {
+      "pairs": 22,
+      "correct": 7,
+      "ties": 15,
+      "accuracy": 0.3181818181818182
+    },
+    "auto_pagination": {
+      "pairs": 22,
+      "correct": 22,
+      "ties": 0,
+      "accuracy": 1.0
+    },
+    "visual_core_mean": {
+      "pairs": 22,
+      "correct": 21,
+      "ties": 0,
+      "accuracy": 0.9545454545454546
+    },
+    "visual_core_floor": {
+      "pairs": 22,
+      "correct": 21,
+      "ties": 0,
+      "accuracy": 0.9545454545454546
+    },
+    "fidelity_core_floor": {
+      "pairs": 22,
+      "correct": 21,
+      "ties": 0,
+      "accuracy": 0.9545454545454546
+    },
+    "all_axis_mean": {
+      "pairs": 22,
+      "correct": 21,
+      "ties": 0,
+      "accuracy": 0.9545454545454546
+    }
+  },
+  "leave_one_sample_out_isotonic_calibration": {
+    "auto_layout": {
+      "n": 23,
+      "mae": 0.28906898307619466,
+      "rho": 0.8583716371027403,
+      "p_value": 1.615972402995949e-07,
+      "rounded_exact": 0.6956521739130435,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.23190848185660612,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.23811351058640906,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.24614763722158223,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.2560952343991004,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.32090212613980784,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.4704970706873051,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5215774158181332,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5447903600047997,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5741927134704508,
+          "y": 2.4,
+          "weight": 5
+        },
+        {
+          "x": 0.6846435467908402,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.688687495683484,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7115357432620072,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7241003707911167,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7370029526883973,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8349115763699202,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.851973936681708,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8836058244549065,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8999782251779623,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9186765315103922,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "appearance_proxy": {
+      "n": 23,
+      "mae": 0.31758515018712874,
+      "rho": 0.8542215784025718,
+      "p_value": 2.1469017483181965e-07,
+      "rounded_exact": 0.782608695652174,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.04087543659334511,
+          "y": 1.5,
+          "weight": 2
+        },
+        {
+          "x": 0.06605288637397651,
+          "y": 1.6666666666666667,
+          "weight": 3
+        },
+        {
+          "x": 0.12624096157503673,
+          "y": 1.8,
+          "weight": 5
+        },
+        {
+          "x": 0.1594566006426976,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.2029696143425919,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.2687847579469435,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.36078032970824814,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.37164773718033206,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.4036726586046606,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5138939531755066,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5203904754699136,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5615720125393352,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.606026290366446,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6271837329527272,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6912469019304672,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7291349464572789,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "auto_pagination": {
+      "n": 23,
+      "mae": 0.48975501795021936,
+      "rho": 0.7790382671958422,
+      "p_value": 1.188085418162166e-05,
+      "rounded_exact": 0.4782608695652174,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.4406893772270013,
+          "y": 1.625,
+          "weight": 8
+        },
+        {
+          "x": 0.6922935471690443,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7274976888930027,
+          "y": 2.5,
+          "weight": 2
+        },
+        {
+          "x": 0.8542480490052342,
+          "y": 2.5,
+          "weight": 2
+        },
+        {
+          "x": 0.874643274132542,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8844855064628456,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9287602271514265,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9670249627811639,
+          "y": 3.4,
+          "weight": 5
+        },
+        {
+          "x": 0.9840676531910814,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9880410129647514,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "visual_core_mean": {
+      "n": 23,
+      "mae": 0.3485376094009429,
+      "rho": 0.8656514178230144,
+      "p_value": 9.602117270040551e-08,
+      "rounded_exact": 0.6521739130434783,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.47644822606036213,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.48969583574207026,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5118718280854555,
+          "y": 1.6666666666666667,
+          "weight": 3
+        },
+        {
+          "x": 0.5430023001962684,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5804086479287626,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5840539942375288,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6974038967074602,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7116668932607771,
+          "y": 2.5,
+          "weight": 4
+        },
+        {
+          "x": 0.7535732414013262,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7901860957590077,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8034728498990859,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.834293209235411,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8597805623821398,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8916557594826893,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9134196859065646,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9167187338159003,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9193736374633174,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.9203230351048401,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "visual_core_floor": {
+      "n": 23,
+      "mae": 0.2604298466783475,
+      "rho": 0.8600156210591255,
+      "p_value": 1.440405978870535e-07,
+      "rounded_exact": 0.7391304347826086,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.23190848185660612,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.23811351058640906,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.24614763722158223,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.2560952343991004,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.32090212613980784,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.3301238928794781,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.33025564677059366,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.33514391965212653,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5215774158181332,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5447903600047997,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5773269557167618,
+          "y": 2.6666666666666665,
+          "weight": 3
+        },
+        {
+          "x": 0.6846435467908402,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.688687495683484,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7115357432620072,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7241003707911167,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7370029526883973,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8349115763699202,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.851973936681708,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8715951786464636,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8824827238017129,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8999782251779623,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "fidelity_core_floor": {
+      "n": 23,
+      "mae": 0.2604298466783475,
+      "rho": 0.8600156210591255,
+      "p_value": 1.440405978870535e-07,
+      "rounded_exact": 0.7391304347826086,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.23190848185660612,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.23811351058640906,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.24614763722158223,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.2560952343991004,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.32090212613980784,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.3301238928794781,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.33025564677059366,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.33514391965212653,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5215774158181332,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5447903600047997,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5773269557167618,
+          "y": 2.6666666666666665,
+          "weight": 3
+        },
+        {
+          "x": 0.6846435467908402,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.688687495683484,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7115357432620072,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7241003707911167,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7370029526883973,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8349115763699202,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.851973936681708,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8715951786464636,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8824827238017129,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8999782251779623,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    },
+    "all_axis_mean": {
+      "n": 23,
+      "mae": 0.269882648887929,
+      "rho": 0.8976388417261562,
+      "p_value": 6.394018332771369e-09,
+      "rounded_exact": 0.6956521739130435,
+      "rounded_within_one": 1.0,
+      "full_fit_knots": [
+        {
+          "x": 0.47878317220794103,
+          "y": 1.0,
+          "weight": 1
+        },
+        {
+          "x": 0.4852440520301209,
+          "y": 1.5,
+          "weight": 4
+        },
+        {
+          "x": 0.5068434183100139,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5320876921884573,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.5391809809166718,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6033011651175532,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6081654412287854,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6280198551311609,
+          "y": 2.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6430969057308321,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6587467024744311,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.6670475337032145,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7558120530577216,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7599523851477044,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.7981891009451341,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8019020906016905,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8277801525664449,
+          "y": 3.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8709672246358118,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8713056425785244,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8860330110879723,
+          "y": 4.0,
+          "weight": 1
+        },
+        {
+          "x": 0.8900302592454568,
+          "y": 4.0,
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "protocol_summary": {
+    "gemini_prompt_stage_cascade": {
+      "display_label": "Gemini 3.1 Flash Lite - one-turn cascade",
+      "n": 8,
+      "samples": [
+        "03_math_inline_display_004",
+        "04_math_aligned_014",
+        "05_tables_simple_005",
+        "05_tables_simple_021",
+        "05_tables_simple_023",
+        "06_tables_moderate_010",
+        "07_figures_captions_007",
+        "09_algorithms_003"
+      ],
+      "manual_overall_mean": 1.625,
+      "cross_validated_grade_mean": 1.732181290992239,
+      "manual_grade_counts": {
+        "0": 0,
+        "1": 3,
+        "2": 5,
+        "3": 0,
+        "4": 0
+      }
+    },
+    "opus_agentic_v3_visual_medium": {
+      "display_label": "Claude Opus 4.7 - agentic v3 visual medium",
+      "n": 6,
+      "samples": [
+        "05_tables_simple_005",
+        "05_tables_simple_021",
+        "05_tables_simple_023",
+        "06_tables_moderate_010",
+        "07_figures_captions_007",
+        "09_algorithms_003"
+      ],
+      "manual_overall_mean": 3.6666666666666665,
+      "cross_validated_grade_mean": 3.4108537114356126,
+      "manual_grade_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2,
+        "4": 4
+      }
+    },
+    "opus_one_turn_low": {
+      "display_label": "Claude Opus 4.7 - one-turn low",
+      "n": 2,
+      "samples": [
+        "03_math_inline_display_004",
+        "04_math_aligned_014"
+      ],
+      "manual_overall_mean": 2.5,
+      "cross_validated_grade_mean": 2.5,
+      "manual_grade_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 0
+      }
+    },
+    "sonnet_agentic_v1_visual_low": {
+      "display_label": "Claude Sonnet 4.6 - agentic v1 visual low",
+      "n": 6,
+      "samples": [
+        "05_tables_simple_005",
+        "05_tables_simple_021",
+        "05_tables_simple_023",
+        "06_tables_moderate_010",
+        "07_figures_captions_007",
+        "09_algorithms_003"
+      ],
+      "manual_overall_mean": 2.8333333333333335,
+      "cross_validated_grade_mean": 2.806581588558624,
+      "manual_grade_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 5,
+        "4": 0
+      }
+    },
+    "sonnet_one_turn_low": {
+      "display_label": "Claude Sonnet 4.6 - one-turn low",
+      "n": 1,
+      "samples": [
+        "04_math_aligned_014"
+      ],
+      "manual_overall_mean": 2.0,
+      "cross_validated_grade_mean": 2.0,
+      "manual_grade_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0,
+        "4": 0
+      }
+    }
+  },
+  "blind_head_to_head": [
+    {
+      "left_protocol": "gemini_prompt_stage_cascade",
+      "left_label": "Gemini 3.1 Flash Lite - one-turn cascade",
+      "right_protocol": "opus_agentic_v3_visual_medium",
+      "right_label": "Claude Opus 4.7 - agentic v3 visual medium",
+      "shared_samples": 6,
+      "left_wins": 0,
+      "right_wins": 6,
+      "ties": 0
+    },
+    {
+      "left_protocol": "gemini_prompt_stage_cascade",
+      "left_label": "Gemini 3.1 Flash Lite - one-turn cascade",
+      "right_protocol": "opus_one_turn_low",
+      "right_label": "Claude Opus 4.7 - one-turn low",
+      "shared_samples": 2,
+      "left_wins": 0,
+      "right_wins": 2,
+      "ties": 0
+    },
+    {
+      "left_protocol": "gemini_prompt_stage_cascade",
+      "left_label": "Gemini 3.1 Flash Lite - one-turn cascade",
+      "right_protocol": "sonnet_agentic_v1_visual_low",
+      "right_label": "Claude Sonnet 4.6 - agentic v1 visual low",
+      "shared_samples": 6,
+      "left_wins": 0,
+      "right_wins": 6,
+      "ties": 0
+    },
+    {
+      "left_protocol": "gemini_prompt_stage_cascade",
+      "left_label": "Gemini 3.1 Flash Lite - one-turn cascade",
+      "right_protocol": "sonnet_one_turn_low",
+      "right_label": "Claude Sonnet 4.6 - one-turn low",
+      "shared_samples": 1,
+      "left_wins": 0,
+      "right_wins": 1,
+      "ties": 0
+    },
+    {
+      "left_protocol": "opus_agentic_v3_visual_medium",
+      "left_label": "Claude Opus 4.7 - agentic v3 visual medium",
+      "right_protocol": "sonnet_agentic_v1_visual_low",
+      "right_label": "Claude Sonnet 4.6 - agentic v1 visual low",
+      "shared_samples": 6,
+      "left_wins": 5,
+      "right_wins": 1,
+      "ties": 0
+    },
+    {
+      "left_protocol": "opus_one_turn_low",
+      "left_label": "Claude Opus 4.7 - one-turn low",
+      "right_protocol": "sonnet_one_turn_low",
+      "right_label": "Claude Sonnet 4.6 - one-turn low",
+      "shared_samples": 1,
+      "left_wins": 1,
+      "right_wins": 0,
+      "ties": 0
+    }
+  ]
+}

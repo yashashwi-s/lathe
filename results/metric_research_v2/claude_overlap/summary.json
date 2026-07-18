@@ -1,0 +1,162 @@
+{
+  "inventory_version": "claude_overlap_inventory_v1",
+  "created_on": "2026-07-16",
+  "scope": "Stored canonical PDFs only; no generation and no scoring.",
+  "manifest": {
+    "path": "results/metric_research_v2/claude_overlap/overlap_manifest.csv",
+    "sha256": "5debece8300620414d8811f85d5ec1be4abda5c30e8d952478c9ade02479dd2e",
+    "row_granularity": "one PDF asset per row",
+    "rows": 28,
+    "complete_comparison_sets": 7,
+    "assets_per_set": [
+      "reference",
+      "gemini",
+      "claude_sonnet",
+      "claude_opus"
+    ]
+  },
+  "eligibility": {
+    "required": "The sample has an opening, nonempty PDF for the LaTeX benchmark reference, the selected Gemini 3.1 Flash Lite output, Claude Sonnet 4.6, and Claude Opus 4.7.",
+    "complete_sample_ids": [
+      "04_math_aligned_014",
+      "05_tables_simple_005",
+      "05_tables_simple_021",
+      "05_tables_simple_023",
+      "06_tables_moderate_010",
+      "07_figures_captions_007",
+      "09_algorithms_003"
+    ],
+    "excluded_incomplete_samples": [
+      {
+        "sample_id": "03_math_inline_display_004",
+        "reason": "Claude Sonnet 4.6 did not compile in the stored one-turn run, so only three of the four required PDFs exist."
+      }
+    ]
+  },
+  "validation": {
+    "pdf_paths_exist": "28/28",
+    "pdfs_open_with_pymupdf": "28/28",
+    "nonempty_page_counts": "28/28",
+    "pdf_sha256_recorded": "28/28",
+    "source_artifacts_exist_and_sha256_recorded": "28/28",
+    "reference_hash_matches_accepted_manifest": "7/7",
+    "page_rotations": "0 degrees for every page in every asset",
+    "canvas_observation": "All seven references and all fourteen Claude PDFs use 612 x 792 pt pages. All seven Gemini PDFs use 595.276 x 841.890 pt pages. Canvas mismatch must be reported separately from layout fidelity."
+  },
+  "category_counts": {
+    "04_math_aligned": 1,
+    "05_tables_simple": 3,
+    "06_tables_moderate": 1,
+    "07_figures_captions": 1,
+    "09_algorithms": 1
+  },
+  "protocol_counts": {
+    "gemini_prompt_stage_cascade": 7,
+    "sonnet_one_turn_low": 1,
+    "sonnet_agentic_v1_visual_low": 6,
+    "opus_one_turn_low": 1,
+    "opus_agentic_v3_visual_medium": 6
+  },
+  "generation_protocols": {
+    "gemini_prompt_v0": {
+      "samples": 5,
+      "sample_ids": [
+        "04_math_aligned_014",
+        "05_tables_simple_005",
+        "05_tables_simple_021",
+        "05_tables_simple_023",
+        "07_figures_captions_007"
+      ],
+      "provider": "OpenRouter",
+      "requested_and_resolved_model": "google/gemini-3.1-flash-lite",
+      "temperature": 0,
+      "max_repairs": 1,
+      "source_only": true,
+      "reference_images_supplied": false,
+      "typst_version": "typst 0.14.2 (unknown hash)",
+      "system_prompt_sha256": "c8554a7c1346484b7f0333ec0a30f1bfdaf7c208e5030fae53052ea7115940ed",
+      "retry_prompt_sha256": "99b465a014ccc2bc08d62e1596ca17bef0ffb128b30cd37eebf92b993f035364",
+      "run_config": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/run_config.json"
+    },
+    "gemini_prompt_v1_targeted_retry": {
+      "samples": 2,
+      "sample_ids": [
+        "06_tables_moderate_010",
+        "09_algorithms_003"
+      ],
+      "provider": "OpenRouter",
+      "requested_and_resolved_model": "google/gemini-3.1-flash-lite",
+      "temperature": 0,
+      "max_repairs": 1,
+      "source_only": true,
+      "reference_images_supplied": false,
+      "typst_version": "typst 0.14.2 (unknown hash)",
+      "system_prompt_sha256": "0877384cc89636ecbb3cf27b41de3201d9d9a483d8a6aba120a771cb8b4af08d",
+      "retry_prompt_sha256": "38d57dc85d8fa8584db69e6712e9eec87228d199519ef6ac351507b0d295679e",
+      "run_config": "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_v0_failures/run_config.json"
+    },
+    "claude_one_turn_low": {
+      "samples": 1,
+      "sample_ids": [
+        "04_math_aligned_014"
+      ],
+      "provider": "Anthropic via Claude Code harness",
+      "models": [
+        "claude-sonnet-4-6",
+        "claude-opus-4-7"
+      ],
+      "visual_feedback": "none",
+      "effort": "low",
+      "revision_policy": "none"
+    },
+    "claude_agentic_visual": {
+      "samples": 6,
+      "sample_ids": [
+        "05_tables_simple_005",
+        "05_tables_simple_021",
+        "05_tables_simple_023",
+        "06_tables_moderate_010",
+        "07_figures_captions_007",
+        "09_algorithms_003"
+      ],
+      "sonnet": {
+        "model": "claude-sonnet-4-6",
+        "protocol": "sonnet_agentic_v1_visual_low",
+        "effort": "low",
+        "harness": "v1"
+      },
+      "opus": {
+        "model": "claude-opus-4-7",
+        "protocol": "opus_agentic_v3_visual_medium",
+        "effort": "medium",
+        "harness": "v3"
+      },
+      "visual_feedback": "reference and candidate page images",
+      "revision_policy": "compile-score-revise loop"
+    }
+  },
+  "sample_page_counts": {
+    "04_math_aligned_014": {"reference": 2, "gemini": 1, "claude_sonnet": 1, "claude_opus": 1},
+    "05_tables_simple_005": {"reference": 2, "gemini": 3, "claude_sonnet": 2, "claude_opus": 2},
+    "05_tables_simple_021": {"reference": 3, "gemini": 2, "claude_sonnet": 3, "claude_opus": 3},
+    "05_tables_simple_023": {"reference": 3, "gemini": 2, "claude_sonnet": 3, "claude_opus": 3},
+    "06_tables_moderate_010": {"reference": 2, "gemini": 3, "claude_sonnet": 2, "claude_opus": 2},
+    "07_figures_captions_007": {"reference": 1, "gemini": 1, "claude_sonnet": 1, "claude_opus": 1},
+    "09_algorithms_003": {"reference": 2, "gemini": 1, "claude_sonnet": 2, "claude_opus": 2}
+  },
+  "interpretation_guardrail": {
+    "fair_leaderboard_eligible": false,
+    "reason": "The protocols are heterogeneous. Gemini is source-only, one-turn prompt-stage generation with no reference images; six of seven Claude pairs are iterative visual-feedback runs, and Sonnet v1 low-effort differs from Opus v3 medium-effort. The overlap supports diagnostic metric checks and labeled visual examples, not a fair model leaderboard.",
+    "allowed_use": "Show exact-output 2 x 2 grids, compare metric behavior against visible defects, and report per-output evidence with protocol labels.",
+    "disallowed_claim": "Do not attribute score differences solely to model capability or rank the three models as if generation conditions were controlled."
+  },
+  "input_provenance": {
+    "output/pdf/ai_model_fidelity_metric_study_v0_3_manifest.csv": "efcc83a613c97973da9029917ab07ab5ca839e306b29271e717fa8857a00bc5e",
+    "results/metric_calibration/canonical_ai_v0_3/canonical_ai_scorecard.csv": "57900bf56a92eb510f69cfe730532ffb08dd3d90593a1beb652772bc6dbc9efc",
+    "results/metric_calibration/canonical_ai_v0_3/manual_audit/blind_case_map.csv": "a48d2b830afd354a5211cac3b10d825aeeaa02f3b5938e5b772387cd9031a973",
+    "data/latex_benchmark_v0/accepted_manifest.csv": "3d9fb1857b21742d13d242c6cad162fa49ceae8102fca9c4beaedccb9e4b3ca4",
+    "harness/runs/MANIFEST.csv": "8a77002f93c8865836476a8f1c88ee3ae336d056aa7d81ebf440ff2b094055f8",
+    "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v0/run_config.json": "073b735d7e6f69b78e58a905ad784019f26ddf648f3037acae873cf11eb629a8",
+    "results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/prompt_v1_v0_failures/run_config.json": "919eceb3b354d29946220c39b886f6c5c3b6d92d8869778ebd0bf25b2d5614e7"
+  }
+}

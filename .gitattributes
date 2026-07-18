@@ -1,0 +1,12 @@
+# Generated tabular artifacts use LF in Git, independent of csv.writer defaults.
+*.csv text eol=lf
+*.tsv text eol=lf
+
+# Typst uses two trailing spaces as an intentional hard line break.
+*.typ whitespace=-blank-at-eol
+
+# Keep report and audit binaries byte-for-byte.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
