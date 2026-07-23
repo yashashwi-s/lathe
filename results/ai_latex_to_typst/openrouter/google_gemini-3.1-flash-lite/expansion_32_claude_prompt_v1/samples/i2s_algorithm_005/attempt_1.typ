@@ -1,0 +1,37 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "serif")
+
+#align(center, [
+  #text(size: 1.44em, weight: "bold")[Algorithm Sample 5] \
+  #text(size: 1.2em)[Dataset-expansion sample] \
+  #v(1em)
+])
+
+= Procedure
+The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+#let alg-indent = 1.5em
+#let comment(c) = h(1fr) + text(fill: rgb(0, 0, 0, 150), size: 0.9em)[// #c]
+#let func(name, args) = text(weight: "bold")[Function] + " " + name + "(" + args + ")"
+#let state(content) = pad(left: alg-indent, content)
+
+#v(1em)
+#block(stroke: (top: 0.5pt, bottom: 0.5pt), inset: (y: 0.5em))[
+  #set text(font: "monospace")
+  #func("Transport", [bold(M), bold(beta), bold(g), Delta t]) #comment("Input moments, natural parameters, and gauge parameters for all cells") \
+  #state[bold(beta) <- NewtonOptimization(bold(M), bold(beta), phi(bold(u); bold(g))) #comment("Solve the natural parameters by Alg. ref{Newton method} in the gauge bold(g)")] \
+  #state[bold(F) <- ComputeFluxes(bold(beta), phi(bold(u); bold(g))) #comment("Compute fluxes of the statistics phi(bold(u); bold(g)) by eq. (The ME equation:subeq3)")] \
+  #state[bold(M)_plus-minus 1, bold(F)_plus-minus 1 <- SpatialGaugeTransformation(bold(M), bold(F), bold(g)) #comment("Perform gauge transformation as in eq. (The lax F convert)")] \
+  #state[bold(M) <- FiniteVolumeStep(bold(M), bold(F), bold(M)_plus-minus 1, bold(F)_plus-minus 1, bold(g), Delta t) #comment("One step forward in time by eq. (The ME equation fvm 2)")] \
+  #state[bold(return) bold(M), bold(beta), bold(g)] \
+  #func("Collision", [bold(M), bold(beta), bold(g), Delta t]) #comment("Input moments, natural parameters, and gauge parameters for all cells") \
+  #state[bold(M) <- SourceTerm(bold(M), bold(g), Delta t) #comment("Compute source term by operator splitting eq. (source update)")] \
+  #state[bold(return) bold(M), bold(beta), bold(g)] \
+  #func("Step", [bold(M), bold(beta), bold(g)]) #comment("Input moments, natural parameters, and gauge parameters for all cells") \
+  #state[bold(M), bold(beta), bold(g) <- Collision(bold(M), bold(beta), bold(g), Delta t/2) #comment("Compute collision term by operator splitting")] \
+  #state[bold(M), bold(beta), bold(g) <- Transport(bold(M), bold(beta), bold(g), Delta t) #comment("Compute Transport term by operator splitting")] \
+  #state[bold(M), bold(beta), bold(g) <- Collision(bold(M), bold(beta), bold(g), Delta t/2) #comment("Compute collision term by operator splitting")] \
+  #state[bold(g)_H <- ComputeGaugeParameters(bold(M), bold(g)) #comment("Compute the Hermite gauge parameters by eq. (Hermite parameters in moments)")] \
+  #state[bold(M)_H, bold(beta)_H <- GaugeTransformation(bold(M), bold(beta), bold(g)_H, bold(g)) #comment("Transform into the Hermite gauge using eq. (Change gauge M F) and eq. (Maximal Likelihood equation for Exponential Family Distributions: form transformation)")] \
+  #state[bold(return) bold(M)_H, bold(beta)_H, bold(g)_H]
+]

@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "Algorithm Sample 1",
+  author: "Dataset-expansion sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Algorithm Sample 1]
+
+  #text(size: 1.2em)[Dataset-expansion sample]
+
+]
+
+           /* \maketitle */
+== Procedure
+ The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+ #block(width: 100%, stroke: 1pt, inset: 10pt)[
+  #text(weight: "bold")[Algorithm]
+
+```
+ [1] \State For $\beta \in(1,\frac{3}{2})$ set $\varepsilon= \frac{3}{2}-\beta$ and $T = L^{2(1-\varepsilon)}$. For $i=1,\cdots,d$, solve for the approximate first-order corrector $\phi_{i,T}^{(L)}$: equation* \dfrac{1}{T}\phi_{i,T}^{(L)}-\nabla \cdot a \nabla \phi_{i,T}^{(L)} =\nabla \cdot ae_i \, \mbox{ in }Q_{2L}, \hspace{0.3in} \phi_{i,T}^{(L)}=0 \, \mbox{ on }\partial Q_{2L}. equation* \State Calculate the approximate homogenized coefficients via equation* a_h^{(L)}e_i=\int \omega q_{i,T}^{(L)}, equation* where equation* q_{i,T}^{(L)}:=a(e_i+\nabla \phi_{i,T}^{(L)})equation* and $\omega(x)=\frac{1}{L^d}\hat{\omega}(\frac{x}{L})$ with $\hat{\omega}$ as in Theorem \ref{thm:luottooptimal}. \State Find $\tilde{u}_h^{(L)}$ on $\partial Q_L$: equation* \tilde{u}_h^{(L)} =\int G_h^{(L)}* (\nabla \cdot g), equation*where $G_h^{(L)}(x) := \frac{1}{4\pi \left|(a_h^{(L)})^{-1/2}x\right|}$ is the Green function for the constant-coefficient operator $-\nabla \cdot a_h^{(L)} \nabla$. \State Solve for approximate first-order flux correctors $\sigma_{i,T}^{(L)}=\{\sigma_{ijk,T}^{(L)}\}_{j,k}$: equation* \dfrac{1}{T}\sigma_{ijk,T}^{(L)}-\Delta \sigma_{ijk,T}^{(L)} =\partial_j q_{ik,T}^{(L)}-\partial_k q_{ij,T}^{(L)} \, \mbox{ in }Q_{\frac{7}{4}L}, \hspace{0.3in} \sigma_{ijk,T}^{(L)}=0 \, \mbox{ on }\partial Q_{\frac{7}{4}L}. equation* \State Solve for approximate second-order correctors $\psi_{ij,T}^{(L)}$: equation* \dfrac{1}{T}\psi_{ij,T}^{(L)} - \nabla \cdot a \nabla \psi_{ij,T}^{(L)} = \nabla \cdot(\phi_{i,T}^{(L)}a-\sigma_{i,T}^{(L)})e_j \, \mbox{ in }Q_{\frac{3}{2}L}, \hspace{0.3in} \psi_{ij,T}^{(L)}=0 \,\mbox{ on }\partial Q_{\frac{3}{2}L}. equation* \State For the indices equation* (i,j)\in \mathcal{J}=\{(1,2),(1,3),(2,3),(2,2),(3,3)\},equation* calculate equation* c_{ij,T}^{(L)}=-\int g\cdot \nabla \Bigl(\sum_{k=1}^3\phi_{k,T}^{(L)}\partial_k v_{h,ij}^{(L)}+(2-\delta_{ij})(\psi_{ij,T}^{(L)}-\dfrac{a_{hij}^{(L)}}{a_{h11}^{(L)}}\psi_{11,T}^{(L)})\Bigr) , equation* where $v_{h,ij}^{(L)}$ denote the $a_h^{(L)}$-harmonic polynomials equation* v_{h,ij}^{(L)}=(1-\dfrac{1}{2}\delta_{ij})(x_ix_j-\dfrac{a_{hij}^{(L)}}{a_{h11}^{(L)}}x_1^2). equation* \State Obtain $u_h^{(L)}$ as equation* u_h^{(L)}=\tilde{u}_h^{(L)}+ \sum_{i=1}^3(\int g \cdot \nabla \phi_{i,T}^{(L)})\partial_i G_h^{(L)} +\sum_{(i,j)\in \mathcal{J}}c_{ij,T}^{(L)}\partial_{ij} G_h^{(L)}. equation* \State Solve for $u^{(L)}$ (here and for the rest of the paper we adopt Einstein's summation convention for repeated indices): equation* -\nabla \cdot a \nabla u^{(L)}=\nabla \cdot g\text{ in }Q_L,\hspace{0.3in} u^{(L)}=(1+\phi_{i,T}^{(L)}\partial_i+\psi_{ij,T}^{(L)}\partial_{ij}) u_h^{(L)}\text{ on }\partial Q_L. equation* 
+```
+]
+

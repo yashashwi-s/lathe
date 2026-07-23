@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_algorithm_008",
+  "category": "i2s_algorithm",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:48:57+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": true,
+  "repaired": true,
+  "error_class": "",
+  "reference_pages": 1,
+  "candidate_pages": 1,
+  "page_count_match": true,
+  "prompt_tokens": 4573,
+  "completion_tokens": 2647,
+  "total_tokens": 7220,
+  "reported_cost_usd": 0.00511375,
+  "estimated_cost_usd": 0.00511375,
+  "accounted_cost_usd": 0.00511375,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731743-udhXtrSLlrG3PWbaofKo",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_algorithm/i2s_algorithm_008/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_algorithm/i2s_algorithm_008/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731738-dpiok2dPzwkP7tkfZ6jN",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.404,
+      "compile_seconds": 0.194,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 1479,
+        "completion_tokens": 1327,
+        "total_tokens": 2806,
+        "cost": 0.00236025,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00236025,
+          "upstream_inference_prompt_cost": 0.00036975,
+          "upstream_inference_completions_cost": 0.0019905
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: unknown font family: serif"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731743-udhXtrSLlrG3PWbaofKo",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.565,
+      "compile_seconds": 0.324,
+      "compile_ok": true,
+      "error_class": "",
+      "usage": {
+        "prompt_tokens": 3094,
+        "completion_tokens": 1320,
+        "total_tokens": 4414,
+        "cost": 0.0027535,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0027535,
+          "upstream_inference_prompt_cost": 0.0007735,
+          "upstream_inference_completions_cost": 0.00198
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": ""
+    }
+  ],
+  "final_error_summary": "",
+  "duration_seconds": 11.505,
+  "finished_at": "2026-07-22T14:49:09+00:00"
+}

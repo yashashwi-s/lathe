@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731625-TYRXsyCyMaAGlaXQ8zH3",
+  "object": "chat.completion",
+  "created": 1784731625,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"serif\")\n\n#align(center, [\n  #text(size: 1.44em, weight: \"bold\")[Equation Sample 4] \\\n  #text(size: 1.2em)[Dataset-expansion sample]\n])\n\n= Derivation\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n  #let D = $cal(D)$\n  #let int_lim(cond, body) = $integral_limits(x in D, #cond) body dif mu(x)$\n  \n  &||f||_(1_mu) + ||g||_(1_mu) \\\n  &quad = integral_limits(x in D) (|f(x)| + |g(x)|) dif mu(x) \\\n  &quad = + int_lim($f(x) >= 0, g(x) >= 0$, $f(x) + g(x)$) \\\n  &quad quad - int_lim($f(x) < 0, g(x) < 0$, $f(x) + g(x)$) \\\n  &quad quad + int_lim($f(x) >= 0, g(x) < 0$, $f(x) - g(x)$) \\\n  &quad quad + int_lim($f(x) < 0, g(x) >= 0$, $g(x) - f(x)$) \\\n  &quad = + int_lim($f(x) >= 0, g(x) >= 0$, $max(f(x), g(x)) + min(f(x), g(x))$) \\\n  &quad quad - int_lim($f(x) < 0, g(x) < 0$, $max(f(x), g(x)) + min(f(x), g(x))$) \\\n  &quad quad + int_lim($f(x) >= 0, g(x) < 0$, $max(f(x), g(x)) - min(f(x), g(x))$) \\\n  &quad quad + int_lim($f(x) < 0, g(x) >= 0$, $max(f(x), g(x)) - min(f(x), g(x))$) dot.op\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/LD78etY0wxNDCXRZrUN9vUf0ezNRpauh8wQPkKKOvPSIgsGB+KSS2vaBAESw=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2634,
+    "completion_tokens": 565,
+    "total_tokens": 3199,
+    "cost": 0.001506,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001506,
+      "upstream_inference_prompt_cost": 0.0006585,
+      "upstream_inference_completions_cost": 0.0008475
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

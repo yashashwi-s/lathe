@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "Algorithm Sample 8",
+  author: "Dataset-expansion sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Algorithm Sample 8]
+
+  #text(size: 1.2em)[Dataset-expansion sample]
+
+]
+
+           /* \maketitle */
+== Procedure
+ The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+ #block(width: 100%, stroke: 1pt, inset: 10pt)[
+  #text(weight: "bold")[Algorithm]
+
+```
+ [h] \caption{Delta Particle Filter} enumerate \item{Input: data $y_{1:T}$, level $l\in \mathbb{N}$, particle number $N\in \mathbb{N}$ and parameter $\theta \in \Theta$.} \item{Initialize: For $i\in \{1,\dots,N\}$, independently generate $\overline{W}_{\Delta_l:1}^{i,l}$ from $\mathcal{N}(0,\Delta_l)$. For $(i,k)\in \{1,\dots,N\}\times \{1,\dots,\Delta_{l-1}^{-1}\}$ set $ \overline{W}_{k\Delta_{l-1}}^{i,l-1} = \overline{W}_{2k\Delta_{l}}^{i,l} + \overline{W}_{(2k-1)\Delta_{l}}^{i,l}. $ Set $t=1$, $\hat{\tilde{p}}^N(y_{1:0})=1$ for convention and go to step 3.} \item{Iterate: For $i\in \{1,\dots,N\}$ compute $$ \tilde{u}_t^i = \frac{\max \{\kappa_{t,l}(\overline{w}_{\Delta_l:t}^{i,l}),\kappa_{t,l-1}(\overline{w}_{\Delta_{l-1}:t}^{i,l-1})\}}{\sum_{j=1}^N\max \{\kappa_{t,l}(\overline{w}_{\Delta_l:t}^{j,l}),\kappa_{t,l-1}(\overline{w}_{\Delta_{l-1}:t}^{j,l-1})\}}. $$ Set $\hat{p}^N(y_{1:t})={\hat{p}^N(y_{1:t-1})}\tfrac{1}{N}\sum_{i=1}^N\max \{\kappa_{t,l}(\overline{w}_{\Delta_l:t}^{i,l}),\kappa_{t,l-1}(\overline{w}_{\Delta_{l-1}:t}^{i,l-1})\}$. Then sample $(\overline{w}_{\Delta_l:t}^{1:N,l},\overline{w}_{\Delta_{l-1}:t}^{1:N,l-1})$ with replacement from $(\overline{w}_{\Delta_l:t}^{1:N,l},\overline{w}_{\Delta_{l-1}:t}^{1:N,l-1})$ using probabilities $\tilde{u}_t^{1:N}$. For $i\in \{1,\dots,N\}$, independently generate $\overline{W}_{t+\Delta_l:t+1}^i$ from $\mathcal{N}(0,\Delta_l)$. For $(i,k)\in \{1,\dots,N\}\times \{1,\dots,\Delta_{l-1}^{-1}\}$ set $ \overline{W}_{t+k\Delta_{l-1}}^{i,l-1} = \overline{W}_{t+2k\Delta_{l}}^{i,l} + \overline{W}_{t+(2k-1)\Delta_{l}}^{i,l}. $ Set $t=t+1$ and if $t=T$ go to step 4, otherwise restart step 3.} \item{Grand Selection: For $i\in \{1,\dots,N\}$ compute $ \tilde{u}_T^i = \frac{\max \{\kappa_{T,l}(\overline{w}_{\Delta_l:T}^{i,l}),\kappa_{T,l-1}(\overline{w}_{\Delta_{l-1}:T}^{i,l-1})\}}{\sum_{j=1}^N\max \{\kappa_{T,l}(\overline{w}_{\Delta_l:T}^{j,l}),\kappa_{T,l-1}(\overline{w}_{\Delta_{l-1}:T}^{j,l-1})\}}. $ Set $\hat{p}^N(y_{1:T})=\hat{p}^N(y_{1:T-1})\tfrac{1}{N}\sum_{i=1}^N \max \{\kappa_{T,l}(\overline{w}_{\Delta_l:T}^{i,l}),\kappa_{T,l-1}(\overline{w}_{\Delta_{l-1}:T}^{i,l-1})\}$. Sample one $(\overline{w}_{\Delta_l:T}^l, \overline{w}_{\Delta_{l-1}:T}^{l-1})$ from $(\overline{w}_{\Delta_l:T}^{1:N,l},\overline{w}_{\Delta_{l-1}:T}^{1:N,l-1})$ using $\tilde{u}_T^{1:N}$ and go to step 5.} \item{Output: trajectories $(\overline{w}_{\Delta_l:T}^l,\overline{w}_{\Delta_{l-1}:T}^{l-1})$ and normalizing constant estimate $\hat{\tilde{p}}^N(y_{1:T})$.} enumerate 
+```
+]
+

@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\title{Table Sample 7}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Results}\nThe table below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{table}\n[b]\n\\begin{center}\n\\caption{\\footnotesize Timing results for option pricing.}\n\\vspace{-0.2cm}\n\\resizebox{0.95\\textwidth}{!}{\\begin{tabular}\n{llllllllllll}\n\\hline\\hline\n\\multicolumn{1}{c}{} & \\multicolumn{3}{c}{Fx Asian call (Set I)} & \\multicolumn{1}{c}{} & \\multicolumn{3}{c}{Fx Asian put (Set II)}& \\multicolumn{1}{c}{} & \\multicolumn{3}{c}{Fx-Fl Asian call (Set III)}\\\\\\cline{1-12}\n\\multicolumn{1}{c}{} &\\multicolumn{1}{c}{$N_{\\texttt{paths}}$} & \\multicolumn{1}{c}{time} & \\multicolumn{1}{c}{speed-up} & \\multicolumn{1}{c}{} & \\multicolumn{1}{c}{$N_{\\texttt{paths}}$} & \\multicolumn{1}{c}{time} & \\multicolumn{1}{c}{speed-up} & \\multicolumn{1}{c}{} & \\multicolumn{1}{c}{$N_{\\texttt{paths}}$} & \\multicolumn{1}{c}{time} & \\multicolumn{1}{c}{speed-up}\\\\\\cline{2-4}\\cline{6-8}\\cline{10-12}\n\\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{1951 ms} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{3134 ms} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{1996 ms} & \\multicolumn{1}{c}{-}\\\\\n\\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{24 ms} & \\multicolumn{1}{c|}{81} & \\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{29 ms} & \\multicolumn{1}{c|}{107} & \\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$10^5$} & \\multicolumn{1}{c}{69 ms} & \\multicolumn{1}{c}{29}\\\\\n\\multicolumn{1}{c|}{SA} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{15 ms} & \\multicolumn{1}{c|}{130} & \\multicolumn{1}{c|}{SA} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{16 ms} & \\multicolumn{1}{c|}{196} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{-}\\\\\\\\\\cline{2-4}\\cline{6-8}\\cline{10-12}\n\\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$2\\times 10^5$} & \\multicolumn{1}{c}{3905 ms} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$2\\times 10^5$} & \\multicolumn{1}{c}{6386 ms} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c|}{MC} & \\multicolumn{1}{c}{$5\\times 10^4$} & \\multicolumn{1}{c}{953 ms} & \\multicolumn{1}{c}{-}\\\\\n\\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$2\\times 10^5$} & \\multicolumn{1}{c}{58 ms} & \\multicolumn{1}{c|}{68} & \\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$2\\times 10^5$} & \\multicolumn{1}{c}{55 ms} & \\multicolumn{1}{c|}{116} & \\multicolumn{1}{c|}{SC} & \\multicolumn{1}{c}{$5\\times 10^4$} & \\multicolumn{1}{c}{43 ms} & \\multicolumn{1}{c}{22}\\\\\n\\multicolumn{1}{c|}{SA} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{15 ms} & \\multicolumn{1}{c|}{263} & \\multicolumn{1}{c|}{SA} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{15 ms} & \\multicolumn{1}{c|}{440} & \\multicolumn{1}{c|}{-} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{-} & \\multicolumn{1}{c}{-}\\\\\n\\end{tabular}}\n\\end{center}\n\\vspace{-0.5cm}\n\\end{table}\n\n\\end{document}\n\n```\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_table_007",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "imported_at": "2026-07-22T14:46:08+00:00",
+  "base_accepted_samples": 157,
+  "expansion_accepted_samples": 32,
+  "canonical_accepted_samples": 189,
+  "source_experiment": "dataset_expansion",
+  "source_pr": 2,
+  "reference_protocols": {
+    "base_157": "pdfLaTeX",
+    "expansion_32": "Tectonic 0.16.9"
+  },
+  "expansion_builder_parameters": {
+    "snippet_samples_per_set": 5,
+    "full_document_target_per_set": 5,
+    "max_reference_pages": 12,
+    "max_main_tex_chars": 60000,
+    "arxiv5t_scan": 400,
+    "neurips_shards": 2
+  },
+  "accepted_by_set": {
+    "i2s_equation": 5,
+    "i2s_table": 5,
+    "i2s_algorithm": 5,
+    "i2s_plot": 5,
+    "pubmed_table": 5,
+    "arxiv5t_paper": 5,
+    "neurips_paper": 2
+  },
+  "historical_splits_unchanged": [
+    "splits/prompt_dev_33.csv",
+    "splits/heldout_clean_127.csv"
+  ],
+  "new_split": "splits/expansion_32.csv"
+}

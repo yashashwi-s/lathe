@@ -1,0 +1,31 @@
+\begin{table}[H]
+  \caption{A list of models that are based on IPA structure modeling. Models were identified via GitHub advanced search, searching for commonalities in code implementations.}
+   \label{tab:ipa_repos}
+  \centering
+   \scriptsize
+  \begin{tabular}{P{0.8cm}| P{1.8cm} P{3.8cm} P{3.0cm} P{2.25cm}}
+    \toprule
+   & \textbf{Model name} & \textbf{Modeling approach} & \textbf{Training data} & \textbf{Train length cut-offs} \\
+    \midrule
+    \multirow{18}{=}{\centering Protein} 
+    & OpenFold \cite{ahdritz2024openfold} & protein structure prediction & 130k single protein chains (PDB) &<256, fine-tuning <384,<512,<5120 \\
+    & FrameDiff \cite{yim2023} & diffusion for backbone generation & 20k monomers (PDB) & 60-512 \\
+    & FrameDiPT \cite{Zhang2023.11.21.568057} & diffusion for backbone inpainting & 32k monomers (PDB) & 60-512 \\
+    & Proteus \cite{wang2024proteus} & diffusion for backbone generation & 51k single chains from oligo- and monomers (PDB) & 60-512 \\
+    & FADiff \cite{liu2024floating} & diffusion for multi-motif backbone generation & Identical to FrameDiff & 60-512 \\
+    & Genie \cite{lin2023generating} & diffusion for backbone generation & 26k monomers (PDB) & 60-512 \\
+    & IgDiff \cite{cutting2024novo} & FrameDiff finetuning for antibody backbone generation & Synthetic antibody structures from folding & Not reported \\
+    & FrameFlow \cite{yim2023flow, yim2024} & flow-matching for backbone generation and motif scaffolding & Identical to FrameDiff & 60-512 \\
+    & FoldFlow \cite{bose2024se3, huguet2024sequence} & Stochastic flow matching for backbone generation & 22.2k monomers (PDB) & 60-512 \\
+    & GAFL \cite{wagnerseute2024gafl} & Geometric algebra flow matching for backbone generation & Identical to FrameDiff & 60-512 \\ 
+    & Multiflow \cite{campbell2024generative} & Discrete and continuous flow matching for joint sequence-backbone generation & 18.7k monomers (PDB) & 60-384 \\
+    
+    & P2DFlow \cite{jin2025p2dflow} & flow matching for backbone ensemble generation & 100 MD simulation trajectories from ATLAS & Not reported \\
+    \midrule
+    \multirow{4}{=}{\centering RNA} 
+    & Rho-Fold \cite{shen2024accurate} & RNA structure prediction & 5.5k chains (PDB) & <1024\\
+    & RNA-FrameFlow \cite{anand2024rnaframeflow} & flow matching for backbone generation & 5.3k original structures + 1.1k cropped structures (PDB) & 40-150 \\
+    & lociPARSE \cite{tarafder2024lociparse} & Locality-aware IPA for structure scoring & 52k synthetic structures from 1.4k sequence targets & $<$200 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

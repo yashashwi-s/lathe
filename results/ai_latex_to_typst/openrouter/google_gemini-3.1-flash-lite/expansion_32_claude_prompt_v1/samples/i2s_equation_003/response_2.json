@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731618-QHbK7cs45U8YsMIkSu99",
+  "object": "chat.completion",
+  "created": 1784731618,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"New Computer Modern\")\n\n#align(center)[\n  #text(size: 2em, weight: \"bold\")[Equation Sample 3]\n  #v(1em)\n  #text(size: 1.2em)[Dataset-expansion sample]\n  #v(1em)\n]\n\n#heading(level: 1)[Derivation]\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n  &E_(p (tilde(x)))[chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) chevron.r] \\\n  =& integral_(tilde(x)) p (tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) p (tilde(x)) chevron.l G N N_theta (tilde(x)), (nabla_(tilde(x)) p (tilde(x))) / (p (tilde(x))) chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) p (tilde(x)) chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) (integral_(x) p (tilde(x)|x)p(x) \"d\"x) chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), integral_(x) p(x) nabla_(tilde(x)) p (tilde(x)|x) \"d\"x chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), integral_(x) p (tilde(x)|x) p(x) nabla_(tilde(x)) log p (tilde(x)|x) \"d\"x chevron.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) integral_(x) p (tilde(x)|x) p(x) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) chevron.r \"d\"x \"d\"tilde(x) \\\n  =& E_(p (tilde(x),x)) [ chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) chevron.r ]\n$",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18UW6ZkmnvJ3SB7hRLJMNJqwrJhW+IsFRLZwvLCJFkHffVZLcT4hMglKYAQXX0=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1949,
+    "completion_tokens": 646,
+    "total_tokens": 2595,
+    "cost": 0.00145625,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00145625,
+      "upstream_inference_prompt_cost": 0.00048725,
+      "upstream_inference_completions_cost": 0.000969
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

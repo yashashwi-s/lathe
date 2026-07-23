@@ -1,16 +1,22 @@
 # LaTeX Benchmark v0 Results
 
-Built: 2026-07-13
+Built: 2026-07-22
 
-This directory contains deterministic LaTeX-to-Typst conversion outputs for the cleaned `data/latex_benchmark_v0` accepted corpus.
+This directory contains deterministic LaTeX-to-Typst conversion outputs for
+all 189 accepted samples in `data/latex_benchmark_v0`, including the 32-sample
+HF expansion slice.
 
 ## Engine Summary
 
 | Engine | Converted | Typst-compiled | Total |
 |---|---:|---:|---:|
-| `pandoc` | 157 | 151 | 157 |
-| `tylax` | 157 | 93 | 157 |
-| `typetex` | 157 | 149 | 157 |
+| `pandoc` | 188 | 178 | 189 |
+| `tylax` | 189 | 116 | 189 |
+| `typetex` | 188 | 172 | 189 |
+
+Expansion-only compilation is 27/32 for Pandoc, 23/32 for Tylax, and 23/32
+for TypeTeX. Pandoc and TypeTeX emitted output for 31/32 expansion samples;
+Tylax emitted output for 32/32.
 
 `typetex` is the existing project approximation: Pandoc Typst output with math routed through the MiTeX Typst package via `scripts/dataset/typetex_filter.lua`.
 
@@ -41,6 +47,10 @@ Missing cells indicate conversion or Typst compilation failure; exact statuses a
 - Normalized TypeTeX/MiTeX math input by stripping LaTeX labels and equation wrappers inside math.
 - Rewrote common MiTeX-hostile math macros `\d` and `\slash` to portable forms.
 
-## Cleanup
+## Dataset scope
 
-Samples with visually corrupted reference PDFs were removed from this result set. See `data/latex_benchmark_v0/visual_corruption_cleanup.md`.
+The original 157-sample base retains its visual-corruption cleanup. The
+32-sample expansion is evaluated as a separate post-freeze slice while sharing
+this deterministic-engine artifact tree. See
+`data/latex_benchmark_v0/visual_corruption_cleanup.md` and
+`data/latex_benchmark_v0/expansion_import.json`.

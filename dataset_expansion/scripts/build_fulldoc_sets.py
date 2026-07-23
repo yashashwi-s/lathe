@@ -8,7 +8,7 @@ Sets produced (corpus/<set>/<sample_id>/):
                   source is dominated by a single .tex file, small enough to
                   fit a 1-turn prompt; assets downloaded alongside.
 
-Selection: prefer papers whose reference render is <= --max-pages (default 8)
+Selection: prefer papers whose reference render is <= --max-pages (default 12)
 and whose main .tex is <= --max-chars (default 60k, ~15k tokens) so a 1-turn
 run is feasible. Compiled with tectonic; rejects dropped.
 
@@ -48,13 +48,14 @@ def find_main_tex(sdir: Path) -> Path | None:
     return named[0] if named else None
 
 
-def build_arxiv5t(n: int, max_pages: int, max_chars: int, scan: int) -> list[dict]:
+def build_arxiv5t(corpus: Path, n: int, max_pages: int, max_chars: int,
+                  scan: int) -> list[dict]:
     """Papers in 2401/ are stored as <id>.gz — gzipped tar (or single tex)."""
     import gzip
     import tarfile
 
     api = HfApi()
-    set_dir = CORPUS / "arxiv5t_paper"
+    set_dir = corpus / "arxiv5t_paper"
     if set_dir.exists():
         shutil.rmtree(set_dir)
     entries = api.list_repo_tree(ARXIV5T, repo_type="dataset",
@@ -111,8 +112,9 @@ def build_arxiv5t(n: int, max_pages: int, max_chars: int, scan: int) -> list[dic
     return records
 
 
-def build_neurips(n: int, max_pages: int, max_chars: int, shards: int) -> list[dict]:
-    set_dir = CORPUS / "neurips_paper"
+def build_neurips(corpus: Path, n: int, max_pages: int, max_chars: int,
+                  shards: int) -> list[dict]:
+    set_dir = corpus / "neurips_paper"
     if set_dir.exists():
         shutil.rmtree(set_dir)
     papers: dict[str, list[dict]] = defaultdict(list)
@@ -181,16 +183,24 @@ def build_neurips(n: int, max_pages: int, max_chars: int, shards: int) -> list[d
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=5)
-    ap.add_argument("--max-pages", type=int, default=8)
+    ap.add_argument("--max-pages", type=int, default=12)
     ap.add_argument("--max-chars", type=int, default=60_000)
     ap.add_argument("--scan", type=int, default=400)
     ap.add_argument("--neurips-shards", type=int, default=2)
     ap.add_argument("--only", choices=["arxiv5t", "neurips"])
+    ap.add_argument(
+        "--corpus",
+        type=Path,
+        default=CORPUS,
+        help="output corpus root (use a staging directory for safe reruns)",
+    )
     args = ap.parse_args()
+    corpus = args.corpus.resolve()
     if args.only in (None, "arxiv5t"):
-        build_arxiv5t(args.n, args.max_pages, args.max_chars, args.scan)
+        build_arxiv5t(corpus, args.n, args.max_pages, args.max_chars, args.scan)
     if args.only in (None, "neurips"):
-        build_neurips(args.n, args.max_pages, args.max_chars, args.neurips_shards)
+        build_neurips(corpus, args.n, args.max_pages, args.max_chars,
+                      args.neurips_shards)
 
 
 if __name__ == "__main__":

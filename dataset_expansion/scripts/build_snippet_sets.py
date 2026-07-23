@@ -5,7 +5,7 @@ Sets produced (corpus/<set>/<sample_id>/):
   i2s_equation   stanford-crfm/image2struct-latex-v1 equation (hard/medium first)
   i2s_table      ... table
   i2s_algorithm  ... algorithm
-  i2s_plot       ... plot (TikZ/pgfplots — excluded from the current benchmark)
+  i2s_plot       ... plot (TikZ/pgfplots stress cases)
   pubmed_table   deepcopy/pubmed-tables-latex-768px (messy medical tables)
 
 Each snippet is wrapped in the same minimal-article template family the lathe
@@ -16,6 +16,7 @@ Run: ~/mamba/envs/lathe/bin/python scripts/build_snippet_sets.py
 
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
 import sys
@@ -59,6 +60,34 @@ def wrap(preamble: str, title: str, section: str, intro: str, payload: str) -> s
                               "intro": intro, "payload": payload}
 
 
+def fit_tabular(
+    payload: str, width: str, height: str, *, total_height: bool = False
+) -> str:
+    """Scale one source table as a unit so no source-backed cells are clipped."""
+    begin = payload.find("\\begin{tabular}")
+    end_marker = "\\end{tabular}"
+    end = payload.rfind(end_marker)
+    if begin < 0 or end < begin:
+        raise ValueError("table-fit repair requires one tabular environment")
+    end += len(end_marker)
+    command = "\\resizebox*" if total_height else "\\resizebox"
+    fitted = (
+        f"{command}{{{width}}}{{{height}}}{{%\n"
+        + payload[begin:end]
+        + "}%\n"
+    )
+    return payload[:begin] + fitted + payload[end:]
+
+
+I2S_HEIGHT_REPAIRS = {"2402.14942.tar.gz"}
+PUBMED_WIDTH_REPAIRS = {
+    "PMC2936360_table_3",
+    "PMC4469303_table_6",
+    "PMC3395126_table_0",
+    "PMC4378895_table_2",
+}
+
+
 def load_i2s(cfg: str, columns=("text", "difficulty", "length", "instance_name")) -> list[dict]:
     with fsspec.open(I2S.format(cfg=cfg)) as f:
         return pq.read_table(f, columns=list(columns)).to_pylist()
@@ -86,9 +115,9 @@ def pick(rows: list[dict], n: int, min_len: int, max_len: int,
     return out
 
 
-def build_set(set_name: str, candidates: list[dict], make_tex, n: int,
-              dataset: str, max_pages: int = 4) -> list[dict]:
-    set_dir = CORPUS / set_name
+def build_set(corpus: Path, set_name: str, candidates: list[dict], make_tex,
+              n: int, dataset: str, max_pages: int = 4) -> list[dict]:
+    set_dir = corpus / set_name
     if set_dir.exists():
         shutil.rmtree(set_dir)
     records, accepted = [], 0
@@ -114,61 +143,92 @@ def build_set(set_name: str, candidates: list[dict], make_tex, n: int,
 
 
 def main() -> None:
-    n = int(sys.argv[1]) if len(sys.argv) > 1 else 5
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("n", nargs="?", type=int, default=5)
+    parser.add_argument(
+        "--corpus",
+        type=Path,
+        default=CORPUS,
+        help="output corpus root (use a staging directory for safe reruns)",
+    )
+    parser.add_argument(
+        "--only",
+        action="append",
+        choices=["i2s_equation", "i2s_table", "i2s_algorithm", "i2s_plot", "pubmed_table"],
+        help="build only this set; repeat to select multiple sets",
+    )
+    args = parser.parse_args()
+    n = args.n
+    corpus = args.corpus.resolve()
+    wanted = set(args.only or [
+        "i2s_equation", "i2s_table", "i2s_algorithm", "i2s_plot", "pubmed_table"
+    ])
     all_records = {}
 
-    eq = pick(load_i2s("equation"), n, 300, 2500)
-    all_records["i2s_equation"] = build_set(
-        "i2s_equation", eq,
-        lambda r, i: wrap(PREAMBLE_BASE, f"Equation Sample {i}", "Derivation",
-                          "The following display is drawn from a source-backed "
-                          "image-to-LaTeX benchmark and reproduced verbatim.",
-                          r["text"]),
-        n, "stanford-crfm/image2struct-latex-v1:equation")
+    if "i2s_equation" in wanted:
+        eq = pick(load_i2s("equation"), n, 300, 2500)
+        all_records["i2s_equation"] = build_set(
+            corpus, "i2s_equation", eq,
+            lambda r, i: wrap(PREAMBLE_BASE, f"Equation Sample {i}", "Derivation",
+                              "The following display is drawn from a source-backed "
+                              "image-to-LaTeX benchmark and reproduced verbatim.",
+                              r["text"]),
+            n, "stanford-crfm/image2struct-latex-v1:equation")
 
-    tb = pick(load_i2s("table"), n, 400, 4000)
-    all_records["i2s_table"] = build_set(
-        "i2s_table", tb,
-        lambda r, i: wrap(PREAMBLE_BASE, f"Table Sample {i}", "Results",
-                          "The table below is drawn from a source-backed "
-                          "image-to-LaTeX benchmark and reproduced verbatim.",
-                          r["text"]),
-        n, "stanford-crfm/image2struct-latex-v1:table")
+    if "i2s_table" in wanted:
+        tb = pick(load_i2s("table"), n, 400, 4000)
+        all_records["i2s_table"] = build_set(
+            corpus, "i2s_table", tb,
+            lambda r, i: wrap(PREAMBLE_BASE, f"Table Sample {i}", "Results",
+                              "The table below is drawn from a source-backed "
+                              "image-to-LaTeX benchmark and reproduced verbatim.",
+                              fit_tabular(
+                                  r["text"], "!", "0.76\\textheight",
+                                  total_height=True,
+                              )
+                              if r.get("instance_name") in I2S_HEIGHT_REPAIRS
+                              else r["text"]),
+            n, "stanford-crfm/image2struct-latex-v1:table")
 
-    al = pick(load_i2s("algorithm"), n, 300, 3000)
-    all_records["i2s_algorithm"] = build_set(
-        "i2s_algorithm", al,
-        lambda r, i: wrap(PREAMBLE_ALGO, f"Algorithm Sample {i}", "Procedure",
-                          "The pseudocode below is drawn from a source-backed "
-                          "image-to-LaTeX benchmark and reproduced verbatim.",
-                          r["text"] if "\\begin{algorithm" in r["text"]
-                          else "\\begin{algorithm}[htbp]\n\\caption{Procedure}\n"
-                               + r["text"] + "\n\\end{algorithm}"),
-        n, "stanford-crfm/image2struct-latex-v1:algorithm")
+    if "i2s_algorithm" in wanted:
+        al = pick(load_i2s("algorithm"), n, 300, 3000)
+        all_records["i2s_algorithm"] = build_set(
+            corpus, "i2s_algorithm", al,
+            lambda r, i: wrap(PREAMBLE_ALGO, f"Algorithm Sample {i}", "Procedure",
+                              "The pseudocode below is drawn from a source-backed "
+                              "image-to-LaTeX benchmark and reproduced verbatim.",
+                              r["text"] if "\\begin{algorithm" in r["text"]
+                              else "\\begin{algorithm}[htbp]\n\\caption{Procedure}\n"
+                                   + r["text"] + "\n\\end{algorithm}"),
+            n, "stanford-crfm/image2struct-latex-v1:algorithm")
 
-    pl = pick(load_i2s("plot"), n, 500, 8000)
-    all_records["i2s_plot"] = build_set(
-        "i2s_plot", pl,
-        lambda r, i: wrap(PREAMBLE_PLOT, f"Plot Sample {i}", "Visualization",
-                          "The figure below is a TikZ/pgfplots drawing drawn from "
-                          "a source-backed image-to-LaTeX benchmark.",
-                          "\\begin{figure}[htbp]\n\\centering\n" + r["text"]
-                          + "\n\\caption{Source-backed plot.}\n\\end{figure}"),
-        n, "stanford-crfm/image2struct-latex-v1:plot", max_pages=4)
+    if "i2s_plot" in wanted:
+        pl = pick(load_i2s("plot"), n, 500, 8000)
+        all_records["i2s_plot"] = build_set(
+            corpus, "i2s_plot", pl,
+            lambda r, i: wrap(PREAMBLE_PLOT, f"Plot Sample {i}", "Visualization",
+                              "The figure below is a TikZ/pgfplots drawing drawn from "
+                              "a source-backed image-to-LaTeX benchmark.",
+                              "\\begin{figure}[htbp]\n\\centering\n" + r["text"]
+                              + "\n\\caption{Source-backed plot.}\n\\end{figure}"),
+            n, "stanford-crfm/image2struct-latex-v1:plot", max_pages=4)
 
-    with fsspec.open(PUBMED) as f:
-        pm = pq.read_table(f, columns=["latex", "filename"]).slice(0, 2000).to_pylist()
-    for r in pm:
-        r["text"] = r.pop("latex")
-    pm = pick(pm, n, 600, 6000)
-    all_records["pubmed_table"] = build_set(
-        "pubmed_table", pm,
-        lambda r, i: wrap(PREAMBLE_BASE + "\\usepackage{makecell,longtable,threeparttable,siunitx}\n",
-                          f"Clinical Table Sample {i}", "Patient Data",
-                          "The table below is a medical-literature table "
-                          "reproduced verbatim from a PubMed-derived dataset.",
-                          r["text"]),
-        n, "deepcopy/pubmed-tables-latex-768px")
+    if "pubmed_table" in wanted:
+        with fsspec.open(PUBMED) as f:
+            pm = pq.read_table(f, columns=["latex", "filename"]).slice(0, 2000).to_pylist()
+        for r in pm:
+            r["text"] = r.pop("latex")
+        pm = pick(pm, n, 600, 6000)
+        all_records["pubmed_table"] = build_set(
+            corpus, "pubmed_table", pm,
+            lambda r, i: wrap(PREAMBLE_BASE + "\\usepackage{makecell,longtable,threeparttable,siunitx}\n",
+                              f"Clinical Table Sample {i}", "Patient Data",
+                              "The table below is a medical-literature table "
+                              "reproduced verbatim from a PubMed-derived dataset.",
+                              fit_tabular(r["text"], "\\textwidth", "!")
+                              if r.get("filename") in PUBMED_WIDTH_REPAIRS
+                              else r["text"]),
+            n, "deepcopy/pubmed-tables-latex-768px")
 
     summary = {k: sum(1 for r in v if r["status"] == "accepted") for k, v in all_records.items()}
     print(json.dumps(summary, indent=2))

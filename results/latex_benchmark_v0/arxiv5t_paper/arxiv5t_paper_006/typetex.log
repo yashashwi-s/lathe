@@ -1,0 +1,91 @@
+COMMAND:
+pandoc -f latex -t typst --lua-filter /Users/yashashwisinghania/lathe/scripts/dataset/typetex_filter.lua --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_006 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_006/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+error: label `label("eqn: jk-specific contextual representation")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:377:1
+    │
+377 │ #ref(label("eqn: jk-specific contextual representation")), #mi(`c_i`) is
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn:initial feature h")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:394:17
+    │
+394 │ As shown in Eq. #ref(label("eqn:initial feature h")), contextual feature
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: average skill embedding")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:420:8
+    │
+420 │ in Eq. #ref(label("eqn: average skill embedding")) and distance between
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: distance between skills")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:422:1
+    │
+422 │ #ref(label("eqn: distance between skills")). Further, due to some
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: jk-specific contextual representation")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:426:1
+    │
+426 │ #ref(label("eqn: jk-specific contextual representation")) and Eq.
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: distance between skills")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:427:1
+    │
+427 │ #ref(label("eqn: distance between skills")). The number of sampled
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: social message passing")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:441:17
+    │
+441 │ As shown in Eq. #ref(label("eqn: social message passing")), we can get
+    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: softmax weight")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:445:1
+    │
+445 │ #ref(label("eqn: softmax weight")). We use the average of each layer's
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `label("eqn: loss of CSAGNN")` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:466:19
+    │
+466 │ formulated as Eq. #ref(label("eqn: loss of CSAGNN")), where
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot reference block
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:514:1
+    │
+514 │ #ref(label("tab:dataset statistic")) displays the statistics of the
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: the document does not contain a bibliography
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:587:36
+    │
+587 │ implemented with PyTorch Geometric #cite(label("Fey/Lenssen/2019")). We
+    │                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: the document does not contain a bibliography
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:595:36
+    │
+595 │ PyTorch Geometric subgraph sampler #cite(label("Fey/Lenssen/2019")).
+    │                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot reference box
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/typetex.typ:612:6
+    │
+612 │ Table @tab:Performance shows the performance of all baseline models and
+    │       ^^^^^^^^^^^^^^^^
+

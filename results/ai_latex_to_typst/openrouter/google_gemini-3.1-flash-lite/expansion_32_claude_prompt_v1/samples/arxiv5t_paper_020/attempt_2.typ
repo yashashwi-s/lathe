@@ -1,0 +1,67 @@
+#set page(paper: "us-letter", margin: (x: 0.75in, y: 1in))
+#set text(font: "New Computer Modern", size: 10pt)
+#set columns(2, gutter: 0.25in)
+
+#align(center)[
+  #text(size: 16pt, weight: "bold")[Efficient Multi-scale Network with Learnable Discrete Wavelet Transform \ for Blind Motion Deblurring] \
+  #v(0.5em)
+  Xin Gao$^{\ast, 1, 2}$ #h(0.5em) Tianheng Qiu$^{\ast, 2, 3, 4}$ \
+  Xinyu Zhang$^{\dag, 2}$ #h(0.5em) Hanlin Bai$^1$ #h(0.5em) Kang Liu$^1$ #h(0.5em) Xuan Huang$^4$ #h(0.5em) Hu Wei$^4$ #h(0.5em) Guoying Zhang$^{\dag, 1}$ #h(0.5em) Huaping Liu$^2$ \
+  #v(0.5em)
+  #text(size: 9pt)[
+    $^1$China University of Mining & Technology-Beijing #h(0.5em) $^2$Tsinghua University \
+    $^3$University of Science and Technology of China \
+    $^4$Hefei Institutes of Physical Science, Chinese Academy of Sciences
+  ]
+]
+
+#footnote[
+  $^{\ast}$ Equal contribution \
+  $^{\dag}$ Corresponding Author
+]
+
+#block(inset: (x: 1em))[
+  #text(weight: "bold")[Abstract] \
+  Coarse-to-fine schemes are widely used in traditional single-image motion deblur; however, in the context of deep learning, existing multi-scale algorithms not only require the use of complex modules for feature fusion of low-scale RGB images and deep semantics, but also manually generate low-resolution pairs of images that do not have sufficient confidence. In this work, we propose a multi-scale network based on single-input and multiple-outputs (SIMO) for motion deblurring. This simplifies the complexity of algorithms based on a coarse-to-fine scheme. To alleviate restoration defects impacting detail information brought about by using a multi-scale architecture, we combine the characteristics of real-world blurring trajectories with a learnable wavelet transform module to focus on the directional continuity and frequency features of the step-by-step transitions between blurred images to sharp images. In conclusion, we propose a multi-scale network with a learnable discrete wavelet transform (MLWNet), which exhibits state-of-the-art performance on multiple real-world deblurred datasets, in terms of both subjective and objective quality as well as computational efficiency. Our code will be open-sourced on github later.
+]
+
+#heading(level: 1)[Introduction]
+
+#figure(
+  image("fig/metrics.png", width: 100%),
+  caption: [Performance comparison on the RealBlur-J test dataset in terms of PSNR and GMACs. Our proposed MLWNet achieves both higher accuracy and smaller complexity in comparison with other state-of-the-arts.],
+  supplement: "Figure"
+) <fig:metrics>
+
+Most current top-performing single-image blind deblurring algorithms are based on DNNs, which can be structurally categorized into single-scale and multi-scale approaches. Compared to single-scale methods, multi-scale methods are built on the idea of moving from coarse-to-fine, and thus they decompose the challenging single-image blind deblurring problem into easier-to-solve sub-problems to restore the blurred image step-by-step.
+
+Earlier DNNs exploiting the coarse-to-fine concept usually employ estimators of different scales to produce restored images gradually. However, not only is the extracted semantic information not sufficiently representative, but the use of the same complexity at different scales may lead to redundant computations; More advanced multi-scale algorithms use a global encoder-decoder, which significantly reduces the algorithm's runtime, multiple upsampling and downsampling leads to insufficient restoration of detailed information, and therefore such algorithms require the introduction of additional fusion modules to encode input images for fusion with deeper semantics. In addition, existing multi-scale algorithms use multiple-input and multiple-output (MIMO) architectures, which require the introduction of manually constructed downsampled image pairs, and usually employ simple interpolation algorithms to generate low-resolution images for the sake of efficiency, which is obviously not reliable.
+
+We note that the gradual insertion of images used by existing coarse-to-fine algorithms is redundant. Referring to numerous algorithms that are widely used in downstream tasks, the network starts with a single input and also extracts features at different scales. These features can be aggregated by simple feature fusion to ultimately obtain competitive results. That is, a DNN itself possesses the ability to learn effective features at different scales. This inspired us to design a multi-scale architecture that retains an original image as input and sequentially restores images at each scale in output stage. This is not only more theoretically sound, but also eliminates the time required to generate pairs of images of different resolutions, as well as the huge complexity increase brought about by fusion modules between RGB domain and deep features.
+
+The coarse-to-fine algorithm has another inherent defect. During progressive restoration, the solution of the upper-level problem takes the solution of the lower-level as initialization. Although this reduces the difficulty of solving the upper-level problem, due to the smaller resolution of lower-level spatial, the features transmitted upwards are semantically precise but spatially ambiguous, thus the restoration ability of multi-scale network in spatial details is limited. Hence, there is an urgent need to improve the quality of restoration of high-frequency detail part. A simple approach is to introduce a frequency domain transform as an alternative to a spatial domain transform. This would provide the algorithm with a choice and direct its attention to different frequencies. In this paper, we consider using the discrete wavelet transform for the following reasons:
+
++ Many recent state-of-the-art deblurring algorithms have introduced the discrete Fourier transform (DFT) as a frequency prior, which provides information that helps the algorithm to identify and select high-and low-frequency components that need to be preserved during restoration. Compared to DFT, the discrete wavelet transform (DWT) is better suited to deal with images containing more abrupt signals.
++ Realistic blur and synthetic blur have significant distributional differences. In the real world, due to the short exposure time of a camera, realistic blur has a specific directionality, i.e., the blur trajectory is regionally continuous; conversely, synthetic blur has an unnatural and discontinuous trajectory. To fully utilize the potential deblurring guidance brought by this trajectory continuity, we use 2D-DWT to reveal blur directionality, distinguish changes in the blur signal along different directions, and provide the algorithm with a reliable basis for deblurring through adaptive learning.
+
+To make 2D-DWT fit the data distribution and feature layer space more closely, we implemented 2D-DWT with an adaptive data distribution by using group convolution, transferring feature space from the spatial domain into the wavelet domain, generating sub-signals with different frequency features and different directional features, and then constructing wavelet losses for them in order to constrain them by self-supervision. Experimental results demonstrate that the proposed method has advanced performance in terms of accuracy and efficiency (Fig. @fig:metrics).
+
+#figure(
+  image("fig/overall_perfect.png", width: 100%),
+  caption: [The overall architecture of the proposed MLWNet, the SEB is a simple module designed with reference, the WFB and WHB apply the LWN that implements the learnable 2D-DWT. In training phase, supervised learning is performed using $\mathcal{L}_{multi}$ and self-supervised restraint of the wavelet kernel is performed using $\mathcal{L}_{wavelet}$. In testing phase, only the highest scale restored images is output.],
+  supplement: "Figure"
+) <fig:overall>
+
+#heading(level: 1)[Related Work]
+#text(weight: "bold")[Single-scale Deblurring Algorithm.] Image deblurring have developed rapidly in recent years. To preserve richer image details, Kupyn et al. viewed deblurring as a special case of image-to-image conversion, and for the first time utilized a GAN to recover images with richer details. To provide a high-quality and simple baseline, Chen et al. proposed a nonlinear activation-free network that obtained excellent results. Zamir et al. proposed a transformer with an encoder–decoder architecture that can be applied to higher-resolution images and utilizes cross-channel attention. Kong et al. utilized a domain-based self-attention solver to reduce the transformer complexity and suppress artefacts. However, such single-scale algorithms estimate complex restoration problems directly and may require the design of restorers of higher complexity, which is suboptimal in terms of efficiency.
+
+#text(weight: "bold")[Multi-scale Deblurring Algorithm.] Multi-scale motion blur removal methods aim to achieve progressive clear image recovery using a multi-stage or multi-sub-network approach. The multi-scale algorithm previously used in the field of image deblurring is based on MIMO. Recently, Cho et al. proposed MIMO-UNet, which employs a multi-output single decoder as well as a multi-output single decoder to simulate a multi-scale architecture consisting of stacked networks, thereby greatly simplifying complexity. Zamir et al. designed a multi-stage progressive image recovery network to simplify the information flow between multiple sub-networks.
+
+#heading(level: 1)[Proposed Method]
+Our proposed MLWNet (Fig. @fig:overall) aims to explore an efficient multi-scale architectural approach to achieve high-quality blind deblurring of a single image. First, we designed a novel and highly scalable SIMO multi-scale baseline to address the performance bottleneck faced by partially multi-scale networks. It takes a single image as an input and gradually generates a series of sharp images from the bottom up. Then, we propose a learnable wavelet transform node (LWN) for image deblurring, and it enhances the proposed algorithm's ability to restore detail information.
+
+#heading(level: 2)[Multi-scale Baseline]
+Our multi-scale network maintains an encoder-decoder architecture, but retains the original image with the highest resolution as input, and restores sharp images of various scales sequentially in the output stage. In this way, we eliminate the complexity of the fusion module when dealing RGB images of different scales and with deep semantics.
+
+#heading(level: 1)[Conclusion]
+In this paper, we propose a SIMO-based multi-scale architecture to achieve efficient motion deblurring. We have developed a learnable discrete wavelet transform module, which not only improves the algorithm's ability to recover details, but is also more applicable to the real world. In addition, we construct a reasonable multi-scale loss to guide the recovery of blurred images pixel by pixel and scale by scale, and constrain the learning direction of the wavelet kernel with self-supervised loss to achieve better image deblurring. Through extensive experiments on multiple real and synthetic datasets, we demonstrate that it outperforms existing state-of-the-art methods in terms of quality and efficiency of image restoration, especially with optimal deblurring performance and generalization in real scenes.

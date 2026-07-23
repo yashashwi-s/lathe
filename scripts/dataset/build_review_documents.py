@@ -27,6 +27,13 @@ CATEGORY_LABELS = {
     "09_algorithms": "Algorithms",
     "10_compact_papers": "Compact Papers",
     "11_forms_cv_letters": "Forms, CVs, And Letters",
+    "i2s_equation": "Image2Struct Equations",
+    "i2s_table": "Image2Struct Tables",
+    "i2s_algorithm": "Image2Struct Algorithms",
+    "i2s_plot": "Image2Struct TikZ/PGFPlots",
+    "pubmed_table": "PubMed Clinical Tables",
+    "arxiv5t_paper": "arXiv-5T Full Papers",
+    "neurips_paper": "NeurIPS Full Papers",
 }
 
 
@@ -45,6 +52,8 @@ def load_engine_manifest(engine_dir: Path) -> dict[tuple[str, str], dict]:
 def source_summary(row: dict) -> str:
     dataset = row["source_dataset"]
     ids = row.get("source_ids", "")
+    if row.get("source_family") == "hf_dataset_expansion":
+        return f"HF {dataset}; expansion source id: {ids}"
     if dataset == "scholarweave/arxiv-latex":
         return f"HF scholarweave/arxiv-latex; arXiv id/excerpt source: {ids}"
     if dataset == "OleehyO/latex-formulas":
@@ -134,7 +143,7 @@ def build_provenance(dataset: Path, rows: list[dict], out_path: Path) -> None:
     for row in rows:
         by_cat.setdefault(row["category"], []).append(row)
     cover = doc.new_page(width=842, height=595)
-    cover.insert_text((48, 70), "Simple Benchmark All v0", fontsize=28, fontname="helv")
+    cover.insert_text((48, 70), "Lathe Benchmark v0", fontsize=28, fontname="helv")
     cover.insert_text((48, 112), "Dataset provenance review", fontsize=16, fontname="helv")
     cover.insert_textbox(
         fitz.Rect(48, 150, 794, 520),
@@ -188,7 +197,7 @@ def build_comparison(dataset: Path, rows: list[dict], engine_dir: Path, out_path
     for row in rows:
         by_cat.setdefault(row["category"], []).append(row)
     cover = doc.new_page(width=842, height=595)
-    cover.insert_text((48, 70), "Simple Benchmark All v0", fontsize=28, fontname="helv")
+    cover.insert_text((48, 70), "Lathe Benchmark v0", fontsize=28, fontname="helv")
     cover.insert_text((48, 112), "Reference vs Pandoc vs Tylax vs TypeTeX", fontsize=16, fontname="helv")
     cover.insert_textbox(
         fitz.Rect(48, 150, 794, 520),

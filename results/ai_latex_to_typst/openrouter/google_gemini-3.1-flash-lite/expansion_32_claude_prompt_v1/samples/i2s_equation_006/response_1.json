@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731630-FvnJcQ6vUgcxC9DuJt5E",
+  "object": "chat.completion",
+  "created": 1784731630,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"serif\")\n\n#align(center)[\n  #text(size: 1.44em, weight: \"bold\")[Equation Sample 6]\n  #parbreak()\n  #text(size: 1.2em)[Dataset-expansion sample]\n  #parbreak()\n]\n\n#heading(level: 1, numbering: none)[Derivation]\n\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n&G_{c_p} (b,c_p) \\\n&=\n- W^(-1) ( phi (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z + psi(b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z ), \\\n&G_{b c_p} (b,c_p) \\\n&= - W^(-1) ( phi' (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z \\\n&quad + phi (b) psi(b,0) frac(partial, partial c_p) pi_1 (b, c_p) m'(b) \\\n&quad + psi' (b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z - phi (b) psi(b,0) frac(partial, partial c_p) pi_1 (b, c_p) m'(b) ) \\\n&= - W^(-1) ( phi' (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z + psi' (b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z ).\n$\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+7rG5iM/mbCebvHYbijaV2OFnXRwB04INZsSHkrC4HSgEoDWpBziMiK8jETTw=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 765,
+    "completion_tokens": 529,
+    "total_tokens": 1294,
+    "cost": 0.00098475,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00098475,
+      "upstream_inference_prompt_cost": 0.00019125,
+      "upstream_inference_completions_cost": 0.0007935
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_table_002",
+  "category": "i2s_table",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:47:13+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 8511,
+  "completion_tokens": 5444,
+  "total_tokens": 13955,
+  "reported_cost_usd": 0.01029375,
+  "estimated_cost_usd": 0.01029375,
+  "accounted_cost_usd": 0.01029375,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731642-ZTVGqXKC0zu8wK1bMSwD",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_table/i2s_table_002/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_table/i2s_table_002/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731633-gHNW7rWHwllxBbhZ85HJ",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.597,
+      "compile_seconds": 0.111,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 2796,
+        "completion_tokens": 2735,
+        "total_tokens": 5531,
+        "cost": 0.0048015,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0048015,
+          "upstream_inference_prompt_cost": 0.000699,
+          "upstream_inference_completions_cost": 0.0041025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected dots"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731642-ZTVGqXKC0zu8wK1bMSwD",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.483,
+      "compile_seconds": 0.089,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 5715,
+        "completion_tokens": 2709,
+        "total_tokens": 8424,
+        "cost": 0.00549225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00549225,
+          "upstream_inference_prompt_cost": 0.00142875,
+          "upstream_inference_completions_cost": 0.0040635
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: section"
+    }
+  ],
+  "final_error_summary": "error: unknown variable: section",
+  "duration_seconds": 17.284,
+  "finished_at": "2026-07-22T14:47:30+00:00"
+}

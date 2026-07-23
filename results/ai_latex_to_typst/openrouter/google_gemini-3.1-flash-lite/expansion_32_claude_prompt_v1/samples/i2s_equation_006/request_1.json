@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\title{Equation Sample 6}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Derivation}\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{align*}\nG_{c_p} &(b,c_p)\\\\\n&=\n- W^{-1} \\Big( \\varphi (b) \\int_0^b \\psi(z,0) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz + \\psi(b,0)\\int_b^\\infty \\varphi(z) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz \\Big), \\\\\nG_{b c_p} &(b,c_p) \\\\\n&= - W^{-1} \\Big( \\varphi' (b) \\int_0^b \\psi(z,0) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz\n+ \\varphi (b) \\psi(b,0) \\frac{\\partial}{\\partial c_p} \\pi_1 (b, c_p) m'(b) \\\\\n&\\hspace{1cm} + \\psi '(b,0)\\int_b^\\infty \\varphi(z) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz - \\varphi (b) \\psi(b,0) \\frac{\\partial}{\\partial c_p} \\pi_1 (b, c_p) m'(b) \\Big) \\\\\n&= - W^{-1} \\Big( \\varphi' (b) \\int_0^b \\psi(z,0) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz + \\psi '(b,0)\\int_b^\\infty \\varphi(z) \\frac{\\partial}{\\partial c_p} \\pi_1(z,c_p)m'(z)dz \\Big).\n\\end{align*}\n\n\\end{document}\n\n```\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_equation_006",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

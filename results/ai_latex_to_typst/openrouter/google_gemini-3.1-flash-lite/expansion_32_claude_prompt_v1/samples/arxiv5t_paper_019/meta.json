@@ -1,0 +1,102 @@
+{
+  "sample_id": "arxiv5t_paper_019",
+  "category": "arxiv5t_paper",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:52:23+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 5,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 12539,
+  "completion_tokens": 5654,
+  "total_tokens": 18193,
+  "reported_cost_usd": 0.010699549999999999,
+  "estimated_cost_usd": 0.011615750000000001,
+  "accounted_cost_usd": 0.010699549999999999,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731953-6ybev8xbhMHjcIJ0xmPv",
+  "source_path": "data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_019/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_019/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731943-a14oker7Dw8t7uAOSvQ1",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 9.949,
+      "compile_seconds": 0.278,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 4716,
+        "completion_tokens": 2828,
+        "total_tokens": 7544,
+        "cost": 0.005421,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005421,
+          "upstream_inference_prompt_cost": 0.001179,
+          "upstream_inference_completions_cost": 0.004242
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: otimes"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731953-6ybev8xbhMHjcIJ0xmPv",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 9.389,
+      "compile_seconds": 0.214,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 7823,
+        "completion_tokens": 2826,
+        "total_tokens": 10649,
+        "cost": 0.00527855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 4072,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00527855,
+          "upstream_inference_prompt_cost": 0.00103955,
+          "upstream_inference_completions_cost": 0.004239
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: `times.circle` is deprecated, use `times.o` instead"
+    }
+  ],
+  "final_error_summary": "warning: `times.circle` is deprecated, use `times.o` instead",
+  "duration_seconds": 19.85,
+  "finished_at": "2026-07-22T14:52:43+00:00"
+}

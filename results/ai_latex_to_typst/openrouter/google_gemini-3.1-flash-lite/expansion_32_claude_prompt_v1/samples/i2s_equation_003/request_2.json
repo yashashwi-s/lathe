@@ -1,0 +1,33 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\title{Equation Sample 3}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Derivation}\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{equation*}\n\\begin{aligned}\n&E_{p (\\tilde{x})}[\\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\log p (\\tilde{x})\\right > ]\\\\\n=& \\int_{\\tilde{x}} p (\\tilde{x}) \\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\log p (\\tilde{x})\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} p (\\tilde{x}) \\left <GNN_{\\theta} (\\tilde{x}),\\frac{\\nabla _{\\tilde{x}} p (\\tilde{x})}{p (\\tilde{x})}\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} p (\\tilde{x})\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left<GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\left (\\int_{x} p (\\tilde{x}|x)p(x) \\mathrm{d}x\\right ) \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}), \\int_{x} p(x) \\nabla _{\\tilde{x}} p (\\tilde{x}|x) \\mathrm{d}x \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}), \\int_{x} p (\\tilde{x}|x) p(x) \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\mathrm{d}x \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\int_{x} p (\\tilde{x}|x) p(x) \\left <GNN_{\\theta} (\\tilde{x}), \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\right > \\mathrm{d}x \\mathrm{d}\\tilde{x} \\\\\n=& E_{p (\\tilde{x},x)} [ \\left <GNN_{\\theta} (\\tilde{x}), \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\right > ]\\\\\n\\end{aligned}\n\\end{equation*}\n\n\\end{document}\n\n```\n"
+    },
+    {
+      "role": "assistant",
+      "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"New Computer Modern\")\n\n#align(center)[\n  #text(size: 2em, weight: \"bold\")[Equation Sample 3]\n  #v(1em)\n  #text(size: 1.2em)[Dataset-expansion sample]\n  #v(1em)\n]\n\n#heading(level: 1)[Derivation]\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n  &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \\\n  =& integral_(tilde(x)) p (tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) p (tilde(x)) angle.l GNN_theta (tilde(x)), (nabla_(tilde(x)) p (tilde(x))) / (p (tilde(x))) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) p (tilde(x)) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) (integral_(x) p (tilde(x)|x)p(x) \"d\"x) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), integral_(x) p(x) nabla_(tilde(x)) p (tilde(x)|x) \"d\"x angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), integral_(x) p (tilde(x)|x) p(x) nabla_(tilde(x)) log p (tilde(x)|x) \"d\"x angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) integral_(x) p (tilde(x)|x) p(x) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) angle.r \"d\"x \"d\"tilde(x) \\\n  =& E_(p (tilde(x),x)) [ angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) angle.r ]\n$\n```"
+    },
+    {
+      "role": "user",
+      "content": "The previous Typst document failed to compile. This is the only repair attempt.\n\nUse the exact compiler output below to fix the failure. Simplify the surrounding\nstructure when necessary; do not repeat an invalid construction unchanged.\nReturn the complete corrected Typst document, not a diff or excerpt. Preserve\nall original visible content and return raw Typst source only, with no Markdown\nfences or explanation.\n\n--- compiler output ---\nwarning: `angle.l` is deprecated, use `chevron.l` instead\n   \u250c\u2500 results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_equation_003/attempt_1.typ:15:26\n   \u2502\n15 \u2502   &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \\\n   \u2502                           ^\n\nerror: unknown variable: GNN\n   \u250c\u2500 results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_equation_003/attempt_1.typ:15:28\n   \u2502\n15 \u2502   &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \\\n   \u2502                             ^^^\n   \u2502\n   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `G N N`\n   = hint: or if you meant to display this as text, try placing it in quotes: `\"GNN\"`\n--- end compiler output ---\n\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_equation_003",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

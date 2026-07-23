@@ -1,11 +1,14 @@
 # LaTeX Benchmark v0
 
-Built: 2026-07-13
+Built: 2026-07-22
 
-Accepted samples: 157
-Rejected generated or visual-corruption candidates: 20
+Accepted samples: 189 (157 base + 32 expansion)
+Rejected generated or visual-corruption base candidates: 20
 
-This is the first unified source-backed LaTeX benchmark directory. It keeps the 11 simple categories together and excludes references that compile but visibly render raw TeX/font macro fragments.
+This is the canonical source-backed LaTeX benchmark directory. It preserves
+the reviewed 157-sample base and imports all 32 accepted samples from the
+seven-set `dataset_expansion/` PR, including TikZ plots and full multi-file
+papers. Reference compilation protocol is recorded per sample.
 
 ## Accepted Categories
 
@@ -22,6 +25,13 @@ This is the first unified source-backed LaTeX benchmark directory. It keeps the 
 | `09_algorithms` | 12 |
 | `10_compact_papers` | 8 |
 | `11_forms_cv_letters` | 10 |
+| `i2s_equation` | 5 |
+| `i2s_table` | 5 |
+| `i2s_algorithm` | 5 |
+| `i2s_plot` | 5 |
+| `pubmed_table` | 5 |
+| `arxiv5t_paper` | 5 |
+| `neurips_paper` | 2 |
 
 ## Sources
 
@@ -31,33 +41,40 @@ This is the first unified source-backed LaTeX benchmark directory. It keeps the 
 | `TeX Live 2026` | 10 |
 | `piushorn/arxiv-latex-tables-43k` | 36 |
 | `scholarweave/arxiv-latex` | 66 |
-| `stanford-crfm/image2struct-latex-v1` | 12 |
+| `stanford-crfm/image2struct-latex-v1` (all configs) | 32 |
+| `deepcopy/pubmed-tables-latex-768px` | 5 |
+| `TIGER-Lab/arxiv-latex-5T` | 5 |
+| `Mithilss/neurips-2025-arxiv-latex-sources` | 2 |
 
 ## Page Distribution
 
 | Pages | Accepted |
 |---:|---:|
-| 1 | 102 |
-| 2 | 28 |
+| 1 | 117 |
+| 2 | 38 |
 | 3 | 27 |
+| 5 | 1 |
+| 8 | 1 |
+| 10 | 1 |
+| 11 | 2 |
+| 12 | 2 |
 
 ## Visual-Corruption Cleanup
 
 - `visual_corruption_cleanup.md`: samples removed from the accepted corpus after PDF review.
 - Rejected corrupted samples are retained under `rejected/<category>/<sample_id>/` for auditability.
 
-## Deferred Categories
-
-- `12_diagrams_plots_stress`: Deferred by design; TikZ/PGFPlots/diagram categories should be a later stress set, not the first simple benchmark.
-
 ## Rules Used
 
-- `pdflatex` only.
-- Accepted PDFs must be 1-3 pages.
-- All accepted samples have `main.tex`, `reference.pdf`, `compile.log`, and `provenance.json`.
-- Full arXiv papers are not compiled blind; this build extracts smaller self-contained snippets or metadata-backed wrappers.
-- Diagram-heavy categories are deferred to a later stress benchmark.
+- The original 157 references use pdfLaTeX and are 1–3 pages.
+- The 32 expansion references use Tectonic 0.16.9; the full-document protocol
+  accepts up to 12 pages and main sources up to 60,000 characters.
+- Accepted samples have `main.tex`, `reference.pdf`, `compile.log`, and
+  `provenance.json`; full-document samples also retain their source assets,
+  included TeX files, bibliography files, and class/style files.
 - References with visible raw TeX/font macro spill are rejected even when pdfLaTeX exits successfully.
+- The historical 30-document prompt-development and 127-document held-out
+  splits remain unchanged. Expansion samples live in `splits/expansion_32.csv`.
 
 ## Files
 
@@ -67,6 +84,7 @@ corpus/<category>/<sample_id>/
   reference.pdf
   compile.log
   provenance.json
+  ... optional full-document source assets
 
 rejected/<category>/<sample_id>/
   rejected candidates and visual-corruption rejects
@@ -80,7 +98,9 @@ previews/
   latex_benchmark_v0_preview.pdf
 ```
 
-The preview PDF contains one preview page per accepted data point. Multi-page references are tiled on that preview page.
+The preview PDF contains one preview page per accepted data point. Multi-page
+references are tiled on that preview page. The review-only preview is
+size-optimized after assembly; canonical `reference.pdf` files are untouched.
 
 The canonical provenance/review documents live in `results/latex_benchmark_v0/documents/`.
 
@@ -90,9 +110,14 @@ The accepted samples were converted with three deterministic LaTeX-to-Typst engi
 
 | Engine | Converted | Typst-compiled | Total |
 |---|---:|---:|---:|
-| `pandoc` | 157 | 151 | 157 |
-| `tylax` | 157 | 93 | 157 |
-| `typetex` | 157 | 149 | 157 |
+| `pandoc` | 188 | 178 | 189 |
+| `tylax` | 189 | 116 | 189 |
+| `typetex` | 188 | 172 | 189 |
+
+On the 32 expansion samples alone, Pandoc compiled 27, Tylax 23, and
+TypeTeX 23. Pandoc and TypeTeX produced source for 31/32; Tylax produced
+source for 32/32. The original base-slice compile counts remain 151, 93, and
+149 respectively.
 
 Engine artifacts:
 
@@ -122,9 +147,17 @@ The engine comparison PDF has one section per category and one page per sample. 
 ## Build Command
 
 ```bash
-mamba run -n lathe python scripts/dataset/build_all_categories_v0.py --out data/latex_benchmark_v0
+mamba run -n lathe python dataset_expansion/scripts/build_snippet_sets.py 5 --corpus <staging>/corpus
+env HF_HUB_DOWNLOAD_TIMEOUT=300 HF_XET_HIGH_PERFORMANCE=1 mamba run -n lathe python dataset_expansion/scripts/build_fulldoc_sets.py --n 5 --max-pages 12 --max-chars 60000 --scan 400 --neurips-shards 2 --corpus <staging>/corpus
+env HF_HUB_DOWNLOAD_TIMEOUT=300 HF_XET_HIGH_PERFORMANCE=1 mamba run -n lathe python dataset_expansion/scripts/rebuild_neurips_protocol.py --corpus <staging>/corpus
+mamba run -n lathe python scripts/dataset/merge_expansion_into_v0.py --expansion-corpus <staging>/corpus
+mamba run -n lathe python scripts/dataset/convert_all_v0_engines.py --split data/latex_benchmark_v0/splits/expansion_32.csv
 mamba run -n lathe python scripts/dataset/build_review_documents.py --dataset data/latex_benchmark_v0 --engine-dir results/latex_benchmark_v0
 ```
 
-The visual-corruption cleanup has already been applied to this dataset version.
-See `visual_corruption_cleanup.md` for the removed sample IDs and rationale.
+The recovery command pins the two NeurIPS papers by their PR #2 source IDs;
+the upstream Hugging Face dataset has since changed its parquet sharding.
+
+The visual-corruption cleanup remains applied to the base slice. See
+`visual_corruption_cleanup.md` for the removed base sample IDs and rationale,
+and `expansion_import.json` for the expansion protocol/import record.

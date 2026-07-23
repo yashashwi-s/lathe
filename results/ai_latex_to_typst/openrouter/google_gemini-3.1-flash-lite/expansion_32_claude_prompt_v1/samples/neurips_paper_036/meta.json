@@ -1,0 +1,112 @@
+{
+  "sample_id": "neurips_paper_036",
+  "category": "neurips_paper",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:53:35+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "unknown_symbol_or_function",
+  "reference_pages": 12,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 21303,
+  "completion_tokens": 3623,
+  "total_tokens": 24926,
+  "reported_cost_usd": 0.010760249999999999,
+  "estimated_cost_usd": 0.010760249999999999,
+  "accounted_cost_usd": 0.010760249999999999,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784732035-b7T4agr41zNf3HaNA1SS",
+  "source_path": "data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_036/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_036/reference.pdf",
+  "source_assets": [
+    "flashIPA_RNAflow_efficiency.pdf",
+    "flashPA_efficiency.pdf",
+    "foldflow_gen.png",
+    "frame.pdf",
+    "losses.png",
+    "pdb_distribution.pdf",
+    "rnasolodataset.pdf",
+    "scTM_length.pdf",
+    "train_frameflow.pdf"
+  ],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784732016-QD6GmBJZrEdayPbSGN6q",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 18.281,
+      "compile_seconds": 0.809,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 9457,
+        "completion_tokens": 2097,
+        "total_tokens": 11554,
+        "cost": 0.00550975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00550975,
+          "upstream_inference_prompt_cost": 0.00236425,
+          "upstream_inference_completions_cost": 0.0031455
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: unknown font family: linux libertine"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784732035-b7T4agr41zNf3HaNA1SS",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 6.321,
+      "compile_seconds": 0.872,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 11846,
+        "completion_tokens": 1526,
+        "total_tokens": 13372,
+        "cost": 0.0052505,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0052505,
+          "upstream_inference_prompt_cost": 0.0029615,
+          "upstream_inference_completions_cost": 0.002289
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: unknown font family: linux libertine o"
+    }
+  ],
+  "final_error_summary": "warning: unknown font family: linux libertine o",
+  "duration_seconds": 26.316,
+  "finished_at": "2026-07-22T14:54:02+00:00"
+}

@@ -1,0 +1,17 @@
+error: panicked with: "Failed to resolve coordinate: (31.05, 33.189750000000004)"
+    ┌─ @preview/cetz:0.3.1/src/coordinate.typ:300:4
+    │
+300 │     panic("Failed to resolve coordinate: " + repr(c))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `map`
+    ┌─ @preview/cetz:0.3.1/src/draw/shapes.typ:510:19
+    │
+510 │   let pts-system = pts.map(coordinate.resolve-system)
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `line`
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_plot_005/attempt_2.typ:25:6
+   │
+25 │       line((46*s, 49.17*s), (71*s, 47.17*s))
+   │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

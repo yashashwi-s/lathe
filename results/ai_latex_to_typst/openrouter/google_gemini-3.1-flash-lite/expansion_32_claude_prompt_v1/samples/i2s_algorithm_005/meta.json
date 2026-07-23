@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_algorithm_005",
+  "category": "i2s_algorithm",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:48:48+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "general_syntax",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 5317,
+  "completion_tokens": 2063,
+  "total_tokens": 7380,
+  "reported_cost_usd": 0.00442375,
+  "estimated_cost_usd": 0.00442375,
+  "accounted_cost_usd": 0.00442375,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731733-kY5HN4m4kSzdplG1Msyx",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_algorithm/i2s_algorithm_005/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_algorithm/i2s_algorithm_005/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731728-H09oNAS1xtyAZ6eXPbNQ",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.798,
+      "compile_seconds": 0.216,
+      "compile_ok": false,
+      "error_class": "reference_or_label",
+      "usage": {
+        "prompt_tokens": 1140,
+        "completion_tokens": 1020,
+        "total_tokens": 2160,
+        "cost": 0.001815,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001815,
+          "upstream_inference_prompt_cost": 0.000285,
+          "upstream_inference_completions_cost": 0.00153
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unclosed delimiter"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731733-kY5HN4m4kSzdplG1Msyx",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.034,
+      "compile_seconds": 0.224,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 4177,
+        "completion_tokens": 1043,
+        "total_tokens": 5220,
+        "cost": 0.00260875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00260875,
+          "upstream_inference_prompt_cost": 0.00104425,
+          "upstream_inference_completions_cost": 0.0015645
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unclosed delimiter"
+    }
+  ],
+  "final_error_summary": "error: unclosed delimiter",
+  "duration_seconds": 9.285,
+  "finished_at": "2026-07-22T14:48:57+00:00"
+}

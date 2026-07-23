@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731810-311fRGCOan5l0UBjkak1",
+  "object": "chat.completion",
+  "created": 1784731810,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"serif\", size: 11pt)\n\n#align(center)[\n  #text(size: 1.4em, weight: \"bold\")[Clinical Table Sample 1] \\\n  Dataset-expansion sample\n]\n\n#section(\"Patient Data\")\nThe table below is a medical-literature table reproduced verbatim from a PubMed-derived dataset.\n\n#let b(content) = text(weight: \"bold\", content)\n\n#table(\n  columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),\n  stroke: 0.5pt,\n  align: center + horizon,\n  table.header(\n    b[Year City], b[2001], b[2002], b[2003], b[2004], b[2005], b[2006], b[2007], b[Total]\n  ),\n  b[Kazerun], b[-], b[3], b[2], b[2], b[7], b[10], b[2], b[26],\n  \"Noor abad\", \"1\", \"1\", \"5\", \"5\", b[7], \"5\", b[-], b[24],\n  \"Lamerd\", \"1\", b[2], \"1\", b[-], \"9\", \"6\", \"1\", \"19\",\n  \"Darab\", \"1\", b[2], \"1\", \"1\", b[2], \"6\", \"1\", \"14\",\n  \"Khonj\", \"1\", b[-], b[2], b[-], b[3], \"6\", b[2], \"14\",\n  \"Fasa\", b[-], \"1\", b[2], b[-], b[2], b[2], b[-], b[7],\n  \"Gerash\", b[-], \"1\", \"1\", b[2], \"1\", b[2], b[-], b[7],\n  \"Firuzabad\", b[-], b[2], \"1\", b[-], b[-], \"1\", b[2], \"6\",\n  \"Maharlu\", \"1\", b[-], b[2], b[2], b[-], b[-], b[-], \"6\",\n  \"Abaadeh\", b[-], b[-], \"1\", b[-], \"1\", b[3], b[-], \"5\",\n  \"Lar\", \"1\", b[2], b[-], \"1\", b[-], b[-], b[-], \"4\",\n  \"Marvdasht\", b[-], \"1\", b[2], b[-], \"1\", b[-], b[-], \"4\",\n  \"Sarvestan\", b[-], b[-], b[3], \"1\", b[-], b[-], b[-], \"4\",\n  \"Bavanat\", b[-], b[-], b[-], b[-], b[3], \"1\", b[-], \"4\",\n  \"Abolhayat\", b[-], b[-], \"1\", \"1\", \"1\", b[-], b[-], b[3],\n  \"Dashte-arjan\", b[-], b[-], b[2], b[-], \"1\", b[-], b[-], b[3],\n  \"Eghlid\", b[-], b[-], b[-], b[-], b[-], b[-], b[3], b[3],\n  \"Khorambid\", b[-], b[-], b[-], b[2], \"1\", b[-], b[-], b[3],\n  \"Arsanjan\", b[-], b[-], b[-], b[-], b[2], b[-], b[-], b[2],\n  \"Sepidan\", b[-], \"1\", b[-], b[-], b[-], \"1\", b[-], b[2],\n  \"Zarghan\", b[2], b[-], b[-], b[-], b[-], b[-], b[-], b[2],\n  \"Saadat-Shahr\", b[-], \"1\", b[-], b[-], b[-], b[-], b[-], \"1\",\n  \"Polekhan\", b[-], \"1\", b[-], b[-], b[-], b[-], b[-], \"1\",\n  \"Sivande Jadid\", b[-], b[-], b[-], \"1\", b[-], b[-], b[-], \"1\",\n  \"Gardane Ghader Abad\", b[-], b[-], b[-], \"1\", b[-], b[-], b[-], \"1\",\n  \"Estahban\", b[-], b[-], b[-], \"1\", b[-], b[-], b[-], \"1\",\n  \"Fasa Entrance\", b[-], b[-], b[-], \"1\", b[-], b[-], b[-], \"1\",\n  \"Gardanea Shul\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"Ashkanan\", b[-], b[-], b[-], b[-], b[-], b[-], \"1\", \"1\",\n  \"Beyza\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"Neyriz\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"Evaz\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"yasuj\", b[-], b[-], b[-], b[-], \"1\", \"1\", b[-], b[2],\n  \"Sirjan\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"Gardane Bajgah\", b[-], b[-], b[-], b[-], \"1\", b[-], b[-], \"1\",\n  \"Ghalat mountains\", b[-], b[-], b[-], b[-], b[-], \"1\", b[-], \"1\",\n  \"Bushehr\", b[-], b[-], b[-], b[-], b[-], \"1\", \"1\", b[2],\n  \"Kuhe Derak\", b[-], b[-], b[-], b[-], b[-], \"1\", b[-], \"1\",\n  \"Golestan\", b[-], b[-], b[-], b[-], b[-], \"1\", b[-], \"1\",\n  \"Asalooye\", b[-], b[-], b[-], b[-], b[-], \"1\", b[-], \"1\",\n  \"Jahrom\", b[-], b[-], b[-], b[-], b[-], b[-], \"1\", \"1\",\n  \"Meydane Tarebar\", b[-], \"1\", b[-], b[-], b[-], b[-], b[-], \"1\",\n  \"Bid-Zard\", b[-], b[-], \"1\", b[-], b[-], b[-], b[-], \"1\",\n  b[Total], \"9\", \"19\", b[26], b[21], \"48\", \"48\", \"14\", \"185\"\n)\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+MS5AxyFTIT17s5ZTI+dHxM14Ryv74Z3Mp2aY5ys44WX7cBRE839pWyM05fyM=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2660,
+    "completion_tokens": 1671,
+    "total_tokens": 4331,
+    "cost": 0.0031715,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0031715,
+      "upstream_inference_prompt_cost": 0.000665,
+      "upstream_inference_completions_cost": 0.0025065
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

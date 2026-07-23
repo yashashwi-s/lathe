@@ -46,7 +46,7 @@ def write_manifest(run_dir: Path, records: list[dict]) -> None:
         "resolved_model", "response_id",
     ]
     with (run_dir / "run_manifest.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for record in records:
             writer.writerow({field: record.get(field, "") for field in fields})
@@ -150,12 +150,14 @@ def write_errors(run_dir: Path, records: list[dict]) -> None:
     fields = ["sample_id", "category", "complexity_band", "attempt", "error_class",
               "eventual_result", "summary", "log_path"]
     with (run_dir / "compilation_errors.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(failed_attempts)
     warning_fields = ["sample_id", "category", "attempt", "warning", "compile_ok", "log_path"]
     with (run_dir / "compilation_warnings.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=warning_fields)
+        writer = csv.DictWriter(
+            handle, fieldnames=warning_fields, lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(warning_rows)
 
@@ -183,12 +185,22 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
 
     config = json.loads((run_dir / "run_config.json").read_text()) if (run_dir / "run_config.json").exists() else {}
     expected_samples = int(config.get("split_count") or 33)
-    sample_scope = (
-        f"The {expected_samples} clean filtered samples are development data; "
-        "results here are not held-out benchmark claims."
-    )
+    split_path = str(config.get("split_path") or "")
+    if "expansion_32.csv" in split_path:
+        run_title = "AI LaTeX-to-Typst expansion evaluation"
+        sample_scope = (
+            f"These {expected_samples} dataset-expansion samples are a targeted "
+            "post-freeze evaluation; they are excluded from the historical "
+            "30-document prompt-development and 127-document held-out claims."
+        )
+    else:
+        run_title = "AI LaTeX-to-Typst prompt-development run"
+        sample_scope = (
+            f"The {expected_samples} clean filtered samples are development data; "
+            "results here are not held-out benchmark claims."
+        )
     lines = [
-        "# AI LaTeX-to-Typst prompt-development run",
+        f"# {run_title}",
         "",
         "This directory is a self-contained audit record for one prompt/model configuration.",
         sample_scope,
@@ -199,7 +211,12 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
         f"- Prompt: `{config.get('prompt_path', 'not recorded')}`",
         f"- Typst: `{config.get('typst_version', 'not recorded')}`",
         f"- Maximum repair attempts: {config.get('max_repairs', 1)}",
-        f"- Reference images supplied: no",
+        f"- Reference images supplied: "
+        f"{'yes' if config.get('reference_images_supplied') else 'no'}",
+        f"- Source graphics available during compile: "
+        f"{'yes' if config.get('source_assets_available_during_compile') else 'no'}",
+        f"- OpenRouter app attribution: "
+        f"`{(config.get('openrouter_app') or {}).get('title', 'not recorded')}`",
         "",
         "## Results",
         "",
@@ -234,7 +251,8 @@ def write_summary(run_dir: Path, records: list[dict]) -> None:
         "- `compilation_errors.md`: grouped final failure summaries.",
         "- `compilation_errors.csv`: every failed compile attempt in machine-readable form.",
         "- `compilation_warnings.csv`: every compiler warning occurrence.",
-        "- `analysis.md`: interpreted failure patterns and prompt-development recommendations.",
+        "- `analysis.md`: interpretation of this frozen run and its conditional PDF metrics.",
+        "- `metric_v2/gate_ladder.{md,csv,json}`: non-compensating correctness gates and independent drivers.",
         "- `system_prompt.txt`, `retry_prompt.txt`, and `split_manifest.csv`: exact run snapshots.",
         "- `samples/<sample_id>/`: raw responses, normalized Typst, compiler logs, PDFs, and metadata.",
         "",

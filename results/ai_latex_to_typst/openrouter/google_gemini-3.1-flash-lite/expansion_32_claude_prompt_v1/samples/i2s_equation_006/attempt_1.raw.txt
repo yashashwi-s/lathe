@@ -1,0 +1,26 @@
+```typst
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "serif")
+
+#align(center)[
+  #text(size: 1.44em, weight: "bold")[Equation Sample 6]
+  #parbreak()
+  #text(size: 1.2em)[Dataset-expansion sample]
+  #parbreak()
+]
+
+#heading(level: 1, numbering: none)[Derivation]
+
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+$
+&G_{c_p} (b,c_p) \
+&=
+- W^(-1) ( phi (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z + psi(b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z ), \
+&G_{b c_p} (b,c_p) \
+&= - W^(-1) ( phi' (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z \
+&quad + phi (b) psi(b,0) frac(partial, partial c_p) pi_1 (b, c_p) m'(b) \
+&quad + psi' (b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z - phi (b) psi(b,0) frac(partial, partial c_p) pi_1 (b, c_p) m'(b) ) \
+&= - W^(-1) ( phi' (b) integral_0^b psi(z,0) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z + psi' (b,0) integral_b^infinity phi(z) frac(partial, partial c_p) pi_1(z,c_p)m'(z) dif z ).
+$
+```

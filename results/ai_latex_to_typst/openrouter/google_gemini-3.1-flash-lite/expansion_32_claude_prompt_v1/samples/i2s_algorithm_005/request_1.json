@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\usepackage{algorithm}\n\\usepackage{algpseudocode}\n\\title{Algorithm Sample 5}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Procedure}\nThe pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{algorithmic}\n\\Function{Transport}{$\\bold{M}, \\boldsymbol{\\beta},\\bold{g}, \\Delta t$} \\Comment{Input moments, natural parameters, and gauge parameters for all cells}\n\\State $\\boldsymbol{\\beta}\\gets \\Call{NewtonOptimization}{\\bold{M},\\boldsymbol{\\beta}, \\boldsymbol{\\phi}(\\bold{u} ;\\mathbf{g})}$ \\Comment{Solve the natural parameters by Alg. \\ref{Newton method} in the gauge $\\mathbf{g}$}\n\\State $\\bold{F} \\gets \\Call{ComputeFluxes}{\\boldsymbol{\\beta}, \\boldsymbol{\\phi}(\\bold{u} ;\\mathbf{g})}$\\Comment{Compute fluxes of the statistics $\\boldsymbol{\\phi}(\\bold{u} ;\\mathbf{g})$ by \\eqref{The ME equation:subeq3} }\n\\State $\\bold{M}_{\\pm1}, \\bold{F}_{\\pm1} \\gets \\Call{SpatialGaugeTransformation}{\\bold{M}, \\bold{F}, \\bold{g}}$\\Comment{Perform gauge transformation as in \\eqref{The lax F convert} }\n\\State $\\bold{M} \\gets \\Call{FiniteVolumeStep}{\\bold{M}, \\bold{F},\\bold{M}_{\\pm1}, \\bold{F}_{\\pm1}, \\bold{g}, \\Delta t}$\\Comment{One step forward in time by \\eqref{The ME equation fvm 2} }\n\\State \\textbf{return} $\\bold{M}, \\boldsymbol{\\beta}, \\bold{g}$\n\\EndFunction\n\\Function{Collision}{$\\bold{M}, \\boldsymbol{\\beta},\\bold{g}, \\Delta t$} \\Comment{Input moments, natural parameters, and gauge parameters for all cells}\n\\State $\\bold{M} \\gets \\Call{SourceTerm}{\\bold{M}, \\bold{g}, \\Delta t}$\\Comment{Compute source term by operator splitting \\eqref{source update} }\n\\State \\textbf{return} $\\bold{M}, \\boldsymbol{\\beta}, \\bold{g}$\n\\EndFunction\n\\Function{Step}{$\\bold{M}, \\boldsymbol{\\beta},\\bold{g}$} \\Comment{Input moments, natural parameters, and gauge parameters for all cells}\n\\State $\\bold{M}, \\boldsymbol{\\beta}, \\bold{g} \\gets \\Call{Collision}{\\bold{M},\\boldsymbol{\\beta},\\bold{g}, \\Delta t/2}$\\Comment{Compute collision term by operator splitting}\n\\State $\\bold{M}, \\boldsymbol{\\beta}, \\bold{g} \\gets \\Call{Transport}{\\bold{M},\\boldsymbol{\\beta},\\bold{g}, \\Delta t}$\\Comment{Compute Transport term by operator splitting}\n\\State $\\bold{M}, \\boldsymbol{\\beta}, \\bold{g} \\gets \\Call{Collision}{\\bold{M},\\boldsymbol{\\beta},\\bold{g}, \\Delta t/2}$\\Comment{Compute collision term by operator splitting}\n\\State $\\bold{g}_H \\gets \\Call{ComputeGaugeParameters}{\\bold{M}, \\bold{g}}$\\Comment{Compute the Hermite gauge parameters by \\eqref{Hermite parameters in moments} }\n\\State $\\bold{M}_H,\\boldsymbol{\\beta}_H \\gets \\Call{GaugeTransformation}{\\bold{M}, \\boldsymbol{\\beta}, \\bold{g}_H, \\bold{g}}$\\Comment{Transform into the Hermite gauge using \\eqref{Change gauge M F} and \\eqref{Maximal Likelihood equation for Exponential Family Distributions: form transformation}}\n\\State \\textbf{return} $\\bold{M}_H, \\boldsymbol{\\beta}_H, \\bold{g}_H$\n\\EndFunction\n\\end{algorithmic}\n\n\\end{document}\n\n```\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_algorithm_005",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731614-OeVajw2Y5HXQDxdYZ0sA",
+  "object": "chat.completion",
+  "created": 1784731614,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"New Computer Modern\")\n\n#align(center)[\n  #text(size: 2em, weight: \"bold\")[Equation Sample 3]\n  #v(1em)\n  #text(size: 1.2em)[Dataset-expansion sample]\n  #v(1em)\n]\n\n#heading(level: 1)[Derivation]\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n  &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \\\n  =& integral_(tilde(x)) p (tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) p (tilde(x)) angle.l GNN_theta (tilde(x)), (nabla_(tilde(x)) p (tilde(x))) / (p (tilde(x))) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) p (tilde(x)) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) (integral_(x) p (tilde(x)|x)p(x) \"d\"x) angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), integral_(x) p(x) nabla_(tilde(x)) p (tilde(x)|x) \"d\"x angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) angle.l GNN_theta (tilde(x)), integral_(x) p (tilde(x)|x) p(x) nabla_(tilde(x)) log p (tilde(x)|x) \"d\"x angle.r \"d\"tilde(x) \\\n  =& integral_(tilde(x)) integral_(x) p (tilde(x)|x) p(x) angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) angle.r \"d\"x \"d\"tilde(x) \\\n  =& E_(p (tilde(x),x)) [ angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) angle.r ]\n$\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/oDgPkADeoipOB70RIvPmhfL/VF55W7diqeCs6e+jG5Xj1ks5CJ6cci7N2/yg=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 889,
+    "completion_tokens": 643,
+    "total_tokens": 1532,
+    "cost": 0.00118675,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00118675,
+      "upstream_inference_prompt_cost": 0.00022225,
+      "upstream_inference_completions_cost": 0.0009645
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

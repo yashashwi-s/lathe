@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_plot_001",
+  "category": "i2s_plot",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:49:09+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "other_compile_error",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 10444,
+  "completion_tokens": 2346,
+  "total_tokens": 12790,
+  "reported_cost_usd": 0.00613,
+  "estimated_cost_usd": 0.00613,
+  "accounted_cost_usd": 0.00613,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731755-SnyHPEEHiVKUN67E0VUl",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_plot/i2s_plot_001/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_plot/i2s_plot_001/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731749-CrbJwdaLJWuYSlMcPBek",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 5.424,
+      "compile_seconds": 0.212,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 4494,
+        "completion_tokens": 1164,
+        "total_tokens": 5658,
+        "cost": 0.0028695,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0028695,
+          "upstream_inference_prompt_cost": 0.0011235,
+          "upstream_inference_completions_cost": 0.001746
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "warning: unknown font family: computer modern"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731755-SnyHPEEHiVKUN67E0VUl",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 4.256,
+      "compile_seconds": 1.437,
+      "compile_ok": false,
+      "error_class": "other_compile_error",
+      "usage": {
+        "prompt_tokens": 5950,
+        "completion_tokens": 1182,
+        "total_tokens": 7132,
+        "cost": 0.0032605,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0032605,
+          "upstream_inference_prompt_cost": 0.0014875,
+          "upstream_inference_completions_cost": 0.001773
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "downloading @preview/cetz:0.3.1"
+    }
+  ],
+  "final_error_summary": "downloading @preview/cetz:0.3.1",
+  "duration_seconds": 11.352,
+  "finished_at": "2026-07-22T14:49:20+00:00"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731941-4OIPbnzkmePkeAQazbyg",
+  "object": "chat.completion",
+  "created": 1784731941,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: (left: 0.75in, right: 0.75in, top: 1in, bottom: 1in))\n#set text(font: \"Libertinus Serif\", size: 10pt)\n\n#align(center)[\n  #text(size: 18pt, weight: \"bold\")[Professional Network Matters: Connections Empower Person-Job Fit]\n  #v(1em)\n  #text(size: 12pt)[Hao Chen, et al.]\n]\n\n#v(1em)\n\n#heading(level: 1, numbering: none)[Abstract]\n#include \"src/0-abstract.tex\"\n\n#text(weight: \"bold\")[Keywords:] Person-Job Fit, Heterogeneous Information Network, Graph Neural Network\n\n#v(1em)\n\n#include \"src/1-introduction.tex\"\n#include \"src/2-relatedwork.tex\"\n#include \"src/3-method.tex\"\n#include \"src/4-experiment.tex\"\n#include \"src/5-conclusion.tex\"\n\n#pagebreak()\n#heading(level: 1, numbering: none)[Appendix]\n\n#bibliography(\"ref.bib\", style: \"ieee\")",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a18OO7bXPwJD3IGeOkITHxro+xDdxv+9MarbmoJOfywf2TqtUQzOFWRN5qnBemo=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1175,
+    "completion_tokens": 287,
+    "total_tokens": 1462,
+    "cost": 0.00072425,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00072425,
+      "upstream_inference_prompt_cost": 0.00029375,
+      "upstream_inference_completions_cost": 0.0004305
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,24 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "New Computer Modern")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Equation Sample 3]
+  #v(1em)
+  #text(size: 1.2em)[Dataset-expansion sample]
+  #v(1em)
+]
+
+#heading(level: 1)[Derivation]
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+$
+  &E_(p (tilde(x)))[chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) chevron.r] \
+  =& integral_(tilde(x)) p (tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) p (tilde(x)) chevron.l G N N_theta (tilde(x)), (nabla_(tilde(x)) p (tilde(x))) / (p (tilde(x))) chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) p (tilde(x)) chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) (integral_(x) p (tilde(x)|x)p(x) "d"x) chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), integral_(x) p(x) nabla_(tilde(x)) p (tilde(x)|x) "d"x chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) chevron.l G N N_theta (tilde(x)), integral_(x) p (tilde(x)|x) p(x) nabla_(tilde(x)) log p (tilde(x)|x) "d"x chevron.r "d"tilde(x) \
+  =& integral_(tilde(x)) integral_(x) p (tilde(x)|x) p(x) chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) chevron.r "d"x "d"tilde(x) \
+  =& E_(p (tilde(x),x)) [ chevron.l G N N_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)|x) chevron.r ]
+$

@@ -1,0 +1,20 @@
+downloading @preview/cetz:0.3.1
+ 72.5 KiB /  72.5 KiB (100 %)  72.5 KiB/s in 77.91 ms ETA: 0 s
+
+error: panicked with: "Failed to resolve coordinate: (328.41, 104.55)"
+    ┌─ @preview/cetz:0.3.1/src/coordinate.typ:300:4
+    │
+300 │     panic("Failed to resolve coordinate: " + repr(c))
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `map`
+    ┌─ @preview/cetz:0.3.1/src/draw/shapes.typ:510:19
+    │
+510 │   let pts-system = pts.map(coordinate.resolve-system)
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `line`
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_plot_001/attempt_2.typ:22:6
+   │
+22 │       line(..stroke_style, (328.41, 104.55), (514.77, 239.95))
+   │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\title{Equation Sample 5}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Derivation}\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{equation*}\n\\begin{aligned}\nv_{mn}^{x}\n&=\\langle m|v^{x}|n\\rangle\\\\\n&=\\delta_{mn}\\langle v^{x}\\rangle (\\frac{k_{x}}{\\rho})(-\\delta_{m,0}+\\delta_{m,1})\n+(1-\\delta_{mn})\\langle v^{x}\\rangle (\\frac{k_{z}}{\\rho}\\frac{k_{x}}{\\sqrt{k_{x}^{2}+k_{y}^{2}}}-i\\frac{k_{y}}{\\sqrt{k_{x}^{2}+k_{y}^{2}}})\\\\\n&=\\delta_{mn}\\langle v^{x}\\rangle ({\\rm sin}\\theta{\\rm cos}\\phi)(-\\delta_{m,0}+\\delta_{m,1})\n+(1-\\delta_{mn})\\langle v^{x}\\rangle ({\\rm cos}\\theta{\\rm cos}\\phi-i{\\rm sin}\\phi),\\\\\nv_{mn}^{y}\n&=\\delta_{mn}\\langle v^{y}\\rangle ({\\rm sin}\\theta{\\rm sin}\\phi)(-\\delta_{m,0}+\\delta_{m,1})\n+(1-\\delta_{mn})\\langle v^{y}\\rangle ({\\rm cos}\\theta{\\rm sin}\\phi-i{\\rm cos}\\phi),\\\\\nv_{mn}^{z}\n&=\\delta_{mn}\\langle v^{z}\\rangle {\\rm cos}\\theta(-\\delta_{m,0}+\\delta_{m,1})\n+(1-\\delta_{mn})\\langle v^{z}\\rangle \\frac{-{\\rm sin}\\theta}{\\rho},\\\\\n\\end{aligned}\n\\end{equation*}\n\n\\end{document}\n\n```\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_equation_005",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

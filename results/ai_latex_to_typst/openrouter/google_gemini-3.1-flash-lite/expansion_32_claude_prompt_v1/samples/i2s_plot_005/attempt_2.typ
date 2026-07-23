@@ -1,0 +1,85 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt)
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Plot Sample 5] \
+  #text(size: 1.2em)[Dataset-expansion sample] \
+  #v(1em)
+]
+
+= Visualization
+The figure below is a TikZ/pgfplots drawing drawn from a source-backed image-to-LaTeX benchmark.
+
+#figure(
+  {
+    import "@preview/cetz:0.3.1": canvas, draw
+    canvas({
+      import draw: *
+      set-style(stroke: 1.5pt)
+      
+      let s = 0.75 * 0.9
+      let color-blue = rgb("#064f61")
+      let color-red = rgb("#b6053c")
+      let color-dark-red = rgb("#6c0423")
+
+      line((46*s, 49.17*s), (71*s, 47.17*s))
+      line((71*s, 47.17*s), (96.5*s, 71.67*s))
+      line((81.72*s, 127.45*s), (95*s, 106.17*s))
+      line((96.5*s, 71.67*s), (125*s, 58.67*s))
+      line((108.72*s, 126.95*s), (95*s, 106.17*s))
+      line((96.5*s, 71.67*s), (95*s, 106.17*s))
+      
+      line((219.57*s, 50.17*s), (239.06*s, 62.77*s))
+      line((239.06*s, 62.77*s), (286.44*s, 62.77*s))
+      line((239.06*s, 62.77*s), (262.18*s, 106.61*s), stroke: color-red)
+      line((286.44*s, 62.77*s), (264.91*s, 106.57*s), stroke: color-red)
+      line((286.44*s, 62.77*s), (307.3*s, 51.04*s))
+      line((263.58*s, 109.26*s), (264*s, 131.96*s))
+      line((58*s, 24.67*s), (71*s, 47.17*s))
+      line((307.3*s, 51.04*s), (318*s, 33.67*s))
+      line((307.3*s, 51.04*s), (325*s, 59.67*s))
+      line((219.57*s, 50.17*s), (207*s, 33.17*s))
+      line((200.5*s, 55.17*s), (219.57*s, 50.17*s))
+      
+      line((420.57*s, 50.17*s), (440.06*s, 62.77*s))
+      line((440.06*s, 62.77*s), (487.44*s, 62.77*s))
+      line((440.06*s, 62.77*s), (463.18*s, 106.61*s), stroke: color-red)
+      line((487.44*s, 62.77*s), (465.91*s, 106.57*s), stroke: color-red)
+      line((487.44*s, 62.77*s), (508.3*s, 51.04*s))
+      line((464.58*s, 109.26*s), (465*s, 131.96*s))
+      line((420.57*s, 50.17*s), (408*s, 33.17*s))
+      line((401.5*s, 55.17*s), (420.57*s, 50.17*s))
+      line((465*s, 131.96*s), (448.5*s, 147.67*s))
+      line((465*s, 131.96*s), (480.5*s, 148.17*s))
+
+      content((30.33*s, 44.93*s), text(fill: color-blue, [$b_1$]))
+      content((69.74*s, 129.69*s), text(fill: color-blue, [$a_1$]))
+      content((128.24*s, 49.69*s), text(fill: color-blue, [$c$]))
+      content((105.24*s, 129.19*s), text(fill: color-blue, [$a_2$]))
+      content((99.8*s, 83.3*s), [$\ell_1$])
+      content((319.83*s, 20.22*s), text(fill: color-blue, [$b_1$]))
+      content((184.24*s, 48.98*s), text(fill: color-blue, [$a_1$]))
+      content((259.24*s, 133.98*s), text(fill: color-blue, [$c$]))
+      content((327*s, 53.07*s), text(fill: color-blue, [$b_2$]))
+      content((252.2*s, 74.99*s), text(fill: color-red, [$\gamma$]))
+      content((226.1*s, 41.29*s), [$\ell_1$])
+      content((293.8*s, 59.59*s), [$\ell_2$])
+      content((258.2*s, 49.99*s), [$x$])
+      content((41.33*s, 7.93*s), text(fill: color-blue, [$b_2$]))
+      content((82.8*s, 43.8*s), [$\ell_2$])
+      content((188.24*s, 22.48*s), text(fill: color-blue, [$a_2$]))
+      content((384.33*s, 45.72*s), text(fill: color-blue, [$b_1$]))
+      content((437.74*s, 150.48*s), text(fill: color-blue, [$a_1$]))
+      content((392*s, 16.57*s), text(fill: color-blue, [$b_2$]))
+      content((455.2*s, 74.99*s), text(fill: color-red, [$\gamma$]))
+      content((466.6*s, 114.29*s), [$\ell_1$])
+      content((428.3*s, 39.09*s), [$\ell_2$])
+      content((459.2*s, 47.99*s), [$x$])
+      content((476.24*s, 150.48*s), text(fill: color-blue, [$a_2$]))
+      content((511.24*s, 41.98*s), text(fill: color-blue, [$c$]))
+      content((481.8*s, 77.59*s), text(fill: color-dark-red, [$h_2$]))
+      content((433.3*s, 78.09*s), text(fill: color-dark-red, [$h_1$]))
+    })
+  },
+  caption: [Source-backed plot.]
+)

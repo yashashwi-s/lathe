@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_table_004",
+  "category": "i2s_table",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:47:30+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "general_syntax",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 8327,
+  "completion_tokens": 5444,
+  "total_tokens": 13771,
+  "reported_cost_usd": 0.01024775,
+  "estimated_cost_usd": 0.01024775,
+  "accounted_cost_usd": 0.01024775,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731659-RwH5qshMA6N0pKEC7Dgh",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_table/i2s_table_004/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_table/i2s_table_004/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731650-CPOQ2aI5fJ4S2x4rxaid",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 8.235,
+      "compile_seconds": 0.166,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 2685,
+        "completion_tokens": 2774,
+        "total_tokens": 5459,
+        "cost": 0.00483225,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00483225,
+          "upstream_inference_prompt_cost": 0.00067125,
+          "upstream_inference_completions_cost": 0.004161
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: section"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731659-RwH5qshMA6N0pKEC7Dgh",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 11.551,
+      "compile_seconds": 0.16,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 5642,
+        "completion_tokens": 2670,
+        "total_tokens": 8312,
+        "cost": 0.0054155,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0054155,
+          "upstream_inference_prompt_cost": 0.0014105,
+          "upstream_inference_completions_cost": 0.004005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected argument: offset"
+    }
+  ],
+  "final_error_summary": "error: unexpected argument: offset",
+  "duration_seconds": 20.123,
+  "finished_at": "2026-07-22T14:47:50+00:00"
+}

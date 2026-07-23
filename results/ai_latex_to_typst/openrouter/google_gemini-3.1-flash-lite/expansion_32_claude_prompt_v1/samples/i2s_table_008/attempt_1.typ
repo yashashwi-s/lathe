@@ -1,0 +1,68 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "serif", size: 11pt)
+
+#align(center)[
+  #text(size: 1.44em, weight: "bold")[Table Sample 8] \
+  Dataset-expansion sample \
+  #v(1em)
+]
+
+#section("Results")
+The table below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+#let cell(content, bold: false) = table.cell(
+  align: center + horizon,
+  if bold { strong(content) } else { content }
+)
+
+#let section_header(text_content) = table.cell(
+  colspan: 8,
+  align: left,
+  text_content
+)
+
+#figure(
+  caption: [Performance (IoU) of the methods evaluated on test sets for the Weizmann Horse dataset.],
+  table(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
+    stroke: 0.5pt,
+    align: center + horizon,
+    [Input IoU], [ASM], [DBM], [CDBM], [EBM], [U-Net], [Deeplabv3+], [MAE],
+    section_header([Salt and Pepper Noise]),
+    [0.5-0.6], [0.476], [0.677], [0.833], [0.881], cell([0.966], bold: true), [0.926], [0.963],
+    [0.6-0.7], [0.564], [0.704], [0.873], [0.883], cell([0.976], bold: true), [0.934], [0.973],
+    [0.7-0.8], [0.616], [0.717], [0.893], [0.887], cell([0.983], bold: true), [0.940], [0.982],
+    [0.8-0.9], [0.629], [0.724], [0.896], [0.893], [0.988], [0.944], cell([0.989], bold: true),
+    [0.9-1], [0.653], [0.720], [0.889], [0.895], [0.992], [0.941], cell([0.996], bold: true),
+    section_header([Circle Noise]),
+    [0.5-0.6], [0.558], [0.598], [0.588], [0.637], [0.818], [0.751], cell([0.848], bold: true),
+    [0.6-0.7], [0.600], [0.644], [0.657], [0.705], [0.865], [0.799], cell([0.888], bold: true),
+    [0.7-0.8], [0.645], [0.685], [0.723], [0.767], [0.897], [0.833], cell([0.914], bold: true),
+    [0.8-0.9], [0.667], [0.714], [0.797], [0.824], [0.913], [0.865], cell([0.930], bold: true),
+    [0.9-1], [0.667], [0.726], [0.882], [0.884], [0.952], [0.915], cell([0.963], bold: true),
+    section_header([Real Image Noise]),
+    [0.5-0.6], [0.492], [0.648], [0.660], [0.805], [0.933], [0.868], cell([0.942], bold: true),
+    [0.6-0.7], [0.565], [0.683], [0.730], [0.843], [0.954], [0.890], cell([0.963], bold: true),
+    [0.7-0.8], [0.625], [0.710], [0.790], [0.869], [0.970], [0.910], cell([0.978], bold: true),
+    [0.8-0.9], [0.644], [0.718], [0.839], [0.886], [0.980], [0.922], cell([0.987], bold: true),
+    [0.9-1], [0.657], [0.721], [0.881], [0.895], [0.990], [0.934], cell([0.995], bold: true),
+    section_header([Occlusion Noise]),
+    [0.5-0.6], [0.285], [0.636], [0.630], [0.706], cell([0.849], bold: true), [0.793], cell([0.852], bold: true),
+    [0.6-0.7], [0.361], [0.655], [0.670], [0.734], cell([0.875], bold: true), [0.815], cell([0.874], bold: true),
+    [0.7-0.8], [0.467], [0.665], [0.715], [0.761], cell([0.885], bold: true), [0.829], cell([0.886], bold: true),
+    [0.8-0.9], [0.559], [0.687], [0.775], [0.801], [0.909], [0.853], cell([0.914], bold: true),
+    [0.9-1], [0.643], [0.715], [0.858], [0.870], cell([0.961], bold: true), [0.905], cell([0.964], bold: true),
+    section_header([Thresholded Probability Noise]),
+    [0.5-0.6], [0.438], [0.623], [0.640], [0.719], [0.839], [0.788], cell([0.845], bold: true),
+    [0.6-0.7], [0.507], [0.664], [0.712], [0.776], [0.865], [0.813], cell([0.868], bold: true),
+    [0.7-0.8], [0.577], [0.701], [0.773], [0.823], [0.888], [0.846], cell([0.893], bold: true),
+    [0.8-0.9], [0.622], [0.714], [0.822], [0.857], [0.915], [0.884], cell([0.917], bold: true),
+    [0.9-1], [0.674], [0.732], [0.863], [0.884], [0.939], [0.905], cell([0.941], bold: true),
+    section_header([Detection Image Noise]),
+    [0.5-0.6], [0.288], [0.632], [0.617], [0.728], cell([0.833], bold: true), [0.749], cell([0.812], bold: true),
+    [0.6-0.7], [0.486], [0.673], [0.656], [0.743], cell([0.797], bold: true), [0.743], cell([0.803], bold: true),
+    [0.7-0.8], [0.621], [0.672], [0.728], [0.778], cell([0.805], bold: true), [0.786], cell([0.822], bold: true),
+    [0.8-0.9], [0.639], [0.701], [0.810], [0.843], cell([0.878], bold: true), [0.856], cell([0.878], bold: true),
+    [0.9-1], [0.638], [0.742], [0.869], [0.886], cell([0.930], bold: true), [0.911], cell([0.931], bold: true),
+  )
+)

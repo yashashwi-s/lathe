@@ -1,0 +1,50 @@
+COMMAND:
+pandoc -f latex -t typst --lua-filter /Users/yashashwisinghania/lathe/scripts/dataset/typetex_filter.lua --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_019 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_019/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_019/typetex.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+warning: `times.circle` is deprecated, use `times.o` instead
+   ┌─ @preview/mitex:0.2.4/mitex.typ:28:22
+   │
+28 │   let eval-res = eval("$" + res + "$", scope: mitex-scope)
+   │                       ^^^^^^^^^^^^^^^
+
+error: plugin errored with: error: unknown environment: \eqnarray
+   ┌─ @preview/mitex:0.2.4/mitex.typ:19:8
+   │
+19 │     str(mitex-wasm.convert_math(bytes(get-elem-text(it)), spec))
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex-convert`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:27:12
+   │
+27 │   let res = mitex-convert(mode: "math", it)
+   │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mimath`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:40:4
+   │
+40 │     mimath(it, ..args)
+   │     ^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex`
+   ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_019/typetex.typ:51:3
+   │  
+51 │   $ #mitex(`\begin{eqnarray}
+   │ ╭────^
+52 │ │ I_n(\rho) &=& \sum^n_{k=1} S(\rho_{\overline{k}}) - (n-1) S(\rho) \nonumber \\
+53 │ │ %&=& \sum^n_{k=1} S(\rho_{\overline{k}}) + \sum^n_{k=1} S(\rho_{k}) - n S(\rho) +S(\rho) - \sum^n_{k=1} S(\rho_{k}) \nonumber \\
+54 │ │ &=& \sum^n_{k=1} \big(S(\rho_{k}) + S(\rho_{\overline{k}}) - S(\rho) \big) - \big(\sum^n_{k=1} S(\rho_{k}) - S(\rho) \big) \nonumber \\
+   · │
+59 │ │ &=& S(\rho^{\otimes (n-1)} || \otimes^n_{k=1} \rho_{\overline{k}}) = J_n(\rho), 
+60 │ │ \end{eqnarray}`) $ where quantum relative entropy in Eq. ([qmi1]) and Eq.
+   │ ╰────────────────^
+
