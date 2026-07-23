@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731783-rCnGi0SEou7gUybpTxJ0",
+  "object": "chat.completion",
+  "created": 1784731783,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt)\n\n#align(center)[\n  #text(size: 1.44em, weight: \"bold\")[Plot Sample 4] \\\n  Dataset-expansion sample\n]\n\n#section(\"Visualization\")\nThe figure below is a TikZ/pgfplots drawing drawn from a source-backed image-to-LaTeX benchmark.\n\n#figure(\n  canvas(length: 0.75pt, {\n    import draw: *\n    \n    // Helper for arrowheads\n    let arrow_head = (fill: black) => {\n      polygon((8.93, -4.29), (0, 0), (8.93, 4.29), fill: fill, stroke: none)\n    }\n\n    // Drawing lines\n    line((73, 178), (107.5, 133.37), mark: (end: arrow_head()))\n    line((73, 178), (107.52, 223.61), mark: (end: arrow_head()))\n    line((207, 225), (240.33, 225), mark: (end: arrow_head()))\n    line((207, 132), (240.33, 132), mark: (end: arrow_head()))\n    \n    // Blue box\n    rect((345.33, 108), (435.33, 246), radius: 10pt, fill: rgb(74, 144, 226, 84))\n    \n    line((308, 226), (341.29, 226.26), mark: (end: arrow_head()))\n    line((308, 133), (341.29, 133.26), mark: (end: arrow_head()))\n    line((345.33, 160), (435.33, 160))\n    line((345.33, 193), (435.33, 193))\n    line((437, 225), (470.33, 225), mark: (end: arrow_head()))\n    line((437, 132), (470.33, 132), mark: (end: arrow_head()))\n    \n    // Dashed lines\n    let gray = rgb(128, 128, 128)\n    line((308, 177), (341.29, 177.26), stroke: (dash: \"dashed\", paint: gray), mark: (end: arrow_head(fill: gray)))\n    line((160.29, 154.86), (185.89, 174.19), stroke: (dash: \"dashed\", paint: gray), mark: (end: arrow_head(fill: gray)))\n    line((160.29, 199.86), (186, 177.95), stroke: (dash: \"dashed\", paint: gray), mark: (end: arrow_head(fill: gray)))\n    rect((190, 165), (307, 189), stroke: (dash: \"dashed\", paint: gray))\n\n    // Text nodes\n    content((25, 68), $t=1$)\n    rect((-15, 155), (72, 200))\n    content((38.5, 177.5), align(center)[passive LPs\\ndeposit])\n    \n    rect((110, 108), (206, 153))\n    content((158, 130.5), align(center)[informed\\ntrader arrives])\n    \n    rect((110, 201), (206, 246))\n    content((158, 223.5), align(center)[uninformed\\ntrader arrives])\n    \n    rect((244, 201), (307, 246))\n    content((275.5, 223.5), align(center)[JIT LP\\ndeposits])\n    \n    content((390.33, 126), align(center)[#text(size: 0.8em)[JIT LP\\ndeposits]])\n    content((382.5, 224), align(center)[#text(size: 0.8em)[JIT LP\\nwithdraws]])\n    content((390.5, 176.5), align(center)[swap])\n    \n    rect((244, 108), (307, 153))\n    content((275.5, 130.5), align(center)[JIT LP\\ndeposits])\n    \n    rect((474, 108), (529, 153))\n    content((501.5, 130.5), align(center)[price\\nshock])\n    \n    rect((474, 201), (531, 246))\n    content((502.5, 223.5), align(center)[reverse\\ntrade])\n    \n    content((139, 68), $t=2$)\n    content((257, 68), $t=3$)\n    content((372, 68), $t=4$)\n    content((483, 68), $t=5$)\n    content((248.5, 177), align(center)[#text(size: 0.8em, fill: gray)[to public mempool]])\n  }),\n  caption: [Source-backed plot.]\n)\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19RReJUqvjYK+o7ssoLK9PVbzc3thNG/Db9f94q+zbe9BOJwpD+gn6LZux9fhw=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3979,
+    "completion_tokens": 1462,
+    "total_tokens": 5441,
+    "cost": 0.00318775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00318775,
+      "upstream_inference_prompt_cost": 0.00099475,
+      "upstream_inference_completions_cost": 0.002193
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

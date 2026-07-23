@@ -1,10 +1,11 @@
 # dataset_expansion — benchmarking candidate HF datasets for fit/difficulty
 
-Scratch experiment (sibling of `harness_baseline/`, outside the `lathe/`
-repo). Goal: measure how hard candidate HF datasets are relative to the
-current lathe benchmark, using a cheap 1-turn sonnet (low effort) baseline —
-the same prompt/scoring as `harness_baseline/run_oneturn.py` — so a later
-rerun with the best opus harness is directly comparable.
+This directory preserves the PR #2 dataset-expansion experiment. Its 32
+accepted samples are also imported into `data/latex_benchmark_v0/` as the
+canonical expansion slice; this directory remains the source experiment and
+audit record. The original goal was to measure candidate HF datasets relative
+to the 157-sample base using the same cheap 1-turn Sonnet baseline and scoring
+as `harness_baseline/run_oneturn.py`.
 
 ## Sample sets (`corpus/<set>/<sample_id>/{main.tex, reference.pdf, provenance.json}`)
 
@@ -42,11 +43,12 @@ Reference rows for comparison (not in `corpus/`):
 
 ## Scripts
 
-- `scripts/build_snippet_sets.py [n]` — build the five snippet sets.
-- `scripts/build_fulldoc_sets.py --n N --max-pages P [--only arxiv5t|neurips]`
-- `scripts/run_baseline.py --set <set> | --lathe <ids...>` — 1-turn runs
-  (idempotent per run dir; use lathe env python: `~/mamba/envs/lathe/bin/python`).
-- `scripts/make_results.py` — aggregate `runs/*/summary.json` → `RESULTS.md`.
+- `mamba run -n lathe python dataset_expansion/scripts/build_snippet_sets.py 5 --corpus <staging>/corpus` — build the five snippet sets.
+- `env HF_HUB_DOWNLOAD_TIMEOUT=300 HF_XET_HIGH_PERFORMANCE=1 mamba run -n lathe python dataset_expansion/scripts/build_fulldoc_sets.py --n 5 --max-pages 12 --max-chars 60000 --scan 400 --neurips-shards 2 --corpus <staging>/corpus`
+- `env HF_HUB_DOWNLOAD_TIMEOUT=300 HF_XET_HIGH_PERFORMANCE=1 mamba run -n lathe python dataset_expansion/scripts/rebuild_neurips_protocol.py --corpus <staging>/corpus` — restore the two PR #2 NeurIPS papers by stable arXiv ID after upstream parquet re-sharding.
+- `mamba run -n lathe python scripts/dataset/merge_expansion_into_v0.py --expansion-corpus <staging>/corpus` — validate and import the accepted trees into the canonical corpus.
+- `mamba run -n lathe python dataset_expansion/scripts/run_baseline.py --set <set> | --lathe <ids...>` — historical 1-turn runs (idempotent per run directory).
+- `mamba run -n lathe python dataset_expansion/scripts/make_results.py` — aggregate `runs/*/summary.json` into `RESULTS.md`.
 
 Scoring: official `lathe/scripts/evaluation/compare_pdfs.py` +
 `harness_baseline/raster_v2.py` recombination (raster_v0.2).

@@ -1,0 +1,32 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "serif")
+
+#align(center, [
+  #text(size: 1.44em, weight: "bold")[Equation Sample 4] \
+  #text(size: 1.2em)[Dataset-expansion sample] \
+  #text(size: 1em)[]
+])
+
+= Derivation
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+$
+  #set align(left)
+  #let sub(cond) = $limits(x) in cal(D), #cond$
+  #let int_sub(cond, body) = $integral_limits(sub(cond)) body dif mu(x)$
+  
+  #block(spacing: 1.5em, [
+    $
+    &||f||_(1_mu) + ||g||_(1_mu) \
+    &quad = integral_limits(x in cal(D)) (|f(x)| + |g(x)|) dif mu(x) \
+    &quad = + int_sub($f(x) >= 0, g(x) >= 0$, $f(x) + g(x)$) \
+    &quad quad - int_sub($f(x) < 0, g(x) < 0$, $f(x) + g(x)$) \
+    &quad quad + int_sub($f(x) >= 0, g(x) < 0$, $f(x) - g(x)$) \
+    &quad quad + int_sub($f(x) < 0, g(x) >= 0$, $g(x) - f(x)$) \
+    &quad = + int_sub($f(x) >= 0, g(x) >= 0$, $max(f(x), g(x)) + min(f(x), g(x))$) \
+    &quad quad - int_sub($f(x) < 0, g(x) < 0$, $max(f(x), g(x)) + min(f(x), g(x))$) \
+    &quad quad + int_sub($f(x) >= 0, g(x) < 0$, $max(f(x), g(x)) - min(f(x), g(x))$) \
+    &quad quad + int_sub($f(x) < 0, g(x) >= 0$, $max(f(x), g(x)) - min(f(x), g(x))$) dot.op
+    $
+  ])
+$

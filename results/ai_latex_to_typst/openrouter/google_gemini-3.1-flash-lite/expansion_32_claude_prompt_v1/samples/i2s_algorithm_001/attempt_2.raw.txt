@@ -1,0 +1,60 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "linux libertine")
+
+#align(center)[
+  #text(size: 1.44em, weight: "bold")[Algorithm Sample 1] \
+  #text(size: 1.2em)[Dataset-expansion sample]
+]
+
+#heading(level: 1, numbering: none)[Procedure]
+The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+#let step(n, body) = {
+  block(spacing: 1em)[
+    #grid(columns: (auto, 1fr), column-gutter: 0.5em,
+      [#n.],
+      body
+    )
+  ]
+}
+
+#step("1", [
+  For $beta in (1, 3/2)$ set $epsilon = 3/2 - beta$ and $T = L^(2(1-epsilon))$. For $i=1, dots, d$, solve for the approximate first-order corrector $phi_(i,T)^((L))$:
+  $ 1/T phi_(i,T)^((L)) - nabla dot a nabla phi_(i,T)^((L)) = nabla dot a e_i quad "in" Q_(2L), hspace(0.3in) phi_(i,T)^((L)) = 0 quad "on" partial Q_(2L). $
+])
+
+#step("2", [
+  Calculate the approximate homogenized coefficients via $ a_h^((L)) e_i = integral omega q_(i,T)^((L)), $ where $ q_(i,T)^((L)) := a(e_i + nabla phi_(i,T)^((L))) $ and $omega(x) = 1/L^d hat(omega)(x/L)$ with $hat(omega)$ as in Theorem #text(style: "italic")[thm:luottooptimal].
+])
+
+#step("3", [
+  Find $tilde(u)_h^((L))$ on $partial Q_L$:
+  $ tilde(u)_h^((L)) = integral G_h^((L)) * (nabla dot g), $ where $G_h^((L))(x) := 1/(4 pi |(a_h^((L)))^(-1/2) x|)$ is the Green function for the constant-coefficient operator $-nabla dot a_h^((L)) nabla$.
+])
+
+#step("4", [
+  Solve for approximate first-order flux correctors $sigma_(i,T)^((L)) = {sigma_(ijk,T)^((L))}_(j,k)$:
+  $ 1/T sigma_(ijk,T)^((L)) - Delta sigma_(ijk,T)^((L)) = partial_j q_(ik,T)^((L)) - partial_k q_(ij,T)^((L)) quad "in" Q_(7/4 L), hspace(0.3in) sigma_(ijk,T)^((L)) = 0 quad "on" partial Q_(7/4 L). $
+])
+
+#step("5", [
+  Solve for approximate second-order correctors $psi_(ij,T)^((L))$:
+  $ 1/T psi_(ij,T)^((L)) - nabla dot a nabla psi_(ij,T)^((L)) = nabla dot (phi_(i,T)^((L)) a - sigma_(i,T)^((L))) e_j quad "in" Q_(3/2 L), hspace(0.3in) psi_(ij,T)^((L)) = 0 quad "on" partial Q_(3/2 L). $
+])
+
+#step("6", [
+  For the indices $ (i,j) in cal(J) = {(1,2), (1,3), (2,3), (2,2), (3,3)}, $ calculate
+  $ c_(ij,T)^((L)) = -integral g dot nabla (sum_(k=1)^3 phi_(k,T)^((L)) partial_k v_(h,ij)^((L)) + (2 - delta_(ij)) (psi_(ij,T)^((L)) - (a_(hij)^((L)))/(a_(h11)^((L))) psi_(11,T)^((L)))), $
+  where $v_(h,ij)^((L))$ denote the $a_h^((L))$-harmonic polynomials
+  $ v_(h,ij)^((L)) = (1 - 1/2 delta_(ij)) (x_i x_j - (a_(hij)^((L)))/(a_(h11)^((L))) x_1^2). $
+])
+
+#step("7", [
+  Obtain $u_h^((L))$ as
+  $ u_h^((L)) = tilde(u)_h^((L)) + sum_(i=1)^3 (integral g dot nabla phi_(i,T)^((L))) partial_i G_h^((L)) + sum_((i,j) in cal(J)) c_(ij,T)^((L)) partial_(ij) G_h^((L)). $
+])
+
+#step("8", [
+  Solve for $u^((L))$ (here and for the rest of the paper we adopt Einstein's summation convention for repeated indices):
+  $ -nabla dot a nabla u^((L)) = nabla dot g quad "in" Q_L, hspace(0.3in) u^((L)) = (1 + phi_(i,T)^((L)) partial_i + psi_(ij,T)^((L)) partial_(ij)) u_h^((L)) quad "on" partial Q_L. $
+])

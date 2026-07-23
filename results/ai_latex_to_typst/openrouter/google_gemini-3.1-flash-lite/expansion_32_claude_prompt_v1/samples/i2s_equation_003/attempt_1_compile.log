@@ -1,0 +1,14 @@
+warning: `angle.l` is deprecated, use `chevron.l` instead
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_equation_003/attempt_1.typ:15:26
+   │
+15 │   &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \
+   │                           ^
+
+error: unknown variable: GNN
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_equation_003/attempt_1.typ:15:28
+   │
+15 │   &E_(p (tilde(x)))[angle.l GNN_theta (tilde(x)), nabla_(tilde(x)) log p (tilde(x)) angle.r] \
+   │                             ^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `G N N`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"GNN"`

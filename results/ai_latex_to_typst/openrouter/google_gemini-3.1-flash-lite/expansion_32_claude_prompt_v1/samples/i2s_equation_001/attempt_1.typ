@@ -1,0 +1,24 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(size: 11pt, font: "serif")
+
+#align(center, [
+  #text(size: 1.44em, weight: "bold")[Equation Sample 1] \
+  Dataset-expansion sample
+])
+
+#v(1em)
+
+= Derivation
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+$
+& alpha_3 \
+& quad op("overset")(" (i) ") <= sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) sqrt(frac(C_("clipped")^star log(N/delta), N min(d^(mu^star, nu_0)(s, a, nu_0(s); rho), 1/(S(A+B)))) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& <= sqrt(frac(C_("clipped")^star log(N/delta), N)) sum_(s in cal(S), a in cal(A)) sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& quad + sqrt(frac(C_("clipped")^star S(A+B) log(N/delta), N)) sum_(s in cal(S), a in cal(A)) sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho)) dot sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& quad op("overset")(" (ii) ") <= sqrt(frac(C_("clipped")^star, N) log(N/delta)) dot sqrt(S A) dot sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& quad + sqrt(frac(C_("clipped")^star S(A+B) log(N/delta), N)) [sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho)] sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& <= 2 sqrt(frac(C_("clipped")^star S(A+B) log(N/delta), N)) sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op("Var")_(P_(s, a, nu_0(s)))(V_("pe")^-)) \
+& quad op("overset")(" (iii) ") = 2 sqrt(frac(C_("clipped")^star S(A+B), N) log(N/delta)) sqrt(sum_(s in cal(S)) d^(mu^star, nu_0)(s; rho) limits(op(bb(E)))_(a tilde mu^star(s), b tilde nu_0(s)) [op("Var")_(P_(s, a, b))(V_("pe")^-)]) \
+& quad op("overset")(" (iv) ") <= 2 sqrt(frac(C_("clipped")^star S(A+B), N) log(N/delta)) sqrt(sum_(s in cal(S)) d^(mu^star, nu_0)(s; rho) op("Var")_(P_s^(mu^star, nu_0))(V_("pe")^-))
+$

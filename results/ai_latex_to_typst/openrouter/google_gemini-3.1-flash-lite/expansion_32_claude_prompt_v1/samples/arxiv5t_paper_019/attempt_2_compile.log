@@ -1,0 +1,20 @@
+warning: `times.circle` is deprecated, use `times.o` instead
+  ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/arxiv5t_paper_019/attempt_2.typ:8:24
+  │
+8 │ #let otimes = sym.times.circle
+  │                         ^^^^^^
+
+warning: `times.circle` is deprecated, use `times.o` instead
+  ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/arxiv5t_paper_019/attempt_2.typ:9:27
+  │
+9 │ #let bigotimes = sym.times.circle.big
+  │                            ^^^^^^
+
+error: unknown variable: supp
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/arxiv5t_paper_019/attempt_2.typ:44:50
+   │
+44 │    "tr" (tau log tau) - "tr" (tau log sigma) "if" supp(tau) subset.eq supp(sigma),
+   │                                                   ^^^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `s u p p`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"supp"`

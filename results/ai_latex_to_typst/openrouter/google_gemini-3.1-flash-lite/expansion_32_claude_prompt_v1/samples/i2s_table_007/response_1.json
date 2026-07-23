@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731677-X5fPI6HhdrtbdtrphKVT",
+  "object": "chat.completion",
+  "created": 1784731677,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center)[\n  #text(size: 1.44em, weight: \"bold\")[Table Sample 7] \\\n  #text(size: 1.2em)[Dataset-expansion sample] \\\n  #v(1em)\n]\n\n#section[Results]\nThe table below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n#figure(\n  caption: [\n    #text(size: 0.85em)[Timing results for option pricing.]\n  ],\n  placement: bottom,\n  table(\n    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto),\n    stroke: none,\n    inset: (x: 2pt, y: 4pt),\n    align: center + horizon,\n    \n    table.hline(y: 0, stroke: 0.8pt),\n    table.hline(y: 1, stroke: 0.8pt),\n    \n    [], colspan(3)[Fx Asian call (Set I)], [], colspan(3)[Fx Asian put (Set II)], [], colspan(3)[Fx-Fl Asian call (Set III)],\n    \n    [], [$N_(\"paths\")$], [time], [speed-up], [], [$N_(\"paths\")$], [time], [speed-up], [], [$N_(\"paths\")$], [time], [speed-up],\n    \n    table.hline(y: 2, start: 1, end: 3),\n    table.hline(y: 2, start: 5, end: 7),\n    table.hline(y: 2, start: 9, end: 11),\n    \n    [MC], [$10^5$], [1951 ms], [-], [MC], [$10^5$], [3134 ms], [-], [MC], [$10^5$], [1996 ms], [-],\n    [SC], [$10^5$], [24 ms], [81], [SC], [$10^5$], [29 ms], [107], [SC], [$10^5$], [69 ms], [29],\n    [SA], [-], [15 ms], [130], [SA], [-], [16 ms], [196], [-], [-], [-], [-],\n    \n    table.hline(y: 6, start: 1, end: 3),\n    table.hline(y: 6, start: 5, end: 7),\n    table.hline(y: 6, start: 9, end: 11),\n    \n    [MC], [$2 times 10^5$], [3905 ms], [-], [MC], [$2 times 10^5$], [6386 ms], [-], [MC], [$5 times 10^4$], [953 ms], [-],\n    [SC], [$2 times 10^5$], [58 ms], [68], [SC], [$2 times 10^5$], [55 ms], [116], [SC], [$5 times 10^4$], [43 ms], [22],\n    [SA], [-], [15 ms], [263], [SA], [-], [15 ms], [440], [-], [-], [-], [-],\n  )\n)\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a190Y4j7b7SWJRh3JKvxZM5RkAAdKKx6p277v/9AoE1a05UJH1Ap1QzUc1s3pVU=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1496,
+    "completion_tokens": 844,
+    "total_tokens": 2340,
+    "cost": 0.00164,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00164,
+      "upstream_inference_prompt_cost": 0.000374,
+      "upstream_inference_completions_cost": 0.001266
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

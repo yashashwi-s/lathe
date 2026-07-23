@@ -1,0 +1,14 @@
+warning: unknown font family: linux libertine o
+  ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/neurips_paper_036/attempt_2.typ:2:16
+  │
+2 │ #set text(font: "Linux Libertine O", size: 10pt)
+  │                 ^^^^^^^^^^^^^^^^^^^
+
+error: unknown variable: SE
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/neurips_paper_036/attempt_2.typ:28:49
+   │
+28 │ The advantage of IPA is its roto-translational ($SE(3)$) invariant representation of the molecular structure. IPA's quadratic scaling ($O(L^2)$) limits its scalability, rapidly exhausting GPU memory when modeling longer biomolecules. In this work, we propose a recasting of the original IPA algorithm to a simple attention form to leverage off-the shelf I/O reduction methods like FlashAttention, which replace the quadratic $O(L^2)$ with an effective linear $O(L)$ scaling behavior.
+   │                                                  ^^
+   │
+   = hint: if you meant to display multiple letters as is, try adding spaces between each letter: `S E`
+   = hint: or if you meant to display this as text, try placing it in quotes: `"SE"`

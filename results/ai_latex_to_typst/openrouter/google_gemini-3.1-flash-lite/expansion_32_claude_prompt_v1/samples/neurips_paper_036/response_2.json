@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784732035-b7T4agr41zNf3HaNA1SS",
+  "object": "chat.completion",
+  "created": 1784732035,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"Linux Libertine O\", size: 10pt)\n#set par(justify: true)\n\n#align(center)[\n  #text(size: 18pt, weight: \"bold\")[Flash Invariant Point Attention]\n  #v(1em)\n  #text(size: 12pt)[\n    Andrew Liu, Axel Elaldi, Nicholas T. Franklin, Nathan Russell, \\\n    Gurinder S. Atwal, Yih-En A. Ban & Olivia Viessmann \\\n    #v(1em)\n    Flagship Pioneering \\\n    55 Cambridge Parkway, \\\n    Cambridge, MA 02142, United States\n  ]\n]\n\n#v(2em)\n\n#block(inset: (x: 2em))[\n  #text(weight: \"bold\")[Abstract] \\\n  Invariant Point Attention (IPA) is a key algorithm for geometry-aware modeling in structural biology, central to many protein and RNA models. However, its quadratic complexity limits the input sequence length. We introduce FlashIPA, a factorized reformulation of IPA that leverages hardware-efficient FlashAttention to achieve linear scaling in GPU memory and wall-clock time with sequence length. FlashIPA matches or exceeds standard IPA performance while substantially reducing computational costs. FlashIPA extends training to previously unattainable lengths, and we demonstrate this by re-training generative models without length restrictions and generating structures of thousands of residues. FlashIPA is available at #link(\"https://github.com/flagshippioneering/flash_ipa\").\n]\n\n= Introduction\nInvariant Point Attention, IPA, is a geometry-aware attention operation that has been the workhorse of generative structural design models for proteins and RNA, initially popularized by Alphafold2 (Jumper et al., 2021) and AlphaFold-Multimer (Evans et al., 2021), and subsequently widely adopted across structural biology modeling. Amongst them are structure prediction models like OpenFold and ESMFold for proteins (Ahdritz et al., 2024; Lin et al., 2022), RhoFold for RNA (Shen et al., 2024), generative protein backbone models such as FrameDiff (Yim et al., 2023), FrameFlow (Yim et al., 2024), the FoldFlow family (Huguet et al., 2024; Bose et al., 2024), FrameDiPT (Zhang et al., 2023), Proteus (Wang et al., 2024), FADiff (Liu et al., 2024), Genie (Lin et al., 2023), IgDiff (Cutting et al., 2024), GAFL (Wagner et al., 2024), P2DFlow (Jin et al., 2025), RNA generative models such as RNA-FrameFlow (Anand et al., 2024), and scoring models like lociPARSE (Tarafder et al., 2024).\n\nThe advantage of IPA is its roto-translational ($SE(3)$) invariant representation of the molecular structure. IPA's quadratic scaling ($O(L^2)$) limits its scalability, rapidly exhausting GPU memory when modeling longer biomolecules. In this work, we propose a recasting of the original IPA algorithm to a simple attention form to leverage off-the shelf I/O reduction methods like FlashAttention, which replace the quadratic $O(L^2)$ with an effective linear $O(L)$ scaling behavior.\n\n= Preliminaries\nIntroduced by AlphaFold2, IPA is a specialized attention mechanism designed to preserve 3D geometric relationships directly in transformer-based models for structural biology applications.\n\n#figure(\n  image(\"frame.pdf\", width: 25%),\n  caption: [The protein backbone frame.],\n) <fig:frame>\n\n= Experiments\n#figure(\n  image(\"flashPA_efficiency.pdf\", width: 80%),\n  caption: [Scaling as a function of input sequence length on a single-sample batch forward pass.],\n) <fig:scaling>\n\n#figure(\n  image(\"foldflow_gen.png\", width: 80%),\n  caption: [FoldFlow self-consistency validation after 200k optimization steps.],\n) <fig:foldflowgen>\n\n#figure(\n  table(\n    columns: (auto, auto, auto, auto),\n    stroke: (x, y) => if y == 0 or y == 4 { (top: 1pt, bottom: 1pt) } else { none },\n    [Model], [Validity ($\\uparrow$)], [Diversity ($\\uparrow$)], [Novelty ($\\downarrow$)],\n    [RNA-FrameFlow], [$0.42 \\pm 0.21$], [$0.15$], [$0.81 \\pm 0.10$],\n    [. + FlashIPA (ours)], [$0.38 \\pm 0.20$], [$0.14$], [$0.82 \\pm 0.10$],\n    [. + FlashIPA single GPU ** (ours)], [$0.41 \\pm 0.21$], [$0.08$], [$0.77 \\pm 0.09$],\n    [. + FlashIPA ** + All data (ours)], [$0.36 \\pm 0.14$], [$0.14$], [$0.74 \\pm 0.08$],\n  ),\n  caption: [Average validity, diversity, and novelty scores for 600 generated RNAs of length $\\leq 150$.],\n) <tab:rna_frameflow_results>\n\n#figure(\n  image(\"flashIPA_RNAflow_efficiency.pdf\", width: 80%),\n  caption: [Scaling of FlashIPA versus IPA for RNA generation.],\n) <fig:rna_flow_scaling>\n\n#figure(\n  image(\"scTM_length.pdf\", width: 80%),\n  caption: [RNA-FrameFlow generated RNAs results.],\n) <fig:rna_flow_length>\n\n= Appendix\n#figure(\n  image(\"pdb_distribution.pdf\", width: 80%),\n  caption: [Distribution of protein residue counts of the proteins resolved in the PDB.],\n)\n\n#figure(\n  image(\"losses.png\", width: 80%),\n  caption: [Loss behaviour for FoldFlow model training.],\n)\n\n#figure(\n  image(\"rnasolodataset.pdf\", width: 80%),\n  caption: [Distribution of nucleotide residue counts of the RNA in the RNASolo2 dataset.],\n)\n\n#figure(\n  image(\"train_frameflow.pdf\", width: 80%),\n  caption: [Loss behaviour for RNA-FrameFlow model training.],\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/iCQqAV+iaPcy/wwtXB+5/pOb8BKdB9ZM4wc4aZ0ufiwJsU9Y37mar1GiXNoA=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 11846,
+    "completion_tokens": 1526,
+    "total_tokens": 13372,
+    "cost": 0.0052505,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0052505,
+      "upstream_inference_prompt_cost": 0.0029615,
+      "upstream_inference_completions_cost": 0.002289
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

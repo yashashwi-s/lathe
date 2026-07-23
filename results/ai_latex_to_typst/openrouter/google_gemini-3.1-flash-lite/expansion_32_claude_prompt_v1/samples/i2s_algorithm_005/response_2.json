@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731733-kY5HN4m4kSzdplG1Msyx",
+  "object": "chat.completion",
+  "created": 1784731733,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"serif\")\n\n#align(center, [\n  #text(size: 1.44em, weight: \"bold\")[Algorithm Sample 5] \\\n  #text(size: 1.2em)[Dataset-expansion sample] \\\n  #v(1em)\n])\n\n= Procedure\nThe pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n#let alg-indent = 1.5em\n#let comment(c) = h(1fr) + text(fill: rgb(0, 0, 0, 150), size: 0.9em)[// #c]\n#let func(name, args) = text(weight: \"bold\")[Function] + \" \" + name + \"(\" + args + \")\"\n#let state(content) = pad(left: alg-indent, content)\n\n#v(1em)\n#block(stroke: (top: 0.5pt, bottom: 0.5pt), inset: (y: 0.5em))[\n  #set text(font: \"monospace\")\n  #func(\"Transport\", [$bold(M), bold(beta), bold(g), Delta t$]) #comment(\"Input moments, natural parameters, and gauge parameters for all cells\") \\\n  #state[$bold(beta) arrow.l \"NewtonOptimization\"(bold(M), bold(beta), phi(bold(u); bold(g)))$ #comment(\"Solve the natural parameters by Alg. 1 in the gauge $bold(g)$\")] \\\n  #state[$bold(F) arrow.l \"ComputeFluxes\"(bold(beta), phi(bold(u); bold(g)))$ #comment(\"Compute fluxes of the statistics $phi(bold(u); bold(g))$ by eq. (3)\")] \\\n  #state[$bold(M)_(plus.minus 1), bold(F)_(plus.minus 1) arrow.l \"SpatialGaugeTransformation\"(bold(M), bold(F), bold(g))$ #comment(\"Perform gauge transformation as in eq. (4)\")] \\\n  #state[$bold(M) arrow.l \"FiniteVolumeStep\"(bold(M), bold(F), bold(M)_(plus.minus 1), bold(F)_(plus.minus 1), bold(g), Delta t)$ #comment(\"One step forward in time by eq. (5)\")] \\\n  #state[#text(weight: \"bold\")[return] $bold(M), bold(beta), bold(g)$] \\\n  #func(\"Collision\", [$bold(M), bold(beta), bold(g), Delta t$]) #comment(\"Input moments, natural parameters, and gauge parameters for all cells\") \\\n  #state[$bold(M) arrow.l \"SourceTerm\"(bold(M), bold(g), Delta t)$ #comment(\"Compute source term by operator splitting eq. (6)\")] \\\n  #state[#text(weight: \"bold\")[return] $bold(M), bold(beta), bold(g)$] \\\n  #func(\"Step\", [$bold(M), bold(beta), bold(g)$]) #comment(\"Input moments, natural parameters, and gauge parameters for all cells\") \\\n  #state[$bold(M), bold(beta), bold(g) arrow.l \"Collision\"(bold(M), bold(beta), bold(g), Delta t/2)$ #comment(\"Compute collision term by operator splitting\")] \\\n  #state[$bold(M), bold(beta), bold(g) arrow.l \"Transport\"(bold(M), bold(beta), bold(g), Delta t)$ #comment(\"Compute Transport term by operator splitting\")] \\\n  #state[$bold(M), bold(beta), bold(g) arrow.l \"Collision\"(bold(M), bold(beta), bold(g), Delta t/2)$ #comment(\"Compute collision term by operator splitting\")] \\\n  #state[$bold(g)_H arrow.l \"ComputeGaugeParameters\"(bold(M), bold(g))$ #comment(\"Compute the Hermite gauge parameters by eq. (7)\")] \\\n  #state[$bold(M)_H, bold(beta)_H arrow.l \"GaugeTransformation\"(bold(M), bold(beta), bold(g)_H, bold(g))$ #comment(\"Transform into the Hermite gauge using eq. (8) and eq. (9)\")] \\\n  #state[#text(weight: \"bold\")[return] $bold(M)_H, bold(beta)_H, bold(g)_H$]\n]",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+gZZtZj7JAJjxiCUm8Cr3BorE4zT3kJjsubBq9CFcv9iv//hsqnLvY2W62MBE=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4177,
+    "completion_tokens": 1043,
+    "total_tokens": 5220,
+    "cost": 0.00260875,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00260875,
+      "upstream_inference_prompt_cost": 0.00104425,
+      "upstream_inference_completions_cost": 0.0015645
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

@@ -5,7 +5,7 @@ Date: 2026-07-13
 These samples were removed from the accepted corpus because their reference PDFs compile but visibly contain raw TeX/font macro fragments. They are retained under `data/latex_benchmark_v0/rejected/` for auditability.
 
 - Removed from accepted corpus: 9
-- Accepted corpus after cleanup: 157
+- Accepted base corpus after cleanup: 157 (before the separate 32-sample expansion import)
 
 ## Rejected samples
 

@@ -1,0 +1,110 @@
+{
+  "sample_id": "neurips_paper_029",
+  "category": "neurips_paper",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:53:29+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "general_syntax",
+  "reference_pages": 11,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 16821,
+  "completion_tokens": 932,
+  "total_tokens": 17753,
+  "reported_cost_usd": 0.0042276,
+  "estimated_cost_usd": 0.00560325,
+  "accounted_cost_usd": 0.0042276,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784732013-I8MegT1hGefB9L50BE5O",
+  "source_path": "data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_029/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_029/reference.pdf",
+  "source_assets": [
+    "figs/ablation.pdf",
+    "figs/compare.pdf",
+    "figs/exp1.pdf",
+    "figs/fusion.pdf",
+    "figs/pipeline4.pdf",
+    "figs/teaser.pdf",
+    "figs/user.pdf"
+  ],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784732009-JaubFNlqEBrRrc5qVZr7",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 3.089,
+      "compile_seconds": 0.138,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 7389,
+        "completion_tokens": 471,
+        "total_tokens": 7860,
+        "cost": 0.00255375,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00255375,
+          "upstream_inference_prompt_cost": 0.00184725,
+          "upstream_inference_completions_cost": 0.0007065
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected hat"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784732013-I8MegT1hGefB9L50BE5O",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 2.631,
+      "compile_seconds": 0.208,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 9432,
+        "completion_tokens": 461,
+        "total_tokens": 9893,
+        "cost": 0.00167385,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 6114,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00167385,
+          "upstream_inference_prompt_cost": 0.00098235,
+          "upstream_inference_completions_cost": 0.0006915
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected hat"
+    }
+  ],
+  "final_error_summary": "error: unexpected hat",
+  "duration_seconds": 6.079,
+  "finished_at": "2026-07-22T14:53:35+00:00"
+}

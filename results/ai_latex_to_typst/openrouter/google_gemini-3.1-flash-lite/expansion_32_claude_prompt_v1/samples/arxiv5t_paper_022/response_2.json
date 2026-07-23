@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731991-nJNLTchbUTTce3Y7TRo2",
+  "object": "chat.completion",
+  "created": 1784731991,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: (x: 0.75in, y: 1in))\n#set text(font: \"Times New Roman\", size: 10pt)\n#set par(justify: true)\n\n#align(center)[\n  #text(size: 16pt, weight: \"bold\")[6D-Diff: A Keypoint Diffusion Framework for 6D Object Pose Estimation] \\\n  \\\n  Li Xu#super[1#text(size: 0.7em)[$\\dagger$]]#footnote[#text(size: 0.8em)[$\\dagger$ Equal contribution; $\\ddagger$ Corresponding author]]\n  ~~~ Haoxuan Qu#super[1#text(size: 0.7em)[$\\dagger$]]\n  ~~~ Yujun Cai#super[2]\n  ~ Jun Liu#super[1#text(size: 0.7em)[$\\ddagger$]] \\\n  #super[1] Singapore University of Technology and Design \\\n  #super[2] Nanyang Technological University \\\n  #text(font: \"monospace\", size: 9pt)[{li_xu, haoxuan_qu}@mymail.sutd.edu.sg, yujun001@e.ntu.edu.sg, jun_liu@sutd.edu.sg]\n]\n\n#block(inset: (x: 2em))[\n  #text(weight: \"bold\")[Abstract] \\\n  Estimating the 6D object pose from a single RGB image often involves noise and indeterminacy due to challenges such as occlusions and cluttered backgrounds. Meanwhile, diffusion models have shown appealing performance in generating high-quality images from random noise with high indeterminacy through step-by-step denoising. Inspired by their denoising capability, we propose a novel diffusion-based framework (#text(weight: \"bold\")[6D-Diff]) to handle the noise and indeterminacy in object pose estimation for better performance. In our framework, to establish accurate 2D-3D correspondence, we formulate 2D keypoints detection as a reverse diffusion (denoising) process. To facilitate such a denoising process, we design a Mixture-of-Cauchy-based forward diffusion process and condition the reverse process on the object features. Extensive experiments on the LM-O and YCB-V datasets demonstrate the effectiveness of our framework.\n]\n\n#heading(level: 1)[Introduction]\n6D object pose estimation aims to estimate the 6D pose of an object including its location and orientation, which has a wide range of applications, such as augmented reality, robotic manipulation, and automatic driving. Recently, various methods have been proposed to conduct RGB-based 6D object pose estimation since RGB images are easy to obtain. Despite the increased efforts, a variety of challenges persist in RGB-based 6D object pose estimation, including occlusions, cluttered backgrounds, and changeable environment. These challenges can introduce significant noise and indeterminacy into the pose estimation process, leading to error-prone predictions.\n\nMeanwhile, diffusion models have achieved appealing results in various generation tasks such as image synthesis and image editing. Specifically, diffusion models are able to recover high-quality determinate samples from a noisy and indeterminate input data distribution via a step-by-step denoising process. Motivated by such a strong denoising capability, we aim to leverage diffusion models to handle the RGB-based 6D object pose estimation task, since this task also involves tackling noise and indeterminacy. However, it can be difficult to directly use diffusion models to estimate the object pose, because diffusion models often start denoising from random Gaussian noise. Meanwhile, in RGB-based 6D object pose estimation, the object pose is often extracted from an intermediate representation, such as keypoint heatmaps, pixel-wise voting vectors, or object surface keypoint features. Such an intermediate representation encodes useful distribution priors about the object pose. Thus starting denoising from such an representation shall effectively assist the diffusion model in recovering accurate object poses. To achieve this, we propose a novel diffusion-based object pose estimation framework (#text(weight: \"bold\")[6D-Diff]) that can exploit prior distribution knowledge from the intermediate representation for better performance.\n\n#figure(\n  image(\"fig1.png\", width: 100%),\n  caption: [Overview of our proposed 6D-Diff framework. As shown, given the 3D keypoints from the object 3D CAD model, we aim to detect the corresponding 2D keypoints in the image to obtain the 6D object pose. Note that when detecting keypoints, there are often challenges such as occlusions (including self-occlusions) and cluttered backgrounds that can introduce noise and indeterminacy into the process, impacting the accuracy of pose prediction.]\n)\n\nOverall, our framework is a correspondence-based framework, in which to predict an object pose, given the 3D keypoints pre-selected from the object 3D CAD model, we first predict the coordinates of the 2D image keypoints corresponding to the pre-selected 3D keypoints. We then use the 3D keypoints together with the predicted 2D keypoints coordinates to compute the 6D object pose using a Perspective-n-Point (PnP) solver. To predict the 2D keypoints coordinates, we first extract an intermediate representation (the 2D keypoints heatmaps) through a keypoints distribution initializer. As discussed before, due to various factors, there often exists noise and indeterminacy in the keypoints detection process and the extracted heatmaps can be noisy. Thus we pass the distribution modeled from these keypoints heatmaps into a diffusion model to perform the denoising process to obtain the final keypoints coordinates prediction.\n\n#figure(\n  image(\"fig_demo.png\", width: 80%),\n  caption: [Above we show two examples of keypoint heatmaps, which serve as the intermediate representation in our framework. The red dots indicate the ground-truth locations of the keypoints. As shown above, due to occlusions and cluttered backgrounds, the keypoint heatmaps are noisy, which reflects the noise and indeterminacy during the keypoints detection process.]\n)\n\n#figure(\n  image(\"fig2.png\", width: 100%),\n  caption: [Illustration of our framework. During testing, given an input image, we first crop the Region of Interest (ROI) from the image through an object detector. After that, we feed the cropped ROI to the keypoints distribution initializer to obtain the heatmaps that can provide useful distribution priors about keypoints, to initialize D_K. Meanwhile, we can obtain object features f_app. Next, we pass f_app into the encoder, and the output of the encoder will serve as conditional information to aid the reverse process in the decoder. We sample M sets of 2D keypoints coordinates from D_K, and feed these M sets of coordinates into the decoder to perform the reverse process iteratively together with the step embedding f_D^k. At the final reverse step (K-th step), we average the predictions as the final keypoints coordinates prediction d_0, and use d_0 to compute the 6D pose with the pre-selected 3D keypoints via a PnP solver.]\n)\n\n#figure(\n  image(\"fig5.png\", width: 90%),\n  caption: [Visualization of the denoising process of a sample with our framework. In this example, the target object is the yellow duck and for clarity, we here show three keypoints only. The red dots indicate the ground-truth locations of these three keypoints. The noisy heatmap before denoising reflects that factors like occlusions and clutter in the scene can introduce noise and indeterminacy when detecting keypoints. As shown, our diffusion model can effectively and smoothly reduce the noise and indeterminacy in the initial distribution step by step, finally recovering a high-quality and determinate distribution of keypoints coordinates.]\n)\n\n#figure(\n  caption: [Comparisons with RGB-based 6D object pose estimation methods on the LM-O dataset. (*) denotes symmetric objects.],\n  table(\n    columns: 10,\n    stroke: none,\n    table.header(\n      [Method], [ape], [can], [cat], [driller], [duck], [eggbox], [glue], [holepuncher], [Mean],\n      table.hline()\n    ),\n    [Ours], [60.6], [97.9], [63.2], [96.6], [67.2], [73.5], [92.0], [85.5], [79.6]\n  )\n)\n\n#figure(\n  caption: [Comparisons with RGB-based 6D object pose estimation methods on the YCB-V dataset.],\n  table(\n    columns: 4,\n    stroke: none,\n    table.header([Method], [ADD(-S)], [AUC of ADD-S], [AUC of ADD(-S)], table.hline()),\n    [Ours], [83.8], [91.5], [87.0]\n  )\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1+/j00vGF1i1cD0M5zd9EDZggXjDkpQ7oPZIIEVWvgjlpEQSSr2be63V+8cXkg=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 18056,
+    "completion_tokens": 1971,
+    "total_tokens": 20027,
+    "cost": 0.0074705,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0074705,
+      "upstream_inference_prompt_cost": 0.004514,
+      "upstream_inference_completions_cost": 0.0029565
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

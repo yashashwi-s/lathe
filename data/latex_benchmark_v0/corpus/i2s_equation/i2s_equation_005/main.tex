@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{booktabs,multirow,array,tabularx}
+\usepackage{graphicx}
+\title{Equation Sample 5}
+\author{Dataset-expansion sample}
+\date{}
+\begin{document}
+\maketitle
+\section{Derivation}
+The following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+\begin{equation*}
+\begin{aligned}
+v_{mn}^{x}
+&=\langle m|v^{x}|n\rangle\\
+&=\delta_{mn}\langle v^{x}\rangle (\frac{k_{x}}{\rho})(-\delta_{m,0}+\delta_{m,1})
++(1-\delta_{mn})\langle v^{x}\rangle (\frac{k_{z}}{\rho}\frac{k_{x}}{\sqrt{k_{x}^{2}+k_{y}^{2}}}-i\frac{k_{y}}{\sqrt{k_{x}^{2}+k_{y}^{2}}})\\
+&=\delta_{mn}\langle v^{x}\rangle ({\rm sin}\theta{\rm cos}\phi)(-\delta_{m,0}+\delta_{m,1})
++(1-\delta_{mn})\langle v^{x}\rangle ({\rm cos}\theta{\rm cos}\phi-i{\rm sin}\phi),\\
+v_{mn}^{y}
+&=\delta_{mn}\langle v^{y}\rangle ({\rm sin}\theta{\rm sin}\phi)(-\delta_{m,0}+\delta_{m,1})
++(1-\delta_{mn})\langle v^{y}\rangle ({\rm cos}\theta{\rm sin}\phi-i{\rm cos}\phi),\\
+v_{mn}^{z}
+&=\delta_{mn}\langle v^{z}\rangle {\rm cos}\theta(-\delta_{m,0}+\delta_{m,1})
++(1-\delta_{mn})\langle v^{z}\rangle \frac{-{\rm sin}\theta}{\rho},\\
+\end{aligned}
+\end{equation*}
+
+\end{document}

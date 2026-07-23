@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731671-1Rd4sqgXju0fnZPknOz9",
+  "object": "chat.completion",
+  "created": 1784731671,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(font: \"serif\", size: 11pt)\n\n#align(center)[\n  #text(size: 1.44em, weight: \"bold\")[Table Sample 6] \\\n  #text(size: 1.2em)[Dataset-expansion sample] \\\n  #v(1em)\n]\n\n#heading(level: 1)[Results]\nThe table below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n#figure(\n  caption: [The optimal hyperparameters for each downstream model type trained on Peptide-ESM embeddings for the low-N, med-N, and high-N conditions.],\n  table(\n    columns: (auto, auto, auto),\n    stroke: 0.5pt,\n    align: left,\n    table.header([Embedding], [Downstream Model], [Hyperparameters]),\n    [LazBF Peptide-ESM low-N], [SVC], [C=0.1, kernel='linear'],\n    [LazBF Peptide-ESM low-N], [MLP], [hidden_layer_sizes=750, activation='relu'],\n    [LazBF Peptide-ESM low-N], [LR], [C=1, penalty=None],\n    [LazBF Peptide-ESM low-N], [RF], [n_estimators=50, criterion='entropy'],\n    [LazBF Peptide-ESM low-N], [AB], [learning_rate=1, n_estimators=50],\n    [LazBF Peptide-ESM low-N], [KNN], [n_neighbors=10, weights='uniform'],\n    [LazDEF Peptide-ESM low-N], [SVC], [C=1, kernel='linear'],\n    [LazDEF Peptide-ESM low-N], [MLP], [hidden_layer_sizes=500, activation='relu'],\n    [LazDEF Peptide-ESM low-N], [LR], [C=1, penalty='None'],\n    [LazDEF Peptide-ESM low-N], [RF], [n_estimators=200, criterion='gini'],\n    [LazDEF Peptide-ESM low-N], [AB], [learning_rate=1, n_estimators=200],\n    [LazDEF Peptide-ESM low-N], [KNN], [n_neighbors=25, weights='uniform'],\n    [LazBF Peptide-ESM med-N], [SVC], [C=1, kernel='linear'],\n    [LazBF Peptide-ESM med-N], [MLP], [hidden_layer_sizes=500, activation='tanh'],\n    [LazBF Peptide-ESM med-N], [LR], [C=1, penalty=None],\n    [LazBF Peptide-ESM med-N], [RF], [n_estimators=500, criterion='entropy'],\n    [LazBF Peptide-ESM med-N], [AB], [learning_rate=0.1, n_estimators=200],\n    [LazBF Peptide-ESM med-N], [KNN], [n_neighbors=10, weights='uniform'],\n    [LazDEF Peptide-ESM med-N], [SVC], [C=0.1, kernel='linear'],\n    [LazDEF Peptide-ESM med-N], [MLP], [hidden_layer_sizes=1000, activation='relu'],\n    [LazDEF Peptide-ESM med-N], [LR], [C=0.1, penalty='None'],\n    [LazDEF Peptide-ESM med-N], [RF], [n_estimators=200, criterion='entropy'],\n    [LazDEF Peptide-ESM med-N], [AB], [learning_rate=1, n_estimators=500],\n    [LazDEF Peptide-ESM med-N], [KNN], [n_neighbors=25, weights='distance'],\n    [LazBF Peptide-ESM high-N], [SVC], [C=0.1, kernel='linear'],\n    [LazBF Peptide-ESM high-N], [MLP], [hidden_layer_sizes=750, activation='tanh'],\n    [LazBF Peptide-ESM high-N], [LR], [C=5, penalty=None],\n    [LazBF Peptide-ESM high-N], [RF], [n_estimators=500, criterion='entropy'],\n    [LazBF Peptide-ESM high-N], [AB], [learning_rate=1, n_estimators=500],\n    [LazBF Peptide-ESM high-N], [KNN], [n_neighbors=50, weights='uniform'],\n    [LazDEF Peptide-ESM high-N], [SVC], [C=5, kernel='linear'],\n    [LazDEF Peptide-ESM high-N], [MLP], [hidden_layer_sizes=50, activation='relu'],\n    [LazDEF Peptide-ESM high-N], [LR], [C=1, penalty='None'],\n    [LazDEF Peptide-ESM high-N], [RF], [n_estimators=500, criterion='log loss'],\n    [LazDEF Peptide-ESM high-N], [AB], [learning_rate=1, n_estimators=500],\n    [LazDEF Peptide-ESM high-N], [KNN], [n_neighbors=50, weights='uniform'],\n  )\n)\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a19PCP4QcHohscDnf9ZmTA3niD2NCo90dl+/NXzYBymTEX2oyiRCjjOxFi6Ruco=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1418,
+    "completion_tokens": 1254,
+    "total_tokens": 2672,
+    "cost": 0.0022355,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0022355,
+      "upstream_inference_prompt_cost": 0.0003545,
+      "upstream_inference_completions_cost": 0.001881
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

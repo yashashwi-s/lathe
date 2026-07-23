@@ -1,0 +1,83 @@
+error: unclosed delimiter
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:14:69
+   │
+14 │ #let comment(c) = h(1fr) + text(fill: rgb(0, 0, 0, 150), size: 0.9em)[// #c]
+   │                                                                      ^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:22:20
+   │
+22 │   #state[bold(beta) <- NewtonOptimization(bold(M), bold(beta), phi(bold(u); bold(g))) #comment("Solve the natural parameters by Alg. ref{Newton method} in the gauge bold(g)")] \
+   │                     ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:23:17
+   │
+23 │   #state[bold(F) <- ComputeFluxes(bold(beta), phi(bold(u); bold(g))) #comment("Compute fluxes of the statistics phi(bold(u); bold(g)) by eq. (The ME equation:subeq3)")] \
+   │                  ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:24:52
+   │
+24 │   #state[bold(M)_plus-minus 1, bold(F)_plus-minus 1 <- SpatialGaugeTransformation(bold(M), bold(F), bold(g)) #comment("Perform gauge transformation as in eq. (The lax F convert)")] \
+   │                                                     ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:25:17
+   │
+25 │   #state[bold(M) <- FiniteVolumeStep(bold(M), bold(F), bold(M)_plus-minus 1, bold(F)_plus-minus 1, bold(g), Delta t) #comment("One step forward in time by eq. (The ME equation fvm 2)")] \
+   │                  ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:28:17
+   │
+28 │   #state[bold(M) <- SourceTerm(bold(M), bold(g), Delta t) #comment("Compute source term by operator splitting eq. (source update)")] \
+   │                  ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:31:38
+   │
+31 │   #state[bold(M), bold(beta), bold(g) <- Collision(bold(M), bold(beta), bold(g), Delta t/2) #comment("Compute collision term by operator splitting")] \
+   │                                       ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:32:38
+   │
+32 │   #state[bold(M), bold(beta), bold(g) <- Transport(bold(M), bold(beta), bold(g), Delta t) #comment("Compute Transport term by operator splitting")] \
+   │                                       ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:33:38
+   │
+33 │   #state[bold(M), bold(beta), bold(g) <- Collision(bold(M), bold(beta), bold(g), Delta t/2) #comment("Compute collision term by operator splitting")] \
+   │                                       ^^
+
+error: unclosed delimiter
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:34:16
+   │
+34 │   #state[bold(g)_H <- ComputeGaugeParameters(bold(M), bold(g)) #comment("Compute the Hermite gauge parameters by eq. (Hermite parameters in moments)")] \
+   │                 ^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:34:19
+   │
+34 │   #state[bold(g)_H <- ComputeGaugeParameters(bold(M), bold(g)) #comment("Compute the Hermite gauge parameters by eq. (Hermite parameters in moments)")] \
+   │                    ^^
+
+error: unclosed label
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:35:33
+   │
+35 │   #state[bold(M)_H, bold(beta)_H <- GaugeTransformation(bold(M), bold(beta), bold(g)_H, bold(g)) #comment("Transform into the Hermite gauge using eq. (Change gauge M F) and eq. (Maximal Likelihood equation for Exponential Family Distributions: form transformation)")] \
+   │                                  ^^
+
+error: unclosed delimiter
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:35:84
+   │
+35 │   #state[bold(M)_H, bold(beta)_H <- GaugeTransformation(bold(M), bold(beta), bold(g)_H, bold(g)) #comment("Transform into the Hermite gauge using eq. (Change gauge M F) and eq. (Maximal Likelihood equation for Exponential Family Distributions: form transformation)")] \
+   │                                                                                     ^
+
+error: unclosed delimiter
+   ┌─ results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/samples/i2s_algorithm_005/attempt_1.typ:36:54
+   │
+36 │   #state[bold(return) bold(M)_H, bold(beta)_H, bold(g)_H]
+   │                                                       ^

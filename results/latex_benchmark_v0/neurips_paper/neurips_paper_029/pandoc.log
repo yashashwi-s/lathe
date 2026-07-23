@@ -1,0 +1,40 @@
+COMMAND:
+pandoc -f latex -t typst --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_029 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_029/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/neurips_paper/neurips_paper_029/pandoc.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: content labelled multiple times
+    ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_029/pandoc.typ:459:1
+    │  
+459 │   #figure(image("figs/ablation.pdf", width: 100.0%),
+    │ ╭──^
+460 │ │   caption: [
+461 │ │     #strong[Ablation on different designs.] ERP exhibits serious
+462 │ │     artifacts due to the natural gap in modality. Both Cube
+    · │
+467 │ │   ]
+468 │ │ )
+    │ ╰─^
+    │  
+    = hint: only the last label is used, the rest are ignored
+
+error: label `<fig:ablation>` does not exist in the document
+    ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_029/pandoc.typ:442:13
+    │
+442 │ As shown in~#link(<fig:ablation>)[6], ERP exhibits significant artifacts
+    │              ^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `<fig:ablation>` does not exist in the document
+    ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_029/pandoc.typ:455:32
+    │
+455 │ quality". However, as shown in~#link(<fig:ablation>)[6], though each
+    │                                 ^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `<fig:user>` does not exist in the document
+    ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_029/pandoc.typ:490:4
+    │
+490 │ in~#link(<fig:user>)[\[fig:user\]]. Overall,
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+

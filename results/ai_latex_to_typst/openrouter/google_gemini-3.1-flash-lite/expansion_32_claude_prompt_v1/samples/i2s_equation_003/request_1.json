@@ -1,0 +1,25 @@
+{
+  "model": "google/gemini-3.1-flash-lite",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert LaTeX-to-Typst converter.\n\nFollow the conversion request exactly. Produce a complete standalone Typst\n0.14.2 document with maximum visual fidelity. Preserve all visible content and\ndocument order; do not summarize, omit, or invent content. Source graphics\nlisted in the request are available at the listed relative paths during\ncompilation and may be used with `#image`.\n\nUse valid native Typst syntax and prefer simple structures that compile. Do not\ncopy LaTeX commands directly into Typst math or markup. Return only the complete\nTypst source in one `typst` code block, with no explanation.\n"
+    },
+    {
+      "role": "user",
+      "content": "Convert the following LaTeX document to Typst 0.14.2 with maximum visual fidelity to its reference render: preserve all content, page size, margins, font sizes, spacing, structure, and pagination as closely as possible.\n\nReply with ONLY the complete Typst source in a single ```typst code block. No commentary.\n\nLaTeX source:\n\n```latex\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,amsfonts,mathtools}\n\\usepackage{booktabs,multirow,array,tabularx}\n\\usepackage{graphicx}\n\\title{Equation Sample 3}\n\\author{Dataset-expansion sample}\n\\date{}\n\\begin{document}\n\\maketitle\n\\section{Derivation}\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n\\begin{equation*}\n\\begin{aligned}\n&E_{p (\\tilde{x})}[\\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\log p (\\tilde{x})\\right > ]\\\\\n=& \\int_{\\tilde{x}} p (\\tilde{x}) \\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\log p (\\tilde{x})\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} p (\\tilde{x}) \\left <GNN_{\\theta} (\\tilde{x}),\\frac{\\nabla _{\\tilde{x}} p (\\tilde{x})}{p (\\tilde{x})}\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} p (\\tilde{x})\\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left<GNN_{\\theta} (\\tilde{x}),\\nabla _{\\tilde{x}} \\left (\\int_{x} p (\\tilde{x}|x)p(x) \\mathrm{d}x\\right ) \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}), \\int_{x} p(x) \\nabla _{\\tilde{x}} p (\\tilde{x}|x) \\mathrm{d}x \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\left <GNN_{\\theta} (\\tilde{x}), \\int_{x} p (\\tilde{x}|x) p(x) \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\mathrm{d}x \\right > \\mathrm{d}\\tilde{x} \\\\\n=& \\int_{\\tilde{x}} \\int_{x} p (\\tilde{x}|x) p(x) \\left <GNN_{\\theta} (\\tilde{x}), \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\right > \\mathrm{d}x \\mathrm{d}\\tilde{x} \\\\\n=& E_{p (\\tilde{x},x)} [ \\left <GNN_{\\theta} (\\tilde{x}), \\nabla _{\\tilde{x}}\\log p (\\tilde{x}|x) \\right > ]\\\\\n\\end{aligned}\n\\end{equation*}\n\n\\end{document}\n\n```\n"
+    }
+  ],
+  "temperature": 0,
+  "max_completion_tokens": 30000,
+  "session_id": "i2s_equation_003",
+  "provider": {
+    "sort": "price",
+    "data_collection": "deny",
+    "zdr": true,
+    "max_price": {
+      "prompt": 0.25,
+      "completion": 1.5
+    }
+  }
+}

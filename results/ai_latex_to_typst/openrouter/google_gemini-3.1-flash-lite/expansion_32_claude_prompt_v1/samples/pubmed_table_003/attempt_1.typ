@@ -1,0 +1,85 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "Linux Libertine", size: 11pt)
+
+#align(center, [
+  #text(size: 1.4em, weight: "bold")[Clinical Table Sample 3] \
+  Dataset-expansion sample
+])
+
+#section("Patient Data")
+The table below is a medical-literature table reproduced verbatim from a PubMed-derived dataset.
+
+#let cell(content) = table.cell(align: horizon, content)
+
+#table(
+  columns: (auto, auto, auto, auto, auto, auto),
+  stroke: 0.5pt,
+  align: (left, left, left, left, left, left),
+  table.header(
+    [*Analysis*], [*Entrez Gene ID*], [*Symbol*], [*Gene name*], [*Cytogenetic location*], [*Proportion of the leading edges the gene is found*]
+  ),
+  // Univariate
+  cell(rowspan: 5)[Univariate], [1017], [CDK2], [cyclin-dependent kinase 2], [12q13], [15/25],
+  [6117], [RPA1], [replication protein A1, 70kDa], [17p13.3], [15/25],
+  [6119], [RPA3], [replication protein A3, 14kDa], [7p22], [15/25],
+  [5422], [POLA1], [polymerase (DNA directed), alpha 1, catalytic subunit], [Xp22.1-p21.3], [13/25],
+  [5426], [POLE], [polymerase (DNA directed), epsilon, catalytic subunit], [12q24.3], [13/25],
+  // Multivariate
+  cell(rowspan: 10)[Multivariate], [1278], [COL1A2], [collagen, type I, alpha 2], [7q22.1], [2/2],
+  [1281], [COL3A1], [collagen, type III, alpha 1], [2q31], [2/2],
+  [1285], [COL4A3], [collagen, type IV, alpha 3 (Goodpasture antigen)], [2q36-q37], [2/2],
+  [1289], [COL5A1], [collagen, type V, alpha 1], [9q34.2-q34.3], [2/2],
+  [1290], [COL5A2], [collagen, type V, alpha 2], [2q14-q32], [2/2],
+  [1293], [COL6A3], [collagen, type VI, alpha 3], [2q37], [2/2],
+  [2200], [FBN1], [fibrillin 1], [15q21.1], [2/2],
+  [3910], [LAMA4], [laminin, alpha 4], [6q21], [2/2],
+  [3915], [LAMC1], [laminin, gamma 1 (formerly LAMB2)], [1q31], [2/2],
+  [80781], [COL18A1], [collagen, type XVIII, alpha 1], [21q22.3], [2/2],
+  // Basal
+  cell(rowspan: 13)[Basal], [2197], [FAU], [Finkel-Biskis-Reilly murine sarcoma virus (FBR-MuSV) ubiquitously expressed], [11q13], [13/13],
+  [6188], [RPS3], [ribosomal protein S3], [11q13.3-q13.5], [13/13],
+  [6191], [RPS4X], [ribosomal protein S4, X-linked], [Xq13.1], [13/13],
+  [6194], [RPS6], [ribosomal protein S6], [9p21], [13/13],
+  [6203], [RPS9], [ribosomal protein S9], [19q13.4], [13/13],
+  [6204], [RPS10], [ribosomal protein S10], [6p21.31], [13/13],
+  [6206], [RPS12], [ribosomal protein S12], [6q23.2], [13/13],
+  [6209], [RPS15], [ribosomal protein S15], [19p13.3], [13/13],
+  [6222], [RPS18], [ribosomal protein S18], [6p21.3], [13/13],
+  [6228], [RPS23], [ribosomal protein S23], [5q14.2], [13/13],
+  [6229], [RPS24], [ribosomal protein S24], [10q22], [13/13],
+  [6232], [RPS27], [ribosomal protein S27], [1q21], [13/13],
+  [6235], [RPS29], [ribosomal protein S29], [14q], [13/13],
+  // Luminal B
+  cell(rowspan: 32)[Luminal B], [990], [CDC6], [cell division cycle 6], [17q21.3], [4/4],
+  [1017], [CDK2], [cyclin-dependent kinase 2], [12q13], [4/4],
+  [1026], [CDKN1A], [cyclin-dependent kinase inhibitor 1A (p21, Cip1)], [6p21.2], [4/4],
+  [4171], [MCM2], [minichromosome maintenance complex component 2], [3q21], [4/4],
+  [4172], [MCM3], [minichromosome maintenance complex component 3], [6p12], [4/4],
+  [4175], [MCM6], [minichromosome maintenance complex component 6], [2q21], [4/4],
+  [4998], [ORC1], [origin recognition complex, subunit 1], [1p32], [4/4],
+  [5000], [ORC4], [origin recognition complex, subunit 4], [2q22-q23], [4/4],
+  [5426], [POLE], [polymerase (DNA directed), epsilon, catalytic subunit], [12q24.3], [4/4],
+  [5427], [POLE2], [polymerase (DNA directed), epsilon 2, accessory subunit], [14q21-q22], [4/4],
+  [5683], [PSMA2], [proteasome (prosome, macropain) subunit, alpha type, 2], [7p13], [4/4],
+  [5688], [PSMA7], [proteasome (prosome, macropain) subunit, alpha type, 7], [20q13.33], [4/4],
+  [5691], [PSMB3], [proteasome (prosome, macropain) subunit, beta type, 3], [17q12], [4/4],
+  [5692], [PSMB4], [proteasome (prosome, macropain) subunit, beta type, 4], [1q21], [4/4],
+  [5693], [PSMB5], [proteasome (prosome, macropain) subunit, beta type, 5], [14q11.2], [4/4],
+  [5694], [PSMB6], [proteasome (prosome, macropain) subunit, beta type, 6], [17p13], [4/4],
+  [5700], [PSMC1], [proteasome (prosome, macropain) 26S subunit, ATPase, 1], [14q32.11], [4/4],
+  [5704], [PSMC4], [proteasome (prosome, macropain) 26S subunit, ATPase, 4], [19q13.11-q13.13], [4/4],
+  [5705], [PSMC5], [proteasome (prosome, macropain) 26S subunit, ATPase, 5], [17q23.3], [4/4],
+  [5706], [PSMC6], [proteasome (prosome, macropain) 26S subunit, ATPase, 6], [14q22.1], [4/4],
+  [5708], [PSMD2], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 2], [3q27.1], [4/4],
+  [5709], [PSMD3], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 3], [17q21.1], [4/4],
+  [5710], [PSMD4], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 4], [1q21.3], [4/4],
+  [5713], [PSMD7], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 7], [16q22.3], [4/4],
+  [5717], [PSMD11], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 11], [17q11.2], [4/4],
+  [5718], [PSMD12], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 12], [17q24.2], [4/4],
+  [6119], [RPA3], [replication protein A3, 14kDa], [7p22], [4/4],
+  [6233], [RPS27A], [ribosomal protein S27a], [2p16], [4/4],
+  [8318], [CDC45], [cell division cycle 45], [22q11.21], [4/4],
+  [8900], [CCNA1], [cyclin A1], [13q12.3-q13], [4/4],
+  [10213], [PSMD14], [proteasome (prosome, macropain) 26S subunit, non-ATPase, 14], [2q24.2], [4/4],
+  [23594], [ORC6], [origin recognition complex, subunit 6], [16q12], [4/4]
+)

@@ -1,0 +1,26 @@
+COMMAND:
+/Users/yashashwisinghania/.cargo/bin/t2l -f -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/neurips_paper/neurips_paper_036/tylax.typ /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/neurips_paper/neurips_paper_036/main.tex
+
+CONVERSION LOG:
+Output written to: /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/neurips_paper/neurips_paper_036/tylax.typ
+
+
+TYPST COMPILE LOG:
+error: unclosed delimiter
+   ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_036/tylax.typ:64:1162
+   │
+64 │  General forms of pair representations $upright(bold(z))_(i j)$ typically involve quadratic complexity and are not inherently decomposable. However, common implementations of IPA often compute these quadratic representations from components that intrinsically scale linearly, implying redundancy in the resulting quadratic tensor $upright(bold(z))_(i j)$ (eq. [eq-pair]). This suggests that pair representations can be efficiently approximated through low-rank factorization in latent space. This motivates a simplified factorization strategy for initializing and updating $upright(bold(z))_(i j)$. Instead of explicitly constructing and storing a full quadratic tensor of shape batch, length $times $ length, latent dimension ($(B,L,L,d)$), we represent each feature (e.g., positional encodings, distograms, diffusion time embeddings in generative models, a.s.o.) using two lower-dimensional tensors (pseudo-factors) each of shape $(B,L,r,d)$, obtained via linear projections. We show empirically that this parametrization, despite relaxing certain inductive biases, recovers downstream performance with substantially lower memory consumption. /* \input */flash_(i)pa
+   │                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^
+
+error: unclosed delimiter
+   ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_036/tylax.typ:86:344
+   │
+86 │   caption: [ FoldFlow self-consistency validation after 200k optimization steps. A) The sc-RMSD of the FlashIPA (red, green) models is consistent or better than the original IPA model (blue). Extending training to larger structures with FlashIPA further improves sc-RMSD. B) Three exemplar generated backbone structures with FoldFlow FlashIPA. *ESMFold gets out of memory for lengths beyond 500+ residues and sc-RMSD could not be assessed.],
+   │                                                                                                                                                                                                                                                                                                                                                         ^
+
+error: unclosed delimiter
+    ┌─ results/latex_benchmark_v0/neurips_paper/neurips_paper_036/tylax.typ:147:32
+    │
+147 │  <app-ipa-repos> /* \input */ipa_(r)epos
+    │                                 ^
+

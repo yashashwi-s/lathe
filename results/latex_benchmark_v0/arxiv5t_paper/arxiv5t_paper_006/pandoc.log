@@ -1,0 +1,55 @@
+COMMAND:
+pandoc -f latex -t typst --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_006 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_006/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \mathcal{M}=\set*{m_1, m_2,\dots , m_n}, rendering as TeX:
+  \mathcal{M}=\set*{m_1, m_2,\dots , m_n}
+                  ^
+  unexpected control sequence \set
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \mathcal{J}=\set*{j_1, j_2, \dots, j_m}, rendering as TeX:
+  \mathcal{J}=\set*{j_1, j_2, \dots, j_m}
+                  ^
+  unexpected control sequence \set
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \mathcal{F}(m_i, j_k) =  \begin{cases}
+          1 & m_i \text{ applied for } j_k \\
+          0 & m_i \text{ didn't apply for } j_k
+      \end{cases} \\
+  , rendering as TeX:
+  
+  ^
+  unexpected control sequence \\
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math T=\set*{(m_i, j_k)|m_i\in \mathcal{M}, j_k\in \mathcal{J}}, rendering as TeX:
+  T=\set*{(m_i, j_k)|m_i\in \mathcal{M}, j
+        ^
+  unexpected control sequence \set
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+error: cannot reference block
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/pandoc.typ:467:1
+    │
+467 │ #ref(label("tab:dataset statistic")) displays the statistics of the
+    │  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: the document does not contain a bibliography
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/pandoc.typ:540:36
+    │
+540 │ implemented with PyTorch Geometric #cite(label("Fey/Lenssen/2019")). We
+    │                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: the document does not contain a bibliography
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/pandoc.typ:548:36
+    │
+548 │ PyTorch Geometric subgraph sampler #cite(label("Fey/Lenssen/2019")).
+    │                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot reference box
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_006/pandoc.typ:565:6
+    │
+565 │ Table @tab:Performance shows the performance of all baseline models and
+    │       ^^^^^^^^^^^^^^^^
+

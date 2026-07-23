@@ -1,0 +1,44 @@
+\documentclass[sigconf, nonacm]{acmart}
+
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\dvert}{\lVert}{\rVert}
+\usepackage{balance}
+
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+\settopmatter{printacmref=False}
+
+\input{others/utils}
+
+\begin{document}
+
+\title[Professional Network Matters: Connections Empower Person-Job Fit]{Professional Network Matters:\\ Connections Empower Person-Job Fit}
+
+\input{src/authors.tex}
+
+\renewcommand{\shortauthors}{Hao Chen et al.}
+
+\input{src/0-abstract.tex}
+
+
+\keywords{Person-Job Fit, Heterogeneous Information Network, Graph Neural Network}
+
+\maketitle
+
+
+\input{src/1-introduction.tex}
+\input{src/2-relatedwork.tex}
+\input{src/3-method.tex}
+\input{src/4-experiment.tex}
+\input{src/5-conclusion.tex}
+
+\appendix
+\bibliographystyle{ACM-Reference-Format}
+\balance
+\bibliography{ref}
+
+\end{document}
+\endinput

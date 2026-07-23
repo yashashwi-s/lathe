@@ -1,0 +1,36 @@
+\begin{algorithm}[H]
+\caption{FlashIPA with factorized pair representations}
+\label{alg:ipa-flash}
+Given input sequence $\mathbf{s}\in \R^{L\times d_{in}}$, factorized pair representation $\mathbf{z}_{ij}=\mathbf{z}_i^{1\,\intercal}\mathbf{z}_j^2$ (where $\mathbf{z}^1, \mathbf{z}^2 \in \R^{L\times r\times d_z}$ and $\mathbf{z} \in \R^{L\times d_z}$), frames $T_i=\left(R_i,\mathbf{t}_i\right), \forall i,j\in\{1,...,L\}$
+
+\begin{algorithmic}[1]
+
+\State $\mathbf{q}_i^h, \vec{\mathbf{q}}_i^{hp}, \mathbf{k}_i^h, \vec{\mathbf{k}}_i^{hp}, \mathbf{v}_i^h, \vec{\mathbf{v}}_i^{hp} \leftarrow \textrm{Linear}\left(\mathbf{s}_i\right)$
+
+\State $\mathbf{b}_i^{h1} \leftarrow \textrm{Linear}\left(\mathbf{z}_i^1\right)$
+
+\State $\mathbf{b}_i^{h2} \leftarrow \textrm{Linear}\left(\mathbf{z}_i^2\right)$
+
+\State $\hat{\mathbf{q}}_i^h \gets \text{concat} \left( \mathbf{q}_i^h, \left\{ T_i \circ \vec{\mathbf{q}}_i^{hp} \right\}_{p=1}^{N_{\text{Query}}}, \left\{ \left\| T_i \circ \vec{\mathbf{q}}_i^{hp} \right\|_2^2 \right\}_{p=1}^{N_{\text{Query}}}, \mathbf{1}_{N_{\text{Query}}}, \mathbf{b}_i^{h1} \right)$
+
+\State $\hat{\mathbf{k}}_i^h \gets \text{concat} \left( 
+    \frac{w_L}{\sqrt{c}} \mathbf{k}_i^h, 
+    \left\{ \gamma^h w_L w_C T_i \circ \vec{\mathbf{k}}_i^{hp} \right\}_{p=1}^{N_{\text{Query}}},
+    \frac{-\gamma^h w_L w_C}{2} \mathbf{1}_{N_{\text{Query}}}, 
+    \left\{ \frac{-\gamma^h w_L w_C}{2} \left\| T_i \circ \vec{\mathbf{k}}_i^{hp} \right\|_2^2 \right\}_{p=1}^{N_{\text{Query}}},
+    \mathbf{b}_i^{h2} 
+\right)$
+
+\State $\hat{\mathbf{v}}_i^h \gets \text{concat} \left( \mathbf{v}_i^h, \left\{ T_i \circ \vec{\mathbf{v}}_i^{hp} \right\}_{p=1}^{N_{\text{Values}}}, \mathbf{z}_i^2 \right)$
+
+\State $\hat{\mathbf{o}}_i^h \gets \text{FlashAttention}(\hat{\mathbf{Q}}^h, \hat{\mathbf{K}}^h, \hat{\mathbf{V}}^h)_i$
+
+\State $\mathbf{o}_i^h, \vec{\mathbf{o}}_i^{hp}, \tilde{\mathbf{o}}_i^h \gets \text{split}(\hat{\mathbf{o}}_i^h)$
+
+\State $\tilde{\mathbf{o}}_i^{h} \leftarrow \mathbf{z}_i^{1\,\intercal}\tilde{\mathbf{o}}_i^{h}$
+
+\State $\mathbf{\tilde{s}}_i \gets \text{Linear}\left( \text{concat}_{h,p} \left( \tilde{\mathbf{o}}_i^h, \mathbf{o}_i^h, \vec{\mathbf{o}}_i^{hp}, \left\| \vec{\mathbf{o}}_i^{hp} \right\|_2 \right) \right)$
+
+\State Return $\mathbf{\tilde{s}}$
+\end{algorithmic}
+\end{algorithm}

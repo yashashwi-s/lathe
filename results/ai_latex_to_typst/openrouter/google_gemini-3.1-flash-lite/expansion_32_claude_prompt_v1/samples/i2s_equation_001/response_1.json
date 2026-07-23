@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731610-1JoiJb6G58FpyyezQyvm",
+  "object": "chat.completion",
+  "created": 1784731610,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "```typst\n#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt, font: \"serif\")\n\n#align(center, [\n  #text(size: 1.44em, weight: \"bold\")[Equation Sample 1] \\\n  Dataset-expansion sample\n])\n\n#v(1em)\n\n= Derivation\nThe following display is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.\n\n$\n& alpha_3 \\\n& quad op(\"overset\")(\" (i) \") <= sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) sqrt(frac(C_(\"clipped\")^star log(N/delta), N min(d^(mu^star, nu_0)(s, a, nu_0(s); rho), 1/(S(A+B)))) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& <= sqrt(frac(C_(\"clipped\")^star log(N/delta), N)) sum_(s in cal(S), a in cal(A)) sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& quad + sqrt(frac(C_(\"clipped\")^star S(A+B) log(N/delta), N)) sum_(s in cal(S), a in cal(A)) sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho)) dot sqrt(d^(mu^star, nu_0)(s, a, nu_0(s); rho) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& quad op(\"overset\")(\" (ii) \") <= sqrt(frac(C_(\"clipped\")^star, N) log(N/delta)) dot sqrt(S A) dot sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& quad + sqrt(frac(C_(\"clipped\")^star S(A+B) log(N/delta), N)) [sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho)] sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& <= 2 sqrt(frac(C_(\"clipped\")^star S(A+B) log(N/delta), N)) sqrt(sum_(s in cal(S), a in cal(A)) d^(mu^star, nu_0)(s, a, nu_0(s); rho) op(\"Var\")_(P_(s, a, nu_0(s)))(V_(\"pe\")^-)) \\\n& quad op(\"overset\")(\" (iii) \") = 2 sqrt(frac(C_(\"clipped\")^star S(A+B), N) log(N/delta)) sqrt(sum_(s in cal(S)) d^(mu^star, nu_0)(s; rho) limits(op(bb(E)))_(a tilde mu^star(s), b tilde nu_0(s)) [op(\"Var\")_(P_(s, a, b))(V_(\"pe\")^-)]) \\\n& quad op(\"overset\")(\" (iv) \") <= 2 sqrt(frac(C_(\"clipped\")^star S(A+B), N) log(N/delta)) sqrt(sum_(s in cal(S)) d^(mu^star, nu_0)(s; rho) op(\"Var\")_(P_s^(mu^star, nu_0))(V_(\"pe\")^-))\n$\n```",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a182OmV2PhR+hvH3wjGkpKrUbUOl6SDO8eiSozhhPXKMRz4ik6TN8DTOSCdX4sI=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1365,
+    "completion_tokens": 981,
+    "total_tokens": 2346,
+    "cost": 0.00181275,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00181275,
+      "upstream_inference_prompt_cost": 0.00034125,
+      "upstream_inference_completions_cost": 0.0014715
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

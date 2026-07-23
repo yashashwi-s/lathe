@@ -1,0 +1,67 @@
+```typst
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "serif", size: 11pt)
+
+#align(center)[
+  #text(size: 1.4em, weight: "bold")[Clinical Table Sample 1] \
+  Dataset-expansion sample
+]
+
+#section("Patient Data")
+The table below is a medical-literature table reproduced verbatim from a PubMed-derived dataset.
+
+#let b(content) = text(weight: "bold", content)
+
+#table(
+  columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+  stroke: 0.5pt,
+  align: center + horizon,
+  table.header(
+    b[Year City], b[2001], b[2002], b[2003], b[2004], b[2005], b[2006], b[2007], b[Total]
+  ),
+  b[Kazerun], b[-], b[3], b[2], b[2], b[7], b[10], b[2], b[26],
+  "Noor abad", "1", "1", "5", "5", b[7], "5", b[-], b[24],
+  "Lamerd", "1", b[2], "1", b[-], "9", "6", "1", "19",
+  "Darab", "1", b[2], "1", "1", b[2], "6", "1", "14",
+  "Khonj", "1", b[-], b[2], b[-], b[3], "6", b[2], "14",
+  "Fasa", b[-], "1", b[2], b[-], b[2], b[2], b[-], b[7],
+  "Gerash", b[-], "1", "1", b[2], "1", b[2], b[-], b[7],
+  "Firuzabad", b[-], b[2], "1", b[-], b[-], "1", b[2], "6",
+  "Maharlu", "1", b[-], b[2], b[2], b[-], b[-], b[-], "6",
+  "Abaadeh", b[-], b[-], "1", b[-], "1", b[3], b[-], "5",
+  "Lar", "1", b[2], b[-], "1", b[-], b[-], b[-], "4",
+  "Marvdasht", b[-], "1", b[2], b[-], "1", b[-], b[-], "4",
+  "Sarvestan", b[-], b[-], b[3], "1", b[-], b[-], b[-], "4",
+  "Bavanat", b[-], b[-], b[-], b[-], b[3], "1", b[-], "4",
+  "Abolhayat", b[-], b[-], "1", "1", "1", b[-], b[-], b[3],
+  "Dashte-arjan", b[-], b[-], b[2], b[-], "1", b[-], b[-], b[3],
+  "Eghlid", b[-], b[-], b[-], b[-], b[-], b[-], b[3], b[3],
+  "Khorambid", b[-], b[-], b[-], b[2], "1", b[-], b[-], b[3],
+  "Arsanjan", b[-], b[-], b[-], b[-], b[2], b[-], b[-], b[2],
+  "Sepidan", b[-], "1", b[-], b[-], b[-], "1", b[-], b[2],
+  "Zarghan", b[2], b[-], b[-], b[-], b[-], b[-], b[-], b[2],
+  "Saadat-Shahr", b[-], "1", b[-], b[-], b[-], b[-], b[-], "1",
+  "Polekhan", b[-], "1", b[-], b[-], b[-], b[-], b[-], "1",
+  "Sivande Jadid", b[-], b[-], b[-], "1", b[-], b[-], b[-], "1",
+  "Gardane Ghader Abad", b[-], b[-], b[-], "1", b[-], b[-], b[-], "1",
+  "Estahban", b[-], b[-], b[-], "1", b[-], b[-], b[-], "1",
+  "Fasa Entrance", b[-], b[-], b[-], "1", b[-], b[-], b[-], "1",
+  "Gardanea Shul", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "Ashkanan", b[-], b[-], b[-], b[-], b[-], b[-], "1", "1",
+  "Beyza", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "Neyriz", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "Evaz", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "yasuj", b[-], b[-], b[-], b[-], "1", "1", b[-], b[2],
+  "Sirjan", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "Gardane Bajgah", b[-], b[-], b[-], b[-], "1", b[-], b[-], "1",
+  "Ghalat mountains", b[-], b[-], b[-], b[-], b[-], "1", b[-], "1",
+  "Bushehr", b[-], b[-], b[-], b[-], b[-], "1", "1", b[2],
+  "Kuhe Derak", b[-], b[-], b[-], b[-], b[-], "1", b[-], "1",
+  "Golestan", b[-], b[-], b[-], b[-], b[-], "1", b[-], "1",
+  "Asalooye", b[-], b[-], b[-], b[-], b[-], "1", b[-], "1",
+  "Jahrom", b[-], b[-], b[-], b[-], b[-], b[-], "1", "1",
+  "Meydane Tarebar", b[-], "1", b[-], b[-], b[-], b[-], b[-], "1",
+  "Bid-Zard", b[-], b[-], "1", b[-], b[-], b[-], b[-], "1",
+  b[Total], "9", "19", b[26], b[21], "48", "48", "14", "185"
+)
+```

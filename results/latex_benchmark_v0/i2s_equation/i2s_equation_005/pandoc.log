@@ -1,0 +1,27 @@
+COMMAND:
+pandoc -f latex -t typst --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/i2s_equation/i2s_equation_005 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/i2s_equation/i2s_equation_005/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/i2s_equation/i2s_equation_005/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{equation*}
+  \begin{aligned}
+  v_{mn}^{x}
+  &=\langle m|v^{x}|n\rangle\\
+  &=\delta_{mn}\langle v^{x}\rangle (\frac{k_{x}}{\rho})(-\delta_{m,0}+\delta_{m,1})
+  +(1-\delta_{mn})\langle v^{x}\rangle (\frac{k_{z}}{\rho}\frac{k_{x}}{\sqrt{k_{x}^{2}+k_{y}^{2}}}-i\frac{k_{y}}{\sqrt{k_{x}^{2}+k_{y}^{2}}})\\
+  &=\delta_{mn}\langle v^{x}\rangle ({\rm sin}\theta{\rm cos}\phi)(-\delta_{m,0}+\delta_{m,1})
+  +(1-\delta_{mn})\langle v^{x}\rangle ({\rm cos}\theta{\rm cos}\phi-i{\rm sin}\phi),\\
+  v_{mn}^{y}
+  &=\delta_{mn}\langle v^{y}\rangle ({\rm sin}\theta{\rm sin}\phi)(-\delta_{m,0}+\delta_{m,1})
+  +(1-\delta_{mn})\langle v^{y}\rangle ({\rm cos}\theta{\rm sin}\phi-i{\rm cos}\phi),\\
+  v_{mn}^{z}
+  &=\delta_{mn}\langle v^{z}\rangle {\rm cos}\theta(-\delta_{m,0}+\delta_{m,1})
+  +(1-\delta_{mn})\langle v^{z}\rangle \frac{-{\rm sin}\theta}{\rho},\\
+  \end{aligned}
+  \end{equation*}, rendering as TeX:
+  v^{x}\rangle ({\rm sin}\theta{\rm cos}\p
+                     ^
+  unexpected control sequence \rm
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:

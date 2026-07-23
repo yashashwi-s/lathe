@@ -1,0 +1,102 @@
+{
+  "sample_id": "pubmed_table_005",
+  "category": "pubmed_table",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:51:44+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "general_syntax",
+  "reference_pages": 2,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 8664,
+  "completion_tokens": 4585,
+  "total_tokens": 13249,
+  "reported_cost_usd": 0.0090435,
+  "estimated_cost_usd": 0.0090435,
+  "accounted_cost_usd": 0.0090435,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731913-wJye06bCrILOcTCNoTiW",
+  "source_path": "data/latex_benchmark_v0/corpus/pubmed_table/pubmed_table_005/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/pubmed_table/pubmed_table_005/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731905-sUEdozhKhkYR0tf2PAlx",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 7.534,
+      "compile_seconds": 0.26,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 3095,
+        "completion_tokens": 2297,
+        "total_tokens": 5392,
+        "cost": 0.00421925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00421925,
+          "upstream_inference_prompt_cost": 0.00077375,
+          "upstream_inference_completions_cost": 0.0034455
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unexpected dots"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731913-wJye06bCrILOcTCNoTiW",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 7.042,
+      "compile_seconds": 0.149,
+      "compile_ok": false,
+      "error_class": "general_syntax",
+      "usage": {
+        "prompt_tokens": 5569,
+        "completion_tokens": 2288,
+        "total_tokens": 7857,
+        "cost": 0.00482425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00482425,
+          "upstream_inference_prompt_cost": 0.00139225,
+          "upstream_inference_completions_cost": 0.003432
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unclosed delimiter"
+    }
+  ],
+  "final_error_summary": "error: unclosed delimiter",
+  "duration_seconds": 15.003,
+  "finished_at": "2026-07-22T14:51:59+00:00"
+}

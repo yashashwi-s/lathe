@@ -1,0 +1,44 @@
+COMMAND:
+pandoc -f latex -t typst --lua-filter /Users/yashashwisinghania/lathe/scripts/dataset/typetex_filter.lua --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_022 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_022/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/typetex.typ
+
+CONVERSION LOG:
+
+
+TYPST COMPILE LOG:
+warning: `kai` is deprecated, use ϗ or `\u{3d7}` instead
+     ┌─ @preview/mitex:0.2.4/specs/latex/standard.typ:1030:30
+     │
+1030 │   KaTeX: of-sym(math.upright($kai A T E X$)),
+     │                               ^^^
+
+error: plugin errored with: error: unknown command: \setlength
+   ┌─ @preview/mitex:0.2.4/mitex.typ:19:8
+   │
+19 │     str(mitex-wasm.convert_math(bytes(get-elem-text(it)), spec))
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex-convert`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:27:12
+   │
+27 │   let res = mitex-convert(mode: "math", it)
+   │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mimath`
+   ┌─ @preview/mitex:0.2.4/mitex.typ:40:4
+   │
+40 │     mimath(it, ..args)
+   │     ^^^^^^^^^^^^^^^^^^
+
+help: error occurred in this call of function `mitex`
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/typetex.typ:244:46
+    │  
+244 │   #mi(`d_1`) to #mi(`d_K`) is formulated as: $ #mitex(`
+    │ ╭───────────────────────────────────────────────^
+245 │ │  
+246 │ │ \setlength{\abovedisplayskip}{3pt}
+247 │ │ \setlength{\belowdisplayskip}{3pt}
+    · │
+251 │ │ \end{aligned}
+252 │ │ `) $ where #mi(`\{\beta_k \in (0, 1)\}^K_{k=1}`) denotes a set of fixed
+    │ ╰──^
+

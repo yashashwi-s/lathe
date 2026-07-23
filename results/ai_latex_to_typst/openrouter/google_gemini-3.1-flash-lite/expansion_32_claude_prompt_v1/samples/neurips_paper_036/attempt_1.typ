@@ -1,0 +1,100 @@
+#set page(paper: "us-letter", margin: 1in)
+#set text(font: "Linux Libertine", size: 10pt)
+#set par(justify: true)
+
+#align(center)[
+  #text(size: 18pt, weight: "bold")[Flash Invariant Point Attention]
+  #v(1em)
+  #text(size: 12pt)[
+    Andrew Liu, Axel Elaldi, Nicholas T. Franklin, Nathan Russell, \
+    Gurinder S. Atwal, Yih-En A. Ban & Olivia Viessmann \
+    #v(1em)
+    Flagship Pioneering \
+    55 Cambridge Parkway, \
+    Cambridge, MA 02142, United States
+  ]
+]
+
+#v(2em)
+
+#block(inset: (x: 2em))[
+  #text(weight: "bold")[Abstract] \
+  Invariant Point Attention (IPA) is a key algorithm for geometry-aware modeling in structural biology, central to many protein and RNA models. However, its quadratic complexity limits the input sequence length. We introduce FlashIPA, a factorized reformulation of IPA that leverages hardware-efficient FlashAttention to achieve linear scaling in GPU memory and wall-clock time with sequence length. FlashIPA matches or exceeds standard IPA performance while substantially reducing computational costs. FlashIPA extends training to previously unattainable lengths, and we demonstrate this by re-training generative models without length restrictions and generating structures of thousands of residues. FlashIPA is available at #link("https://github.com/flagshippioneering/flash_ipa").
+]
+
+#section("Introduction")
+Invariant Point Attention, IPA, is a geometry-aware attention operation that has been the workhorse of generative structural design models for proteins and RNA, initially popularized by Alphafold2 @jumper2021highly and AlphaFold-Multimer @evans2021protein, and subsequently widely adopted across structural biology modeling. Amongst them are structure prediction models like OpenFold and ESMFold for proteins @ahdritz2024openfold, lin2022language, RhoFold for RNA @shen2024accurate, generative protein backbone models such as FrameDiff @yim2023, FrameFlow @yim2024, yim2023flow, the FoldFlow family @huguet2024sequence, bose2024se3, FrameDiPT @Zhang2023.11.21.568057, Proteus @wang2024proteus, FADiff @liu2024floating, Genie @lin2023generating, IgDiff @cutting2024novo, GAFL @wagnerseute2024gafl, P2DFlow @jin2025p2dflow, RNA generative models such as RNA-FrameFlow @anand2024rnaframeflow, and scoring models like lociPARSE @tarafder2024lociparse. A list of models that rely on IPA for their structure modeling is provided in Appendix #ref(<app:ipa_repos>).
+
+The advantage of IPA is its roto-translational ($SE(3)$) invariant representation of the molecular structure, enforcing the idea that rotations and translations of a molecule results in an equivalent structure prediction. This inductive geometric bias accelerates training and improves performance in limited data settings, as is the case for structurally resolved biomolecules.
+
+IPA's quadratic scaling ($O(L^2)$) limits its scalability, rapidly exhausting GPU memory when modeling longer biomolecules. As of May 2025, 42% of structures within the PDB have more than 512 residues, and 33% with more than 756 and 23% with more than 1024 (see Appendix #ref(<app:pdb_counts>)). Most trainings across the literature reduce their data to chains and cropped structures below 512 residues. Despite this, they still commonly run on costly multi-GPU setups with trainings that span from days up to a month @shen2024accurate, yim2023.
+
+Such engineering compromises, namely truncating biologically relevant lengths, limiting dataset sizes, and relying on expensive computational infrastructure, restrict the progress of the field. In this work, we propose a recasting of the original IPA algorithm to a simple attention form to leverage off-the shelf I/O reduction methods like FlashAttention, which replace the quadratic $O(L^2)$ with an effective linear $O(L)$ scaling behavior. We show empirically that FlashIPA exceeds the validation performance of IPA in benchmarking models and datasets. We then demonstrate the memory and compute time efficiency by retraining benchmarking models more efficiently and without length restrictions on the data.
+
+We provide FlashIPA as an importable uv package at #link("https://github.com/flagshippioneering/flash_ipa") with an API similar to existing repositories using IPA to facilitate drop-in usage.
+
+#section("Preliminaries")
+Introduced by AlphaFold2 @jumper2021highly, IPA is a specialized attention mechanism designed to preserve 3D geometric relationships directly in transformer-based models for structural biology applications. IPA enforces invariance under 3D rotations and translations by utilizing a learnable local coordinate frame representation for each residue (point) within proteins and RNAs.
+
+#figure(
+  image("frame.pdf", width: 25%),
+  caption: [The protein backbone frame: The $C_\alpha$ is the centre. The vectors spanning $C_{\alpha}-N$ and $C\alpha-C$ define the third axis via Gram–Schmidt. The oxygen atom $O$ is parameterized via the torsion angle $\psi$ around the $C_\alpha - C$ axis.],
+) <fig:frame>
+
+#section("Experiments")
+#figure(
+  image("flashPA_efficiency.pdf", width: 80%),
+  caption: [Scaling as a function of input sequence length on a single-sample batch forward pass. [A] GPU memory usage in GB. Original IPA scaled approximately quadratically with sequence length, FlashIPA follows a linear trend. [B] Wall-clock time in seconds.],
+) <fig:scaling>
+
+#figure(
+  image("foldflow_gen.png", width: 80%),
+  caption: [FoldFlow self-consistency validation after 200k optimization steps. A) The sc-RMSD of the FlashIPA models is consistent or better than the original IPA model. B) Three exemplar generated backbone structures with FoldFlow FlashIPA.],
+) <fig:foldflowgen>
+
+#figure(
+  table(
+    columns: (auto, auto, auto, auto),
+    stroke: (x, y) => if y == 0 or y == 4 { (top: 1pt, bottom: 1pt) } else { none },
+    [Model], [Validity ($\uparrow$)], [Diversity ($\uparrow$)], [Novelty ($\downarrow$)],
+    [RNA-FrameFlow], [$0.42 \pm 0.21$], [$0.15$], [$0.81 \pm 0.10$],
+    [. + FlashIPA (ours)], [$0.38 \pm 0.20$], [$0.14$], [$0.82 \pm 0.10$],
+    [. + FlashIPA single GPU ** (ours)], [$0.41 \pm 0.21$], [$0.08$], [$0.77 \pm 0.09$],
+    [. + FlashIPA ** + All data (ours)], [$0.36 \pm 0.14$], [$0.14$], [$0.74 \pm 0.08$],
+  ),
+  caption: [Average validity, diversity, and novelty scores for 600 generated RNAs of length $\leq 150$ with RNA-FrameFlow, with and without FlashIPA.],
+) <tab:rna_frameflow_results>
+
+#figure(
+  image("flashIPA_RNAflow_efficiency.pdf", width: 80%),
+  caption: [Scaling of FlashIPA versus IPA for RNA generation using RNA-FrameFlow model, with a number of diffusion timestep $N_T$ = 50.],
+) <fig:rna_flow_scaling>
+
+#figure(
+  image("scTM_length.pdf", width: 80%),
+  caption: [RNA-FrameFlow generated RNAs results. [A] Comparison of the scTM score depending on the generated RNA sequence length and the IPA module used. [B] Example of short generated RNA structures. [C] Example of long generated RNA structures.],
+) <fig:rna_flow_length>
+
+#section("Appendix")
+#label("app:ipa_repos")
+#label("app:pdb_counts")
+
+#figure(
+  image("pdb_distribution.pdf", width: 80%),
+  caption: [Distribution of protein residue counts of the proteins resolved in the PDB.],
+)
+
+#figure(
+  image("losses.png", width: 80%),
+  caption: [Loss behaviour for FoldFlow model training.],
+)
+
+#figure(
+  image("rnasolodataset.pdf", width: 80%),
+  caption: [Distribution of nucleotide residue counts of the RNA in the RNASolo2 dataset.],
+)
+
+#figure(
+  image("train_frameflow.pdf", width: 80%),
+  caption: [Loss behaviour for RNA-FrameFlow model training.],
+)

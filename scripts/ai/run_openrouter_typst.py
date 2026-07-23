@@ -35,6 +35,9 @@ DEFAULT_RUN_DIR = (
     / "google_gemini-3.1-flash-lite" / "prompt_v0"
 )
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_APP_URL = "https://github.com/yashashwi-s/lathe"
+OPENROUTER_APP_TITLE = "Lathe"
+SOURCE_ASSET_SUFFIXES = {".png", ".jpg", ".jpeg", ".svg", ".pdf"}
 
 
 class BudgetExhausted(RuntimeError):
@@ -155,6 +158,50 @@ def classify_failure(error: str, status: str = "") -> str:
     return "other_compile_error"
 
 
+def source_assets(source_path: Path) -> list[Path]:
+    sample_root = source_path.parent
+    return sorted(
+        path for path in sample_root.rglob("*")
+        if path.is_file()
+        and path.suffix.lower() in SOURCE_ASSET_SUFFIXES
+        and path.name not in {"reference.pdf", "main.pdf"}
+    )
+
+
+def prepare_source_assets(sample_dir: Path, source_path: Path,
+                          assets: list[Path]) -> list[str]:
+    sample_root = source_path.parent
+    relative_paths = []
+    for asset in assets:
+        relative_path = asset.relative_to(sample_root)
+        destination = sample_dir / relative_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(asset, destination)
+        relative_paths.append(str(relative_path))
+    return relative_paths
+
+
+def claude_baseline_user_prompt(latex: str, asset_paths: list[str]) -> str:
+    assets_note = ""
+    if asset_paths:
+        files = "\n".join(f"- {path}" for path in asset_paths)
+        assets_note = (
+            "\nThe document references these graphics files, which will be present "
+            "in the compile directory (use #image(\"<path>\", ...) as needed):\n"
+            f"{files}\n"
+        )
+    return (
+        "Convert the following LaTeX document to Typst 0.14.2 with maximum visual "
+        "fidelity to its reference render: preserve all content, page size, margins, "
+        "font sizes, spacing, structure, and pagination as closely as possible.\n"
+        f"{assets_note}\n"
+        "Reply with ONLY the complete Typst source in a single ```typst code block. "
+        "No commentary.\n\n"
+        "LaTeX source:\n\n```latex\n"
+        f"{latex}\n```\n"
+    )
+
+
 def request_openrouter(payload: dict, key: str, timeout: int) -> dict:
     request = urllib.request.Request(
         ENDPOINT,
@@ -162,8 +209,8 @@ def request_openrouter(payload: dict, key: str, timeout: int) -> dict:
         headers={
             "Authorization": f"Bearer {key}",
             "Content-Type": "application/json",
-            "X-OpenRouter-Title": "lathe-latex-to-typst-prompt-development",
-            "X-OpenRouter-Metadata": "enabled",
+            "HTTP-Referer": OPENROUTER_APP_URL,
+            "X-OpenRouter-Title": OPENROUTER_APP_TITLE,
         },
         method="POST",
     )
@@ -323,9 +370,10 @@ def run_sample(args: argparse.Namespace, row: dict, key: str,
     sample_dir = args.run_dir / "samples" / sample_id
     sample_dir.mkdir(parents=True, exist_ok=True)
     source_path = ROOT / row["source_path"]
-    reference_pdf = ROOT / row["reference_pdf"]
     latex = source_path.read_text(errors="replace")
-    user_prompt = "Convert this complete LaTeX document to Typst:\n\n" + latex
+    assets = source_assets(source_path)
+    asset_paths = prepare_source_assets(sample_dir, source_path, assets)
+    user_prompt = claude_baseline_user_prompt(latex, asset_paths)
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
@@ -356,6 +404,7 @@ def run_sample(args: argparse.Namespace, row: dict, key: str,
         "response_id": "",
         "source_path": row["source_path"],
         "reference_pdf": row["reference_pdf"],
+        "source_assets": asset_paths,
         "attempt_records": [],
     }
 
@@ -462,6 +511,11 @@ def write_config(args: argparse.Namespace, system_prompt: str, retry_prompt: str
         "max_cost_usd": args.max_cost_usd,
         "source_only": True,
         "reference_images_supplied": False,
+        "source_assets_available_during_compile": True,
+        "openrouter_app": {
+            "url": OPENROUTER_APP_URL,
+            "title": OPENROUTER_APP_TITLE,
+        },
         "normalization": "remove outer Markdown code fences only",
         "provider": {"sort": "price", "data_collection": "deny", "zdr": True,
                      "max_price": {"prompt": 0.25, "completion": 1.50}},

@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "Algorithm Sample 4",
+  author: "Dataset-expansion sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Algorithm Sample 4]
+
+  #text(size: 1.2em)[Dataset-expansion sample]
+
+]
+
+           /* \maketitle */
+== Procedure
+ The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+ #block(width: 100%, stroke: 1pt, inset: 10pt)[
+  #text(weight: "bold")[Algorithm]
+
+```
+ \State1. Considering the dataset of all applicants to both programs, randomly split the dataset into train and test with equal probability at the applicant level, denote the resulting sets as $I^{train} = \left \{1,..,\mathcal{I}^{train}\right \}$ and $I^{test}= \left \{1,..,\mathcal{I}^{test}\right \}$. \State2. In the training dataset, estimate outcome model using cross-validation: $\mu_{train}$ \State3. In the test set, construct predicted treatment effects using predictions from model $\mu_{train}$. Obtain $\tau^{Op,train}_{i,t} = E[\hat{Y}(p)_{train} - \hat{Y}(O)_{train}|X=x_{i,t} , i \in I^{test}]$, where $\hat{Y}(p)_{train}$ is the predicted outcome under program $p$ constructed using $\mu_{train}$ and $\hat{Y}(O)_{train}$ is the predicted outcome under \emph{Out of Dare IT} and $t \in \left \{1,...,15\right \}$ denotes months. Compute mean treatment effects per user as: $\tau^{Op,train}_{i} = 1/t \times \sum_{t=1}^{15}\tau^{Op,train}_{i,t}$, \State4. Assign treatment to maximize treatment effects subject to capacity constraint. Let $Q^{p}$ be the capacity limit of program $p$ and $z_{ip}$ an indicator variable taking the value of one when applicant $i$ is assigned to program $p$ and zero otherwise. We solve the following constrained optimization problem: \[ \max_{z_{ip}}\sum_{i=1}^{I}\sum_{p=1}^{P}z_{ip}\tau_{i}^{Op,train} \text{ s.t. }\sum_{i=1}^{I}z_{ip} \leq Q^{p} \forall_{p} \text{ \& }\sum_{i=p}^{P}z_{ip} = 1\forall_{i \in I^{test}}. \] The first constraint ensures that the capacity constraints are not violated. The second one is that every applicant is assigned to one program. There is no capacity limit on being \emph{Out of Dare IT}. We use \emph{LP Solve} algorithm to solve the problem. We obtain optimal allocation $\mathcal{A}_{X,Q}^{*} = \left \{a_{i}^{*},...,a_{\mathcal{I}^{test}}^{*}\right \}$, \State5. Using the test set, estimate new outcome and propensity models using cross-fitting and obtain predictions: $\hat{\mu}_{i,k}$ and $\hat{e}_{i,k}$ for all $i \in I^{test}$. See Appendix \ref{cross_fit_appendix} for details of the cross-fitting procedure. Obtain $\hat{Y}_{i,k}(a^{*})$ the AIPW estimates of the predicted outcomes using cross-fitted models trained in the test set, \State6. Obtain $\hat{V}_{X,Q}^{*} = \frac{1}{|I^{test}|}\times \sum_{i=1}^{\mathcal{I}^{test}}\hat{Y}_{i,k}(a^{*})$ as the mean of predicted outcomes under the allocation $\mathcal{A}_{X,Q}^{*}$. Estimate standard errors clustered at the applicant level: $\sigma_{X,Q}^{*}$. \Comment \\ \Return{} $(\mathcal{A}_{X,Q}^{*},\hat{V}_{X,Q}^{*},\sigma_{X,Q}^{*},\hat{Y}_{1,k}(a^{*}),...,\hat{Y}_{\mathcal{I}^{test},k}(a^{*}) )$ 
+```
+]
+

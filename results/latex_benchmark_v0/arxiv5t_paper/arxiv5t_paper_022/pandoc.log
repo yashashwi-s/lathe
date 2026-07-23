@@ -1,0 +1,108 @@
+COMMAND:
+pandoc -f latex -t typst --resource-path /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_022 /Users/yashashwisinghania/lathe/data/latex_benchmark_v0/corpus/arxiv5t_paper/arxiv5t_paper_022/main.tex -o /Users/yashashwisinghania/lathe/results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/pandoc.typ
+
+CONVERSION LOG:
+[WARNING] Could not convert TeX math \begin{equation}
+   \label{eq:revisiting_1}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  & q(d_{1:K}|d_0) = \prod^K_{k=1}q(d_k|d_{k-1}) \\
+  & q(d_k|d_{k-1}) = \mathcal{N}(d_k; \sqrt{1-\beta_k}d_{k-1}, \beta_k\textbf{I})
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+   \label{eq:revisiting_2}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  & q(d_k|d_0) = \mathcal{N}(d_k; \sqrt{\overline{\alpha}_k}d_0, (1-\overline{\alpha}_k)\textbf{I})
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+   \label{eq:revisiting_3}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  & d_k = \sqrt{\overline{\alpha}_k}d_0 + \sqrt{1 - \overline{\alpha}_k}\epsilon
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+   \label{eq:training_1}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  \eta_{*}^{MoC} = EM \Big( \prod^V_{v=1} \sum^U_{u=1} \pi_u Cauchy(d^v_K|\mu_u, \gamma_u) \Big)
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+   \label{eq:denoising}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  {d}_{k-1} = M_{diff}({d}_k, f_{app}, f^k_D)
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+  \label{eq:loss1}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  L_{init} = {\Big\Vert \textbf{H}_{pred} - \textbf{H}_{GT} \Big\Vert}^2_2
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \begin{equation}
+  \label{eq:loss1}
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \begin{aligned}
+  L_{diff} = \sum^M_{i=1}\sum^K_{k=1} {\Big\Vert M_{diff}(\hat{d}^i_{k}, f_{app}, f^k_D) - \hat{d}^i_{k-1} \Big\Vert}^2_2
+  \end{aligned}
+  \end{equation}, rendering as TeX:
+  \setlength{\abovedisplayskip}{3pt}
+            ^
+  unexpected control sequence \setlength
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+
+
+TYPST COMPILE LOG:
+warning: label `<tab:lmo_results_table_>` is not attached to anything
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/pandoc.typ:593:0
+    │
+593 │ <tab:lmo_results_table_>
+    │ ^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: label `<tab:lmo_results_table_>` does not exist in the document
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/pandoc.typ:703:5
+    │
+703 │ Tab.~@tab:lmo_results_table_, compared to existing methods, our method
+    │      ^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot reference block
+    ┌─ results/latex_benchmark_v0/arxiv5t_paper/arxiv5t_paper_022/pandoc.typ:711:5
+    │
+711 │ Tab.~@tab:ycbv_results_table, our framework achieves the best
+    │      ^^^^^^^^^^^^^^^^^^^^^^^
+

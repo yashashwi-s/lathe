@@ -1,0 +1,102 @@
+{
+  "sample_id": "i2s_plot_005",
+  "category": "i2s_plot",
+  "complexity_band": "expansion",
+  "status": "finished",
+  "started_at": "2026-07-22T14:49:54+00:00",
+  "attempts": 2,
+  "first_pass_compiled": false,
+  "final_compiled": false,
+  "repaired": false,
+  "error_class": "other_compile_error",
+  "reference_pages": 1,
+  "candidate_pages": null,
+  "page_count_match": false,
+  "prompt_tokens": 10697,
+  "completion_tokens": 4525,
+  "total_tokens": 15222,
+  "reported_cost_usd": 0.007638124999999999,
+  "estimated_cost_usd": 0.009461750000000001,
+  "accounted_cost_usd": 0.007638124999999999,
+  "requested_model": "google/gemini-3.1-flash-lite",
+  "resolved_model": "google/gemini-3.1-flash-lite",
+  "response_id": "gen-1784731803-RzotAFFhtkRNUfH8YEDs",
+  "source_path": "data/latex_benchmark_v0/corpus/i2s_plot/i2s_plot_005/main.tex",
+  "reference_pdf": "data/latex_benchmark_v0/corpus/i2s_plot/i2s_plot_005/reference.pdf",
+  "source_assets": [],
+  "attempt_records": [
+    {
+      "attempt": 1,
+      "response_id": "gen-1784731795-NraVSCLu9EMwRhvGj9Bw",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 7.81,
+      "compile_seconds": 0.216,
+      "compile_ok": false,
+      "error_class": "unknown_symbol_or_function",
+      "usage": {
+        "prompt_tokens": 4100,
+        "completion_tokens": 2312,
+        "total_tokens": 6412,
+        "cost": 0.00358445,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 4038,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00358445,
+          "upstream_inference_prompt_cost": 0.00011645,
+          "upstream_inference_completions_cost": 0.003468
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: unknown variable: section"
+    },
+    {
+      "attempt": 2,
+      "response_id": "gen-1784731803-RzotAFFhtkRNUfH8YEDs",
+      "resolved_model": "google/gemini-3.1-flash-lite",
+      "finish_reason": "stop",
+      "call_seconds": 6.646,
+      "compile_seconds": 0.31,
+      "compile_ok": false,
+      "error_class": "other_compile_error",
+      "usage": {
+        "prompt_tokens": 6597,
+        "completion_tokens": 2213,
+        "total_tokens": 8810,
+        "cost": 0.004053675,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 4067,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.004053675,
+          "upstream_inference_prompt_cost": 0.000734175,
+          "upstream_inference_completions_cost": 0.0033195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "cost_basis": "api_reported",
+      "compiler_summary": "error: panicked with: \"Failed to resolve coordinate: (31.05, 33.189750000000004)\""
+    }
+  ],
+  "final_error_summary": "error: panicked with: \"Failed to resolve coordinate: (31.05, 33.189750000000004)\"",
+  "duration_seconds": 14.998,
+  "finished_at": "2026-07-22T14:50:09+00:00"
+}

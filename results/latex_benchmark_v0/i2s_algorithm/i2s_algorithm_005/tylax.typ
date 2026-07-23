@@ -1,0 +1,30 @@
+#set heading(numbering: "1.")
+#set math.equation(numbering: "1.")
+#set document(
+  title: "Algorithm Sample 5",
+  author: "Dataset-expansion sample",
+)
+
+#set page(paper: "a4")
+#set heading(numbering: "1.")
+#set math.equation(numbering: "(1)")
+
+#align(center)[
+  #text(size: 2em, weight: "bold")[Algorithm Sample 5]
+
+  #text(size: 1.2em)[Dataset-expansion sample]
+
+]
+
+           /* \maketitle */
+== Procedure
+ The pseudocode below is drawn from a source-backed image-to-LaTeX benchmark and reproduced verbatim.
+
+ #block(width: 100%, stroke: 1pt, inset: 10pt)[
+  #text(weight: "bold")[Algorithm]
+
+```
+ \Function{Transport}{$\bold{M}, \boldsymbol{\beta},\bold{g}, \Delta t$} \Comment{Input moments, natural parameters, and gauge parameters for all cells} \State$\boldsymbol{\beta}\gets \Call{NewtonOptimization}{\bold{M},\boldsymbol{\beta}, \boldsymbol{\phi}(\bold{u} ;\mathbf{g})}$ \Comment{Solve the natural parameters by Alg. \ref{Newton method} in the gauge $\mathbf{g}$} \State$\bold{F} \gets \Call{ComputeFluxes}{\boldsymbol{\beta}, \boldsymbol{\phi}(\bold{u} ;\mathbf{g})}$\Comment{Compute fluxes of the statistics $\boldsymbol{\phi}(\bold{u} ;\mathbf{g})$ by \eqref{The ME equation:subeq3} } \State$\bold{M}_{\pm1}, \bold{F}_{\pm1} \gets \Call{SpatialGaugeTransformation}{\bold{M}, \bold{F}, \bold{g}}$\Comment{Perform gauge transformation as in \eqref{The lax F convert} } \State$\bold{M} \gets \Call{FiniteVolumeStep}{\bold{M}, \bold{F},\bold{M}_{\pm1}, \bold{F}_{\pm1}, \bold{g}, \Delta t}$\Comment{One step forward in time by \eqref{The ME equation fvm 2} } \State \textbf{return} $\bold{M}, \boldsymbol{\beta}, \bold{g}$ \EndFunction \Function{Collision}{$\bold{M}, \boldsymbol{\beta},\bold{g}, \Delta t$} \Comment{Input moments, natural parameters, and gauge parameters for all cells} \State$\bold{M} \gets \Call{SourceTerm}{\bold{M}, \bold{g}, \Delta t}$\Comment{Compute source term by operator splitting \eqref{source update} } \State \textbf{return} $\bold{M}, \boldsymbol{\beta}, \bold{g}$ \EndFunction \Function{Step}{$\bold{M}, \boldsymbol{\beta},\bold{g}$} \Comment{Input moments, natural parameters, and gauge parameters for all cells} \State$\bold{M}, \boldsymbol{\beta}, \bold{g} \gets \Call{Collision}{\bold{M},\boldsymbol{\beta},\bold{g}, \Delta t/2}$\Comment{Compute collision term by operator splitting} \State$\bold{M}, \boldsymbol{\beta}, \bold{g} \gets \Call{Transport}{\bold{M},\boldsymbol{\beta},\bold{g}, \Delta t}$\Comment{Compute Transport term by operator splitting} \State$\bold{M}, \boldsymbol{\beta}, \bold{g} \gets \Call{Collision}{\bold{M},\boldsymbol{\beta},\bold{g}, \Delta t/2}$\Comment{Compute collision term by operator splitting} \State$\bold{g}_H \gets \Call{ComputeGaugeParameters}{\bold{M}, \bold{g}}$\Comment{Compute the Hermite gauge parameters by \eqref{Hermite parameters in moments} } \State$\bold{M}_H,\boldsymbol{\beta}_H \gets \Call{GaugeTransformation}{\bold{M}, \boldsymbol{\beta}, \bold{g}_H, \bold{g}}$\Comment{Transform into the Hermite gauge using \eqref{Change gauge M F} and \eqref{Maximal Likelihood equation for Exponential Family Distributions: form transformation}} \State \textbf{return} $\bold{M}_H, \boldsymbol{\beta}_H, \bold{g}_H$ \EndFunction 
+```
+]
+

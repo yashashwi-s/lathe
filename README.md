@@ -1,8 +1,9 @@
 # Lathe
 
 Lathe is a source-only LaTeX-to-Typst conversion benchmark. The canonical
-corpus contains 157 human- or dataset-sourced LaTeX documents with reviewed
-pdfLaTeX references. It is designed to answer two separate questions:
+corpus contains 189 human- or dataset-sourced LaTeX documents: the reviewed
+157-document pdfLaTeX base plus 32 harder Tectonic 0.16.9 expansion samples.
+It is designed to answer two separate questions:
 
 1. Does a conversion produce a valid Typst document?
 2. When it does, what does the rendered PDF preserve or change?
@@ -12,22 +13,32 @@ Compilation is reported over the full assigned set; PDF fidelity is a vector of
 content, layout, reading-order, pagination, typography, and raster evidence,
 with explicit abstentions when a comparison is not valid.
 
-## Frozen benchmark contract
+## Benchmark contract
 
 | Item | Canonical state |
 |---|---|
-| Dataset | `data/latex_benchmark_v0`: 157 accepted, 1–3 page, pdfLaTeX references in 11 document categories |
+| Dataset | `data/latex_benchmark_v0`: 189 accepted across 18 protocol-aware slices; 157 pdfLaTeX base references plus 32 Tectonic 0.16.9 expansion references |
 | Prompt development | `data/latex_benchmark_v0/splits/prompt_dev_33.csv`: 30 clean documents; excluded from held-out claims |
 | Primary AI test | `data/latex_benchmark_v0/splits/heldout_clean_127.csv`: 127 documents |
+| Expansion AI test | `data/latex_benchmark_v0/splits/expansion_32.csv`: 32 post-freeze hard samples; reported separately from historical held-out claims |
 | Primary AI protocol | Gemini 3.1 Flash Lite, frozen prompt v1, source only, temperature 0, one compiler-feedback repair at most |
-| Deterministic baselines | Pandoc, Tylax, and TypeTeX over all 157 documents |
+| Deterministic baselines | Pandoc, Tylax, and TypeTeX over all 189 documents |
 | PDF metric | `pdf_metric_axes_v2.py`; a coverage-aware evidence vector, not a scalar rank |
 
-The primary AI result is the single frozen v1 run on all 127 held-out
-documents. Later v2/v3 rescue prompts form an adaptive cascade and are reported
-only as exploratory debugging evidence. The available seven-case Claude overlap
-used heterogeneous collection protocols; it is useful for case studies, not a
-fair model leaderboard.
+The historical primary AI result remains the single frozen v1 run on all 127
+held-out base documents. The 32-sample expansion run is a separate post-freeze
+evaluation and does not retroactively enter that claim. Later v2/v3 rescue
+prompts form an adaptive cascade and are reported only as exploratory debugging
+evidence. The available seven-case Claude overlap used heterogeneous collection
+protocols; it is useful for case studies, not a fair model leaderboard.
+
+The completed expansion run used `google/gemini-3.1-flash-lite` with a
+Claude-baseline-derived source-only visual-fidelity prompt and at most one
+compiler-feedback repair. It finished all 32 samples without infrastructure
+failures: 5 compiled first-pass and 13 compiled finally. The auditable run,
+including the $0.217083 reported cost and metric-v2 evidence for all 13 compiled
+outputs, is under
+`results/ai_latex_to_typst/openrouter/google_gemini-3.1-flash-lite/expansion_32_claude_prompt_v1/`.
 
 ## What the metric reports
 
@@ -47,6 +58,19 @@ when page canvases or raster grids are incompatible. Structure-dependent table,
 formula, figure, and semantic metrics abstain until both PDFs expose validated
 common structures. Controlled corruptions test whether individual axes respond
 to known changes; they do not create aesthetic ground truth.
+
+The metric-harness study in `metric_research/` tested how to feed this evidence
+back to an agent. On six hard cases, gate-first feedback passed 3.2 of four
+correctness gates on average versus 2.0 for the old blended scalar and 1.2 for
+the one-turn baseline. The sample is deliberately small, so this is mechanism
+evidence rather than a leaderboard. The operational rule is:
+
+1. Require exact page count, then strict token recall and precision of at least
+   0.95, then exact number F1 when numbers are present.
+2. After those correctness gates, improve registered ink F1, Text-LTSim, and
+   token-center q90 independently.
+3. Keep SSIM, page-break F1, and strict word F1 as diagnostics; never let visual
+   polish compensate for missing or invented content.
 
 ## Artifact map
 
@@ -69,6 +93,7 @@ data/latex_benchmark_v0/corpus/<category>/<sample_id>/
   reference.pdf
   compile.log
   provenance.json
+  ... optional full-document source assets
 ```
 
 Rejected candidates and their logs are retained under the dataset directory so
@@ -90,6 +115,14 @@ Evaluate a CSV manifest of PDF pairs:
 ```bash
 mamba run -n lathe python scripts/evaluation/evaluate_metric_v2_manifest.py \
   pairs.csv --out-dir results/metric_research_v2/run --workers 4
+```
+
+Apply the harness-validated gate ladder without creating an aggregate score:
+
+```bash
+mamba run -n lathe python scripts/evaluation/summarize_metric_v2_gate_ladder.py \
+  results/metric_research_v2/run/metric_v2_scores.csv \
+  --output-dir results/metric_research_v2/run
 ```
 
 Regenerate and validate the publication artifacts from their frozen inputs:

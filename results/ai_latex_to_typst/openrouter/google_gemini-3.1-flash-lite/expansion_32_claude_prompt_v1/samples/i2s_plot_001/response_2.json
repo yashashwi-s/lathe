@@ -1,0 +1,54 @@
+{
+  "id": "gen-1784731755-SnyHPEEHiVKUN67E0VUl",
+  "object": "chat.completion",
+  "created": 1784731755,
+  "model": "google/gemini-3.1-flash-lite",
+  "provider": "Google",
+  "system_fingerprint": null,
+  "service_tier": "default",
+  "choices": [
+    {
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "#set page(paper: \"us-letter\", margin: 1in)\n#set text(size: 11pt)\n\n#align(center, [\n  #text(size: 1.44em, weight: \"bold\")[Plot Sample 1] \\\n  Dataset-expansion sample \\\n  #v(1em)\n])\n\n= Visualization\nThe figure below is a TikZ/pgfplots drawing drawn from a source-backed image-to-LaTeX benchmark.\n\n#figure(\n  align(center, {\n    import \"@preview/cetz:0.3.1\": canvas, draw\n    canvas(length: 0.75pt, {\n      import draw: *\n      let blue_color = rgb(42, 175, 236)\n      let stroke_style = (stroke: (paint: blue_color, thickness: 3.75pt))\n      let circle_style = (fill: white, stroke: (paint: blue_color, thickness: 3.75pt))\n\n      line(..stroke_style, (328.41, 104.55), (514.77, 239.95))\n      line(..stroke_style, (514.77, 239.95), (443.59, 459.02))\n      line(..stroke_style, (142.06, 239.95), (328.41, 104.55))\n      line(..stroke_style, (142.06, 239.95), (213.24, 459.02))\n      line(..stroke_style, (213.24, 459.02), (443.59, 459.02))\n      line(..stroke_style, (328.41, 104.55), (443.59, 459.02))\n      line(..stroke_style, (142.06, 239.95), (443.59, 459.02))\n      line(..stroke_style, (514.77, 239.95), (213.24, 459.02))\n      line(..stroke_style, (142.06, 239.95), (514.77, 239.95))\n      line(..stroke_style, (328.41, 104.55), (213.24, 459.02))\n\n      circle((328.41, 104.55), radius: 36.12, ..circle_style)\n      circle((514.77, 239.95), radius: 36.12, ..circle_style)\n      circle((443.59, 459.02), radius: 36.12, ..circle_style)\n      circle((213.24, 459.02), radius: 36.12, ..circle_style)\n      circle((142.06, 239.95), radius: 36.12, ..circle_style)\n\n      content((318.22, 94.06), text(size: 24.88pt, $9$))\n      content((314.22, 10.06), text(size: 17.28pt, $6 5/6$))\n      content((559.22, 217.1), text(size: 17.28pt, $6 5/6$))\n      content((481.22, 463.1), text(size: 17.28pt, $6 1/3$))\n      content((505.22, 229.06), text(size: 24.88pt, $9$))\n      content((433.22, 448.06), text(size: 24.88pt, $6$))\n      content((202.22, 448.06), text(size: 24.88pt, $4$))\n      content((130.22, 229.06), text(size: 24.88pt, $4$))\n      content((80.22, 235.1), text(size: 17.28pt, $6$))\n      content((155.22, 481.1), text(size: 17.28pt, $6$))\n    })\n  }),\n  caption: [Source-backed plot.]\n)",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "signature": "AY89a1/7ouVhNjbmumit7bbXaDFLO0Tgn49QsMW4UNSA1HncMb0uTa6bEqnvI+Ghu58=",
+            "format": "google-gemini-v1",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5950,
+    "completion_tokens": 1182,
+    "total_tokens": 7132,
+    "cost": 0.0032605,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0032605,
+      "upstream_inference_prompt_cost": 0.0014875,
+      "upstream_inference_completions_cost": 0.001773
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  }
+}

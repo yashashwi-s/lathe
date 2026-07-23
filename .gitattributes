@@ -5,6 +5,14 @@
 # Typst uses two trailing spaces as an intentional hard line break.
 *.typ whitespace=-blank-at-eol
 
+# Imported source trees, model transcripts, and converter logs are preserved
+# byte-for-byte. Their upstream/generated whitespace is evidence, not a style
+# error.
+data/latex_benchmark_v0/corpus/** whitespace=-blank-at-eol,-blank-at-eof
+dataset_expansion/corpus/** whitespace=-blank-at-eol,-blank-at-eof
+results/latex_benchmark_v0/** whitespace=-blank-at-eol,-blank-at-eof
+results/ai_latex_to_typst/openrouter/** whitespace=-blank-at-eol,-blank-at-eof
+
 # Keep report and audit binaries byte-for-byte.
 *.pdf binary
 *.png binary
